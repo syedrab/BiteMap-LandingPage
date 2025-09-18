@@ -247,10 +247,10 @@ body {
     animation: spin 10s linear infinite;
 }
 
-.emoji-1 { top: 20%; right: 15%; animation-duration: 12s; }
-.emoji-2 { bottom: 30%; left: 10%; animation-duration: 15s; }
-.emoji-3 { top: 50%; right: 25%; animation-duration: 18s; }
-.emoji-4 { bottom: 20%; right: 40%; animation-duration: 20s; }
+.emoji-1 { top: 10%; left: 5%; animation-duration: 12s; }
+.emoji-2 { top: 10%; right: 5%; animation-duration: 15s; }
+.emoji-3 { bottom: 10%; left: 5%; animation-duration: 18s; }
+.emoji-4 { bottom: 10%; right: 5%; animation-duration: 20s; }
 
 @keyframes spin {
     from { transform: rotate(0deg); }
@@ -415,6 +415,13 @@ body {
     max-height: 100%;
     max-width: 150px;
     object-fit: contain;
+}
+
+.vendor-card h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+    color: var(--white);
+    font-weight: 600;
 }
 
 .vendor-card p {

@@ -90,31 +90,60 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle email form submissions
     const emailForms = document.querySelectorAll('.email-form');
     emailForms.forEach(form => {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             const emailInput = this.querySelector('.email-input');
             const submitBtn = this.querySelector('.submit-btn');
             const email = emailInput.value;
-            
-            // Show success state
-            submitBtn.textContent = 'Thanks! 🎉';
-            submitBtn.style.background = 'var(--pink)';
-            submitBtn.style.color = 'white';
-            emailInput.value = '';
-            emailInput.disabled = true;
+            const originalText = submitBtn.textContent;
+
+            // Show loading state
+            submitBtn.textContent = 'Subscribing...';
             submitBtn.disabled = true;
-            
-            // Reset after 3 seconds
-            setTimeout(() => {
-                submitBtn.textContent = form.id === 'hero-email-form' ? 'Get Early Access' : 'Join Waitlist';
-                submitBtn.style.background = 'var(--white)';
-                submitBtn.style.color = 'var(--pink)';
-                emailInput.disabled = false;
-                submitBtn.disabled = false;
-            }, 3000);
-            
-            // Here you would normally send the email to your backend
-            console.log('Email submitted:', email);
+            emailInput.disabled = true;
+
+            try {
+                // Send to API endpoint
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Show success state
+                    submitBtn.textContent = 'Thanks! 🎉';
+                    submitBtn.style.background = 'var(--pink)';
+                    submitBtn.style.color = 'white';
+                    emailInput.value = '';
+
+                    // Reset after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.background = 'var(--white)';
+                        submitBtn.style.color = 'var(--pink)';
+                        emailInput.disabled = false;
+                        submitBtn.disabled = false;
+                    }, 3000);
+                } else {
+                    throw new Error(data.error || 'Subscription failed');
+                }
+            } catch (error) {
+                // Show error state
+                submitBtn.textContent = 'Error! Try again';
+                submitBtn.style.background = 'var(--orange)';
+                console.error('Subscription error:', error);
+
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = 'var(--white)';
+                    submitBtn.style.color = 'var(--pink)';
+                    emailInput.disabled = false;
+                    submitBtn.disabled = false;
+                }, 2000);
+            }
         });
     });
     
