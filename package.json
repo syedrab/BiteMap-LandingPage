@@ -1,0 +1,26 @@
+{
+  "name": "bitemap-landing",
+  "version": "1.0.0",
+  "description": "BiteMap - Real Food, Real Reviews landing page",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build required'"
+  },
+  "keywords": [
+    "food",
+    "reviews",
+    "ios",
+    "app"
+  ],
+  "author": "BiteMap",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syedrab/BiteMap-LandingPage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/syedrab/BiteMap-LandingPage/issues"
+  },
+  "homepage": "https://github.com/syedrab/BiteMap-LandingPage#readme"
+}
