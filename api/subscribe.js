@@ -1,22 +1,4 @@
-const nodemailer = require('nodemailer');
-
-// Create reusable transporter
-const createTransporter = () => {
-  return nodemailer.createTransporter({
-    host: process.env.SMTP_HOST || 'smtp-mail.outlook.com',
-    port: parseInt(process.env.SMTP_PORT) || 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS
-    },
-    tls: {
-      ciphers: 'SSLv3'
-    }
-  });
-};
-
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -30,6 +12,9 @@ module.exports = async function handler(req, res) {
   }
 
   try {
+    // Dynamic import for Vercel
+    const nodemailer = await import('nodemailer');
+
     // Check if SMTP credentials are configured
     if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
       console.log('SMTP not configured. Email signup:', email);
@@ -43,7 +28,19 @@ module.exports = async function handler(req, res) {
     }
 
     // Create transporter
-    const transporter = createTransporter();
+    const transporter = nodemailer.default.createTransport({
+      host: process.env.SMTP_HOST || 'smtp-mail.outlook.com',
+      port: parseInt(process.env.SMTP_PORT) || 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS
+      },
+      tls: {
+        ciphers: 'SSLv3',
+        rejectUnauthorized: false
+      }
+    });
 
     // Email options for notification to admin
     const adminMailOptions = {
