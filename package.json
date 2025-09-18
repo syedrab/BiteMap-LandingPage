@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/syedrab/BiteMap-LandingPage/issues"
   },
-  "homepage": "https://github.com/syedrab/BiteMap-LandingPage#readme"
+  "homepage": "https://github.com/syedrab/BiteMap-LandingPage#readme",
+  "dependencies": {
+    "nodemailer": "^7.0.6"
+  }
 }
