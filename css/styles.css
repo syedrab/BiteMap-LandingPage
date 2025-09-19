@@ -826,10 +826,11 @@ body {
         display: flex;
         justify-content: center;
         gap: 10px;
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1.5rem;
         height: auto;
         padding: 0 0.5rem;
+        padding-top: 20px;
     }
 
     .phone-mockup {
@@ -960,7 +961,12 @@ body {
     .phone-mockup {
         width: 130px;
         height: 260px;
-        margin: 0 -5px;
+        margin: 0;
+    }
+
+    .floating-elements {
+        padding-top: 15px;
+        margin-top: 2rem;
     }
 
     .scroll-indicator {
