@@ -775,6 +775,33 @@ body {
     font-size: 0.875rem;
 }
 
+/* Tablet and medium screens */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .phone-mockup {
+        width: 240px;
+        height: 480px;
+        padding: 8px;
+    }
+
+    .phone-left {
+        left: 3%;
+    }
+
+    .phone-right {
+        right: 3%;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 6vw, 5rem);
+    }
+
+    .hero-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile and small tablets */
 @media (max-width: 768px) {
     .nav-links a:not(.download-btn) {
         display: none;
@@ -798,20 +825,22 @@ body {
         position: relative;
         display: flex;
         justify-content: center;
-        gap: 0;
-        margin-top: 2rem;
+        gap: 10px;
+        margin-top: 1.5rem;
         margin-bottom: 1rem;
         height: auto;
+        padding: 0 0.5rem;
     }
 
     .phone-mockup {
         position: relative;
-        width: 140px;
-        height: 280px;
-        padding: 4px;
-        margin: 0 -10px;
+        width: 150px;
+        height: 300px;
+        padding: 5px;
+        margin: 0;
         transform: none !important;
         animation: none !important;
+        flex-shrink: 0;
     }
 
     .phone-mockup img {
