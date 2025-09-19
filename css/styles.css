@@ -775,68 +775,85 @@ body {
     font-size: 0.875rem;
 }
 
-/* Tablet and medium screens */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .phone-mockup {
-        width: 240px;
-        height: 480px;
-        padding: 8px;
-    }
 
-    .phone-left {
-        left: 3%;
-    }
-
-    .phone-right {
-        right: 3%;
-    }
-
-    .hero-title {
-        font-size: clamp(3rem, 6vw, 5rem);
-    }
-
-    .hero-content {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-}
-
-/* Mobile and small tablets */
-@media (max-width: 768px) {
+/* All mobile and tablet devices - Vertical Stack Layout */
+@media (max-width: 1024px) {
     .nav-links a:not(.download-btn) {
         display: none;
     }
 
     .hero {
-        padding: 5rem 1rem 3rem;
-        min-height: auto;
+        padding: clamp(3.5rem, 5vw, 5rem) clamp(1rem, 3vw, 2rem) 2rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
 
     .hero-wrapper {
         padding: 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: clamp(1rem, 3vw, 3rem);
+        padding-bottom: 1rem;
+    }
+
+    .hero-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        max-width: min(90vw, 800px);
+        margin: 0 auto;
+        width: 100%;
     }
 
     .hero-title {
-        font-size: clamp(2rem, 10vw, 3.5rem);
-        margin-bottom: 1rem;
+        /* Scales from 2rem on small phones to 5rem on large tablets */
+        font-size: clamp(2rem, 4vw + 1rem, 5rem);
+        margin-bottom: clamp(1rem, 3vw, 2.5rem);
+        line-height: 1;
+    }
+
+    .email-form {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: clamp(0.75rem, 2vw, 1rem);
+        max-width: min(90vw, 700px);
+        margin: 0 auto;
+    }
+
+    .email-input {
+        min-width: min(280px, 70vw);
+        padding: clamp(0.875rem, 2vw, 1.25rem) clamp(1.25rem, 3vw, 2rem);
+        font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+    }
+
+    .submit-btn {
+        min-width: min(180px, 70vw);
+        padding: clamp(0.875rem, 2vw, 1.25rem) clamp(2rem, 3vw, 3rem);
+        font-size: clamp(0.95rem, 1.5vw, 1.15rem);
     }
 
     .floating-elements {
         position: relative;
         display: flex;
         justify-content: center;
-        gap: 10px;
-        margin-top: 3rem;
-        margin-bottom: 1.5rem;
+        gap: clamp(10px, 2vw, 35px);
+        margin-top: auto;
+        margin-bottom: clamp(1.5rem, 3vw, 3rem);
         height: auto;
-        padding: 40px 0.5rem 0;
+        padding: 0;
     }
 
     .phone-mockup {
         position: relative;
-        width: 150px;
-        height: 300px;
-        padding: 5px;
+        /* Scales from 110px on small phones to 270px on large tablets */
+        width: clamp(110px, 20vw + 30px, 270px);
+        height: clamp(220px, 40vw + 60px, 540px);
+        padding: clamp(4px, 1vw, 8px);
         margin: 0;
         transform: none !important;
         animation: none !important;
@@ -844,22 +861,24 @@ body {
     }
 
     .phone-mockup img {
-        border-radius: 20px;
+        border-radius: clamp(20px, 3vw, 30px);
     }
 
     .phone-left {
         position: relative;
         top: auto;
         left: auto;
-        transform: rotate(-6deg) !important;
+        transform: rotate(-8deg) !important;
     }
 
     .phone-right {
         position: relative;
         top: auto;
         right: auto;
-        transform: rotate(6deg) !important;
+        left: auto;
+        transform: rotate(8deg) !important;
     }
+
 
     .emoji-float {
         font-size: 2rem;
@@ -917,55 +936,123 @@ body {
     }
 }
 
+/* Small screen overrides */
 @media (max-width: 480px) {
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+        gap: 0.5rem;
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .nav-links .download-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
     .hero {
-        padding: 4rem 0.5rem 1.5rem;
-        min-height: auto;
+        padding: 3.5rem 1rem 1rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 3rem;
+        padding-bottom: 1rem;
     }
 
     .hero-content {
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        padding-top: 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .hero-title {
-        font-size: 2.2rem;
-        margin-bottom: 0.75rem;
+        font-size: 2rem;
+        margin-bottom: 1.25rem;
+        line-height: 1;
+        margin-top: 0;
     }
 
     .title-line {
         line-height: 0.9;
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 1rem;
+    }
+
+    .hero-cta {
+        width: 100%;
     }
 
     .email-form {
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: stretch;
+        width: 100%;
+        max-width: 100%;
     }
 
     .email-input {
-        min-width: 200px;
+        width: 100%;
+        min-width: unset;
         padding: 0.875rem 1.25rem;
         font-size: 0.95rem;
     }
 
     .submit-btn {
+        width: 100%;
         padding: 0.875rem 2rem;
         font-size: 0.95rem;
     }
 
     .form-subtitle {
-        margin-top: 0.5rem;
-        font-size: 0.75rem;
-    }
-
-    .phone-mockup {
-        width: 130px;
-        height: 260px;
-        margin: 0;
+        margin-top: 0.75rem;
+        font-size: 0.8rem;
     }
 
     .floating-elements {
-        padding-top: 40px;
-        margin-top: 2.5rem;
+        margin-top: auto;
+        margin-bottom: 1.5rem;
+        padding: 0;
+        gap: 10px;
+    }
+
+    .phone-mockup {
+        width: 125px;
+        height: 250px;
+        padding: 4px;
+        border-radius: 25px;
+    }
+
+    .phone-mockup img {
+        border-radius: 20px;
+    }
+
+    .phone-left {
+        transform: rotate(-10deg) !important;
+    }
+
+    .phone-right {
+        transform: rotate(10deg) !important;
     }
 
     .scroll-indicator {
@@ -1017,5 +1104,45 @@ body {
 
     .vendor-card p {
         font-size: 0.75rem;
+    }
+}
+
+/* Desktop (1025px to 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .hero-title {
+        font-size: 4.5rem;
+    }
+
+    .phone-mockup {
+        width: 250px;
+        height: 500px;
+    }
+
+    .phone-left {
+        left: 8%;
+    }
+
+    .phone-right {
+        right: 8%;
+    }
+}
+
+/* Wide screens (1441px and above) */
+@media (min-width: 1441px) {
+    .hero-title {
+        font-size: 5rem;
+    }
+
+    .phone-mockup {
+        width: 280px;
+        height: 560px;
+    }
+
+    .phone-left {
+        left: 12%;
+    }
+
+    .phone-right {
+        right: 12%;
     }
 }
