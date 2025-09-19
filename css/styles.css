@@ -307,10 +307,11 @@ body {
 
 .creators-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem 2.5rem;
+    max-width: 1200px;
     margin: 0 auto 2rem;
+    padding: 0 1rem;
     justify-items: center;
 }
 
@@ -321,6 +322,9 @@ body {
     padding: 1.5rem;
     transition: all 0.3s ease;
     cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+    min-width: 150px;
 }
 
 .creator-card:hover {
@@ -359,9 +363,11 @@ body {
 }
 
 .creator-card h4 {
-    font-size: 1.125rem;
+    font-size: 1rem;
     margin-bottom: 0.25rem;
     color: var(--white);
+    word-break: break-word;
+    line-height: 1.3;
 }
 
 .creator-card p {
@@ -399,11 +405,12 @@ body {
 }
 
 .vendors-grid {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    justify-items: center;
 }
 
 .vendor-card {
@@ -436,10 +443,11 @@ body {
 }
 
 .vendor-card h4 {
-    font-size: 1.125rem;
-    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    margin: 0.5rem 0 0.25rem;
     color: var(--white);
     font-weight: 600;
+    word-break: break-word;
 }
 
 .vendor-card p {
@@ -771,33 +779,47 @@ body {
     .nav-links a:not(.download-btn) {
         display: none;
     }
-    
+
     .hero-title {
         font-size: clamp(2rem, 10vw, 3.5rem);
     }
-    
-    .phone-float {
+
+    .phone-mockup {
         display: none;
     }
-    
+
     .emoji-float {
         font-size: 2rem;
     }
-    
-    .creators-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 1rem;
+
+    .creators-section {
+        padding: 3rem 1rem;
     }
-    
+
+    .creators-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 1.5rem;
+        padding: 0 0.5rem;
+    }
+
     .creator-card {
         padding: 1rem;
+        max-width: none;
     }
-    
+
     .creator-avatar {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
     }
-    
+
+    .creator-card h4 {
+        font-size: 0.9rem;
+    }
+
+    .creator-card p {
+        font-size: 0.75rem;
+    }
+
     .avatar-placeholder {
         font-size: 2rem;
     }
@@ -819,5 +841,54 @@ body {
     .footer-content {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .creators-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 1.5rem 1rem;
+        padding: 0;
+    }
+
+    .creator-card {
+        padding: 0.75rem;
+    }
+
+    .creator-avatar {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0.75rem;
+    }
+
+    .creator-card h4 {
+        font-size: 0.85rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .creator-card p {
+        font-size: 0.7rem;
+        line-height: 1.2;
+    }
+
+    .vendors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 1rem;
+    }
+
+    .vendor-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .vendor-logo {
+        height: 50px;
+    }
+
+    .vendor-card h4 {
+        font-size: 0.9rem;
+    }
+
+    .vendor-card p {
+        font-size: 0.75rem;
     }
 }
