@@ -780,12 +780,56 @@ body {
         display: none;
     }
 
+    .hero {
+        padding: 5rem 1rem 3rem;
+        min-height: auto;
+    }
+
+    .hero-wrapper {
+        padding: 0;
+    }
+
     .hero-title {
         font-size: clamp(2rem, 10vw, 3.5rem);
+        margin-bottom: 1rem;
+    }
+
+    .floating-elements {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        height: auto;
     }
 
     .phone-mockup {
-        display: none;
+        position: relative;
+        width: 140px;
+        height: 280px;
+        padding: 4px;
+        margin: 0 -10px;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    .phone-mockup img {
+        border-radius: 20px;
+    }
+
+    .phone-left {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: rotate(-6deg) !important;
+    }
+
+    .phone-right {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: rotate(6deg) !important;
     }
 
     .emoji-float {
@@ -845,6 +889,55 @@ body {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 4rem 0.5rem 1.5rem;
+        min-height: auto;
+    }
+
+    .hero-content {
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .title-line {
+        line-height: 0.9;
+    }
+
+    .email-form {
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .email-input {
+        min-width: 200px;
+        padding: 0.875rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .submit-btn {
+        padding: 0.875rem 2rem;
+        font-size: 0.95rem;
+    }
+
+    .form-subtitle {
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .phone-mockup {
+        width: 130px;
+        height: 260px;
+        margin: 0 -5px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
     .creators-grid {
         grid-template-columns: repeat(2, minmax(140px, 1fr));
         gap: 1.5rem 1rem;
