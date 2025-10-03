@@ -214,11 +214,11 @@ body {
     position: absolute;
     width: 280px;
     height: 560px;
-    background: #1a1a1a;
+    background: #333;
     border-radius: 40px;
     padding: 8px;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
-    border: 1px solid #333;
+    border: 1px solid #444;
 }
 
 .phone-mockup img {
@@ -599,11 +599,11 @@ body {
 .preview-phone {
     width: 300px;
     height: 600px;
-    background: #1a1a1a;
+    background: #333;
     border-radius: 40px;
     padding: 8px;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-    border: 1px solid #333;
+    border: 1px solid #444;
     position: relative;
 }
 
