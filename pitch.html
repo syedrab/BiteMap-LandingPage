@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteMap - Pitch Deck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0f0520;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        .slide {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 80px;
+            position: relative;
+            page-break-after: always;
+            background: linear-gradient(to bottom, #2d1b4e 0%, #1a0a2e 35%, #0a0a0a 100%);
+            overflow: hidden;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 140, 0, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Title Slide */
+        .slide.title {
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 120px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 40px;
+            letter-spacing: -3px;
+        }
+
+        .tagline {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 60px;
+            color: #e0e0e0;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            font-size: 28px;
+            color: #888;
+            font-weight: 300;
+        }
+
+        /* Section Titles */
+        h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #FFA500;
+        }
+
+        /* Problem/Solution Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 140, 0, 0.6);
+        }
+
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: #FFA500;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #c0c0c0;
+        }
+
+        .card-title-text {
+            flex: 1;
+        }
+
+        /* Feature List */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border-left: 4px solid #FF8C00;
+        }
+
+        .feature-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: #FFA500;
+            line-height: 1;
+            min-width: 60px;
+        }
+
+        .feature-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature-content p {
+            font-size: 16px;
+            color: #c0c0c0;
+            line-height: 1.5;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 140, 0, 0.3);
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Business Model */
+        .revenue-streams {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .revenue-card {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .revenue-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .revenue-card ul {
+            list-style: none;
+        }
+
+        .revenue-card li {
+            font-size: 16px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #c0c0c0;
+        }
+
+        .revenue-card li:last-child {
+            border-bottom: none;
+        }
+
+        .revenue-card li::before {
+            content: '→';
+            color: #FFA500;
+            margin-right: 12px;
+            font-weight: bold;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #FF8C00;
+            border-radius: 12px;
+            padding: 25px 30px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+            border-color: #FFA500;
+        }
+
+        .timeline-date {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FFA500;
+            margin-bottom: 10px;
+        }
+
+        .timeline-text {
+            font-size: 16px;
+            color: #c0c0c0;
+            line-height: 1.5;
+        }
+
+        /* Call to Action */
+        .cta-box {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
+            border: 2px solid rgba(255, 140, 0, 0.4);
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        .cta-box h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .cta-box p {
+            font-size: 20px;
+            color: #c0c0c0;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            font-size: 28px;
+            color: #FFA500;
+            font-weight: 600;
+        }
+
+        /* Competitive Advantage */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .advantage-card {
+            background: rgba(255, 140, 0, 0.1);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .advantage-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #FFA500;
+        }
+
+        .advantage-card p {
+            font-size: 16px;
+            color: #c0c0c0;
+            line-height: 1.5;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                page-break-after: always;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content > * {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Screenshots */
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .screenshot {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 140, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 140, 0, 0.6);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Creator Grid */
+        .creator-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .creator-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .creator-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 140, 0, 0.6);
+        }
+
+        .creator-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 3px solid rgba(255, 140, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .creator-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .creator-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .creator-handle {
+            font-size: 12px;
+            color: #FFA500;
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .product-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 140, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-description {
+            flex: 1;
+        }
+
+        /* Scroll Navigation Indicator */
+        .scroll-indicator {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .scroll-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-dot:hover {
+            background: rgba(255, 140, 0, 0.6);
+            transform: scale(1.3);
+        }
+
+        .scroll-dot.active {
+            background: #FF8C00;
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Slide Counter */
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        /* Page Number on each slide */
+        .page-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        @media print {
+            .scroll-indicator,
+            .slide-counter {
+                display: none;
+            }
+            .page-number {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Navigation -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot active" onclick="scrollToSlide(0)"></div>
+        <div class="scroll-dot" onclick="scrollToSlide(1)"></div>
+        <div class="scroll-dot" onclick="scrollToSlide(2)"></div>
+        <div class="scroll-dot" onclick="scrollToSlide(3)"></div>
+        <div class="scroll-dot" onclick="scrollToSlide(4)"></div>
+        <div class="scroll-dot" onclick="scrollToSlide(5)"></div>
+        <div class="scroll-dot" onclick="scrollToSlide(6)"></div>
+        <div class="scroll-dot" onclick="scrollToSlide(7)"></div>
+        <div class="scroll-dot" onclick="scrollToSlide(8)"></div>
+        <div class="scroll-dot" onclick="scrollToSlide(9)"></div>
+        <div class="scroll-dot" onclick="scrollToSlide(10)"></div>
+    </div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter">
+        <span id="current-slide">01</span> / <span>11</span>
+    </div>
+
+    <!-- Slide 1: Title -->
+    <div class="slide title">
+        <div class="content">
+            <a href="https://bitemap.fun" target="_blank" style="text-decoration: none;">
+                <div class="logo" style="transition: opacity 0.3s ease; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">BiteMap</div>
+            </a>
+            <div class="tagline" style="font-size: 56px; line-height: 1.3; max-width: 1000px; margin: 60px auto;">
+                The First Platform Where<br/>Food Creators Earn What They're Worth
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: The Story -->
+    <div class="slide">
+        <div class="content" style="max-width: 1000px; margin: 0 auto;">
+            <h1 style="text-align: center; margin-bottom: 50px;">The Story</h1>
+
+            <div style="font-size: 22px; line-height: 1.8; color: #e0e0e0; max-width: 900px; margin: 0 auto;">
+                <p style="margin-bottom: 30px;">
+                    I watched thousands of food creators posting daily. Millions of views. Real impact on local restaurants.
+                </p>
+
+                <p style="margin-bottom: 50px; font-size: 24px; line-height: 1.7;">
+                    But TikTok and Instagram weren't built for food.<br/><br/>
+                    <strong style="color: #FFA500;">No location intelligence. No direct ordering. No AI that understands YOU.</strong><br/><br/>
+                    You watch a video. Save it. Then jump to 5 different apps to actually eat there.<br/>
+                    Creators get views, but can't monetize the actual transaction.
+                </p>
+
+                <p style="font-size: 26px; font-weight: 700; color: #FFA500; margin-top: 50px;">
+                    So I built BiteMap: A food-first platform with AI intelligence, local focus, and direct integration—where creators actually earn from the traffic they drive.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: The Problem -->
+    <div class="slide">
+        <div class="content">
+            <h1>The Problem</h1>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>
+                        <span class="card-title-text">Inspiration Without Action</span>
+                        <span class="card-icon">📱</span>
+                    </h3>
+                    <p>Millions watch food videos on TikTok & Instagram daily, but there's no direct path from discovery to reservation or ordering. The journey ends at "save for later."</p>
+                </div>
+                <div class="card">
+                    <h3>
+                        <span class="card-title-text">No Food Intelligence</span>
+                        <span class="card-icon">🧠</span>
+                    </h3>
+                    <p>Platforms rely on basic popularity metrics. They don't understand local food bloggers, hidden gems, or neighborhood context. No system exists to aggregate insider knowledge and surface it when you need it.</p>
+                </div>
+                <div class="card">
+                    <h3>
+                        <span class="card-title-text">Broken Creator Economy</span>
+                        <span class="card-icon">💸</span>
+                    </h3>
+                    <p>Food creators drive massive traffic to restaurants but earn nothing unless it's a paid partnership. No affiliate model, no commissions—just free advertising.</p>
+                </div>
+                <div class="card">
+                    <h3>
+                        <span class="card-title-text">Trust Gap in Recommendations</span>
+                        <span class="card-icon">⚠️</span>
+                    </h3>
+                    <p>Fake reviews and anonymous ratings mean nothing. You can't trust a 5-star review from someone who thinks Olive Garden is authentic Italian.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: The Solution -->
+    <div class="slide">
+        <div class="content">
+            <h1>The Solution</h1>
+            <h2 style="text-align: center; color: #FFA500; margin-bottom: 20px; font-size: 32px;">Food Intelligence That Understands You—And Gets You There</h2>
+
+            <div style="display: flex; gap: 40px; align-items: flex-start;">
+                <!-- Left: Features -->
+                <div style="flex: 1;">
+                    <div class="feature-list" style="margin-top: 0;">
+                        <div class="feature">
+                            <div class="feature-number">01</div>
+                            <div class="feature-content">
+                                <h3>Creator-Powered Intelligence</h3>
+                                <p>Follow trusted food voices and build your taste profile. AI learns from the creators you trust—not anonymous strangers—to surface spots that match YOUR palate.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">02</div>
+                            <div class="feature-content">
+                                <h3>From Inspiration to Action</h3>
+                                <p>Watch a video → Reserve a table → Order delivery. Direct integrations with UberEats, DoorDash, and OpenTable turn every scroll into a meal—no app switching required.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">03</div>
+                            <div class="feature-content">
+                                <h3>Creator Monetization Built-In</h3>
+                                <p>Creators earn commission on every reservation and order driven by their content. Finally, an affiliate model for food—tracking attribution and rewarding influence.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-number">04</div>
+                            <div class="feature-content">
+                                <h3>Local Expert Knowledge Graph</h3>
+                                <p>Aggregates content from TikTok, Instagram, and local food bloggers. AI understands neighborhood context, hidden gems, and authentic expertise—not just viral trends.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Screenshots -->
+                <div style="flex: 0 0 250px;">
+                    <div class="screenshot" style="max-width: 240px; margin: 0 auto;">
+                        <img src="images/Home Feed.png" alt="Video Feed">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Market Opportunity -->
+    <div class="slide">
+        <div class="content">
+            <h1>Market Opportunity</h1>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">$50B</div>
+                    <div class="stat-label">Restaurant Tech Market</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Trust Video Reviews</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2.5B</div>
+                    <div class="stat-label">Food Content Views/Day</div>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 60px;">
+                <h3>The Convergence Moment</h3>
+                <p>Gen Z and Millennials use TikTok/Instagram to discover restaurants, but platforms lack location-based organization and direct reservation/ordering capabilities. BiteMap bridges the gap between social discovery and actionable dining decisions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Competitive Advantage -->
+    <div class="slide">
+        <div class="content">
+            <h1>Why BiteMap Wins</h1>
+
+            <div style="display: flex; gap: 40px; align-items: flex-start; margin-top: 20px;">
+                <!-- Left: Screenshots -->
+                <div style="flex: 0 0 250px;">
+                    <div class="screenshot" style="max-width: 240px; margin: 0 auto;">
+                        <img src="images/Alfred AI.png" alt="Alfred AI">
+                    </div>
+                </div>
+
+                <!-- Right: Advantages -->
+                <div style="flex: 1;">
+                    <div class="advantage-grid" style="grid-template-columns: 1fr; gap: 20px; margin-top: 0;">
+                        <div class="advantage-card">
+                            <h3>🧠 Alfred AI: Food Intelligence Engine</h3>
+                            <p>Not just search—Alfred understands context, creator expertise, and your taste profile. Ask "Where's the best burger?" and get answers from trusted local voices, not generic algorithms.</p>
+                        </div>
+                        <div class="advantage-card">
+                            <h3>🎯 Actionable, Not Just Inspirational</h3>
+                            <p>TikTok stops at "save for later." We connect you directly to UberEats, DoorDash, and OpenTable—turning every video into a meal, not just a bookmark.</p>
+                        </div>
+                        <div class="advantage-card">
+                            <h3>💰 Creator Economy That Actually Works</h3>
+                            <p>First platform to give food creators affiliate commissions on reservations and orders. We track attribution and reward influence—something TikTok and Instagram will never do.</p>
+                        </div>
+                        <div class="advantage-card">
+                            <h3>📍 Taste-Matched Recommendations</h3>
+                            <p>Follow creators whose palate matches yours. No more trusting anonymous 5-star reviews from people who think Olive Garden is authentic Italian.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Business Model -->
+    <div class="slide">
+        <div class="content" style="width: 100%; max-width: 1000px;">
+            <h1 style="text-align: center;">Revenue Streams</h1>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 40px;">
+                <div class="revenue-card">
+                    <h3>🏪 Restaurant Partners</h3>
+                    <ul>
+                        <li>Premium profiles with analytics dashboard</li>
+                        <li>Featured placement in local feeds</li>
+                    </ul>
+                </div>
+                <div class="revenue-card">
+                    <h3>🤝 Brand Partnerships</h3>
+                    <ul>
+                        <li>Transaction fees on UberEats, DoorDash, and SkipTheDishes orders</li>
+                        <li>Commission on OpenTable and Resy reservations</li>
+                    </ul>
+                </div>
+                <div class="revenue-card">
+                    <h3>📍 Premium Placements</h3>
+                    <ul>
+                        <li>Sponsored delivery provider placement (e.g., UberEats featured at top of video)</li>
+                        <li>Creator-restaurant collaboration ads</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Roadmap -->
+    <div class="slide">
+        <div class="content">
+            <h1>Growth Roadmap</h1>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Q4 2025</div>
+                    <div class="timeline-text">Launch MVP in Toronto. Capture early user feedback, onboard creators, and refine product-market fit.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Q1 2026</div>
+                    <div class="timeline-text">Adopt early feedback and iterate on core features. Integrate UberEats and OpenTable for reservations. Launch creator monetization with affiliate commissions.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Q2 2026</div>
+                    <div class="timeline-text">Expand to 5 major North American cities (NYC, LA, Chicago, Vancouver, Montreal). Scale Alfred AI intelligence engine.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Q3-Q4 2026</div>
+                    <div class="timeline-text">Launch restaurant partner dashboard and premium placements. Scale to 20+ cities across US & Canada.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2027+</div>
+                    <div class="timeline-text">International expansion (UK, Australia). Become the global standard for AI-powered food intelligence.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Traction -->
+    <div class="slide">
+        <div class="content">
+            <h1>Current Status</h1>
+
+            <div class="card" style="margin-top: 40px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3>🚀 MVP in Development</h3>
+                <p>BiteMap is currently in MVP development, preparing for Q4 2025 launch in Toronto. We're building the foundation for creator-powered food intelligence, with Alfred AI and platform integrations in active development.</p>
+            </div>
+
+            <!-- Featured Creators -->
+            <h2 style="text-align: center; margin-top: 50px; margin-bottom: 20px;">Target Creator Community</h2>
+            <div class="creator-grid">
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/keithlee.jpeg" alt="Keith Lee">
+                    </div>
+                    <div class="creator-name">Keith Lee</div>
+                    <div class="creator-handle">@keith_lee125</div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/torontofoodguide.jpeg" alt="Toronto Food Guide">
+                    </div>
+                    <div class="creator-name">Toronto Food Guide</div>
+                    <div class="creator-handle">@torontofoodguide</div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/marcelloeats.jpeg" alt="Marcello Eats">
+                    </div>
+                    <div class="creator-name">Marcello Eats</div>
+                    <div class="creator-handle">@marcelloeats</div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/tryittoronto.jpeg" alt="Try It Toronto">
+                    </div>
+                    <div class="creator-name">Try It Toronto</div>
+                    <div class="creator-handle">@tryittoronto</div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/to_finest.jpeg" alt="TO Finest">
+                    </div>
+                    <div class="creator-name">TO Finest</div>
+                    <div class="creator-handle">@to_finest</div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/schmoozelife.jpeg" alt="Schmooze Life">
+                    </div>
+                    <div class="creator-name">Schmooze Life</div>
+                    <div class="creator-handle">@schmoozelife</div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/mukbangtoronto.jpeg" alt="Mukbang Toronto">
+                    </div>
+                    <div class="creator-name">Mukbang Toronto</div>
+                    <div class="creator-handle">@mukbangtoronto</div>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/aarnvrr.jpeg" alt="Aarnvrr">
+                    </div>
+                    <div class="creator-name">Aarnvrr</div>
+                    <div class="creator-handle">@aarnvrr</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Team -->
+    <div class="slide">
+        <div class="content">
+            <h1>Team</h1>
+            <div style="max-width: 900px; margin: 40px auto;">
+                <div style="display: flex; gap: 50px; align-items: flex-start;">
+                    <!-- Photo - Left Side -->
+                    <div style="flex-shrink: 0;">
+                        <img src="images/mohibrab.jpg" alt="Mohib Rab" style="width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid #FF8C00; box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);">
+                    </div>
+
+                    <!-- Info - Right Side -->
+                    <div style="flex: 1;">
+                        <h2 style="font-size: 38px; margin-bottom: 8px; color: #FFA500;">Mohib Rab</h2>
+                        <h3 style="font-size: 22px; margin-bottom: 25px; color: #999; font-weight: 400;">Founder & CEO</h3>
+                        <p style="font-size: 16px; line-height: 1.7; color: #c0c0c0; margin-bottom: 18px;">
+                            <strong style="color: #FFA500;">Technical founder</strong> with 10+ years of automation and AI implementations. Deep expertise in building intelligent systems that solve real-world problems at scale.
+                        </p>
+                        <p style="font-size: 16px; line-height: 1.7; color: #c0c0c0;">
+                            <strong style="color: #FFA500;">Single-handedly built the entire platform:</strong> native iOS app, scalable backend, Alfred AI engine, video processing pipelines, security infrastructure, and analytics—from concept to production.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Call to Action -->
+    <div class="slide">
+        <div class="content">
+            <h1 style="text-align: center;">Let's Build the Future of Food Discovery</h1>
+            <div class="cta-box">
+                <h2>Join Us on This Journey</h2>
+                <p>We're raising our seed round to scale BiteMap across North America<br/>and establish the new standard for authentic food discovery.</p>
+                <div class="contact-info">
+                    support@bitemap.fun
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px; font-size: 20px; color: #999;">
+                <p>Because every great meal starts with trust.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            slides[index].scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.scroll-dot');
+            const currentSlideElement = document.getElementById('current-slide');
+
+            // Add page numbers to each slide
+            slides.forEach((slide, index) => {
+                const pageNum = document.createElement('div');
+                pageNum.className = 'page-number';
+                pageNum.textContent = String(index + 1).padStart(2, '0');
+                slide.appendChild(pageNum);
+            });
+
+            // Update active dot and counter on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = Array.from(slides).indexOf(entry.target);
+
+                        // Update dots
+                        dots.forEach((dot, i) => {
+                            dot.classList.toggle('active', i === index);
+                        });
+
+                        // Update counter
+                        currentSlideElement.textContent = String(index + 1).padStart(2, '0');
+                    }
+                });
+            }, {
+                threshold: 0.6,
+                rootMargin: '0px'
+            });
+
+            slides.forEach(slide => observer.observe(slide));
+        });
+    </script>
+</body>
+</html>
