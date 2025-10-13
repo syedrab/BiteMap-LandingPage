@@ -358,11 +358,19 @@
 
         /* Print Styles */
         @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
             body {
-                background: white;
+                background: #0a0a0a !important;
             }
             .slide {
                 page-break-after: always;
+                background: linear-gradient(to bottom, #1a0a2e 0%, #0a0a0a 100%) !important;
+            }
+            .slide::before {
+                display: none !important;
             }
         }
 
