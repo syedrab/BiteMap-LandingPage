@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BiteMap</title>
+    <title>BiteMap - Discover Local Restaurants Through Video Reviews | Food Discovery App</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="Discover authentic local restaurants through TikTok-style video reviews. BiteMap connects food lovers with real dining experiences. Coming soon to iOS.">
@@ -23,6 +23,45 @@
     <meta property="twitter:title" content="BiteMap - Real Food, Real Reviews">
     <meta property="twitter:description" content="Discover authentic local restaurants through TikTok-style video reviews.">
     <meta property="twitter:image" content="https://bitemap.app/images/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bitemap.app/">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BiteMap",
+      "url": "https://bitemap.app",
+      "logo": "https://bitemap.app/images/bitemap.jpeg",
+      "description": "Discover authentic local restaurants through TikTok-style video reviews. BiteMap connects food lovers with real dining experiences.",
+      "sameAs": [
+        "https://www.tiktok.com/@bitemap",
+        "https://www.instagram.com/bitemap"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@bitemap.fun",
+        "contactType": "Customer Support"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "BiteMap",
+      "operatingSystem": "iOS",
+      "applicationCategory": "FoodEstablishmentReservation",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Discover authentic local restaurants through TikTok-style video reviews. Swipe through mouth-watering content, find the best spots near you, and connect with real food lovers sharing their favorite bites."
+    }
+    </script>
 
     <!-- Performance -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -47,11 +86,13 @@
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#preview">Preview</a>
+                <a href="blog/index.html">Blog</a>
                 <a href="#download" class="download-btn">Get Early Access</a>
             </div>
         </div>
     </nav>
 
+    <main>
     <section class="hero">
         <div class="hero-wrapper">
             <div class="hero-content">
@@ -60,7 +101,7 @@
                     <span class="title-line">real reviews</span>
                     <span class="title-line">real tasty</span>
                 </h1>
-                <p class="hero-subtitle"></p>
+                <p class="hero-subtitle">Discover authentic restaurants through short-form video reviews from real food lovers in your city</p>
                 <div class="hero-cta">
                     <form class="email-form" id="hero-email-form" aria-label="Early access signup">
                         <input type="email" placeholder="Enter your email" class="email-input" required aria-label="Email address">
@@ -275,6 +316,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="footer">
         <div class="footer-content">

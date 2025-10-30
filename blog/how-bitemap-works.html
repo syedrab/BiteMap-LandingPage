@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How BiteMap Works: Building a Video-First Restaurant App</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Building a TikTok-style video feed for restaurants requires solving unique technical challenges. Learn about the technology, architecture, and engineering decisions behind BiteMap.">
+    <meta name="keywords" content="video streaming app, iOS app development, SwiftUI, restaurant app technology, mobile video feed, location-based app">
+    <meta name="author" content="BiteMap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bitemap.app/blog/how-bitemap-works.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bitemap.app/blog/how-bitemap-works.html">
+    <meta property="og:title" content="How BiteMap Works: Building a Video-First Restaurant App">
+    <meta property="og:description" content="Learn about the technology and engineering behind BiteMap's video-first restaurant discovery platform.">
+    <meta property="og:image" content="https://bitemap.app/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bitemap.app/blog/how-bitemap-works.html">
+    <meta property="twitter:title" content="How BiteMap Works: The Tech Behind Video Restaurant Discovery">
+    <meta property="twitter:description" content="Learn about the technology and engineering behind BiteMap.">
+    <meta property="twitter:image" content="https://bitemap.app/images/og-image.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How BiteMap Works: The Tech Behind Video Restaurant Discovery",
+      "description": "Building a TikTok-style video feed for restaurants requires solving unique technical challenges. Learn about the technology and architecture behind BiteMap.",
+      "author": {
+        "@type": "Organization",
+        "name": "BiteMap"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "BiteMap",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bitemap.app/images/bitemap.jpeg"
+        }
+      },
+      "datePublished": "2024-10-30",
+      "dateModified": "2024-10-30"
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/bitemap.jpeg">
+    <link rel="apple-touch-icon" href="../images/bitemap.jpeg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 80px;
+            line-height: 1.8;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-date {
+            color: #999;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .article-container h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .article-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .article-tag {
+            background: #f0f0f0;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .article-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .article-content p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 25px;
+            padding-left: 30px;
+        }
+
+        .article-content li {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #FF6B6B;
+            padding-left: 25px;
+            margin: 35px 0;
+            font-style: italic;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .tech-stack {
+            background: #f8f8f8;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        .tech-stack h3 {
+            margin-top: 0;
+        }
+
+        .tech-item {
+            margin-bottom: 20px;
+        }
+
+        .tech-item strong {
+            color: #FF6B6B;
+        }
+
+        .article-cta {
+            background: #f8f8f8;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .article-cta h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .article-cta p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .article-cta .email-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .article-cta .email-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .article-cta .submit-btn {
+            padding: 14px 30px;
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .article-cta .submit-btn:hover {
+            background: #ff5252;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-to-blog:hover {
+            color: #FF6B6B;
+        }
+
+        @media (max-width: 768px) {
+            .article-container h1 {
+                font-size: 2rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .article-cta .email-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">
+                <img src="../images/bitemap.jpeg" alt="BiteMap" class="logo-icon">
+                <span>BiteMap</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html#features">Features</a>
+                <a href="../index.html#preview">Preview</a>
+                <a href="index.html">Blog</a>
+                <a href="../index.html#download" class="download-btn">Get Early Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <article class="article-container">
+            <a href="index.html" class="back-to-blog">← Back to Blog</a>
+
+            <div class="article-header">
+                <div class="article-date">October 30, 2024</div>
+                <h1>How BiteMap Works: The Tech Behind Video Restaurant Discovery</h1>
+                <p class="article-subtitle">Building a TikTok-style video feed for restaurants isn't simple. Here's how we're doing it.</p>
+                <div class="article-tags">
+                    <span class="article-tag">Technology</span>
+                    <span class="article-tag">Product</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <h2>The Challenge: Building a Video-First Mobile Experience</h2>
+
+                <p>Creating a smooth, engaging video feed is one of the hardest problems in mobile development. Videos need to load instantly, play smoothly, and not drain your battery. On top of that, we need to connect every video to real restaurant locations and make everything searchable and discoverable.</p>
+
+                <p>Here's how we're solving these challenges:</p>
+
+                <h2>The Architecture</h2>
+
+                <h3>Native iOS with SwiftUI</h3>
+                <p>We built BiteMap as a native iOS app using SwiftUI. While we could have used React Native or Flutter for cross-platform development, we chose native iOS for three key reasons:</p>
+
+                <ul>
+                    <li><strong>Performance:</strong> Video playback needs to be buttery smooth. Native iOS gives us direct access to AVFoundation for optimal video performance.</li>
+                    <li><strong>User Experience:</strong> SwiftUI lets us create interfaces that feel natural on iOS, with smooth animations and gestures that users expect.</li>
+                    <li><strong>Future-proofing:</strong> We can immediately take advantage of new iOS features like widgets, Live Activities, and Vision Pro support.</li>
+                </ul>
+
+                <h3>Backend: Supabase</h3>
+                <p>We're using Supabase as our backend infrastructure. It gives us:</p>
+
+                <ul>
+                    <li><strong>Real-time database:</strong> PostgreSQL with real-time subscriptions for live updates</li>
+                    <li><strong>Authentication:</strong> Secure user management with social login support</li>
+                    <li><strong>Storage:</strong> Scalable video and image hosting with CDN delivery</li>
+                    <li><strong>Edge Functions:</strong> Serverless functions for complex business logic</li>
+                </ul>
+
+                <p>Supabase lets us move fast without managing infrastructure, while still giving us the power and flexibility of PostgreSQL.</p>
+
+                <div class="tech-stack">
+                    <h3>Our Tech Stack</h3>
+                    <div class="tech-item">
+                        <strong>Frontend:</strong> SwiftUI, AVFoundation, MapKit, CoreLocation
+                    </div>
+                    <div class="tech-item">
+                        <strong>Backend:</strong> Supabase (PostgreSQL, Auth, Storage, Edge Functions)
+                    </div>
+                    <div class="tech-item">
+                        <strong>Video Processing:</strong> FFmpeg for transcoding, CloudFlare Stream
+                    </div>
+                    <div class="tech-item">
+                        <strong>Maps & Location:</strong> Google Places API, Custom location services
+                    </div>
+                    <div class="tech-item">
+                        <strong>Analytics:</strong> PostHog for product analytics
+                    </div>
+                </div>
+
+                <h2>Key Technical Challenges</h2>
+
+                <h3>1. Video Performance</h3>
+                <p>The biggest challenge is making videos load and play instantly as users swipe. Nobody wants to wait 3 seconds for a video to buffer.</p>
+
+                <p>Our solution:</p>
+                <ul>
+                    <li><strong>Aggressive preloading:</strong> We preload the next 2-3 videos in the feed before users even swipe to them</li>
+                    <li><strong>Adaptive bitrate:</strong> Videos automatically adjust quality based on network conditions</li>
+                    <li><strong>Smart caching:</strong> Recently viewed videos stay cached locally for instant replay</li>
+                    <li><strong>Optimized encoding:</strong> All videos are transcoded to multiple resolutions optimized for mobile playback</li>
+                </ul>
+
+                <h3>2. Location Intelligence</h3>
+                <p>Every video in BiteMap is tied to a specific restaurant location. This is harder than it sounds.</p>
+
+                <p>Challenges we're solving:</p>
+                <ul>
+                    <li><strong>Place matching:</strong> When a creator tags a restaurant, we need to match it to our database, even if the name is slightly different</li>
+                    <li><strong>Duplicate detection:</strong> Restaurants often have multiple names or locations. We deduplicate intelligently.</li>
+                    <li><strong>Radius-based search:</strong> Finding all videos within X miles of a location needs to be fast, even with millions of videos</li>
+                    <li><strong>Map clustering:</strong> Showing thousands of restaurants on a map without it looking cluttered</li>
+                </ul>
+
+                <h3>3. Content Moderation</h3>
+                <p>With user-generated video content, we need to ensure quality and appropriateness. We use a combination of:</p>
+
+                <ul>
+                    <li><strong>Automated checks:</strong> AI-powered content moderation for inappropriate content</li>
+                    <li><strong>Community reporting:</strong> Users can flag problematic content</li>
+                    <li><strong>Creator reputation:</strong> Trusted creators get more visibility</li>
+                </ul>
+
+                <h2>The Feed Algorithm</h2>
+
+                <p>Unlike TikTok, which shows you content from anywhere, BiteMap's feed is hyper-local. Here's how we decide what videos to show you:</p>
+
+                <ol>
+                    <li><strong>Location relevance:</strong> We prioritize restaurants near your current location or saved areas</li>
+                    <li><strong>Creator following:</strong> Videos from creators you follow always appear first</li>
+                    <li><strong>Freshness:</strong> Newer content gets priority over old reviews</li>
+                    <li><strong>Engagement:</strong> Popular videos (high saves, shares) get more distribution</li>
+                    <li><strong>Diversity:</strong> We mix different cuisines and price points to show variety</li>
+                </ol>
+
+                <blockquote>"The goal is simple: show you the most relevant, authentic restaurant videos for where you are right now."</blockquote>
+
+                <h2>Integration With Delivery Platforms</h2>
+
+                <p>One of BiteMap's key features is seamless integration with delivery and reservation platforms. When you find a restaurant you love, you can:</p>
+
+                <ul>
+                    <li>Order delivery through Uber Eats, DoorDash, or SkipTheDishes</li>
+                    <li>Make a reservation through OpenTable</li>
+                    <li>View the menu and hours on Google Maps</li>
+                </ul>
+
+                <p>All without leaving the app. We built custom integrations with these platforms to make the transition seamless.</p>
+
+                <h2>Privacy & Data</h2>
+
+                <p>We take privacy seriously. Here's how we handle your data:</p>
+
+                <ul>
+                    <li><strong>Location data:</strong> Only used for showing nearby restaurants, never sold or shared</li>
+                    <li><strong>Watch history:</strong> Stored locally on your device, used only to improve recommendations</li>
+                    <li><strong>No tracking:</strong> We don't use invasive advertising trackers</li>
+                    <li><strong>Data deletion:</strong> You can delete your account and all data at any time</li>
+                </ul>
+
+                <h2>What's Next</h2>
+
+                <p>We're constantly improving BiteMap's technology. On our roadmap:</p>
+
+                <ul>
+                    <li><strong>AI-powered search:</strong> "Show me spicy ramen under $15 near me"</li>
+                    <li><strong>Group features:</strong> Plan outings with friends and vote on restaurants</li>
+                    <li><strong>AR preview:</strong> Use your camera to see nearby restaurants in augmented reality</li>
+                    <li><strong>Smart notifications:</strong> Get notified when your favorite creator posts about a spot near you</li>
+                </ul>
+
+                <p>Building BiteMap is a technical challenge, but it's worth it. We're creating something that genuinely makes discovering great food easier and more authentic.</p>
+            </div>
+
+            <div class="article-cta">
+                <h3>Want to see it in action?</h3>
+                <p>Join our waitlist for early access to the iOS app</p>
+                <form class="email-form" id="article-email-form">
+                    <input type="email" placeholder="your@email.com" class="email-input" required>
+                    <button type="submit" class="submit-btn">Join Waitlist</button>
+                </form>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">🍔 BiteMap</div>
+            <div class="footer-links">
+                <a href="../privacy.html">Privacy</a>
+                <a href="../terms.html">Terms</a>
+                <a href="mailto:support@bitemap.fun">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2024 BiteMap</p>
+        </div>
+    </footer>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

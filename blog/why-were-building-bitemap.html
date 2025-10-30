@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why We're Building BiteMap - Authentic Video Restaurant Reviews</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Restaurant reviews are broken. Discover why we're building BiteMap - a video-first app that brings authenticity back to food discovery through real creators and honest reviews.">
+    <meta name="keywords" content="restaurant reviews, fake reviews problem, video food reviews, authentic restaurant discovery, TikTok restaurant reviews">
+    <meta name="author" content="BiteMap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bitemap.app/blog/why-were-building-bitemap.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bitemap.app/blog/why-were-building-bitemap.html">
+    <meta property="og:title" content="Why We're Building BiteMap - Authentic Video Restaurant Reviews">
+    <meta property="og:description" content="Restaurant reviews are broken. Here's why we're building something different.">
+    <meta property="og:image" content="https://bitemap.app/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bitemap.app/blog/why-were-building-bitemap.html">
+    <meta property="twitter:title" content="Why We're Building BiteMap">
+    <meta property="twitter:description" content="Restaurant reviews are broken. Here's why we're building something different.">
+    <meta property="twitter:image" content="https://bitemap.app/images/og-image.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Why We're Building BiteMap",
+      "description": "Restaurant reviews are broken. Discover why we're building BiteMap - a video-first app that brings authenticity back to food discovery.",
+      "author": {
+        "@type": "Organization",
+        "name": "BiteMap"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "BiteMap",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bitemap.app/images/bitemap.jpeg"
+        }
+      },
+      "datePublished": "2024-10-30",
+      "dateModified": "2024-10-30"
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/bitemap.jpeg">
+    <link rel="apple-touch-icon" href="../images/bitemap.jpeg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 80px;
+            line-height: 1.8;
+        }
+
+        .article-header {
+            margin-bottom: 40px;
+        }
+
+        .article-date {
+            color: #999;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .article-container h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .article-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .article-tag {
+            background: #f0f0f0;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .article-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .article-content p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 25px;
+            padding-left: 30px;
+        }
+
+        .article-content li {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #FF6B6B;
+            padding-left: 25px;
+            margin: 35px 0;
+            font-style: italic;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .article-cta {
+            background: #f8f8f8;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .article-cta h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .article-cta p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .article-cta .email-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .article-cta .email-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .article-cta .submit-btn {
+            padding: 14px 30px;
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .article-cta .submit-btn:hover {
+            background: #ff5252;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-to-blog:hover {
+            color: #FF6B6B;
+        }
+
+        @media (max-width: 768px) {
+            .article-container h1 {
+                font-size: 2rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .article-cta .email-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="../index.html" class="logo">
+                <img src="../images/bitemap.jpeg" alt="BiteMap" class="logo-icon">
+                <span>BiteMap</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html#features">Features</a>
+                <a href="../index.html#preview">Preview</a>
+                <a href="index.html">Blog</a>
+                <a href="../index.html#download" class="download-btn">Get Early Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <article class="article-container">
+            <a href="index.html" class="back-to-blog">← Back to Blog</a>
+
+            <div class="article-header">
+                <div class="article-date">October 30, 2024</div>
+                <h1>Why We're Building BiteMap</h1>
+                <p class="article-subtitle">Restaurant reviews are broken. Here's why we're building something different.</p>
+                <div class="article-tags">
+                    <span class="article-tag">Vision</span>
+                    <span class="article-tag">Founding Story</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <h2>The Problem: You Can't Trust Restaurant Reviews Anymore</h2>
+
+                <p>We've all been there. You're in a new city, scrolling through Yelp or Google Reviews, trying to find a great place to eat. The restaurant has 4.5 stars and hundreds of reviews. The photos look amazing. You make a reservation.</p>
+
+                <p>Then you show up, and it's nothing like you expected. The food is mediocre. The place looks different from the photos. You realize those glowing 5-star reviews were probably fake, or written by people with completely different taste than you.</p>
+
+                <p>Traditional restaurant review platforms have three fundamental problems:</p>
+
+                <h3>1. Fake Reviews Are Everywhere</h3>
+                <p>Studies show that up to 30% of online reviews are fake. Restaurants pay for positive reviews. Competitors leave negative ones. There's an entire underground economy built around gaming these platforms. You literally cannot trust what you read.</p>
+
+                <h3>2. Text Reviews Don't Show You What Matters</h3>
+                <p>A written review can tell you the pasta was "delicious," but what does that actually mean? Everyone's definition of delicious is different. You can't see the portion size, the texture, the actual dining atmosphere. Static photos help, but they're often heavily edited or years old.</p>
+
+                <h3>3. Professional Food Critics Are Out of Touch</h3>
+                <p>Traditional food critics review high-end restaurants that most people will never visit. They don't care about the best taco truck in your neighborhood or the hidden dim sum spot that locals love. Their reviews don't reflect how real people eat.</p>
+
+                <h2>The Shift: How We Actually Discover Food Now</h2>
+
+                <p>Here's the truth: nobody under 30 uses Yelp anymore. We discover restaurants through TikTok and Instagram.</p>
+
+                <p>You're scrolling through your feed and see a 15-second video of someone biting into the most incredible-looking burger. You can see the juice dripping, hear the satisfying crunch, watch their genuine reaction. That's way more convincing than any written review could ever be.</p>
+
+                <blockquote>"Video doesn't lie. You can see exactly what you're getting before you go."</blockquote>
+
+                <p>But there's a problem: social media isn't designed for restaurant discovery. You might see an amazing food video, but then it's gone. You can't save it to a map. You can't filter by location or cuisine. You can't build a list of places you want to try.</p>
+
+                <p>Social media gave us authentic, video-first food content. But it didn't give us a way to actually use that content to make dining decisions.</p>
+
+                <h2>The Solution: BiteMap</h2>
+
+                <p>BiteMap combines the authenticity of TikTok with the utility of a restaurant discovery app.</p>
+
+                <p>Here's how it works:</p>
+
+                <ul>
+                    <li><strong>TikTok-style video feed:</strong> Swipe through short, authentic video reviews from real people in your city</li>
+                    <li><strong>Location-based discovery:</strong> Every video is pinned to a restaurant on an interactive map</li>
+                    <li><strong>Real creators, real opinions:</strong> No fake reviews, no paid promotions - just honest takes from food lovers</li>
+                    <li><strong>Follow your taste:</strong> Find creators whose taste matches yours and never miss their recommendations</li>
+                </ul>
+
+                <p>We're not trying to replace Instagram or TikTok. We're taking the best part of social media - authentic, video-first content - and making it actually useful for discovering where to eat.</p>
+
+                <h2>Why Now?</h2>
+
+                <p>Three things are converging right now that make this the perfect time to build BiteMap:</p>
+
+                <p><strong>1. Everyone creates video content now.</strong> Recording and sharing short videos is second nature. The barrier to creating great food content has never been lower.</p>
+
+                <p><strong>2. Trust in traditional platforms is at an all-time low.</strong> People know reviews are fake. They're actively looking for alternatives.</p>
+
+                <p><strong>3. Food culture has gone mainstream.</strong> Being a "foodie" isn't niche anymore. Millions of people genuinely care about finding great places to eat and sharing their discoveries.</p>
+
+                <h2>What's Next</h2>
+
+                <p>We're launching on iOS in the coming months. We've already partnered with amazing food creators in Toronto who are excited to bring their content to BiteMap.</p>
+
+                <p>Our mission is simple: make it easy to discover authentic, local restaurants through the people you trust.</p>
+
+                <p>No fake reviews. No corporate bias. No outdated photos. Just real food, real reviews, and real people who love to eat.</p>
+            </div>
+
+            <div class="article-cta">
+                <h3>Want early access?</h3>
+                <p>Join our waitlist and be the first to discover restaurants the right way</p>
+                <form class="email-form" id="article-email-form">
+                    <input type="email" placeholder="your@email.com" class="email-input" required>
+                    <button type="submit" class="submit-btn">Join Waitlist</button>
+                </form>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">🍔 BiteMap</div>
+            <div class="footer-links">
+                <a href="../privacy.html">Privacy</a>
+                <a href="../terms.html">Terms</a>
+                <a href="mailto:support@bitemap.fun">Contact</a>
+            </div>
+            <p class="footer-copy">&copy; 2024 BiteMap</p>
+        </div>
+    </footer>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>
