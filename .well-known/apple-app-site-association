@@ -1,0 +1,23 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.app.bitemap",
+        "paths": [
+          "/restaurant/*",
+          "/place/*",
+          "/creator/*",
+          "/video/*",
+          "/profile/*",
+          "*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "TEAMID.app.bitemap"
+    ]
+  }
+}
