@@ -65,6 +65,64 @@
             margin-bottom: 50px;
         }
 
+        .status-section {
+            background: #f8f8f8;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 50px;
+        }
+
+        .status-section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #000;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .status-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .status-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00D26A;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .status-badge {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: #e7f7ef;
+            color: #00984a;
+        }
+
         .contact-section {
             background: #f8f8f8;
             border-radius: 16px;
@@ -79,56 +137,103 @@
             color: #000;
         }
 
-        .contact-method {
-            display: flex;
-            align-items: start;
-            gap: 20px;
-            margin-bottom: 30px;
-            padding: 20px;
+        .contact-form {
             background: white;
+            padding: 30px;
             border-radius: 12px;
         }
 
-        .contact-method:last-child {
-            margin-bottom: 0;
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        .contact-icon {
-            font-size: 2rem;
-            min-width: 50px;
-        }
-
-        .contact-details h3 {
-            font-size: 1.2rem;
+        .form-group label {
+            display: block;
+            font-weight: 600;
             margin-bottom: 8px;
-            color: #000;
+            color: #333;
         }
 
-        .contact-details p {
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF6B6B;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        .submit-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #e7f7ef;
+            color: #00984a;
+            border: 1px solid #00D26A;
+        }
+
+        .form-message.error {
+            background: #ffe7e7;
+            color: #d32f2f;
+            border: 1px solid #ff5252;
+        }
+
+        .email-direct {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
             color: #666;
-            margin-bottom: 8px;
         }
 
-        .contact-details a {
+        .email-direct a {
             color: #FF6B6B;
             text-decoration: none;
             font-weight: 600;
         }
 
-        .contact-details a:hover {
+        .email-direct a:hover {
             text-decoration: underline;
-        }
-
-        .response-time {
-            background: #fff9e6;
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-
-        .response-time strong {
-            color: #000;
         }
 
         .faq-section {
@@ -174,47 +279,13 @@
             text-decoration: underline;
         }
 
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            border-color: #FF6B6B;
-            color: #FF6B6B;
-            transform: translateY(-2px);
-        }
-
         @media (max-width: 768px) {
             .support-container h1 {
                 font-size: 2rem;
             }
 
-            .contact-method {
-                flex-direction: column;
-            }
-
-            .social-links {
-                flex-direction: column;
-            }
-
-            .social-link {
-                justify-content: center;
+            .contact-form {
+                padding: 20px;
             }
         }
     </style>
@@ -238,44 +309,89 @@
     <main>
         <div class="support-container">
             <h1>Support & Help</h1>
-            <p class="support-intro">We're here to help! Get in touch with our team or find answers to common questions below.</p>
+            <p class="support-intro">We're here to help! Check our service status, submit an issue, or find answers to common questions below.</p>
 
-            <div class="contact-section">
-                <h2>Contact Us</h2>
-
-                <div class="contact-method">
-                    <div class="contact-icon">📧</div>
-                    <div class="contact-details">
-                        <h3>Email Support</h3>
-                        <p>For general inquiries, technical support, or feedback</p>
-                        <a href="mailto:support@bitemap.fun">support@bitemap.fun</a>
+            <!-- Service Status -->
+            <div class="status-section">
+                <h2>Service Status</h2>
+                <div class="status-item">
+                    <div class="status-name">
+                        <span class="status-indicator"></span>
+                        <span>Website</span>
                     </div>
+                    <span class="status-badge">Operational</span>
                 </div>
-
-                <div class="contact-method">
-                    <div class="contact-icon">🐦</div>
-                    <div class="contact-details">
-                        <h3>Social Media</h3>
-                        <p>Follow us for updates, news, and community support</p>
-                        <div class="social-links">
-                            <a href="https://twitter.com/bitemap" class="social-link" target="_blank" rel="noopener">
-                                <span>Twitter</span>
-                            </a>
-                            <a href="https://instagram.com/bitemap" class="social-link" target="_blank" rel="noopener">
-                                <span>Instagram</span>
-                            </a>
-                            <a href="https://tiktok.com/@bitemap" class="social-link" target="_blank" rel="noopener">
-                                <span>TikTok</span>
-                            </a>
-                        </div>
+                <div class="status-item">
+                    <div class="status-name">
+                        <span class="status-indicator"></span>
+                        <span>Email System</span>
                     </div>
+                    <span class="status-badge">Operational</span>
                 </div>
-
-                <div class="response-time">
-                    <strong>⏱️ Response Time:</strong> We typically respond to all inquiries within 24-48 hours during business days (Monday-Friday, 9am-5pm EST).
+                <div class="status-item">
+                    <div class="status-name">
+                        <span class="status-indicator"></span>
+                        <span>Waitlist Registration</span>
+                    </div>
+                    <span class="status-badge">Operational</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-name">
+                        <span class="status-indicator"></span>
+                        <span>iOS App (Coming Soon)</span>
+                    </div>
+                    <span class="status-badge">In Development</span>
                 </div>
             </div>
 
+            <!-- Contact Form -->
+            <div class="contact-section">
+                <h2>Submit an Issue</h2>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="email">Your Email *</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="Brief description of your issue"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Please describe your issue in detail..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button" id="submitBtn">Send Message</button>
+
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+
+                <div class="email-direct">
+                    <p>Or email us directly at <a href="mailto:support@bitemap.fun">support@bitemap.fun</a></p>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
             <div class="faq-section">
                 <h2>Frequently Asked Questions</h2>
 
@@ -317,7 +433,7 @@
                 <div class="faq-item">
                     <div class="faq-question">Which cities does BiteMap support?</div>
                     <div class="faq-answer">
-                        We're launching initially in Toronto with plans to expand to major cities across North America. If you'd like BiteMap in your city, let us know at <a href="mailto:support@bitemap.fun">support@bitemap.fun</a>.
+                        We're launching initially in Toronto with plans to expand to major cities across North America. If you'd like BiteMap in your city, let us know via the contact form above.
                     </div>
                 </div>
 
@@ -338,7 +454,7 @@
                 <div class="faq-item">
                     <div class="faq-question">I'm a restaurant owner. How can I get featured on BiteMap?</div>
                     <div class="faq-answer">
-                        BiteMap features restaurants based on authentic user reviews. The best way to get featured is to provide a great dining experience that food lovers will want to share! For partnership inquiries, reach out to <a href="mailto:support@bitemap.fun">support@bitemap.fun</a>.
+                        BiteMap features restaurants based on authentic user reviews. The best way to get featured is to provide a great dining experience that food lovers will want to share! For partnership inquiries, reach out via the contact form above.
                     </div>
                 </div>
 
@@ -363,5 +479,63 @@
             <p class="footer-copy">&copy; 2024 BiteMap</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+
+            // Get form data
+            const formData = {
+                email: document.getElementById('email').value.trim(),
+                subject: document.getElementById('subject').value.trim(),
+                message: document.getElementById('message').value.trim()
+            };
+
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.style.display = 'none';
+            formMessage.className = 'form-message';
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    // Success
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = '✓ ' + data.message;
+                    formMessage.style.display = 'block';
+
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+                } else {
+                    // Error
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = '✗ ' + (data.error || 'Something went wrong. Please try again.');
+                    formMessage.style.display = 'block';
+                }
+            } catch (error) {
+                // Network error
+                formMessage.className = 'form-message error';
+                formMessage.textContent = '✗ Network error. Please check your connection and try again.';
+                formMessage.style.display = 'block';
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+    </script>
 </body>
 </html>
