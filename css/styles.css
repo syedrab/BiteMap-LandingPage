@@ -131,8 +131,29 @@ body {
 
 .hero-subtitle {
     font-size: clamp(1.25rem, 3vw, 1.75rem);
+    margin-top: 2rem;
     margin-bottom: 2.5rem;
     opacity: 0.9;
+    text-align: center;
+}
+
+/* Desktop only: adjust phone position and subtitle spacing */
+@media (min-width: 1025px) {
+    .hero-content {
+        padding-top: 8rem;
+    }
+
+    .phone-left {
+        top: 40%;
+    }
+
+    .phone-right {
+        top: 40%;
+    }
+
+    .hero-subtitle {
+        margin-top: 20rem;
+    }
 }
 
 .email-form {
@@ -817,6 +838,10 @@ body {
         line-height: 1;
     }
 
+    .hero-cta {
+        margin-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
     .email-form {
         flex-wrap: wrap;
         justify-content: center;
@@ -1001,6 +1026,7 @@ body {
 
     .hero-cta {
         width: 100%;
+        margin-bottom: 4rem;
     }
 
     .email-form {
