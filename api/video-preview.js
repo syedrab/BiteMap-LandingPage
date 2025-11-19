@@ -212,13 +212,13 @@ function renderVideoPreview(video, code) {
         }
 
         .content-wrapper {
-            max-width: 1000px;
+            max-width: 1100px;
             width: 100%;
             margin: 0 auto;
             padding: 2rem 1.5rem;
             display: grid;
-            grid-template-columns: 360px 1fr;
-            gap: 2rem;
+            grid-template-columns: 430px 1fr;
+            gap: 2.5rem;
             align-items: start;
         }
 
@@ -423,37 +423,80 @@ function renderVideoPreview(video, code) {
             border-color: rgba(255, 255, 255, 0.2);
         }
 
+        .delivery-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .delivery-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .delivery-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 968px) {
-            .content-wrapper {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .main-container {
+                padding-top: 4rem;
+                align-items: flex-start;
             }
 
-            .video-section {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            .video-player-wrapper {
+                border-radius: 0;
+                max-height: 70vh;
+                padding-top: 0;
+                height: 70vh;
+            }
+
+            .video-player {
                 position: relative;
-                top: 0;
+                height: 100%;
             }
 
             .info-section {
-                padding: 1.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .creator-header {
+                margin-bottom: 1.5rem;
+            }
+
+            .place-name {
+                font-size: 1.25rem;
             }
         }
 
         @media (max-width: 480px) {
-            .main-container {
-                padding-top: 3.5rem;
-            }
-
-            .content-wrapper {
-                padding: 1rem;
-            }
-
             .navbar {
                 padding: 0.75rem 1rem;
             }
 
             .logo-text {
-                font-size: 1.125rem;
+                font-size: 1rem;
             }
 
             .nav-download-btn {
@@ -461,12 +504,38 @@ function renderVideoPreview(video, code) {
                 font-size: 0.8rem;
             }
 
+            .content-wrapper {
+                padding: 0;
+            }
+
+            .video-player-wrapper {
+                border-radius: 0;
+            }
+
+            .info-section {
+                padding: 1.5rem 1rem;
+                border-radius: 0;
+            }
+
             .stats-grid {
-                gap: 0.75rem;
+                gap: 0.5rem;
             }
 
             .stat-value {
-                font-size: 1.25rem;
+                font-size: 1.125rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+            }
+
+            .cta-text {
+                font-size: 1rem;
+            }
+
+            .download-button {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
             }
         }
     </style>
@@ -523,7 +592,7 @@ function renderVideoPreview(video, code) {
                 <div class="place-section">
                     <div class="section-label">📍 Restaurant</div>
                     <h1 class="place-name">${placeName}</h1>
-                    ${placeAddress ? `<div class="place-address">${placeAddress}${placeCity ? `, ${placeCity}` : ''}</div>` : ''}
+                    ${placeAddress || placeCity ? `<div class="place-address">${placeAddress ? placeAddress : ''}${placeAddress && placeCity ? ', ' : ''}${placeCity || ''}</div>` : ''}
                 </div>
 
                 <!-- Stats -->
@@ -541,6 +610,24 @@ function renderVideoPreview(video, code) {
                         <span class="stat-label">Saves</span>
                     </div>
                 </div>
+
+                <!-- Delivery Links -->
+                ${placeName !== 'Amazing Restaurant' ? `
+                <div class="delivery-links">
+                    <a href="https://www.ubereats.com/search?q=${encodeURIComponent(placeName)}" target="_blank" rel="noopener" class="delivery-link">
+                        🍔 Uber Eats
+                    </a>
+                    <a href="https://www.doordash.com/search/?query=${encodeURIComponent(placeName)}" target="_blank" rel="noopener" class="delivery-link">
+                        🚗 DoorDash
+                    </a>
+                    <a href="https://www.skipthedishes.com/search?q=${encodeURIComponent(placeName)}" target="_blank" rel="noopener" class="delivery-link">
+                        📦 SkipTheDishes
+                    </a>
+                    <a href="https://www.opentable.com/s?term=${encodeURIComponent(placeName)}" target="_blank" rel="noopener" class="delivery-link">
+                        🍽️ OpenTable
+                    </a>
+                </div>
+                ` : ''}
 
                 <!-- CTA Section -->
                 <div class="cta-section">
