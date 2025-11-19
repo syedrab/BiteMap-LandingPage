@@ -81,7 +81,14 @@ function renderVideoPreview(video, code) {
   if (!videoUrl && video.bunny_video_id) {
     videoUrl = `https://vz-9c9477c9-fd2.b-cdn.net/${video.bunny_video_id}/playlist.m3u8`;
   }
-  const thumbnailUrl = video.thumbnail_url || 'https://bitemap.fun/images/og-image.jpg';
+  // Build thumbnail URL from bunny_video_id
+  let thumbnailUrl = video.thumbnail_url;
+  if (!thumbnailUrl && video.bunny_video_id) {
+    thumbnailUrl = `https://vz-9c9477c9-fd2.b-cdn.net/${video.bunny_video_id}/thumbnail.jpg`;
+  }
+  if (!thumbnailUrl) {
+    thumbnailUrl = 'https://bitemap.fun/images/og-image.jpg';
+  }
   const creatorName = video.creator?.name || 'BiteMap Creator';
   const creatorPic = `https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/${creatorName}.jpeg`;
   const placeName = video.place?.name || 'Amazing Restaurant';
@@ -455,21 +462,31 @@ function renderVideoPreview(video, code) {
 
         @media (max-width: 968px) {
             .main-container {
-                padding-top: 4rem;
+                padding-top: 0;
                 align-items: flex-start;
             }
 
             .content-wrapper {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
-                padding: 1rem;
+                gap: 0;
+                padding: 0;
+                position: relative;
+                min-height: 100vh;
+            }
+
+            .video-section {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
             }
 
             .video-player-wrapper {
                 border-radius: 0;
-                max-height: 70vh;
                 padding-top: 0;
-                height: 70vh;
+                height: 100vh;
             }
 
             .video-player {
@@ -478,64 +495,130 @@ function renderVideoPreview(video, code) {
             }
 
             .info-section {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 10;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 50%, transparent 100%);
+                border: none;
+                border-radius: 0;
                 padding: 1.5rem 1rem;
+                padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
             }
 
             .creator-header {
-                margin-bottom: 1.5rem;
+                margin-bottom: 1rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             }
 
             .place-name {
-                font-size: 1.25rem;
+                font-size: 1.125rem;
+            }
+
+            .place-address {
+                font-size: 0.85rem;
+            }
+
+            .stats-grid {
+                padding: 1rem 0;
+                margin: 1rem 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .delivery-links {
+                padding: 1rem 0;
+                margin: 1rem 0;
+                border-top: none;
+            }
+
+            .cta-section {
+                margin-top: 1rem;
+            }
+
+            .share-button {
+                display: none;
             }
         }
 
         @media (max-width: 480px) {
             .navbar {
-                padding: 0.75rem 1rem;
-            }
-
-            .logo-text {
-                font-size: 1rem;
-            }
-
-            .nav-download-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
-
-            .content-wrapper {
-                padding: 0;
-            }
-
-            .video-player-wrapper {
-                border-radius: 0;
+                display: none;
             }
 
             .info-section {
-                padding: 1.5rem 1rem;
-                border-radius: 0;
+                padding: 1rem;
+                padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+            }
+
+            .creator-header {
+                margin-bottom: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+
+            .creator-avatar {
+                width: 48px;
+                height: 48px;
+            }
+
+            .creator-name {
+                font-size: 1rem;
+            }
+
+            .section-label {
+                font-size: 0.7rem;
+            }
+
+            .place-name {
+                font-size: 1rem;
+            }
+
+            .place-address {
+                font-size: 0.8rem;
             }
 
             .stats-grid {
                 gap: 0.5rem;
+                padding: 0.75rem 0;
+                margin: 0.75rem 0;
             }
 
             .stat-value {
-                font-size: 1.125rem;
+                font-size: 1rem;
             }
 
             .stat-label {
                 font-size: 0.75rem;
             }
 
+            .delivery-links {
+                gap: 0.5rem;
+                padding: 0.75rem 0;
+                margin: 0.75rem 0;
+            }
+
+            .delivery-link {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
+            }
+
+            .cta-section {
+                margin-top: 0.75rem;
+            }
+
             .cta-text {
-                font-size: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .cta-subtext {
+                font-size: 0.85rem;
             }
 
             .download-button {
-                padding: 1rem 1.5rem;
-                font-size: 1rem;
+                padding: 0.875rem 1.25rem;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -563,6 +646,9 @@ function renderVideoPreview(video, code) {
                         class="video-player"
                         controls
                         playsinline
+                        autoplay
+                        muted
+                        loop
                         poster="${thumbnailUrl}"
                         preload="metadata"
                     >
