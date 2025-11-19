@@ -29,16 +29,16 @@ export default async function handler(req, res) {
       .from('Videos')
       .select(`
         *,
-        creator:creator_id (
+        Creator:creator_id (
           id,
           name,
-          creator_profile!inner (
+          Creator_Profile!inner (
             profile_pic_url,
             follower_count,
             platform
           )
         ),
-        place:place_id (
+        Places:place_id (
           id,
           name,
           address,
@@ -74,11 +74,11 @@ function renderVideoPreview(video, code) {
   // Extract data
   const videoUrl = video.video_url || video.external_video_url;
   const thumbnailUrl = video.thumbnail_url || 'https://bitemap.fun/images/og-image.jpg';
-  const creatorName = video.creator?.name || 'BiteMap Creator';
-  const creatorPic = video.creator?.creator_profile?.[0]?.profile_pic_url || '';
-  const placeName = video.place?.name || 'Amazing Restaurant';
-  const placeAddress = video.place?.address || '';
-  const placeCity = video.place?.city || '';
+  const creatorName = video.Creator?.name || 'BiteMap Creator';
+  const creatorPic = video.Creator?.Creator_Profile?.[0]?.profile_pic_url || '';
+  const placeName = video.Places?.name || 'Amazing Restaurant';
+  const placeAddress = video.Places?.address || '';
+  const placeCity = video.Places?.city || '';
   const likes = video.likes_count || 0;
   const saves = video.saves_count || 0;
   const views = video.views_count || 0;
