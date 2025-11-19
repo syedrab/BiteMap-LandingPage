@@ -346,15 +346,19 @@ function renderVideoPreview(video, code) {
 }
 
 function renderNotFound() {
+  const appStoreUrl = 'https://apps.apple.com/us/app/bitemap/id6746139076';
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Not Found - BiteMap</title>
+    <title>Oops! Video Not Found - BiteMap</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -362,39 +366,110 @@ function renderNotFound() {
             background: linear-gradient(135deg, #FF006E 0%, #FB5607 50%, #FFBE0B 100%);
             text-align: center;
             padding: 2rem;
+            margin: 0;
         }
-        .not-found {
-            color: white;
+        .not-found-container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            color: #1A1A1A;
         }
-        .not-found h1 {
-            font-size: 3rem;
+        .emoji {
+            font-size: 5rem;
             margin-bottom: 1rem;
+            animation: bounce 2s ease infinite;
         }
-        .not-found p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
-        .home-btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: white;
-            color: #FF006E;
-            text-decoration: none;
-            border-radius: 50px;
+        .not-found-container h1 {
+            font-size: 2rem;
             font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1A1A1A;
+        }
+        .not-found-container p {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        .reason {
+            font-size: 0.95rem;
+            color: #999;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.125rem;
             transition: all 0.3s ease;
         }
-        .home-btn:hover {
+        .btn-primary {
+            background: #FF006E;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #e6006a;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+        }
+        .btn-secondary {
+            background: white;
+            color: #FF006E;
+            border: 2px solid #FF006E;
+        }
+        .btn-secondary:hover {
+            background: #FF006E;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.2);
+        }
+        @media (max-width: 480px) {
+            .not-found-container {
+                padding: 2rem 1.5rem;
+            }
+            .not-found-container h1 {
+                font-size: 1.5rem;
+            }
+            .emoji {
+                font-size: 4rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="not-found">
-        <h1>🍔 Video Not Found</h1>
-        <p>This video doesn't exist or has been removed.</p>
-        <a href="/" class="home-btn">Go to BiteMap</a>
+    <div class="not-found-container">
+        <div class="emoji">🤔</div>
+        <h1>Oops! Wrong Link</h1>
+        <p>This video doesn't exist or may have been removed.</p>
+        <p class="reason">The link might be broken or outdated.</p>
+
+        <div class="buttons">
+            <a href="${appStoreUrl}" class="btn btn-primary" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                </svg>
+                Download BiteMap
+            </a>
+            <a href="/" class="btn btn-secondary">Browse Landing Page</a>
+        </div>
     </div>
 </body>
 </html>`;
