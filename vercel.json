@@ -2,6 +2,12 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/v/:code",
+      "destination": "/api/video-preview?code=:code"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

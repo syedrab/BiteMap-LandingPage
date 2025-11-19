@@ -222,6 +222,62 @@ body {
     padding: 1.25rem 3rem;
 }
 
+/* App Store Button Styles */
+.app-store-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--white);
+    color: var(--text-dark);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--white);
+    font-family: inherit;
+}
+
+.app-store-button svg {
+    flex-shrink: 0;
+}
+
+.app-store-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+}
+
+.app-store-label {
+    font-size: 0.65rem;
+    font-weight: 400;
+    opacity: 0.8;
+    line-height: 1;
+    margin-bottom: 0.15rem;
+}
+
+.app-store-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.app-store-button-large {
+    padding: 1.25rem 2.5rem;
+    gap: 1rem;
+}
+
+.app-store-button-large svg {
+    width: 36px;
+    height: 36px;
+}
+
+.app-store-button-large .app-store-label {
+    font-size: 0.75rem;
+}
+
+.app-store-button-large .app-store-name {
+    font-size: 1.5rem;
+}
+
 .floating-elements {
     position: absolute;
     top: 0;
