@@ -27,13 +27,32 @@ export default async function handler(req, res) {
     // Fetch video with related data
     const { data: video, error } = await supabase
       .from('Videos')
-      .select(`
-        *,
-        creator:Creator!creator_id(id, name, image_url),
-        place:Places!place_id(id, name, address, city, latitude, longitude, rating, google_maps_url)
-      `)
+      .select('*')
       .eq('shareable_code', code)
       .single();
+
+    console.log('Video fetch result:', { video, error });
+
+    // Fetch related data separately
+    if (video && !error) {
+      if (video.creator_id) {
+        const { data: creator } = await supabase
+          .from('Creator')
+          .select('id, name, image_url')
+          .eq('id', video.creator_id)
+          .single();
+        video.creator = creator;
+      }
+
+      if (video.place_id) {
+        const { data: place } = await supabase
+          .from('Places')
+          .select('id, name, address, city, latitude, longitude, rating, google_maps_url')
+          .eq('id', video.place_id)
+          .single();
+        video.place = place;
+      }
+    }
 
     if (error || !video) {
       console.error('Supabase query error:', error);
