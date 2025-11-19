@@ -36,6 +36,8 @@ export default async function handler(req, res) {
       .single();
 
     if (error || !video) {
+      console.error('Supabase query error:', error);
+      console.log('Query params:', { code });
       return res.status(404).send(renderNotFound());
     }
 
