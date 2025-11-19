@@ -232,6 +232,32 @@ function renderVideoPreview(video, code) {
         /* Video Player */
         .video-section {
             width: 100%;
+            position: relative;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #FF006E;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .top-banner:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
         }
 
         .video-player-wrapper {
@@ -366,72 +392,6 @@ function renderVideoPreview(video, code) {
             color: #999;
         }
 
-        .cta-section {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .cta-text {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .cta-subtext {
-            font-size: 0.95rem;
-            color: #999;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .download-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            width: 100%;
-            padding: 1.25rem 2rem;
-            background: linear-gradient(135deg, #FF006E 0%, #FB5607 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.125rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
-        }
-
-        .download-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(255, 0, 110, 0.4);
-        }
-
-        .share-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: white;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .share-button:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
         .delivery-links {
             display: flex;
             flex-wrap: wrap;
@@ -460,6 +420,147 @@ function renderVideoPreview(video, code) {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
+        }
+
+        /* App Modal */
+        .app-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .app-modal-overlay.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .app-modal {
+            background: white;
+            border-radius: 20px;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: #333;
+        }
+
+        .modal-content {
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .modal-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            margin: 0 auto 1.5rem;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 0.75rem;
+        }
+
+        .modal-text {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .modal-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+        }
+
+        .modal-btn-primary {
+            background: #FF006E;
+            color: white;
+        }
+
+        .modal-btn-primary:hover {
+            background: #e6006a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 0, 110, 0.3);
+        }
+
+        .modal-btn-secondary {
+            background: transparent;
+            color: #666;
+            border: 2px solid #e5e5e5;
+        }
+
+        .modal-btn-secondary:hover {
+            background: rgba(0, 0, 0, 0.03);
+            border-color: #ccc;
         }
 
         @media (max-width: 968px) {
@@ -536,13 +637,8 @@ function renderVideoPreview(video, code) {
                 border-top: none;
             }
 
-            .cta-section {
-                margin-bottom: 1rem;
-                padding-bottom: 1rem;
-            }
-
-            .share-button {
-                display: none;
+            .top-banner {
+                top: 1.5rem;
             }
         }
 
@@ -607,22 +703,9 @@ function renderVideoPreview(video, code) {
                 font-size: 0.8rem;
             }
 
-            .cta-section {
-                margin-bottom: 0.75rem;
-                padding-bottom: 0.75rem;
-            }
-
-            .cta-text {
-                font-size: 0.95rem;
-            }
-
-            .cta-subtext {
-                font-size: 0.85rem;
-            }
-
-            .download-button {
-                padding: 0.875rem 1.25rem;
-                font-size: 0.95rem;
+            .top-banner {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
             }
         }
     </style>
@@ -644,6 +727,11 @@ function renderVideoPreview(video, code) {
         <div class="content-wrapper">
             <!-- Video Player -->
             <div class="video-section">
+                <!-- Subtle top banner -->
+                <div class="top-banner" onclick="showAppModal()">
+                    <span>Open BiteMap</span>
+                </div>
+
                 <div class="video-player-wrapper">
                     <video
                         id="video-player"
@@ -662,30 +750,35 @@ function renderVideoPreview(video, code) {
                 </div>
             </div>
 
+            <!-- App Modal Popup -->
+            <div class="app-modal-overlay" id="appModal">
+                <div class="app-modal">
+                    <button class="modal-close" onclick="closeAppModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+
+                    <div class="modal-content">
+                        <img src="/images/bitemap.jpeg" alt="BiteMap" class="modal-logo">
+                        <h2 class="modal-title">Get the full app experience</h2>
+                        <p class="modal-text">Enjoy more videos and great features on the app</p>
+
+                        <div class="modal-buttons">
+                            <a href="${appStoreUrl}" class="modal-btn modal-btn-primary" target="_blank" rel="noopener">
+                                Open BiteMap
+                            </a>
+                            <button class="modal-btn modal-btn-secondary" onclick="closeAppModal()">
+                                Not now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Info Section -->
             <div class="info-section">
-                <!-- CTA Section -->
-                <div class="cta-section">
-                    <div class="cta-text">Want to see more?</div>
-                    <div class="cta-subtext">Download BiteMap to discover thousands of local food videos</div>
-                    <a href="${appStoreUrl}" class="download-button" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                            <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
-                        </svg>
-                        Download BiteMap
-                    </a>
-                    <button class="share-button" onclick="shareVideo()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="18" cy="5" r="3"></circle>
-                            <circle cx="6" cy="12" r="3"></circle>
-                            <circle cx="18" cy="19" r="3"></circle>
-                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                        </svg>
-                        Share Video
-                    </button>
-                </div>
-
                 <!-- Creator Info -->
                 <div class="creator-header">
                     <div class="creator-avatar">
@@ -786,20 +879,31 @@ function renderVideoPreview(video, code) {
             }, 1000);
         }, 500);
 
-        // Share function
-        function shareVideo() {
-            if (navigator.share) {
-                navigator.share({
-                    title: '${title.replace(/'/g, "\\'")}',
-                    text: '${description.replace(/'/g, "\\'")}',
-                    url: '${pageUrl}'
-                }).catch(err => console.log('Error sharing:', err));
-            } else {
-                // Fallback: copy to clipboard
-                navigator.clipboard.writeText('${pageUrl}').then(() => {
-                    alert('Link copied to clipboard!');
-                });
+        // Modal functions
+        function showAppModal() {
+            const modal = document.getElementById('appModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAppModal() {
+            const modal = document.getElementById('appModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('appModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAppModal();
             }
+        });
+
+        // Auto-show modal after 2 seconds (only on mobile)
+        if (window.innerWidth <= 968) {
+            setTimeout(() => {
+                showAppModal();
+            }, 2000);
         }
     </script>
 </body>
