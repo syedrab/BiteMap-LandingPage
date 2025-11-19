@@ -29,21 +29,8 @@ export default async function handler(req, res) {
       .from('Videos')
       .select(`
         *,
-        Creator:creator_id (
-          id,
-          name,
-          image_url
-        ),
-        Places:place_id (
-          id,
-          name,
-          address,
-          city,
-          latitude,
-          longitude,
-          rating,
-          google_maps_url
-        )
+        creator:Creator!creator_id(id, name, image_url),
+        place:Places!place_id(id, name, address, city, latitude, longitude, rating, google_maps_url)
       `)
       .eq('shareable_code', code)
       .single();
@@ -68,16 +55,20 @@ function renderVideoPreview(video, code) {
   const appStoreUrl = 'https://apps.apple.com/us/app/bitemap/id6746139076';
 
   // Extract data
-  const videoUrl = video.video_url || video.external_video_url;
+  // Build Bunny CDN URL if we have bunny_video_id
+  let videoUrl = video.bunny_cdn_url || video.video_url || video.external_video_url;
+  if (!videoUrl && video.bunny_video_id) {
+    videoUrl = `https://vz-9c9477c9-fd2.b-cdn.net/${video.bunny_video_id}/playlist.m3u8`;
+  }
   const thumbnailUrl = video.thumbnail_url || 'https://bitemap.fun/images/og-image.jpg';
-  const creatorName = video.Creator?.name || 'BiteMap Creator';
-  const creatorPic = ''; // TODO: Build from Creator.image_url
-  const placeName = video.Places?.name || 'Amazing Restaurant';
-  const placeAddress = video.Places?.address || '';
-  const placeCity = video.Places?.city || '';
-  const likes = video.likes_count || 0;
-  const saves = video.saves_count || 0;
-  const views = video.views_count || 0;
+  const creatorName = video.creator?.name || 'BiteMap Creator';
+  const creatorPic = ''; // TODO: Build from creator.image_url
+  const placeName = video.place?.name || 'Amazing Restaurant';
+  const placeAddress = video.place?.address || '';
+  const placeCity = video.place?.city || '';
+  const likes = video.likes || 0;
+  const saves = video.saves || 0;
+  const views = video.views || 0;
 
   const title = `${creatorName} on BiteMap: ${placeName}`;
   const description = `Watch this delicious review of ${placeName}${placeCity ? ` in ${placeCity}` : ''}. See more food content on BiteMap!`;
