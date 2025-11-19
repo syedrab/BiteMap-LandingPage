@@ -774,10 +774,16 @@ function renderVideoPreview(video, code) {
             video.src = videoSrc;
         }
 
-        // Deep link to app if installed
+        // Deep link to app if installed (silent attempt via iframe)
         const deepLinkUrl = 'bitemap://video/${code}';
         setTimeout(() => {
-            window.location.href = deepLinkUrl;
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = deepLinkUrl;
+            document.body.appendChild(iframe);
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+            }, 1000);
         }, 500);
 
         // Share function
