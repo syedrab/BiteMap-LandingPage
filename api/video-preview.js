@@ -31,12 +31,7 @@ export default async function handler(req, res) {
         *,
         Creator:creator_id (
           id,
-          name,
-          Creator_Profile!inner (
-            profile_pic_url,
-            follower_count,
-            platform
-          )
+          name
         ),
         Places:place_id (
           id,
@@ -75,7 +70,7 @@ function renderVideoPreview(video, code) {
   const videoUrl = video.video_url || video.external_video_url;
   const thumbnailUrl = video.thumbnail_url || 'https://bitemap.fun/images/og-image.jpg';
   const creatorName = video.Creator?.name || 'BiteMap Creator';
-  const creatorPic = video.Creator?.Creator_Profile?.[0]?.profile_pic_url || '';
+  const creatorPic = 'https://via.placeholder.com/150'; // Placeholder for now
   const placeName = video.Places?.name || 'Amazing Restaurant';
   const placeAddress = video.Places?.address || '';
   const placeCity = video.Places?.city || '';
