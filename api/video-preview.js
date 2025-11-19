@@ -71,7 +71,7 @@ function renderVideoPreview(video, code) {
   const videoUrl = video.video_url || video.external_video_url;
   const thumbnailUrl = video.thumbnail_url || 'https://bitemap.fun/images/og-image.jpg';
   const creatorName = video.Creator?.name || 'BiteMap Creator';
-  const creatorPic = video.Creator?.image_url || '';
+  const creatorPic = ''; // TODO: Build from Creator.image_url
   const placeName = video.Places?.name || 'Amazing Restaurant';
   const placeAddress = video.Places?.address || '';
   const placeCity = video.Places?.city || '';
