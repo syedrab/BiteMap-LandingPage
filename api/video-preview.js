@@ -83,7 +83,7 @@ function renderVideoPreview(video, code) {
   }
   const thumbnailUrl = video.thumbnail_url || 'https://bitemap.fun/images/og-image.jpg';
   const creatorName = video.creator?.name || 'BiteMap Creator';
-  const creatorPic = ''; // TODO: Build from creator.image_url
+  const creatorPic = `https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/${creatorName}.jpeg`;
   const placeName = video.place?.name || 'Amazing Restaurant';
   const placeAddress = video.place?.address || '';
   const placeCity = video.place?.city || '';
@@ -206,29 +206,30 @@ function renderVideoPreview(video, code) {
             padding-top: 4rem;
             min-height: 100vh;
             background: linear-gradient(135deg, rgba(255, 0, 110, 0.1) 0%, rgba(251, 86, 7, 0.1) 50%, rgba(255, 190, 11, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .content-wrapper {
-            max-width: 1200px;
+            max-width: 1000px;
+            width: 100%;
             margin: 0 auto;
             padding: 2rem 1.5rem;
             display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 3rem;
+            grid-template-columns: 360px 1fr;
+            gap: 2rem;
             align-items: start;
         }
 
         /* Video Player */
         .video-section {
-            position: sticky;
-            top: 5rem;
+            width: 100%;
         }
 
         .video-player-wrapper {
             position: relative;
             width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
             padding-top: 177.78%; /* 9:16 aspect ratio */
             background: #000;
             border-radius: 16px;
@@ -274,6 +275,17 @@ function renderVideoPreview(video, code) {
             font-weight: 700;
             color: white;
             flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .creator-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .creator-details {
@@ -331,11 +343,15 @@ function renderVideoPreview(video, code) {
         }
 
         .stat-value {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: #FF006E;
             display: block;
             margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
         }
 
         .stat-label {
@@ -491,7 +507,12 @@ function renderVideoPreview(video, code) {
             <div class="info-section">
                 <!-- Creator Info -->
                 <div class="creator-header">
-                    <div class="creator-avatar">${creatorName.charAt(0).toUpperCase()}</div>
+                    <div class="creator-avatar">
+                    <img src="${creatorPic}" alt="${creatorName}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:1.5rem; font-weight:700;">
+                        ${creatorName.charAt(0).toUpperCase()}
+                    </div>
+                </div>
                     <div class="creator-details">
                         <div class="creator-name">@${creatorName}</div>
                         <div class="creator-label">Content Creator</div>
@@ -508,15 +529,15 @@ function renderVideoPreview(video, code) {
                 <!-- Stats -->
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <span class="stat-value">${formatNumber(views)}</span>
+                        <span class="stat-value">👁️ ${formatNumber(views)}</span>
                         <span class="stat-label">Views</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value">${formatNumber(likes)}</span>
+                        <span class="stat-value">❤️ ${formatNumber(likes)}</span>
                         <span class="stat-label">Likes</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value">${formatNumber(saves)}</span>
+                        <span class="stat-value">📌 ${formatNumber(saves)}</span>
                         <span class="stat-label">Saves</span>
                     </div>
                 </div>
