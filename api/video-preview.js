@@ -76,21 +76,16 @@ function renderVideoPreview(video, code) {
   const appStoreUrl = 'https://apps.apple.com/us/app/bitemap/id6746139076';
 
   // Extract data
-  // Bunny.net library ID (extracted from CDN hostname vz-{library-id}.b-cdn.net)
-  const bunnyLibraryId = '9c9477c9-fd2';
-
-  // Build Bunny Stream embed URL
+  // Build Bunny CDN URL if we have bunny_video_id
   let videoUrl = video.bunny_cdn_url || video.video_url || video.external_video_url;
-  let bunnyEmbedUrl = null;
-  if (video.bunny_video_id) {
-    bunnyEmbedUrl = `https://iframe.mediadelivery.net/embed/${bunnyLibraryId}/${video.bunny_video_id}?autoplay=true&loop=true&muted=true&preload=true`;
-    videoUrl = `https://vz-${bunnyLibraryId}.b-cdn.net/${video.bunny_video_id}/playlist.m3u8`;
+  if (!videoUrl && video.bunny_video_id) {
+    videoUrl = `https://vz-9c9477c9-fd2.b-cdn.net/${video.bunny_video_id}/playlist.m3u8`;
   }
 
   // Build thumbnail URL from bunny_video_id
   let thumbnailUrl = video.thumbnail_url;
   if (!thumbnailUrl && video.bunny_video_id) {
-    thumbnailUrl = `https://vz-${bunnyLibraryId}.b-cdn.net/${video.bunny_video_id}/thumbnail.jpg`;
+    thumbnailUrl = `https://vz-9c9477c9-fd2.b-cdn.net/${video.bunny_video_id}/thumbnail.jpg`;
   }
   if (!thumbnailUrl) {
     thumbnailUrl = 'https://bitemap.fun/images/og-image.jpg';
@@ -139,6 +134,9 @@ function renderVideoPreview(video, code) {
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/images/bitemap.jpeg">
     <link rel="apple-touch-icon" href="/images/bitemap.jpeg">
+
+    <!-- HLS.js for video playback -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -778,30 +776,20 @@ function renderVideoPreview(video, code) {
                 </div>
 
                 <div class="video-player-wrapper">
-                    ${bunnyEmbedUrl ? `
-                        <iframe
-                            src="${bunnyEmbedUrl}"
-                            loading="lazy"
-                            class="video-player"
-                            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                            allowfullscreen="true"
-                        ></iframe>
-                    ` : `
-                        <video
-                            id="video-player"
-                            class="video-player"
-                            controls
-                            playsinline
-                            autoplay
-                            muted
-                            loop
-                            poster="${thumbnailUrl}"
-                            preload="metadata"
-                        >
-                            <source src="${videoUrl}" type="application/x-mpegURL">
-                            Your browser does not support video playback.
-                        </video>
-                    `}
+                    <video
+                        id="video-player"
+                        class="video-player"
+                        controls
+                        playsinline
+                        autoplay
+                        muted
+                        loop
+                        poster="${thumbnailUrl}"
+                        preload="metadata"
+                    >
+                        <source src="${videoUrl}" type="application/x-mpegURL">
+                        Your browser does not support video playback.
+                    </video>
                 </div>
             </div>
 
@@ -893,7 +881,34 @@ function renderVideoPreview(video, code) {
     </div>
 
     <script>
-        // Using Bunny Stream iframe player - no additional initialization needed
+        // Initialize HLS.js video player
+        const video = document.getElementById('video-player');
+        const videoSrc = '${videoUrl}';
+
+        if (video && videoSrc && videoSrc.includes('.m3u8')) {
+            if (Hls.isSupported()) {
+                const hls = new Hls({
+                    enableWorker: true,
+                    lowLatencyMode: false,
+                });
+                hls.loadSource(videoSrc);
+                hls.attachMedia(video);
+
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    console.log('Video ready to play');
+                });
+
+                hls.on(Hls.Events.ERROR, function(event, data) {
+                    console.error('HLS error:', data);
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // Native HLS support (Safari)
+                video.src = videoSrc;
+            }
+        } else if (video && videoSrc) {
+            // Regular MP4
+            video.src = videoSrc;
+        }
 
         // Deep link to app if installed (silent attempt via iframe)
         const deepLinkUrl = 'bitemap://video/${code}';
