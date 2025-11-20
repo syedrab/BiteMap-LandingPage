@@ -637,6 +637,7 @@ function renderVideoPreview(video, code) {
                 border-radius: 0;
                 padding: 1.5rem 1rem;
                 padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+                padding-top: 5rem;
             }
 
             .creator-header {
