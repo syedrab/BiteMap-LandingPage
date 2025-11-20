@@ -69,7 +69,7 @@ function renderVideoPreview(video, code) {
   if (!thumbnailUrl) {
     thumbnailUrl = 'https://bitemap.fun/images/og-image.jpg';
   }
-  // Data is now flattened from materialized view
+  // Data from materialized view (flattened columns)
   const creatorName = video.creator_name || 'BiteMap Creator';
   const creatorPic = video.creator_image_url || `https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/${creatorName}.jpeg`;
   const placeName = video.place_name || 'Amazing Restaurant';
