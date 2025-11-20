@@ -235,6 +235,28 @@ function renderVideoPreview(video, code) {
             position: relative;
         }
 
+        /* Mobile Logo */
+        .mobile-logo {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 20;
+            display: none;
+        }
+
+        .mobile-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-logo:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
         /* Top Banner */
         .top-banner {
             position: absolute;
@@ -465,8 +487,8 @@ function renderVideoPreview(video, code) {
 
         .app-modal {
             background: white;
-            border-radius: 20px;
-            max-width: 400px;
+            border-radius: 16px;
+            max-width: 320px;
             width: 100%;
             position: relative;
             animation: slideUp 0.3s ease;
@@ -475,13 +497,13 @@ function renderVideoPreview(video, code) {
 
         .modal-close {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 0.75rem;
+            right: 0.75rem;
             background: transparent;
             border: none;
             color: #666;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 0.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -494,46 +516,51 @@ function renderVideoPreview(video, code) {
             color: #333;
         }
 
+        .modal-close svg {
+            width: 20px;
+            height: 20px;
+        }
+
         .modal-content {
-            padding: 3rem 2rem 2rem;
+            padding: 2.5rem 1.5rem 1.5rem;
             text-align: center;
         }
 
         .modal-logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            margin: 0 auto 1.5rem;
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            margin: 0 auto 1.25rem;
             display: block;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
         .modal-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: #1A1A1A;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .modal-text {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #666;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             line-height: 1.5;
         }
 
         .modal-buttons {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.625rem;
         }
 
         .modal-btn {
             width: 100%;
-            padding: 1rem 2rem;
-            border-radius: 12px;
+            padding: 0.875rem 1.5rem;
+            border-radius: 10px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -640,11 +667,20 @@ function renderVideoPreview(video, code) {
             .top-banner {
                 top: 1.5rem;
             }
+
+            .mobile-logo {
+                display: block;
+            }
         }
 
         @media (max-width: 480px) {
             .navbar {
                 display: none;
+            }
+
+            .mobile-logo img {
+                width: 36px;
+                height: 36px;
             }
 
             .info-section {
@@ -727,6 +763,11 @@ function renderVideoPreview(video, code) {
         <div class="content-wrapper">
             <!-- Video Player -->
             <div class="video-section">
+                <!-- Logo in top left (mobile only) -->
+                <a href="/" class="mobile-logo">
+                    <img src="/images/bitemap.jpeg" alt="BiteMap">
+                </a>
+
                 <!-- Subtle top banner -->
                 <div class="top-banner" onclick="showAppModal()">
                     <span>Open BiteMap</span>
