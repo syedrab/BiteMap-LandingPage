@@ -83,7 +83,7 @@ function renderVideoPreview(video, code) {
   let videoUrl = video.bunny_cdn_url || video.video_url || video.external_video_url;
   let bunnyEmbedUrl = null;
   if (video.bunny_video_id) {
-    bunnyEmbedUrl = `https://iframe.mediadelivery.net/embed/${bunnyLibraryId}/${video.bunny_video_id}?autoplay=true&loop=true&muted=true&preload=true&responsive=true`;
+    bunnyEmbedUrl = `https://iframe.mediadelivery.net/embed/${bunnyLibraryId}/${video.bunny_video_id}?autoplay=true&loop=true&muted=true&preload=true`;
     videoUrl = `https://vz-${bunnyLibraryId}.b-cdn.net/${video.bunny_video_id}/playlist.m3u8`;
   }
 
@@ -898,13 +898,21 @@ function renderVideoPreview(video, code) {
         // Deep link to app if installed (silent attempt via iframe)
         const deepLinkUrl = 'bitemap://video/${code}';
         setTimeout(() => {
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = deepLinkUrl;
-            document.body.appendChild(iframe);
-            setTimeout(() => {
-                document.body.removeChild(iframe);
-            }, 1000);
+            try {
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = deepLinkUrl;
+                document.body.appendChild(iframe);
+                setTimeout(() => {
+                    try {
+                        document.body.removeChild(iframe);
+                    } catch (e) {
+                        // Silently ignore if already removed
+                    }
+                }, 1000);
+            } catch (e) {
+                // Silently ignore deep link errors (expected when app not installed)
+            }
         }, 500);
 
         // Modal functions
