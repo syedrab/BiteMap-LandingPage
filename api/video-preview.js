@@ -35,21 +35,31 @@ export default async function handler(req, res) {
 
     // Fetch related data separately
     if (video && !error) {
+      console.log('Video data:', {
+        creator_id: video.creator_id,
+        place_id: video.place_id,
+        likes: video.likes,
+        saves: video.saves,
+        views: video.views
+      });
+
       if (video.creator_id) {
-        const { data: creator } = await supabase
+        const { data: creator, error: creatorError } = await supabase
           .from('Creator')
           .select('id, name, image_url')
           .eq('id', video.creator_id)
           .single();
+        console.log('Creator fetch:', { creator, creatorError });
         video.creator = creator;
       }
 
       if (video.place_id) {
-        const { data: place } = await supabase
+        const { data: place, error: placeError } = await supabase
           .from('Places')
           .select('id, name, address, city, latitude, longitude, rating, google_maps_url')
           .eq('id', video.place_id)
           .single();
+        console.log('Place fetch:', { place, placeError });
         video.place = place;
       }
     }
