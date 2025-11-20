@@ -24,45 +24,14 @@ export default async function handler(req, res) {
   try {
     const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-    // Fetch video with related data
+    // Fetch video with all related data from materialized view (single query)
     const { data: video, error } = await supabase
-      .from('Videos')
+      .from('mv_video_scores')
       .select('*')
       .eq('shareable_code', code)
       .single();
 
     console.log('Video fetch result:', { video, error });
-
-    // Fetch related data separately
-    if (video && !error) {
-      console.log('Video data:', {
-        creator_id: video.creator_id,
-        place_id: video.place_id,
-        likes: video.likes,
-        saves: video.saves,
-        views: video.views
-      });
-
-      if (video.creator_id) {
-        const { data: creator, error: creatorError } = await supabase
-          .from('Creator')
-          .select('id, name, image_url')
-          .eq('id', video.creator_id)
-          .single();
-        console.log('Creator fetch:', { creator, creatorError });
-        video.creator = creator;
-      }
-
-      if (video.place_id) {
-        const { data: place, error: placeError } = await supabase
-          .from('Places')
-          .select('id, name, address, city, latitude, longitude, rating, google_maps_url')
-          .eq('id', video.place_id)
-          .single();
-        console.log('Place fetch:', { place, placeError });
-        video.place = place;
-      }
-    }
 
     if (error || !video) {
       console.error('Supabase query error:', error);
@@ -100,11 +69,14 @@ function renderVideoPreview(video, code) {
   if (!thumbnailUrl) {
     thumbnailUrl = 'https://bitemap.fun/images/og-image.jpg';
   }
-  const creatorName = video.creator?.name || 'BiteMap Creator';
-  const creatorPic = `https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/${creatorName}.jpeg`;
-  const placeName = video.place?.name || 'Amazing Restaurant';
-  const placeAddress = video.place?.address || '';
-  const placeCity = video.place?.city || '';
+  // Data is now flattened from materialized view
+  const creatorName = video.creator_name || 'BiteMap Creator';
+  const creatorPic = video.creator_image_url || `https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/${creatorName}.jpeg`;
+  const placeName = video.place_name || 'Amazing Restaurant';
+  const placeAddress = video.place_address || '';
+  const placeCity = video.place_city || '';
+  const placeRating = video.place_rating || null;
+  const placeGoogleMapsUrl = video.place_google_maps_url || null;
   const likes = video.likes || 0;
   const saves = video.saves || 0;
   const views = video.views || 0;
