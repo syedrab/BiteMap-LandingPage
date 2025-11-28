@@ -853,96 +853,144 @@
 
     <!-- Slide 4: The Messy Journey -->
     <div class="slide">
-        <div class="content" style="max-width: 1300px;">
+        <div class="content" style="max-width: 1400px;">
             <h1 style="text-align: center; margin-bottom: 10px;">The Modern Food Discovery Journey</h1>
-            <p style="text-align: center; color: var(--warm-gray); font-size: 18px; margin-bottom: 40px;">A.K.A. why you end up ordering pizza again</p>
+            <p style="text-align: center; color: var(--warm-gray); font-size: 18px; margin-bottom: 30px;">A.K.A. why you end up ordering pizza again</p>
 
-            <!-- Journey Map -->
-            <div style="position: relative; padding: 20px 0;">
-                <!-- The winding path -->
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+            <!-- Journey Map with Road -->
+            <div style="position: relative; padding: 10px 0;">
 
-                    <!-- Step 1: Doom Scroll -->
-                    <div style="background: linear-gradient(135deg, #E1306C, #C13584); border-radius: 20px; padding: 20px; width: 180px; text-align: center; transform: rotate(-3deg); box-shadow: 0 8px 30px rgba(225, 48, 108, 0.3);">
-                        <div style="font-size: 36px; margin-bottom: 8px;">📱</div>
-                        <div style="font-family: var(--font-display); font-size: 14px; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 1px;">Start</div>
-                        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 600; color: white; margin-top: 4px;">Doom Scroll</div>
-                        <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 8px;">30 mins of memes before you see food</div>
-                    </div>
+                <!-- SVG Road Path -->
+                <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;" viewBox="0 0 1400 500" preserveAspectRatio="none">
+                    <!-- Main road -->
+                    <path d="M 100 80
+                             Q 250 80, 350 120
+                             Q 500 180, 650 120
+                             Q 800 60, 950 120
+                             Q 1100 180, 1200 120
+                             Q 1300 60, 1350 150
+                             Q 1380 280, 1200 320
+                             Q 1000 370, 800 320
+                             Q 600 270, 400 320
+                             Q 200 370, 100 320
+                             Q 30 280, 50 200
+                             Q 70 120, 100 80"
+                          fill="none"
+                          stroke="rgba(255,107,0,0.15)"
+                          stroke-width="60"
+                          stroke-linecap="round"/>
+                    <!-- Road dashes -->
+                    <path d="M 100 80
+                             Q 250 80, 350 120
+                             Q 500 180, 650 120
+                             Q 800 60, 950 120
+                             Q 1100 180, 1200 120
+                             Q 1300 60, 1350 150
+                             Q 1380 280, 1200 320
+                             Q 1000 370, 800 320
+                             Q 600 270, 400 320
+                             Q 200 370, 100 320
+                             Q 30 280, 50 200
+                             Q 70 120, 100 80"
+                          fill="none"
+                          stroke="rgba(255,107,0,0.4)"
+                          stroke-width="3"
+                          stroke-dasharray="20,15"
+                          stroke-linecap="round"/>
+                </svg>
 
-                    <div style="display: flex; align-items: center; font-size: 28px; color: var(--orange);">→</div>
-
-                    <!-- Step 2: OMG Must Try -->
-                    <div style="background: linear-gradient(135deg, #FFBE0B, #FF9500); border-radius: 20px; padding: 20px; width: 180px; text-align: center; transform: rotate(2deg); box-shadow: 0 8px 30px rgba(255, 190, 11, 0.3);">
-                        <div style="font-size: 36px; margin-bottom: 8px;">🤤</div>
-                        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 600; color: #1a1a1a;">OMG Must Try!</div>
-                        <div style="font-size: 12px; color: rgba(0,0,0,0.7); margin-top: 8px;">Finally! A food video. Save it immediately.</div>
-                    </div>
-
-                    <div style="display: flex; align-items: center; font-size: 28px; color: var(--orange);">→</div>
-
-                    <!-- Step 3: Reality Check -->
-                    <div style="background: linear-gradient(135deg, #4285F4, #34A853); border-radius: 20px; padding: 20px; width: 180px; text-align: center; transform: rotate(-2deg); box-shadow: 0 8px 30px rgba(66, 133, 244, 0.3);">
-                        <div style="font-size: 36px; margin-bottom: 8px;">🗺️</div>
-                        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 600; color: white;">Reality Check</div>
-                        <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 8px;">Google it. 45 min drive. Is it worth it?</div>
-                    </div>
-
-                    <div style="display: flex; align-items: center; font-size: 28px; color: var(--orange);">→</div>
-
-                    <!-- Step 4: Vibe Check -->
-                    <div style="background: linear-gradient(135deg, #833AB4, #C13584); border-radius: 20px; padding: 20px; width: 180px; text-align: center; transform: rotate(3deg); box-shadow: 0 8px 30px rgba(131, 58, 180, 0.3);">
-                        <div style="font-size: 36px; margin-bottom: 8px;">📸</div>
-                        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 600; color: white;">Vibe Check</div>
-                        <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 8px;">Check their IG. Last post 2019. Hmm.</div>
-                    </div>
-                </div>
-
-                <!-- Second Row -->
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px;">
-
-                    <!-- Step 5: Delivery Check -->
-                    <div style="background: linear-gradient(135deg, #05C167, #00A651); border-radius: 20px; padding: 20px; width: 180px; text-align: center; transform: rotate(2deg); box-shadow: 0 8px 30px rgba(5, 193, 103, 0.3);">
-                        <div style="font-size: 36px; margin-bottom: 8px;">🛵</div>
-                        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 600; color: white;">Delivery Check</div>
-                        <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 8px;">UberEats? DoorDash? Skip? $8 fee each.</div>
-                    </div>
-
-                    <div style="display: flex; align-items: center; font-size: 28px; color: var(--orange);">→</div>
-
-                    <!-- Step 6: Reservation -->
-                    <div style="background: linear-gradient(135deg, #DA3743, #B71C1C); border-radius: 20px; padding: 20px; width: 180px; text-align: center; transform: rotate(-3deg); box-shadow: 0 8px 30px rgba(218, 55, 67, 0.3);">
-                        <div style="font-size: 36px; margin-bottom: 8px;">📅</div>
-                        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 600; color: white;">Book a Table?</div>
-                        <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 8px;">OpenTable, Resy, Yelp... Fully booked.</div>
-                    </div>
-
-                    <div style="display: flex; align-items: center; font-size: 28px; color: var(--orange);">→</div>
-
-                    <!-- Step 7: The Barrier -->
-                    <div style="background: linear-gradient(135deg, #424242, #212121); border-radius: 20px; padding: 20px; width: 180px; text-align: center; transform: rotate(1deg); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); border: 2px solid #666;">
-                        <div style="font-size: 36px; margin-bottom: 8px;">🛑</div>
-                        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 600; color: white;">THE BARRIER</div>
-                        <div style="font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 8px;">Too far. Closed. Booked. Bad reviews. Give up.</div>
-                    </div>
-
-                    <div style="display: flex; align-items: center; font-size: 28px; color: #FF4444;">→</div>
-
-                    <!-- Step 8: Pizza Again -->
-                    <div style="background: linear-gradient(135deg, var(--orange), #E85D00); border-radius: 20px; padding: 20px; width: 180px; text-align: center; transform: rotate(-2deg); box-shadow: 0 8px 30px rgba(255, 107, 0, 0.4); border: 3px dashed rgba(255,255,255,0.4);">
-                        <div style="font-size: 36px; margin-bottom: 8px;">🍕</div>
-                        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 600; color: white;">Pizza. Again.</div>
-                        <div style="font-size: 12px; color: rgba(255,255,255,0.9); margin-top: 8px;">Back to the same 3 places you always order from.</div>
+                <!-- Step 1: Doom Scroll (Start) -->
+                <div style="position: absolute; top: 20px; left: 40px; z-index: 1;">
+                    <div style="background: linear-gradient(135deg, #E1306C, #C13584); border-radius: 16px; padding: 15px; width: 150px; text-align: center; transform: rotate(-3deg); box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);">
+                        <div style="font-size: 32px; margin-bottom: 6px;">📱</div>
+                        <div style="font-family: var(--font-display); font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px;">Start</div>
+                        <div style="font-family: var(--font-display); font-size: 15px; font-weight: 600; color: white;">Doom Scroll</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.75); margin-top: 6px;">30 mins of memes before food</div>
                     </div>
                 </div>
 
-                <!-- Loop Arrow -->
-                <div style="text-align: center; margin-top: 25px;">
-                    <div style="display: inline-block; background: rgba(255, 68, 68, 0.15); border: 2px solid rgba(255, 68, 68, 0.4); border-radius: 50px; padding: 12px 30px;">
-                        <span style="font-family: var(--font-display); font-size: 16px; font-weight: 600; color: #FF4444;">🔄 THE RESTART LOOP</span>
-                        <span style="font-size: 14px; color: var(--warm-gray); margin-left: 10px;">repeat tomorrow</span>
+                <!-- Step 2: OMG Must Try -->
+                <div style="position: absolute; top: 60px; left: 260px; z-index: 1;">
+                    <div style="background: linear-gradient(135deg, #FFBE0B, #FF9500); border-radius: 16px; padding: 15px; width: 150px; text-align: center; transform: rotate(2deg); box-shadow: 0 8px 25px rgba(255, 190, 11, 0.4);">
+                        <div style="font-size: 32px; margin-bottom: 6px;">🤤</div>
+                        <div style="font-family: var(--font-display); font-size: 15px; font-weight: 600; color: #1a1a1a;">OMG Must Try!</div>
+                        <div style="font-size: 10px; color: rgba(0,0,0,0.6); margin-top: 6px;">Finally! A food video. Save it.</div>
                     </div>
                 </div>
+
+                <!-- Step 3: Vibe Check -->
+                <div style="position: absolute; top: 15px; left: 480px; z-index: 1;">
+                    <div style="background: linear-gradient(135deg, #833AB4, #C13584); border-radius: 16px; padding: 15px; width: 150px; text-align: center; transform: rotate(-2deg); box-shadow: 0 8px 25px rgba(131, 58, 180, 0.4);">
+                        <div style="font-size: 32px; margin-bottom: 6px;">📸</div>
+                        <div style="font-family: var(--font-display); font-size: 15px; font-weight: 600; color: white;">Vibe Check</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.75); margin-top: 6px;">Check their IG. Last post 2019.</div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Reality Check -->
+                <div style="position: absolute; top: 60px; left: 700px; z-index: 1;">
+                    <div style="background: linear-gradient(135deg, #4285F4, #34A853); border-radius: 16px; padding: 15px; width: 150px; text-align: center; transform: rotate(3deg); box-shadow: 0 8px 25px rgba(66, 133, 244, 0.4);">
+                        <div style="font-size: 32px; margin-bottom: 6px;">🗺️</div>
+                        <div style="font-family: var(--font-display); font-size: 15px; font-weight: 600; color: white;">Reality Check</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.75); margin-top: 6px;">Google it. 45 min drive. Ugh.</div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Delivery Check -->
+                <div style="position: absolute; top: 15px; left: 920px; z-index: 1;">
+                    <div style="background: linear-gradient(135deg, #05C167, #00A651); border-radius: 16px; padding: 15px; width: 150px; text-align: center; transform: rotate(-2deg); box-shadow: 0 8px 25px rgba(5, 193, 103, 0.4);">
+                        <div style="font-size: 32px; margin-bottom: 6px;">🛵</div>
+                        <div style="font-family: var(--font-display); font-size: 15px; font-weight: 600; color: white;">Delivery Check</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.75); margin-top: 6px;">UberEats? DoorDash? $8 fee.</div>
+                    </div>
+                </div>
+
+                <!-- Step 6: Book a Table -->
+                <div style="position: absolute; top: 80px; left: 1140px; z-index: 1;">
+                    <div style="background: linear-gradient(135deg, #DA3743, #B71C1C); border-radius: 16px; padding: 15px; width: 150px; text-align: center; transform: rotate(2deg); box-shadow: 0 8px 25px rgba(218, 55, 67, 0.4);">
+                        <div style="font-size: 32px; margin-bottom: 6px;">📅</div>
+                        <div style="font-family: var(--font-display); font-size: 15px; font-weight: 600; color: white;">Book a Table?</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.75); margin-top: 6px;">OpenTable, Resy... Fully booked.</div>
+                    </div>
+                </div>
+
+                <!-- Step 7: The Barrier -->
+                <div style="position: absolute; top: 250px; left: 1100px; z-index: 1;">
+                    <div style="background: linear-gradient(135deg, #424242, #212121); border-radius: 16px; padding: 15px; width: 170px; text-align: center; transform: rotate(-1deg); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); border: 3px solid #666;">
+                        <div style="font-size: 32px; margin-bottom: 6px;">🛑</div>
+                        <div style="font-family: var(--font-display); font-size: 16px; font-weight: 700; color: #FF4444;">THE BARRIER</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.6); margin-top: 6px;">Too far. Closed. Booked. Give up.</div>
+                    </div>
+                </div>
+
+                <!-- Step 8: Pizza Again -->
+                <div style="position: absolute; top: 270px; left: 750px; z-index: 1;">
+                    <div style="background: linear-gradient(135deg, var(--orange), #E85D00); border-radius: 16px; padding: 15px; width: 160px; text-align: center; transform: rotate(2deg); box-shadow: 0 8px 25px rgba(255, 107, 0, 0.5); border: 3px dashed rgba(255,255,255,0.4);">
+                        <div style="font-size: 32px; margin-bottom: 6px;">🍕</div>
+                        <div style="font-family: var(--font-display); font-size: 16px; font-weight: 600; color: white;">Pizza. Again.</div>
+                        <div style="font-size: 10px; color: rgba(255,255,255,0.85); margin-top: 6px;">Same 3 places. Every time.</div>
+                    </div>
+                </div>
+
+                <!-- Restart Loop Arrow -->
+                <div style="position: absolute; top: 320px; left: 400px; z-index: 1;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <svg width="200" height="60" style="transform: rotate(10deg);">
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#FF4444" />
+                                </marker>
+                            </defs>
+                            <path d="M 180 50 Q 100 10, 20 40" stroke="#FF4444" stroke-width="3" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="8,4"/>
+                        </svg>
+                        <div style="background: rgba(255, 68, 68, 0.15); border: 2px solid rgba(255, 68, 68, 0.5); border-radius: 50px; padding: 10px 20px; transform: rotate(-5deg);">
+                            <span style="font-family: var(--font-display); font-size: 14px; font-weight: 600; color: #FF4444;">🔄 RESTART LOOP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spacer for absolute positioning -->
+                <div style="height: 420px;"></div>
             </div>
         </div>
     </div>
