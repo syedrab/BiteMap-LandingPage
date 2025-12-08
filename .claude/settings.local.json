@@ -6,7 +6,9 @@
       "Bash(git push)",
       "WebFetch(domain:bunny.net)",
       "WebSearch",
-      "Skill(example-skills:frontend-design)"
+      "Skill(example-skills:frontend-design)",
+      "Bash(pip show:*)",
+      "Bash(npx qrcode:*)"
     ],
     "deny": [],
     "ask": []
