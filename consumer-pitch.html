@@ -386,14 +386,14 @@
 
         .timeline-date {
             font-family: var(--font-display);
-            font-size: 22px;
+            font-size: 28px;
             font-weight: 600;
             color: var(--orange);
             margin-bottom: 8px;
         }
 
         .timeline-text {
-            font-size: 16px;
+            font-size: 22px;
             color: rgba(250, 249, 247, 0.75);
             line-height: 1.6;
         }
@@ -767,13 +767,16 @@
 
     <!-- Slide 1: Title -->
     <div class="slide title">
-        <div class="content">
+        <div class="content" style="text-align: left;">
             <a href="https://bitemap.fun" target="_blank" class="logo-text">BiteMap</a>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 40px;">
                 <div class="tagline" style="margin: 0; text-align: left;">
                     Find your next spot through <span>people you trust.</span>
                 </div>
-                <img src="images/bitemap-qr.png" alt="Scan to download BiteMap" style="width: 350px; height: 350px; border-radius: 16px;">
+                <div style="text-align: center;">
+                    <img src="images/bitemap-qr.png" alt="Scan to download BiteMap" style="width: 350px; height: 350px; border-radius: 16px;">
+                    <p style="margin-top: 16px; font-size: 22px; color: var(--warm-gray); display: flex; align-items: center; justify-content: center; gap: 8px;"><img src="images/apple.svg" alt="Apple" style="height: 24px; filter: brightness(0) invert(0.7);"> iPhone only</p>
+                </div>
             </div>
         </div>
     </div>
@@ -785,7 +788,7 @@
             <p style="color: var(--warm-gray); font-size: 18px; margin-bottom: 30px;">A.K.A. why you end up ordering pizza again</p>
 
             <!-- Journey Map with Road -->
-            <div style="position: relative; padding: 10px 0;">
+            <div style="position: relative; padding: 10px 0; margin-top: 80px;">
 
                 <!-- SVG Road Path -->
                 <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;" viewBox="0 0 1400 550" preserveAspectRatio="none">
@@ -936,37 +939,39 @@
         <div class="content">
             <h1>The Problem</h1>
 
-            <p style="font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); font-weight: 600; color: var(--white); line-height: 1.3; margin-bottom: 30px;">
-                Social media <span style="color: var(--orange);">wasn't built for food discovery.</span>
-            </p>
+            <div style="margin-top: 60px;">
+                <p style="font-family: var(--font-display); font-size: clamp(34px, 4vw, 48px); font-weight: 600; color: var(--white); line-height: 1.3; margin-bottom: 36px;">
+                    Social media <span style="color: var(--orange);">wasn't built for food discovery.</span>
+                </p>
 
-            <div style="display: flex; flex-direction: column; gap: 28px;">
-                <div style="display: flex; align-items: center; gap: 24px;">
-                    <div style="width: 65px; height: 65px; background: rgba(255,107,0,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 32px;">🎭</div>
-                    <div>
-                        <div style="font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--white);">Entertainment First, Food Second</div>
-                        <div style="font-size: 20px; color: rgba(250,249,247,0.6); margin-top: 6px;">You're scrolling an entertainment feed hoping the algorithm blesses you with food content</div>
+                <div style="display: flex; flex-direction: column; gap: 34px;">
+                    <div style="display: flex; align-items: center; gap: 28px;">
+                        <div style="width: 78px; height: 78px; background: rgba(255,107,0,0.15); border-radius: 17px; display: flex; align-items: center; justify-content: center; font-size: 38px;">🎭</div>
+                        <div>
+                            <div style="font-family: var(--font-display); font-size: 31px; font-weight: 600; color: var(--white);">Entertainment First, Food Second</div>
+                            <div style="font-size: 24px; color: rgba(250,249,247,0.6); margin-top: 2px;">You're scrolling an entertainment feed hoping the algorithm blesses you with food content</div>
+                        </div>
                     </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 24px;">
-                    <div style="width: 65px; height: 65px; background: rgba(255,107,0,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 32px;">🚗</div>
-                    <div>
-                        <div style="font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--white);">Unreachable Recommendations</div>
-                        <div style="font-size: 20px; color: rgba(250,249,247,0.6); margin-top: 6px;">That viral spot looks amazing — but it's 30km away. Great content, wrong city</div>
+                    <div style="display: flex; align-items: center; gap: 28px;">
+                        <div style="width: 78px; height: 78px; background: rgba(255,107,0,0.15); border-radius: 17px; display: flex; align-items: center; justify-content: center; font-size: 38px;">🚗</div>
+                        <div>
+                            <div style="font-family: var(--font-display); font-size: 31px; font-weight: 600; color: var(--white);">Unreachable Recommendations</div>
+                            <div style="font-size: 24px; color: rgba(250,249,247,0.6); margin-top: 2px;">That viral spot looks amazing — but it's 30km away. Great content, wrong city</div>
+                        </div>
                     </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 24px;">
-                    <div style="width: 65px; height: 65px; background: rgba(255,107,0,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 32px;">🤷</div>
-                    <div>
-                        <div style="font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--white);">One-Size-Fits-All</div>
-                        <div style="font-size: 20px; color: rgba(250,249,247,0.6); margin-top: 6px;">Generic recommendations that ignore your taste, diet, budget, and cravings</div>
+                    <div style="display: flex; align-items: center; gap: 28px;">
+                        <div style="width: 78px; height: 78px; background: rgba(255,107,0,0.15); border-radius: 17px; display: flex; align-items: center; justify-content: center; font-size: 38px;">🤷</div>
+                        <div>
+                            <div style="font-family: var(--font-display); font-size: 31px; font-weight: 600; color: var(--white);">One-Size-Fits-All</div>
+                            <div style="font-size: 24px; color: rgba(250,249,247,0.6); margin-top: 2px;">Generic recommendations that ignore your taste, diet, budget, and cravings</div>
+                        </div>
                     </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 24px;">
-                    <div style="width: 65px; height: 65px; background: rgba(255,107,0,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 32px;">📁</div>
-                    <div>
-                        <div style="font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--white);">Saved & Forgotten</div>
-                        <div style="font-size: 20px; color: rgba(250,249,247,0.6); margin-top: 6px;">Your saved folder is full of amazing spots you'll never remember exist</div>
+                    <div style="display: flex; align-items: center; gap: 28px;">
+                        <div style="width: 78px; height: 78px; background: rgba(255,107,0,0.15); border-radius: 17px; display: flex; align-items: center; justify-content: center; font-size: 38px;">📁</div>
+                        <div>
+                            <div style="font-family: var(--font-display); font-size: 31px; font-weight: 600; color: var(--white);">Saved & Forgotten</div>
+                            <div style="font-size: 24px; color: rgba(250,249,247,0.6); margin-top: 2px;">Your saved folder is full of amazing spots you'll never remember exist</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -978,45 +983,45 @@
         <div class="content">
             <h1>The Solution</h1>
 
-            <div style="display: flex; gap: 60px; align-items: center;">
+            <div style="display: flex; gap: 60px; align-items: center; margin-top: 60px;">
                 <div style="flex: 1;">
-                    <p style="font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); font-weight: 600; color: var(--white); line-height: 1.3; margin-bottom: 30px;">
+                    <p style="font-family: var(--font-display); font-size: clamp(34px, 4vw, 48px); font-weight: 600; color: var(--white); line-height: 1.3; margin-bottom: 36px;">
                         Food content <span style="color: var(--orange);">built for action.</span>
                     </p>
-                    <div style="display: flex; flex-direction: column; gap: 28px;">
-                        <div style="display: flex; align-items: center; gap: 24px;">
-                            <div style="width: 65px; height: 65px; background: rgba(255,107,0,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 32px;">🎬</div>
+                    <div style="display: flex; flex-direction: column; gap: 34px;">
+                        <div style="display: flex; align-items: center; gap: 28px;">
+                            <div style="width: 78px; height: 78px; background: rgba(255,107,0,0.15); border-radius: 17px; display: flex; align-items: center; justify-content: center; font-size: 38px;">🎬</div>
                             <div>
-                                <div style="font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--white);">Food Video Discovery App <span style="font-size: 18px; font-weight: 400; color: var(--warm-gray); margin-left: 15px;"><img src="images/apple.svg" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 2px; filter: brightness(0) invert(0.7);"> iOS ✓ | <img src="images/android.png" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 2px;"> Coming Soon</span></div>
-                                <div style="font-size: 20px; color: rgba(250,249,247,0.6); margin-top: 6px;">A dedicated place for food content — open it when you're hungry, not when the algorithm decides</div>
+                                <div style="font-family: var(--font-display); font-size: 31px; font-weight: 600; color: var(--white);">Dedicated Food Platform <span style="font-size: 22px; font-weight: 400; color: var(--warm-gray); margin-left: 15px;"><img src="images/apple.svg" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 2px; filter: brightness(0) invert(0.7);"> iOS ✓ | <img src="images/android.png" style="width: 36px; height: 36px; vertical-align: middle; margin-right: 2px;"> Coming Soon</span></div>
+                                <div style="font-size: 24px; color: rgba(250,249,247,0.6); margin-top: 2px;">Open it when you're hungry, not when the algorithm decides</div>
                             </div>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 24px;">
-                            <div style="width: 65px; height: 65px; background: rgba(255,107,0,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 32px;">📍</div>
+                        <div style="display: flex; align-items: center; gap: 28px;">
+                            <div style="width: 78px; height: 78px; background: rgba(255,107,0,0.15); border-radius: 17px; display: flex; align-items: center; justify-content: center; font-size: 38px;">📍</div>
                             <div>
-                                <div style="font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--white);">Location-Aware</div>
-                                <div style="font-size: 20px; color: rgba(250,249,247,0.6); margin-top: 6px;">Every recommendation is built around where you are — only see places you can actually go to</div>
+                                <div style="font-family: var(--font-display); font-size: 31px; font-weight: 600; color: var(--white);">Location-Aware</div>
+                                <div style="font-size: 24px; color: rgba(250,249,247,0.6); margin-top: 2px;">Every recommendation is built around where you are — only see places you can actually go to</div>
                             </div>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 24px;">
-                            <div style="width: 65px; height: 65px; background: rgba(255,107,0,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 32px;">🎯</div>
+                        <div style="display: flex; align-items: center; gap: 28px;">
+                            <div style="width: 78px; height: 78px; background: rgba(255,107,0,0.15); border-radius: 17px; display: flex; align-items: center; justify-content: center; font-size: 38px;">🎯</div>
                             <div>
-                                <div style="font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--white);">Personalization</div>
-                                <div style="font-size: 20px; color: rgba(250,249,247,0.6); margin-top: 6px;">Your preferences matter. Pad thai? Halal spots? Best tiramisu nearby?</div>
+                                <div style="font-family: var(--font-display); font-size: 31px; font-weight: 600; color: var(--white);">Personalization</div>
+                                <div style="font-size: 24px; color: rgba(250,249,247,0.6); margin-top: 2px;">No more generic recommendations — this feed is yours</div>
                             </div>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 24px;">
-                            <div style="width: 65px; height: 65px; background: rgba(255,107,0,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 32px;">💾</div>
+                        <div style="display: flex; align-items: center; gap: 28px;">
+                            <div style="width: 78px; height: 78px; background: rgba(255,107,0,0.15); border-radius: 17px; display: flex; align-items: center; justify-content: center; font-size: 38px;">💾</div>
                             <div>
-                                <div style="font-family: var(--font-display); font-size: 26px; font-weight: 600; color: var(--white);">Smart Saves</div>
-                                <div style="font-size: 20px; color: rgba(250,249,247,0.6); margin-top: 6px;">Your saves actually work — we resurface them when you're in the area</div>
+                                <div style="font-family: var(--font-display); font-size: 31px; font-weight: 600; color: var(--white);">Smart Saves</div>
+                                <div style="font-size: 24px; color: rgba(250,249,247,0.6); margin-top: 2px;">Your saves actually work — we resurface them when you're in the area</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div style="flex: 0 0 240px;">
-                    <div class="screenshot" style="max-width: 230px;">
+                <div style="flex: 0 0 220px; margin-left: auto;">
+                    <div class="screenshot" style="max-width: 220px;">
                         <img src="images/Home Feed.png" alt="BiteMap App">
                     </div>
                 </div>
@@ -1029,7 +1034,7 @@
         <div class="content">
             <h1>The Experience</h1>
 
-            <div style="display: flex; gap: 50px; align-items: flex-start;">
+            <div style="display: flex; gap: 50px; align-items: flex-start; margin-top: 60px;">
                 <div style="flex: 1;">
                     <div class="feature-list">
                         <div class="feature">
@@ -1085,54 +1090,12 @@
         </div>
     </div>
 
-    <!-- Slide 6: Market Opportunity -->
-    <div class="slide">
-        <div class="content">
-            <h1>Market Opportunity</h1>
-            <p style="color: var(--warm-gray); margin-bottom: 35px;">Local Discovery + Food Commerce</p>
-
-            <div class="market-grid">
-                <div class="market-card primary">
-                    <div class="market-label">TAM</div>
-                    <div class="market-value">$400B+</div>
-                    <div class="market-desc">Location-Based Ads + Food Delivery + Short-Form Video</div>
-                    <div class="market-details">
-                        <strong style="color: var(--white);">$111B</strong> location-based advertising (2023)<br>
-                        <strong style="color: var(--white);">$289B</strong> online food delivery GMV (2024)<br>
-                        <strong style="color: var(--white);">$99B</strong> short-form video ad revenue (2024)
-                    </div>
-                </div>
-
-                <div class="market-card secondary">
-                    <div class="market-label" style="color: var(--warm-gray);">SAM</div>
-                    <div class="market-value">$15-20B</div>
-                    <div class="market-desc">North America Urban Dining</div>
-                    <div class="market-details">
-                        <strong>$14B</strong> U.S. restaurant local ad spend<br>
-                        <strong>$78B</strong> NA digital food ordering GMV
-                    </div>
-                </div>
-
-                <div class="market-card secondary">
-                    <div class="market-label" style="color: var(--warm-gray);">SOM</div>
-                    <div class="market-value" style="color: rgba(250,249,247,0.8);">$100M+</div>
-                    <div class="market-desc">Major Metro Areas (Year 1-3)</div>
-                    <div class="market-details">
-                        <strong>1%</strong> of U.S. local restaurant ad spend = $140M<br>
-                        <strong>+</strong> affiliate commission on orders driven
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
     <!-- Slide: Current Status -->
     <div class="slide">
         <div class="content">
             <h1>Current Status</h1>
 
-            <div class="card" style="margin-top: 20px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; padding: 20px 30px;">
+            <div class="card" style="margin-top: 60px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; padding: 20px 30px;">
                 <h3 style="color: var(--white); margin-bottom: 8px;">🚀 Live on App Store</h3>
                 <p style="margin-top: 0;">BiteMap is live in Toronto with 10 creators, 2,000 videos, and 500 restaurants. Gathering user feedback and iterating on core features.</p>
             </div>
@@ -1191,50 +1154,53 @@
         <div class="content">
             <h1>Growth Roadmap</h1>
 
-            <div class="timeline">
-                <div class="timeline-item" style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <div class="timeline-date">Q4 2025 ✓</div>
-                        <div class="timeline-text"><strong>10 Creators</strong> • <strong>2,000 Videos</strong> • App Store Launch</div>
+            <div style="margin-top: 60px;">
+                <div class="feature-list">
+                    <div class="feature">
+                        <div class="feature-number" style="background: rgba(255,107,0,0.15); color: var(--orange);">Q1</div>
+                        <div class="feature-content">
+                            <h3>2026 — Scale</h3>
+                            <p><strong>10,000 Users</strong> • <strong>50+ Creators</strong> • <strong>20K Videos</strong></p>
+                        </div>
                     </div>
-                    <div style="display: flex; gap: 12px; align-items: center;">
-                        <img src="images/apple.svg" alt="Apple" style="height: 32px; filter: brightness(0) invert(1); opacity: 0.9;">
+                    <div class="feature">
+                        <div class="feature-number" style="background: rgba(255,107,0,0.15); color: var(--orange);">Q2</div>
+                        <div class="feature-content">
+                            <h3 style="display: flex; align-items: center; gap: 12px;">2026 — Integrations
+                                <span style="display: flex; gap: 10px; align-items: center;">
+                                    <img src="images/ubereats.png" style="height: 28px; border-radius: 6px;">
+                                    <img src="images/doordash.png" style="height: 28px; border-radius: 6px;">
+                                    <img src="images/opentable.png" style="height: 28px; border-radius: 6px;">
+                                </span>
+                            </h3>
+                            <p>UberEats, DoorDash, OpenTable, Resy — order or reserve directly</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item" style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <div class="timeline-date">Q1 2026</div>
-                        <div class="timeline-text"><strong>10,000 Users</strong> • <strong>50+ Creators</strong> • <strong>20K Videos</strong></div>
+                    <div class="feature">
+                        <div class="feature-number" style="background: rgba(255,107,0,0.15); color: var(--orange);">Q3</div>
+                        <div class="feature-content">
+                            <h3 style="display: flex; align-items: center; gap: 12px;">2026 — Android
+                                <span style="display: flex; gap: 10px; align-items: center;">
+                                    <img src="images/android.png" style="height: 32px;">
+                                </span>
+                            </h3>
+                            <p>Android app launch</p>
+                        </div>
                     </div>
-                    <div style="font-size: 28px; opacity: 0.8;">🎬 📈 👥</div>
-                </div>
-                <div class="timeline-item" style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <div class="timeline-date">Q2 2026</div>
-                        <div class="timeline-text"><strong>Integrations & Partnerships</strong> • UberEats, DoorDash, OpenTable, Resy</div>
+                    <div class="feature">
+                        <div class="feature-number" style="background: rgba(255,107,0,0.15); color: var(--orange);">Q4</div>
+                        <div class="feature-content">
+                            <h3>2026 — Platform Growth</h3>
+                            <p>Creator & Restaurant Dashboards • Premium Placements</p>
+                        </div>
                     </div>
-                    <div style="display: flex; gap: 12px; align-items: center;">
-                        <img src="images/ubereats.png" alt="UberEats" style="height: 32px; border-radius: 6px;">
-                        <img src="images/doordash.png" alt="DoorDash" style="height: 32px; border-radius: 6px;">
-                        <img src="images/opentable.png" alt="OpenTable" style="height: 32px; border-radius: 6px;">
+                    <div class="feature">
+                        <div class="feature-number" style="background: rgba(255,107,0,0.15); color: var(--orange);">2027+</div>
+                        <div class="feature-content">
+                            <h3>Expansion 🇨🇦 🇺🇸 🌎</h3>
+                            <p>🇨🇦 Montreal, Vancouver • 🇺🇸 New York, Los Angeles, Chicago, San Francisco, Miami</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item" style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <div class="timeline-date">Q3-Q4 2026</div>
-                        <div class="timeline-text"><strong>Dashboards</strong> • Android • Partner Portal • Premium Placements</div>
-                    </div>
-                    <div style="display: flex; gap: 12px; align-items: center; font-size: 28px; opacity: 0.8;">
-                        📊
-                        <img src="images/android.png" alt="Android" style="height: 40px;">
-                    </div>
-                </div>
-                <div class="timeline-item" style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <div class="timeline-date">2027+</div>
-                        <div class="timeline-text"><strong>Expansion</strong> • Montreal, NYC, Chicago and more</div>
-                    </div>
-                    <div style="font-size: 28px; opacity: 0.8;">🇨🇦 🇺🇸 🌎</div>
                 </div>
             </div>
         </div>
@@ -1244,10 +1210,12 @@
     <div class="slide">
         <div class="content">
             <h1>Join the Movement</h1>
-            <p style="color: var(--warm-gray); font-size: 22px; margin-bottom: 50px;">Here's how you can be part of what we're building</p>
 
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <div class="card" style="padding: 38px 44px; width: 45%;">
+            <div style="margin-top: 60px;">
+                <p style="color: var(--warm-gray); font-size: 22px; margin-bottom: 50px;">Here's how you can be part of what we're building</p>
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px;">
+                <div class="card" style="padding: 38px 44px; flex: 1;">
                     <div style="margin-bottom: 33px;">
                         <h3 style="font-size: 35px; margin-bottom: 13px;">📲 Download & Share</h3>
                         <p style="font-size: 24px; margin: 0;">Try the app, tell a foodie friend, spread the word</p>
@@ -1263,10 +1231,14 @@
                     </div>
                 </div>
 
-                <img src="images/bitemap-qr.png" alt="Scan to download BiteMap" style="width: 500px; height: 500px; border-radius: 16px;">
-            </div>
+                <div style="flex: 1; text-align: center;">
+                    <img src="images/bitemap-qr.png" alt="Scan to download BiteMap" style="width: 100%; max-width: 400px; border-radius: 16px;">
+                    <p style="margin-top: 16px; font-size: 24px; color: var(--warm-gray); display: flex; align-items: center; justify-content: center; gap: 10px;"><img src="images/apple.svg" alt="Apple" style="height: 28px; filter: brightness(0) invert(0.7);"> iPhone only</p>
+                </div>
+                </div>
 
-            <p style="color: var(--warm-gray); font-size: 20px; margin-top: 50px;">P.S. Looking for a growth-focused co-founder — intros welcome</p>
+                <p style="color: var(--warm-gray); font-size: 20px; margin-top: 50px;">P.S. Looking for a growth-focused co-founder — intros welcome</p>
+            </div>
         </div>
     </div>
 
@@ -1280,9 +1252,11 @@
     <!-- Slide: Team (Appendix) -->
     <div class="slide">
         <div class="content">
-            <h1>Team</h1>
-
             <div style="margin-top: 60px;">
+            <h1 style="font-size: 36px; margin-bottom: 10px;">Appendix: Team</h1>
+            <p style="color: var(--warm-gray); font-size: 18px; margin-bottom: 30px;">The people building BiteMap</p>
+
+            <div style="display: flex; flex-direction: column; gap: 50px;">
                 <div style="display: flex; gap: 50px; align-items: flex-start;">
                     <div style="flex-shrink: 0;">
                         <img src="images/mohibrab.jpg" alt="Mohib Rab" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid var(--orange); box-shadow: 0 15px 40px rgba(255, 107, 0, 0.25);">
@@ -1301,6 +1275,65 @@
                         </p>
                     </div>
                 </div>
+
+                <div style="display: flex; gap: 50px; align-items: flex-start;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 200px; height: 200px; border-radius: 50%; border: 4px dashed var(--warm-gray); display: flex; align-items: center; justify-content: center; font-size: 72px; color: var(--warm-gray);">?</div>
+                    </div>
+
+                    <div style="flex: 1;">
+                        <h2 style="font-size: 36px; margin-bottom: 8px; color: var(--warm-gray);">TBD</h2>
+                        <h3 style="font-size: 20px; margin-bottom: 25px; color: var(--warm-gray); font-weight: 400;">Co-founder</h3>
+
+                        <p style="font-size: 17px; line-height: 1.7; color: rgba(250,249,247,0.5);">
+                            Looking for a growth-focused co-founder with experience in consumer apps, creator ecosystems, or food/restaurant tech.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide: Market Opportunity (Appendix) -->
+    <div class="slide">
+        <div class="content">
+            <div style="margin-top: 60px;">
+            <h1 style="font-size: 36px; margin-bottom: 10px;">Appendix: Market Opportunity</h1>
+            <p style="color: var(--warm-gray); font-size: 18px; margin-bottom: 30px;">Local Discovery + Food Commerce</p>
+
+                <div class="market-grid">
+                <div class="market-card primary">
+                    <div class="market-label">TAM</div>
+                    <div class="market-value">$400B+</div>
+                    <div class="market-desc">Location-Based Ads + Food Delivery + Short-Form Video</div>
+                    <div class="market-details">
+                        <strong style="color: var(--white);">$111B</strong> location-based advertising (2023)<br>
+                        <strong style="color: var(--white);">$289B</strong> online food delivery GMV (2024)<br>
+                        <strong style="color: var(--white);">$99B</strong> short-form video ad revenue (2024)
+                    </div>
+                </div>
+
+                <div class="market-card secondary">
+                    <div class="market-label" style="color: var(--warm-gray);">SAM</div>
+                    <div class="market-value">$15-20B</div>
+                    <div class="market-desc">North America Urban Dining</div>
+                    <div class="market-details">
+                        <strong>$14B</strong> U.S. restaurant local ad spend<br>
+                        <strong>$78B</strong> NA digital food ordering GMV
+                    </div>
+                </div>
+
+                <div class="market-card secondary">
+                    <div class="market-label" style="color: var(--warm-gray);">SOM</div>
+                    <div class="market-value" style="color: rgba(250,249,247,0.8);">$100M+</div>
+                    <div class="market-desc">Major Metro Areas (Year 1-3)</div>
+                    <div class="market-details">
+                        <strong>1%</strong> of U.S. local restaurant ad spend = $140M<br>
+                        <strong>+</strong> affiliate commission on orders driven
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1308,10 +1341,11 @@
     <!-- Slide 13: Market Size - Sources & Growth Projections -->
     <div class="slide">
         <div class="content">
-            <h1 style="font-size: 40px; margin-bottom: 12px;">Appendix: Market Growth Projections</h1>
-            <p style="color: var(--warm-gray); font-size: 19px; margin-bottom: 28px;">2024 → 2030 trajectory for TAM components</p>
+            <div style="margin-top: 60px;">
+            <h1 style="font-size: 36px; margin-bottom: 10px;">Appendix: Market Growth Projections</h1>
+            <p style="color: var(--warm-gray); font-size: 18px; margin-bottom: 30px;">2024 → 2030 trajectory for TAM components</p>
 
-            <table style="width: 100%; border-collapse: collapse; font-size: 18px; margin-bottom: 28px;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 18px; margin-bottom: 28px;">
                 <thead>
                     <tr style="border-bottom: 2px solid var(--orange);">
                         <th style="text-align: left; padding: 12px; color: var(--orange);">Market</th>
@@ -1390,14 +1424,16 @@
                     <span style="color: var(--warm-gray);">— Uber Q4 2024, eMarketer</span></span>
                 </div>
             </div>
+            </div>
         </div>
     </div>
 
     <!-- Slide 14: Revenue Model - By Phase -->
     <div class="slide">
         <div class="content">
+            <div style="margin-top: 60px;">
             <h1 style="font-size: 36px; margin-bottom: 10px;">Appendix: Revenue Model</h1>
-            <p style="color: var(--warm-gray); font-size: 18px; margin-bottom: 35px;">Revenue streams that unlock as we scale</p>
+            <p style="color: var(--warm-gray); font-size: 18px; margin-bottom: 30px;">Revenue streams that unlock as we scale</p>
 
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 35px;">
                 <!-- Phase 1 -->
@@ -1451,112 +1487,78 @@
                 </div>
                 <div style="color: var(--warm-gray); font-size: 14px; margin-top: 15px;">Source: TechNode, Tech Buzz China</div>
             </div>
+            </div>
         </div>
     </div>
 
     <!-- Slide 15: Consumer Behavior Deep Dive -->
     <div class="slide">
         <div class="content">
+            <div style="margin-top: 60px;">
             <h1 style="font-size: 36px; margin-bottom: 10px;">Appendix: Consumer Discovery Behavior</h1>
-            <p style="color: var(--warm-gray); font-size: 17px; margin-bottom: 20px;">How dining decisions are actually made in 2024-25</p>
+            <p style="color: var(--warm-gray); font-size: 18px; margin-bottom: 30px;">How dining decisions are actually made in 2024-25</p>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; font-size: 12px; margin-bottom: 18px;">
-                <div style="background: rgba(255,107,0,0.08); border: 1px solid rgba(255,107,0,0.2); border-radius: 8px; padding: 16px;">
-                    <div style="font-size: 28px; font-weight: 700; color: var(--orange); margin-bottom: 5px;">74%</div>
-                    <div style="color: var(--white); font-size: 13px; margin-bottom: 8px;">use social media for restaurant decisions</div>
-                    <div style="color: var(--warm-gray);">Toast 2024 Data Study</div>
-                </div>
-                <div style="background: rgba(255,107,0,0.08); border: 1px solid rgba(255,107,0,0.2); border-radius: 8px; padding: 16px;">
-                    <div style="font-size: 28px; font-weight: 700; color: var(--orange); margin-bottom: 5px;">~40%</div>
-                    <div style="color: var(--white); font-size: 13px; margin-bottom: 8px;">of Gen Z use TikTok/IG instead of Google for food</div>
-                    <div style="color: var(--warm-gray);">Google Internal Data 2022</div>
-                </div>
-                <div style="background: rgba(255,107,0,0.08); border: 1px solid rgba(255,107,0,0.2); border-radius: 8px; padding: 16px;">
-                    <div style="font-size: 28px; font-weight: 700; color: var(--orange); margin-bottom: 5px;">55%</div>
-                    <div style="color: var(--white); font-size: 13px; margin-bottom: 8px;">visited restaurant after seeing on TikTok</div>
-                    <div style="color: var(--warm-gray);">TikTok Marketing Science</div>
-                </div>
-            </div>
-
-            <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 16px;">
                 <thead>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
-                        <th style="text-align: left; padding: 10px; color: var(--warm-gray);">Behavior</th>
-                        <th style="text-align: left; padding: 10px; color: var(--warm-gray);">Stat</th>
-                        <th style="text-align: left; padding: 10px; color: var(--warm-gray);">Source</th>
+                    <tr style="border-bottom: 2px solid var(--orange);">
+                        <th style="text-align: left; padding: 12px; color: var(--orange);">Behavior</th>
+                        <th style="text-align: left; padding: 12px; color: var(--orange);">Stat</th>
+                        <th style="text-align: left; padding: 12px; color: var(--orange);">Source</th>
                     </tr>
                 </thead>
-                <tbody style="color: rgba(250,249,247,0.8);">
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">Gen Z using TikTok as a search tool (not just entertainment)</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">64%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">Adobe Study 2023 via eMarketer</td>
+                <tbody style="color: rgba(250,249,247,0.85);">
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                        <td style="padding: 12px;">Use social media for restaurant decisions</td>
+                        <td style="padding: 12px; color: var(--white); font-weight: 600;">74%</td>
+                        <td style="padding: 12px; color: var(--warm-gray);">Toast 2024</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">Gen Z who actually prefer TikTok to Google for search</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">>50%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">Adobe Study 2023 via eMarketer</td>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                        <td style="padding: 12px;">Gen Z use TikTok/IG instead of Google for food</td>
+                        <td style="padding: 12px; color: var(--white); font-weight: 600;">~40%</td>
+                        <td style="padding: 12px; color: var(--warm-gray);">Google Internal 2022</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">18-24 year-olds using TikTok most to find new restaurants</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">41%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">Toast 2024 Data Study</td>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                        <td style="padding: 12px;">Gen Z prefer TikTok to Google for search</td>
+                        <td style="padding: 12px; color: var(--white); font-weight: 600;">>50%</td>
+                        <td style="padding: 12px; color: var(--warm-gray);">Adobe/eMarketer 2023</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">Prefer social media over search engines for restaurant discovery</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">42%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">Cropink Restaurant Stats 2025</td>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                        <td style="padding: 12px;">Visited restaurant after seeing on TikTok</td>
+                        <td style="padding: 12px; color: var(--white); font-weight: 600;">55%</td>
+                        <td style="padding: 12px; color: var(--warm-gray);">TikTok Marketing Science</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">Diners influenced by an influencer's review</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">40%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">Toast 2024 Data Study</td>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                        <td style="padding: 12px;">Gen Z tried food because it trended on social</td>
+                        <td style="padding: 12px; color: var(--white); font-weight: 600;">84%</td>
+                        <td style="padding: 12px; color: var(--warm-gray);">FB101 Gen Z Trends</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">25-34 year-olds influenced by food creators online</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">49%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">Cropink Restaurant Stats 2025</td>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                        <td style="padding: 12px;">Seeing food on social prompts order</td>
+                        <td style="padding: 12px; color: var(--white); font-weight: 600;">76%</td>
+                        <td style="padding: 12px; color: var(--warm-gray);">Snapchat 2025</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">Seeing tantalizing food on social prompts order</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">76%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">Snapchat 2025 Food Report</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">More likely to consider restaurant if friends share on social</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">70%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">Snapchat 2025 Food Report</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">Gen Z tried food because it trended on social media</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">84%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">FB101 Gen Z Food Trends</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">Check restaurant's social media before visiting</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">62%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">Toast 2024 Data Study</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                        <td style="padding: 10px;">Agree AI can help discover new places to eat</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">73%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">Snapchat 2025 Food Report</td>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                        <td style="padding: 12px;">More likely to visit if friends share on social</td>
+                        <td style="padding: 12px; color: var(--white); font-weight: 600;">70%</td>
+                        <td style="padding: 12px; color: var(--warm-gray);">Snapchat 2025</td>
                     </tr>
                     <tr>
-                        <td style="padding: 10px;">TikTok users take action after watching video</td>
-                        <td style="padding: 10px; color: var(--white); font-weight: 600;">92%</td>
-                        <td style="padding: 10px; color: var(--warm-gray);">TikTok Internal Data via Basis</td>
+                        <td style="padding: 12px;">TikTok users take action after watching video</td>
+                        <td style="padding: 12px; color: var(--white); font-weight: 600;">92%</td>
+                        <td style="padding: 12px; color: var(--warm-gray);">TikTok Internal</td>
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 
     <!-- Slide 16: Sector Investment & Validation -->
     <div class="slide">
         <div class="content">
+            <div style="margin-top: 60px;">
             <h1 style="font-size: 36px; margin-bottom: 10px;">Appendix: Sector Investment Activity</h1>
-            <p style="color: var(--warm-gray); font-size: 17px; margin-bottom: 25px;">VC funding and M&A validating video-first local discovery</p>
+            <p style="color: var(--warm-gray); font-size: 18px; margin-bottom: 30px;">VC funding and M&A validating video-first local discovery</p>
 
             <table style="width: 100%; border-collapse: collapse; font-size: 16px; margin-bottom: 25px;">
                 <thead>
@@ -1643,6 +1645,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 
