@@ -56,7 +56,7 @@ export default async function handler(req, res) {
     if (video.creator_id) {
       const { data: creator } = await supabase
         .from('Creator')
-        .select('id, name, image_url')
+        .select('id, name, full_name, image_url')
         .eq('id', video.creator_id)
         .single();
       video.creator = creator;
@@ -104,12 +104,14 @@ function renderVideoPreview(video, code) {
   }
   // Data from Videos table with nested creator/place
   const creatorName = video.creator?.name || 'BiteMap Creator';
+  const creatorFullName = video.creator?.full_name || '';
   const creatorPic = video.creator?.image_url || `https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/${creatorName}.jpeg`;
   const placeName = video.place?.name || 'Amazing Restaurant';
   const placeAddress = video.place?.address || '';
   const placeCity = video.place?.city || '';
   const placeRating = video.place?.rating || null;
   const placeGoogleMapsUrl = video.place?.google_maps_url || null;
+  const caption = video.caption || '';
   const likes = video.likes || 0;
   const saves = video.saves || 0;
   const views = video.views || 0;
@@ -375,8 +377,29 @@ function renderVideoPreview(video, code) {
             color: #999;
         }
 
+        .creator-fullname {
+            font-size: 0.875rem;
+            color: #ccc;
+        }
+
+        .caption-section {
+            font-size: 0.9rem;
+            color: #ddd;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            max-height: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
         .place-section {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .section-label {
@@ -650,35 +673,46 @@ function renderVideoPreview(video, code) {
                 background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 50%, transparent 100%);
                 border: none;
                 border-radius: 0;
-                padding: 1.5rem 1rem;
-                padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
-                padding-top: 5rem;
+                padding: 1rem 1rem;
+                padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+                padding-top: 3rem;
             }
 
             .creator-header {
-                margin-bottom: 1rem;
-                padding-bottom: 1rem;
+                margin-bottom: 0.5rem;
+                padding-bottom: 0.5rem;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             }
 
+            .caption-section {
+                margin-bottom: 0.5rem;
+                padding: 0.5rem;
+                max-height: 60px;
+                -webkit-line-clamp: 2;
+            }
+
+            .place-section {
+                margin-bottom: 0.5rem;
+            }
+
             .place-name {
-                font-size: 1.125rem;
+                font-size: 1rem;
             }
 
             .place-address {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             .stats-grid {
-                padding: 1rem 0;
-                margin: 1rem 0;
+                padding: 0.5rem 0;
+                margin: 0.5rem 0;
                 border-top: 1px solid rgba(255, 255, 255, 0.2);
                 border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             }
 
             .delivery-links {
-                padding: 1rem 0;
-                margin: 1rem 0;
+                padding: 0.5rem 0;
+                margin: 0.5rem 0;
                 border-top: none;
             }
 
@@ -702,54 +736,70 @@ function renderVideoPreview(video, code) {
             }
 
             .info-section {
-                padding: 1rem;
-                padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+                padding: 0.75rem;
+                padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
             }
 
             .creator-header {
-                margin-bottom: 0.75rem;
-                padding-bottom: 0.75rem;
+                margin-bottom: 0.4rem;
+                padding-bottom: 0.4rem;
             }
 
             .creator-avatar {
-                width: 48px;
-                height: 48px;
+                width: 40px;
+                height: 40px;
             }
 
             .creator-name {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
 
-            .section-label {
-                font-size: 0.7rem;
-            }
-
-            .place-name {
-                font-size: 1rem;
-            }
-
-            .place-address {
-                font-size: 0.8rem;
-            }
-
-            .stats-grid {
-                gap: 0.5rem;
-                padding: 0.75rem 0;
-                margin: 0.75rem 0;
-            }
-
-            .stat-value {
-                font-size: 1rem;
-            }
-
-            .stat-label {
+            .creator-fullname {
                 font-size: 0.75rem;
             }
 
+            .caption-section {
+                font-size: 0.8rem;
+                margin-bottom: 0.4rem;
+                padding: 0.4rem;
+                max-height: 50px;
+            }
+
+            .section-label {
+                font-size: 0.65rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .place-section {
+                margin-bottom: 0.4rem;
+            }
+
+            .place-name {
+                font-size: 0.9rem;
+            }
+
+            .place-address {
+                font-size: 0.75rem;
+            }
+
+            .stats-grid {
+                gap: 0.4rem;
+                padding: 0.4rem 0;
+                margin: 0.4rem 0;
+            }
+
+            .stat-value {
+                font-size: 0.9rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
             .delivery-links {
-                gap: 0.5rem;
-                padding: 0.75rem 0;
-                margin: 0.75rem 0;
+                gap: 0.4rem;
+                padding: 0.4rem 0;
+                margin: 0.4rem 0;
             }
 
             .delivery-link {
@@ -848,9 +898,12 @@ function renderVideoPreview(video, code) {
                 </div>
                     <div class="creator-details">
                         <div class="creator-name">@${creatorName}</div>
-                        <div class="creator-label">Content Creator</div>
+                        ${creatorFullName ? `<div class="creator-fullname">${creatorFullName}</div>` : ''}
                     </div>
                 </div>
+
+                <!-- Caption -->
+                ${caption ? `<div class="caption-section">${caption}</div>` : ''}
 
                 <!-- Restaurant Info -->
                 <div class="place-section">
