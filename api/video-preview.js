@@ -37,11 +37,24 @@ export default async function handler(req, res) {
         .from('Videos')
         .select('*')
         .eq('bunny_video_id', code)
+        .not('place_id', 'is', null)
         .limit(1)
         .maybeSingle();
 
-      video = videoByBunny;
-      error = bunnyError;
+      // If no video with place_id, try without that filter
+      if (!videoByBunny) {
+        const { data: anyVideo, error: anyError } = await supabase
+          .from('Videos')
+          .select('*')
+          .eq('bunny_video_id', code)
+          .limit(1)
+          .maybeSingle();
+        video = anyVideo;
+        error = anyError;
+      } else {
+        video = videoByBunny;
+        error = bunnyError;
+      }
     }
 
     console.log('Video fetch result:', { video, error });

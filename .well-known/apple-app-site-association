@@ -3,13 +3,14 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.app.bitemap",
+        "appID": "U5WWPD59YL.softies.BiteMap",
         "paths": [
           "/restaurant/*",
           "/place/*",
           "/creator/*",
           "/video/*",
           "/profile/*",
+          "/v/*",
           "*"
         ]
       }
@@ -17,7 +18,7 @@
   },
   "webcredentials": {
     "apps": [
-      "TEAMID.app.bitemap"
+      "U5WWPD59YL.softies.BiteMap"
     ]
   }
 }
