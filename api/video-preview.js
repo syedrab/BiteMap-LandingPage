@@ -37,24 +37,24 @@ export default async function handler(req, res) {
         .from('Videos')
         .select('*')
         .eq('bunny_video_id', code)
-        .not('place_id', 'is', null)
+        .order('place_id', { ascending: false, nullsFirst: false })
         .limit(1)
         .maybeSingle();
 
-      // If no video with place_id, try without that filter
-      if (!videoByBunny) {
-        const { data: anyVideo, error: anyError } = await supabase
-          .from('Videos')
-          .select('*')
-          .eq('bunny_video_id', code)
-          .limit(1)
-          .maybeSingle();
-        video = anyVideo;
-        error = anyError;
-      } else {
-        video = videoByBunny;
-        error = bunnyError;
-      }
+      video = videoByBunny;
+      error = bunnyError;
+    }
+
+    // If still not found, try by video id
+    if (error || !video) {
+      const { data: videoById, error: idError } = await supabase
+        .from('Videos')
+        .select('*')
+        .eq('id', code)
+        .single();
+
+      video = videoById;
+      error = idError;
     }
 
     console.log('Video fetch result:', { video, error });
@@ -77,11 +77,12 @@ export default async function handler(req, res) {
 
     // Fetch place data
     if (video.place_id) {
-      const { data: place } = await supabase
+      const { data: place, error: placeError } = await supabase
         .from('Places')
         .select('id, name, address, city, latitude, longitude, rating, google_maps_url')
         .eq('id', video.place_id)
         .single();
+      console.log('Place fetch:', { place_id: video.place_id, place, placeError });
       video.place = place;
     }
 
