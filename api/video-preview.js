@@ -116,8 +116,10 @@ function renderVideoPreview(video, code) {
   const saves = video.saves || 0;
   const views = video.views || 0;
 
-  const title = `${creatorName} on BiteMap: ${placeName}`;
-  const description = `Watch this delicious review of ${placeName}${placeCity ? ` in ${placeCity}` : ''}. See more food content on BiteMap!`;
+  const titlePlace = video.place ? `: ${placeName}` : '';
+  const title = `${creatorName} on BiteMap${titlePlace} | ${formatNumber(views)} views, ${formatNumber(likes)} likes`;
+  const truncatedCaption = caption.length > 150 ? caption.substring(0, 150) + '...' : caption;
+  const description = truncatedCaption || (video.place ? `Check out ${placeName}${placeCity ? ` in ${placeCity}` : ''} on BiteMap!` : `Watch this video on BiteMap!`);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -906,11 +908,13 @@ function renderVideoPreview(video, code) {
                 ${caption ? `<div class="caption-section">${caption}</div>` : ''}
 
                 <!-- Restaurant Info -->
+                ${video.place ? `
                 <div class="place-section">
-                    <div class="section-label">📍 Restaurant</div>
+                    <div class="section-label">📍 Featured Spot</div>
                     <h1 class="place-name">${placeName}</h1>
                     ${placeAddress || placeCity ? `<div class="place-address">${placeAddress ? placeAddress : ''}${placeAddress && placeCity ? ', ' : ''}${placeCity || ''}</div>` : ''}
                 </div>
+                ` : ''}
 
                 <!-- Stats -->
                 <div class="stats-grid">
@@ -929,7 +933,7 @@ function renderVideoPreview(video, code) {
                 </div>
 
                 <!-- Delivery Links -->
-                ${placeName !== 'Amazing Restaurant' ? `
+                ${video.place ? `
                 <div class="delivery-links">
                     <a href="https://www.ubereats.com/search?q=${encodeURIComponent(placeName)}" target="_blank" rel="noopener" class="delivery-link">
                         🍔 Uber Eats
