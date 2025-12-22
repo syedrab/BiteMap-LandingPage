@@ -79,7 +79,7 @@ export default async function handler(req, res) {
     if (video.place_id) {
       const { data: place, error: placeError } = await supabase
         .from('Places')
-        .select('id, name, address, city, latitude, longitude, rating, google_maps_url')
+        .select('*')
         .eq('id', video.place_id)
         .single();
       console.log('Place fetch:', { place_id: video.place_id, place, placeError });
