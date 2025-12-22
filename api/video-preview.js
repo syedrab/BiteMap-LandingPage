@@ -37,7 +37,8 @@ export default async function handler(req, res) {
         .from('Videos')
         .select('*')
         .eq('bunny_video_id', code)
-        .single();
+        .limit(1)
+        .maybeSingle();
 
       video = videoByBunny;
       error = bunnyError;
