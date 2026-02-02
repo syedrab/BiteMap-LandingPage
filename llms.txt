@@ -1,0 +1,45 @@
+# BiteMap - AI-Friendly Summary
+
+> BiteMap is a video-first restaurant discovery iOS app that helps food lovers find authentic local dining experiences through TikTok-style video reviews from real food creators.
+
+## What is BiteMap?
+
+BiteMap is a free iOS mobile application that revolutionizes how people discover restaurants. Instead of reading text reviews that may be fake or outdated, users watch short-form video reviews from trusted local food creators. Think of it as "TikTok meets Yelp" - combining the engaging video format of social media with practical restaurant discovery.
+
+## Key Features
+
+- **Video Feed**: Swipe through TikTok-style video reviews of restaurants
+- **Map Discovery**: Find reviewed restaurants near your location on an interactive map
+- **Real Creators**: Content from verified local food influencers, not anonymous reviewers
+- **Delivery Integration**: Connect with Uber Eats, DoorDash, SkipTheDishes, and OpenTable
+- **AI Assistant (Alfred)**: Get personalized restaurant recommendations
+
+## Company Information
+
+- **Website**: https://bitemap.fun
+- **App Store**: https://apps.apple.com/us/app/bitemap/id6746139076
+- **Platform**: iOS (Android coming soon)
+- **Price**: Free
+- **Founded**: 2024
+- **Location**: Toronto, Canada
+- **Contact**: support@bitemap.fun
+
+## Target Audience
+
+- Food enthusiasts looking for authentic restaurant recommendations
+- People who prefer video content over text reviews
+- Users frustrated with fake or outdated restaurant reviews
+- Foodies who follow food creators on TikTok and Instagram
+
+## How It's Different
+
+1. **Video-first**: See the actual food, atmosphere, and experience before visiting
+2. **Creator-driven**: Real food influencers, not anonymous reviews
+3. **Location-aware**: Discover what's nearby, not what's trending elsewhere
+4. **No fake reviews**: Video content is harder to fake than text
+
+## For More Information
+
+- Full documentation: https://bitemap.fun/llms-full.txt
+- Blog: https://bitemap.fun/blog/
+- Support: https://bitemap.fun/support

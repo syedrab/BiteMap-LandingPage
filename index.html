@@ -6,9 +6,13 @@
     <title>BiteMap - Discover Local Restaurants Through Video Reviews | Food Discovery App</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Discover authentic local restaurants through TikTok-style video reviews. BiteMap connects food lovers with real dining experiences. Coming soon to iOS.">
-    <meta name="keywords" content="restaurant reviews, food app, video reviews, local dining, restaurant discovery, food videos, iOS app">
+    <meta name="description" content="BiteMap is a free iOS app for discovering restaurants through TikTok-style video reviews from local food creators. Watch real reviews, find nearby spots, order delivery.">
+    <meta name="keywords" content="restaurant reviews, food app, video reviews, local dining, restaurant discovery, food videos, iOS app, Toronto restaurants, food creators">
     <meta name="author" content="BiteMap">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- AI/LLM Discovery -->
+    <link rel="alternate" type="text/plain" href="https://bitemap.fun/llms.txt" title="LLM-friendly summary">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -27,7 +31,7 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://bitemap.fun/">
 
-    <!-- Structured Data -->
+    <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,31 +39,116 @@
       "name": "BiteMap",
       "url": "https://bitemap.fun",
       "logo": "https://bitemap.fun/images/bitemap.jpeg",
-      "description": "Discover authentic local restaurants through TikTok-style video reviews. BiteMap connects food lovers with real dining experiences.",
+      "description": "BiteMap is a video-first restaurant discovery app featuring TikTok-style reviews from local food creators.",
+      "foundingDate": "2024",
+      "foundingLocation": "Toronto, Canada",
       "sameAs": [
         "https://www.tiktok.com/@bitemap",
-        "https://www.instagram.com/bitemap"
+        "https://www.instagram.com/@bitemap",
+        "https://apps.apple.com/us/app/bitemap/id6746139076"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "support@bitemap.fun",
-        "contactType": "Customer Support"
+        "contactType": "Customer Support",
+        "availableLanguage": "English"
       }
     }
     </script>
+
+    <!-- Structured Data - Mobile Application -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MobileApplication",
       "name": "BiteMap",
-      "operatingSystem": "iOS",
-      "applicationCategory": "FoodEstablishmentReservation",
+      "operatingSystem": "iOS 15.0+",
+      "applicationCategory": "FoodAndDrinkApplication",
+      "downloadUrl": "https://apps.apple.com/us/app/bitemap/id6746139076",
+      "installUrl": "https://apps.apple.com/us/app/bitemap/id6746139076",
+      "screenshot": "https://bitemap.fun/images/Home Feed.png",
+      "softwareVersion": "1.0",
+      "datePublished": "2024-01-01",
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "USD"
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
       },
-      "description": "Discover authentic local restaurants through TikTok-style video reviews. Swipe through mouth-watering content, find the best spots near you, and connect with real food lovers sharing their favorite bites."
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "10",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "description": "BiteMap helps you discover authentic local restaurants through TikTok-style video reviews from real food creators. Watch video reviews, explore nearby restaurants on a map, and order delivery through integrated platforms like Uber Eats and DoorDash.",
+      "featureList": "Video restaurant reviews, Interactive map discovery, Food creator profiles, Uber Eats integration, DoorDash integration, OpenTable reservations, AI-powered recommendations"
+    }
+    </script>
+
+    <!-- Structured Data - FAQ for AI Discovery -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is BiteMap?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BiteMap is a free iOS app that helps you discover restaurants through short-form video reviews from local food creators. Instead of reading text reviews, you watch TikTok-style videos showing real food and dining experiences."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is BiteMap different from Yelp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BiteMap uses video reviews from verified food creators instead of anonymous text reviews. You see the actual food, atmosphere, and experience before visiting, making it easier to know what to expect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BiteMap free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, BiteMap is completely free to download and use on iOS. You can browse video reviews, discover restaurants, and access all features at no cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BiteMap available on Android?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BiteMap is currently available only on iOS. Android support is coming soon."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I order food through BiteMap?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, BiteMap integrates with Uber Eats, DoorDash, SkipTheDishes for delivery and OpenTable for reservations. You can order directly from restaurants you discover."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - WebSite for Sitelinks Search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BiteMap",
+      "url": "https://bitemap.fun",
+      "description": "Video-first restaurant discovery app",
+      "publisher": {
+        "@type": "Organization",
+        "name": "BiteMap"
+      }
     }
     </script>
 
@@ -353,11 +442,11 @@
         <div class="footer-content">
             <div class="footer-logo">🍔 BiteMap</div>
             <div class="footer-links">
-                <a href="/privacy.html">Privacy</a>
-                <a href="/terms.html">Terms</a>
-                <a href="/support.html">Support</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/support">Support</a>
             </div>
-            <p class="footer-copy">&copy; 2024 BiteMap</p>
+            <p class="footer-copy">&copy; 2025 BiteMap</p>
         </div>
     </footer>
 

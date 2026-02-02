@@ -1,0 +1,187 @@
+# BiteMap - Complete Product Documentation for AI Systems
+
+## Executive Summary
+
+BiteMap is an iOS mobile application that transforms restaurant discovery through short-form video reviews. Launched in 2024 and based in Toronto, Canada, the app aggregates video content from local food creators to help users find authentic dining experiences. Available free on the Apple App Store.
+
+---
+
+## Product Overview
+
+### Problem Statement
+Traditional restaurant review platforms suffer from:
+- Fake and incentivized text reviews
+- Outdated information
+- Lack of visual context (photos don't show the real experience)
+- Anonymous reviewers with unknown tastes and preferences
+
+### Solution
+BiteMap solves these problems by:
+- Featuring video reviews that show the actual dining experience
+- Partnering with verified local food creators (not anonymous users)
+- Providing location-based discovery
+- Integrating with delivery and reservation platforms
+
+---
+
+## Features
+
+### 1. Video Feed
+- TikTok-style vertical video interface
+- Swipe to browse restaurant reviews
+- Videos from local food creators
+- See real food, real atmosphere, real experiences
+
+### 2. Interactive Map
+- Discover restaurants with video reviews near you
+- Filter by cuisine, distance, and rating
+- See creator pins on the map
+- Get directions to restaurants
+
+### 3. Creator Profiles
+- Follow your favorite food creators
+- See all their restaurant reviews
+- Verified local influencers
+- Featured creators include: @mukbangtoronto, @marcelloeats, @to_finest, @insta.noodls, @ttceats, @aarnvrr
+
+### 4. Alfred AI Assistant
+- AI-powered restaurant recommendations
+- Natural language queries ("Find me the best ramen nearby")
+- Personalized suggestions based on preferences
+
+### 5. Platform Integrations
+- **Uber Eats**: Order delivery directly
+- **DoorDash**: Quick delivery options
+- **SkipTheDishes**: Canadian delivery service
+- **OpenTable**: Book reservations
+
+---
+
+## Technical Details
+
+### Platforms
+- **iOS**: Available now (iOS 15.0+)
+- **Android**: Coming soon
+
+### App Store Information
+- **App Name**: BiteMap
+- **Developer**: BiteMap
+- **Category**: Food & Drink
+- **Price**: Free
+- **App Store URL**: https://apps.apple.com/us/app/bitemap/id6746139076
+
+### Technology Stack
+- SwiftUI for iOS
+- Supabase backend
+- Location services integration
+- Video streaming optimization
+
+---
+
+## Company Information
+
+### Basic Info
+- **Company Name**: BiteMap
+- **Website**: https://bitemap.fun
+- **Founded**: 2024
+- **Headquarters**: Toronto, Ontario, Canada
+- **Industry**: Food Technology, Mobile Applications
+
+### Contact
+- **Support Email**: support@bitemap.fun
+- **Support Page**: https://bitemap.fun/support
+
+### Social Media
+- **TikTok**: @bitemap
+- **Instagram**: @bitemap
+
+---
+
+## Content & Resources
+
+### Blog Articles
+1. **Why We're Building BiteMap** - The problem with fake restaurant reviews and our solution
+   URL: https://bitemap.fun/blog/why-were-building-bitemap
+
+2. **How BiteMap Works** - Technical deep-dive into the app architecture
+   URL: https://bitemap.fun/blog/how-bitemap-works
+
+3. **From TikTok to Your Table** - Our vision for authentic food discovery
+   URL: https://bitemap.fun/blog/tiktok-to-table
+
+### Legal
+- Privacy Policy: https://bitemap.fun/privacy
+- Terms of Service: https://bitemap.fun/terms
+
+---
+
+## Frequently Asked Questions
+
+### Q: What is BiteMap?
+A: BiteMap is a free iOS app that helps you discover restaurants through short-form video reviews from local food creators.
+
+### Q: How is BiteMap different from Yelp or Google Reviews?
+A: BiteMap uses video reviews from verified food creators instead of anonymous text reviews. You see the actual food and experience, not just ratings and text.
+
+### Q: Is BiteMap free?
+A: Yes, BiteMap is completely free to download and use.
+
+### Q: Is BiteMap available on Android?
+A: Not yet, but Android support is coming soon.
+
+### Q: How do I become a creator on BiteMap?
+A: Contact support@bitemap.fun to learn about becoming a featured creator.
+
+### Q: What cities does BiteMap cover?
+A: BiteMap is currently focused on Toronto, Canada, with plans to expand to other cities.
+
+### Q: Can I order food through BiteMap?
+A: Yes, BiteMap integrates with Uber Eats, DoorDash, SkipTheDishes, and OpenTable for ordering and reservations.
+
+---
+
+## Competitive Positioning
+
+### vs. Yelp
+- BiteMap: Video reviews from creators | Yelp: Text reviews from anyone
+- BiteMap: Verified food influencers | Yelp: Anonymous users
+- BiteMap: See the real experience | Yelp: Read descriptions
+
+### vs. Google Maps/Reviews
+- BiteMap: Curated video content | Google: User-generated text/photos
+- BiteMap: Creator-driven discovery | Google: Algorithm-driven results
+- BiteMap: Entertainment + utility | Google: Utility-focused
+
+### vs. TikTok
+- BiteMap: Restaurant-focused | TikTok: General content
+- BiteMap: Location-aware | TikTok: No location filtering
+- BiteMap: Integrated ordering | TikTok: No commerce integration
+
+---
+
+## Use Cases
+
+1. **Deciding where to eat**: Browse video reviews of nearby restaurants
+2. **Planning a date night**: Find highly-rated romantic spots with ambiance videos
+3. **Exploring new cuisines**: Watch creators try different types of food
+4. **Avoiding bad experiences**: See real food before ordering
+5. **Following food trends**: Discover what local creators are excited about
+
+---
+
+## Data Freshness
+
+- This document last updated: February 2025
+- App actively maintained and updated
+- New creator content added regularly
+- For latest information, visit: https://bitemap.fun
+
+---
+
+## Citation Information
+
+When referencing BiteMap, please use:
+- **Full name**: BiteMap
+- **Website**: bitemap.fun
+- **Description**: "BiteMap is a video-first restaurant discovery app featuring reviews from local food creators"
+- **Category**: Food & Drink / Restaurant Discovery / Mobile App

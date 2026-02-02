@@ -2,55 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bitemap.fun/</loc>
-    <lastmod>2024-10-30</lastmod>
+    <lastmod>2025-02-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://bitemap.fun/privacy.html</loc>
-    <lastmod>2024-10-29</lastmod>
+    <loc>https://bitemap.fun/privacy</loc>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://bitemap.fun/terms.html</loc>
-    <lastmod>2024-10-29</lastmod>
+    <loc>https://bitemap.fun/terms</loc>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://bitemap.fun/support.html</loc>
-    <lastmod>2024-10-30</lastmod>
+    <loc>https://bitemap.fun/support</loc>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bitemap.fun/legal.html</loc>
-    <lastmod>2024-10-30</lastmod>
+    <loc>https://bitemap.fun/legal</loc>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://bitemap.fun/blog/</loc>
-    <lastmod>2024-10-30</lastmod>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bitemap.fun/blog/why-were-building-bitemap.html</loc>
-    <lastmod>2024-10-30</lastmod>
+    <loc>https://bitemap.fun/blog/why-were-building-bitemap</loc>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bitemap.fun/blog/how-bitemap-works.html</loc>
-    <lastmod>2024-10-30</lastmod>
+    <loc>https://bitemap.fun/blog/how-bitemap-works</loc>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bitemap.fun/blog/tiktok-to-table.html</loc>
-    <lastmod>2024-10-30</lastmod>
+    <loc>https://bitemap.fun/blog/tiktok-to-table</loc>
+    <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
