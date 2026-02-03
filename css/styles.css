@@ -50,6 +50,11 @@ body {
     font-size: 1.75rem;
     font-weight: 700;
     color: var(--white);
+    text-decoration: none;
+}
+
+a.logo:hover {
+    opacity: 0.9;
 }
 
 .logo-icon {
