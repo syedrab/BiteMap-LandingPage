@@ -8,12 +8,12 @@ Disallow: /consumer-pitch.html
 Disallow: /index-v2.html
 
 # Sitemaps
-Sitemap: https://bitemap.fun/sitemap.xml
+Sitemap: https://www.bitemap.fun/sitemap.xml
 
 # AI/LLM Crawlers - Welcome!
 # Documentation for AI systems
-# llms.txt: https://bitemap.fun/llms.txt
-# llms-full.txt: https://bitemap.fun/llms-full.txt
+# llms.txt: https://www.bitemap.fun/llms.txt
+# llms-full.txt: https://www.bitemap.fun/llms-full.txt
 
 # Specific AI crawler permissions
 User-agent: GPTBot
