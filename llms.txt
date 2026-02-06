@@ -16,7 +16,7 @@ BiteMap is a free iOS mobile application that revolutionizes how people discover
 
 ## Company Information
 
-- **Website**: https://bitemap.fun
+- **Website**: https://www.bitemap.fun
 - **App Store**: https://apps.apple.com/us/app/bitemap/id6746139076
 - **Platform**: iOS (Android coming soon)
 - **Price**: Free
@@ -40,6 +40,6 @@ BiteMap is a free iOS mobile application that revolutionizes how people discover
 
 ## For More Information
 
-- Full documentation: https://bitemap.fun/llms-full.txt
-- Blog: https://bitemap.fun/blog/
-- Support: https://bitemap.fun/support
+- Full documentation: https://www.bitemap.fun/llms-full.txt
+- Blog: https://www.bitemap.fun/blog/
+- Support: https://www.bitemap.fun/support

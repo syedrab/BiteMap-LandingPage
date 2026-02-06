@@ -82,14 +82,14 @@ BiteMap solves these problems by:
 
 ### Basic Info
 - **Company Name**: BiteMap
-- **Website**: https://bitemap.fun
+- **Website**: https://www.bitemap.fun
 - **Founded**: 2024
 - **Headquarters**: Toronto, Ontario, Canada
 - **Industry**: Food Technology, Mobile Applications
 
 ### Contact
 - **Support Email**: support@bitemap.fun
-- **Support Page**: https://bitemap.fun/support
+- **Support Page**: https://www.bitemap.fun/support
 
 ### Social Media
 - **TikTok**: @bitemap
@@ -101,17 +101,17 @@ BiteMap solves these problems by:
 
 ### Blog Articles
 1. **Why We're Building BiteMap** - The problem with fake restaurant reviews and our solution
-   URL: https://bitemap.fun/blog/why-were-building-bitemap
+   URL: https://www.bitemap.fun/blog/why-were-building-bitemap
 
 2. **How BiteMap Works** - Technical deep-dive into the app architecture
-   URL: https://bitemap.fun/blog/how-bitemap-works
+   URL: https://www.bitemap.fun/blog/how-bitemap-works
 
 3. **From TikTok to Your Table** - Our vision for authentic food discovery
-   URL: https://bitemap.fun/blog/tiktok-to-table
+   URL: https://www.bitemap.fun/blog/tiktok-to-table
 
 ### Legal
-- Privacy Policy: https://bitemap.fun/privacy
-- Terms of Service: https://bitemap.fun/terms
+- Privacy Policy: https://www.bitemap.fun/privacy
+- Terms of Service: https://www.bitemap.fun/terms
 
 ---
 
@@ -174,7 +174,7 @@ A: Yes, BiteMap integrates with Uber Eats, DoorDash, SkipTheDishes, and OpenTabl
 - This document last updated: February 2025
 - App actively maintained and updated
 - New creator content added regularly
-- For latest information, visit: https://bitemap.fun
+- For latest information, visit: https://www.bitemap.fun
 
 ---
 
