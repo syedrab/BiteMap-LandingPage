@@ -8,6 +8,7 @@ Disallow: /consumer-pitch.html
 Disallow: /index-v2.html
 
 # Sitemaps
+Sitemap: https://www.bitemap.fun/sitemap-index.xml
 Sitemap: https://www.bitemap.fun/sitemap.xml
 
 # AI/LLM Crawlers - Welcome!
