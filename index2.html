@@ -337,7 +337,7 @@
     <script>
         const foodContainer = document.getElementById('foodContainer');
         const baseSpeed = 2;
-        const friction = 0.995;
+        const friction = 0.9995;
 
         // Logo objects
         const logos = [
@@ -385,7 +385,7 @@
             logo.el.style.top = logo.y + 'px';
         });
 
-        const minDistance = 120; // Minimum distance between food items
+        const minDistance = 80; // Minimum distance between food items
 
         // Check if position is far enough from other food
         function isFarEnough(fx, fy) {
@@ -399,37 +399,67 @@
             return true;
         }
 
-        // Spawn food icons
-        function spawnFood() {
+        // Spawn food in a specific quadrant
+        function spawnFoodInQuadrant(quadrant) {
             const food = document.createElement('div');
             food.className = 'food-icon';
             food.textContent = foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
 
-            // Random position avoiding center content area + min distance from others
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const margin = 50;
+
+            let minX, maxX, minY, maxY;
+
+            // Define quadrant bounds (corners, avoiding center)
+            switch(quadrant) {
+                case 0: // Top-left
+                    minX = margin; maxX = w * 0.3;
+                    minY = margin; maxY = h * 0.35;
+                    break;
+                case 1: // Top-right
+                    minX = w * 0.7; maxX = w - margin;
+                    minY = margin; maxY = h * 0.35;
+                    break;
+                case 2: // Bottom-left
+                    minX = margin; maxX = w * 0.3;
+                    minY = h * 0.65; maxY = h - margin;
+                    break;
+                case 3: // Bottom-right
+                    minX = w * 0.7; maxX = w - margin;
+                    minY = h * 0.65; maxY = h - margin;
+                    break;
+            }
+
             let fx, fy;
             let attempts = 0;
             do {
-                fx = Math.random() * (window.innerWidth - 50);
-                fy = Math.random() * (window.innerHeight - 50);
+                fx = minX + Math.random() * (maxX - minX);
+                fy = minY + Math.random() * (maxY - minY);
                 attempts++;
-            } while (attempts < 50 && (
-                (fx > window.innerWidth * 0.2 && fx < window.innerWidth * 0.8 &&
-                 fy > window.innerHeight * 0.15 && fy < window.innerHeight * 0.85) ||
-                !isFarEnough(fx, fy)
-            ));
+            } while (attempts < 30 && !isFarEnough(fx, fy));
 
             food.style.left = fx + 'px';
             food.style.top = fy + 'px';
             food.dataset.x = fx;
             food.dataset.y = fy;
+            food.dataset.quadrant = quadrant;
 
             foodContainer.appendChild(food);
             foodItems.push(food);
         }
 
-        // Initial spawn
-        for (let i = 0; i < 20; i++) {
-            spawnFood();
+        // Spawn food anywhere in corners
+        function spawnFood() {
+            const quadrant = Math.floor(Math.random() * 4);
+            spawnFoodInQuadrant(quadrant);
+        }
+
+        // Initial spawn - 5 per quadrant = 20 total
+        for (let q = 0; q < 4; q++) {
+            for (let i = 0; i < 5; i++) {
+                spawnFoodInQuadrant(q);
+            }
         }
 
         // Check collision for a specific logo
