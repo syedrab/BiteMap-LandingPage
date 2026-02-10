@@ -38,11 +38,11 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         body.dragging-logo {
-            user-select: none;
-            -webkit-user-select: none;
             cursor: grabbing !important;
         }
 
@@ -277,9 +277,12 @@
     </style>
 </head>
 <body>
-    <!-- Bouncing Logo -->
+    <!-- Bouncing Logos -->
     <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank" rel="noopener" class="bouncing-logo" id="dvdLogo">
         <img src="images/bitemap-logo-transparent.png" alt="Download BiteMap" draggable="false">
+    </a>
+    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank" rel="noopener" class="bouncing-logo" id="dvdLogo2">
+        <img src="images/bitemap-mouth-logo.png" alt="Download BiteMap" draggable="false">
     </a>
 
     <!-- Food Icons -->
@@ -330,26 +333,57 @@
         gtag('config', 'G-EEZQEGTQDD');
     </script>
 
-    <!-- DVD Bouncing Logo -->
+    <!-- DVD Bouncing Logos -->
     <script>
-        const logo = document.getElementById('dvdLogo');
         const foodContainer = document.getElementById('foodContainer');
-        let x = Math.random() * (window.innerWidth - 100);
-        let y = Math.random() * (window.innerHeight - 100);
-        let vx = 2;
-        let vy = 2;
         const baseSpeed = 2;
-        const friction = 0.98;
-        let isDragging = false;
-        let dragOffsetX = 0;
-        let dragOffsetY = 0;
+        const friction = 0.995;
+
+        // Logo objects
+        const logos = [
+            {
+                el: document.getElementById('dvdLogo'),
+                x: Math.random() * (window.innerWidth - 100),
+                y: Math.random() * (window.innerHeight - 100),
+                vx: 2,
+                vy: 2,
+                isDragging: false,
+                hasDragged: false,
+                dragOffsetX: 0,
+                dragOffsetY: 0,
+                startX: 0,
+                startY: 0,
+                lastX: 0,
+                lastY: 0
+            },
+            {
+                el: document.getElementById('dvdLogo2'),
+                x: Math.random() * (window.innerWidth - 100),
+                y: Math.random() * (window.innerHeight - 100),
+                vx: -2.5,
+                vy: 1.5,
+                isDragging: false,
+                hasDragged: false,
+                dragOffsetX: 0,
+                dragOffsetY: 0,
+                startX: 0,
+                startY: 0,
+                lastX: 0,
+                lastY: 0
+            }
+        ];
+
+        let currentDragging = null;
         let score = 0;
 
         const foodEmojis = ['🍔', '🍕', '🌮', '🍣', '🍜', '🍱', '🥗', '🍝', '🥘', '🍛', '🌯', '🥙', '🍲', '🥡', '🍙', '🍚', '🥟', '🍤', '🍗', '🍖', '🥩', '🧆', '🥪', '🌭', '🍟', '🥓', '🍳', '🥞', '🧇', '🥯', '🍩', '🍰', '🧁', '🍦', '🍨', '🎂'];
         let foodItems = [];
 
-        logo.style.left = x + 'px';
-        logo.style.top = y + 'px';
+        // Initialize logo positions
+        logos.forEach(logo => {
+            logo.el.style.left = logo.x + 'px';
+            logo.el.style.top = logo.y + 'px';
+        });
 
         const minDistance = 120; // Minimum distance between food items
 
@@ -394,13 +428,13 @@
         }
 
         // Initial spawn
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 20; i++) {
             spawnFood();
         }
 
-        // Check collision
-        function checkCollision() {
-            const logoRect = { x: x, y: y, width: 100, height: 100 };
+        // Check collision for a specific logo
+        function checkCollision(logoObj) {
+            const logoRect = { x: logoObj.x, y: logoObj.y, width: 100, height: 100 };
 
             foodItems.forEach((food, index) => {
                 if (food.classList.contains('eaten')) return;
@@ -432,157 +466,158 @@
         }
 
         function animate() {
-            if (!isDragging) {
-                x += vx;
-                y += vy;
+            logos.forEach(logo => {
+                if (!logo.isDragging) {
+                    logo.x += logo.vx;
+                    logo.y += logo.vy;
 
-                // Apply friction - gradually slow down to base speed
-                const currentSpeed = Math.sqrt(vx * vx + vy * vy);
-                if (currentSpeed > baseSpeed) {
-                    vx *= friction;
-                    vy *= friction;
+                    // Apply friction - gradually slow down to base speed
+                    const currentSpeed = Math.sqrt(logo.vx * logo.vx + logo.vy * logo.vy);
+                    if (currentSpeed > baseSpeed) {
+                        logo.vx *= friction;
+                        logo.vy *= friction;
 
-                    // Once slow enough, normalize to base speed
-                    const newSpeed = Math.sqrt(vx * vx + vy * vy);
-                    if (newSpeed < baseSpeed) {
-                        const angle = Math.atan2(vy, vx);
-                        vx = Math.cos(angle) * baseSpeed;
-                        vy = Math.sin(angle) * baseSpeed;
+                        // Once slow enough, normalize to base speed
+                        const newSpeed = Math.sqrt(logo.vx * logo.vx + logo.vy * logo.vy);
+                        if (newSpeed < baseSpeed) {
+                            const angle = Math.atan2(logo.vy, logo.vx);
+                            logo.vx = Math.cos(angle) * baseSpeed;
+                            logo.vy = Math.sin(angle) * baseSpeed;
+                        }
                     }
-                }
 
-                // Bounce off walls
-                if (x <= 0 || x >= window.innerWidth - 100) {
-                    vx = -vx;
-                    x = Math.max(0, Math.min(x, window.innerWidth - 100));
-                }
-                if (y <= 0 || y >= window.innerHeight - 100) {
-                    vy = -vy;
-                    y = Math.max(0, Math.min(y, window.innerHeight - 100));
-                }
+                    // Bounce off walls
+                    if (logo.x <= 0 || logo.x >= window.innerWidth - 100) {
+                        logo.vx = -logo.vx;
+                        logo.x = Math.max(0, Math.min(logo.x, window.innerWidth - 100));
+                    }
+                    if (logo.y <= 0 || logo.y >= window.innerHeight - 100) {
+                        logo.vy = -logo.vy;
+                        logo.y = Math.max(0, Math.min(logo.y, window.innerHeight - 100));
+                    }
 
-                logo.style.left = x + 'px';
-                logo.style.top = y + 'px';
+                    logo.el.style.left = logo.x + 'px';
+                    logo.el.style.top = logo.y + 'px';
 
-                // Check for food collision
-                checkCollision();
-            }
+                    // Check for food collision
+                    checkCollision(logo);
+                }
+            });
             requestAnimationFrame(animate);
         }
 
-        let lastX = 0;
-        let lastY = 0;
-        let startX = 0;
-        let startY = 0;
-        let hasDragged = false;
+        // Setup event handlers for each logo
+        logos.forEach(logoObj => {
+            // Prevent link click if dragged
+            logoObj.el.addEventListener('click', (e) => {
+                if (logoObj.hasDragged) {
+                    e.preventDefault();
+                }
+            });
 
-        // Prevent link click if dragged
-        logo.addEventListener('click', (e) => {
-            if (hasDragged) {
+            // Mouse drag
+            logoObj.el.addEventListener('mousedown', (e) => {
                 e.preventDefault();
-            }
-        });
+                logoObj.isDragging = true;
+                logoObj.hasDragged = false;
+                currentDragging = logoObj;
+                logoObj.el.classList.add('dragging');
+                document.body.classList.add('dragging-logo');
+                logoObj.dragOffsetX = e.clientX - logoObj.x;
+                logoObj.dragOffsetY = e.clientY - logoObj.y;
+                logoObj.startX = e.clientX;
+                logoObj.startY = e.clientY;
+                logoObj.lastX = e.clientX;
+                logoObj.lastY = e.clientY;
+            });
 
-        // Mouse drag
-        logo.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            isDragging = true;
-            hasDragged = false;
-            logo.classList.add('dragging');
-            document.body.classList.add('dragging-logo');
-            dragOffsetX = e.clientX - x;
-            dragOffsetY = e.clientY - y;
-            startX = e.clientX;
-            startY = e.clientY;
-            lastX = e.clientX;
-            lastY = e.clientY;
+            // Touch support
+            logoObj.el.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                logoObj.isDragging = true;
+                logoObj.hasDragged = false;
+                currentDragging = logoObj;
+                logoObj.el.classList.add('dragging');
+                document.body.classList.add('dragging-logo');
+                const touch = e.touches[0];
+                logoObj.dragOffsetX = touch.clientX - logoObj.x;
+                logoObj.dragOffsetY = touch.clientY - logoObj.y;
+                logoObj.startX = touch.clientX;
+                logoObj.startY = touch.clientY;
+                logoObj.lastX = touch.clientX;
+                logoObj.lastY = touch.clientY;
+            });
         });
 
         document.addEventListener('mousemove', (e) => {
-            if (isDragging) {
+            if (currentDragging) {
                 e.preventDefault();
-                x = e.clientX - dragOffsetX;
-                y = e.clientY - dragOffsetY;
-                logo.style.left = x + 'px';
-                logo.style.top = y + 'px';
+                const logo = currentDragging;
+                logo.x = e.clientX - logo.dragOffsetX;
+                logo.y = e.clientY - logo.dragOffsetY;
+                logo.el.style.left = logo.x + 'px';
+                logo.el.style.top = logo.y + 'px';
 
-                // Check if moved enough to count as drag
-                const movedX = Math.abs(e.clientX - startX);
-                const movedY = Math.abs(e.clientY - startY);
+                const movedX = Math.abs(e.clientX - logo.startX);
+                const movedY = Math.abs(e.clientY - logo.startY);
                 if (movedX > 5 || movedY > 5) {
-                    hasDragged = true;
+                    logo.hasDragged = true;
                 }
 
-                // Track velocity for throw
-                vx = (e.clientX - lastX) * 0.5;
-                vy = (e.clientY - lastY) * 0.5;
-                lastX = e.clientX;
-                lastY = e.clientY;
+                logo.vx = (e.clientX - logo.lastX) * 0.5;
+                logo.vy = (e.clientY - logo.lastY) * 0.5;
+                logo.lastX = e.clientX;
+                logo.lastY = e.clientY;
 
-                // Check collision while dragging too
-                checkCollision();
+                checkCollision(logo);
             }
         });
 
         document.addEventListener('mouseup', () => {
-            if (isDragging) {
-                isDragging = false;
-                logo.classList.remove('dragging');
+            if (currentDragging) {
+                const logo = currentDragging;
+                logo.isDragging = false;
+                logo.el.classList.remove('dragging');
                 document.body.classList.remove('dragging-logo');
-                // Throw it fast! Cap at 25 for sanity
-                vx = Math.max(-25, Math.min(25, vx * 1.5)) || baseSpeed;
-                vy = Math.max(-25, Math.min(25, vy * 1.5)) || baseSpeed;
+                logo.vx = Math.max(-25, Math.min(25, logo.vx * 1.5)) || baseSpeed;
+                logo.vy = Math.max(-25, Math.min(25, logo.vy * 1.5)) || baseSpeed;
+                currentDragging = null;
             }
         });
 
-        // Touch support
-        logo.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            isDragging = true;
-            hasDragged = false;
-            logo.classList.add('dragging');
-            document.body.classList.add('dragging-logo');
-            const touch = e.touches[0];
-            dragOffsetX = touch.clientX - x;
-            dragOffsetY = touch.clientY - y;
-            startX = touch.clientX;
-            startY = touch.clientY;
-            lastX = touch.clientX;
-            lastY = touch.clientY;
-        });
-
         document.addEventListener('touchmove', (e) => {
-            if (isDragging) {
+            if (currentDragging) {
+                const logo = currentDragging;
                 const touch = e.touches[0];
-                x = touch.clientX - dragOffsetX;
-                y = touch.clientY - dragOffsetY;
-                logo.style.left = x + 'px';
-                logo.style.top = y + 'px';
+                logo.x = touch.clientX - logo.dragOffsetX;
+                logo.y = touch.clientY - logo.dragOffsetY;
+                logo.el.style.left = logo.x + 'px';
+                logo.el.style.top = logo.y + 'px';
 
-                // Check if moved enough to count as drag
-                const movedX = Math.abs(touch.clientX - startX);
-                const movedY = Math.abs(touch.clientY - startY);
+                const movedX = Math.abs(touch.clientX - logo.startX);
+                const movedY = Math.abs(touch.clientY - logo.startY);
                 if (movedX > 5 || movedY > 5) {
-                    hasDragged = true;
+                    logo.hasDragged = true;
                 }
 
-                vx = (touch.clientX - lastX) * 0.5;
-                vy = (touch.clientY - lastY) * 0.5;
-                lastX = touch.clientX;
-                lastY = touch.clientY;
+                logo.vx = (touch.clientX - logo.lastX) * 0.5;
+                logo.vy = (touch.clientY - logo.lastY) * 0.5;
+                logo.lastX = touch.clientX;
+                logo.lastY = touch.clientY;
 
-                checkCollision();
+                checkCollision(logo);
             }
         });
 
         document.addEventListener('touchend', () => {
-            if (isDragging) {
-                isDragging = false;
-                logo.classList.remove('dragging');
+            if (currentDragging) {
+                const logo = currentDragging;
+                logo.isDragging = false;
+                logo.el.classList.remove('dragging');
                 document.body.classList.remove('dragging-logo');
-                // Throw it fast! Cap at 25 for sanity
-                vx = Math.max(-25, Math.min(25, vx * 1.5)) || baseSpeed;
-                vy = Math.max(-25, Math.min(25, vy * 1.5)) || baseSpeed;
+                logo.vx = Math.max(-25, Math.min(25, logo.vx * 1.5)) || baseSpeed;
+                logo.vy = Math.max(-25, Math.min(25, logo.vy * 1.5)) || baseSpeed;
+                currentDragging = null;
             }
         });
 
