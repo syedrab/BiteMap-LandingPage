@@ -831,6 +831,7 @@
         // Only run Pac-Man controls on desktop
         if (!isMobile) {
             const directions = ['up', 'down', 'left', 'right'];
+            let userTookControl = false;
 
             // Pick a random direction to start
             function randomDirection() {
@@ -840,15 +841,24 @@
             // Start moving in a random direction
             logo.direction = randomDirection();
 
-            // Change direction randomly every 2 seconds
-            setInterval(() => {
-                logo.direction = randomDirection();
-            }, 2000);
+            // Change direction randomly every 1.5 seconds (until user takes control)
+            const autoMoveInterval = setInterval(() => {
+                if (!userTookControl) {
+                    logo.direction = randomDirection();
+                }
+            }, 1500);
 
-            // Arrow key controls (can override auto movement)
+            // Arrow key controls (stops auto movement permanently)
             document.addEventListener('keydown', (e) => {
                 if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
                     e.preventDefault();
+
+                    // Stop auto movement on first arrow key press
+                    if (!userTookControl) {
+                        userTookControl = true;
+                        clearInterval(autoMoveInterval);
+                    }
+
                     switch(e.key) {
                         case 'ArrowUp': logo.direction = 'up'; break;
                         case 'ArrowDown': logo.direction = 'down'; break;
