@@ -65,8 +65,8 @@
         }
 
         .phone-mockup {
-            width: 380px;
-            height: 780px;
+            width: min(380px, 28vw);
+            height: min(780px, 70vh);
             background: #000;
             border-radius: 55px;
             padding: 14px;
@@ -211,15 +211,15 @@
             white-space: nowrap;
         }
 
-        /* CN Tower */
+        /* CN Tower - Center reference point */
         .cn-tower-container {
-            bottom: 20px;
+            bottom: 2vh;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .cn-tower-img {
-            height: 385px;
+            height: min(385px, 40vh);
             width: auto;
             opacity: 0.12;
         }
@@ -228,9 +228,9 @@
         .toronto-img {
             position: fixed;
             top: 50%;
-            left: 15%;
+            left: 12%;
             transform: translateY(-50%);
-            height: 400px;
+            height: min(400px, 45vh);
             width: auto;
             opacity: 0.1;
             pointer-events: none;
@@ -239,12 +239,12 @@
 
         /* Casa Loma */
         .casaloma-container {
-            top: 15%;
-            left: 8%;
+            top: 10%;
+            left: 6%;
         }
 
         .casaloma-img {
-            height: 270px;
+            height: min(270px, 28vh);
             width: auto;
             opacity: 0.1;
         }
@@ -252,8 +252,8 @@
         /* Streetcar with BiteMap riding */
         .streetcar-container {
             position: fixed;
-            bottom: 10%;
-            right: 8%;
+            bottom: 8%;
+            right: 6%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -262,14 +262,14 @@
         }
 
         .streetcar-img {
-            height: 120px;
+            height: min(120px, 12vh);
             width: auto;
             opacity: 0.15;
         }
 
         .streetcar-rider {
-            width: 50px;
-            height: 50px;
+            width: min(50px, 5vh);
+            height: min(50px, 5vh);
             margin-bottom: -15px;
             opacity: 0.8;
         }
@@ -411,6 +411,63 @@
         .street-sign.vertical {
             writing-mode: vertical-rl;
             text-orientation: mixed;
+        }
+
+        /* Medium screens (laptops like 1512x982) */
+        @media (max-height: 900px) {
+            .phone-mockup {
+                width: min(320px, 25vw);
+                height: min(650px, 65vh);
+                border-radius: 45px;
+                padding: 12px;
+            }
+
+            .phone-mockup img {
+                border-radius: 38px;
+            }
+
+            .tagline {
+                font-size: 42px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+                margin-bottom: 30px;
+            }
+
+            .cn-tower-img {
+                height: min(300px, 35vh);
+            }
+
+            .casaloma-img {
+                height: min(200px, 22vh);
+            }
+
+            .toronto-img {
+                height: min(320px, 38vh);
+            }
+
+            .streetcar-img {
+                height: min(100px, 10vh);
+            }
+
+            .streetcar-rider {
+                width: min(40px, 4vh);
+                height: min(40px, 4vh);
+            }
+
+            .street-sign {
+                font-size: 10px;
+            }
+
+            .landmark-label {
+                font-size: 10px;
+            }
+
+            footer {
+                padding: 15px 30px;
+                font-size: 12px;
+            }
         }
 
         /* Responsive - Tablet & Mobile */
@@ -630,29 +687,33 @@
         <img src="images/streetcar.jpg" alt="Toronto Streetcar" class="streetcar-img">
     </div>
 
-    <!-- Toronto Street Signs - Grid layout matching real Toronto map -->
+    <!-- Toronto Street Signs - Centered around CN Tower (bottom center) -->
     <div class="street-signs">
-        <!-- North-South Streets (vertical) - West to East -->
-        <div class="street-sign vertical" style="top: 20%; left: 3%;">Dufferin St</div>
-        <div class="street-sign vertical" style="top: 45%; left: 8%;">Ossington Ave</div>
-        <div class="street-sign vertical" style="top: 25%; left: 15%;">Bathurst St</div>
-        <div class="street-sign vertical" style="top: 50%; left: 22%;">Spadina Ave</div>
-        <div class="street-sign vertical" style="top: 15%; right: 22%;">University Ave</div>
-        <div class="street-sign vertical" style="top: 40%; right: 15%;">Bay St</div>
-        <div class="street-sign vertical" style="top: 20%; right: 8%;">Yonge St</div>
-        <div class="street-sign vertical" style="top: 55%; right: 3%;">Jarvis St</div>
+        <!-- North-South Streets (vertical) - Relative to CN Tower center -->
+        <!-- West side streets -->
+        <div class="street-sign vertical" style="top: 25%; left: 5%;">Dufferin St</div>
+        <div class="street-sign vertical" style="top: 50%; left: 12%;">Bathurst St</div>
+        <div class="street-sign vertical" style="top: 35%; left: 20%;">Spadina Ave</div>
+        <div class="street-sign vertical" style="bottom: 35%; left: 35%;">University Ave</div>
+        <!-- Near CN Tower (center) -->
+        <div class="street-sign vertical" style="bottom: 25%; left: 46%;">Bay St</div>
+        <div class="street-sign vertical" style="bottom: 30%; right: 46%;">Yonge St</div>
+        <!-- East side streets -->
+        <div class="street-sign vertical" style="top: 40%; right: 20%;">Jarvis St</div>
+        <div class="street-sign vertical" style="top: 30%; right: 8%;">Parliament St</div>
 
-        <!-- East-West Streets (horizontal) - North to South -->
-        <div class="street-sign" style="top: 5%; left: 25%;">Eglinton Ave</div>
-        <div class="street-sign" style="top: 5%; right: 25%;">St Clair Ave</div>
-        <div class="street-sign" style="top: 12%; left: 10%;">Bloor St W</div>
-        <div class="street-sign" style="top: 12%; right: 10%;">Danforth Ave</div>
-        <div class="street-sign" style="bottom: 25%; left: 5%;">College St</div>
-        <div class="street-sign" style="bottom: 25%; right: 5%;">Dundas St</div>
-        <div class="street-sign" style="bottom: 12%; left: 15%;">Queen St W</div>
-        <div class="street-sign" style="bottom: 12%; right: 15%;">King St</div>
-        <div class="street-sign" style="bottom: 5%; left: 30%;">Front St</div>
-        <div class="street-sign" style="bottom: 5%; right: 30%;">Lakeshore Blvd</div>
+        <!-- East-West Streets (horizontal) - North to South toward CN Tower -->
+        <div class="street-sign" style="top: 8%; left: 20%;">Eglinton Ave</div>
+        <div class="street-sign" style="top: 8%; right: 20%;">St Clair Ave</div>
+        <div class="street-sign" style="top: 18%; left: 8%;">Bloor St W</div>
+        <div class="street-sign" style="top: 18%; right: 8%;">Danforth Ave</div>
+        <div class="street-sign" style="top: 35%; left: 3%;">College St</div>
+        <div class="street-sign" style="top: 35%; right: 3%;">Dundas St</div>
+        <div class="street-sign" style="bottom: 22%; left: 8%;">Queen St W</div>
+        <div class="street-sign" style="bottom: 22%; right: 8%;">King St</div>
+        <!-- Near CN Tower (bottom) -->
+        <div class="street-sign" style="bottom: 12%; left: 38%;">Front St</div>
+        <div class="street-sign" style="bottom: 6%; left: 25%;">Lakeshore Blvd</div>
     </div>
 
     <main class="container">
