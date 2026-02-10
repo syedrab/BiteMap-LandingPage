@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteMap - Real Food, Real Reviews</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover restaurants through TikTok-style video reviews from local food creators. Download free on iOS.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bitemap.fun/">
+    <meta property="og:title" content="BiteMap - Real Food, Real Reviews">
+    <meta property="og:description" content="Discover restaurants through video reviews from real food lovers.">
+    <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/bitemap-logo.png">
+    <link rel="apple-touch-icon" href="images/bitemap-logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Phone Mockup */
+        .phone-container {
+            flex-shrink: 0;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 570px;
+            background: #000;
+            border-radius: 45px;
+            padding: 12px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .phone-mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 35px;
+        }
+
+        /* Content */
+        .content {
+            max-width: 400px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+        }
+
+        .logo span {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .tagline .highlight {
+            position: relative;
+        }
+
+        .tagline .highlight::after {
+            content: '*';
+            font-size: 24px;
+            position: absolute;
+            top: 0;
+            margin-left: 2px;
+        }
+
+        .subtitle {
+            font-size: 17px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #000;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .app-store-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .app-store-btn .text {
+            text-align: left;
+        }
+
+        .app-store-btn .text-small {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        .app-store-btn .text-large {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #888;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: #FF6B35;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a.highlight {
+            color: #22c55e;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 50px;
+                padding: 60px 20px;
+            }
+
+            .content {
+                order: 2;
+            }
+
+            .phone-container {
+                order: 1;
+            }
+
+            .logo {
+                justify-content: center;
+            }
+
+            .tagline {
+                font-size: 36px;
+            }
+
+            .phone-mockup {
+                width: 240px;
+                height: 490px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <div class="phone-container">
+            <div class="phone-mockup">
+                <img src="images/Home Feed.png" alt="BiteMap app showing video food reviews">
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="logo">
+                <img src="images/bitemap-logo.png" alt="BiteMap">
+                <span>BiteMap</span>
+            </div>
+
+            <h1 class="tagline">
+                <span class="highlight">Real</span> food reviews<br>from real people
+            </h1>
+
+            <p class="subtitle">
+                Discover restaurants through TikTok-style video reviews from local food creators. No fake reviews, just hungry humans.
+            </p>
+
+            <a href="https://apps.apple.com/us/app/bitemap/id6746139076" class="app-store-btn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                </svg>
+                <div class="text">
+                    <div class="text-small">Download on the</div>
+                    <div class="text-large">App Store</div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="company">BiteMap &copy; 2025</div>
+        <div class="footer-links">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms & Services</a>
+            <a href="/support">Support</a>
+        </div>
+    </footer>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EEZQEGTQDD');
+    </script>
+</body>
+</html>
