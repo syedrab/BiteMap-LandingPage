@@ -176,7 +176,7 @@
         /* Food Icons */
         .food-icon {
             position: fixed;
-            font-size: 32px;
+            font-size: 48px;
             pointer-events: none;
             z-index: 1;
             transition: transform 0.2s, opacity 0.3s;
@@ -336,6 +336,8 @@
         let y = Math.random() * (window.innerHeight - 100);
         let vx = 2;
         let vy = 2;
+        const baseSpeed = 2;
+        const friction = 0.98;
         let isDragging = false;
         let dragOffsetX = 0;
         let dragOffsetY = 0;
@@ -384,7 +386,7 @@
 
                 const fx = parseFloat(food.dataset.x);
                 const fy = parseFloat(food.dataset.y);
-                const foodRect = { x: fx, y: fy, width: 32, height: 32 };
+                const foodRect = { x: fx, y: fy, width: 48, height: 48 };
 
                 // Simple box collision
                 if (logoRect.x < foodRect.x + foodRect.width &&
@@ -412,6 +414,21 @@
             if (!isDragging) {
                 x += vx;
                 y += vy;
+
+                // Apply friction - gradually slow down to base speed
+                const currentSpeed = Math.sqrt(vx * vx + vy * vy);
+                if (currentSpeed > baseSpeed) {
+                    vx *= friction;
+                    vy *= friction;
+
+                    // Once slow enough, normalize to base speed
+                    const newSpeed = Math.sqrt(vx * vx + vy * vy);
+                    if (newSpeed < baseSpeed) {
+                        const angle = Math.atan2(vy, vx);
+                        vx = Math.cos(angle) * baseSpeed;
+                        vy = Math.sin(angle) * baseSpeed;
+                    }
+                }
 
                 // Bounce off walls
                 if (x <= 0 || x >= window.innerWidth - 100) {
@@ -471,9 +488,9 @@
                 isDragging = false;
                 logo.classList.remove('dragging');
                 document.body.classList.remove('dragging-logo');
-                // Throw it based on movement direction
-                vx = Math.max(-8, Math.min(8, vx)) || 2;
-                vy = Math.max(-8, Math.min(8, vy)) || 2;
+                // Throw it fast! Cap at 25 for sanity
+                vx = Math.max(-25, Math.min(25, vx * 1.5)) || baseSpeed;
+                vy = Math.max(-25, Math.min(25, vy * 1.5)) || baseSpeed;
             }
         });
 
@@ -512,8 +529,9 @@
                 isDragging = false;
                 logo.classList.remove('dragging');
                 document.body.classList.remove('dragging-logo');
-                vx = Math.max(-8, Math.min(8, vx)) || 2;
-                vy = Math.max(-8, Math.min(8, vy)) || 2;
+                // Throw it fast! Cap at 25 for sanity
+                vx = Math.max(-25, Math.min(25, vx * 1.5)) || baseSpeed;
+                vy = Math.max(-25, Math.min(25, vy * 1.5)) || baseSpeed;
             }
         });
 
