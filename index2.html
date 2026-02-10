@@ -178,7 +178,7 @@
         /* Food Icons */
         .food-icon {
             position: fixed;
-            font-size: 48px;
+            font-size: 28px;
             pointer-events: none;
             z-index: 0;
             transition: transform 0.2s, opacity 0.3s;
@@ -351,19 +351,38 @@
         logo.style.left = x + 'px';
         logo.style.top = y + 'px';
 
+        const minDistance = 120; // Minimum distance between food items
+
+        // Check if position is far enough from other food
+        function isFarEnough(fx, fy) {
+            for (const food of foodItems) {
+                if (food.classList.contains('eaten')) continue;
+                const ox = parseFloat(food.dataset.x);
+                const oy = parseFloat(food.dataset.y);
+                const dist = Math.sqrt((fx - ox) ** 2 + (fy - oy) ** 2);
+                if (dist < minDistance) return false;
+            }
+            return true;
+        }
+
         // Spawn food icons
         function spawnFood() {
             const food = document.createElement('div');
             food.className = 'food-icon';
             food.textContent = foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
 
-            // Random position avoiding center content area
+            // Random position avoiding center content area + min distance from others
             let fx, fy;
+            let attempts = 0;
             do {
                 fx = Math.random() * (window.innerWidth - 50);
                 fy = Math.random() * (window.innerHeight - 50);
-            } while (fx > window.innerWidth * 0.25 && fx < window.innerWidth * 0.75 &&
-                     fy > window.innerHeight * 0.2 && fy < window.innerHeight * 0.8);
+                attempts++;
+            } while (attempts < 50 && (
+                (fx > window.innerWidth * 0.2 && fx < window.innerWidth * 0.8 &&
+                 fy > window.innerHeight * 0.15 && fy < window.innerHeight * 0.85) ||
+                !isFarEnough(fx, fy)
+            ));
 
             food.style.left = fx + 'px';
             food.style.top = fy + 'px';
@@ -375,7 +394,7 @@
         }
 
         // Initial spawn
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 12; i++) {
             spawnFood();
         }
 
@@ -388,7 +407,7 @@
 
                 const fx = parseFloat(food.dataset.x);
                 const fy = parseFloat(food.dataset.y);
-                const foodRect = { x: fx, y: fy, width: 48, height: 48 };
+                const foodRect = { x: fx, y: fy, width: 28, height: 28 };
 
                 // Simple box collision
                 if (logoRect.x < foodRect.x + foodRect.width &&
