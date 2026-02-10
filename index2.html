@@ -682,34 +682,38 @@
         <span class="landmark-label">Casa Loma</span>
     </div>
 
-    <!-- Toronto Street Signs - Centered around CN Tower (bottom center) -->
+    <!-- Toronto Street Signs - Geographically accurate layout -->
+    <!-- CN Tower is at bottom center (Front St / waterfront area) -->
     <div class="street-signs">
-        <!-- North-South Streets (vertical) - Relative to CN Tower center -->
-        <!-- West side streets -->
-        <div class="street-sign vertical" style="top: 25%; left: 5%;">Dufferin St</div>
-        <div class="street-sign vertical" style="top: 50%; left: 12%;">Bathurst St</div>
-        <div class="street-sign vertical" style="top: 35%; left: 20%;">Spadina Ave</div>
-        <div class="street-sign vertical" style="bottom: 35%; left: 35%;">University Ave</div>
-        <!-- Near CN Tower (center) -->
-        <div class="street-sign vertical" style="bottom: 25%; left: 46%;">Bay St</div>
-        <div class="street-sign vertical" style="bottom: 30%; right: 46%;">Yonge St</div>
-        <!-- East side streets -->
-        <div class="street-sign vertical" style="top: 40%; right: 20%;">Jarvis St</div>
-        <div class="street-sign vertical" style="top: 30%; right: 8%;">Parliament St</div>
 
-        <!-- East-West Streets (horizontal) - North to South toward CN Tower -->
-        <div class="street-sign" style="top: 3%; left: 15%;">Eglinton Ave</div>
-        <div class="street-sign" style="top: 12%; right: 15%;">St Clair Ave</div>
-        <div class="street-sign" style="top: 22%; left: 8%;">Danforth Ave</div>
-        <div class="street-sign" style="top: 35%; left: 3%;">College St</div>
-        <div class="street-sign" style="top: 35%; right: 3%;">Dundas St</div>
-        <div class="street-sign" style="bottom: 22%; left: 8%;">Queen St W</div>
-        <div class="street-sign" style="bottom: 22%; right: 8%;">King St</div>
-        <!-- Bloor St on top of CN Tower -->
-        <div class="street-sign" style="bottom: 42%; left: 48%;">Bloor St</div>
-        <!-- Near CN Tower (bottom) -->
-        <div class="street-sign" style="bottom: 12%; left: 38%;">Front St</div>
-        <div class="street-sign" style="bottom: 6%; left: 25%;">Lakeshore Blvd</div>
+        <!-- NORTH-SOUTH STREETS (vertical) - West to East -->
+        <div class="street-sign vertical" style="top: 20%; left: 4%;">Dufferin St</div>
+        <div class="street-sign vertical" style="top: 45%; left: 12%;">Bathurst St</div>
+        <div class="street-sign vertical" style="top: 30%; left: 22%;">Spadina Ave</div>
+        <div class="street-sign vertical" style="bottom: 40%; left: 38%;">University Ave</div>
+        <div class="street-sign vertical" style="bottom: 30%; left: 47%;">Bay St</div>
+        <div class="street-sign vertical" style="bottom: 35%; right: 47%;">Yonge St</div>
+        <div class="street-sign vertical" style="top: 35%; right: 22%;">Jarvis St</div>
+        <div class="street-sign vertical" style="top: 25%; right: 4%;">Parliament St</div>
+
+        <!-- EAST-WEST STREETS (horizontal) - North to South -->
+        <!-- Far North -->
+        <div class="street-sign" style="top: 4%; left: 8%;">Eglinton Ave</div>
+        <div class="street-sign" style="top: 10%; right: 8%;">St Clair Ave</div>
+
+        <!-- Bloor-Danforth Line (same street, Bloor=West, Danforth=East of Don Valley) -->
+        <div class="street-sign" style="top: 20%; left: 30%;">Bloor St W</div>
+        <div class="street-sign" style="top: 20%; right: 12%;">Danforth Ave</div>
+
+        <!-- Downtown streets -->
+        <div class="street-sign" style="top: 32%; left: 5%;">College St</div>
+        <div class="street-sign" style="top: 38%; right: 5%;">Dundas St</div>
+        <div class="street-sign" style="bottom: 30%; left: 6%;">Queen St W</div>
+        <div class="street-sign" style="bottom: 25%; right: 6%;">King St</div>
+
+        <!-- Near CN Tower / Waterfront -->
+        <div class="street-sign" style="bottom: 15%; left: 42%;">Front St</div>
+        <div class="street-sign" style="bottom: 8%; right: 42%;">Lakeshore Blvd</div>
     </div>
 
     <main class="container">
@@ -850,7 +854,8 @@
 
             let minX, maxX, minY, maxY;
 
-            // Define quadrant bounds (corners, avoiding center)
+            // Define quadrant bounds (corners, avoiding center and footer)
+            const footerHeight = 80; // Keep food icons above footer
             switch(quadrant) {
                 case 0: // Top-left
                     minX = margin; maxX = w * 0.25;
@@ -862,11 +867,11 @@
                     break;
                 case 2: // Bottom-left
                     minX = margin; maxX = w * 0.25;
-                    minY = h * 0.7; maxY = h - margin;
+                    minY = h * 0.65; maxY = h - footerHeight;
                     break;
                 case 3: // Bottom-right
                     minX = w * 0.75; maxX = w - margin;
-                    minY = h * 0.7; maxY = h - margin;
+                    minY = h * 0.65; maxY = h - footerHeight;
                     break;
             }
 
