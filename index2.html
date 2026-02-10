@@ -141,7 +141,7 @@
         /* Bouncing Logo - DVD screensaver style */
         .bouncing-logo {
             position: fixed;
-            opacity: 0.15;
+            opacity: 0.85;
             z-index: 9999;
             width: 100px;
             height: 100px;
@@ -150,13 +150,14 @@
         }
 
         .bouncing-logo:hover {
-            opacity: 0.4;
+            opacity: 1;
+            transform: scale(1.05);
         }
 
         .bouncing-logo.dragging {
             cursor: grabbing;
-            opacity: 0.6;
-            transform: scale(1.1);
+            opacity: 1;
+            transform: scale(1.15);
         }
 
         .bouncing-logo img {
@@ -164,6 +165,20 @@
             height: 100%;
             object-fit: contain;
             pointer-events: none;
+        }
+
+        /* Food Icons */
+        .food-icon {
+            position: fixed;
+            font-size: 32px;
+            pointer-events: none;
+            z-index: 1;
+            transition: transform 0.2s, opacity 0.3s;
+        }
+
+        .food-icon.eaten {
+            transform: scale(1.5);
+            opacity: 0;
         }
 
         /* Footer */
@@ -259,6 +274,9 @@
         <img src="images/bitemap-logo-transparent.png" alt="" draggable="false">
     </div>
 
+    <!-- Food Icons -->
+    <div id="foodContainer"></div>
+
     <main class="container">
         <div class="phone-container">
             <div class="phone-mockup">
@@ -307,6 +325,7 @@
     <!-- DVD Bouncing Logo -->
     <script>
         const logo = document.getElementById('dvdLogo');
+        const foodContainer = document.getElementById('foodContainer');
         let x = Math.random() * (window.innerWidth - 100);
         let y = Math.random() * (window.innerHeight - 100);
         let vx = 2;
@@ -314,9 +333,74 @@
         let isDragging = false;
         let dragOffsetX = 0;
         let dragOffsetY = 0;
+        let score = 0;
+
+        const foodEmojis = ['🍔', '🍕', '🌮', '🍣', '🍜', '🍱', '🥗', '🍝', '🥘', '🍛', '🌯', '🥙', '🍲', '🥡', '🍙', '🍚', '🥟', '🍤', '🍗', '🍖', '🥩', '🧆', '🥪', '🌭', '🍟', '🥓', '🍳', '🥞', '🧇', '🥯', '🍩', '🍰', '🧁', '🍦', '🍨', '🎂'];
+        let foodItems = [];
 
         logo.style.left = x + 'px';
         logo.style.top = y + 'px';
+
+        // Spawn food icons
+        function spawnFood() {
+            const food = document.createElement('div');
+            food.className = 'food-icon';
+            food.textContent = foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
+
+            // Random position avoiding center content area
+            let fx, fy;
+            do {
+                fx = Math.random() * (window.innerWidth - 50);
+                fy = Math.random() * (window.innerHeight - 50);
+            } while (fx > window.innerWidth * 0.25 && fx < window.innerWidth * 0.75 &&
+                     fy > window.innerHeight * 0.2 && fy < window.innerHeight * 0.8);
+
+            food.style.left = fx + 'px';
+            food.style.top = fy + 'px';
+            food.dataset.x = fx;
+            food.dataset.y = fy;
+
+            foodContainer.appendChild(food);
+            foodItems.push(food);
+        }
+
+        // Initial spawn
+        for (let i = 0; i < 15; i++) {
+            spawnFood();
+        }
+
+        // Check collision
+        function checkCollision() {
+            const logoRect = { x: x, y: y, width: 100, height: 100 };
+
+            foodItems.forEach((food, index) => {
+                if (food.classList.contains('eaten')) return;
+
+                const fx = parseFloat(food.dataset.x);
+                const fy = parseFloat(food.dataset.y);
+                const foodRect = { x: fx, y: fy, width: 32, height: 32 };
+
+                // Simple box collision
+                if (logoRect.x < foodRect.x + foodRect.width &&
+                    logoRect.x + logoRect.width > foodRect.x &&
+                    logoRect.y < foodRect.y + foodRect.height &&
+                    logoRect.y + logoRect.height > foodRect.y) {
+
+                    // Collision! Eat the food
+                    food.classList.add('eaten');
+                    score++;
+
+                    // Remove after animation
+                    setTimeout(() => {
+                        food.remove();
+                        foodItems = foodItems.filter(f => f !== food);
+
+                        // Respawn new food
+                        setTimeout(spawnFood, 500);
+                    }, 300);
+                }
+            });
+        }
 
         function animate() {
             if (!isDragging) {
@@ -335,6 +419,9 @@
 
                 logo.style.left = x + 'px';
                 logo.style.top = y + 'px';
+
+                // Check for food collision
+                checkCollision();
             }
             requestAnimationFrame(animate);
         }
