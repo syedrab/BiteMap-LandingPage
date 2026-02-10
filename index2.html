@@ -815,7 +815,22 @@
 
         // Only run Pac-Man controls on desktop
         if (!isMobile) {
-            // Arrow key controls
+            const directions = ['up', 'down', 'left', 'right'];
+
+            // Pick a random direction to start
+            function randomDirection() {
+                return directions[Math.floor(Math.random() * directions.length)];
+            }
+
+            // Start moving in a random direction
+            logo.direction = randomDirection();
+
+            // Change direction randomly every 2 seconds
+            setInterval(() => {
+                logo.direction = randomDirection();
+            }, 2000);
+
+            // Arrow key controls (can override auto movement)
             document.addEventListener('keydown', (e) => {
                 if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
                     e.preventDefault();
@@ -830,33 +845,31 @@
 
             // Animation loop
             function animate() {
-                if (logo.direction) {
-                    switch(logo.direction) {
-                        case 'up':
-                            logo.y -= logo.speed;
-                            break;
-                        case 'down':
-                            logo.y += logo.speed;
-                            break;
-                        case 'left':
-                            logo.x -= logo.speed;
-                            break;
-                        case 'right':
-                            logo.x += logo.speed;
-                            break;
-                    }
-
-                    // Wrap around screen edges (Pac-Man style)
-                    if (logo.x < -100) logo.x = window.innerWidth;
-                    if (logo.x > window.innerWidth) logo.x = -100;
-                    if (logo.y < -100) logo.y = window.innerHeight;
-                    if (logo.y > window.innerHeight) logo.y = -100;
-
-                    logo.el.style.left = logo.x + 'px';
-                    logo.el.style.top = logo.y + 'px';
-
-                    checkCollision();
+                switch(logo.direction) {
+                    case 'up':
+                        logo.y -= logo.speed;
+                        break;
+                    case 'down':
+                        logo.y += logo.speed;
+                        break;
+                    case 'left':
+                        logo.x -= logo.speed;
+                        break;
+                    case 'right':
+                        logo.x += logo.speed;
+                        break;
                 }
+
+                // Wrap around screen edges (Pac-Man style)
+                if (logo.x < -100) logo.x = window.innerWidth;
+                if (logo.x > window.innerWidth) logo.x = -100;
+                if (logo.y < -100) logo.y = window.innerHeight;
+                if (logo.y > window.innerHeight) logo.y = -100;
+
+                logo.el.style.left = logo.x + 'px';
+                logo.el.style.top = logo.y + 'px';
+
+                checkCollision();
                 requestAnimationFrame(animate);
             }
 
