@@ -155,22 +155,29 @@
             width: auto;
         }
 
-        /* Pac-Man Logo - Arrow key controlled */
+        /* Pac-Man Streetcar - Arrow key controlled */
         .bouncing-logo {
             position: fixed;
-            opacity: 0.9;
             z-index: 100;
-            width: 100px;
-            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             pointer-events: none;
             transition: opacity 0.2s;
         }
 
-        .bouncing-logo img {
-            width: 100%;
-            height: 100%;
+        .bouncing-logo .rider-logo {
+            width: 50px;
+            height: 50px;
             object-fit: contain;
-            pointer-events: none;
+            margin-bottom: -12px;
+            z-index: 101;
+        }
+
+        .bouncing-logo .rider-streetcar {
+            width: 120px;
+            height: auto;
+            object-fit: contain;
         }
 
         /* Food Icons */
@@ -658,9 +665,10 @@
         <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank">Download App</a>
     </div>
 
-    <!-- Pac-Man Logo (desktop only) -->
+    <!-- Pac-Man Streetcar with BiteMap logo (desktop only) -->
     <div class="bouncing-logo" id="dvdLogo">
-        <img src="images/bitemap-logo-transparent.png" alt="BiteMap" draggable="false">
+        <img src="images/bitemap-logo-transparent.png" alt="BiteMap" class="rider-logo" draggable="false">
+        <img src="images/streetcar.jpg" alt="Streetcar" class="rider-streetcar" draggable="false">
     </div>
 
     <!-- Food Icons -->
@@ -679,12 +687,6 @@
     <div class="landmark-container casaloma-container">
         <img src="images/casaloma.jpg" alt="Casa Loma" class="casaloma-img">
         <span class="landmark-label">Casa Loma</span>
-    </div>
-
-    <!-- Streetcar with BiteMap logo riding it -->
-    <div class="streetcar-container">
-        <img src="images/bitemap-logo-transparent.png" alt="BiteMap" class="streetcar-rider">
-        <img src="images/streetcar.jpg" alt="Toronto Streetcar" class="streetcar-img">
     </div>
 
     <!-- Toronto Street Signs - Centered around CN Tower (bottom center) -->
@@ -794,11 +796,12 @@
         // Pac-Man style logo (arrow key controlled)
         const logo = {
             el: document.getElementById('dvdLogo'),
-            x: window.innerWidth / 2 - 50,
-            y: window.innerHeight / 2 - 50,
+            x: window.innerWidth / 2 - 60,
+            y: window.innerHeight / 2 - 40,
             direction: null, // 'up', 'down', 'left', 'right'
-            size: 100,
-            speed: 2 // speed based on size (100px / 50)
+            width: 120,
+            height: 80,
+            speed: 3
         };
 
         let score = 0;
@@ -907,7 +910,7 @@
 
         // Check collision
         function checkCollision() {
-            const logoRect = { x: logo.x, y: logo.y, width: 100, height: 100 };
+            const logoRect = { x: logo.x, y: logo.y, width: logo.width, height: logo.height };
 
             foodItems.forEach((food, index) => {
                 if (food.classList.contains('eaten')) return;
@@ -991,10 +994,10 @@
                 }
 
                 // Wrap around screen edges (Pac-Man style)
-                if (logo.x < -100) logo.x = window.innerWidth;
-                if (logo.x > window.innerWidth) logo.x = -100;
-                if (logo.y < -100) logo.y = window.innerHeight;
-                if (logo.y > window.innerHeight) logo.y = -100;
+                if (logo.x < -logo.width) logo.x = window.innerWidth;
+                if (logo.x > window.innerWidth) logo.x = -logo.width;
+                if (logo.y < -logo.height) logo.y = window.innerHeight;
+                if (logo.y > window.innerHeight) logo.y = -logo.height;
 
                 logo.el.style.left = logo.x + 'px';
                 logo.el.style.top = logo.y + 'px';
