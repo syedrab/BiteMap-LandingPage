@@ -187,57 +187,6 @@
             opacity: 0;
         }
 
-        /* Toronto Landmarks */
-        .landmarks {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .landmark {
-            position: absolute;
-            font-size: 48px;
-            opacity: 0.15;
-            filter: grayscale(100%);
-        }
-
-        .cn-tower {
-            top: 15%;
-            left: 8%;
-            font-size: 64px;
-        }
-
-        .casa-loma {
-            top: 20%;
-            right: 10%;
-            font-size: 52px;
-        }
-
-        .skyline {
-            bottom: 18%;
-            left: 5%;
-            font-size: 56px;
-        }
-
-        .harbor {
-            bottom: 25%;
-            right: 8%;
-            font-size: 44px;
-        }
-
-        .rom {
-            top: 45%;
-            left: 3%;
-            font-size: 40px;
-        }
-
-        .high-park {
-            top: 50%;
-            right: 5%;
-            font-size: 44px;
-        }
-
         /* CN Tower Image */
         .cn-tower-img {
             position: fixed;
@@ -405,7 +354,7 @@
 
         /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
-            .landmarks, .street-signs, .cn-tower-img, .toronto-img {
+            .street-signs, .cn-tower-img, .toronto-img {
                 display: none;
             }
 
@@ -598,15 +547,6 @@
 
     <!-- Food Icons -->
     <div id="foodContainer"></div>
-
-    <!-- Toronto Landmarks -->
-    <div class="landmarks">
-        <div class="landmark casa-loma" title="Casa Loma">🏰</div>
-        <div class="landmark skyline" title="Toronto Skyline">🏙️</div>
-        <div class="landmark harbor" title="Harbourfront">⛵</div>
-        <div class="landmark rom" title="Royal Ontario Museum">🏛️</div>
-        <div class="landmark high-park" title="High Park">🌳</div>
-    </div>
 
     <!-- CN Tower -->
     <img src="images/cntower.png" alt="CN Tower" class="cn-tower-img">
