@@ -213,6 +213,19 @@
             z-index: 0;
         }
 
+        /* Casa Loma Image */
+        .casaloma-img {
+            position: fixed;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            height: 350px;
+            width: auto;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
@@ -354,7 +367,7 @@
 
         /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
-            .street-signs, .cn-tower-img, .toronto-img {
+            .street-signs, .cn-tower-img, .toronto-img, .casaloma-img {
                 display: none;
             }
 
@@ -552,7 +565,10 @@
     <img src="images/cntower.jpg" alt="CN Tower" class="cn-tower-img">
 
     <!-- Toronto Skyline -->
-    <img src="images/toronto.png" alt="Toronto" class="toronto-img">
+    <img src="images/toronto.jpg" alt="Toronto" class="toronto-img">
+
+    <!-- Casa Loma -->
+    <img src="images/casaloma.jpg" alt="Casa Loma" class="casaloma-img">
 
     <!-- Toronto Street Signs -->
     <div class="street-signs">
