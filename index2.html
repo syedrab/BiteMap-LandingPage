@@ -191,20 +191,24 @@
         .landmark-container {
             position: fixed;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
             pointer-events: none;
             z-index: 1;
         }
 
         .landmark-label {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
             font-family: 'Space Grotesk', sans-serif;
             font-size: 12px;
             font-weight: 500;
             color: #000;
-            opacity: 0.15;
-            margin-top: 8px;
+            opacity: 0.2;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         /* CN Tower */
@@ -240,9 +244,34 @@
         }
 
         .casaloma-img {
-            height: 180px;
+            height: 270px;
             width: auto;
             opacity: 0.1;
+        }
+
+        /* Streetcar with BiteMap riding */
+        .streetcar-container {
+            position: fixed;
+            bottom: 10%;
+            right: 8%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .streetcar-img {
+            height: 120px;
+            width: auto;
+            opacity: 0.15;
+        }
+
+        .streetcar-rider {
+            width: 50px;
+            height: 50px;
+            margin-bottom: -15px;
+            opacity: 0.8;
         }
 
         /* Mobile Menu */
@@ -373,7 +402,7 @@
             font-size: 11px;
             font-weight: 600;
             color: #000;
-            opacity: 0.08;
+            opacity: 0.12;
             text-transform: uppercase;
             letter-spacing: 1px;
             white-space: nowrap;
@@ -386,7 +415,7 @@
 
         /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
-            .street-signs, .cn-tower-container, .toronto-img, .casaloma-container {
+            .street-signs, .cn-tower-container, .toronto-img, .casaloma-container, .streetcar-container {
                 display: none;
             }
 
@@ -593,6 +622,12 @@
     <div class="landmark-container casaloma-container">
         <img src="images/casaloma.jpg" alt="Casa Loma" class="casaloma-img">
         <span class="landmark-label">Casa Loma</span>
+    </div>
+
+    <!-- Streetcar with BiteMap logo riding it -->
+    <div class="streetcar-container">
+        <img src="images/bitemap-logo-transparent.png" alt="BiteMap" class="streetcar-rider">
+        <img src="images/streetcar.jpg" alt="Toronto Streetcar" class="streetcar-img">
     </div>
 
     <!-- Toronto Street Signs - Grid layout matching real Toronto map -->
