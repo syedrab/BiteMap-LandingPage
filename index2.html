@@ -46,10 +46,6 @@
             -webkit-user-select: none;
         }
 
-        body.dragging-logo {
-            cursor: grabbing !important;
-        }
-
         .container {
             flex: 1;
             display: flex;
@@ -159,26 +155,15 @@
             width: auto;
         }
 
-        /* Bouncing Logo - DVD screensaver style */
+        /* Pac-Man Logo - Arrow key controlled */
         .bouncing-logo {
             position: fixed;
-            opacity: 0.85;
+            opacity: 0.9;
             z-index: 100;
             width: 100px;
             height: 100px;
-            cursor: grab;
-            transition: opacity 0.2s, transform 0.1s;
-        }
-
-        .bouncing-logo:hover {
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        .bouncing-logo.dragging {
-            cursor: grabbing;
-            opacity: 1;
-            transform: scale(1.15);
+            pointer-events: none;
+            transition: opacity 0.2s;
         }
 
         .bouncing-logo img {
@@ -500,10 +485,10 @@
         <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank">Download App</a>
     </div>
 
-    <!-- Bouncing Logo -->
-    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank" rel="noopener" class="bouncing-logo" id="dvdLogo">
-        <img src="images/bitemap-logo-transparent.png" alt="Download BiteMap" draggable="false">
-    </a>
+    <!-- Pac-Man Logo (desktop only) -->
+    <div class="bouncing-logo" id="dvdLogo">
+        <img src="images/bitemap-logo-transparent.png" alt="BiteMap" draggable="false">
+    </div>
 
     <!-- Food Icons -->
     <div id="foodContainer"></div>
@@ -579,42 +564,27 @@
         gtag('config', 'G-EEZQEGTQDD');
     </script>
 
-    <!-- DVD Bouncing Logos -->
+    <!-- Pac-Man Style Logo Game -->
     <script>
         const foodContainer = document.getElementById('foodContainer');
-        const baseSpeed = 2;
-        const friction = 0.99; // ~5 seconds to slow down
 
-        // Logo objects
-        const logos = [
-            {
-                el: document.getElementById('dvdLogo'),
-                x: Math.random() * (window.innerWidth - 100),
-                y: Math.random() * (window.innerHeight - 100),
-                vx: 2,
-                vy: 2,
-                isDragging: false,
-                hasDragged: false,
-                dragOffsetX: 0,
-                dragOffsetY: 0,
-                startX: 0,
-                startY: 0,
-                lastX: 0,
-                lastY: 0
-            }
-        ];
+        // Pac-Man style logo (arrow key controlled)
+        const logo = {
+            el: document.getElementById('dvdLogo'),
+            x: window.innerWidth / 2 - 50,
+            y: window.innerHeight / 2 - 50,
+            direction: null, // 'up', 'down', 'left', 'right'
+            speed: 5
+        };
 
-        let currentDragging = null;
         let score = 0;
 
         const foodEmojis = ['🍔', '🍕', '🌮', '🍣', '🍜', '🍱', '🥗', '🍝', '🥘', '🍛', '🌯', '🥙', '🍲', '🥡', '🍙', '🍚', '🥟', '🍤', '🍗', '🍖', '🥩', '🧆', '🥪', '🌭', '🍟', '🥓', '🍳', '🥞', '🧇', '🥯', '🍩', '🍰', '🧁', '🍦', '🍨', '🎂'];
         let foodItems = [];
 
-        // Initialize logo positions
-        logos.forEach(logo => {
-            logo.el.style.left = logo.x + 'px';
-            logo.el.style.top = logo.y + 'px';
-        });
+        // Initialize logo position
+        logo.el.style.left = logo.x + 'px';
+        logo.el.style.top = logo.y + 'px';
 
         const minDistance = 70; // Minimum distance between food items
         const isMobile = window.innerWidth <= 600;
@@ -711,9 +681,9 @@
             }
         }
 
-        // Check collision for a specific logo
-        function checkCollision(logoObj) {
-            const logoRect = { x: logoObj.x, y: logoObj.y, width: 100, height: 100 };
+        // Check collision
+        function checkCollision() {
+            const logoRect = { x: logo.x, y: logo.y, width: 100, height: 100 };
 
             foodItems.forEach((food, index) => {
                 if (food.classList.contains('eaten')) return;
@@ -722,191 +692,76 @@
                 const fy = parseFloat(food.dataset.y);
                 const foodRect = { x: fx, y: fy, width: 43, height: 43 };
 
-                // Simple box collision
                 if (logoRect.x < foodRect.x + foodRect.width &&
                     logoRect.x + logoRect.width > foodRect.x &&
                     logoRect.y < foodRect.y + foodRect.height &&
                     logoRect.y + logoRect.height > foodRect.y) {
 
-                    // Collision! Eat the food
                     food.classList.add('eaten');
                     score++;
 
-                    // Remove after animation
                     setTimeout(() => {
                         food.remove();
                         foodItems = foodItems.filter(f => f !== food);
-
-                        // Respawn new food
                         setTimeout(spawnFood, 500);
                     }, 300);
                 }
             });
         }
 
-        function animate() {
-            logos.forEach(logo => {
-                if (!logo.isDragging) {
-                    logo.x += logo.vx;
-                    logo.y += logo.vy;
+        // Only run Pac-Man controls on desktop
+        if (!isMobile) {
+            // Arrow key controls
+            document.addEventListener('keydown', (e) => {
+                if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+                    e.preventDefault();
+                    switch(e.key) {
+                        case 'ArrowUp': logo.direction = 'up'; break;
+                        case 'ArrowDown': logo.direction = 'down'; break;
+                        case 'ArrowLeft': logo.direction = 'left'; break;
+                        case 'ArrowRight': logo.direction = 'right'; break;
+                    }
+                }
+            });
 
-                    // Apply friction - gradually slow down to base speed
-                    const currentSpeed = Math.sqrt(logo.vx * logo.vx + logo.vy * logo.vy);
-                    if (currentSpeed > baseSpeed) {
-                        logo.vx *= friction;
-                        logo.vy *= friction;
-
-                        // Once slow enough, normalize to base speed
-                        const newSpeed = Math.sqrt(logo.vx * logo.vx + logo.vy * logo.vy);
-                        if (newSpeed < baseSpeed) {
-                            const angle = Math.atan2(logo.vy, logo.vx);
-                            logo.vx = Math.cos(angle) * baseSpeed;
-                            logo.vy = Math.sin(angle) * baseSpeed;
-                        }
+            // Animation loop
+            function animate() {
+                if (logo.direction) {
+                    switch(logo.direction) {
+                        case 'up':
+                            logo.y -= logo.speed;
+                            break;
+                        case 'down':
+                            logo.y += logo.speed;
+                            break;
+                        case 'left':
+                            logo.x -= logo.speed;
+                            break;
+                        case 'right':
+                            logo.x += logo.speed;
+                            break;
                     }
 
-                    // Bounce off walls
-                    if (logo.x <= 0 || logo.x >= window.innerWidth - 100) {
-                        logo.vx = -logo.vx;
-                        logo.x = Math.max(0, Math.min(logo.x, window.innerWidth - 100));
-                    }
-                    if (logo.y <= 0 || logo.y >= window.innerHeight - 100) {
-                        logo.vy = -logo.vy;
-                        logo.y = Math.max(0, Math.min(logo.y, window.innerHeight - 100));
-                    }
+                    // Wrap around screen edges (Pac-Man style)
+                    if (logo.x < -100) logo.x = window.innerWidth;
+                    if (logo.x > window.innerWidth) logo.x = -100;
+                    if (logo.y < -100) logo.y = window.innerHeight;
+                    if (logo.y > window.innerHeight) logo.y = -100;
 
                     logo.el.style.left = logo.x + 'px';
                     logo.el.style.top = logo.y + 'px';
 
-                    // Check for food collision
-                    checkCollision(logo);
+                    checkCollision();
                 }
-            });
-            requestAnimationFrame(animate);
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        } else {
+            // On mobile, hide the bouncing logo and food icons
+            logo.el.style.display = 'none';
+            foodContainer.style.display = 'none';
         }
-
-        // Setup event handlers for each logo
-        logos.forEach(logoObj => {
-            // Prevent link click if dragged
-            logoObj.el.addEventListener('click', (e) => {
-                if (logoObj.hasDragged) {
-                    e.preventDefault();
-                }
-            });
-
-            // Mouse drag
-            logoObj.el.addEventListener('mousedown', (e) => {
-                e.preventDefault();
-                logoObj.isDragging = true;
-                logoObj.hasDragged = false;
-                currentDragging = logoObj;
-                logoObj.el.classList.add('dragging');
-                document.body.classList.add('dragging-logo');
-                logoObj.dragOffsetX = e.clientX - logoObj.x;
-                logoObj.dragOffsetY = e.clientY - logoObj.y;
-                logoObj.startX = e.clientX;
-                logoObj.startY = e.clientY;
-                logoObj.lastX = e.clientX;
-                logoObj.lastY = e.clientY;
-            });
-
-            // Touch support
-            logoObj.el.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                logoObj.isDragging = true;
-                logoObj.hasDragged = false;
-                currentDragging = logoObj;
-                logoObj.el.classList.add('dragging');
-                document.body.classList.add('dragging-logo');
-                const touch = e.touches[0];
-                logoObj.dragOffsetX = touch.clientX - logoObj.x;
-                logoObj.dragOffsetY = touch.clientY - logoObj.y;
-                logoObj.startX = touch.clientX;
-                logoObj.startY = touch.clientY;
-                logoObj.lastX = touch.clientX;
-                logoObj.lastY = touch.clientY;
-            });
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (currentDragging) {
-                e.preventDefault();
-                const logo = currentDragging;
-                logo.x = e.clientX - logo.dragOffsetX;
-                logo.y = e.clientY - logo.dragOffsetY;
-                logo.el.style.left = logo.x + 'px';
-                logo.el.style.top = logo.y + 'px';
-
-                const movedX = Math.abs(e.clientX - logo.startX);
-                const movedY = Math.abs(e.clientY - logo.startY);
-                if (movedX > 5 || movedY > 5) {
-                    logo.hasDragged = true;
-                }
-
-                logo.vx = (e.clientX - logo.lastX) * 0.5;
-                logo.vy = (e.clientY - logo.lastY) * 0.5;
-                logo.lastX = e.clientX;
-                logo.lastY = e.clientY;
-
-                checkCollision(logo);
-            }
-        });
-
-        document.addEventListener('mouseup', () => {
-            if (currentDragging) {
-                const logo = currentDragging;
-                logo.isDragging = false;
-                logo.el.classList.remove('dragging');
-                document.body.classList.remove('dragging-logo');
-                logo.vx = Math.max(-25, Math.min(25, logo.vx * 1.5)) || baseSpeed;
-                logo.vy = Math.max(-25, Math.min(25, logo.vy * 1.5)) || baseSpeed;
-                currentDragging = null;
-            }
-        });
-
-        document.addEventListener('touchmove', (e) => {
-            if (currentDragging) {
-                const logo = currentDragging;
-                const touch = e.touches[0];
-                logo.x = touch.clientX - logo.dragOffsetX;
-                logo.y = touch.clientY - logo.dragOffsetY;
-                logo.el.style.left = logo.x + 'px';
-                logo.el.style.top = logo.y + 'px';
-
-                const movedX = Math.abs(touch.clientX - logo.startX);
-                const movedY = Math.abs(touch.clientY - logo.startY);
-                if (movedX > 5 || movedY > 5) {
-                    logo.hasDragged = true;
-                }
-
-                logo.vx = (touch.clientX - logo.lastX) * 0.5;
-                logo.vy = (touch.clientY - logo.lastY) * 0.5;
-                logo.lastX = touch.clientX;
-                logo.lastY = touch.clientY;
-
-                checkCollision(logo);
-            }
-        });
-
-        document.addEventListener('touchend', () => {
-            if (currentDragging) {
-                const logo = currentDragging;
-                logo.isDragging = false;
-                logo.el.classList.remove('dragging');
-                document.body.classList.remove('dragging-logo');
-                logo.vx = Math.max(-25, Math.min(25, logo.vx * 1.5)) || baseSpeed;
-                logo.vy = Math.max(-25, Math.min(25, logo.vy * 1.5)) || baseSpeed;
-                currentDragging = null;
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            x = Math.min(x, window.innerWidth - 100);
-            y = Math.min(y, window.innerHeight - 100);
-        });
-
-        animate();
     </script>
 </body>
 </html>
