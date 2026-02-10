@@ -238,6 +238,19 @@
             font-size: 44px;
         }
 
+        /* CN Tower Image */
+        .cn-tower-img {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 200px;
+            width: auto;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 1;
+        }
+
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
@@ -379,7 +392,7 @@
 
         /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
-            .landmarks, .street-signs {
+            .landmarks, .street-signs, .cn-tower-img {
                 display: none;
             }
 
@@ -575,13 +588,15 @@
 
     <!-- Toronto Landmarks -->
     <div class="landmarks">
-        <div class="landmark cn-tower" title="CN Tower">🗼</div>
         <div class="landmark casa-loma" title="Casa Loma">🏰</div>
         <div class="landmark skyline" title="Toronto Skyline">🏙️</div>
         <div class="landmark harbor" title="Harbourfront">⛵</div>
         <div class="landmark rom" title="Royal Ontario Museum">🏛️</div>
         <div class="landmark high-park" title="High Park">🌳</div>
     </div>
+
+    <!-- CN Tower -->
+    <img src="images/cntower.png" alt="CN Tower" class="cn-tower-img">
 
     <!-- Toronto Street Signs -->
     <div class="street-signs">
