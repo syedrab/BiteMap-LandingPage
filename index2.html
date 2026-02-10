@@ -278,9 +278,9 @@
 </head>
 <body>
     <!-- Bouncing Logo -->
-    <div class="bouncing-logo" id="dvdLogo">
-        <img src="images/bitemap-logo-transparent.png" alt="" draggable="false">
-    </div>
+    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank" rel="noopener" class="bouncing-logo" id="dvdLogo">
+        <img src="images/bitemap-logo-transparent.png" alt="Download BiteMap" draggable="false">
+    </a>
 
     <!-- Food Icons -->
     <div id="foodContainer"></div>
@@ -472,15 +472,28 @@
 
         let lastX = 0;
         let lastY = 0;
+        let startX = 0;
+        let startY = 0;
+        let hasDragged = false;
+
+        // Prevent link click if dragged
+        logo.addEventListener('click', (e) => {
+            if (hasDragged) {
+                e.preventDefault();
+            }
+        });
 
         // Mouse drag
         logo.addEventListener('mousedown', (e) => {
             e.preventDefault();
             isDragging = true;
+            hasDragged = false;
             logo.classList.add('dragging');
             document.body.classList.add('dragging-logo');
             dragOffsetX = e.clientX - x;
             dragOffsetY = e.clientY - y;
+            startX = e.clientX;
+            startY = e.clientY;
             lastX = e.clientX;
             lastY = e.clientY;
         });
@@ -492,6 +505,13 @@
                 y = e.clientY - dragOffsetY;
                 logo.style.left = x + 'px';
                 logo.style.top = y + 'px';
+
+                // Check if moved enough to count as drag
+                const movedX = Math.abs(e.clientX - startX);
+                const movedY = Math.abs(e.clientY - startY);
+                if (movedX > 5 || movedY > 5) {
+                    hasDragged = true;
+                }
 
                 // Track velocity for throw
                 vx = (e.clientX - lastX) * 0.5;
@@ -519,11 +539,14 @@
         logo.addEventListener('touchstart', (e) => {
             e.preventDefault();
             isDragging = true;
+            hasDragged = false;
             logo.classList.add('dragging');
             document.body.classList.add('dragging-logo');
             const touch = e.touches[0];
             dragOffsetX = touch.clientX - x;
             dragOffsetY = touch.clientY - y;
+            startX = touch.clientX;
+            startY = touch.clientY;
             lastX = touch.clientX;
             lastY = touch.clientY;
         });
@@ -535,6 +558,13 @@
                 y = touch.clientY - dragOffsetY;
                 logo.style.left = x + 'px';
                 logo.style.top = y + 'px';
+
+                // Check if moved enough to count as drag
+                const movedX = Math.abs(touch.clientX - startX);
+                const movedY = Math.abs(touch.clientY - startY);
+                if (movedX > 5 || movedY > 5) {
+                    hasDragged = true;
+                }
 
                 vx = (touch.clientX - lastX) * 0.5;
                 vy = (touch.clientY - lastY) * 0.5;
