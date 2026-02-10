@@ -252,26 +252,27 @@
         /* Streetcar with BiteMap riding */
         .streetcar-container {
             position: fixed;
-            bottom: 8%;
-            right: 6%;
+            bottom: 15%;
+            right: 5%;
             display: flex;
             flex-direction: column;
             align-items: center;
             pointer-events: none;
-            z-index: 1;
+            z-index: 5;
         }
 
         .streetcar-img {
-            height: min(120px, 12vh);
+            height: 150px;
             width: auto;
-            opacity: 0.15;
+            opacity: 0.25;
         }
 
         .streetcar-rider {
-            width: min(50px, 5vh);
-            height: min(50px, 5vh);
-            margin-bottom: -15px;
-            opacity: 0.8;
+            width: 60px;
+            height: 60px;
+            margin-bottom: -20px;
+            opacity: 0.9;
+            z-index: 6;
         }
 
         /* Mobile Menu */
@@ -448,12 +449,12 @@
             }
 
             .streetcar-img {
-                height: min(100px, 10vh);
+                height: 120px;
             }
 
             .streetcar-rider {
-                width: min(40px, 4vh);
-                height: min(40px, 4vh);
+                width: 50px;
+                height: 50px;
             }
 
             .street-sign {
