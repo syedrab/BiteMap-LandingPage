@@ -178,7 +178,7 @@
         /* Food Icons */
         .food-icon {
             position: fixed;
-            font-size: 28px;
+            font-size: 36px;
             pointer-events: none;
             z-index: 0;
             transition: transform 0.2s, opacity 0.3s;
@@ -407,7 +407,7 @@
 
                 const fx = parseFloat(food.dataset.x);
                 const fy = parseFloat(food.dataset.y);
-                const foodRect = { x: fx, y: fy, width: 28, height: 28 };
+                const foodRect = { x: fx, y: fy, width: 36, height: 36 };
 
                 // Simple box collision
                 if (logoRect.x < foodRect.x + foodRect.width &&
