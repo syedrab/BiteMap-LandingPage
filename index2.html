@@ -97,7 +97,7 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
 
         .logo img {
@@ -110,6 +110,11 @@
             font-size: 38px;
             font-weight: 700;
             letter-spacing: -0.5px;
+        }
+
+        /* Desktop: Keep logo in content section */
+        .content .logo {
+            display: flex;
         }
 
         .tagline {
@@ -320,10 +325,14 @@
                 padding: 20px;
             }
 
-            /* Show logo section on mobile */
+            /* Show logo section on mobile, hide desktop logo */
             .logo-section {
                 display: block;
                 order: 1;
+            }
+
+            .desktop-logo {
+                display: none !important;
             }
 
             .phone-container {
@@ -340,12 +349,12 @@
             }
 
             .logo img {
-                width: 48px;
-                height: 48px;
+                width: 52px;
+                height: 52px;
             }
 
             .logo span {
-                font-size: 28px;
+                font-size: 30px;
             }
 
             .tagline {
@@ -359,14 +368,14 @@
             }
 
             .phone-mockup {
-                width: 260px;
-                height: 533px;
-                border-radius: 42px;
+                width: 280px;
+                height: 574px;
+                border-radius: 44px;
                 padding: 10px;
             }
 
             .phone-mockup img {
-                border-radius: 34px;
+                border-radius: 36px;
             }
 
             /* Hide footer on tablet/mobile */
@@ -375,12 +384,12 @@
             }
 
             .food-icon {
-                font-size: 32px;
+                font-size: 30px;
             }
 
             .bouncing-logo {
-                width: 70px;
-                height: 70px;
+                width: 65px;
+                height: 65px;
             }
         }
 
@@ -391,47 +400,47 @@
                 padding: 15px;
             }
 
+            .logo img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .logo span {
+                font-size: 26px;
+            }
+
             .tagline {
-                font-size: 22px;
+                font-size: 24px;
                 letter-spacing: -1px;
             }
 
             .tagline .highlight::after {
-                font-size: 12px;
-            }
-
-            .logo img {
-                width: 36px;
-                height: 36px;
-            }
-
-            .logo span {
-                font-size: 20px;
+                font-size: 14px;
             }
 
             .subtitle {
-                font-size: 13px;
+                font-size: 14px;
                 line-height: 1.4;
-                margin-bottom: 14px;
+                margin-bottom: 16px;
             }
 
             .phone-mockup {
-                width: 220px;
-                height: 451px;
-                border-radius: 36px;
+                width: 240px;
+                height: 492px;
+                border-radius: 38px;
                 padding: 8px;
             }
 
             .phone-mockup img {
-                border-radius: 30px;
+                border-radius: 32px;
             }
 
             .app-store-btn img {
-                height: 42px;
+                height: 44px;
             }
 
             .food-icon {
-                font-size: 26px;
+                font-size: 28px;
             }
 
             .bouncing-logo {
@@ -443,36 +452,36 @@
         /* Extra small screens */
         @media (max-height: 750px) and (max-width: 600px) {
             .container {
-                gap: 8px;
-                padding: 10px;
+                gap: 10px;
+                padding: 12px;
             }
 
             .phone-mockup {
-                width: 180px;
-                height: 369px;
-                border-radius: 30px;
+                width: 200px;
+                height: 410px;
+                border-radius: 32px;
             }
 
             .tagline {
-                font-size: 20px;
+                font-size: 22px;
             }
 
             .subtitle {
-                font-size: 12px;
-                margin-bottom: 10px;
+                font-size: 13px;
+                margin-bottom: 12px;
             }
 
             .logo img {
-                width: 32px;
-                height: 32px;
+                width: 40px;
+                height: 40px;
             }
 
             .logo span {
-                font-size: 18px;
+                font-size: 22px;
             }
 
             .app-store-btn img {
-                height: 38px;
+                height: 40px;
             }
         }
     </style>
@@ -493,7 +502,7 @@
 
     <!-- Bouncing Logo -->
     <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank" rel="noopener" class="bouncing-logo" id="dvdLogo">
-        <img src="images/bitemap-mouth-logo.png" alt="Download BiteMap" draggable="false">
+        <img src="images/bitemap-logo-transparent.png" alt="Download BiteMap" draggable="false">
     </a>
 
     <!-- Food Icons -->
@@ -514,6 +523,11 @@
         </div>
 
         <div class="content">
+            <div class="logo desktop-logo">
+                <img src="images/bitemap-logo.png" alt="BiteMap">
+                <span>BiteMap</span>
+            </div>
+
             <h1 class="tagline">
                 <span class="highlight">Real</span> food reviews<br>from real people
             </h1>
@@ -602,7 +616,12 @@
             logo.el.style.top = logo.y + 'px';
         });
 
-        const minDistance = 80; // Minimum distance between food items
+        const minDistance = 70; // Minimum distance between food items
+        const isMobile = window.innerWidth <= 600;
+        const foodPerQuadrant = isMobile ? 2 : 6; // 2 on mobile, 6 on desktop
+
+        // Track used emojis per quadrant to avoid duplicates
+        const usedEmojisPerQuadrant = [[], [], [], []];
 
         // Check if position is far enough from other food
         function isFarEnough(fx, fy) {
@@ -616,35 +635,48 @@
             return true;
         }
 
+        // Get unique emoji for quadrant
+        function getUniqueEmoji(quadrant) {
+            const available = foodEmojis.filter(e => !usedEmojisPerQuadrant[quadrant].includes(e));
+            if (available.length === 0) {
+                // Reset if all used
+                usedEmojisPerQuadrant[quadrant] = [];
+                return foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
+            }
+            const emoji = available[Math.floor(Math.random() * available.length)];
+            usedEmojisPerQuadrant[quadrant].push(emoji);
+            return emoji;
+        }
+
         // Spawn food in a specific quadrant
         function spawnFoodInQuadrant(quadrant) {
             const food = document.createElement('div');
             food.className = 'food-icon';
-            food.textContent = foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
+            food.textContent = getUniqueEmoji(quadrant);
 
             const w = window.innerWidth;
             const h = window.innerHeight;
-            const margin = 50;
+            const margin = isMobile ? 20 : 50;
 
             let minX, maxX, minY, maxY;
 
             // Define quadrant bounds (corners, avoiding center)
             switch(quadrant) {
                 case 0: // Top-left
-                    minX = margin; maxX = w * 0.3;
-                    minY = margin; maxY = h * 0.35;
+                    minX = margin; maxX = w * 0.25;
+                    minY = margin + 60; maxY = h * 0.3;
                     break;
                 case 1: // Top-right
-                    minX = w * 0.7; maxX = w - margin;
-                    minY = margin; maxY = h * 0.35;
+                    minX = w * 0.75; maxX = w - margin;
+                    minY = margin + 60; maxY = h * 0.3;
                     break;
                 case 2: // Bottom-left
-                    minX = margin; maxX = w * 0.3;
-                    minY = h * 0.65; maxY = h - margin;
+                    minX = margin; maxX = w * 0.25;
+                    minY = h * 0.7; maxY = h - margin;
                     break;
                 case 3: // Bottom-right
-                    minX = w * 0.7; maxX = w - margin;
-                    minY = h * 0.65; maxY = h - margin;
+                    minX = w * 0.75; maxX = w - margin;
+                    minY = h * 0.7; maxY = h - margin;
                     break;
             }
 
@@ -672,9 +704,9 @@
             spawnFoodInQuadrant(quadrant);
         }
 
-        // Initial spawn - 5 per quadrant = 20 total
+        // Initial spawn
         for (let q = 0; q < 4; q++) {
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < foodPerQuadrant; i++) {
                 spawnFoodInQuadrant(q);
             }
         }
