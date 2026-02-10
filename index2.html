@@ -277,11 +277,8 @@
     </style>
 </head>
 <body>
-    <!-- Bouncing Logos -->
+    <!-- Bouncing Logo -->
     <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank" rel="noopener" class="bouncing-logo" id="dvdLogo">
-        <img src="images/bitemap-logo-transparent.png" alt="Download BiteMap" draggable="false">
-    </a>
-    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank" rel="noopener" class="bouncing-logo" id="dvdLogo2">
         <img src="images/bitemap-mouth-logo.png" alt="Download BiteMap" draggable="false">
     </a>
 
@@ -337,7 +334,7 @@
     <script>
         const foodContainer = document.getElementById('foodContainer');
         const baseSpeed = 2;
-        const friction = 0.9995;
+        const friction = 0.99; // ~5 seconds to slow down
 
         // Logo objects
         const logos = [
@@ -347,21 +344,6 @@
                 y: Math.random() * (window.innerHeight - 100),
                 vx: 2,
                 vy: 2,
-                isDragging: false,
-                hasDragged: false,
-                dragOffsetX: 0,
-                dragOffsetY: 0,
-                startX: 0,
-                startY: 0,
-                lastX: 0,
-                lastY: 0
-            },
-            {
-                el: document.getElementById('dvdLogo2'),
-                x: Math.random() * (window.innerWidth - 100),
-                y: Math.random() * (window.innerHeight - 100),
-                vx: -2.5,
-                vy: 1.5,
                 isDragging: false,
                 hasDragged: false,
                 dragOffsetX: 0,
