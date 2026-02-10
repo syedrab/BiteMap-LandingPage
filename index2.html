@@ -89,6 +89,10 @@
             max-width: 500px;
         }
 
+        .logo-section {
+            display: none;
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -307,26 +311,32 @@
             color: #22c55e;
         }
 
-        /* Responsive - Tablet */
+        /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
             .container {
                 flex-direction: column;
                 text-align: center;
-                gap: 30px;
+                gap: 15px;
                 padding: 20px;
             }
 
-            .content {
-                order: 2;
+            /* Show logo section on mobile */
+            .logo-section {
+                display: block;
+                order: 1;
             }
 
             .phone-container {
-                order: 1;
+                order: 2;
+            }
+
+            .content {
+                order: 3;
             }
 
             .logo {
                 justify-content: center;
-                margin-bottom: 20px;
+                margin-bottom: 0;
             }
 
             .logo img {
@@ -339,31 +349,29 @@
             }
 
             .tagline {
-                font-size: 32px;
-                margin-bottom: 16px;
+                font-size: 28px;
+                margin-bottom: 12px;
             }
 
             .subtitle {
-                font-size: 16px;
-                margin-bottom: 24px;
+                font-size: 15px;
+                margin-bottom: 20px;
             }
 
             .phone-mockup {
-                width: 200px;
-                height: 410px;
-                border-radius: 35px;
-                padding: 8px;
+                width: 260px;
+                height: 533px;
+                border-radius: 42px;
+                padding: 10px;
             }
 
             .phone-mockup img {
-                border-radius: 28px;
+                border-radius: 34px;
             }
 
+            /* Hide footer on tablet/mobile */
             footer {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-                padding: 16px;
+                display: none;
             }
 
             .food-icon {
@@ -377,78 +385,94 @@
         }
 
         /* Responsive - Mobile */
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
             .container {
-                gap: 20px;
+                gap: 12px;
                 padding: 15px;
             }
 
             .tagline {
-                font-size: 26px;
+                font-size: 22px;
                 letter-spacing: -1px;
             }
 
             .tagline .highlight::after {
-                font-size: 14px;
+                font-size: 12px;
             }
 
             .logo img {
-                width: 40px;
-                height: 40px;
+                width: 36px;
+                height: 36px;
             }
 
             .logo span {
-                font-size: 24px;
-            }
-
-            .subtitle {
-                font-size: 14px;
-                line-height: 1.5;
-                margin-bottom: 20px;
-            }
-
-            .phone-mockup {
-                width: 160px;
-                height: 328px;
-                border-radius: 28px;
-                padding: 6px;
-            }
-
-            .phone-mockup img {
-                border-radius: 22px;
-            }
-
-            .app-store-btn img {
-                height: 44px;
-            }
-
-            .food-icon {
-                font-size: 28px;
-            }
-
-            .bouncing-logo {
-                width: 60px;
-                height: 60px;
-            }
-        }
-
-        /* Extra small screens */
-        @media (max-height: 700px) and (max-width: 500px) {
-            .phone-mockup {
-                width: 140px;
-                height: 287px;
-            }
-
-            .tagline {
-                font-size: 22px;
+                font-size: 20px;
             }
 
             .subtitle {
                 font-size: 13px;
+                line-height: 1.4;
+                margin-bottom: 14px;
             }
 
-            .logo {
-                margin-bottom: 12px;
+            .phone-mockup {
+                width: 220px;
+                height: 451px;
+                border-radius: 36px;
+                padding: 8px;
+            }
+
+            .phone-mockup img {
+                border-radius: 30px;
+            }
+
+            .app-store-btn img {
+                height: 42px;
+            }
+
+            .food-icon {
+                font-size: 26px;
+            }
+
+            .bouncing-logo {
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-height: 750px) and (max-width: 600px) {
+            .container {
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .phone-mockup {
+                width: 180px;
+                height: 369px;
+                border-radius: 30px;
+            }
+
+            .tagline {
+                font-size: 20px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            .logo img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .logo span {
+                font-size: 18px;
+            }
+
+            .app-store-btn img {
+                height: 38px;
             }
         }
     </style>
@@ -476,6 +500,13 @@
     <div id="foodContainer"></div>
 
     <main class="container">
+        <div class="logo-section">
+            <div class="logo">
+                <img src="images/bitemap-logo.png" alt="BiteMap">
+                <span>BiteMap</span>
+            </div>
+        </div>
+
         <div class="phone-container">
             <div class="phone-mockup">
                 <img src="images/Home Feed.png" alt="BiteMap app showing video food reviews">
@@ -483,11 +514,6 @@
         </div>
 
         <div class="content">
-            <div class="logo">
-                <img src="images/bitemap-logo.png" alt="BiteMap">
-                <span>BiteMap</span>
-            </div>
-
             <h1 class="tagline">
                 <span class="highlight">Real</span> food reviews<br>from real people
             </h1>
