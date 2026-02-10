@@ -187,17 +187,37 @@
             opacity: 0;
         }
 
-        /* CN Tower Image */
-        .cn-tower-img {
+        /* Landmark Containers */
+        .landmark-container {
             position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 350px;
-            width: auto;
-            opacity: 0.12;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             pointer-events: none;
             z-index: 1;
+        }
+
+        .landmark-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: #000;
+            opacity: 0.15;
+            margin-top: 8px;
+            letter-spacing: 1px;
+        }
+
+        /* CN Tower */
+        .cn-tower-container {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cn-tower-img {
+            height: 385px;
+            width: auto;
+            opacity: 0.12;
         }
 
         /* Toronto Skyline Image */
@@ -213,17 +233,17 @@
             z-index: 0;
         }
 
-        /* Casa Loma Image */
+        /* Casa Loma */
+        .casaloma-container {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         .casaloma-img {
-            position: fixed;
-            top: 50%;
-            right: 10%;
-            transform: translateY(-50%);
-            height: 350px;
+            height: 180px;
             width: auto;
             opacity: 0.1;
-            pointer-events: none;
-            z-index: 0;
         }
 
         /* Mobile Menu */
@@ -367,7 +387,7 @@
 
         /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
-            .street-signs, .cn-tower-img, .toronto-img, .casaloma-img {
+            .street-signs, .cn-tower-container, .toronto-img, .casaloma-container {
                 display: none;
             }
 
@@ -562,13 +582,19 @@
     <div id="foodContainer"></div>
 
     <!-- CN Tower -->
-    <img src="images/cntower.jpg" alt="CN Tower" class="cn-tower-img">
+    <div class="landmark-container cn-tower-container">
+        <img src="images/cntower.jpg" alt="CN Tower" class="cn-tower-img">
+        <span class="landmark-label">CN Tower</span>
+    </div>
 
     <!-- Toronto Skyline -->
     <img src="images/toronto.jpg" alt="Toronto" class="toronto-img">
 
     <!-- Casa Loma -->
-    <img src="images/casaloma.jpg" alt="Casa Loma" class="casaloma-img">
+    <div class="landmark-container casaloma-container">
+        <img src="images/casaloma.jpg" alt="Casa Loma" class="casaloma-img">
+        <span class="landmark-label">Casa Loma</span>
+    </div>
 
     <!-- Toronto Street Signs -->
     <div class="street-signs">
