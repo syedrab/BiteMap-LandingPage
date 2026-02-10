@@ -187,6 +187,57 @@
             opacity: 0;
         }
 
+        /* Toronto Landmarks */
+        .landmarks {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .landmark {
+            position: absolute;
+            font-size: 48px;
+            opacity: 0.15;
+            filter: grayscale(100%);
+        }
+
+        .cn-tower {
+            top: 15%;
+            left: 8%;
+            font-size: 64px;
+        }
+
+        .casa-loma {
+            top: 20%;
+            right: 10%;
+            font-size: 52px;
+        }
+
+        .skyline {
+            bottom: 18%;
+            left: 5%;
+            font-size: 56px;
+        }
+
+        .harbor {
+            bottom: 25%;
+            right: 8%;
+            font-size: 44px;
+        }
+
+        .rom {
+            top: 45%;
+            left: 3%;
+            font-size: 40px;
+        }
+
+        .high-park {
+            top: 50%;
+            right: 5%;
+            font-size: 44px;
+        }
+
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
@@ -301,8 +352,37 @@
             color: #22c55e;
         }
 
+        /* Toronto Street Names */
+        .street-signs {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .street-sign {
+            position: absolute;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: #000;
+            opacity: 0.08;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .street-sign.vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
         /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
+            .landmarks, .street-signs {
+                display: none;
+            }
+
             .container {
                 flex-direction: column;
                 text-align: center;
@@ -492,6 +572,30 @@
 
     <!-- Food Icons -->
     <div id="foodContainer"></div>
+
+    <!-- Toronto Landmarks -->
+    <div class="landmarks">
+        <div class="landmark cn-tower" title="CN Tower">🗼</div>
+        <div class="landmark casa-loma" title="Casa Loma">🏰</div>
+        <div class="landmark skyline" title="Toronto Skyline">🏙️</div>
+        <div class="landmark harbor" title="Harbourfront">⛵</div>
+        <div class="landmark rom" title="Royal Ontario Museum">🏛️</div>
+        <div class="landmark high-park" title="High Park">🌳</div>
+    </div>
+
+    <!-- Toronto Street Signs -->
+    <div class="street-signs">
+        <div class="street-sign" style="top: 8%; left: 15%;">Yonge St</div>
+        <div class="street-sign vertical" style="top: 30%; left: 2%;">Queen St W</div>
+        <div class="street-sign" style="top: 12%; right: 18%;">King St</div>
+        <div class="street-sign vertical" style="top: 55%; right: 2%;">Bloor St</div>
+        <div class="street-sign" style="bottom: 12%; left: 20%;">Dundas St</div>
+        <div class="street-sign" style="bottom: 8%; right: 15%;">College St</div>
+        <div class="street-sign vertical" style="top: 35%; right: 12%;">Spadina Ave</div>
+        <div class="street-sign" style="top: 6%; left: 45%;">Ossington Ave</div>
+        <div class="street-sign vertical" style="bottom: 30%; left: 6%;">Bathurst St</div>
+        <div class="street-sign" style="bottom: 15%; right: 30%;">St Clair Ave</div>
+    </div>
 
     <main class="container">
         <div class="logo-section">
