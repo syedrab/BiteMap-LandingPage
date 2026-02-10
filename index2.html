@@ -138,60 +138,32 @@
             width: auto;
         }
 
-        /* Floating Logo */
-        .floating-logo {
+        /* Bouncing Logo - DVD screensaver style */
+        .bouncing-logo {
             position: fixed;
-            pointer-events: none;
-            opacity: 0.08;
-            z-index: 0;
+            opacity: 0.15;
+            z-index: 9999;
+            width: 100px;
+            height: 100px;
+            cursor: grab;
+            transition: opacity 0.2s, transform 0.1s;
         }
 
-        .floating-logo img {
+        .bouncing-logo:hover {
+            opacity: 0.4;
+        }
+
+        .bouncing-logo.dragging {
+            cursor: grabbing;
+            opacity: 0.6;
+            transform: scale(1.1);
+        }
+
+        .bouncing-logo img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-        }
-
-        .float-1 {
-            top: 5%;
-            right: 8%;
-            width: 120px;
-            height: 120px;
-            animation: float1 8s ease-in-out infinite;
-        }
-
-        .float-2 {
-            bottom: 15%;
-            left: 5%;
-            width: 80px;
-            height: 80px;
-            animation: float2 10s ease-in-out infinite;
-        }
-
-        .float-3 {
-            top: 40%;
-            right: 3%;
-            width: 60px;
-            height: 60px;
-            animation: float3 12s ease-in-out infinite;
-        }
-
-        @keyframes float1 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(-20px, 15px) rotate(5deg); }
-            50% { transform: translate(10px, -10px) rotate(-3deg); }
-            75% { transform: translate(-15px, -20px) rotate(8deg); }
-        }
-
-        @keyframes float2 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(25px, -20px) rotate(-8deg); }
-            66% { transform: translate(-10px, 15px) rotate(5deg); }
-        }
-
-        @keyframes float3 {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-30px, 25px) rotate(10deg); }
+            pointer-events: none;
         }
 
         /* Footer */
@@ -282,15 +254,9 @@
     </style>
 </head>
 <body>
-    <!-- Floating Logos -->
-    <div class="floating-logo float-1">
-        <img src="images/bitemap-logo-transparent.png" alt="">
-    </div>
-    <div class="floating-logo float-2">
-        <img src="images/bitemap-logo-transparent.png" alt="">
-    </div>
-    <div class="floating-logo float-3">
-        <img src="images/bitemap-logo-transparent.png" alt="">
+    <!-- Bouncing Logo -->
+    <div class="bouncing-logo" id="dvdLogo">
+        <img src="images/bitemap-logo-transparent.png" alt="" draggable="false">
     </div>
 
     <main class="container">
@@ -336,6 +302,105 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-EEZQEGTQDD');
+    </script>
+
+    <!-- DVD Bouncing Logo -->
+    <script>
+        const logo = document.getElementById('dvdLogo');
+        let x = Math.random() * (window.innerWidth - 100);
+        let y = Math.random() * (window.innerHeight - 100);
+        let vx = 2;
+        let vy = 2;
+        let isDragging = false;
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+
+        logo.style.left = x + 'px';
+        logo.style.top = y + 'px';
+
+        function animate() {
+            if (!isDragging) {
+                x += vx;
+                y += vy;
+
+                // Bounce off walls
+                if (x <= 0 || x >= window.innerWidth - 100) {
+                    vx = -vx;
+                    x = Math.max(0, Math.min(x, window.innerWidth - 100));
+                }
+                if (y <= 0 || y >= window.innerHeight - 100) {
+                    vy = -vy;
+                    y = Math.max(0, Math.min(y, window.innerHeight - 100));
+                }
+
+                logo.style.left = x + 'px';
+                logo.style.top = y + 'px';
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // Mouse drag
+        logo.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            logo.classList.add('dragging');
+            dragOffsetX = e.clientX - x;
+            dragOffsetY = e.clientY - y;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                x = e.clientX - dragOffsetX;
+                y = e.clientY - dragOffsetY;
+                logo.style.left = x + 'px';
+                logo.style.top = y + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                logo.classList.remove('dragging');
+                // Give it a little push based on last movement
+                vx = (Math.random() > 0.5 ? 1 : -1) * (1.5 + Math.random());
+                vy = (Math.random() > 0.5 ? 1 : -1) * (1.5 + Math.random());
+            }
+        });
+
+        // Touch support
+        logo.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            logo.classList.add('dragging');
+            const touch = e.touches[0];
+            dragOffsetX = touch.clientX - x;
+            dragOffsetY = touch.clientY - y;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                const touch = e.touches[0];
+                x = touch.clientX - dragOffsetX;
+                y = touch.clientY - dragOffsetY;
+                logo.style.left = x + 'px';
+                logo.style.top = y + 'px';
+            }
+        });
+
+        document.addEventListener('touchend', () => {
+            if (isDragging) {
+                isDragging = false;
+                logo.classList.remove('dragging');
+                vx = (Math.random() > 0.5 ? 1 : -1) * (1.5 + Math.random());
+                vy = (Math.random() > 0.5 ? 1 : -1) * (1.5 + Math.random());
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            x = Math.min(x, window.innerWidth - 100);
+            y = Math.min(y, window.innerHeight - 100);
+        });
+
+        animate();
     </script>
 </body>
 </html>
