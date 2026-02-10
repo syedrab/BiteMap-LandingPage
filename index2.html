@@ -55,6 +55,8 @@
             gap: 80px;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
         }
 
         /* Phone Mockup */
@@ -148,7 +150,7 @@
         .bouncing-logo {
             position: fixed;
             opacity: 0.85;
-            z-index: 9999;
+            z-index: 1;
             width: 100px;
             height: 100px;
             cursor: grab;
@@ -178,7 +180,7 @@
             position: fixed;
             font-size: 48px;
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
             transition: transform 0.2s, opacity 0.3s;
         }
 
