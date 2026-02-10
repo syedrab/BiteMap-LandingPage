@@ -40,6 +40,12 @@
             flex-direction: column;
         }
 
+        body.dragging-logo {
+            user-select: none;
+            -webkit-user-select: none;
+            cursor: grabbing !important;
+        }
+
         .container {
             flex: 1;
             display: flex;
@@ -426,20 +432,37 @@
             requestAnimationFrame(animate);
         }
 
+        let lastX = 0;
+        let lastY = 0;
+
         // Mouse drag
         logo.addEventListener('mousedown', (e) => {
+            e.preventDefault();
             isDragging = true;
             logo.classList.add('dragging');
+            document.body.classList.add('dragging-logo');
             dragOffsetX = e.clientX - x;
             dragOffsetY = e.clientY - y;
+            lastX = e.clientX;
+            lastY = e.clientY;
         });
 
         document.addEventListener('mousemove', (e) => {
             if (isDragging) {
+                e.preventDefault();
                 x = e.clientX - dragOffsetX;
                 y = e.clientY - dragOffsetY;
                 logo.style.left = x + 'px';
                 logo.style.top = y + 'px';
+
+                // Track velocity for throw
+                vx = (e.clientX - lastX) * 0.5;
+                vy = (e.clientY - lastY) * 0.5;
+                lastX = e.clientX;
+                lastY = e.clientY;
+
+                // Check collision while dragging too
+                checkCollision();
             }
         });
 
@@ -447,19 +470,24 @@
             if (isDragging) {
                 isDragging = false;
                 logo.classList.remove('dragging');
-                // Give it a little push based on last movement
-                vx = (Math.random() > 0.5 ? 1 : -1) * (1.5 + Math.random());
-                vy = (Math.random() > 0.5 ? 1 : -1) * (1.5 + Math.random());
+                document.body.classList.remove('dragging-logo');
+                // Throw it based on movement direction
+                vx = Math.max(-8, Math.min(8, vx)) || 2;
+                vy = Math.max(-8, Math.min(8, vy)) || 2;
             }
         });
 
         // Touch support
         logo.addEventListener('touchstart', (e) => {
+            e.preventDefault();
             isDragging = true;
             logo.classList.add('dragging');
+            document.body.classList.add('dragging-logo');
             const touch = e.touches[0];
             dragOffsetX = touch.clientX - x;
             dragOffsetY = touch.clientY - y;
+            lastX = touch.clientX;
+            lastY = touch.clientY;
         });
 
         document.addEventListener('touchmove', (e) => {
@@ -469,6 +497,13 @@
                 y = touch.clientY - dragOffsetY;
                 logo.style.left = x + 'px';
                 logo.style.top = y + 'px';
+
+                vx = (touch.clientX - lastX) * 0.5;
+                vy = (touch.clientY - lastY) * 0.5;
+                lastX = touch.clientX;
+                lastY = touch.clientY;
+
+                checkCollision();
             }
         });
 
@@ -476,8 +511,9 @@
             if (isDragging) {
                 isDragging = false;
                 logo.classList.remove('dragging');
-                vx = (Math.random() > 0.5 ? 1 : -1) * (1.5 + Math.random());
-                vy = (Math.random() > 0.5 ? 1 : -1) * (1.5 + Math.random());
+                document.body.classList.remove('dragging-logo');
+                vx = Math.max(-8, Math.min(8, vx)) || 2;
+                vy = Math.max(-8, Math.min(8, vy)) || 2;
             }
         });
 
