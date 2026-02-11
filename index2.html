@@ -158,10 +158,10 @@
         /* Pac-Man Logo - Arrow key controlled */
         .bouncing-logo {
             position: fixed;
-            opacity: 0.9;
+            opacity: 1;
             z-index: 100;
-            width: 80px;
-            height: 80px;
+            width: 64px;
+            height: 64px;
             pointer-events: none;
             transition: opacity 0.2s;
         }
@@ -171,6 +171,7 @@
             height: 100%;
             object-fit: contain;
             pointer-events: none;
+            border-radius: 16px;
         }
 
         /* Static streetcars */
@@ -206,7 +207,7 @@
         .don-river path {
             fill: none;
             stroke: #3b82f6;
-            stroke-width: 3;
+            stroke-width: 8;
             stroke-linecap: round;
         }
 
@@ -248,6 +249,14 @@
             white-space: nowrap;
         }
 
+        .landmark-label.cn-tower-label {
+            top: 80%;
+        }
+
+        .landmark-label.casaloma-label {
+            top: 65%;
+        }
+
         /* CN Tower - Front St & Bay/Yonge area */
         .cn-tower-container {
             bottom: -2%;
@@ -265,9 +274,9 @@
             position: fixed;
             bottom: 20%;
             left: 45%;
-            height: min(100px, 12vh);
+            height: min(160px, 18vh);
             width: auto;
-            opacity: 0.08;
+            opacity: 0.18;
             pointer-events: none;
             z-index: 0;
         }
@@ -446,6 +455,59 @@
             color: #22c55e;
         }
 
+        .download-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .social-links a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links a:hover {
+            color: #FF6B35;
+            transform: scale(1.1);
+        }
+
+        /* Toronto Street Grid Lines */
+        .street-grid {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .grid-line {
+            position: absolute;
+            background: transparent;
+            opacity: 0.15;
+        }
+
+        .grid-line.vertical {
+            width: 0;
+            top: 0;
+            bottom: 0;
+            border-left: 1px dashed #666;
+        }
+
+        .grid-line.horizontal {
+            height: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px dashed #666;
+        }
+
         /* Toronto Street Names */
         .street-signs {
             position: fixed;
@@ -529,7 +591,7 @@
 
         /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
-            .street-signs, .cn-tower-container, .toronto-img, .casaloma-container, .stlawrence-container, .bmofield-container, .rom-container, .donvalley-container, .streetcar-decor, .don-river {
+            .street-grid, .street-signs, .cn-tower-container, .toronto-img, .casaloma-container, .stlawrence-container, .bmofield-container, .rom-container, .donvalley-container, .streetcar-decor, .don-river {
                 display: none;
             }
 
@@ -603,8 +665,8 @@
             }
 
             .bouncing-logo {
-                width: 65px;
-                height: 65px;
+                width: 52px;
+                height: 52px;
             }
         }
 
@@ -659,8 +721,8 @@
             }
 
             .bouncing-logo {
-                width: 55px;
-                height: 55px;
+                width: 48px;
+                height: 48px;
             }
         }
 
@@ -715,9 +777,8 @@
         <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank">Download App</a>
     </div>
 
-    <!-- Pac-Man Logo (desktop only) -->
-    <div class="bouncing-logo" id="dvdLogo">
-        <img src="images/bitemap-logo-transparent.png" alt="BiteMap" draggable="false">
+    <!-- Pac-Man Logo placeholder (will be populated from content logo) -->
+    <div class="bouncing-logo" id="dvdLogo" style="display: none;">
     </div>
 
     <!-- Static Streetcars -->
@@ -750,7 +811,7 @@
         <img src="images/streetcar.jpg" alt="Streetcar">
     </div>
     <!-- Dundas St -->
-    <div class="streetcar-decor" style="top: 42%; left: 12%;">
+    <div class="streetcar-decor" style="top: 42%; left: 8%;">
         <img src="images/streetcar.jpg" alt="Streetcar">
     </div>
     <!-- Eglinton Ave -->
@@ -767,7 +828,7 @@
     <!-- CN Tower -->
     <div class="landmark-container cn-tower-container">
         <img src="images/cntower.jpg" alt="CN Tower" class="cn-tower-img">
-        <span class="landmark-label">CN Tower</span>
+        <span class="landmark-label cn-tower-label">CN Tower</span>
     </div>
 
     <!-- Toronto Skyline -->
@@ -776,7 +837,7 @@
     <!-- Casa Loma -->
     <div class="landmark-container casaloma-container">
         <img src="images/casaloma.jpg" alt="Casa Loma" class="casaloma-img">
-        <span class="landmark-label">Casa Loma</span>
+        <span class="landmark-label casaloma-label">Casa Loma</span>
     </div>
 
     <!-- St. Lawrence Market (Front St & Jarvis - east of Yonge, near waterfront) -->
@@ -816,6 +877,29 @@
                 Q25,850 15,900
                 Q5,950 15,1000"/>
         </svg>
+    </div>
+
+    <!-- Toronto Street Grid Lines -->
+    <div class="street-grid">
+        <!-- Vertical lines (N-S streets): Bathurst, Spadina, University, Yonge, Bay, Jarvis, Parliament, River, Broadview -->
+        <div class="grid-line vertical" style="left: 2%;"></div>
+        <div class="grid-line vertical" style="left: 14%;"></div>
+        <div class="grid-line vertical" style="left: 26%;"></div>
+        <div class="grid-line vertical" style="left: 38%;"></div>
+        <div class="grid-line vertical" style="left: 50%;"></div>
+        <div class="grid-line vertical" style="right: 12%;"></div>
+        <div class="grid-line vertical" style="right: 8%;"></div>
+        <div class="grid-line vertical" style="right: 5%;"></div>
+        <div class="grid-line vertical" style="right: 2%;"></div>
+        <!-- Horizontal lines (E-W streets): Eglinton, St Clair, Bloor, Dundas, Queen, King, Front, Lakeshore -->
+        <div class="grid-line horizontal" style="top: 2%;"></div>
+        <div class="grid-line horizontal" style="top: 15%;"></div>
+        <div class="grid-line horizontal" style="top: 28%;"></div>
+        <div class="grid-line horizontal" style="top: 42%;"></div>
+        <div class="grid-line horizontal" style="top: 55%;"></div>
+        <div class="grid-line horizontal" style="bottom: 25%;"></div>
+        <div class="grid-line horizontal" style="bottom: 14%;"></div>
+        <div class="grid-line horizontal" style="bottom: 2%;"></div>
     </div>
 
     <!-- Toronto Street Signs - Clean Grid Layout -->
@@ -862,26 +946,39 @@
 
         <div class="content">
             <div class="logo desktop-logo">
-                <img src="images/bitemap-logo.png" alt="BiteMap">
+                <img id="contentLogo" src="images/bitemap-logo.png" alt="BiteMap">
                 <span>BiteMap</span>
             </div>
 
             <h1 class="tagline">
-                <span class="highlight">Real</span> food reviews<br>from real people
+                <span class="highlight">Real</span> food reviews<br>from real people...
             </h1>
 
             <p class="subtitle">
                 Discover restaurants through TikTok-style video reviews from local food creators. No fake reviews, just hungry humans.
             </p>
 
-            <a href="https://apps.apple.com/us/app/bitemap/id6746139076" class="app-store-btn" target="_blank" rel="noopener">
-                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-            </a>
+            <div class="download-row">
+                <a href="https://apps.apple.com/us/app/bitemap/id6746139076" class="app-store-btn" target="_blank" rel="noopener">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+                </a>
+                <div class="social-links">
+                    <a href="https://www.tiktok.com/@bitemap_app" target="_blank" rel="noopener" title="TikTok">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/bitemap_app" target="_blank" rel="noopener" title="Instagram">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@bitemap_app" target="_blank" rel="noopener" title="YouTube">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </main>
 
     <footer>
-        <div class="company">BiteMap &copy; 2025</div>
+        <div class="company">BiteMap &copy; 2026</div>
         <div class="footer-links">
             <a href="/privacy">Privacy Policy</a>
             <a href="/terms">Terms & Services</a>
@@ -920,23 +1017,42 @@
     <!-- Pac-Man Style Logo Game -->
     <script>
         const foodContainer = document.getElementById('foodContainer');
+        const dvdLogoContainer = document.getElementById('dvdLogo');
+        const contentLogoImg = document.getElementById('contentLogo');
+
+        // Get the original position of the content logo
+        const contentLogoRect = contentLogoImg.getBoundingClientRect();
+
+        // Clone the content logo image into the bouncing container
+        const movingLogoImg = contentLogoImg.cloneNode(true);
+        movingLogoImg.id = 'movingLogo';
+        movingLogoImg.style.width = '64px';
+        movingLogoImg.style.height = '64px';
+        movingLogoImg.style.borderRadius = '16px';
+        dvdLogoContainer.appendChild(movingLogoImg);
+        dvdLogoContainer.style.display = 'block';
+        dvdLogoContainer.style.width = '64px';
+        dvdLogoContainer.style.height = '64px';
+
+        // Keep the original content logo visible (slightly faded)
+        contentLogoImg.style.opacity = '0.3';
 
         // Pac-Man style logo (arrow key controlled)
         const logo = {
-            el: document.getElementById('dvdLogo'),
-            x: window.innerWidth / 2 - 40,
-            y: window.innerHeight / 2 - 40,
+            el: dvdLogoContainer,
+            x: contentLogoRect.left,
+            y: contentLogoRect.top,
             direction: null, // 'up', 'down', 'left', 'right'
-            size: 80,
+            size: 64,
             speed: 2
         };
 
         let score = 0;
 
-        const foodEmojis = ['🍔', '🍕', '🌮', '🍣', '🍜', '🍱', '🥗', '🍝', '🥘', '🍛', '🌯', '🥙', '🍲', '🥡', '🍙', '🍚', '🥟', '🍤', '🍗', '🍖', '🥩', '🧆', '🥪', '🌭', '🍟', '🥓', '🍳', '🥞', '🧇', '🥯', '🍩', '🍰', '🧁', '🍦', '🍨', '🎂'];
+        const foodEmojis = ['🍔', '🍕', '🌮', '🍣', '🍜', '🍱', '🥗', '🍝', '🥘', '🍛', '🌯', '🥙', '🍲', '🥡', '🍙', '🥟', '🍤', '🍗', '🍖', '🥩', '🧆', '🥪', '🌭', '🍟', '🥓', '🍳', '🥞', '🧇', '🥯', '🍩', '🍰', '🧁', '🍦', '🍨', '🎂'];
         let foodItems = [];
 
-        // Initialize logo position
+        // Initialize logo position from content logo's location
         logo.el.style.left = logo.x + 'px';
         logo.el.style.top = logo.y + 'px';
 
@@ -946,6 +1062,32 @@
 
         // Track used emojis per quadrant to avoid duplicates
         const usedEmojisPerQuadrant = [[], [], [], []];
+
+        // Get landmark positions for exclusion zones
+        const landmarks = [
+            document.querySelector('.cn-tower-container'),
+            document.querySelector('.toronto-img'),
+            document.querySelector('.casaloma-container'),
+            document.querySelector('.stlawrence-container'),
+            document.querySelector('.bmofield-container'),
+            document.querySelector('.rom-container'),
+            document.querySelector('.donvalley-container')
+        ].filter(el => el); // Filter out nulls
+
+        // Check if position is too close to any landmark
+        function isTooCloseToLandmark(fx, fy) {
+            const landmarkBuffer = 120; // Minimum distance from landmarks
+            for (const landmark of landmarks) {
+                const rect = landmark.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const dist = Math.sqrt((fx - centerX) ** 2 + (fy - centerY) ** 2);
+                // Use larger buffer for bigger landmarks
+                const buffer = Math.max(landmarkBuffer, rect.width / 2 + 50, rect.height / 2 + 50);
+                if (dist < buffer) return true;
+            }
+            return false;
+        }
 
         // Check if position is far enough from other food
         function isFarEnough(fx, fy) {
@@ -1011,7 +1153,7 @@
                 fx = minX + Math.random() * (maxX - minX);
                 fy = minY + Math.random() * (maxY - minY);
                 attempts++;
-            } while (attempts < 30 && !isFarEnough(fx, fy));
+            } while (attempts < 50 && (!isFarEnough(fx, fy) || isTooCloseToLandmark(fx, fy)));
 
             food.style.left = fx + 'px';
             food.style.top = fy + 'px';
