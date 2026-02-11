@@ -1121,9 +1121,9 @@
                 setTimeout(() => createStreetcar(streetRoutes[routeIndex]), delay);
             });
 
-            // Start second batch after 10 seconds
+            // Start second batch after 20 seconds
             secondBatch.forEach((routeIndex, i) => {
-                const delay = 10000 + i * 300 + Math.random() * 200;
+                const delay = 20000 + i * 300 + Math.random() * 200;
                 setTimeout(() => createStreetcar(streetRoutes[routeIndex]), delay);
             });
         }
