@@ -474,7 +474,7 @@
         /* Medium screens (laptops like 1512x982) */
         @media (max-height: 900px) {
             .phone-mockup {
-                width: 220px;
+                width: 242px;
                 border-radius: 36px;
                 padding: 9px;
             }
@@ -583,8 +583,8 @@
             }
 
             .phone-mockup {
-                width: 280px;
-                height: 574px;
+                width: 308px;
+                height: 631px;
                 border-radius: 44px;
                 padding: 10px;
             }
@@ -640,8 +640,8 @@
             }
 
             .phone-mockup {
-                width: 240px;
-                height: 492px;
+                width: 264px;
+                height: 541px;
                 border-radius: 38px;
                 padding: 8px;
             }
@@ -672,8 +672,8 @@
             }
 
             .phone-mockup {
-                width: 200px;
-                height: 410px;
+                width: 220px;
+                height: 451px;
                 border-radius: 32px;
             }
 
@@ -735,6 +735,29 @@
     </div>
     <!-- Streetcar on Dundas mid-right -->
     <div class="streetcar-decor" style="top: 55%; right: 30%;">
+        <img src="images/streetcar.jpg" alt="Streetcar">
+    </div>
+    <!-- More streetcars on major routes -->
+    <!-- King St -->
+    <div class="streetcar-decor" style="bottom: 25%; left: 20%;">
+        <img src="images/streetcar.jpg" alt="Streetcar">
+    </div>
+    <div class="streetcar-decor" style="bottom: 25%; right: 25%;">
+        <img src="images/streetcar.jpg" alt="Streetcar">
+    </div>
+    <!-- Queen St -->
+    <div class="streetcar-decor" style="top: 55%; left: 20%;">
+        <img src="images/streetcar.jpg" alt="Streetcar">
+    </div>
+    <!-- Dundas St -->
+    <div class="streetcar-decor" style="top: 42%; left: 12%;">
+        <img src="images/streetcar.jpg" alt="Streetcar">
+    </div>
+    <!-- Eglinton Ave -->
+    <div class="streetcar-decor" style="top: 2%; right: 20%;">
+        <img src="images/streetcar.jpg" alt="Streetcar">
+    </div>
+    <div class="streetcar-decor" style="top: 2%; left: 35%;">
         <img src="images/streetcar.jpg" alt="Streetcar">
     </div>
 
@@ -1044,7 +1067,9 @@
         // Only run Pac-Man controls on desktop
         if (!isMobile) {
             const directions = ['up', 'down', 'left', 'right'];
-            let userTookControl = false;
+            let userControlActive = false;
+            let lastUserInputTime = 0;
+            const inactivityTimeout = 5000; // 5 seconds
 
             // Pick a random direction to start
             function randomDirection() {
@@ -1054,23 +1079,28 @@
             // Start moving in a random direction
             logo.direction = randomDirection();
 
-            // Change direction randomly every 1.5 seconds (until user takes control)
-            const autoMoveInterval = setInterval(() => {
-                if (!userTookControl) {
+            // Change direction randomly every 1.5 seconds (when not under user control)
+            setInterval(() => {
+                if (!userControlActive) {
                     logo.direction = randomDirection();
                 }
             }, 1500);
 
-            // Arrow key controls (stops auto movement permanently)
+            // Check for inactivity and resume random movement
+            setInterval(() => {
+                if (userControlActive && Date.now() - lastUserInputTime > inactivityTimeout) {
+                    userControlActive = false;
+                }
+            }, 500);
+
+            // Arrow key controls
             document.addEventListener('keydown', (e) => {
                 if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
                     e.preventDefault();
 
-                    // Stop auto movement on first arrow key press
-                    if (!userTookControl) {
-                        userTookControl = true;
-                        clearInterval(autoMoveInterval);
-                    }
+                    // Take control and reset inactivity timer
+                    userControlActive = true;
+                    lastUserInputTime = Date.now();
 
                     switch(e.key) {
                         case 'ArrowUp': logo.direction = 'up'; break;
