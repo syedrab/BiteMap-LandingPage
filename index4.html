@@ -174,26 +174,26 @@
             border-radius: 16px;
         }
 
-        /* Moving streetcars */
-        .streetcar-decor {
+        /* Moving yellow cabs */
+        .cab-decor {
             position: fixed;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.4;
+            opacity: 0.5;
             left: -100px;
         }
 
-        .streetcar-decor img {
-            height: 50px;
+        .cab-decor img {
+            height: 40px;
             width: auto;
         }
 
-        /* Streetcar moves in steps: pause 3s, move 2s */
+        /* Cab moves in steps: pause, move */
 
-        /* Don Valley River - squiggly blue line on east side */
-        .don-river {
+        /* Hudson River - west side */
+        .hudson-river {
             position: fixed;
-            left: 92%;
+            left: 0%;
             top: 0;
             bottom: 0;
             width: 30px;
@@ -202,12 +202,36 @@
             opacity: 0.15;
         }
 
-        .don-river svg {
+        .hudson-river svg {
             height: 100%;
             width: 100%;
         }
 
-        .don-river path {
+        .hudson-river path {
+            fill: none;
+            stroke: #3b82f6;
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        /* East River - east side */
+        .east-river {
+            position: fixed;
+            left: 98%;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+        }
+
+        .east-river svg {
+            height: 100%;
+            width: 100%;
+        }
+
+        .east-river path {
             fill: none;
             stroke: #3b82f6;
             stroke-width: 8;
@@ -253,114 +277,115 @@
             margin-top: 4px;
         }
 
-        /* CN Tower - left of University & Bay */
-        .cn-tower-container {
-            bottom: 12%;
-            left: 22%;
+        /* Empire State Building - 34th & 5th Ave */
+        .empire-container {
+            top: 42%;
+            left: 50%;
         }
 
-        .cn-tower-img {
-            width: min(33px, 2.6vw);
+        .empire-img {
+            width: min(40px, 3vw);
             height: auto;
-            opacity: 0.18;
+            opacity: 0.15;
         }
 
-        /* Toronto Sign - left of Bay St */
-        .toronto-container {
-            top: 55%;
+        /* Times Square - 42nd & Broadway/7th */
+        .timessquare-container {
+            top: 28%;
             left: 32%;
         }
 
-        .toronto-img {
-            width: min(180px, 14vw);
-            height: auto;
-            opacity: 0.22;
-        }
-
-        /* Casa Loma - left of Spadina */
-        .casaloma-container {
-            top: 15%;
-            left: 8%;
-        }
-
-        .casaloma-img {
-            width: min(80px, 6.4vw);
-            height: auto;
-            opacity: 0.18;
-        }
-
-        /* St. Lawrence Market - Front St, left of Jarvis */
-        .stlawrence-container {
-            bottom: 14%;
-            left: 68%;
-        }
-
-        .stlawrence-img {
-            width: min(108px, 8.4vw);
-            height: auto;
-            opacity: 0.18;
-        }
-
-        /* BMO Field - Lakeshore, west of Bathurst */
-        .bmofield-container {
-            top: 94%;
-            left: 3%;
-            transform: translateY(-100%);
-        }
-
-        .bmofield-img {
-            width: min(108px, 8.4vw);
-            height: auto;
-            opacity: 0.18;
-        }
-
-        /* ROM - University & Bloor */
-        .rom-container {
-            top: 28%;
-            left: 26%;
-        }
-
-        .rom-img {
-            width: min(90px, 7vw);
-            height: auto;
-            opacity: 0.18;
-        }
-
-        /* Don Valley - left of Don River, above St. Clair */
-        .donvalley-container {
-            top: 8%;
-            left: 85%;
-        }
-
-        .donvalley-img {
-            width: min(203px, 15.6vw);
-            height: auto;
-            opacity: 0.18;
-        }
-
-        /* Harbourfront - on Lakeshore between Yonge & Bay */
-        .harbourfront-container {
-            top: 94%;
-            left: 44%;
-            transform: translateY(-50%);
-        }
-
-        .harbourfront-img {
+        .timessquare-img {
             width: min(100px, 8vw);
             height: auto;
             opacity: 0.18;
         }
 
-        /* Dundas Square - Yonge & Dundas */
-        .dundassq-container {
-            top: 42%;
+        /* Central Park - Upper Manhattan */
+        .centralpark-container {
+            top: 2%;
             left: 50%;
         }
 
-        .dundassq-img {
+        .centralpark-img {
+            width: min(150px, 12vw);
+            height: auto;
+            opacity: 0.15;
+        }
+
+        /* Brooklyn Bridge - Lower East Side */
+        .brooklyn-container {
+            top: 94%;
+            left: 85%;
+            transform: translateY(-100%);
+        }
+
+        .brooklyn-img {
+            width: min(120px, 9vw);
+            height: auto;
+            opacity: 0.15;
+        }
+
+        /* Statue of Liberty - Lower West Side */
+        .liberty-container {
+            top: 94%;
+            left: 8%;
+            transform: translateY(-100%);
+        }
+
+        .liberty-img {
             width: min(50px, 4vw);
             height: auto;
-            opacity: 0.18;
+            opacity: 0.15;
+        }
+
+        /* Grand Central - 42nd & Park Ave */
+        .grandcentral-container {
+            top: 28%;
+            left: 62%;
+        }
+
+        .grandcentral-img {
+            width: min(90px, 7vw);
+            height: auto;
+            opacity: 0.15;
+        }
+
+        /* One World Trade - Lower Manhattan */
+        .oneworldtrade-container {
+            top: 81%;
+            left: 26%;
+        }
+
+        .oneworldtrade-img {
+            width: min(40px, 3vw);
+            height: auto;
+            opacity: 0.15;
+        }
+
+        /* Rockefeller Center - 50th & 5th */
+        .rockefeller-container {
+            top: 15%;
+            left: 50%;
+        }
+
+        .rockefeller-img {
+            width: min(80px, 6vw);
+            height: auto;
+            opacity: 0.15;
+        }
+
+        /* Wall Street - Financial District */
+        .wallstreet-container {
+            top: 94%;
+            left: 44%;
+            transform: translateY(-50%);
+        }
+
+        .wallstreet-img {
+            width: min(80px, 6vw);
+            height: auto;
+            opacity: 0.15;
         }
 
         /* Mobile Menu */
@@ -502,7 +527,7 @@
             transform: scale(1.1);
         }
 
-        /* Toronto Street Grid Lines */
+        /* Manhattan Street Grid Lines */
         .street-grid {
             position: fixed;
             inset: 0;
@@ -530,7 +555,7 @@
             border-top: 1px dashed #666;
         }
 
-        /* Toronto Street Names */
+        /* Manhattan Street Names */
         .street-signs {
             position: fixed;
             inset: 0;
@@ -576,20 +601,20 @@
                 margin-bottom: 30px;
             }
 
-            .cn-tower-img {
-                width: min(25px, 3vw);
+            .empire-img {
+                width: min(30px, 2.5vw);
             }
 
-            .casaloma-img {
-                width: min(70px, 6vw);
+            .centralpark-img {
+                width: min(120px, 10vw);
             }
 
-            .toronto-img {
-                width: min(140px, 11vw);
+            .timessquare-img {
+                width: min(80px, 6.5vw);
             }
 
-            .donvalley-img {
-                width: min(153px, 12.6vw);
+            .brooklyn-img {
+                width: min(100px, 7.5vw);
             }
 
             .street-sign {
@@ -608,7 +633,7 @@
 
         /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
-            .street-grid, .street-signs, .cn-tower-container, .toronto-container, .casaloma-container, .stlawrence-container, .bmofield-container, .rom-container, .donvalley-container, .harbourfront-container, .dundassq-container, .streetcar-decor, .don-river {
+            .street-grid, .street-signs, .empire-container, .timessquare-container, .centralpark-container, .brooklyn-container, .liberty-container, .grandcentral-container, .oneworldtrade-container, .rockefeller-container, .wallstreet-container, .cab-decor, .hudson-river, .east-river {
                 display: none;
             }
 
@@ -795,94 +820,93 @@
     </div>
 
 
-    <!-- Moving Streetcars Container -->
-    <div id="streetcarContainer"></div>
+    <!-- Moving Yellow Cabs Container -->
+    <div id="cabContainer"></div>
 
     <!-- Food Icons -->
     <div id="foodContainer"></div>
 
-    <!-- CN Tower -->
-    <div class="landmark-container cn-tower-container">
-        <img src="images/cntower.jpg" alt="CN Tower" class="cn-tower-img">
-        <span class="landmark-label">CN Tower</span>
+    <!-- Empire State Building (34th & 5th Ave) -->
+    <div class="landmark-container empire-container">
+        <img src="https://images.unsplash.com/photo-1555109307-f7d9da25c244?w=100&q=80" alt="Empire State Building" class="empire-img">
+        <span class="landmark-label">Empire State</span>
     </div>
 
-    <!-- Toronto Sign -->
-    <div class="landmark-container toronto-container">
-        <img src="images/toronto.jpg" alt="Toronto" class="toronto-img">
+    <!-- Times Square (42nd & Broadway) -->
+    <div class="landmark-container timessquare-container">
+        <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=200&q=80" alt="Times Square" class="timessquare-img">
+        <span class="landmark-label">Times Square</span>
     </div>
 
-    <!-- Casa Loma -->
-    <div class="landmark-container casaloma-container">
-        <img src="images/casaloma.jpg" alt="Casa Loma" class="casaloma-img">
-        <span class="landmark-label">Casa Loma</span>
+    <!-- Central Park (Upper Manhattan) -->
+    <div class="landmark-container centralpark-container">
+        <img src="https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?w=300&q=80" alt="Central Park" class="centralpark-img">
+        <span class="landmark-label">Central Park</span>
     </div>
 
-    <!-- St. Lawrence Market (Front St & Jarvis - east of Yonge, near waterfront) -->
-    <div class="landmark-container stlawrence-container">
-        <img src="images/stlawrence.jpg" alt="St. Lawrence Market" class="stlawrence-img">
-        <span class="landmark-label">St. Lawrence Market</span>
+    <!-- Brooklyn Bridge (Lower East Side) -->
+    <div class="landmark-container brooklyn-container">
+        <img src="https://images.unsplash.com/photo-1496588152823-86ff7695e68f?w=200&q=80" alt="Brooklyn Bridge" class="brooklyn-img">
+        <span class="landmark-label">Brooklyn Bridge</span>
     </div>
 
-    <!-- BMO Field (Exhibition Place - west of CN Tower, at waterfront) -->
-    <div class="landmark-container bmofield-container">
-        <img src="images/bmofield.jpg" alt="BMO Field" class="bmofield-img">
-        <span class="landmark-label">BMO Field</span>
+    <!-- Statue of Liberty (Lower West Side) -->
+    <div class="landmark-container liberty-container">
+        <img src="https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?w=100&q=80" alt="Statue of Liberty" class="liberty-img">
+        <span class="landmark-label">Lady Liberty</span>
     </div>
 
-    <!-- ROM (Bloor St & University Ave) -->
-    <div class="landmark-container rom-container">
-        <img src="images/ROM.jpg" alt="Royal Ontario Museum" class="rom-img">
-        <span class="landmark-label">ROM</span>
+    <!-- Grand Central (42nd & Park Ave) -->
+    <div class="landmark-container grandcentral-container">
+        <img src="https://images.unsplash.com/photo-1542395765-761de4ee8b49?w=200&q=80" alt="Grand Central Terminal" class="grandcentral-img">
+        <span class="landmark-label">Grand Central</span>
     </div>
 
-    <!-- Don Valley -->
-    <div class="landmark-container donvalley-container">
-        <img src="images/donvalley.jpg" alt="Don Valley" class="donvalley-img">
+    <!-- One World Trade (Lower Manhattan) -->
+    <div class="landmark-container oneworldtrade-container">
+        <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=100&q=80" alt="One World Trade Center" class="oneworldtrade-img">
+        <span class="landmark-label">One World Trade</span>
     </div>
 
-    <!-- Harbourfront -->
-    <div class="landmark-container harbourfront-container">
-        <img src="images/harbourfront.jpg" alt="Harbourfront" class="harbourfront-img">
-        <span class="landmark-label">Harbourfront</span>
+    <!-- Rockefeller Center (50th & 5th Ave) -->
+    <div class="landmark-container rockefeller-container">
+        <img src="https://images.unsplash.com/photo-1490644658840-3f2e3f8c5625?w=200&q=80" alt="Rockefeller Center" class="rockefeller-img">
+        <span class="landmark-label">Rockefeller</span>
     </div>
 
-    <!-- Dundas Square -->
-    <div class="landmark-container dundassq-container">
-        <img src="images/dundassq.jpg" alt="Dundas Square" class="dundassq-img">
-        <span class="landmark-label">Dundas Square</span>
+    <!-- Wall Street (Financial District) -->
+    <div class="landmark-container wallstreet-container">
+        <img src="https://images.unsplash.com/photo-1521747116042-5a810fda9664?w=200&q=80" alt="Wall Street" class="wallstreet-img">
+        <span class="landmark-label">Wall Street</span>
     </div>
 
-    <!-- Don Valley River (east side, separates downtown from Danforth) -->
-    <div class="don-river">
+    <!-- Hudson River (west side of Manhattan) -->
+    <div class="hudson-river">
         <svg viewBox="0 0 30 1000" preserveAspectRatio="none">
-            <path d="M15,0
-                Q25,50 15,100
-                Q5,150 15,200
-                Q25,250 15,300
-                Q5,350 15,400
-                Q25,450 15,500
-                Q5,550 15,600
-                Q25,650 15,700
-                Q5,750 15,800
-                Q25,850 15,900
-                Q5,950 15,1000"/>
+            <path d="M15,0 L15,1000"/>
         </svg>
     </div>
 
-    <!-- Toronto Street Grid Lines -->
+    <!-- East River (east side of Manhattan) -->
+    <div class="east-river">
+        <svg viewBox="0 0 30 1000" preserveAspectRatio="none">
+            <path d="M15,0 L15,1000"/>
+        </svg>
+    </div>
+
+    <!-- Manhattan Street Grid Lines -->
     <div class="street-grid">
-        <!-- Vertical lines (N-S streets): Bathurst, Spadina, University, Bay, Yonge, Church, Jarvis, Parliament, (River), Broadview -->
-        <div class="grid-line vertical" style="left: 2%;"></div>
-        <div class="grid-line vertical" style="left: 14%;"></div>
-        <div class="grid-line vertical" style="left: 26%;"></div>
-        <div class="grid-line vertical" style="left: 38%;"></div>
+        <!-- Vertical lines (Avenues, west to east): 11th, 9th, 7th, Broadway, 5th, Madison, Park, Lexington, 1st -->
+        <div class="grid-line vertical" style="left: 8%;"></div>
+        <div class="grid-line vertical" style="left: 20%;"></div>
+        <div class="grid-line vertical" style="left: 32%;"></div>
+        <div class="grid-line vertical" style="left: 44%;"></div>
         <div class="grid-line vertical" style="left: 50%;"></div>
-        <div class="grid-line vertical" style="left: 62%;"></div>
-        <div class="grid-line vertical" style="left: 74%;"></div>
-        <div class="grid-line vertical" style="left: 86%;"></div>
-        <div class="grid-line vertical" style="left: 98%;"></div>
-        <!-- Horizontal lines (E-W streets): Eglinton, St Clair, Bloor, Dundas, Queen, King, Front, Lakeshore -->
+        <div class="grid-line vertical" style="left: 56%;"></div>
+        <div class="grid-line vertical" style="left: 68%;"></div>
+        <div class="grid-line vertical" style="left: 80%;"></div>
+        <div class="grid-line vertical" style="left: 92%;"></div>
+        <!-- Horizontal lines (Streets, north to south): 96th, 72nd, 57th, 42nd, 34th, 23rd, 14th, Houston -->
         <div class="grid-line horizontal" style="top: 2%;"></div>
         <div class="grid-line horizontal" style="top: 15%;"></div>
         <div class="grid-line horizontal" style="top: 28%;"></div>
@@ -893,40 +917,37 @@
         <div class="grid-line horizontal" style="top: 94%;"></div>
     </div>
 
-    <!-- Toronto Street Signs - Clean Grid Layout -->
-    <!-- Top=Eglinton, Bottom=Lakeshore, Left=Dufferin, Right=Broadview -->
+    <!-- Manhattan Street Signs -->
     <div class="street-signs">
 
-        <!-- NORTH-SOUTH STREETS (vertical lines, west to east) -->
-        <!-- Bathurst - Spadina - University - Bay - Yonge - Church - Jarvis - Parliament - (River) - Broadview -->
-        <div class="street-sign vertical" style="top: 40%; left: 2%;">Bathurst St</div>
-        <div class="street-sign vertical" style="top: 40%; left: 14%;">Spadina Ave</div>
-        <div class="street-sign vertical" style="top: 40%; left: 26%;">University Ave</div>
-        <div class="street-sign vertical" style="top: 40%; left: 38%;">Bay St</div>
-        <div class="street-sign vertical" style="top: 87%; left: 38%;">Bay St</div>
-        <div class="street-sign vertical" style="top: 40%; left: 50%;">Yonge St</div>
-        <div class="street-sign vertical" style="top: 40%; left: 62%;">Church St</div>
-        <div class="street-sign vertical" style="top: 40%; left: 74%;">Jarvis St</div>
-        <div class="street-sign vertical" style="top: 40%; left: 86%;">Parliament St</div>
-        <!-- Don River at 92% (between Parliament and Broadview) -->
-        <div class="street-sign vertical" style="top: 40%; left: 98%;">Broadview Ave</div>
+        <!-- AVENUES (vertical lines, west to east) -->
+        <div class="street-sign vertical" style="top: 40%; left: 8%;">11th Ave</div>
+        <div class="street-sign vertical" style="top: 40%; left: 20%;">9th Ave</div>
+        <div class="street-sign vertical" style="top: 40%; left: 32%;">7th Ave</div>
+        <div class="street-sign vertical" style="top: 40%; left: 44%;">Broadway</div>
+        <div class="street-sign vertical" style="top: 40%; left: 50%;">5th Ave</div>
+        <div class="street-sign vertical" style="top: 40%; left: 56%;">Madison Ave</div>
+        <div class="street-sign vertical" style="top: 40%; left: 68%;">Park Ave</div>
+        <div class="street-sign vertical" style="top: 40%; left: 80%;">Lexington Ave</div>
+        <div class="street-sign vertical" style="top: 40%; left: 92%;">1st Ave</div>
 
-        <!-- EAST-WEST STREETS (horizontal lines, north to south) -->
-        <!-- Eglinton - St Clair - Bloor - Dundas - Queen - King - Front - Lakeshore -->
-        <div class="street-sign" style="top: 2%; left: 2%;">Eglinton Ave</div>
-        <div class="street-sign" style="top: 15%; left: 20%;">St Clair Ave</div>
-        <div class="street-sign" style="top: 15%; left: 74%;">St Clair Ave</div>
-        <div class="street-sign" style="top: 28%; left: 3%;">Bloor St</div>
-        <div class="street-sign" style="top: 28%; left: 95%;">Danforth Ave</div>
-        <div class="street-sign" style="top: 42%; left: 20%;">Dundas St</div>
-        <div class="street-sign" style="top: 42%; left: 80%;">Dundas St</div>
-        <div class="street-sign" style="top: 55%; left: 3%;">Queen St</div>
-        <div class="street-sign" style="top: 55%; left: 95%;">Queen St</div>
-        <div class="street-sign" style="top: 68%; left: 20%;">King St</div>
-        <div class="street-sign" style="top: 68%; left: 80%;">King St</div>
-        <div class="street-sign" style="top: 81%; left: 3%;">Front St</div>
-        <div class="street-sign" style="top: 81%; left: 89%;">Front St</div>
-        <div class="street-sign" style="top: 94%; left: 55%;">Lakeshore Blvd</div>
+        <!-- STREETS (horizontal lines, north to south) -->
+        <div class="street-sign" style="top: 2%; left: 3%;">96th St</div>
+        <div class="street-sign" style="top: 2%; left: 90%;">96th St</div>
+        <div class="street-sign" style="top: 15%; left: 3%;">72nd St</div>
+        <div class="street-sign" style="top: 15%; left: 90%;">72nd St</div>
+        <div class="street-sign" style="top: 28%; left: 3%;">57th St</div>
+        <div class="street-sign" style="top: 28%; left: 90%;">57th St</div>
+        <div class="street-sign" style="top: 42%; left: 3%;">42nd St</div>
+        <div class="street-sign" style="top: 42%; left: 90%;">42nd St</div>
+        <div class="street-sign" style="top: 55%; left: 3%;">34th St</div>
+        <div class="street-sign" style="top: 55%; left: 90%;">34th St</div>
+        <div class="street-sign" style="top: 68%; left: 3%;">23rd St</div>
+        <div class="street-sign" style="top: 68%; left: 90%;">23rd St</div>
+        <div class="street-sign" style="top: 81%; left: 3%;">14th St</div>
+        <div class="street-sign" style="top: 81%; left: 90%;">14th St</div>
+        <div class="street-sign" style="top: 94%; left: 3%;">Houston St</div>
+        <div class="street-sign" style="top: 94%; left: 90%;">Wall St</div>
     </div>
 
     <main class="container">
@@ -1013,51 +1034,51 @@
         gtag('config', 'G-EEZQEGTQDD');
     </script>
 
-    <!-- Moving Streetcars & Static Food -->
+    <!-- Moving Yellow Cabs & Static Food -->
     <script>
         const foodContainer = document.getElementById('foodContainer');
-        const streetcarContainer = document.getElementById('streetcarContainer');
+        const cabContainer = document.getElementById('cabContainer');
         const isMobile = window.innerWidth <= 600;
 
-        // Street positions matching the grid lines exactly
+        // Street positions matching the grid lines exactly (Manhattan streets)
         const streetRoutes = [
-            { name: 'Eglinton', top: '2%' },
-            { name: 'St Clair', top: '15%' },
-            { name: 'Bloor', top: '28%' },
-            { name: 'Dundas', top: '42%' },
-            { name: 'Queen', top: '55%' },
-            { name: 'King', top: '68%' },
-            { name: 'Front', top: '81%' }
+            { name: '96th St', top: '2%' },
+            { name: '72nd St', top: '15%' },
+            { name: '57th St', top: '28%' },
+            { name: '42nd St', top: '42%' },
+            { name: '34th St', top: '55%' },
+            { name: '23rd St', top: '68%' },
+            { name: '14th St', top: '81%' }
         ];
 
-        // Create and animate a streetcar on a specific route
-        function createStreetcar(route) {
-            const streetcar = document.createElement('div');
-            streetcar.className = 'streetcar-decor';
-            streetcar.style.top = route.top;
-            streetcar.style.left = '-100px';
+        // Create and animate a yellow cab on a specific route
+        function createCab(route) {
+            const cab = document.createElement('div');
+            cab.className = 'cab-decor';
+            cab.style.top = route.top;
+            cab.style.left = '-100px';
 
             const img = document.createElement('img');
-            img.src = 'images/streetcar.jpg';
-            img.alt = 'Streetcar on ' + route.name;
-            streetcar.appendChild(img);
+            img.src = 'https://images.emojiterra.com/google/noto-emoji/unicode-15/color/512px/1f695.png';
+            img.alt = 'Yellow Cab on ' + route.name;
+            cab.appendChild(img);
 
-            streetcarContainer.appendChild(streetcar);
+            cabContainer.appendChild(cab);
 
             let currentLeft = -100;
             const screenWidth = window.innerWidth + 100;
 
             // Check collision with food
             function checkFoodCollision() {
-                const streetcarRect = streetcar.getBoundingClientRect();
+                const cabRect = cab.getBoundingClientRect();
                 foodItems.forEach((food, index) => {
                     if (food.classList.contains('eaten')) return;
                     const foodRect = food.getBoundingClientRect();
 
-                    if (streetcarRect.left < foodRect.right &&
-                        streetcarRect.right > foodRect.left &&
-                        streetcarRect.top < foodRect.bottom &&
-                        streetcarRect.bottom > foodRect.top) {
+                    if (cabRect.left < foodRect.right &&
+                        cabRect.right > foodRect.left &&
+                        cabRect.top < foodRect.bottom &&
+                        cabRect.bottom > foodRect.top) {
 
                         // Food eaten - hide and respawn
                         food.classList.add('eaten');
@@ -1072,19 +1093,19 @@
                 });
             }
 
-            // Randomized pause-move pattern
+            // Randomized pause-move pattern (faster for NYC cabs)
             function moveStep() {
-                // Random move distance (150-300px)
-                const moveDistance = 150 + Math.random() * 150;
-                // Random speed (100-200px/s)
-                const speed = 100 + Math.random() * 100;
+                // Random move distance (200-400px)
+                const moveDistance = 200 + Math.random() * 200;
+                // Random speed (150-300px/s) - faster than Toronto streetcars
+                const speed = 150 + Math.random() * 150;
                 const moveDuration = moveDistance / speed;
-                // Random pause (0.5-2s)
-                const pauseDuration = 500 + Math.random() * 1500;
+                // Random pause (0.3-1.5s) - shorter stops
+                const pauseDuration = 300 + Math.random() * 1200;
 
-                streetcar.style.transition = `left ${moveDuration}s linear`;
+                cab.style.transition = `left ${moveDuration}s linear`;
                 currentLeft += moveDistance;
-                streetcar.style.left = currentLeft + 'px';
+                cab.style.left = currentLeft + 'px';
 
                 // Check for food collision during movement
                 const collisionCheck = setInterval(checkFoodCollision, 100);
@@ -1095,38 +1116,38 @@
                     setTimeout(moveStep, (moveDuration * 1000) + pauseDuration);
                 } else {
                     // Off screen, remove and respawn on same route
-                    streetcar.remove();
-                    const delay = 2000 + Math.random() * 4000;
-                    setTimeout(() => createStreetcar(route), delay);
+                    cab.remove();
+                    const delay = 1500 + Math.random() * 3000;
+                    setTimeout(() => createCab(route), delay);
                 }
             }
 
             // Start moving with small random delay
-            setTimeout(moveStep, 500 + Math.random() * 500);
+            setTimeout(moveStep, 300 + Math.random() * 400);
         }
 
-        // Initialize streetcars in two alternating batches
+        // Initialize yellow cabs in two alternating batches
         if (!isMobile) {
-            // First batch: Eglinton (0), Bloor (2), Queen (4), Front (6)
+            // First batch: 96th (0), 57th (2), 34th (4), 14th (6)
             const firstBatch = [0, 2, 4, 6];
-            // Second batch: St Clair (1), Dundas (3), King (5)
+            // Second batch: 72nd (1), 42nd (3), 23rd (5)
             const secondBatch = [1, 3, 5];
 
             // Start first batch immediately with slight stagger
             firstBatch.forEach((routeIndex, i) => {
-                const delay = i * 300 + Math.random() * 200;
-                setTimeout(() => createStreetcar(streetRoutes[routeIndex]), delay);
+                const delay = i * 250 + Math.random() * 150;
+                setTimeout(() => createCab(streetRoutes[routeIndex]), delay);
             });
 
-            // Start second batch after 10 seconds
+            // Start second batch after 8 seconds
             secondBatch.forEach((routeIndex, i) => {
-                const delay = 10000 + i * 300 + Math.random() * 200;
-                setTimeout(() => createStreetcar(streetRoutes[routeIndex]), delay);
+                const delay = 8000 + i * 250 + Math.random() * 150;
+                setTimeout(() => createCab(streetRoutes[routeIndex]), delay);
             });
         }
 
-        // Food icons (static display)
-        const foodEmojis = ['🍔', '🍕', '🌮', '🍣', '🍜', '🍱', '🥗', '🍝', '🥘', '🍛', '🌯', '🥙', '🍲', '🥡', '🍙', '🥟', '🍤', '🍗', '🍖', '🥩', '🧆', '🥪', '🌭', '🍟', '🥓', '🍳', '🥞', '🧇', '🥯', '🍩', '🍰', '🧁', '🍦', '🍨', '🎂'];
+        // Food icons (static display) - NYC themed
+        const foodEmojis = ['🍔', '🍕', '🌮', '🍣', '🍜', '🥯', '🥗', '🍝', '🥘', '🌯', '🥙', '🥡', '🍙', '🥟', '🍤', '🥪', '🌭', '🍟', '🥓', '🍳', '🥞', '🧇', '🍩', '🍰', '🧁', '🍦', '🥤', '☕', '🍎'];
         let foodItems = [];
         const minDistance = 70;
         const foodPerQuadrant = 2;
@@ -1134,15 +1155,15 @@
 
         // Get landmark positions for exclusion zones
         const landmarks = [
-            document.querySelector('.cn-tower-container'),
-            document.querySelector('.toronto-img'),
-            document.querySelector('.casaloma-container'),
-            document.querySelector('.stlawrence-container'),
-            document.querySelector('.bmofield-container'),
-            document.querySelector('.rom-container'),
-            document.querySelector('.donvalley-container'),
-            document.querySelector('.harbourfront-container'),
-            document.querySelector('.dundassq-container')
+            document.querySelector('.empire-container'),
+            document.querySelector('.timessquare-container'),
+            document.querySelector('.centralpark-container'),
+            document.querySelector('.brooklyn-container'),
+            document.querySelector('.liberty-container'),
+            document.querySelector('.grandcentral-container'),
+            document.querySelector('.oneworldtrade-container'),
+            document.querySelector('.rockefeller-container'),
+            document.querySelector('.wallstreet-container')
         ].filter(el => el);
 
         function isTooCloseToLandmark(fx, fy) {
