@@ -22,7 +22,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -103,9 +103,10 @@
         }
 
         .logo span {
+            font-family: 'Fredoka', sans-serif;
             font-size: 38px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-weight: 600;
+            letter-spacing: 0px;
         }
 
         /* Desktop: Keep logo in content section */
@@ -114,11 +115,12 @@
         }
 
         .tagline {
+            font-family: 'Fredoka', sans-serif;
             font-size: 56px;
-            font-weight: 700;
+            font-weight: 600;
             line-height: 1.1;
             margin-bottom: 28px;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
         }
 
         .tagline .highlight {
@@ -608,15 +610,100 @@
 
         /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
-            .street-grid, .street-signs, .cn-tower-container, .toronto-container, .casaloma-container, .stlawrence-container, .bmofield-container, .rom-container, .donvalley-container, .harbourfront-container, .dundassq-container, .streetcar-decor, .don-river {
+            /* Hide complex elements */
+            .toronto-container, .rom-container, .dundassq-container, .streetcar-decor, .don-river {
+                display: none;
+            }
+
+            /* Show simplified grid on mobile */
+            .street-grid {
+                display: block;
+            }
+
+            .street-grid .grid-line {
+                opacity: 0.06;
+            }
+
+            /* Show simplified street signs on mobile */
+            .street-signs {
+                display: block;
+            }
+
+            .street-sign {
+                font-size: 8px;
+                opacity: 0.08;
+            }
+
+            /* Corner landmarks on mobile */
+            .landmark-label {
+                display: none;
+            }
+
+            /* Bottom left - CN Tower */
+            .cn-tower-container {
+                display: flex;
+                bottom: 5%;
+                left: 5%;
+            }
+
+            .cn-tower-img {
+                width: 18px;
+                opacity: 0.1;
+            }
+
+            /* Top left - Casa Loma */
+            .casaloma-container {
+                display: flex;
+                top: 3%;
+                left: 3%;
+            }
+
+            .casaloma-img {
+                width: 40px;
+                opacity: 0.1;
+            }
+
+            /* Top right - Don Valley */
+            .donvalley-container {
+                display: flex;
+                top: 3%;
+                right: 3%;
+                left: auto;
+            }
+
+            .donvalley-img {
+                width: 50px;
+                opacity: 0.1;
+            }
+
+            /* Bottom right - St Lawrence */
+            .stlawrence-container {
+                display: flex;
+                bottom: 5%;
+                right: 3%;
+                left: auto;
+            }
+
+            .stlawrence-img {
+                width: 40px;
+                opacity: 0.1;
+            }
+
+            /* Hide middle landmarks */
+            .bmofield-container, .harbourfront-container {
+                display: none;
+            }
+
+            /* Hide tagline and subtitle on mobile - just show download */
+            .tagline, .subtitle {
                 display: none;
             }
 
             .container {
                 flex-direction: column;
                 text-align: center;
-                gap: 15px;
-                padding: 20px;
+                gap: 12px;
+                padding: 15px;
             }
 
             /* Show logo section on mobile, hide desktop logo */
