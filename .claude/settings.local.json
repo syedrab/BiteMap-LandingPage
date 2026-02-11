@@ -8,9 +8,35 @@
       "WebSearch",
       "Skill(example-skills:frontend-design)",
       "Bash(pip show:*)",
-      "Bash(npx qrcode:*)"
+      "Bash(npx qrcode:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(vercel --prod:*)",
+      "Bash(npx skills find sitemap seo)",
+      "Bash(npx skills add addyosmani/web-quality-skills@seo -g -y)",
+      "Bash(grep:*)",
+      "Bash(for file in privacy.html terms.html support.html legal.html blog/*.html)",
+      "Bash(do sed -i '' 's|https://bitemap\\\\.fun|https://www.bitemap.fun|g' \"$file\")",
+      "Bash(done)",
+      "Bash(xmllint:*)",
+      "Bash(git restore:*)",
+      "Bash(openssl s_client:*)",
+      "Bash(openssl x509:*)",
+      "Bash(for url in \"https://www.bitemap.fun/\" \"https://www.bitemap.fun/privacy\" \"https://www.bitemap.fun/terms\" \"https://www.bitemap.fun/blog/\")",
+      "Bash(do echo -n \"$url: \")",
+      "Bash(md5)",
+      "Bash(dig:*)",
+      "Bash(nslookup:*)",
+      "Bash(whois:*)",
+      "WebFetch(domain:sortd.isaacng.co.uk)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "trigger"
+  ]
 }
