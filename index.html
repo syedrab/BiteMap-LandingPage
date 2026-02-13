@@ -1242,7 +1242,7 @@
         // Initialize streetcars in two alternating batches
         if (isMobile) {
             // Mobile: fewer streetcars
-            const mobileRoutes = [2, 4, 6]; // Bloor, Queen, Front
+            const mobileRoutes = [2, 6]; // Bloor, Front
             mobileRoutes.forEach((routeIndex, i) => {
                 const delay = i * 500 + Math.random() * 300;
                 setTimeout(() => createStreetcar(streetRoutes[routeIndex]), delay);
