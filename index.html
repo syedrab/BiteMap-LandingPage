@@ -71,28 +71,36 @@
             border-radius: 46px;
             padding: 11px;
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
 
-        .phone-mockup {
+        .phone-screen {
             position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 35px;
             overflow: hidden;
         }
 
-        .phone-mockup img,
-        .phone-mockup video {
+        .phone-screen img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 35px;
-            opacity: 0;
-            transition: opacity 1s ease;
+            transform: translateY(100%);
+            transition: transform 0.6s ease;
         }
 
-        .phone-mockup img.active {
-            opacity: 1;
+        .phone-screen img.active {
+            transform: translateY(0);
+            z-index: 2;
+        }
+
+        .phone-screen img.exit {
+            transform: translateY(-100%);
+            z-index: 1;
         }
 
         /* Content */
@@ -1044,9 +1052,11 @@
 
         <div class="phone-container">
             <div class="phone-mockup">
-                <img src="images/screenshot.jpg" alt="BiteMap app - shawarma review" class="active">
-                <img src="images/screenshot1.jpg" alt="BiteMap app - halal restaurants">
-                <img src="images/screenshot3.jpg" alt="BiteMap app - food review">
+                <div class="phone-screen">
+                    <img src="images/screenshot.jpg" alt="BiteMap app - shawarma review" class="active">
+                    <img src="images/screenshot1.jpg" alt="BiteMap app - halal restaurants">
+                    <img src="images/screenshot3.jpg" alt="BiteMap app - food review">
+                </div>
             </div>
         </div>
 
@@ -1092,14 +1102,19 @@
         </div>
     </footer>
 
-    <!-- Phone Screenshot Slideshow -->
+    <!-- Phone Screenshot Swipe-Up -->
     <script>
-        const slides = document.querySelectorAll('.phone-mockup img');
+        const slides = document.querySelectorAll('.phone-screen img');
         let current = 0;
         setInterval(() => {
-            slides[current].classList.remove('active');
+            const prev = current;
             current = (current + 1) % slides.length;
+            slides[prev].classList.remove('active');
+            slides[prev].classList.add('exit');
             slides[current].classList.add('active');
+            setTimeout(() => {
+                slides[prev].classList.remove('exit');
+            }, 600);
         }, 3000);
     </script>
 
