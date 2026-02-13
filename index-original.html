@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteMap - Discover Local Restaurants Through Video Reviews | Food Discovery App</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="BiteMap is a free iOS app for discovering restaurants through TikTok-style video reviews from local food creators. Watch real reviews, find nearby spots, order delivery.">
+    <meta name="keywords" content="restaurant reviews, food app, video reviews, local dining, restaurant discovery, food videos, iOS app, Toronto restaurants, food creators">
+    <meta name="author" content="BiteMap">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- AI/LLM Discovery -->
+    <link rel="alternate" type="text/plain" href="https://www.bitemap.fun/llms.txt" title="LLM-friendly summary">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bitemap.fun/">
+    <meta property="og:title" content="BiteMap - Real Food, Real Reviews">
+    <meta property="og:description" content="Discover authentic local restaurants through TikTok-style video reviews. Join thousands of food lovers sharing their favorite bites.">
+    <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="BiteMap">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bitemap.fun/">
+    <meta property="twitter:title" content="BiteMap - Real Food, Real Reviews">
+    <meta property="twitter:description" content="Discover authentic local restaurants through TikTok-style video reviews.">
+    <meta property="twitter:image" content="https://www.bitemap.fun/images/og-image.jpg">
+    <meta name="twitter:site" content="@bitemap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.bitemap.fun/">
+
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BiteMap",
+      "url": "https://www.bitemap.fun",
+      "logo": "https://www.bitemap.fun/images/bitemap.jpeg",
+      "description": "BiteMap is a video-first restaurant discovery app featuring TikTok-style reviews from local food creators.",
+      "foundingDate": "2024",
+      "foundingLocation": "Toronto, Canada",
+      "sameAs": [
+        "https://www.tiktok.com/@bitemap",
+        "https://www.instagram.com/@bitemap",
+        "https://apps.apple.com/us/app/bitemap/id6746139076"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "support@bitemap.fun",
+        "contactType": "Customer Support",
+        "availableLanguage": "English"
+      }
+    }
+    </script>
+
+    <!-- Structured Data - Mobile Application -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "BiteMap",
+      "operatingSystem": "iOS 15.0+",
+      "applicationCategory": "FoodAndDrinkApplication",
+      "downloadUrl": "https://apps.apple.com/us/app/bitemap/id6746139076",
+      "installUrl": "https://apps.apple.com/us/app/bitemap/id6746139076",
+      "screenshot": "https://www.bitemap.fun/images/Home%20Feed.png",
+      "softwareVersion": "1.0",
+      "datePublished": "2024-01-01",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "10",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "description": "BiteMap helps you discover authentic local restaurants through TikTok-style video reviews from real food creators. Watch video reviews, explore nearby restaurants on a map, and order delivery through integrated platforms like Uber Eats and DoorDash.",
+      "featureList": "Video restaurant reviews, Interactive map discovery, Food creator profiles, Uber Eats integration, DoorDash integration, OpenTable reservations, AI-powered recommendations"
+    }
+    </script>
+
+    <!-- Structured Data - FAQ for AI Discovery -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is BiteMap?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BiteMap is a free iOS app that helps you discover restaurants through short-form video reviews from local food creators. Instead of reading text reviews, you watch TikTok-style videos showing real food and dining experiences."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is BiteMap different from Yelp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BiteMap uses video reviews from verified food creators instead of anonymous text reviews. You see the actual food, atmosphere, and experience before visiting, making it easier to know what to expect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BiteMap free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, BiteMap is completely free to download and use on iOS. You can browse video reviews, discover restaurants, and access all features at no cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BiteMap available on Android?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BiteMap is currently available only on iOS. Android support is coming soon."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I order food through BiteMap?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, BiteMap integrates with Uber Eats, DoorDash, SkipTheDishes for delivery and OpenTable for reservations. You can order directly from restaurants you discover."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - WebSite for Sitelinks Search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BiteMap",
+      "url": "https://www.bitemap.fun",
+      "description": "Video-first restaurant discovery app",
+      "publisher": {
+        "@type": "Organization",
+        "name": "BiteMap"
+      }
+    }
+    </script>
+
+    <!-- Performance -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/bitemap-logo.png">
+    <link rel="apple-touch-icon" href="images/bitemap-logo.png">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EEZQEGTQDD');
+    </script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <img src="images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
+                <span>BiteMap</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#preview">Preview</a>
+                <a href="/blog/">Blog</a>
+                <a href="https://apps.apple.com/us/app/bitemap/id6746139076" class="download-btn" target="_blank" rel="noopener">Download App</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+    <section class="hero">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">real food</span>
+                    <span class="title-line">real reviews</span>
+                    <span class="title-line">real tasty</span>
+                </h1>
+                <div class="hero-cta">
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                        <a href="https://apps.apple.com/us/app/bitemap/id6746139076" class="app-store-button" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                                <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                            </svg>
+                            <div>
+                                <div class="app-store-label">Download on the</div>
+                                <div class="app-store-name">App Store</div>
+                            </div>
+                        </a>
+                        <button onclick="trackAndroidClick()" class="android-button">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                                <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/>
+                            </svg>
+                            <div>
+                                <div class="app-store-label">Android</div>
+                                <div class="app-store-name">Coming Soon</div>
+                            </div>
+                        </button>
+                    </div>
+                    <p class="form-subtitle">Available now on iOS</p>
+                </div>
+            </div>
+
+            <div class="floating-elements">
+                <div class="phone-mockup phone-left">
+                    <img src="images/Home Feed.png" alt="BiteMap video feed showing restaurant reviews" loading="lazy">
+                </div>
+                <div class="phone-mockup phone-right">
+                    <img src="images/Map View.png" alt="BiteMap map view" loading="lazy">
+                </div>
+            </div>
+
+            <p class="hero-subtitle">Discover authentic restaurants through short-form video reviews from real food lovers in your city</p>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>↓ Scroll for more</span>
+        </div>
+    </section>
+
+    <section class="creators-section">
+        <div class="creators-wrapper">
+            <h2 class="creators-title">featured food creators</h2>
+            <div class="creators-grid">
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/insta.noodls.jpeg" alt="@insta.noodls">
+                    </div>
+                    <h4>@insta.noodls</h4>
+                    <p>Noodle expert</p>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/marcelloeats.jpeg" alt="@marcelloeats">
+                    </div>
+                    <h4>@marcelloeats</h4>
+                    <p>Food adventures</p>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/to_finest.jpeg" alt="@to_finest">
+                    </div>
+                    <h4>@to_finest</h4>
+                    <p>Toronto's finest</p>
+                </div>
+                <div class="creator-card featured">
+                    <div class="creator-avatar">
+                        <img src="images/mukbangtoronto.jpeg" alt="@mukbangtoronto">
+                    </div>
+                    <h4>@mukbangtoronto</h4>
+                    <p>Food enthusiast</p>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/aarnvrr.jpeg" alt="@aarnvrr">
+                    </div>
+                    <h4>@aarnvrr</h4>
+                    <p>Food blogger</p>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/schmoozelife.jpeg" alt="@schmoozelife">
+                    </div>
+                    <h4>@schmoozelife</h4>
+                    <p>Lifestyle foodie</p>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/ttceats.jpeg" alt="@ttceats">
+                    </div>
+                    <h4>@ttceats</h4>
+                    <p>Toronto eats</p>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/torontofoodguide.jpeg" alt="@torontofoodguide">
+                    </div>
+                    <h4>@torontofoodguide</h4>
+                    <p>Toronto dining</p>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/tryittoronto.jpeg" alt="@tryittoronto">
+                    </div>
+                    <h4>@tryittoronto</h4>
+                    <p>Toronto food guide</p>
+                </div>
+                <div class="creator-card">
+                    <div class="creator-avatar">
+                        <img src="images/torontomunching.jpeg" alt="@torontomunching">
+                    </div>
+                    <h4>@torontomunching</h4>
+                    <p>Food explorer</p>
+                </div>
+            </div>
+            <p class="creators-subtitle">Join thousands of creators sharing their favorite bites</p>
+        </div>
+    </section>
+
+    <section class="vendors-section">
+        <div class="vendors-wrapper">
+            <h2 class="vendors-title">integrated with your favorite platforms</h2>
+            <div class="vendors-grid">
+                <div class="vendor-card">
+                    <div class="vendor-logo">
+                        <img src="images/ubereats.png" alt="Uber Eats" loading="lazy">
+                    </div>
+                    <h4>Uber Eats</h4>
+                    <p>Order directly</p>
+                </div>
+                <div class="vendor-card">
+                    <div class="vendor-logo">
+                        <img src="images/skipthedishes.png" alt="SkipTheDishes" loading="lazy">
+                    </div>
+                    <h4>SkipTheDishes</h4>
+                    <p>Quick delivery</p>
+                </div>
+                <div class="vendor-card">
+                    <div class="vendor-logo">
+                        <img src="images/opentable.png" alt="OpenTable" loading="lazy">
+                    </div>
+                    <h4>OpenTable</h4>
+                    <p>Book tables</p>
+                </div>
+                <div class="vendor-card">
+                    <div class="vendor-logo">
+                        <img src="images/doordash.png" alt="DoorDash" loading="lazy">
+                    </div>
+                    <h4>DoorDash</h4>
+                    <p>Fast delivery</p>
+                </div>
+            </div>
+            <p class="vendors-subtitle">Seamlessly connect with delivery and reservation services</p>
+        </div>
+        <div class="floating-food-vendors">
+            <span class="food-emoji-vendor vendor-1">🍱</span>
+            <span class="food-emoji-vendor vendor-2">🥗</span>
+            <span class="food-emoji-vendor vendor-3">🍝</span>
+            <span class="food-emoji-vendor vendor-4">🥘</span>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="features-wrapper">
+            <h2 class="section-title">swipe & eat</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-bubble">
+                        <p>What's your biggest food dream?</p>
+                    </div>
+                    <h3>TikTok-style videos</h3>
+                    <p>Swipe through mouth-watering reviews</p>
+                </div>
+                <div class="feature-card featured">
+                    <div class="feature-bubble">
+                        <p>Who's your favorite food creator?</p>
+                    </div>
+                    <h3>Real people, real bites</h3>
+                    <p>No fake reviews, just hungry humans</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-bubble">
+                        <p>What cuisine are you craving?</p>
+                    </div>
+                    <h3>Map your cravings</h3>
+                    <p>Find the best spots near you instantly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="preview" class="preview-section">
+        <div class="preview-wrapper">
+            <div class="preview-content">
+                <h2 class="preview-title">you've seen it<br>all around</h2>
+                <div class="preview-subtitle">share your bite</div>
+                <div class="preview-phones">
+                    <div class="preview-phone tilted-left">
+                        <img src="images/Profile View.png" alt="Profile View">
+                    </div>
+                    <div class="preview-phone tilted-right">
+                        <img src="images/Alfred AI.png" alt="Alfred AI">
+                    </div>
+                </div>
+            </div>
+            <div class="floating-food">
+                <span class="food-emoji food-1">🍔</span>
+                <span class="food-emoji food-2">🍣</span>
+                <span class="food-emoji food-3">🍰</span>
+                <span class="food-emoji food-4">🥘</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download-section">
+        <div class="download-wrapper">
+            <h2 class="download-title">ready to discover<br>your next bite?</h2>
+            <div class="download-content">
+                <a href="https://apps.apple.com/us/app/bitemap/id6746139076" class="app-store-button app-store-button-large" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                    </svg>
+                    <div>
+                        <div class="app-store-label">Download on the</div>
+                        <div class="app-store-name">App Store</div>
+                    </div>
+                </a>
+                <p class="coming-soon">🍔 Available now on iOS</p>
+            </div>
+            <div class="download-decoration">
+                <div class="decoration-circle"></div>
+                <div class="decoration-blob"></div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">🍔 BiteMap</div>
+            <div class="footer-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/support">Support</a>
+            </div>
+            <p class="footer-copy">&copy; 2025 BiteMap</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Android Coming Soon click tracking
+        const ANDROID_WEBHOOK_URL = ''; // Add Make.com or Zapier webhook URL for email notifications
+
+        function trackAndroidClick() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'android_coming_soon_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'Android Download Interest'
+                });
+            }
+            if (ANDROID_WEBHOOK_URL) {
+                fetch(ANDROID_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        event: 'android_click',
+                        timestamp: new Date().toISOString(),
+                        page: window.location.href
+                    })
+                }).catch(() => {});
+            }
+            showToast('Android app coming soon! We\'ll notify you when it\'s ready.');
+        }
+
+        function showToast(message) {
+            const existing = document.querySelector('.toast-notification');
+            if (existing) existing.remove();
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.textContent = message;
+            toast.style.cssText = 'position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #FF6B35; color: #fff; padding: 16px 32px; border-radius: 12px; font-size: 16px; font-weight: 600; z-index: 10000; box-shadow: 0 8px 30px rgba(255,107,53,0.4);';
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.3s';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
