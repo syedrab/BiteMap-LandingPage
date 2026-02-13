@@ -634,7 +634,7 @@
         /* Responsive - Tablet & Mobile */
         @media (max-width: 1100px) {
             /* Hide complex elements */
-            .toronto-container, .rom-container, .dundassq-container, .streetcar-decor, .don-river {
+            .toronto-container, .rom-container, .dundassq-container, .don-river {
                 display: none;
             }
 
@@ -1240,7 +1240,14 @@
         }
 
         // Initialize streetcars in two alternating batches
-        if (!isMobile) {
+        if (isMobile) {
+            // Mobile: fewer streetcars
+            const mobileRoutes = [2, 4, 6]; // Bloor, Queen, Front
+            mobileRoutes.forEach((routeIndex, i) => {
+                const delay = i * 500 + Math.random() * 300;
+                setTimeout(() => createStreetcar(streetRoutes[routeIndex]), delay);
+            });
+        } else {
             // First batch: Eglinton (0), Bloor (2), Queen (4), Front (6)
             const firstBatch = [0, 2, 4, 6];
             // Second batch: St Clair (1), Dundas (3), King (5)
