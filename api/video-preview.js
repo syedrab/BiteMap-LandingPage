@@ -57,11 +57,7 @@ export default async function handler(req, res) {
       error = idError;
     }
 
-    console.log('Video fetch result:', { video, error });
-
     if (error || !video) {
-      console.error('Supabase query error:', error);
-      console.log('Query params:', { code });
       return res.status(404).send(renderNotFound());
     }
 
@@ -82,7 +78,6 @@ export default async function handler(req, res) {
         .select('*')
         .eq('id', video.place_id)
         .single();
-      console.log('Place fetch:', { place_id: video.place_id, place, placeError });
       video.place = place;
     }
 
@@ -119,12 +114,10 @@ function renderVideoPreview(video, code) {
   // Data from Videos table with nested creator/place
   const creatorName = video.creator?.name || 'BiteMap Creator';
   const creatorFullName = video.creator?.full_name || '';
-  const creatorPic = video.creator?.image_url || `https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/${creatorName}.jpeg`;
+  const creatorPic = `https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/${creatorName}.jpeg`;
   const placeName = video.place?.name || 'Amazing Restaurant';
   const placeAddress = video.place?.address || '';
   const placeCity = video.place?.city || '';
-  const placeRating = video.place?.rating || null;
-  const placeGoogleMapsUrl = video.place?.google_maps_url || null;
   const caption = video.caption || '';
   const likes = video.likes || 0;
   const saves = video.saves || 0;
@@ -165,8 +158,8 @@ function renderVideoPreview(video, code) {
     <meta name="apple-itunes-app" content="app-id=6746139076">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/images/bitemap.jpeg">
-    <link rel="apple-touch-icon" href="/images/bitemap.jpeg">
+    <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
+    <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
 
     <!-- HLS.js for video playback -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -412,19 +405,18 @@ function renderVideoPreview(video, code) {
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
+            cursor: pointer;
+            transition: max-height 0.3s ease;
+        }
+
+        .caption-section.expanded {
+            max-height: 500px;
+            display: block;
+            -webkit-line-clamp: unset;
         }
 
         .place-section {
             margin-bottom: 1.5rem;
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #FF006E;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
         }
 
         .place-name {
@@ -437,6 +429,24 @@ function renderVideoPreview(video, code) {
             font-size: 0.95rem;
             color: #999;
             line-height: 1.5;
+        }
+
+        .place-address-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s ease;
+        }
+
+        .place-address-link:hover {
+            color: #FF006E;
+        }
+
+        .map-icon {
+            flex-shrink: 0;
+            color: #FF006E;
         }
 
         .stats-grid {
@@ -457,12 +467,12 @@ function renderVideoPreview(video, code) {
             font-size: 1.25rem;
             font-weight: 700;
             color: #FF006E;
-            display: block;
-            margin-bottom: 0.25rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.25rem;
+            margin-bottom: 0.1rem;
+            line-height: 1;
         }
 
         .stat-label {
@@ -476,28 +486,57 @@ function renderVideoPreview(video, code) {
             gap: 0.75rem;
             margin: 1.5rem 0;
             padding: 1.5rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: none;
         }
 
         .delivery-link {
-            display: inline-flex;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+            gap: 0.25rem;
+            padding: 0.5rem;
+            background: none;
+            border: none;
             color: white;
             text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 600;
             transition: all 0.3s ease;
+            flex: 1;
         }
 
         .delivery-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
+        }
+
+        .delivery-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .delivery-label {
+            font-size: 0.5rem;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .pause-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+            transition: opacity 0.2s ease;
+        }
+
+        .pause-overlay.show {
+            display: flex;
         }
 
         /* App Modal */
@@ -781,11 +820,6 @@ function renderVideoPreview(video, code) {
                 max-height: 50px;
             }
 
-            .section-label {
-                font-size: 0.65rem;
-                margin-bottom: 0.25rem;
-            }
-
             .place-section {
                 margin-bottom: 0.4rem;
             }
@@ -799,33 +833,129 @@ function renderVideoPreview(video, code) {
             }
 
             .stats-grid {
-                gap: 0.4rem;
-                padding: 0.4rem 0;
-                margin: 0.4rem 0;
+                gap: 0.25rem;
+                padding: 0.2rem 0;
+                margin: 0.2rem 0;
             }
 
             .stat-value {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
+                gap: 0.15rem;
             }
 
             .stat-label {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
 
             .delivery-links {
-                gap: 0.4rem;
-                padding: 0.4rem 0;
-                margin: 0.4rem 0;
+                gap: 0.3rem;
+                padding: 0.3rem 0;
+                margin: 0.3rem 0;
             }
 
             .delivery-link {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.8rem;
+                padding: 0.4rem 0.6rem;
+                font-size: 0.75rem;
+            }
+
+            .delivery-logo {
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+            }
+
+            .delivery-label {
+                font-size: 0.45rem;
             }
 
             .top-banner {
                 font-size: 0.8rem;
                 padding: 0.4rem 1rem;
+            }
+        }
+
+        /* iPhone SE and small screens */
+        @media (max-width: 480px) and (max-height: 700px) {
+            .info-section {
+                padding: 0.5rem 0.75rem;
+                padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+                padding-top: 2rem;
+            }
+
+            .creator-header {
+                margin-bottom: 0.25rem;
+                padding-bottom: 0.25rem;
+                gap: 0.5rem;
+            }
+
+            .creator-avatar {
+                width: 32px;
+                height: 32px;
+            }
+
+            .creator-name {
+                font-size: 0.8rem;
+            }
+
+            .creator-fullname {
+                font-size: 0.7rem;
+            }
+
+            .caption-section {
+                font-size: 0.75rem;
+                margin-bottom: 0.2rem;
+                padding: 0.3rem;
+                max-height: 28px;
+                -webkit-line-clamp: 1;
+            }
+
+            .caption-section.expanded {
+                max-height: 300px;
+            }
+
+            .place-section {
+                margin-bottom: 0.25rem;
+            }
+
+            .place-name {
+                font-size: 0.8rem;
+                margin-bottom: 0.15rem;
+            }
+
+            .place-address {
+                font-size: 0.7rem;
+            }
+
+            .stats-grid {
+                gap: 0.15rem;
+                padding: 0.15rem 0;
+                margin: 0.15rem 0;
+            }
+
+            .stat-value {
+                font-size: 0.7rem;
+                gap: 0.1rem;
+            }
+
+            .stat-label {
+                font-size: 0.55rem;
+            }
+
+            .delivery-links {
+                gap: 0.25rem;
+                padding: 0.2rem 0;
+                margin: 0.15rem 0;
+            }
+
+            .delivery-link {
+                padding: 0.3rem 0.5rem;
+                font-size: 0.7rem;
+            }
+
+            .delivery-logo {
+                width: 30px;
+                height: 30px;
+                border-radius: 6px;
             }
         }
     </style>
@@ -835,7 +965,7 @@ function renderVideoPreview(video, code) {
     <nav class="navbar">
         <div class="nav-content">
             <a href="/" class="logo-link">
-                <img src="/images/bitemap.jpeg" alt="BiteMap" class="logo-icon">
+                <img src="/images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
                 <span class="logo-text">BiteMap</span>
             </a>
             <a href="${appStoreUrl}" class="nav-download-btn" target="_blank" rel="noopener">Download</a>
@@ -849,7 +979,7 @@ function renderVideoPreview(video, code) {
             <div class="video-section">
                 <!-- Logo in top left (mobile only) -->
                 <a href="/" class="mobile-logo">
-                    <img src="/images/bitemap.jpeg" alt="BiteMap">
+                    <img src="/images/bitemap-logo.png" alt="BiteMap">
                 </a>
 
                 <!-- Subtle top banner -->
@@ -861,7 +991,6 @@ function renderVideoPreview(video, code) {
                     <video
                         id="video-player"
                         class="video-player"
-                        controls
                         playsinline
                         autoplay
                         muted
@@ -872,6 +1001,12 @@ function renderVideoPreview(video, code) {
                         <source src="${videoUrl}" type="application/x-mpegURL">
                         Your browser does not support video playback.
                     </video>
+                    <div class="pause-overlay" id="pauseOverlay">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="white">
+                            <rect x="6" y="4" width="4" height="16" rx="1"/>
+                            <rect x="14" y="4" width="4" height="16" rx="1"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
 
@@ -886,7 +1021,7 @@ function renderVideoPreview(video, code) {
                     </button>
 
                     <div class="modal-content">
-                        <img src="/images/bitemap.jpeg" alt="BiteMap" class="modal-logo">
+                        <img src="/images/bitemap-logo.png" alt="BiteMap" class="modal-logo">
                         <h2 class="modal-title">Get the full app experience</h2>
                         <p class="modal-text">Enjoy more videos and great features on the app</p>
 
@@ -924,9 +1059,14 @@ function renderVideoPreview(video, code) {
                 <!-- Restaurant Info -->
                 ${video.place ? `
                 <div class="place-section">
-                    <div class="section-label">📍 Featured Spot</div>
-                    <h1 class="place-name">${placeName}</h1>
-                    ${placeAddress || placeCity ? `<div class="place-address">${placeAddress ? placeAddress : ''}${placeAddress && placeCity ? ', ' : ''}${placeCity || ''}</div>` : ''}
+                    <h1 class="place-name">📍 ${placeName}</h1>
+                    ${placeAddress || placeCity ? `
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(placeAddress || placeName)}" target="_blank" rel="noopener" class="place-address-link">
+                        <span class="place-address">${placeAddress ? placeAddress : ''}${placeAddress && placeCity ? ', ' : ''}${placeCity || ''}</span>
+                        <svg class="map-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                        </svg>
+                    </a>` : ''}
                 </div>
                 ` : ''}
 
@@ -950,16 +1090,20 @@ function renderVideoPreview(video, code) {
                 ${video.place ? `
                 <div class="delivery-links">
                     <a href="https://www.ubereats.com/search?q=${encodeURIComponent(placeName)}" target="_blank" rel="noopener" class="delivery-link">
-                        🍔 Uber Eats
+                        <img src="/images/ubereats.png" alt="Uber Eats" class="delivery-logo">
+                        <span class="delivery-label">Uber Eats</span>
                     </a>
                     <a href="https://www.doordash.com/search/?query=${encodeURIComponent(placeName)}" target="_blank" rel="noopener" class="delivery-link">
-                        🚗 DoorDash
+                        <img src="/images/doordash.png" alt="DoorDash" class="delivery-logo">
+                        <span class="delivery-label">DoorDash</span>
                     </a>
                     <a href="https://www.skipthedishes.com/search?q=${encodeURIComponent(placeName)}" target="_blank" rel="noopener" class="delivery-link">
-                        📦 SkipTheDishes
+                        <img src="/images/skipthedishes.png" alt="SkipTheDishes" class="delivery-logo">
+                        <span class="delivery-label">Skip</span>
                     </a>
                     <a href="https://www.opentable.com/s?term=${encodeURIComponent(placeName)}" target="_blank" rel="noopener" class="delivery-link">
-                        🍽️ OpenTable
+                        <img src="/images/opentable.png" alt="OpenTable" class="delivery-logo">
+                        <span class="delivery-label">OpenTable</span>
                     </a>
                 </div>
                 ` : ''}
@@ -968,8 +1112,32 @@ function renderVideoPreview(video, code) {
     </div>
 
     <script>
-        // Initialize HLS.js video player
+        // Click to play/pause
         const video = document.getElementById('video-player');
+        const pauseOverlay = document.getElementById('pauseOverlay');
+
+        function togglePlay() {
+            if (video.paused) {
+                video.play();
+                pauseOverlay.classList.remove('show');
+            } else {
+                video.pause();
+                pauseOverlay.classList.add('show');
+            }
+        }
+
+        video.addEventListener('click', togglePlay);
+        pauseOverlay.addEventListener('click', togglePlay);
+
+        // Click caption to expand/collapse
+        const captionEl = document.querySelector('.caption-section');
+        if (captionEl) {
+            captionEl.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+        }
+
+        // Initialize HLS.js video player
         const videoSrc = '${videoUrl}';
 
         if (video && videoSrc && videoSrc.includes('.m3u8')) {
@@ -982,11 +1150,11 @@ function renderVideoPreview(video, code) {
                 hls.attachMedia(video);
 
                 hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    console.log('Video ready to play');
+                    // Video ready
                 });
 
                 hls.on(Hls.Events.ERROR, function(event, data) {
-                    console.error('HLS error:', data);
+                    // HLS error
                 });
             } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                 // Native HLS support (Safari)

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "BiteMap - Real Food, Real Reviews landing page",
   "scripts": {
-    "dev": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000",
     "build": "echo 'Static site - no build required'"
   },
   "keywords": [
