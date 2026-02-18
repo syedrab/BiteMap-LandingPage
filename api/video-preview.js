@@ -219,20 +219,162 @@ function renderVideoPreview(video, code) {
             font-weight: 700;
         }
 
+        .nav-buttons {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
         .nav-download-btn {
             background: #FF006E;
             color: white;
-            padding: 0.5rem 1.25rem;
+            padding: 0.5rem 1rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
         }
 
         .nav-download-btn:hover {
             background: #e6006a;
             transform: translateY(-2px);
+        }
+
+        .nav-android-btn {
+            background: transparent;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .nav-android-btn:hover {
+            border-color: #3DDC84;
+            color: #3DDC84;
+            transform: translateY(-2px);
+        }
+
+        .android-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .android-modal-overlay.show {
+            display: flex;
+        }
+
+        .android-modal {
+            background: white;
+            border-radius: 16px;
+            max-width: 360px;
+            width: 100%;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .android-modal h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 0.5rem;
+        }
+
+        .android-modal p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+        }
+
+        .android-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .android-form input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid #e5e5e5;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .android-form input:focus {
+            border-color: #3DDC84;
+        }
+
+        .android-form button {
+            width: 100%;
+            padding: 0.75rem;
+            background: #3DDC84;
+            color: #1A1A1A;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .android-form button:hover {
+            background: #32c976;
+            transform: translateY(-2px);
+        }
+
+        .android-close {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: transparent;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            padding: 0.4rem;
+            display: flex;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .android-close:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .android-success {
+            display: none;
+            color: #3DDC84;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         /* Main Container */
@@ -968,7 +1110,16 @@ function renderVideoPreview(video, code) {
                 <img src="/images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
                 <span class="logo-text">BiteMap</span>
             </a>
-            <a href="${appStoreUrl}" class="nav-download-btn" target="_blank" rel="noopener">Download</a>
+            <div class="nav-buttons">
+                <a href="${appStoreUrl}" class="nav-download-btn" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+                    App Store
+                </a>
+                <button class="nav-android-btn" onclick="showAndroidModal()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>
+                    Join Android Beta
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -1034,6 +1185,26 @@ function renderVideoPreview(video, code) {
                             </button>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Android Beta Modal -->
+            <div class="android-modal-overlay" id="androidModal">
+                <div class="android-modal">
+                    <button class="android-close" onclick="closeAndroidModal()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="#3DDC84" style="margin-bottom: 1rem;"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>
+                    <h2>Join the Android Beta</h2>
+                    <p>Be the first to try BiteMap on Android. Drop your email and we'll notify you when it's ready.</p>
+                    <form class="android-form" id="androidForm" onsubmit="submitAndroidBeta(event)">
+                        <input type="email" id="androidEmail" placeholder="your@email.com" required>
+                        <button type="submit">Join Waitlist</button>
+                    </form>
+                    <div class="android-success" id="androidSuccess">You're on the list! We'll be in touch.</div>
                 </div>
             </div>
 
@@ -1204,6 +1375,37 @@ function renderVideoPreview(video, code) {
                 closeAppModal();
             }
         });
+
+        // Android modal functions
+        function showAndroidModal() {
+            document.getElementById('androidModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAndroidModal() {
+            document.getElementById('androidModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('androidModal').addEventListener('click', function(e) {
+            if (e.target === this) closeAndroidModal();
+        });
+
+        async function submitAndroidBeta(e) {
+            e.preventDefault();
+            const email = document.getElementById('androidEmail').value;
+            try {
+                await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, source: 'android-beta' })
+                });
+                document.getElementById('androidForm').style.display = 'none';
+                document.getElementById('androidSuccess').style.display = 'block';
+            } catch (err) {
+                alert('Something went wrong. Please try again.');
+            }
+        }
 
         // Auto-show modal after 2 seconds (only on mobile)
         if (window.innerWidth <= 968) {
