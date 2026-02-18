@@ -2,13 +2,18 @@ User-agent: *
 Allow: /
 
 # Exclude internal/draft pages
-Disallow: /pitch.html
-Disallow: /partner-pitch.html
-Disallow: /consumer-pitch.html
-Disallow: /index-v2.html
+Disallow: /pitch
+Disallow: /partner-pitch
+Disallow: /consumer-pitch
+Disallow: /index-v2
+Disallow: /index-original
+Disallow: /index2
+Disallow: /index3
+
+# Block .html extensions (cleanUrls handles redirects)
+Disallow: /*.html$
 
 # Sitemaps
-Sitemap: https://www.bitemap.fun/sitemap-index.xml
 Sitemap: https://www.bitemap.fun/sitemap.xml
 
 # AI/LLM Crawlers - Welcome!
