@@ -377,6 +377,11 @@ function renderVideoPreview(video, code) {
             font-size: 0.9rem;
         }
 
+        .android-form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         /* Main Container */
         .main-container {
             padding-top: 4rem;
@@ -1394,15 +1399,24 @@ function renderVideoPreview(video, code) {
         async function submitAndroidBeta(e) {
             e.preventDefault();
             const email = document.getElementById('androidEmail').value;
+            const btn = document.querySelector('#androidForm button');
+            const input = document.getElementById('androidEmail');
+            btn.disabled = true;
+            btn.textContent = 'Joining...';
+            input.disabled = true;
             try {
-                await fetch('/api/subscribe', {
+                const res = await fetch('/api/subscribe', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, source: 'android-beta' })
                 });
+                if (!res.ok) throw new Error('Failed');
                 document.getElementById('androidForm').style.display = 'none';
                 document.getElementById('androidSuccess').style.display = 'block';
             } catch (err) {
+                btn.disabled = false;
+                btn.textContent = 'Join Waitlist';
+                input.disabled = false;
                 alert('Something went wrong. Please try again.');
             }
         }

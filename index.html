@@ -320,6 +320,12 @@
             font-size: 0.9rem;
         }
 
+        .android-form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         /* Pac-Man Logo - Arrow key controlled */
         .bouncing-logo {
             position: fixed;
@@ -984,6 +990,17 @@
                 height: 44px;
             }
 
+            .download-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .android-beta-btn {
+                height: 44px;
+                font-size: 0.85rem;
+                padding: 0.5rem 1.25rem;
+            }
+
             .food-icon {
                 font-size: 28px;
             }
@@ -1027,6 +1044,12 @@
 
             .app-store-btn img {
                 height: 40px;
+            }
+
+            .android-beta-btn {
+                height: 40px;
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
             }
         }
     </style>
@@ -1561,15 +1584,24 @@
         async function submitAndroidBeta(e) {
             e.preventDefault();
             const email = document.getElementById('androidEmail').value;
+            const btn = document.querySelector('#androidForm button');
+            const input = document.getElementById('androidEmail');
+            btn.disabled = true;
+            btn.textContent = 'Joining...';
+            input.disabled = true;
             try {
-                await fetch('/api/subscribe', {
+                const res = await fetch('/api/subscribe', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, source: 'android-beta' })
                 });
+                if (!res.ok) throw new Error('Failed');
                 document.getElementById('androidForm').style.display = 'none';
                 document.getElementById('androidSuccess').style.display = 'block';
             } catch (err) {
+                btn.disabled = false;
+                btn.textContent = 'Join Waitlist';
+                input.disabled = false;
                 alert('Something went wrong. Please try again.');
             }
         }

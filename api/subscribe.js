@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { email } = req.body;
+  const { email, source } = req.body;
 
   // Validate email
   if (!email || !email.includes('@')) {
@@ -46,12 +46,13 @@ export default async function handler(req, res) {
     const adminMailOptions = {
       from: process.env.SMTP_USER,
       to: process.env.EMAIL_TO || process.env.SMTP_USER,
-      subject: '🎉 New BiteMap Subscriber!',
+      subject: source === 'android-beta' ? '🤖 New Android Beta Signup!' : '🎉 New BiteMap Subscriber!',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #FF006E;">New Subscriber Alert!</h2>
-          <p>You have a new subscriber for BiteMap:</p>
+          <h2 style="color: #FF006E;">${source === 'android-beta' ? 'Android Beta Signup!' : 'New Subscriber Alert!'}</h2>
+          <p>You have a new ${source === 'android-beta' ? 'Android beta signup' : 'subscriber'} for BiteMap:</p>
           <p style="font-size: 18px; font-weight: bold; color: #333;">${email}</p>
+          <p style="color: #666;">Source: ${source || 'website'}</p>
           <p style="color: #666;">Time: ${new Date().toLocaleString()}</p>
           <hr style="border: 1px solid #eee;">
           <p style="font-size: 12px; color: #999;">
