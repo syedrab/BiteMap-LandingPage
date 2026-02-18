@@ -17,13 +17,11 @@ export default async function handler(req, res) {
 
     // Check if SMTP credentials are configured
     if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-      console.log('SMTP not configured. Email signup:', email);
-
-      // Still return success to user, but log that SMTP isn't configured
-      return res.status(200).json({
-        success: true,
-        message: 'Thanks for subscribing! We\'ll notify you when we launch.',
-        debug: 'Email logged but not sent (SMTP not configured)'
+      console.error('SMTP not configured. Signup attempted:', email);
+      return res.status(500).json({
+        success: false,
+        message: 'Email service not configured.',
+        error: 'SMTP credentials missing'
       });
     }
 
@@ -119,15 +117,12 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
-    console.error('Email error:', error);
+    console.error('Email error:', error.message);
 
-    // Still save the signup even if email fails
-    console.log('Email signup (failed to send):', email);
-
-    return res.status(200).json({
-      success: true,
-      message: 'Thanks for subscribing! We\'ll notify you when we launch.',
-      debug: process.env.NODE_ENV === 'development' ? error.message : undefined
+    return res.status(500).json({
+      success: false,
+      message: 'Something went wrong. Please try again.',
+      error: error.message
     });
   }
 }
