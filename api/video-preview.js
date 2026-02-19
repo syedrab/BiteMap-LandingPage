@@ -174,8 +174,8 @@ function renderVideoPreview(video, code) {
 
         body {
             font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #0A0A0A;
-            color: #fff;
+            background: #ffffff;
+            color: #1a1a1a;
             min-height: 100vh;
         }
 
@@ -186,9 +186,9 @@ function renderVideoPreview(video, code) {
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid #f0f0f0;
             padding: 1rem 1.5rem;
         }
 
@@ -205,7 +205,7 @@ function renderVideoPreview(video, code) {
             align-items: center;
             gap: 0.5rem;
             text-decoration: none;
-            color: #fff;
+            color: #1a1a1a;
         }
 
         .logo-icon {
@@ -249,7 +249,7 @@ function renderVideoPreview(video, code) {
             border: 2px solid #3DDC84;
             border-radius: 12px;
             background: transparent;
-            color: #fff;
+            color: #1A1A1A;
             font-size: 0.8rem;
             font-weight: 700;
             cursor: pointer;
@@ -275,7 +275,7 @@ function renderVideoPreview(video, code) {
         }
 
         .nav-social-links a {
-            color: rgba(255, 255, 255, 0.6);
+            color: #555;
             text-decoration: none;
             transition: color 0.2s, transform 0.2s;
             display: flex;
@@ -407,10 +407,11 @@ function renderVideoPreview(video, code) {
         .main-container {
             padding-top: 4rem;
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1) 0%, rgba(251, 86, 7, 0.1) 50%, rgba(255, 190, 11, 0.1) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            z-index: 10;
         }
 
         .content-wrapper {
@@ -499,10 +500,11 @@ function renderVideoPreview(video, code) {
 
         /* Info Section */
         .info-section {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #f0f0f0;
             border-radius: 16px;
             padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
         .creator-header {
@@ -511,7 +513,7 @@ function renderVideoPreview(video, code) {
             gap: 1rem;
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .creator-avatar {
@@ -551,21 +553,21 @@ function renderVideoPreview(video, code) {
 
         .creator-label {
             font-size: 0.875rem;
-            color: #999;
+            color: #888;
         }
 
         .creator-fullname {
             font-size: 0.875rem;
-            color: #ccc;
+            color: #666;
         }
 
         .caption-section {
             font-size: 0.9rem;
-            color: #ddd;
+            color: #444;
             line-height: 1.5;
             margin-bottom: 1rem;
             padding: 0.75rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: #f8f8f8;
             border-radius: 8px;
             max-height: 80px;
             overflow: hidden;
@@ -596,7 +598,7 @@ function renderVideoPreview(video, code) {
 
         .place-address {
             font-size: 0.95rem;
-            color: #999;
+            color: #666;
             line-height: 1.5;
         }
 
@@ -605,7 +607,7 @@ function renderVideoPreview(video, code) {
             align-items: center;
             gap: 0.5rem;
             text-decoration: none;
-            color: #999;
+            color: #666;
             transition: color 0.2s ease;
         }
 
@@ -624,8 +626,8 @@ function renderVideoPreview(video, code) {
             gap: 1rem;
             margin: 2rem 0;
             padding: 1.5rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .stat-item {
@@ -646,7 +648,7 @@ function renderVideoPreview(video, code) {
 
         .stat-label {
             font-size: 0.875rem;
-            color: #999;
+            color: #888;
         }
 
         .delivery-links {
@@ -666,7 +668,7 @@ function renderVideoPreview(video, code) {
             padding: 0.5rem;
             background: none;
             border: none;
-            color: white;
+            color: #1a1a1a;
             text-decoration: none;
             transition: all 0.3s ease;
             flex: 1;
@@ -685,7 +687,7 @@ function renderVideoPreview(video, code) {
 
         .delivery-label {
             font-size: 0.5rem;
-            color: #999;
+            color: #666;
             font-weight: 500;
         }
 
@@ -695,7 +697,7 @@ function renderVideoPreview(video, code) {
             justify-content: center;
             gap: 12px;
             padding-top: 0.75rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #f0f0f0;
             margin-top: 0.75rem;
         }
 
@@ -947,6 +949,47 @@ function renderVideoPreview(video, code) {
                 padding: 1rem 1rem;
                 padding-bottom: calc(1rem + env(safe-area-inset-bottom));
                 padding-top: 3rem;
+                box-shadow: none;
+                color: #fff;
+            }
+
+            .info-section .creator-name,
+            .info-section .place-name {
+                color: #fff;
+            }
+
+            .info-section .creator-fullname {
+                color: #ccc;
+            }
+
+            .info-section .caption-section {
+                color: #ddd;
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .info-section .place-address,
+            .info-section .place-address-link {
+                color: #999;
+            }
+
+            .info-section .stat-label {
+                color: #999;
+            }
+
+            .info-section .delivery-link {
+                color: #fff;
+            }
+
+            .info-section .delivery-label {
+                color: #999;
+            }
+
+            .info-section .mobile-download-row {
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .info-section .mobile-android-btn {
+                color: #fff;
             }
 
             .creator-header {
@@ -1200,9 +1243,190 @@ function renderVideoPreview(video, code) {
                 padding: 0.3rem 0.75rem;
             }
         }
+
+        /* Toronto Street Grid */
+        .street-grid {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .grid-line {
+            position: absolute;
+            background: transparent;
+            opacity: 0.15;
+        }
+
+        .grid-line.vertical {
+            width: 0;
+            top: 0;
+            bottom: 0;
+            border-left: 1px dashed #666;
+        }
+
+        .grid-line.horizontal {
+            height: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px dashed #666;
+        }
+
+        .street-signs {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .street-sign {
+            position: absolute;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: #000;
+            opacity: 0.12;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .street-sign.vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .landmark-container {
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .landmark-label {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            color: #000;
+            opacity: 0.3;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            margin-top: 4px;
+        }
+
+        .cn-tower-container { bottom: 12%; left: 20%; }
+        .cn-tower-img { width: min(33px, 2.6vw); height: auto; opacity: 0.18; }
+
+        .casaloma-container { top: 15%; left: 8%; }
+        .casaloma-img { width: min(80px, 6.4vw); height: auto; opacity: 0.18; }
+
+        .stlawrence-container { bottom: 14%; left: 68%; }
+        .stlawrence-img { width: min(108px, 8.4vw); height: auto; opacity: 0.18; }
+
+        .donvalley-container { top: -5%; left: 85%; }
+        .donvalley-img { width: min(203px, 15.6vw); height: auto; opacity: 0.18; }
+
+        .don-river {
+            position: fixed;
+            left: 92%;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+        }
+
+        .don-river svg { height: 100%; width: 100%; }
+        .don-river path { fill: none; stroke: #3b82f6; stroke-width: 8; stroke-linecap: round; }
+
+        @media (max-width: 968px) {
+            .street-grid, .street-signs, .don-river {
+                display: none;
+            }
+
+            .landmark-container {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Toronto Background -->
+    <div class="street-grid">
+        <div class="grid-line vertical" style="left: 2%;"></div>
+        <div class="grid-line vertical" style="left: 14%;"></div>
+        <div class="grid-line vertical" style="left: 26%;"></div>
+        <div class="grid-line vertical" style="left: 38%;"></div>
+        <div class="grid-line vertical" style="left: 50%;"></div>
+        <div class="grid-line vertical" style="left: 62%;"></div>
+        <div class="grid-line vertical" style="left: 74%;"></div>
+        <div class="grid-line vertical" style="left: 86%;"></div>
+        <div class="grid-line vertical" style="left: 98%;"></div>
+        <div class="grid-line horizontal" style="top: 2%;"></div>
+        <div class="grid-line horizontal" style="top: 15%;"></div>
+        <div class="grid-line horizontal" style="top: 28%;"></div>
+        <div class="grid-line horizontal" style="top: 42%;"></div>
+        <div class="grid-line horizontal" style="top: 55%;"></div>
+        <div class="grid-line horizontal" style="top: 68%;"></div>
+        <div class="grid-line horizontal" style="top: 81%;"></div>
+        <div class="grid-line horizontal" style="top: 94%;"></div>
+    </div>
+
+    <div class="street-signs">
+        <div class="street-sign vertical" style="top: 44%; left: 2%;">Bathurst St</div>
+        <div class="street-sign vertical" style="top: 44%; left: 14%;">Spadina Ave</div>
+        <div class="street-sign vertical" style="top: 44%; left: 26%;">University Ave</div>
+        <div class="street-sign vertical" style="top: 44%; left: 38%;">Bay St</div>
+        <div class="street-sign vertical" style="top: 6%; left: 50%;">Yonge St</div>
+        <div class="street-sign vertical" style="top: 84%; left: 50%;">Yonge St</div>
+        <div class="street-sign vertical" style="top: 44%; left: 62%;">Church St</div>
+        <div class="street-sign vertical" style="top: 44%; left: 74%;">Jarvis St</div>
+        <div class="street-sign vertical" style="top: 44%; left: 86%;">Parliament St</div>
+        <div class="street-sign vertical" style="top: 44%; left: 98%;">Broadview Ave</div>
+        <div class="street-sign" style="top: 2%; left: 5%;">Eglinton Ave</div>
+        <div class="street-sign" style="top: 15%; left: 20%;">St Clair Ave</div>
+        <div class="street-sign" style="top: 28%; left: 3%;">Bloor St</div>
+        <div class="street-sign" style="top: 28%; left: 68%;">Bloor St</div>
+        <div class="street-sign" style="top: 42%; left: 20%;">Dundas St</div>
+        <div class="street-sign" style="top: 55%; left: 3%;">Queen St</div>
+        <div class="street-sign" style="top: 55%; left: 95%;">Queen St</div>
+        <div class="street-sign" style="top: 68%; left: 20%;">King St</div>
+        <div class="street-sign" style="top: 81%; left: 3%;">Front St</div>
+        <div class="street-sign" style="top: 94%; left: 55%;">Lakeshore Blvd</div>
+    </div>
+
+    <div class="landmark-container cn-tower-container">
+        <img src="/images/cntower.jpg" alt="CN Tower" class="cn-tower-img">
+        <span class="landmark-label">CN Tower</span>
+    </div>
+
+    <div class="landmark-container casaloma-container">
+        <img src="/images/casaloma.jpg" alt="Casa Loma" class="casaloma-img">
+        <span class="landmark-label">Casa Loma</span>
+    </div>
+
+    <div class="landmark-container stlawrence-container">
+        <img src="/images/stlawrence.jpg" alt="St. Lawrence Market" class="stlawrence-img">
+        <span class="landmark-label">St. Lawrence Market</span>
+    </div>
+
+    <div class="landmark-container donvalley-container">
+        <img src="/images/donvalley.jpg" alt="Don Valley" class="donvalley-img">
+    </div>
+
+    <div class="don-river">
+        <svg viewBox="0 0 30 1000" preserveAspectRatio="none">
+            <path d="M15,0 Q25,50 15,100 Q5,150 15,200 Q25,250 15,300 Q5,350 15,400 Q25,450 15,500 Q5,550 15,600 Q25,650 15,700 Q5,750 15,800 Q25,850 15,900 Q5,950 15,1000"/>
+        </svg>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-content">
