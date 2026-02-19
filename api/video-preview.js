@@ -415,12 +415,12 @@ function renderVideoPreview(video, code) {
         }
 
         .content-wrapper {
-            max-width: 1100px;
+            max-width: 1000px;
             width: 100%;
             margin: 0 auto;
             padding: 2rem 1.5rem;
             display: grid;
-            grid-template-columns: auto 1fr;
+            grid-template-columns: 320px 1fr;
             gap: 2.5rem;
             align-items: start;
         }
@@ -429,7 +429,6 @@ function renderVideoPreview(video, code) {
         .video-section {
             width: 100%;
             position: relative;
-            max-height: calc(100vh - 8rem);
         }
 
         /* Mobile Logo */
@@ -484,11 +483,10 @@ function renderVideoPreview(video, code) {
             background: #000;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             aspect-ratio: 9 / 16;
             max-height: calc(100vh - 8rem);
-            width: auto;
-            margin: 0 auto;
+            width: 100%;
         }
 
         .video-player {
