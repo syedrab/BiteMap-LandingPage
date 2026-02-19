@@ -405,28 +405,45 @@ function renderVideoPreview(video, code) {
 
         /* Main Container */
         .main-container {
-            padding-top: 4rem;
-            min-height: 100vh;
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 40px 20px;
             position: relative;
             z-index: 10;
+            min-height: calc(100vh - 4rem);
         }
 
         .content-wrapper {
-            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 4rem;
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 3rem;
-            align-items: start;
+            display: flex;
+            align-items: center;
+            gap: 80px;
         }
 
         /* Video Player */
         .video-section {
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .phone-mockup {
+            width: 320px;
+            aspect-ratio: 9 / 19.5;
+            background: #000;
+            border-radius: 46px;
+            padding: 11px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .phone-screen {
             width: 100%;
+            height: 100%;
+            border-radius: 35px;
+            overflow: hidden;
             position: relative;
         }
 
@@ -478,14 +495,9 @@ function renderVideoPreview(video, code) {
         }
 
         .video-player-wrapper {
-            position: relative;
-            background: #000;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            aspect-ratio: 9 / 16;
-            max-height: calc(100vh - 8rem);
             width: 100%;
+            height: 100%;
+            position: relative;
         }
 
         .video-player {
@@ -497,20 +509,16 @@ function renderVideoPreview(video, code) {
 
         /* Info Section */
         .info-section {
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid #f0f0f0;
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            max-width: 500px;
         }
 
         .creator-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
         }
 
         .creator-avatar {
@@ -900,18 +908,49 @@ function renderVideoPreview(video, code) {
             border-color: #ccc;
         }
 
+        /* Medium screens (laptops) */
+        @media (max-height: 900px) {
+            .phone-mockup {
+                width: 260px;
+                border-radius: 38px;
+                padding: 9px;
+            }
+
+            .phone-screen {
+                border-radius: 30px;
+            }
+
+            .content-wrapper {
+                gap: 50px;
+            }
+        }
+
         @media (max-width: 968px) {
             .main-container {
-                padding-top: 0;
+                padding: 0;
+                min-height: 100vh;
                 align-items: flex-start;
             }
 
             .content-wrapper {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 gap: 0;
                 padding: 0;
                 position: relative;
                 min-height: 100vh;
+            }
+
+            .phone-mockup {
+                width: 100%;
+                aspect-ratio: unset;
+                border-radius: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            .phone-screen {
+                border-radius: 0;
+                height: 100vh;
             }
 
             .video-section {
@@ -924,11 +963,7 @@ function renderVideoPreview(video, code) {
             }
 
             .video-player-wrapper {
-                border-radius: 0;
-                aspect-ratio: unset;
-                max-height: none;
-                height: 100vh;
-                width: 100%;
+                height: 100%;
             }
 
             .info-section {
@@ -1461,30 +1496,34 @@ function renderVideoPreview(video, code) {
                     <img src="/images/bitemap-logo.png" alt="BiteMap">
                 </a>
 
-                <!-- Subtle top banner -->
+                <!-- Subtle top banner (mobile only) -->
                 <div class="top-banner" onclick="showAppModal()">
                     <span>Open BiteMap</span>
                 </div>
 
-                <div class="video-player-wrapper">
-                    <video
-                        id="video-player"
-                        class="video-player"
-                        playsinline
-                        autoplay
-                        muted
-                        loop
-                        poster="${thumbnailUrl}"
-                        preload="metadata"
-                    >
-                        <source src="${videoUrl}" type="application/x-mpegURL">
-                        Your browser does not support video playback.
-                    </video>
-                    <div class="pause-overlay" id="pauseOverlay">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="white">
-                            <rect x="6" y="4" width="4" height="16" rx="1"/>
-                            <rect x="14" y="4" width="4" height="16" rx="1"/>
-                        </svg>
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="video-player-wrapper">
+                            <video
+                                id="video-player"
+                                class="video-player"
+                                playsinline
+                                autoplay
+                                muted
+                                loop
+                                poster="${thumbnailUrl}"
+                                preload="metadata"
+                            >
+                                <source src="${videoUrl}" type="application/x-mpegURL">
+                                Your browser does not support video playback.
+                            </video>
+                            <div class="pause-overlay" id="pauseOverlay">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="white">
+                                    <rect x="6" y="4" width="4" height="16" rx="1"/>
+                                    <rect x="14" y="4" width="4" height="16" rx="1"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
