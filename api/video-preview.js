@@ -164,7 +164,7 @@ function renderVideoPreview(video, code) {
     <!-- HLS.js for video playback -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -215,6 +215,7 @@ function renderVideoPreview(video, code) {
         }
 
         .logo-text {
+            font-family: 'Baloo 2', sans-serif;
             font-size: 1.25rem;
             font-weight: 700;
         }
@@ -226,44 +227,64 @@ function renderVideoPreview(video, code) {
         }
 
         .nav-download-btn {
-            background: #FF006E;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
+            display: inline-block;
+            transition: transform 0.2s, opacity 0.2s;
         }
 
         .nav-download-btn:hover {
-            background: #e6006a;
-            transform: translateY(-2px);
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .nav-download-btn img {
+            height: 36px;
+            width: auto;
         }
 
         .nav-android-btn {
-            background: transparent;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            border: 1.5px solid rgba(255, 255, 255, 0.3);
-            font-weight: 600;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
             display: inline-flex;
             align-items: center;
-            gap: 0.35rem;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid #3DDC84;
+            border-radius: 12px;
+            background: transparent;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            height: 36px;
         }
 
         .nav-android-btn:hover {
-            border-color: #3DDC84;
-            color: #3DDC84;
-            transform: translateY(-2px);
+            background: #3DDC84;
+            color: #1A1A1A;
+            transform: scale(1.05);
+        }
+
+        .nav-android-btn:hover svg {
+            fill: #1A1A1A;
+        }
+
+        .nav-social-links {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-social-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-social-links a:hover {
+            color: #FF006E;
+            transform: scale(1.1);
         }
 
         .android-modal-overlay {
@@ -567,6 +588,7 @@ function renderVideoPreview(video, code) {
         }
 
         .place-name {
+            font-family: 'Baloo 2', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
@@ -665,6 +687,53 @@ function renderVideoPreview(video, code) {
             font-size: 0.5rem;
             color: #999;
             font-weight: 500;
+        }
+
+        .mobile-download-row {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 0.75rem;
+        }
+
+        .mobile-appstore-btn {
+            display: inline-block;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .mobile-appstore-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .mobile-appstore-btn img {
+            height: 36px;
+            width: auto;
+        }
+
+        .mobile-android-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid #3DDC84;
+            border-radius: 12px;
+            background: transparent;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            height: 36px;
+        }
+
+        .mobile-android-btn:hover {
+            background: #3DDC84;
+            color: #1A1A1A;
         }
 
         .pause-overlay {
@@ -927,9 +996,19 @@ function renderVideoPreview(video, code) {
             }
         }
 
+        @media (max-width: 968px) {
+            .nav-social-links {
+                display: none;
+            }
+        }
+
         @media (max-width: 480px) {
             .navbar {
                 display: none;
+            }
+
+            .mobile-download-row {
+                display: flex;
             }
 
             .mobile-logo img {
@@ -1104,6 +1183,22 @@ function renderVideoPreview(video, code) {
                 height: 30px;
                 border-radius: 6px;
             }
+
+            .mobile-download-row {
+                gap: 8px;
+                padding-top: 0.5rem;
+                margin-top: 0.5rem;
+            }
+
+            .mobile-appstore-btn img {
+                height: 30px;
+            }
+
+            .mobile-android-btn {
+                height: 30px;
+                font-size: 0.7rem;
+                padding: 0.3rem 0.75rem;
+            }
         }
     </style>
 </head>
@@ -1113,17 +1208,27 @@ function renderVideoPreview(video, code) {
         <div class="nav-content">
             <a href="/" class="logo-link">
                 <img src="/images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
-                <span class="logo-text">BiteMap</span>
+                <span class="logo-text">BiTEMaP</span>
             </a>
             <div class="nav-buttons">
                 <a href="${appStoreUrl}" class="nav-download-btn" target="_blank" rel="noopener">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
-                    App Store
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
                 </a>
                 <button class="nav-android-btn" onclick="showAndroidModal()">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>
-                    Join Android Beta
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#3DDC84"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>
+                    Android Beta
                 </button>
+                <div class="nav-social-links">
+                    <a href="https://www.tiktok.com/@bitemap_app" target="_blank" rel="noopener" title="TikTok">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/bitemap_app" target="_blank" rel="noopener" title="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@bitemap_app" target="_blank" rel="noopener" title="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -1183,7 +1288,8 @@ function renderVideoPreview(video, code) {
 
                         <div class="modal-buttons">
                             <a href="${appStoreUrl}" class="modal-btn modal-btn-primary" target="_blank" rel="noopener">
-                                Open BiteMap
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 4px;"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+                                Download on App Store
                             </a>
                             <button class="modal-btn modal-btn-secondary" onclick="closeAppModal()">
                                 Not now
@@ -1283,6 +1389,17 @@ function renderVideoPreview(video, code) {
                     </a>
                 </div>
                 ` : ''}
+
+                <!-- Download Row (mobile) -->
+                <div class="mobile-download-row">
+                    <a href="${appStoreUrl}" class="mobile-appstore-btn" target="_blank" rel="noopener">
+                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+                    </a>
+                    <button class="mobile-android-btn" onclick="showAndroidModal()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#3DDC84"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>
+                        Android Beta
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -1442,7 +1559,7 @@ function renderNotFound() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oops! Video Not Found - BiteMap</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
