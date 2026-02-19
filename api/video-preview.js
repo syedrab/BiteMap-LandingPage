@@ -420,7 +420,7 @@ function renderVideoPreview(video, code) {
             margin: 0 auto;
             padding: 2rem 1.5rem;
             display: grid;
-            grid-template-columns: 430px 1fr;
+            grid-template-columns: auto 1fr;
             gap: 2.5rem;
             align-items: start;
         }
@@ -429,6 +429,7 @@ function renderVideoPreview(video, code) {
         .video-section {
             width: 100%;
             position: relative;
+            max-height: calc(100vh - 8rem);
         }
 
         /* Mobile Logo */
@@ -480,18 +481,17 @@ function renderVideoPreview(video, code) {
 
         .video-player-wrapper {
             position: relative;
-            width: 100%;
-            padding-top: 177.78%; /* 9:16 aspect ratio */
             background: #000;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 9 / 16;
+            max-height: calc(100vh - 8rem);
+            width: auto;
+            margin: 0 auto;
         }
 
         .video-player {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -928,13 +928,10 @@ function renderVideoPreview(video, code) {
 
             .video-player-wrapper {
                 border-radius: 0;
-                padding-top: 0;
+                aspect-ratio: unset;
+                max-height: none;
                 height: 100vh;
-            }
-
-            .video-player {
-                position: relative;
-                height: 100%;
+                width: 100%;
             }
 
             .info-section {
