@@ -513,7 +513,7 @@ function renderVideoPreview(video, code) {
             background: rgba(255, 255, 255, 0.95);
             border: 1px solid #f0f0f0;
             border-radius: 16px;
-            padding: 2rem;
+            padding: 2rem 2rem 1rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
