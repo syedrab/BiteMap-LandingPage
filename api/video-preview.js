@@ -510,6 +510,11 @@ function renderVideoPreview(video, code) {
         /* Info Section */
         .info-section {
             max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
         .creator-header {
