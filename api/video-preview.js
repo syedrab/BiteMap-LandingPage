@@ -415,13 +415,12 @@ function renderVideoPreview(video, code) {
         }
 
         .content-wrapper {
-            max-width: 1000px;
             width: 100%;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem 4rem;
             display: grid;
             grid-template-columns: 320px 1fr;
-            gap: 2.5rem;
+            gap: 3rem;
             align-items: start;
         }
 
