@@ -10,9 +10,6 @@ Disallow: /index-original
 Disallow: /index2
 Disallow: /index3
 
-# Block .html extensions (cleanUrls handles redirects)
-Disallow: /*.html$
-
 # Sitemaps
 Sitemap: https://www.bitemap.fun/sitemap.xml
 
