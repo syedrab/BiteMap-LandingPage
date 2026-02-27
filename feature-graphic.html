@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            width: 1024px;
+            height: 500px;
+            overflow: hidden;
+            font-family: 'Space Grotesk', -apple-system, sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Baloo+2:wght@700;800&display=swap');
+
+        .banner {
+            width: 1024px;
+            height: 500px;
+            background: linear-gradient(135deg, #FF006E 0%, #FB5607 50%, #FFBE0B 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        .circle-1 { width: 600px; height: 600px; top: -200px; right: -100px; }
+        .circle-2 { width: 400px; height: 400px; bottom: -150px; left: -80px; }
+        .circle-3 { width: 300px; height: 300px; top: 50px; left: 200px; border-color: rgba(255,255,255,0.06); }
+
+        .content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            z-index: 2;
+            padding: 0 80px;
+        }
+
+        .text-side {
+            flex: 1;
+        }
+
+        .logo-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-family: 'Baloo 2', cursive;
+            font-size: 52px;
+            font-weight: 800;
+            color: white;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+            line-height: 1;
+        }
+
+        .tagline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: white;
+            opacity: 0.95;
+            line-height: 1.3;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+        }
+
+        .phone-side {
+            flex-shrink: 0;
+        }
+
+        .phone {
+            width: 180px;
+            height: 360px;
+            background: #1A1A1A;
+            border-radius: 30px;
+            padding: 6px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            transform: rotate(6deg);
+        }
+
+        .phone img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+
+        .emoji {
+            position: absolute;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        .e1 { top: 40px; left: 40px; font-size: 36px; transform: rotate(-15deg); }
+        .e2 { bottom: 40px; right: 50px; font-size: 36px; transform: rotate(20deg); }
+        .e3 { top: 60px; right: 280px; font-size: 28px; transform: rotate(10deg); }
+        .e4 { bottom: 80px; left: 120px; font-size: 30px; transform: rotate(-10deg); }
+        .e5 { top: 200px; left: 20px; font-size: 24px; transform: rotate(25deg); }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+
+        <span class="emoji e1">🍕</span>
+        <span class="emoji e2">🌮</span>
+        <span class="emoji e3">🍜</span>
+        <span class="emoji e4">🍔</span>
+        <span class="emoji e5">🍣</span>
+
+        <div class="content">
+            <div class="text-side">
+                <div class="logo-row">
+                    <div class="logo-icon">
+                        <img src="/images/bitemap.jpeg" alt="BiteMap">
+                    </div>
+                    <div class="logo-text">BiTEMaP</div>
+                </div>
+                <div class="tagline">Find your next favorite<br>restaurant through real<br>video reviews</div>
+            </div>
+            <div class="phone-side">
+                <div class="phone">
+                    <img src="/images/Home Feed.png" alt="BiteMap App">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
