@@ -35,8 +35,7 @@ export default async function handler(req, res) {
         pass: process.env.SMTP_PASS
       },
       tls: {
-        ciphers: 'SSLv3',
-        rejectUnauthorized: false
+        rejectUnauthorized: true
       }
     });
 
@@ -75,10 +74,10 @@ export default async function handler(req, res) {
               Hey food lover! 👋
             </p>
             <p style="font-size: 16px; color: #333;">
-              Thanks for joining the BiteMap waitlist! You're now on the list to be among the first to experience the future of food discovery.
+              Thanks for signing up! You're now on the list to be among the first to try BiteMap on Android.
             </p>
             <p style="font-size: 16px; color: #333;">
-              We're working hard to bring you:
+              In the meantime, BiteMap is live on iOS! Check it out:
             </p>
             <ul style="font-size: 16px; color: #333;">
               <li>🎥 TikTok-style video reviews from real food lovers</li>
@@ -87,7 +86,7 @@ export default async function handler(req, res) {
               <li>🚀 Direct ordering integration with your favorite platforms</li>
             </ul>
             <p style="font-size: 16px; color: #333;">
-              We'll notify you as soon as we launch on iOS!
+              We'll notify you as soon as BiteMap launches on Android!
             </p>
             <p style="font-size: 16px; color: #333;">
               Stay hungry,<br>
@@ -96,7 +95,7 @@ export default async function handler(req, res) {
           </div>
           <div style="background: #f5f5f5; padding: 20px; text-align: center;">
             <p style="font-size: 12px; color: #999; margin: 0;">
-              © 2024 BiteMap | <a href="https://bitemap.fun" style="color: #FF006E;">bitemap.fun</a>
+              © 2026 BiteMap | <a href="https://bitemap.fun" style="color: #FF006E;">bitemap.fun</a>
             </p>
           </div>
         </div>

@@ -92,6 +92,15 @@ export default async function handler(req, res) {
   }
 }
 
+function escapeHtml(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 function renderVideoPreview(video, code) {
   const pageUrl = `https://bitemap.fun/v/${code}`;
   const appStoreUrl = 'https://apps.apple.com/us/app/bitemap/id6746139076';
@@ -128,29 +137,43 @@ function renderVideoPreview(video, code) {
   const truncatedCaption = caption.length > 150 ? caption.substring(0, 150) + '...' : caption;
   const description = truncatedCaption || (video.place ? `Check out ${placeName}${placeCity ? ` in ${placeCity}` : ''} on BiteMap!` : `Watch this video on BiteMap!`);
 
+  // Escaped versions for safe HTML interpolation
+  const safeTitle = escapeHtml(title);
+  const safeDescription = escapeHtml(description);
+  const safeCreatorName = escapeHtml(creatorName);
+  const safeCreatorFullName = escapeHtml(creatorFullName);
+  const safeCaption = escapeHtml(caption);
+  const safePlaceName = escapeHtml(placeName);
+  const safePlaceAddress = escapeHtml(placeAddress);
+  const safePlaceCity = escapeHtml(placeCity);
+  const safeThumbnailUrl = escapeHtml(thumbnailUrl);
+  const safeVideoUrl = escapeHtml(videoUrl || '');
+  const safePageUrl = escapeHtml(pageUrl);
+  const safeCreatorPic = escapeHtml(creatorPic);
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title}</title>
+    <title>${safeTitle}</title>
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="video.other">
-    <meta property="og:url" content="${pageUrl}">
-    <meta property="og:title" content="${title}">
-    <meta property="og:description" content="${description}">
-    <meta property="og:image" content="${thumbnailUrl}">
-    <meta property="og:video" content="${videoUrl}">
+    <meta property="og:url" content="${safePageUrl}">
+    <meta property="og:title" content="${safeTitle}">
+    <meta property="og:description" content="${safeDescription}">
+    <meta property="og:image" content="${safeThumbnailUrl}">
+    <meta property="og:video" content="${safeVideoUrl}">
     <meta property="og:site_name" content="BiteMap">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="player">
-    <meta name="twitter:url" content="${pageUrl}">
-    <meta name="twitter:title" content="${title}">
-    <meta name="twitter:description" content="${description}">
-    <meta name="twitter:image" content="${thumbnailUrl}">
-    <meta name="twitter:player" content="${videoUrl}">
+    <meta name="twitter:url" content="${safePageUrl}">
+    <meta name="twitter:title" content="${safeTitle}">
+    <meta name="twitter:description" content="${safeDescription}">
+    <meta name="twitter:image" content="${safeThumbnailUrl}">
+    <meta name="twitter:player" content="${safeVideoUrl}">
     <meta name="twitter:player:width" content="1080">
     <meta name="twitter:player:height" content="1920">
 
@@ -1516,10 +1539,10 @@ function renderVideoPreview(video, code) {
                                 autoplay
                                 muted
                                 loop
-                                poster="${thumbnailUrl}"
+                                poster="${safeThumbnailUrl}"
                                 preload="metadata"
                             >
-                                <source src="${videoUrl}" type="application/x-mpegURL">
+                                <source src="${safeVideoUrl}" type="application/x-mpegURL">
                                 Your browser does not support video playback.
                             </video>
                             <div class="pause-overlay" id="pauseOverlay">
@@ -1586,27 +1609,27 @@ function renderVideoPreview(video, code) {
                 <!-- Creator Info -->
                 <div class="creator-header">
                     <div class="creator-avatar">
-                    <img src="${creatorPic}" alt="${creatorName}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <img src="${safeCreatorPic}" alt="${safeCreatorName}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                     <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:1.5rem; font-weight:700;">
-                        ${creatorName.charAt(0).toUpperCase()}
+                        ${escapeHtml(creatorName.charAt(0).toUpperCase())}
                     </div>
                 </div>
                     <div class="creator-details">
-                        <div class="creator-name">@${creatorName}</div>
-                        ${creatorFullName ? `<div class="creator-fullname">${creatorFullName}</div>` : ''}
+                        <div class="creator-name">@${safeCreatorName}</div>
+                        ${creatorFullName ? `<div class="creator-fullname">${safeCreatorFullName}</div>` : ''}
                     </div>
                 </div>
 
                 <!-- Caption -->
-                ${caption ? `<div class="caption-section">${caption}</div>` : ''}
+                ${caption ? `<div class="caption-section">${safeCaption}</div>` : ''}
 
                 <!-- Restaurant Info -->
                 ${video.place ? `
                 <div class="place-section">
-                    <h1 class="place-name">📍 ${placeName}</h1>
+                    <h1 class="place-name">📍 ${safePlaceName}</h1>
                     ${placeAddress || placeCity ? `
                     <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(placeAddress || placeName)}" target="_blank" rel="noopener" class="place-address-link">
-                        <span class="place-address">${placeAddress ? placeAddress : ''}${placeAddress && placeCity ? ', ' : ''}${placeCity || ''}</span>
+                        <span class="place-address">${safePlaceAddress ? safePlaceAddress : ''}${placeAddress && placeCity ? ', ' : ''}${safePlaceCity || ''}</span>
                         <svg class="map-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
                         </svg>
@@ -1693,7 +1716,7 @@ function renderVideoPreview(video, code) {
         }
 
         // Initialize HLS.js video player
-        const videoSrc = '${videoUrl}';
+        const videoSrc = ${JSON.stringify(videoUrl || '')};
 
         if (video && videoSrc && videoSrc.includes('.m3u8')) {
             if (Hls.isSupported()) {
@@ -1721,7 +1744,7 @@ function renderVideoPreview(video, code) {
         }
 
         // Deep link to app if installed (silent attempt via iframe)
-        const deepLinkUrl = 'bitemap://video/${code}';
+        const deepLinkUrl = 'bitemap://video/' + ${JSON.stringify(String(code))};
         setTimeout(() => {
             try {
                 const iframe = document.createElement('iframe');

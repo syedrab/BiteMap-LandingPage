@@ -50,8 +50,7 @@ export default async function handler(req, res) {
         pass: process.env.SMTP_PASS
       },
       tls: {
-        ciphers: 'SSLv3',
-        rejectUnauthorized: false
+        rejectUnauthorized: true
       }
     });
 
@@ -118,8 +117,8 @@ export default async function handler(req, res) {
               In the meantime, you can:
             </p>
             <ul style="font-size: 14px; color: #333;">
-              <li>Check out our <a href="https://bitemap.app/support.html" style="color: #FF006E;">FAQ section</a></li>
-              <li>Read our <a href="https://bitemap.app/blog/" style="color: #FF006E;">blog</a> for updates</li>
+              <li>Check out our <a href="https://bitemap.fun/support" style="color: #FF006E;">FAQ section</a></li>
+              <li>Read our <a href="https://bitemap.fun/blog/" style="color: #FF006E;">blog</a> for updates</li>
               <li>Follow us on social media for the latest news</li>
             </ul>
             <p style="font-size: 16px; color: #333;">
@@ -129,7 +128,7 @@ export default async function handler(req, res) {
           </div>
           <div style="background: #f5f5f5; padding: 20px; text-align: center;">
             <p style="font-size: 12px; color: #999; margin: 0;">
-              © 2024 BiteMap | <a href="https://bitemap.app" style="color: #FF006E;">bitemap.app</a>
+              © 2026 BiteMap | <a href="https://bitemap.fun" style="color: #FF006E;">bitemap.fun</a>
             </p>
           </div>
         </div>
