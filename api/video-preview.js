@@ -1839,7 +1839,8 @@ function renderVideoPreview(video, code, ref) {
             const trackingUrl = '${supabaseUrl}/functions/v1/track-share-click';
             const headers = {
                 'Content-Type': 'application/json',
-                'apikey': ${JSON.stringify(supabaseAnonKey)}
+                'apikey': ${JSON.stringify(supabaseAnonKey)},
+                'Authorization': 'Bearer ' + ${JSON.stringify(supabaseAnonKey)}
             };
 
             // Fire page_view on load (fire-and-forget)
