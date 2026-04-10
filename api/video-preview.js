@@ -10,7 +10,9 @@ const supabaseUrl = 'https://lqslpgiibpcvknfehdlr.supabase.co';
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 
 export default async function handler(req, res) {
-  const { code, ref } = req.query;
+  const { code, ref: rawRef } = req.query;
+  // Validate ref is alphanumeric 8-char share code to prevent XSS
+  const ref = (typeof rawRef === 'string' && /^[A-Za-z0-9]{8}$/.test(rawRef)) ? rawRef : null;
 
   if (!code) {
     return res.status(400).send('Missing video code');
@@ -82,7 +84,7 @@ export default async function handler(req, res) {
     }
 
     // Render HTML with meta tags
-    const html = renderVideoPreview(video, code, ref || null);
+    const html = renderVideoPreview(video, code, ref);
     res.setHeader('Content-Type', 'text/html');
     res.status(200).send(html);
 
