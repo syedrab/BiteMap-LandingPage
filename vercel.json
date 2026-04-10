@@ -6,6 +6,10 @@
     {
       "source": "/v/:code",
       "destination": "/api/video-preview?code=:code"
+    },
+    {
+      "source": "/r/:code",
+      "destination": "/api/referral?code=:code"
     }
   ],
   "headers": [
