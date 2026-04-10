@@ -10,7 +10,7 @@ const supabaseUrl = 'https://lqslpgiibpcvknfehdlr.supabase.co';
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 
 export default async function handler(req, res) {
-  const { code } = req.query;
+  const { code, ref } = req.query;
 
   if (!code) {
     return res.status(400).send('Missing video code');
@@ -82,7 +82,7 @@ export default async function handler(req, res) {
     }
 
     // Render HTML with meta tags
-    const html = renderVideoPreview(video, code);
+    const html = renderVideoPreview(video, code, ref || null);
     res.setHeader('Content-Type', 'text/html');
     res.status(200).send(html);
 
@@ -101,7 +101,7 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-function renderVideoPreview(video, code) {
+function renderVideoPreview(video, code, ref) {
   const pageUrl = `https://bitemap.fun/v/${code}`;
   const appStoreUrl = 'https://apps.apple.com/us/app/bitemap/id6746139076';
 
@@ -1829,6 +1829,43 @@ function renderVideoPreview(video, code) {
                 showAppModal();
             }, 2000);
         }
+
+        // Referral share tracking
+        (function() {
+            const ref = ${JSON.stringify(ref)};
+            const videoId = ${JSON.stringify(String(code))};
+            if (!ref) return;
+
+            const trackingUrl = '${supabaseUrl}/functions/v1/track-share-click';
+            const headers = {
+                'Content-Type': 'application/json',
+                'apikey': ${JSON.stringify(supabaseAnonKey)}
+            };
+
+            // Fire page_view on load (fire-and-forget)
+            fetch(trackingUrl, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify({ shareCode: ref, videoId: videoId, eventType: 'page_view' })
+            }).catch(function() {});
+
+            // Track download clicks on all App Store / Play Store links
+            function trackDownload(platform) {
+                fetch(trackingUrl, {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify({ shareCode: ref, videoId: videoId, eventType: 'download_click', platform: platform })
+                }).catch(function() {});
+            }
+
+            document.querySelectorAll('.nav-download-btn, .mobile-appstore-btn, .modal-btn-primary').forEach(function(el) {
+                el.addEventListener('click', function() { trackDownload('ios'); });
+            });
+
+            document.querySelectorAll('.nav-android-btn, .mobile-android-btn').forEach(function(el) {
+                el.addEventListener('click', function() { trackDownload('android'); });
+            });
+        })();
     </script>
 </body>
 </html>`;
