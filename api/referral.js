@@ -242,8 +242,14 @@ function renderReferralPage(creator, code) {
 
         .referral-card {
             text-align: center;
-            max-width: 420px;
+            max-width: 480px;
             width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 48px 40px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
         }
 
         .creator-avatar {
