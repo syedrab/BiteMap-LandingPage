@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Delivery & Book Reservations from Video Reviews | BiteMap</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Watch a video review and order delivery through Uber Eats, DoorDash, SkipTheDishes or book via OpenTable — all within BiteMap. From discovery to dining in seconds.">
+    <meta name="keywords" content="order food from review, restaurant delivery app, Uber Eats restaurant finder, DoorDash food discovery, OpenTable reservations, restaurant ordering app">
+    <meta name="author" content="BiteMap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.bitemap.fun/features/delivery-ordering">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bitemap.fun/features/delivery-ordering">
+    <meta property="og:title" content="Order Delivery & Book Reservations from Video Reviews | BiteMap">
+    <meta property="og:description" content="Watch a video review and order delivery through Uber Eats, DoorDash, SkipTheDishes or book via OpenTable — all within BiteMap.">
+    <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
+    <meta property="og:site_name" content="BiteMap">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bitemap.fun/features/delivery-ordering">
+    <meta property="twitter:title" content="Order Delivery & Book Reservations from Video Reviews | BiteMap">
+    <meta property="twitter:description" content="Watch a video review and order delivery through Uber Eats, DoorDash, SkipTheDishes or book via OpenTable — all within BiteMap.">
+    <meta property="twitter:image" content="https://www.bitemap.fun/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
+    <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.bitemap.fun/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Features",
+                "item": "https://www.bitemap.fun/features"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Delivery & Ordering",
+                "item": "https://www.bitemap.fun/features/delivery-ordering"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EEZQEGTQDD');
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo { color: #1a1a1a; }
+        .nav-links a { color: #1a1a1a; }
+        .nav-links a:hover { opacity: 0.6; }
+
+        .footer {
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .footer-logo { color: #1a1a1a; }
+        .footer-links a { color: #888; }
+        .footer-links a:hover { color: #FF6B35; }
+        .footer-copy { color: #888; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #FF6B35;
+        }
+
+        .breadcrumb span {
+            color: #888;
+            margin: 0 8px;
+        }
+
+        .breadcrumb .current {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        /* Article Hero */
+        .article-hero {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px 20px;
+        }
+
+        .article-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: #000;
+            line-height: 1.15;
+        }
+
+        .article-hero .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 60px;
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 48px 0 16px;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .article-content p {
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+
+        .article-content strong {
+            color: #1a1a1a;
+        }
+
+        /* Partner Cards */
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 28px 0 32px;
+        }
+
+        .partner-card {
+            background: #f9f9f9;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .partner-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .partner-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Callout Box */
+        .callout-box {
+            background: linear-gradient(135deg, #FFF5F0, #FFF0E8);
+            border-left: 4px solid #FF6B35;
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 32px 0;
+        }
+
+        .callout-box p {
+            color: #333;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        /* Internal Links */
+        .related-links {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .related-links h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .related-links a {
+            display: inline-block;
+            color: #FF6B35;
+            text-decoration: none;
+            font-weight: 500;
+            margin-right: 24px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .related-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Bottom CTA */
+        .features-cta {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+            text-align: center;
+        }
+
+        .features-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .cta-store-btn.ios {
+            background: #000;
+            color: #fff;
+        }
+
+        .cta-store-btn.android {
+            background: #fff;
+            color: #000;
+            border: 2px solid #1a1a1a;
+        }
+
+        .cta-store-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-store-btn .store-label {
+            font-size: 0.65rem;
+            font-weight: 400;
+            opacity: 0.8;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .cta-store-btn .store-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-hero h1 {
+                font-size: 2rem;
+            }
+
+            .article-hero .subtitle {
+                font-size: 1.05rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.5rem;
+                margin-top: 36px;
+            }
+
+            .partner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-store-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="/images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
+                <span>BiteMap</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/blog">Blog</a>
+                <a href="/support">Support</a>
+                <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="download-btn" target="_blank" rel="noopener">Download App</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/features">Features</a>
+            <span>/</span>
+            <span class="current">Delivery &amp; Ordering</span>
+        </div>
+
+        <div class="article-hero">
+            <h1>From Video Review to Your Door — Order in Seconds</h1>
+            <p class="subtitle">Watch a creator's restaurant review, get hungry, and order delivery or book a table — without ever leaving BiteMap.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>See It, Crave It, Order It</h2>
+            <p>Every food lover knows the feeling: you're scrolling through restaurant videos, you see a dish that looks incredible, and suddenly you need it. But on other platforms, that's where the experience breaks down. You have to remember the restaurant name, switch to a delivery app, search for the place, and hope they're available for delivery. Half the time you give up and order from somewhere you already know.</p>
+            <p>BiteMap eliminates that entire chain of friction. When you're watching a video review from a trusted food creator, every restaurant is already linked to its delivery and reservation options. One tap takes you directly to that restaurant's ordering page on your preferred delivery platform. The journey from "that looks amazing" to "it's on its way" takes seconds, not minutes.</p>
+            <p>This is the core BiteMap flow: <strong>discover through video, decide with confidence, and act immediately</strong>. No app-switching, no manual searching, no losing track of the restaurant you just saw.</p>
+
+            <h2>Integrated Delivery Partners</h2>
+            <p>BiteMap connects directly to the major delivery platforms so you can order from whichever service you prefer. Each restaurant page shows which delivery options are available, with direct links to that specific restaurant's menu.</p>
+
+            <div class="partner-grid">
+                <div class="partner-card">
+                    <h3>Uber Eats</h3>
+                    <p>Access the largest delivery network with extensive restaurant coverage across Canadian cities and beyond. BiteMap links you straight to the restaurant's Uber Eats page — no searching required.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>DoorDash</h3>
+                    <p>Fast delivery options with wide coverage. When a restaurant is available on DoorDash, BiteMap takes you directly to their menu so you can start ordering immediately.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>SkipTheDishes</h3>
+                    <p>Canada's homegrown delivery platform with strong coverage across Canadian cities. Perfect for restaurants that prioritize local delivery partnerships.</p>
+                </div>
+                <div class="partner-card">
+                    <h3>OpenTable</h3>
+                    <p>Prefer to dine in? Book a reservation directly. See the restaurant's real atmosphere in the video review, then secure your table for tonight or any upcoming occasion.</p>
+                </div>
+            </div>
+
+            <p>Every link takes you to the specific restaurant's page on the platform — not a generic search results page. You land exactly where you need to be to place your order or make your reservation.</p>
+
+            <h2>Book a Table with OpenTable</h2>
+            <p>Not every great restaurant experience happens through delivery. Sometimes you watch a video review and the atmosphere pulls you in just as much as the food. The warm lighting, the lively energy, the way dishes are plated and presented at the table — these are things you want to experience in person.</p>
+            <p>For sit-down restaurants, BiteMap integrates with OpenTable so you can book a reservation directly from the review you just watched. You've already seen what the restaurant looks like inside, you've seen the dishes being served, and you know what to expect. Now you can reserve your spot with confidence, knowing exactly what experience awaits you.</p>
+            <p>This is particularly powerful for date nights, special occasions, or trying a new neighbourhood restaurant. Instead of gambling on a place you've only read text reviews about, you've watched real video footage of the dining experience. You already know it's worth the trip.</p>
+
+            <h2>Why Integrated Ordering Matters</h2>
+            <p>The food content industry has a massive disconnect. Platforms like TikTok and Instagram are filled with incredible food videos — millions of views on dishes that look absolutely irresistible. But those platforms have <strong>zero ordering integration</strong>. You see amazing food, and then you're completely on your own figuring out how to actually get it.</p>
+            <p>Think about how absurd that is. You're watching a video specifically designed to make food look appealing, it works perfectly, and then the platform gives you no way to act on it. You have to screenshot the restaurant name, open a different app, type it in, hope the spelling is right, and find the correct location if there are multiple branches.</p>
+
+            <div class="callout-box">
+                <p>BiteMap is the only platform that connects video food discovery directly to ordering and reservations. From the moment you see a dish to the moment it's on its way — it all happens in one place.</p>
+            </div>
+
+            <p>This integration isn't just a convenience feature — it fundamentally changes how you discover and order food. When there's no friction between discovery and action, you try more new restaurants, explore more cuisines, and break out of the cycle of ordering from the same three places every week. BiteMap turns food inspiration into food on your table.</p>
+
+            <div class="related-links">
+                <h3>Explore More Features</h3>
+                <a href="/features/video-reviews">Video Reviews</a>
+                <a href="/features/map-discovery">Map Discovery</a>
+                <a href="/features">All Features</a>
+            </div>
+        </div>
+
+        <div class="features-cta">
+            <h2>Download BiteMap Free</h2>
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="cta-store-btn ios" target="_blank" rel="noopener">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <div>
+                        <div class="store-label">Download on the</div>
+                        <div class="store-name">App Store</div>
+                    </div>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.bitemap.app&hl=en_CA" class="cta-store-btn android" target="_blank" rel="noopener">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.18 23.77c-.35-.2-.57-.58-.57-1V1.23c0-.42.22-.8.57-1L14.46 12 3.18 23.77zm1.39-25L16.78 6 13.5 9.5 4.57-1.23zM21.78 11 18.5 9l-4 3 4 3 3.28-2c.52-.3.52-1.7 0-2zM4.57 25.23L13.5 14.5l3.28 3-12.21 7.73z"/>
+                    </svg>
+                    <div>
+                        <div class="store-label">Get it on</div>
+                        <div class="store-name">Google Play</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">BiteMap</div>
+            <div class="footer-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/support">Support</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 BiteMap</p>
+        </div>
+    </footer>
+</body>
+</html>

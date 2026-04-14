@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteMap Features - Video Reviews, Map Discovery, AI Recommendations &amp; More</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore BiteMap's restaurant discovery app features: TikTok-style video food reviews, interactive map discovery, AI restaurant recommendations from Alfred, verified food creators, and integrated delivery ordering.">
+    <meta name="keywords" content="restaurant discovery app features, video food reviews app, AI restaurant recommendations, food creator reviews, map restaurant finder, delivery ordering app">
+    <meta name="author" content="BiteMap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.bitemap.fun/features">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bitemap.fun/features">
+    <meta property="og:title" content="BiteMap Features - Video Reviews, Map Discovery, AI Recommendations & More">
+    <meta property="og:description" content="Explore BiteMap's restaurant discovery app features: video food reviews, interactive map discovery, AI recommendations, verified creators, and integrated ordering.">
+    <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
+    <meta property="og:site_name" content="BiteMap">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bitemap.fun/features">
+    <meta property="twitter:title" content="BiteMap Features - Video Reviews, Map Discovery, AI Recommendations & More">
+    <meta property="twitter:description" content="Explore BiteMap's restaurant discovery app features: video food reviews, interactive map discovery, AI recommendations, verified creators, and integrated ordering.">
+    <meta property="twitter:image" content="https://www.bitemap.fun/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
+    <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.bitemap.fun/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Features",
+                "item": "https://www.bitemap.fun/features"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EEZQEGTQDD');
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo { color: #1a1a1a; }
+        .nav-links a { color: #1a1a1a; }
+        .nav-links a:hover { opacity: 0.6; }
+
+        .footer {
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .footer-logo { color: #1a1a1a; }
+        .footer-links a { color: #888; }
+        .footer-links a:hover { color: #FF6B35; }
+        .footer-copy { color: #888; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #FF6B35;
+        }
+
+        .breadcrumb span {
+            color: #888;
+            margin: 0 8px;
+        }
+
+        .breadcrumb .current {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        /* Features Hero */
+        .features-hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+            text-align: center;
+        }
+
+        .features-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: #000;
+            line-height: 1.15;
+        }
+
+        .features-hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Feature Cards Grid */
+        .features-cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .features-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .feature-link-card {
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
+            padding: 36px 32px;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+            border-color: #FF6B35;
+        }
+
+        .feature-link-card .card-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .feature-link-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .feature-link-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+
+        .feature-link-card .card-link {
+            color: #FF6B35;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        /* Bottom CTA */
+        .features-cta {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+            text-align: center;
+        }
+
+        .features-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .cta-store-btn.ios {
+            background: #000;
+            color: #fff;
+        }
+
+        .cta-store-btn.android {
+            background: #fff;
+            color: #000;
+            border: 2px solid #1a1a1a;
+        }
+
+        .cta-store-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-store-btn .store-label {
+            font-size: 0.65rem;
+            font-weight: 400;
+            opacity: 0.8;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .cta-store-btn .store-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .features-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .features-hero p {
+                font-size: 1.05rem;
+            }
+
+            .features-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .feature-link-card {
+                padding: 28px 24px;
+            }
+
+            .features-cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-store-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="/images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
+                <span>BiteMap</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/blog">Blog</a>
+                <a href="/support">Support</a>
+                <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="download-btn" target="_blank" rel="noopener">Download App</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <span class="current">Features</span>
+        </div>
+
+        <div class="features-hero">
+            <h1>Everything You Need to Find the Best Restaurants</h1>
+            <p>BiteMap combines video reviews from trusted food creators with interactive maps, AI recommendations, and integrated ordering — all in one free app.</p>
+        </div>
+
+        <div class="features-cards-container">
+            <div class="features-cards-grid">
+                <a href="/features/video-reviews" class="feature-link-card">
+                    <span class="card-emoji">🎬</span>
+                    <h2>Video Reviews</h2>
+                    <p>Swipe through TikTok-style video reviews showing real food, real atmosphere, and real dining experiences from verified food creators.</p>
+                    <span class="card-link">Learn more →</span>
+                </a>
+
+                <a href="/features/map-discovery" class="feature-link-card">
+                    <span class="card-emoji">🗺️</span>
+                    <h2>Map Discovery</h2>
+                    <p>Find reviewed restaurants near you on an interactive map. Filter by cuisine, distance, and rating.</p>
+                    <span class="card-link">Learn more →</span>
+                </a>
+
+                <a href="/features/ai-recommendations" class="feature-link-card">
+                    <span class="card-emoji">🤖</span>
+                    <h2>AI Recommendations</h2>
+                    <p>Ask Alfred, your AI restaurant assistant, for personalized recommendations in natural language.</p>
+                    <span class="card-link">Learn more →</span>
+                </a>
+
+                <a href="/features/food-creators" class="feature-link-card">
+                    <span class="card-emoji">👨‍🍳</span>
+                    <h2>Food Creators</h2>
+                    <p>Every review comes from a verified food creator with a public profile — real people you can trust and follow.</p>
+                    <span class="card-link">Learn more →</span>
+                </a>
+
+                <a href="/features/delivery-ordering" class="feature-link-card">
+                    <span class="card-emoji">🛵</span>
+                    <h2>Delivery &amp; Reservations</h2>
+                    <p>Order through Uber Eats, DoorDash, SkipTheDishes, or book via OpenTable — directly from the app.</p>
+                    <span class="card-link">Learn more →</span>
+                </a>
+
+                <a href="/features/no-fake-reviews" class="feature-link-card">
+                    <span class="card-emoji">✅</span>
+                    <h2>No Fake Reviews</h2>
+                    <p>Video content is virtually impossible to fake. See the real food and real experience before you visit.</p>
+                    <span class="card-link">Learn more →</span>
+                </a>
+            </div>
+
+            <h2 style="text-align: center; font-size: 2rem; margin: 60px 0 12px; color: #000;">Explore the App</h2>
+            <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 40px;">Four views designed to help you discover, watch, explore, and save the best restaurants.</p>
+
+            <div class="features-cards-grid">
+                <a href="/features/home-discover" class="feature-link-card">
+                    <span class="card-emoji">🏠</span>
+                    <h2>Home & Discover</h2>
+                    <p>See what's nearby, browse by cuisine and category, and get personalized recommendations based on your taste — like Uber Eats, but powered by real video reviews.</p>
+                    <span class="card-link">Learn more →</span>
+                </a>
+
+                <a href="/features/feed" class="feature-link-card">
+                    <span class="card-emoji">📱</span>
+                    <h2>Video Feed</h2>
+                    <p>TikTok-style full-screen video feed personalized to your location, preferences, freshness, and virality. Swipe to discover your next meal.</p>
+                    <span class="card-link">Learn more →</span>
+                </a>
+
+                <a href="/features/map-view" class="feature-link-card">
+                    <span class="card-emoji">🗺️</span>
+                    <h2>Map View</h2>
+                    <p>Google Maps-style restaurant exploration. Search places, tags, creators, guides, and collections by other users — all on an interactive map.</p>
+                    <span class="card-link">Learn more →</span>
+                </a>
+
+                <a href="/features/library" class="feature-link-card">
+                    <span class="card-emoji">📚</span>
+                    <h2>Library</h2>
+                    <p>Your personal food diary. Saved posts, guides, collections, watch history, like history, and settings — all organized in one place.</p>
+                    <span class="card-link">Learn more →</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="features-cta">
+            <h2>Download BiteMap Free</h2>
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="cta-store-btn ios" target="_blank" rel="noopener">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <div>
+                        <div class="store-label">Download on the</div>
+                        <div class="store-name">App Store</div>
+                    </div>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.bitemap.app&hl=en_CA" class="cta-store-btn android" target="_blank" rel="noopener">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.18 23.77c-.35-.2-.57-.58-.57-1V1.23c0-.42.22-.8.57-1L14.46 12 3.18 23.77zm1.39-25L16.78 6 13.5 9.5 4.57-1.23zM21.78 11 18.5 9l-4 3 4 3 3.28-2c.52-.3.52-1.7 0-2zM4.57 25.23L13.5 14.5l3.28 3-12.21 7.73z"/>
+                    </svg>
+                    <div>
+                        <div class="store-label">Get it on</div>
+                        <div class="store-name">Google Play</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">BiteMap</div>
+            <div class="footer-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/support">Support</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 BiteMap</p>
+        </div>
+    </footer>
+</body>
+</html>

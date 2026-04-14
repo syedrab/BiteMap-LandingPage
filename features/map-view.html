@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map View - Search Restaurants, Creators, Guides & Collections on a Map | BiteMap</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore BiteMap's interactive map — search for restaurants, food creators, curated guides, and user collections. A Google Maps-style experience where every pin is backed by a real video review.">
+    <meta name="keywords" content="restaurant map search, food map app, find restaurants on map, restaurant guides, food collections, creator restaurant maps, restaurant discovery map">
+    <meta name="author" content="BiteMap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.bitemap.fun/features/map-view">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bitemap.fun/features/map-view">
+    <meta property="og:title" content="Map View - Search Restaurants, Creators, Guides & Collections on a Map | BiteMap">
+    <meta property="og:description" content="Explore BiteMap's interactive map — search for restaurants, food creators, curated guides, and user collections. A Google Maps-style experience where every pin is backed by a real video review.">
+    <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
+    <meta property="og:site_name" content="BiteMap">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bitemap.fun/features/map-view">
+    <meta property="twitter:title" content="Map View - Search Restaurants, Creators, Guides & Collections on a Map | BiteMap">
+    <meta property="twitter:description" content="Explore BiteMap's interactive map — search for restaurants, food creators, curated guides, and user collections. A Google Maps-style experience where every pin is backed by a real video review.">
+    <meta property="twitter:image" content="https://www.bitemap.fun/images/og-image.jpg">
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.bitemap.fun/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Features",
+          "item": "https://www.bitemap.fun/features"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Map View",
+          "item": "https://www.bitemap.fun/features/map-view"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: WebPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Map View - Search Restaurants, Creators, Guides & Collections on a Map",
+      "description": "Explore BiteMap's interactive map — search for restaurants, food creators, curated guides, and user collections. A Google Maps-style experience where every pin is backed by a real video review.",
+      "url": "https://www.bitemap.fun/features/map-view",
+      "publisher": {
+        "@type": "Organization",
+        "name": "BiteMap",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.bitemap.fun/images/bitemap-logo.png"
+        }
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.bitemap.fun/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://www.bitemap.fun/features"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Map View",
+            "item": "https://www.bitemap.fun/features/map-view"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
+    <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EEZQEGTQDD');
+    </script>
+
+    <style>
+        /* Light theme overrides */
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        a.logo {
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo { color: #1a1a1a; }
+        .nav-links a { color: #1a1a1a; }
+        .nav-links a:hover { opacity: 0.6; }
+
+        .footer {
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .footer-logo { color: #1a1a1a; }
+        .footer-links a { color: #888; }
+        .footer-links a:hover { color: #FF6B35; }
+        .footer-copy { color: #888; }
+
+        /* Page layout */
+        .page-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 40px;
+        }
+
+        .breadcrumb a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #FF6B35;
+        }
+
+        .breadcrumb .separator {
+            color: #ccc;
+        }
+
+        .breadcrumb .current {
+            color: #555;
+        }
+
+        /* Hero heading */
+        .page-container h1 {
+            font-size: clamp(2.25rem, 5vw, 3.25rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            color: #000;
+        }
+
+        .hero-intro {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 56px;
+        }
+
+        /* Section styling */
+        .content-section {
+            margin-bottom: 56px;
+        }
+
+        .content-section h2 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 20px;
+            line-height: 1.25;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .content-section ul li {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 14px;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .content-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #FF6B35;
+        }
+
+        .content-section blockquote {
+            border-left: 4px solid #FF6B35;
+            padding: 20px 24px;
+            margin: 28px 0;
+            background: #fdf8f5;
+            border-radius: 0 12px 12px 0;
+            font-size: 1.15rem;
+            color: #444;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        /* Section divider */
+        .section-divider {
+            border: none;
+            height: 1px;
+            background: #eee;
+            margin: 56px 0;
+        }
+
+        /* Feature highlight cards */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin: 28px 0;
+        }
+
+        .highlight-card {
+            background: #f8f8f8;
+            border-radius: 14px;
+            padding: 28px 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .highlight-icon {
+            font-size: 1.75rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Search category cards */
+        .search-category {
+            background: #f8f8f8;
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .search-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-category h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .search-category p {
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* Filter tags */
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0 24px;
+        }
+
+        .filter-tag {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #333;
+            transition: background 0.2s;
+        }
+
+        .filter-tag:hover {
+            background: #e8e8e8;
+        }
+
+        /* Pin info list */
+        .pin-info-list {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 24px 0;
+        }
+
+        .pin-info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 18px;
+            padding-left: 0 !important;
+        }
+
+        .pin-info-list li::before {
+            display: none !important;
+        }
+
+        .pin-icon {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: #fff3ed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .pin-text {
+            flex: 1;
+        }
+
+        .pin-text strong {
+            display: block;
+            color: #000;
+            margin-bottom: 2px;
+        }
+
+        .pin-text span {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* CTA section */
+        .cta-section {
+            background: linear-gradient(135deg, #fff7f3 0%, #fff0e9 100%);
+            border-radius: 20px;
+            padding: 48px 40px;
+            text-align: center;
+            margin: 64px 0 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .cta-btn-primary {
+            background: #FF6B35;
+            color: #fff;
+        }
+
+        .cta-btn-primary:hover {
+            background: #e55a28;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-btn-secondary {
+            background: #fff;
+            color: #333;
+            border: 2px solid #e0e0e0;
+        }
+
+        .cta-btn-secondary:hover {
+            border-color: #FF6B35;
+            color: #FF6B35;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .cta-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* Internal links section */
+        .related-links {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid #eee;
+        }
+
+        .related-links h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .related-links-list {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .related-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f8f8f8;
+            color: #333;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .related-link:hover {
+            background: #fff3ed;
+            color: #FF6B35;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 100px 16px 60px;
+            }
+
+            .page-container h1 {
+                font-size: 2rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 36px 24px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .search-category {
+                padding: 20px 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="/images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
+                <span>BiteMap</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/blog/">Blog</a>
+                <a href="/support">Support</a>
+                <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="download-btn" target="_blank" rel="noopener">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span class="separator">/</span>
+                <a href="/features">Features</a>
+                <span class="separator">/</span>
+                <span class="current">Map View</span>
+            </nav>
+
+            <h1>The Map — Search Restaurants, Creators, Guides & Collections</h1>
+            <p class="hero-intro">BiteMap's Map view puts every video-reviewed restaurant on an interactive map you can zoom, pan, and search. It works like Google Maps, but every single pin is a restaurant that has been reviewed on video by a real food creator. No anonymous listings, no paid placements — just honest recommendations you can see before you go.</p>
+
+            <!-- Section 1: A Google Maps Experience Built for Food Discovery -->
+            <section class="content-section">
+                <h2>A Google Maps Experience Built for Food Discovery</h2>
+
+                <p>BiteMap's Map view gives you a familiar Google Maps-style interface, but purpose-built for discovering restaurants. Every pin on the map represents a restaurant that has been reviewed on video by a verified food creator. You are not looking at a database of every restaurant in the city padded with places nobody has actually visited and reviewed. You are looking at a curated, verified map where every single location has at least one real video attached to it.</p>
+
+                <p>Zoom, pan, and explore any area to find where to eat. The map centers on your current location by default, showing you what is nearby and what has been recommended by creators you trust. But you are not locked to your neighborhood. Pinch to zoom out and see the entire city. Drag to explore a different area entirely. The map updates in real time as you move, loading new pins and new video reviews for whatever area you are currently viewing.</p>
+
+                <p>The interface is intentionally minimal. There is no clutter, no pop-up ads, no sponsored listings pushing irrelevant restaurants to the top. Every pin earns its place on the map the same way: a real food creator visited, filmed their experience, and shared it. That fundamental principle is what makes the Map view trustworthy in a way that other restaurant discovery tools are not.</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 2: Search for Anything -->
+            <section class="content-section">
+                <h2>Search for Anything</h2>
+
+                <p>The Map's search bar is one of the most powerful features in BiteMap. It is not limited to restaurant names and addresses. You can search across five distinct categories, and the map updates instantly to show you matching results plotted geographically.</p>
+
+                <div class="search-category">
+                    <h3>Places</h3>
+                    <p>Search by restaurant name, address, or area. Looking for a specific restaurant? Type its name and the map zooms directly to it. Want to explore a neighborhood? Search "Kensington Market" or "Liberty Village" and the map moves to that area, showing all video-reviewed restaurants within it. You can also search by street address if you know exactly where you are headed and want to see what is nearby.</p>
+                </div>
+
+                <div class="search-category">
+                    <h3>Tags</h3>
+                    <p>Search by cuisine tags like "ramen", "sushi", "halal", "brunch", "patio", or "date night". The map filters to show only restaurants matching your tag, hiding everything else. This is incredibly useful when you know what kind of food you are in the mood for but do not know where to find it. Type "late night" and instantly see every creator-reviewed restaurant that is open past midnight. Type "vegan" and the map transforms into a plant-based restaurant guide. Tags can be combined with location to narrow your search even further.</p>
+                </div>
+
+                <div class="search-category">
+                    <h3>Creators</h3>
+                    <p>Search for a specific food creator to see every restaurant they have ever reviewed, plotted on the map. Type "@mukbangtoronto" and watch the map light up with dozens of pins across the city — every single place they have visited and filmed. This is like having a personal food guide from someone whose taste you trust. You can follow a single creator's entire restaurant trail geographically, discovering patterns in which neighborhoods they frequent and which cuisine types they gravitate toward. If you have ever wanted to eat your way through a creator's recommendation list, this is how you do it.</p>
+                </div>
+
+                <div class="search-category">
+                    <h3>Guides</h3>
+                    <p>Browse curated food guides created by BiteMap editors and top creators. Guides are themed lists like "Best Late Night Eats in Toronto", "Top 10 Ramen Spots in the GTA", "Ultimate Brunch Crawl in Queen West", or "Hidden Gems in Scarborough". When you select a guide, its recommended restaurants are plotted on the map with numbered pins, creating a visual food trail you can follow. Guides are regularly updated and cover everything from cuisine-specific roundups to neighborhood deep dives to seasonal recommendations.</p>
+                </div>
+
+                <div class="search-category">
+                    <h3>Collections by Other Users</h3>
+                    <p>Discover collections that other BiteMap users have created and shared publicly. Collections are personal lists of favourite restaurants — the places someone keeps going back to, organized however they choose. A user might have a "My Go-To Date Night Spots" collection, a "Best Coffee Shops for Working" list, or a "Places My Mom Loves" collection. When you search and select a user's collection, every restaurant in it is plotted on the map. You can browse collections from friends, local food enthusiasts, or anyone in the BiteMap community who has made their lists public.</p>
+                </div>
+
+                <p>The ability to search across all five categories from a single search bar means you never have to leave the map to find what you are looking for. Whether you want a specific restaurant, a type of cuisine, a creator's recommendations, an editorial guide, or another user's curated list, the map is your starting point and your answer.</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 3: Filter and Refine -->
+            <section class="content-section">
+                <h2>Filter and Refine</h2>
+
+                <p>Once you have your search results on the map, you can narrow them further with a powerful set of filters. These filters work on top of any search, letting you dial in exactly what you want from dozens of results down to a handful of perfect matches.</p>
+
+                <div class="filter-tags">
+                    <span class="filter-tag">Cuisine type (30+ categories)</span>
+                    <span class="filter-tag">Distance from you</span>
+                    <span class="filter-tag">Price range ($-$$$$)</span>
+                    <span class="filter-tag">Open now</span>
+                    <span class="filter-tag">Delivery available</span>
+                    <span class="filter-tag">Number of video reviews</span>
+                    <span class="filter-tag">Creator-specific</span>
+                </div>
+
+                <p>Cuisine type filtering goes deep. BiteMap supports over 30 cuisine categories including Japanese, Korean, Chinese, Thai, Vietnamese, Indian, Italian, Mexican, Ethiopian, Caribbean, Middle Eastern, Greek, French, American, and many more. You can select multiple cuisine types at once to cast a wider net, or pick just one to focus your search.</p>
+
+                <p>Distance filtering lets you set a radius from your current location. Looking for something within walking distance? Set it to 500 meters. Willing to drive across the city for the right meal? Expand it to 20 kilometers. The map updates in real time as you adjust the slider, adding and removing pins based on your radius.</p>
+
+                <p>Price range filtering uses the standard four-tier system: $ for budget-friendly, $$ for moderate, $$$ for upscale casual, and $$$$ for fine dining. You can select multiple price tiers to see restaurants across a range, or pick just one if you have a specific budget in mind.</p>
+
+                <p>The "Open now" filter is invaluable for spontaneous decisions. Toggle it on and the map hides every restaurant that is currently closed, showing you only places you can walk into right now. Combine it with a cuisine tag and a distance radius, and you go from "I'm hungry" to "I'm walking there" in seconds.</p>
+
+                <p>The "Number of video reviews" filter is unique to BiteMap. A restaurant with one video review might be a new discovery. A restaurant with ten or more video reviews from different creators is a proven favourite that multiple people have independently recommended. This filter lets you decide whether you want to explore new finds or stick with crowd-tested favourites.</p>
+
+                <p>Creator-specific filters let you show or hide reviews from particular creators. If you only want to see restaurants reviewed by creators you follow, toggle that filter on. If you want to explore broadly and see recommendations from everyone, leave it off. This gives you control over how curated or how broad your map exploration feels.</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 4: Tap Any Pin to Watch the Review -->
+            <section class="content-section">
+                <h2>Tap Any Pin to Watch the Review</h2>
+
+                <p>Every pin on the map is interactive. Tap any pin and a preview card slides up from the bottom of the screen, giving you a snapshot of the restaurant before you commit to watching the full review. This preview layer is designed to let you browse quickly across many restaurants without losing your place on the map.</p>
+
+                <ul class="pin-info-list">
+                    <li>
+                        <div class="pin-icon">1</div>
+                        <div class="pin-text">
+                            <strong>Restaurant Preview Card</strong>
+                            <span>See the restaurant name, cuisine type, price range, and aggregate rating at a glance. The card also shows a thumbnail pulled directly from the video review, so you get a visual preview of the food before tapping further.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pin-icon">2</div>
+                        <div class="pin-text">
+                            <strong>Creator Information</strong>
+                            <span>The preview card shows which creator or creators reviewed the restaurant. If multiple creators have reviewed the same place, you see all of them listed, letting you choose whose perspective you want to watch first.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pin-icon">3</div>
+                        <div class="pin-text">
+                            <strong>Distance and Directions</strong>
+                            <span>See exactly how far the restaurant is from your current location. The distance updates in real time based on where you are. One tap opens directions in your preferred maps app so you can navigate there immediately.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pin-icon">4</div>
+                        <div class="pin-text">
+                            <strong>Watch the Full Video</strong>
+                            <span>Tap the preview card to jump into the full video review. Watch the creator's complete experience — the food arriving, the first bite, their reaction, the atmosphere, and their honest verdict. This is where you decide whether this restaurant is worth your time.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pin-icon">5</div>
+                        <div class="pin-text">
+                            <strong>Quick Actions</strong>
+                            <span>Without leaving the map, you can get directions to the restaurant, check if delivery is available and order through your preferred service, or book a reservation. The path from discovering a restaurant on the map to actually getting there is as short as possible.</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <p>The pin interaction is designed to be fast and fluid. You can tap one pin, glance at the preview, dismiss it, and tap the next pin in under two seconds. This lets you scan an entire neighborhood's worth of restaurants quickly, building a mental shortlist before you commit to watching any full reviews. When something catches your eye — the food thumbnail looks incredible, a creator you love reviewed it, or it is exactly the cuisine you are craving — that is when you tap in and watch.</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 5: Explore Beyond Your Area -->
+            <section class="content-section">
+                <h2>Explore Beyond Your Area</h2>
+
+                <p>Planning a trip? Visiting a new neighborhood? The Map is not locked to your current location. It is a tool for exploring food scenes anywhere, whether you are across the city or across the country. Drag the map to any area and discover what local food creators recommend there.</p>
+
+                <p>This is where the Map becomes a genuine trip planning tool. Zoom into Toronto's Chinatown to see which dim sum spots and noodle houses creators keep going back to. Pan over to The Danforth and explore the Greek restaurants that define the neighborhood. Scroll east to Scarborough and find the hidden gems — the family-run spots in strip malls that would never show up in a generic restaurant search but have been discovered and championed by local creators who know the area.</p>
+
+                <p>Every area you explore loads its own set of pins and video reviews. The map is not showing you a static list. It is dynamically loading content based on what geographic area you are currently viewing. Move to a new neighborhood, and a new set of creator-reviewed restaurants appears. This makes the Map a tool for genuine exploration and serendipity, not just search. You will find restaurants you never would have searched for because you did not know they existed.</p>
+
+                <p>For people who travel frequently or who like to eat in different parts of the city, this exploratory mode is transformative. Instead of Googling "best restaurants in [neighborhood]" and getting a list of SEO-optimized blog posts written by people who have never been there, you are seeing a map populated by creators who actually live in and frequent these areas. The recommendations are local, current, and backed by video proof.</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 6: Guides & Collections on the Map -->
+            <section class="content-section">
+                <h2>Guides & Collections on the Map</h2>
+
+                <p>Guides and Collections are two of the most powerful ways to use the Map, and they both share the same fundamental idea: a curated list of restaurants, plotted geographically so you can see the whole picture at once.</p>
+
+                <p><strong>Guides</strong> are curated lists of restaurants around a specific theme, created by BiteMap's editorial team and by top food creators. A guide might be "Best Late Night Eats in Toronto" featuring 15 restaurants that are open past midnight, or "Top 10 Ramen Spots in the GTA" showcasing the most recommended noodle shops across the Greater Toronto Area. Each guide is carefully assembled based on creator reviews, video quality, and community feedback. When you open a guide on the Map, numbered pins appear showing each restaurant's location, creating a visual trail you can follow in order or browse at random.</p>
+
+                <p><strong>Collections</strong> are personal lists created by any BiteMap user. Unlike Guides, which are editorially curated, Collections are personal and organic. A user might create a collection called "Friday Night Favourites" with six restaurants they rotate through for weekend dinners, or "Cheap Eats Under $15" with their go-to budget spots. When a user shares their Collection publicly, anyone on BiteMap can find it, view it on the Map, and use it as a personal recommendation list.</p>
+
+                <p>Both Guides and Collections turn the Map into a food crawl planning tool. See a Guide for "Best Brunch in the West End"? Open it on the Map, see all eight restaurants plotted across three neighborhoods, and plan your Saturday morning route. Found a friend's Collection of their favourite sushi spots? View it on the Map and discover that three of them are clustered together in one area — perfect for a comparison crawl.</p>
+
+                <p>The geographic visualization is what makes Guides and Collections so much more useful on BiteMap than on any other platform. A list of restaurant names in a note on your phone does not tell you how far apart they are, which ones are clustered together, or which ones are near where you already plan to be. The Map shows you all of this instantly, turning static lists into actionable plans.</p>
+            </section>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2>Download BiteMap Free</h2>
+                <p>Explore the Map and discover your next favourite restaurant, backed by real video reviews from trusted creators.</p>
+                <div class="cta-buttons">
+                    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank" rel="noopener" class="cta-btn cta-btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        Download for iOS
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.bitemap.app&hl=en_CA" target="_blank" rel="noopener" class="cta-btn cta-btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.77c-.35-.17-.59-.49-.68-.88L2.5 22V2l.01-.89c.09-.39.33-.71.68-.88.35-.18.75-.17 1.1.01l15.24 8.75c.34.19.55.55.55.94v.14c0 .39-.21.75-.55.94L4.28 23.76c-.35.18-.75.19-1.1.01zM14.54 12L5 6.18v11.64L14.54 12z"/></svg>
+                        Get on Android
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Links -->
+            <div class="related-links">
+                <h3>Explore More Features</h3>
+                <div class="related-links-list">
+                    <a href="/features/home-discover" class="related-link">Home & Discover</a>
+                    <a href="/features/feed" class="related-link">Video Feed</a>
+                    <a href="/features/library" class="related-link">Library</a>
+                    <a href="/features" class="related-link">All Features</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">BiteMap</div>
+            <div class="footer-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/support">Support</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 BiteMap</p>
+        </div>
+    </footer>
+</body>
+</html>

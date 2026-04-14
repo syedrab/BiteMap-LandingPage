@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiteMap Roadmap - What's Coming Next for Restaurant Discovery</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="See what BiteMap is building next — better map search, faster indexing, Google and Apple sign-in, deeper delivery integrations, and more. The future of restaurant discovery.">
+    <meta name="keywords" content="BiteMap roadmap, BiteMap upcoming features, restaurant app updates, BiteMap new features, food app roadmap">
+    <meta name="author" content="BiteMap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.bitemap.fun/roadmap">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bitemap.fun/roadmap">
+    <meta property="og:title" content="BiteMap Roadmap - What's Coming Next for Restaurant Discovery">
+    <meta property="og:description" content="See what BiteMap is building next — better map search, faster indexing, Google and Apple sign-in, deeper delivery integrations, and more. The future of restaurant discovery.">
+    <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
+    <meta property="og:site_name" content="BiteMap">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bitemap.fun/roadmap">
+    <meta property="twitter:title" content="BiteMap Roadmap - What's Coming Next for Restaurant Discovery">
+    <meta property="twitter:description" content="See what BiteMap is building next — better map search, faster indexing, Google and Apple sign-in, deeper delivery integrations, and more. The future of restaurant discovery.">
+    <meta property="twitter:image" content="https://www.bitemap.fun/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
+    <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.bitemap.fun/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Roadmap",
+                "item": "https://www.bitemap.fun/roadmap"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EEZQEGTQDD');
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo { color: #1a1a1a; }
+        .nav-links a { color: #1a1a1a; }
+        .nav-links a:hover { opacity: 0.6; }
+
+        .footer {
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .footer-logo { color: #1a1a1a; }
+        .footer-links a { color: #888; }
+        .footer-links a:hover { color: #FF6B35; }
+        .footer-copy { color: #888; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #FF6B35;
+        }
+
+        .breadcrumb span {
+            color: #888;
+            margin: 0 8px;
+        }
+
+        .breadcrumb .current {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        /* Roadmap Hero */
+        .roadmap-hero {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+            text-align: center;
+        }
+
+        .roadmap-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: #000;
+            line-height: 1.15;
+        }
+
+        .roadmap-hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Roadmap Sections */
+        .roadmap-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .roadmap-section {
+            margin-bottom: 64px;
+        }
+
+        .roadmap-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+        }
+
+        .section-count {
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        /* Timeline line */
+        .timeline-line {
+            width: 4px;
+            height: 24px;
+            margin: 0 0 0 20px;
+            border-radius: 2px;
+        }
+
+        .timeline-line.green { background: #00B37E; }
+        .timeline-line.orange { background: #FF6B35; }
+        .timeline-line.blue { background: #3A86FF; }
+        .timeline-line.gray { background: #ccc; }
+
+        /* Cards Grid */
+        .roadmap-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .roadmap-card {
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 16px;
+            padding: 28px 24px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+            border-color: #FF6B35;
+        }
+
+        .card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .roadmap-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #000;
+            margin: 0;
+            line-height: 1.35;
+        }
+
+        .roadmap-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Status Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .badge-shipped {
+            background: #e7f7ef;
+            color: #00804a;
+        }
+
+        .badge-building {
+            background: #fff3ec;
+            color: #c74d10;
+        }
+
+        .badge-planned {
+            background: #eaf1ff;
+            color: #2a6ae0;
+        }
+
+        .badge-exploring {
+            background: #f3f3f3;
+            color: #777;
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .badge-shipped .badge-dot { background: #00B37E; }
+        .badge-building .badge-dot { background: #FF6B35; }
+        .badge-planned .badge-dot { background: #3A86FF; }
+        .badge-exploring .badge-dot { background: #999; }
+
+        /* Shipped section — compact chip grid */
+        .shipped-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .shipped-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8faf9;
+            border: 1px solid #e0ece6;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .shipped-chip:hover {
+            border-color: #00B37E;
+            background: #e7f7ef;
+        }
+
+        .shipped-check {
+            color: #00B37E;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Feature Request CTA */
+        .feature-request {
+            max-width: 720px;
+            margin: 80px auto 0;
+            text-align: center;
+            background: #fafafa;
+            border: 1px solid #f0f0f0;
+            border-radius: 20px;
+            padding: 48px 32px;
+        }
+
+        .feature-request h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 12px;
+        }
+
+        .feature-request p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .feature-request-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #FF6B35;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-request-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Bottom CTA */
+        .roadmap-cta {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px 100px;
+            text-align: center;
+        }
+
+        .roadmap-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .cta-store-btn.ios {
+            background: #000;
+            color: #fff;
+        }
+
+        .cta-store-btn.android {
+            background: #fff;
+            color: #000;
+            border: 2px solid #1a1a1a;
+        }
+
+        .cta-store-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-store-btn .store-label {
+            font-size: 0.65rem;
+            font-weight: 400;
+            opacity: 0.8;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .cta-store-btn .store-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .roadmap-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .roadmap-hero p {
+                font-size: 1.05rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .roadmap-cards {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .roadmap-card {
+                padding: 22px 20px;
+            }
+
+            .shipped-grid {
+                gap: 8px;
+            }
+
+            .shipped-chip {
+                padding: 10px 16px;
+                font-size: 0.88rem;
+            }
+
+            .feature-request {
+                padding: 36px 24px;
+                margin-top: 60px;
+            }
+
+            .feature-request h2 {
+                font-size: 1.5rem;
+            }
+
+            .roadmap-cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-store-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="/images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
+                <span>BiteMap</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/blog">Blog</a>
+                <a href="/support">Support</a>
+                <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="download-btn" target="_blank" rel="noopener">Download App</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <span class="current">Roadmap</span>
+        </div>
+
+        <div class="roadmap-hero">
+            <h1>What We're Building Next</h1>
+            <p>BiteMap is evolving fast. Here's what's on our roadmap — and what we've recently shipped.</p>
+        </div>
+
+        <div class="roadmap-container">
+
+            <!-- Section 1: Recently Shipped -->
+            <div class="roadmap-section">
+                <div class="section-header">
+                    <h2>Recently Shipped</h2>
+                    <span class="badge badge-shipped"><span class="badge-dot"></span> Shipped</span>
+                </div>
+                <div class="shipped-grid">
+                    <div class="shipped-chip"><span class="shipped-check">&#10003;</span> Video Feed with location-based algorithm</div>
+                    <div class="shipped-chip"><span class="shipped-check">&#10003;</span> Interactive restaurant map</div>
+                    <div class="shipped-chip"><span class="shipped-check">&#10003;</span> Creator profiles and following</div>
+                    <div class="shipped-chip"><span class="shipped-check">&#10003;</span> Uber Eats, DoorDash, SkipTheDishes integration</div>
+                    <div class="shipped-chip"><span class="shipped-check">&#10003;</span> OpenTable reservations</div>
+                    <div class="shipped-chip"><span class="shipped-check">&#10003;</span> Alfred AI assistant</div>
+                    <div class="shipped-chip"><span class="shipped-check">&#10003;</span> Save, like, and share functionality</div>
+                    <div class="shipped-chip"><span class="shipped-check">&#10003;</span> Watch history and like history</div>
+                    <div class="shipped-chip"><span class="shipped-check">&#10003;</span> iOS and Android apps</div>
+                </div>
+            </div>
+
+            <div class="timeline-line orange"></div>
+
+            <!-- Section 2: In Progress -->
+            <div class="roadmap-section">
+                <div class="section-header">
+                    <h2>In Progress</h2>
+                    <span class="badge badge-building"><span class="badge-dot"></span> Building Now</span>
+                </div>
+                <div class="roadmap-cards">
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Better Map Search</h3>
+                            <span class="badge badge-building"><span class="badge-dot"></span> Building</span>
+                        </div>
+                        <p>Enhanced search with autocomplete, better tag filtering, and faster results. Search for restaurants, creators, guides, and collections all from one search bar.</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Faster Indexing &amp; Optimization</h3>
+                            <span class="badge badge-building"><span class="badge-dot"></span> Building</span>
+                        </div>
+                        <p>Quicker ingestion of new creator content. When a creator posts a new restaurant review, it appears on BiteMap faster. Performance improvements across the app.</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Google &amp; Apple Sign-In</h3>
+                            <span class="badge badge-building"><span class="badge-dot"></span> Building</span>
+                        </div>
+                        <p>One-tap sign-in with your Google or Apple account. Faster onboarding, no password needed. Making it easier than ever to get started.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-line blue"></div>
+
+            <!-- Section 3: Coming Soon -->
+            <div class="roadmap-section">
+                <div class="section-header">
+                    <h2>Coming Soon</h2>
+                    <span class="badge badge-planned"><span class="badge-dot"></span> Planned</span>
+                </div>
+                <div class="roadmap-cards">
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Deeper Delivery Integrations</h3>
+                            <span class="badge badge-planned"><span class="badge-dot"></span> Planned</span>
+                        </div>
+                        <p>Richer integration with Uber Eats, DoorDash, and OpenTable. See delivery times, prices, and menus directly within BiteMap without leaving the app.</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>User Guides &amp; Collections</h3>
+                            <span class="badge badge-planned"><span class="badge-dot"></span> Planned</span>
+                        </div>
+                        <p>Create and share your own restaurant guides and collections. Build "Best Ramen Spots" or "Date Night List" and share with friends.</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Enhanced Creator Analytics</h3>
+                            <span class="badge badge-planned"><span class="badge-dot"></span> Planned</span>
+                        </div>
+                        <p>Richer profiles for creators showing review stats, most-reviewed cuisines, and trending reviews.</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Push Notifications</h3>
+                            <span class="badge badge-planned"><span class="badge-dot"></span> Planned</span>
+                        </div>
+                        <p>Get notified when a creator you follow reviews a new restaurant, or when a popular spot opens near you.</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>City Expansion</h3>
+                            <span class="badge badge-planned"><span class="badge-dot"></span> Planned</span>
+                        </div>
+                        <p>Bringing BiteMap to more cities beyond Toronto. Vancouver, Montreal, and other Canadian cities first, then international.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-line gray"></div>
+
+            <!-- Section 4: On the Horizon -->
+            <div class="roadmap-section">
+                <div class="section-header">
+                    <h2>On the Horizon</h2>
+                    <span class="badge badge-exploring"><span class="badge-dot"></span> Exploring</span>
+                </div>
+                <div class="roadmap-cards">
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Reservation Waitlist</h3>
+                            <span class="badge badge-exploring"><span class="badge-dot"></span> Exploring</span>
+                        </div>
+                        <p>Join a virtual waitlist for popular restaurants directly through BiteMap.</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Creator Collaboration</h3>
+                            <span class="badge badge-exploring"><span class="badge-dot"></span> Exploring</span>
+                        </div>
+                        <p>Food creators can collaborate on joint reviews and guides.</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Restaurant Owner Dashboard</h3>
+                            <span class="badge badge-exploring"><span class="badge-dot"></span> Exploring</span>
+                        </div>
+                        <p>Let restaurant owners see their reviews and engage with creators.</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Meal Planning</h3>
+                            <span class="badge badge-exploring"><span class="badge-dot"></span> Exploring</span>
+                        </div>
+                        <p>Weekly meal discovery based on your preferences and budget.</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <div class="card-top">
+                            <h3>Social Features</h3>
+                            <span class="badge badge-exploring"><span class="badge-dot"></span> Exploring</span>
+                        </div>
+                        <p>Share what you're eating in real-time, tag friends, group dining decisions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Feature Request CTA -->
+            <div class="feature-request">
+                <h2>Have a Feature Request?</h2>
+                <p>We build BiteMap for you. Tell us what features you want to see next.</p>
+                <a href="/support" class="feature-request-link">
+                    Share your idea
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="roadmap-cta">
+            <h2>Download BiteMap Free</h2>
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="cta-store-btn ios" target="_blank" rel="noopener">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <div>
+                        <div class="store-label">Download on the</div>
+                        <div class="store-name">App Store</div>
+                    </div>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.bitemap.app&hl=en_CA" class="cta-store-btn android" target="_blank" rel="noopener">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.18 23.77c-.35-.2-.57-.58-.57-1V1.23c0-.42.22-.8.57-1L14.46 12 3.18 23.77zm1.39-25L16.78 6 13.5 9.5 4.57-1.23zM21.78 11 18.5 9l-4 3 4 3 3.28-2c.52-.3.52-1.7 0-2zM4.57 25.23L13.5 14.5l3.28 3-12.21 7.73z"/>
+                    </svg>
+                    <div>
+                        <div class="store-label">Get it on</div>
+                        <div class="store-name">Google Play</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">BiteMap</div>
+            <div class="footer-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/support">Support</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 BiteMap</p>
+        </div>
+    </footer>
+</body>
+</html>

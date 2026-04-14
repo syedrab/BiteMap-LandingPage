@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Restaurant Map - Find Reviewed Restaurants Near You | BiteMap</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover restaurants with video reviews near your location on BiteMap's interactive map. Filter by cuisine, distance, and rating. Every pin is a real creator review, not a paid ad.">
+    <meta name="keywords" content="restaurant map, find restaurants near me, restaurant discovery map, best restaurants near me map, food map app">
+    <meta name="author" content="BiteMap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.bitemap.fun/features/map-discovery">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bitemap.fun/features/map-discovery">
+    <meta property="og:title" content="Interactive Restaurant Map - Find Reviewed Restaurants Near You | BiteMap">
+    <meta property="og:description" content="Discover restaurants with video reviews near your location on BiteMap's interactive map. Filter by cuisine, distance, and rating. Every pin is a real creator review, not a paid ad.">
+    <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
+    <meta property="og:site_name" content="BiteMap">
+    <meta property="og:locale" content="en_CA">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bitemap.fun/features/map-discovery">
+    <meta property="twitter:title" content="Interactive Restaurant Map - Find Reviewed Restaurants Near You | BiteMap">
+    <meta property="twitter:description" content="Discover restaurants with video reviews near your location on BiteMap's interactive map. Filter by cuisine, distance, and rating. Every pin is a real creator review, not a paid ad.">
+    <meta property="twitter:image" content="https://www.bitemap.fun/images/og-image.jpg">
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.bitemap.fun/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Features",
+          "item": "https://www.bitemap.fun/features"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Map Discovery",
+          "item": "https://www.bitemap.fun/features/map-discovery"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: WebPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Interactive Restaurant Map - Find Reviewed Restaurants Near You",
+      "description": "Discover restaurants with video reviews near your location on BiteMap's interactive map. Filter by cuisine, distance, and rating. Every pin is a real creator review, not a paid ad.",
+      "url": "https://www.bitemap.fun/features/map-discovery",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "BiteMap",
+        "url": "https://www.bitemap.fun/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "BiteMap",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.bitemap.fun/images/bitemap-logo.png"
+        }
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.bitemap.fun/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://www.bitemap.fun/features"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Map Discovery",
+            "item": "https://www.bitemap.fun/features/map-discovery"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
+    <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EEZQEGTQDD');
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        a.logo {
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo { color: #1a1a1a; }
+        .nav-links a { color: #1a1a1a; }
+        .nav-links a:hover { opacity: 0.6; }
+
+        .download-btn {
+            background: #FF6B35 !important;
+            color: #fff !important;
+        }
+
+        .download-btn:hover {
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .footer {
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .footer-logo { color: #1a1a1a; }
+        .footer-links a { color: #888; }
+        .footer-links a:hover { color: #FF6B35; }
+        .footer-copy { color: #888; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #FF6B35;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #999;
+            margin: 0 8px;
+        }
+
+        .breadcrumb .current {
+            color: #666;
+        }
+
+        /* Article Layout */
+        .feature-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px 80px;
+            line-height: 1.8;
+        }
+
+        .feature-container h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #000;
+            line-height: 1.15;
+        }
+
+        .feature-intro {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .feature-container h2 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin-top: 55px;
+            margin-bottom: 20px;
+            color: #000;
+            line-height: 1.25;
+        }
+
+        .feature-container p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .feature-container ul {
+            margin-bottom: 25px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .feature-container ul li {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 14px;
+            line-height: 1.7;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .feature-container ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: #FF6B35;
+            border-radius: 50%;
+        }
+
+        .feature-container strong {
+            color: #000;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: #FFF8F5;
+            border-left: 4px solid #FF6B35;
+            padding: 24px 28px;
+            margin: 35px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .highlight-box p {
+            color: #444;
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+
+        /* Section Divider */
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: #FF6B35;
+            border-radius: 2px;
+            margin: 55px 0 0;
+        }
+
+        /* CTA Section */
+        .feature-cta {
+            background: linear-gradient(135deg, #FFF8F5 0%, #FFF0EA 100%);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+            border: 1px solid #FFE0D0;
+        }
+
+        .feature-cta h2 {
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .feature-cta p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .cta-btn-primary {
+            background: #FF6B35;
+            color: #fff;
+            border: 2px solid #FF6B35;
+        }
+
+        .cta-btn-primary:hover {
+            background: #e85d2a;
+            border-color: #e85d2a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-btn-secondary {
+            background: #fff;
+            color: #1a1a1a;
+            border: 2px solid #e0e0e0;
+        }
+
+        .cta-btn-secondary:hover {
+            border-color: #FF6B35;
+            color: #FF6B35;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
+        }
+
+        .cta-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* Internal Links */
+        .related-features {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .related-features h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .related-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .related-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .related-link:hover {
+            background: #FFF0EA;
+            color: #FF6B35;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .breadcrumb {
+                padding-top: 80px;
+            }
+
+            .feature-container h1 {
+                font-size: 2rem;
+            }
+
+            .feature-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .feature-cta {
+                padding: 35px 24px;
+            }
+
+            .feature-cta h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="/images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
+                <span>BiteMap</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/blog/">Blog</a>
+                <a href="/support">Support</a>
+                <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="download-btn" target="_blank" rel="noopener">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/features">Features</a>
+            <span>/</span>
+            <span class="current">Map Discovery</span>
+        </nav>
+
+        <article class="feature-container">
+            <h1>Find the Best Restaurants Near You on an Interactive Map</h1>
+
+            <p class="feature-intro">BiteMap's interactive map puts video-reviewed restaurants at your fingertips. Instead of scrolling through endless text reviews or trusting anonymous star ratings, you see exactly which restaurants real food creators have visited, reviewed, and recommended. Every pin on the map is a place worth going to.</p>
+
+            <div class="section-divider"></div>
+
+            <h2>Every Pin Is a Real Video Review</h2>
+
+            <p>Unlike Google Maps where pins are just business listings, every pin on BiteMap's map represents a restaurant that a verified food creator has reviewed on video. These are people who actually sat down, ordered the food, filmed the experience, and shared their honest take.</p>
+
+            <p>Tap any pin to instantly watch the review. You will see the food being prepared, plated, and eaten. You will hear the creator's genuine reaction. You will know exactly what to expect before you walk through the door.</p>
+
+            <div class="highlight-box">
+                <p><strong>No paid placements, ever.</strong> Every restaurant on BiteMap's map earned its spot through genuine creator content. We do not sell pin placement, boost listings, or let restaurants pay to appear on the map. What you see is what real creators actually recommend.</p>
+            </div>
+
+            <p>This means the map reflects authentic dining experiences, not advertising budgets. A hole-in-the-wall taco spot with one incredible review gets the same treatment as a well-known chain with dozens. The only thing that matters is whether a creator thought it was worth sharing.</p>
+
+            <div class="section-divider"></div>
+
+            <h2>Filter by What You're Craving</h2>
+
+            <p>BiteMap's map is not just a wall of pins. It is built for how you actually decide where to eat. Whether you have a specific craving or you are open to whatever looks good, the filtering tools help you narrow things down fast.</p>
+
+            <ul>
+                <li><strong>Filter by cuisine type</strong> to find exactly what you are in the mood for, whether that is ramen, sushi, Italian, halal, brunch, tacos, or anything else</li>
+                <li><strong>Filter by distance</strong> from your current location to see only restaurants within walking distance, a short drive, or a wider radius</li>
+                <li><strong>Filter by rating</strong> to surface the highest-rated spots reviewed by creators</li>
+                <li><strong>See how many video reviews</strong> each restaurant has so you can watch multiple perspectives before deciding</li>
+                <li><strong>Explore neighborhoods or stay close to home</strong> by panning and zooming the map to any area that interests you</li>
+            </ul>
+
+            <p>The goal is to get you from "I'm hungry" to "I know exactly where I'm going" in under a minute. No more endlessly comparing text reviews or second-guessing star ratings.</p>
+
+            <div class="section-divider"></div>
+
+            <h2>Location-First Discovery</h2>
+
+            <p>On TikTok or Instagram, food content is algorithmically served regardless of where you are. You might see an incredible-looking restaurant in Los Angeles when you live in Toronto. It is entertaining, but it does not help you decide where to eat tonight.</p>
+
+            <p>BiteMap takes the opposite approach. The map centers on your current location and shows you what is nearby. Every restaurant you see is one you can actually visit. This is not aspirational food content. This is practical, location-first discovery that answers the question you are actually asking: "Where should I eat right now?"</p>
+
+            <div class="highlight-box">
+                <p><strong>Planning a trip?</strong> Move the map to any city or neighborhood and discover what local creators recommend before you even arrive. Whether you are heading to a new part of town or traveling across the country, BiteMap shows you the creator-reviewed spots in that area so you can plan ahead.</p>
+            </div>
+
+            <p>Because every pin is tied to a real location and a real video review, you can browse any area with confidence. There are no outdated listings, no closed restaurants still showing up, and no algorithmic noise. Just real places that real creators have reviewed.</p>
+
+            <div class="section-divider"></div>
+
+            <h2>From Map to Table</h2>
+
+            <p>BiteMap does not just help you discover restaurants. It helps you get to the table. Once you find a spot that looks good, the app makes it easy to take the next step.</p>
+
+            <ul>
+                <li><strong>Tap a pin and watch the video review</strong> to see the food, the atmosphere, and the creator's honest take</li>
+                <li><strong>See restaurant details</strong> including hours, address, and menu information so you know what to expect</li>
+                <li><strong>Get directions instantly</strong> with one tap to open navigation in your preferred maps app</li>
+                <li><strong>Order delivery</strong> through Uber Eats, DoorDash, or SkipTheDishes without leaving the experience</li>
+                <li><strong>Book a reservation</strong> through OpenTable when available so you can secure your spot</li>
+            </ul>
+
+            <p>The entire flow from discovery to dining is seamless. You watch a video, you are convinced, and you are on your way. No switching between apps, no searching for the restaurant name on another platform, and no wondering if the place is still open.</p>
+
+            <!-- CTA Section -->
+            <div class="feature-cta">
+                <h2>Start Exploring the Map</h2>
+                <p>Download BiteMap free and discover video-reviewed restaurants near you.</p>
+                <div class="cta-buttons">
+                    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="cta-btn cta-btn-primary" target="_blank" rel="noopener">
+                        <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.52 12.88c-.03-3.05 2.5-4.52 2.61-4.59-1.42-2.08-3.63-2.36-4.42-2.4-1.88-.19-3.67 1.11-4.63 1.11-.95 0-2.43-1.08-3.99-1.05-2.05.03-3.95 1.2-5 3.03-2.14 3.7-.55 9.19 1.53 12.2 1.02 1.47 2.23 3.13 3.82 3.07 1.53-.06 2.11-1 3.96-1 1.85 0 2.39 1 4.02.97 1.65-.03 2.7-1.5 3.71-2.98 1.17-1.71 1.65-3.37 1.68-3.45-.04-.02-3.22-1.24-3.29-4.91zM13.49 3.78C14.32 2.77 14.88 1.4 14.74 0c-1.2.05-2.65.8-3.51 1.81-.77.89-1.44 2.31-1.26 3.67 1.33.1 2.69-.68 3.52-1.7z" fill="currentColor"/>
+                        </svg>
+                        Download for iOS
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.bitemap.app&hl=en_CA" class="cta-btn cta-btn-secondary" target="_blank" rel="noopener">
+                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.22.56L11.35 10.7 1.22 20.82c-.14-.2-.22-.44-.22-.7V1.26c0-.26.08-.5.22-.7zM14.9 7.15L3.55.43 12.34 9.22l2.56-2.07zM14.9 14.23l-2.55-2.07 2.55-2.07 3.18 1.83c.54.31.54.82 0 1.13l-3.18 1.18zM3.55 20.95l11.35-6.72-2.56-2.07L3.55 20.95z" fill="currentColor"/>
+                        </svg>
+                        Get on Google Play
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Features -->
+            <div class="related-features">
+                <h3>Explore More Features</h3>
+                <div class="related-links">
+                    <a href="/features/video-reviews" class="related-link">Video Reviews</a>
+                    <a href="/features/ai-recommendations" class="related-link">AI Recommendations</a>
+                    <a href="/features" class="related-link">All Features</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">BiteMap</div>
+            <div class="footer-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/support">Support</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 BiteMap</p>
+        </div>
+    </footer>
+</body>
+</html>

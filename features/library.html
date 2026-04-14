@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library - Saved Posts, Guides, Collections, Watch History & More | BiteMap</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Your BiteMap Library keeps everything organized — saved restaurant reviews, curated guides, personal collections, watch history, like history, and app settings. Never lose a restaurant recommendation again.">
+    <meta name="keywords" content="save restaurant reviews, food collections, restaurant guides, watch history food app, saved restaurants, organize restaurant recommendations">
+    <meta name="author" content="BiteMap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.bitemap.fun/features/library">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bitemap.fun/features/library">
+    <meta property="og:title" content="Library - Saved Posts, Guides, Collections, Watch History & More | BiteMap">
+    <meta property="og:description" content="Your BiteMap Library keeps everything organized — saved restaurant reviews, curated guides, personal collections, watch history, like history, and app settings. Never lose a restaurant recommendation again.">
+    <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
+    <meta property="og:site_name" content="BiteMap">
+    <meta property="og:locale" content="en_CA">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bitemap.fun/features/library">
+    <meta property="twitter:title" content="Library - Saved Posts, Guides, Collections, Watch History & More | BiteMap">
+    <meta property="twitter:description" content="Your BiteMap Library keeps everything organized — saved restaurant reviews, curated guides, personal collections, watch history, like history, and app settings. Never lose a restaurant recommendation again.">
+    <meta property="twitter:image" content="https://www.bitemap.fun/images/og-image.jpg">
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.bitemap.fun/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Features",
+          "item": "https://www.bitemap.fun/features"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Library",
+          "item": "https://www.bitemap.fun/features/library"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: WebPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Library - Saved Posts, Guides, Collections, Watch History & More",
+      "description": "Your BiteMap Library keeps everything organized — saved restaurant reviews, curated guides, personal collections, watch history, like history, and app settings. Never lose a restaurant recommendation again.",
+      "url": "https://www.bitemap.fun/features/library",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "BiteMap",
+        "url": "https://www.bitemap.fun/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "BiteMap",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.bitemap.fun/images/bitemap-logo.png"
+        }
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.bitemap.fun/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://www.bitemap.fun/features"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Library",
+            "item": "https://www.bitemap.fun/features/library"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
+    <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EEZQEGTQDD');
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        a.logo {
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo { color: #1a1a1a; }
+        .nav-links a { color: #1a1a1a; }
+        .nav-links a:hover { opacity: 0.6; }
+
+        .download-btn {
+            background: #FF6B35 !important;
+            color: #fff !important;
+        }
+
+        .download-btn:hover {
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .footer {
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .footer-logo { color: #1a1a1a; }
+        .footer-links a { color: #888; }
+        .footer-links a:hover { color: #FF6B35; }
+        .footer-copy { color: #888; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #FF6B35;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #999;
+            margin: 0 8px;
+        }
+
+        .breadcrumb .current {
+            color: #666;
+        }
+
+        /* Article Layout */
+        .feature-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 20px 80px;
+            line-height: 1.8;
+        }
+
+        .feature-container h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #000;
+            line-height: 1.15;
+        }
+
+        .feature-intro {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .feature-container h2 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin-top: 55px;
+            margin-bottom: 20px;
+            color: #000;
+            line-height: 1.25;
+        }
+
+        .feature-container p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .feature-container ul {
+            margin-bottom: 25px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .feature-container ul li {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 14px;
+            line-height: 1.7;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        .feature-container ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: #FF6B35;
+            border-radius: 50%;
+        }
+
+        .feature-container strong {
+            color: #000;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: #FFF8F5;
+            border-left: 4px solid #FF6B35;
+            padding: 24px 28px;
+            margin: 35px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .highlight-box p {
+            color: #444;
+            margin-bottom: 0;
+            font-size: 1.05rem;
+        }
+
+        /* Section Divider */
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: #FF6B35;
+            border-radius: 2px;
+            margin: 55px 0 0;
+        }
+
+        /* CTA Section */
+        .feature-cta {
+            background: linear-gradient(135deg, #FFF8F5 0%, #FFF0EA 100%);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+            border: 1px solid #FFE0D0;
+        }
+
+        .feature-cta h2 {
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .feature-cta p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .cta-btn-primary {
+            background: #FF6B35;
+            color: #fff;
+            border: 2px solid #FF6B35;
+        }
+
+        .cta-btn-primary:hover {
+            background: #e85d2a;
+            border-color: #e85d2a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-btn-secondary {
+            background: #fff;
+            color: #1a1a1a;
+            border: 2px solid #e0e0e0;
+        }
+
+        .cta-btn-secondary:hover {
+            border-color: #FF6B35;
+            color: #FF6B35;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
+        }
+
+        .cta-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* Internal Links */
+        .related-features {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .related-features h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .related-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .related-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .related-link:hover {
+            background: #FFF0EA;
+            color: #FF6B35;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .breadcrumb {
+                padding-top: 80px;
+            }
+
+            .feature-container h1 {
+                font-size: 2rem;
+            }
+
+            .feature-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .feature-cta {
+                padding: 35px 24px;
+            }
+
+            .feature-cta h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="/images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
+                <span>BiteMap</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/blog/">Blog</a>
+                <a href="/support">Support</a>
+                <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="download-btn" target="_blank" rel="noopener">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <a href="/features">Features</a>
+            <span>/</span>
+            <span class="current">Library</span>
+        </nav>
+
+        <article class="feature-container">
+            <h1>Your Library — Every Restaurant You've Loved, Saved & Discovered</h1>
+
+            <p class="feature-intro">Your BiteMap Library keeps everything organized — saved restaurant reviews, curated guides, personal collections, watch history, like history, and app settings. Think of it as your personal food diary that never forgets a thing. Never lose a restaurant recommendation again.</p>
+
+            <div class="section-divider"></div>
+
+            <h2>Never Lose a Restaurant Recommendation Again</h2>
+
+            <p>How many times have you seen an amazing restaurant on social media and then completely forgotten the name? Someone shares a video of the most incredible-looking pasta, you think "I need to go there," and then two days later you have no idea what it was called or where it was. It happens to everyone, and it is one of the most frustrating parts of discovering food online.</p>
+
+            <p>BiteMap's Library solves this problem entirely. Every video you save, every restaurant you like, every creator you follow — it is all organized in one place. Your Library is your personal food diary, always accessible, always up to date. Whether you saved something five minutes ago or five months ago, it is right there waiting for you when you are ready to eat.</p>
+
+            <div class="highlight-box">
+                <p><strong>Your Library syncs across devices.</strong> Save a restaurant review on your phone during lunch, and it is there when you check the app later that evening. Everything stays in sync so you never miss a recommendation no matter where or when you saved it.</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h2>Saved Posts</h2>
+
+            <p>When you see a video review that makes you hungry, tap save. It goes straight to your Library. Your saved posts are organized by date, and you can filter by cuisine, location, or creator. This makes it easy to find exactly what you are looking for, even if you have saved dozens or hundreds of videos over time.</p>
+
+            <p>Planning a weekend food crawl? Save a bunch of videos during the week and revisit them when you are ready to eat. Heading to a new neighborhood? Filter your saved posts by location and see what you have bookmarked in that area. Saved posts are your intentional bookmarks — the restaurants you specifically want to remember and revisit later.</p>
+
+            <p>Unlike a social media bookmark that gets buried in a generic list, BiteMap's saved posts are tied to restaurant locations and creator profiles. This means you can view your saved posts on the map to see where they are geographically, or tap through to the creator's profile to watch more of their reviews.</p>
+
+            <div class="section-divider"></div>
+
+            <h2>Guides</h2>
+
+            <p>Guides are curated lists of restaurants around a theme — created by BiteMap editors, top food creators, or yourself. They are one of the best ways to discover new restaurants because someone has already done the work of finding and organizing the best spots for a specific occasion or craving.</p>
+
+            <ul>
+                <li><strong>"Best Late Night Eats in Downtown Toronto"</strong> — when you are out past midnight and need something delicious</li>
+                <li><strong>"Top 10 Ramen Spots in the GTA"</strong> — a curated ranking from creators who have tried them all</li>
+                <li><strong>"@marcelloeats' Favourite Hidden Gems"</strong> — a creator's personal picks that you would never find on your own</li>
+                <li><strong>"Date Night Restaurants with Great Ambiance"</strong> — the spots where the atmosphere is as good as the food</li>
+            </ul>
+
+            <p>Browse public guides from creators you follow, or create your own private guides to organize your discoveries. Guides are shareable, so you can send your favourite list to a friend who is visiting town or looking for dinner ideas. Think of guides as curated playlists, but for restaurants.</p>
+
+            <div class="section-divider"></div>
+
+            <h2>Collections</h2>
+
+            <p>Collections are your personal restaurant lists. While guides are themed and often public, collections are flexible and built for your own use. Create collections for any purpose and organize your restaurant discoveries however makes sense to you.</p>
+
+            <ul>
+                <li><strong>"Places to Try"</strong> — your running list of restaurants you want to visit</li>
+                <li><strong>"Date Night Spots"</strong> — save the best ambiance restaurants for special occasions</li>
+                <li><strong>"Lunch Near Work"</strong> — quick weekday options within walking distance of the office</li>
+                <li><strong>"Family Friendly"</strong> — restaurants the whole family will enjoy, from kids to grandparents</li>
+                <li><strong>"Weekend Brunch"</strong> — your go-to brunch rotation so you never have to think about it</li>
+            </ul>
+
+            <p>Share collections with friends or keep them private. When you share a collection, recipients can see all the restaurants in the list along with the video reviews attached to each one. Collections can also be viewed on the Map for geographic context, making it easy to pick a spot based on where you are or where you are heading.</p>
+
+            <div class="highlight-box">
+                <p><strong>Collections on the Map.</strong> Tap any collection to see all its restaurants as pins on BiteMap's interactive map. This is especially useful when you are out and about and want to see which of your saved spots are nearby. Your "Places to Try" collection becomes a personal food map of everywhere you want to eat.</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h2>Watch History</h2>
+
+            <p>Every video you have watched is logged in your Watch History. Saw a restaurant review last week but cannot remember the name? Check your Watch History. It is searchable and filterable, so you can always find that video you are thinking of — even if you did not save it at the time.</p>
+
+            <p>Watch History is sorted chronologically, so you can scroll back to any point in time and see what you were watching. You can also search by restaurant name, cuisine type, or creator to narrow things down. It is like a complete record of every food discovery you have made on BiteMap, whether you acted on it or not.</p>
+
+            <p>This feature is particularly useful for those moments when you remember seeing something incredible but forgot to save it. Instead of scrolling through your feed hoping it shows up again, you just open your Watch History and find it in seconds.</p>
+
+            <div class="section-divider"></div>
+
+            <h2>Like History</h2>
+
+            <p>Every video you have liked is saved in your Like History. This is separate from your saved posts — likes are quick taps, saves are intentional bookmarks. You might like a video because the food looked amazing, the creator was entertaining, or the restaurant caught your eye. Your Like History captures all of those moments.</p>
+
+            <p>Your Like History also plays an important role behind the scenes. It helps BiteMap's algorithm understand your taste and improve your Feed recommendations over time. The more you like, the better BiteMap gets at showing you restaurants and creators that match your preferences. It is a feedback loop that makes the entire app more personalized to how you eat and what you enjoy.</p>
+
+            <div class="section-divider"></div>
+
+            <h2>Settings</h2>
+
+            <p>Your Library also houses your account settings, giving you full control over your BiteMap experience. Everything you need to manage your account is in one place.</p>
+
+            <ul>
+                <li><strong>Profile management</strong> — update your display name, bio, and profile photo</li>
+                <li><strong>Notification preferences</strong> — control what alerts you receive and how often</li>
+                <li><strong>Location settings</strong> — manage how BiteMap uses your location for nearby recommendations</li>
+                <li><strong>Dietary preference settings</strong> — set dietary preferences like vegetarian, halal, gluten-free, or kosher so your recommendations reflect how you eat</li>
+                <li><strong>Connected accounts</strong> — link your social media accounts for a seamless experience</li>
+                <li><strong>Privacy controls</strong> — decide what is visible on your profile and who can see your activity</li>
+            </ul>
+
+            <p>Settings are designed to be straightforward and easy to adjust. Whether you want to fine-tune your notifications or update your dietary preferences after going vegetarian, everything is a few taps away.</p>
+
+            <!-- CTA Section -->
+            <div class="feature-cta">
+                <h2>Download BiteMap Free</h2>
+                <p>Start building your personal food library. Save reviews, create collections, and never forget a restaurant again.</p>
+                <div class="cta-buttons">
+                    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="cta-btn cta-btn-primary" target="_blank" rel="noopener">
+                        <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.52 12.88c-.03-3.05 2.5-4.52 2.61-4.59-1.42-2.08-3.63-2.36-4.42-2.4-1.88-.19-3.67 1.11-4.63 1.11-.95 0-2.43-1.08-3.99-1.05-2.05.03-3.95 1.2-5 3.03-2.14 3.7-.55 9.19 1.53 12.2 1.02 1.47 2.23 3.13 3.82 3.07 1.53-.06 2.11-1 3.96-1 1.85 0 2.39 1 4.02.97 1.65-.03 2.7-1.5 3.71-2.98 1.17-1.71 1.65-3.37 1.68-3.45-.04-.02-3.22-1.24-3.29-4.91zM13.49 3.78C14.32 2.77 14.88 1.4 14.74 0c-1.2.05-2.65.8-3.51 1.81-.77.89-1.44 2.31-1.26 3.67 1.33.1 2.69-.68 3.52-1.7z" fill="currentColor"/>
+                        </svg>
+                        Download for iOS
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.bitemap.app&hl=en_CA" class="cta-btn cta-btn-secondary" target="_blank" rel="noopener">
+                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.22.56L11.35 10.7 1.22 20.82c-.14-.2-.22-.44-.22-.7V1.26c0-.26.08-.5.22-.7zM14.9 7.15L3.55.43 12.34 9.22l2.56-2.07zM14.9 14.23l-2.55-2.07 2.55-2.07 3.18 1.83c.54.31.54.82 0 1.13l-3.18 1.18zM3.55 20.95l11.35-6.72-2.56-2.07L3.55 20.95z" fill="currentColor"/>
+                        </svg>
+                        Get on Google Play
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Features -->
+            <div class="related-features">
+                <h3>Explore More Features</h3>
+                <div class="related-links">
+                    <a href="/features/home-discover" class="related-link">Home & Discover</a>
+                    <a href="/features/feed" class="related-link">Feed</a>
+                    <a href="/features/map-view" class="related-link">Map View</a>
+                    <a href="/features" class="related-link">All Features</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">BiteMap</div>
+            <div class="footer-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/support">Support</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 BiteMap</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Feed - TikTok-Style Restaurant Reviews Based on Location & Preference | BiteMap</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Swipe through BiteMap's video feed — TikTok-style restaurant reviews personalized to your location, preferences, and taste. See real food from local creators, ranked by freshness and virality.">
+    <meta name="keywords" content="TikTok food reviews, video food feed, restaurant video reviews, food TikTok app, swipe restaurant reviews, food creator videos, restaurant discovery feed">
+    <meta name="author" content="BiteMap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.bitemap.fun/features/feed">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bitemap.fun/features/feed">
+    <meta property="og:title" content="Video Feed - TikTok-Style Restaurant Reviews Based on Location & Preference | BiteMap">
+    <meta property="og:description" content="Swipe through BiteMap's video feed — TikTok-style restaurant reviews personalized to your location, preferences, and taste. See real food from local creators, ranked by freshness and virality.">
+    <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
+    <meta property="og:site_name" content="BiteMap">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.bitemap.fun/features/feed">
+    <meta property="twitter:title" content="Video Feed - TikTok-Style Restaurant Reviews Based on Location & Preference | BiteMap">
+    <meta property="twitter:description" content="Swipe through BiteMap's video feed — TikTok-style restaurant reviews personalized to your location, preferences, and taste. See real food from local creators, ranked by freshness and virality.">
+    <meta property="twitter:image" content="https://www.bitemap.fun/images/og-image.jpg">
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.bitemap.fun/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Features",
+          "item": "https://www.bitemap.fun/features"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Video Feed",
+          "item": "https://www.bitemap.fun/features/feed"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: WebPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Video Feed - TikTok-Style Restaurant Reviews Based on Location & Preference",
+      "description": "Swipe through BiteMap's video feed — TikTok-style restaurant reviews personalized to your location, preferences, and taste. See real food from local creators, ranked by freshness and virality.",
+      "url": "https://www.bitemap.fun/features/feed",
+      "publisher": {
+        "@type": "Organization",
+        "name": "BiteMap",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.bitemap.fun/images/bitemap-logo.png"
+        }
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.bitemap.fun/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Features",
+            "item": "https://www.bitemap.fun/features"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Video Feed",
+            "item": "https://www.bitemap.fun/features/feed"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
+    <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EEZQEGTQDD');
+    </script>
+
+    <style>
+        /* Light theme overrides */
+        body {
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        a.logo {
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo { color: #1a1a1a; }
+        .nav-links a { color: #1a1a1a; }
+        .nav-links a:hover { opacity: 0.6; }
+
+        .footer {
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .footer-logo { color: #1a1a1a; }
+        .footer-links a { color: #888; }
+        .footer-links a:hover { color: #FF6B35; }
+        .footer-copy { color: #888; }
+
+        /* Page layout */
+        .page-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 40px;
+        }
+
+        .breadcrumb a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #FF6B35;
+        }
+
+        .breadcrumb .separator {
+            color: #ccc;
+        }
+
+        .breadcrumb .current {
+            color: #555;
+        }
+
+        /* Hero heading */
+        .page-container h1 {
+            font-size: clamp(2.25rem, 5vw, 3.25rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            color: #000;
+        }
+
+        .hero-intro {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 56px;
+        }
+
+        /* Section styling */
+        .content-section {
+            margin-bottom: 56px;
+        }
+
+        .content-section h2 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 20px;
+            line-height: 1.25;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .content-section ul li {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 14px;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .content-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #FF6B35;
+        }
+
+        .content-section blockquote {
+            border-left: 4px solid #FF6B35;
+            padding: 20px 24px;
+            margin: 28px 0;
+            background: #fdf8f5;
+            border-radius: 0 12px 12px 0;
+            font-size: 1.15rem;
+            color: #444;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        /* Section divider */
+        .section-divider {
+            border: none;
+            height: 1px;
+            background: #eee;
+            margin: 56px 0;
+        }
+
+        /* Feature highlight cards */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin: 28px 0;
+        }
+
+        .highlight-card {
+            background: #f8f8f8;
+            border-radius: 14px;
+            padding: 28px 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .highlight-icon {
+            font-size: 1.75rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Comparison list */
+        .comparison-list {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 24px 0;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 18px;
+            padding-left: 0 !important;
+        }
+
+        .comparison-list li::before {
+            display: none !important;
+        }
+
+        .comparison-icon {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: #fff3ed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .comparison-text {
+            flex: 1;
+        }
+
+        .comparison-text strong {
+            display: block;
+            color: #000;
+            margin-bottom: 2px;
+        }
+
+        .comparison-text span {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* CTA section */
+        .cta-section {
+            background: linear-gradient(135deg, #fff7f3 0%, #fff0e9 100%);
+            border-radius: 20px;
+            padding: 48px 40px;
+            text-align: center;
+            margin: 64px 0 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .cta-btn-primary {
+            background: #FF6B35;
+            color: #fff;
+        }
+
+        .cta-btn-primary:hover {
+            background: #e55a28;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-btn-secondary {
+            background: #fff;
+            color: #333;
+            border: 2px solid #e0e0e0;
+        }
+
+        .cta-btn-secondary:hover {
+            border-color: #FF6B35;
+            color: #FF6B35;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .cta-btn svg {
+            flex-shrink: 0;
+        }
+
+        /* Internal links section */
+        .related-links {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid #eee;
+        }
+
+        .related-links h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .related-links-list {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .related-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f8f8f8;
+            color: #333;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .related-link:hover {
+            background: #fff3ed;
+            color: #FF6B35;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 100px 16px 60px;
+            }
+
+            .page-container h1 {
+                font-size: 2rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 36px 24px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="/images/bitemap-logo.png" alt="BiteMap" class="logo-icon">
+                <span>BiteMap</span>
+            </a>
+            <div class="nav-links">
+                <a href="/features">Features</a>
+                <a href="/blog/">Blog</a>
+                <a href="/support">Support</a>
+                <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" class="download-btn" target="_blank" rel="noopener">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span class="separator">/</span>
+                <a href="/features">Features</a>
+                <span class="separator">/</span>
+                <span class="current">Video Feed</span>
+            </nav>
+
+            <h1>The Feed — TikTok-Style Restaurant Reviews, Personalized to You</h1>
+            <p class="hero-intro">BiteMap's Feed is a full-screen, vertical video experience — just like TikTok, but every single video is a restaurant review from a verified food creator. Swipe up to see the next review, swipe down to go back. It is the most engaging way to discover where to eat. No text walls, no star ratings — just real video showing real food from real creators.</p>
+
+            <!-- Section 1: Swipe Through Restaurant Reviews Like TikTok -->
+            <section class="content-section">
+                <h2>Swipe Through Restaurant Reviews Like TikTok</h2>
+
+                <p>If you have ever used TikTok or Instagram Reels, you already know how the BiteMap Feed works. Open the app and you are immediately dropped into a full-screen vertical video of someone reviewing a restaurant near you. There is no home screen, no dashboard, no setup wizard. The content starts playing the moment you land on the Feed tab, and from that point forward, the experience is entirely swipe-driven.</p>
+
+                <p>Swipe up to advance to the next restaurant review. Swipe down to go back to the one you just watched. That is the entire navigation model. Every video fills your entire screen, immersing you in the sights, sounds, and energy of a real dining experience. You see the food being plated, hear the sizzle of the grill, watch the cheese stretch as someone pulls apart a slice of pizza. You get the full sensory experience of being in a restaurant without leaving your couch.</p>
+
+                <p>But unlike TikTok, where restaurant content is mixed in with dance trends, comedy skits, and political commentary, every single video on BiteMap's Feed is a restaurant review. There is zero noise. You are never interrupted by content that has nothing to do with food. This singular focus means you can open BiteMap with one specific question — "where should I eat tonight?" — and get a stream of relevant, useful answers delivered in the most compelling format possible.</p>
+
+                <p>The Feed is designed to feel effortless. You do not need to search, type, or filter anything. Just start swiping and let the algorithm surface the most relevant restaurant reviews based on where you are, what you like, and what is trending right now in your area. Within three or four swipes, you will have seen more genuinely useful restaurant information than you would get from reading dozens of text reviews on Google or Yelp.</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 2: How the Feed Algorithm Works -->
+            <section class="content-section">
+                <h2>How the Feed Algorithm Works</h2>
+
+                <p>The Feed is not random. BiteMap's recommendation engine considers four key signals to surface the most relevant videos for you at any given moment. These signals work together to ensure that every swipe shows you something worth watching — a restaurant you can actually visit, serving food you actually want to eat, reviewed by a creator whose taste you can trust.</p>
+
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <span class="highlight-icon">1.</span>
+                        <h3>Location</h3>
+                        <p>Videos from restaurants near your current location appear first. You will always see places you can actually visit. If you are in downtown Toronto, you see downtown spots. If you are in Scarborough, you see Scarborough gems. The Feed constantly recalibrates based on where you are, so it is always showing restaurants within a practical distance.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="highlight-icon">2.</span>
+                        <h3>Preference</h3>
+                        <p>Based on your viewing history, saved videos, and stated preferences. If you love ramen and Korean food, more of those show up. If you follow specific creators, their content gets priority. The algorithm learns from every interaction — what you watch, what you skip, and what you save — to build a detailed taste profile that sharpens over time.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="highlight-icon">3.</span>
+                        <h3>Freshness</h3>
+                        <p>New reviews get a boost. When a creator reviews a new restaurant or a hot new opening, it surfaces quickly so you stay on top of what is new in your area. This freshness signal ensures that your Feed never feels stale or repetitive. You are always seeing the latest reviews, not content that was posted months ago and has been recycled endlessly.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="highlight-icon">4.</span>
+                        <h3>Virality</h3>
+                        <p>Videos that other users are engaging with — watching fully, saving, sharing — get amplified. Community signals help surface the best content. When a video is being watched all the way through by most viewers, that is a strong indicator of quality. The algorithm recognizes these patterns and pushes the most compelling content to more people.</p>
+                    </div>
+                </div>
+
+                <p>These four signals — location, preference, freshness, and virality — are weighted and blended in real time to produce a Feed that feels handpicked for you. The result is not a generic list of popular restaurants. It is a curated stream of content that balances what is nearby, what matches your palate, what is new and exciting, and what the broader community considers exceptional. No two users see the same Feed, because no two users have the same combination of location, taste, and history.</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 3: What You See in Each Video -->
+            <section class="content-section">
+                <h2>What You See in Each Video</h2>
+
+                <p>Every video in the Feed is packed with information that helps you make an informed dining decision in seconds. The content itself — captured by real food creators in real restaurants — shows you the food being prepared or served, the restaurant atmosphere and interior, and the creator's genuine reaction and commentary as they experience the meal. But beyond the video content itself, BiteMap layers on structured information that makes each review immediately actionable.</p>
+
+                <ul class="comparison-list">
+                    <li>
+                        <div class="comparison-icon">1</div>
+                        <div class="comparison-text">
+                            <strong>Restaurant Overlay</strong>
+                            <span>Every video displays the restaurant name, cuisine type, and neighborhood right on screen. You never have to wonder where the food is from. The overlay is designed to be informative without obstructing the video content, appearing cleanly at the bottom of the screen so you can read it at a glance.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="comparison-icon">2</div>
+                        <div class="comparison-text">
+                            <strong>Creator Profile</strong>
+                            <span>The creator's name, profile photo, and follow button appear on every video. You can instantly see who is behind the review and tap to view their full profile, past reviews, and the restaurants they frequent. Following a creator means their new content gets prioritized in your Feed going forward.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="comparison-icon">3</div>
+                        <div class="comparison-text">
+                            <strong>Distance Indicator</strong>
+                            <span>Every video shows how far the restaurant is from your current location. Whether it says "0.3 km away" or "4.2 km away," you immediately know whether this is a quick walk or a short drive. This removes the guesswork of figuring out if a restaurant is practically accessible to you right now.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="comparison-icon">4</div>
+                        <div class="comparison-text">
+                            <strong>Quick Action Buttons</strong>
+                            <span>On the right side of every video, you have quick-tap buttons for Like, Save, Share, and Order. Like a video to signal your taste to the algorithm. Save it to your Library so you can revisit it later when deciding where to eat. Share it with a friend who is always asking "where should we go?" Or tap Order to jump straight to delivery.</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <p>This combination of rich video content and structured data overlays means that every single video in your Feed is a complete restaurant recommendation. You do not need to leave the Feed to look up the restaurant, check its location, or figure out how to get there. Everything you need to make a decision is right on screen, layered on top of the most honest format for restaurant reviews: unedited video from a real person eating real food.</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 4: Interact and Engage -->
+            <section class="content-section">
+                <h2>Interact and Engage</h2>
+
+                <p>The Feed is not a passive experience. Every interaction you make teaches the algorithm more about what you want to see, and gives you tools to act on the content you are watching. BiteMap is built so that the path from watching a video to eating at the restaurant is as short as possible.</p>
+
+                <ul>
+                    <li><strong>Like</strong> videos to help the algorithm learn your taste. Every like is a signal that tells BiteMap "show me more like this." Over time, your likes build a detailed flavor profile that the recommendation engine uses to surface increasingly relevant content.</li>
+                    <li><strong>Save</strong> videos to your Library for later. Your Library becomes a personalized restaurant wishlist organized by the content that inspired each pick. When Friday night rolls around and you need a dinner spot, your Library has a curated list of places you already know look good.</li>
+                    <li><strong>Share</strong> with friends who are deciding where to eat. Send a specific video review to someone via text, WhatsApp, or any messaging app. Instead of saying "I heard this place is good," you send them a 30-second video that shows exactly what to expect.</li>
+                    <li><strong>Follow</strong> creators whose taste matches yours. When you find a creator who consistently recommends restaurants you end up loving, following them ensures you see their new reviews first. It is like having a trusted friend who eats out more than you do and always knows the best spots.</li>
+                    <li><strong>Tap the restaurant name</strong> to see full details, menu, hours, and directions. The restaurant profile page aggregates all video reviews from every creator who has visited, giving you a comprehensive view from multiple perspectives before you commit to a visit.</li>
+                    <li><strong>Order directly</strong> — tap the Order button to get delivery via Uber Eats, DoorDash, or SkipTheDishes. If you see something that looks incredible but do not feel like going out, you can have it delivered without ever leaving the app. BiteMap connects you to the major delivery platforms so the food comes to you.</li>
+                </ul>
+
+                <p>Every one of these interactions feeds back into the algorithm. The more you engage, the better BiteMap understands your preferences, and the more relevant your Feed becomes. It is a virtuous cycle: better engagement leads to better recommendations, which leads to better restaurants, which leads to more engagement.</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Section 5: Your Feed Gets Smarter Over Time -->
+            <section class="content-section">
+                <h2>Your Feed Gets Smarter Over Time</h2>
+
+                <p>The more you use BiteMap's Feed, the better it understands you. This is not a vague marketing promise — it is a concrete description of how the recommendation engine works. Every action you take inside the app contributes data points that refine your personal taste profile, and that profile directly determines what appears in your Feed.</p>
+
+                <p>The algorithm learns which cuisines you prefer. If you consistently watch ramen reviews to completion but skip past burger content, the system recognizes that pattern and adjusts. It learns which neighborhoods you frequent. If you live in the west end but work downtown, it will show you west end spots in the evening and downtown spots during lunch hours. It learns which creators you trust. If you follow three specific creators and regularly save their videos, content from those creators and others with similar reviewing styles gets prioritized.</p>
+
+                <p>It even learns your price range. If you tend to engage with casual dining spots under twenty dollars and skip past fine dining tasting menus, the Feed calibrates to show you more content in your comfort zone. And if your tastes shift — maybe you start exploring more upscale options or develop an interest in a new cuisine — the algorithm adapts to that shift in real time.</p>
+
+                <blockquote>Within a few sessions, your Feed becomes a personalized restaurant discovery engine that knows exactly what you want to eat. It surfaces the places you would love but have not found yet, reviewed by people whose opinion you trust, within a distance you are willing to travel.</blockquote>
+
+                <p>This personalization is what separates BiteMap from every other restaurant discovery tool. Google Maps shows you the same results it shows everyone else. Yelp ranks restaurants by a mix of paid placements and aggregated star ratings that do not account for your individual taste. TikTok's algorithm is powerful but generic — it is optimizing for engagement across all content categories, not specifically for helping you find your next great meal. BiteMap's Feed is built from the ground up for one purpose: to connect you with the restaurants you will love, as quickly and reliably as possible.</p>
+
+                <p>The longer you use it, the less time you spend deciding where to eat. That is the promise of a Feed that learns. It does the work of filtering through hundreds of restaurants and thousands of reviews so you do not have to. You just swipe, watch, and go.</p>
+            </section>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2>Download BiteMap Free</h2>
+                <p>Start swiping through personalized restaurant reviews from trusted food creators in your city.</p>
+                <div class="cta-buttons">
+                    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank" rel="noopener" class="cta-btn cta-btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        Download for iOS
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.bitemap.app&hl=en_CA" target="_blank" rel="noopener" class="cta-btn cta-btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.77c-.35-.17-.59-.49-.68-.88L2.5 22V2l.01-.89c.09-.39.33-.71.68-.88.35-.18.75-.17 1.1.01l15.24 8.75c.34.19.55.55.55.94v.14c0 .39-.21.75-.55.94L4.28 23.76c-.35.18-.75.19-1.1.01zM14.54 12L5 6.18v11.64L14.54 12z"/></svg>
+                        Get on Android
+                    </a>
+                </div>
+            </div>
+
+            <!-- Related Links -->
+            <div class="related-links">
+                <h3>Explore More Features</h3>
+                <div class="related-links-list">
+                    <a href="/features/home-discover" class="related-link">Home & Discover</a>
+                    <a href="/features/map-view" class="related-link">Map View</a>
+                    <a href="/features/library" class="related-link">Library</a>
+                    <a href="/features" class="related-link">All Features</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">BiteMap</div>
+            <div class="footer-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/support">Support</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 BiteMap</p>
+        </div>
+    </footer>
+</body>
+</html>

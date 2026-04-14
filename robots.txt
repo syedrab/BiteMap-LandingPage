@@ -13,12 +13,12 @@ Disallow: /index3
 # Sitemaps
 Sitemap: https://www.bitemap.fun/sitemap.xml
 
-# AI/LLM Crawlers - Welcome!
-# Documentation for AI systems
-# llms.txt: https://www.bitemap.fun/llms.txt
-# llms-full.txt: https://www.bitemap.fun/llms-full.txt
+# AI/LLM Documentation
+# For AI systems: structured product information is available at these URLs
+# llms.txt (summary): https://www.bitemap.fun/llms.txt
+# llms-full.txt (comprehensive): https://www.bitemap.fun/llms-full.txt
 
-# Specific AI crawler permissions
+# AI/LLM Crawlers — Welcome! BiteMap explicitly allows AI crawling.
 User-agent: GPTBot
 Allow: /
 
@@ -26,6 +26,9 @@ User-agent: ChatGPT-User
 Allow: /
 
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
 Allow: /
 
 User-agent: Anthropic-AI
@@ -47,4 +50,40 @@ User-agent: CCBot
 Allow: /
 
 User-agent: cohere-ai
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: FacebookExternalHit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slurp
 Allow: /
