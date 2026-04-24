@@ -1,0 +1,506 @@
+{
+  "city": "Toronto",
+  "updated": "2026-04-23",
+  "stats": {
+    "restaurants_reviewed": 2400,
+    "creators": 180,
+    "video_reviews": 12000
+  },
+  "creators": [
+    {
+      "id": "mukbangtoronto",
+      "name": "Mukbang Toronto",
+      "handle": "@mukbangtoronto",
+      "specialty": "Portions & value",
+      "reviews_count": 340,
+      "initial": "M"
+    },
+    {
+      "id": "marcelloeats",
+      "name": "Marcello Eats",
+      "handle": "@marcelloeats",
+      "specialty": "Hidden gems",
+      "reviews_count": 285,
+      "initial": "M"
+    },
+    {
+      "id": "to_finest",
+      "name": "TO Finest",
+      "handle": "@to_finest",
+      "specialty": "Fine dining",
+      "reviews_count": 210,
+      "initial": "T"
+    },
+    {
+      "id": "insta.noodls",
+      "name": "Insta Noodls",
+      "handle": "@insta.noodls",
+      "specialty": "Noodles & ramen",
+      "reviews_count": 195,
+      "initial": "N"
+    },
+    {
+      "id": "ttceats",
+      "name": "TTC Eats",
+      "handle": "@ttceats",
+      "specialty": "Transit-accessible eats",
+      "reviews_count": 175,
+      "initial": "T"
+    },
+    {
+      "id": "aarnvrr",
+      "name": "Aarnvrr",
+      "handle": "@aarnvrr",
+      "specialty": "Street food & casual",
+      "reviews_count": 160,
+      "initial": "A"
+    }
+  ],
+  "lists": {
+    "best-ramen": {
+      "title": "Best Ramen in Toronto",
+      "slug": "best-ramen",
+      "subtitle": "The 10 bowls worth braving the cold for",
+      "description": "Toronto's ramen scene has quietly become one of the best in North America. From deep, 18-hour pork bone tonkotsu to clean, delicate shio broths, the city delivers. We asked our creators to film their favorites — here are the 10 that stood out.",
+      "cuisine": "Ramen",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Ramen Isshin",
+          "neighborhood": "North York",
+          "address": "421 College St, Toronto",
+          "price_range": "$$",
+          "known_for": "Rich tonkotsu with perfectly marinated chashu",
+          "creator": "insta.noodls",
+          "caption": "The broth here is absolutely insane. 18 hours of pork bone simmering and you can taste every minute. The chashu melts before it hits your tongue. This is the one.",
+          "views": 45200,
+          "likes": 3800,
+          "video_code": "sample-ramen-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 2,
+          "name": "Konjiki Ramen",
+          "neighborhood": "Downtown",
+          "address": "5 St Joseph St, Toronto",
+          "price_range": "$$",
+          "known_for": "Michelin-recognized clam shio broth",
+          "creator": "marcelloeats",
+          "caption": "Konjiki just hits different. The clam shio broth is unlike anything else in Toronto — delicate, complex, and somehow comforting all at once. Worth every penny.",
+          "views": 38500,
+          "likes": 3200,
+          "video_code": "sample-ramen-2",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 3,
+          "name": "Midori",
+          "neighborhood": "Kensington Market",
+          "address": "18 Baldwin St, Toronto",
+          "price_range": "$$",
+          "known_for": "Spicy miso with housemade noodles",
+          "creator": "mukbangtoronto",
+          "caption": "Midori's spicy miso is genuinely one of the best bowls I've had in Toronto. The noodles are made fresh daily and you can tell. The spice builds perfectly.",
+          "views": 52100,
+          "likes": 4500,
+          "video_code": "sample-ramen-3",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 4,
+          "name": "Santouka",
+          "neighborhood": "Downtown",
+          "address": "91 Dundas St E, Toronto",
+          "price_range": "$$",
+          "known_for": "Shio ramen with melt-in-your-mouth toroniku pork",
+          "creator": "ttceats",
+          "caption": "If you haven't tried the toroniku shio at Santouka you're missing out. That pork cheek is cooked so perfectly it dissolves. The broth is clean but deep.",
+          "views": 31200,
+          "likes": 2800,
+          "video_code": "sample-ramen-4",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 5,
+          "name": "Ryoji Ramen",
+          "neighborhood": "Yonge & Eglinton",
+          "address": "690 Bloor St W, Toronto",
+          "price_range": "$$",
+          "known_for": "Tantanmen and customizable spice levels",
+          "creator": "aarnvrr",
+          "caption": "Ryoji's tantanmen is FIRE. Literally. Got the level 3 spice and my face was sweating by the third bite. But the sesame base balances everything out. So addictive.",
+          "views": 28900,
+          "likes": 2400,
+          "video_code": "sample-ramen-5",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 6,
+          "name": "Kinton Ramen",
+          "neighborhood": "Multiple Locations",
+          "address": "668 Bloor St W, Toronto",
+          "price_range": "$$",
+          "known_for": "Consistent quality across all locations, great pork belly",
+          "creator": "mukbangtoronto",
+          "caption": "Kinton is the reliable king of Toronto ramen. You know exactly what you're getting every time and it never disappoints. The original pork belly tonkotsu is still their best.",
+          "views": 62000,
+          "likes": 5100,
+          "video_code": "sample-ramen-6",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 7,
+          "name": "Hokkaido Ramen Sanpei",
+          "neighborhood": "Chinatown",
+          "address": "350 Spadina Ave, Toronto",
+          "price_range": "$$",
+          "known_for": "Authentic Hokkaido-style miso ramen",
+          "creator": "insta.noodls",
+          "caption": "Sanpei brings that real Hokkaido warmth. The miso broth is thick, rich, and perfectly seasoned. Corn and butter on ramen shouldn't work this well but it does.",
+          "views": 24500,
+          "likes": 2100,
+          "video_code": "sample-ramen-7",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 8,
+          "name": "Sansotei Ramen",
+          "neighborhood": "Dundas Square",
+          "address": "179 Dundas St W, Toronto",
+          "price_range": "$$",
+          "known_for": "Black garlic tonkotsu with incredible depth",
+          "creator": "to_finest",
+          "caption": "That black garlic oil changes everything. Sansotei's tonkotsu is already solid but the mayu adds this smoky, slightly bitter edge that makes it elite.",
+          "views": 33800,
+          "likes": 2900,
+          "video_code": "sample-ramen-8",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 9,
+          "name": "Momofuku Noodle Bar",
+          "neighborhood": "University",
+          "address": "190 University Ave, Toronto",
+          "price_range": "$$$",
+          "known_for": "David Chang's creative ramen interpretations",
+          "creator": "to_finest",
+          "caption": "Momofuku isn't traditional ramen — it's better than that. The pork buns are legendary but their ramen bowls have this depth that comes from real culinary technique, not just time.",
+          "views": 41200,
+          "likes": 3500,
+          "video_code": "sample-ramen-9",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 10,
+          "name": "Ramen Raijin",
+          "neighborhood": "Ossington",
+          "address": "37 Baldwin St, Toronto",
+          "price_range": "$$",
+          "known_for": "Tsukemen (dipping noodles) done right",
+          "creator": "marcelloeats",
+          "caption": "If you haven't tried tsukemen yet, Raijin is where you start. The cold noodles, the thick concentrated dipping broth — it's a completely different ramen experience and it's incredible.",
+          "views": 19800,
+          "likes": 1800,
+          "video_code": "sample-ramen-10",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    },
+    "best-burger": {
+      "title": "Best Burgers in Toronto",
+      "slug": "best-burger",
+      "subtitle": "Smash, wagyu, classic — ranked by who films them best",
+      "description": "Toronto's burger scene goes way beyond fast food. From double-smash patties dripping with cheese to dry-aged wagyu on brioche, the city takes its burgers seriously. Our creators ate through dozens to find the 10 that earned a spot.",
+      "cuisine": "Burgers",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Rudy",
+          "neighborhood": "CityPlace",
+          "address": "11 Brunel Ct, Toronto",
+          "price_range": "$$",
+          "known_for": "Double smash burger with caramelized onions",
+          "creator": "mukbangtoronto",
+          "caption": "Rudy's double smash is the best burger in Toronto and I will die on this hill. The edges are perfectly crispy, the cheese is melted into the patty, and those onions are unreal.",
+          "views": 71000,
+          "likes": 6200,
+          "video_code": "sample-burger-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 2,
+          "name": "Apache Burger",
+          "neighborhood": "Kensington Market",
+          "address": "225 Augusta Ave, Toronto",
+          "price_range": "$$",
+          "known_for": "Wood-fired burgers with creative toppings",
+          "creator": "aarnvrr",
+          "caption": "Apache does burgers different. Everything is wood-fired so you get this smoky char that no flat-top can replicate. The truffle burger with aged cheddar is insane.",
+          "views": 44300,
+          "likes": 3900,
+          "video_code": "sample-burger-2",
+          "thumbnail": "/images/placeholder-food.jpg"
+        },
+        {
+          "rank": 3,
+          "name": "Holy Chuck",
+          "neighborhood": "Yonge & Bloor",
+          "address": "1450 Yonge St, Toronto",
+          "price_range": "$$",
+          "known_for": "Over-the-top creative burgers with premium beef",
+          "creator": "marcelloeats",
+          "caption": "Holy Chuck is where you go when a regular burger won't cut it. The Beelzebub with ghost pepper sauce almost ended me but I'd order it again in a heartbeat.",
+          "views": 38100,
+          "likes": 3300,
+          "video_code": "sample-burger-3",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    },
+    "best-sushi": {
+      "title": "Best Sushi in Toronto",
+      "slug": "best-sushi",
+      "subtitle": "From AYCE to omakase — every price point, every piece on video",
+      "description": "Toronto's sushi scene rivals any city outside Japan. Whether you're looking for a $200 omakase experience or an all-you-can-eat spot that doesn't sacrifice quality, our creators have filmed the best of the best.",
+      "cuisine": "Sushi",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Shoushin",
+          "neighborhood": "Yorkville",
+          "address": "77 Yorkville Ave, Toronto",
+          "price_range": "$$$$",
+          "known_for": "Premium omakase with fish flown in from Tsukiji",
+          "creator": "to_finest",
+          "caption": "Shoushin is the real deal. Every piece of fish is sourced directly from Japan. The 20-course omakase is an experience you don't get anywhere else in Toronto.",
+          "views": 35600,
+          "likes": 3100,
+          "video_code": "sample-sushi-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    },
+    "best-halal": {
+      "title": "Best Halal Restaurants in Toronto",
+      "slug": "best-halal",
+      "subtitle": "Verified halal, every cuisine — trusted by the community",
+      "description": "Toronto has one of the most vibrant halal food scenes in North America. From Middle Eastern grills to halal Japanese, Korean BBQ, and fine dining — our creators have verified the best spots across every cuisine.",
+      "cuisine": "Halal",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Paramount Fine Foods",
+          "neighborhood": "Multiple Locations",
+          "address": "253 Yonge St, Toronto",
+          "price_range": "$$",
+          "known_for": "Lebanese classics done consistently well across all locations",
+          "creator": "mukbangtoronto",
+          "caption": "Paramount is the GOAT of halal dining in Toronto. The mixed grill platter is massive and everything is grilled to perfection. Consistent no matter which location you hit.",
+          "views": 58900,
+          "likes": 5400,
+          "video_code": "sample-halal-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    },
+    "best-korean-bbq": {
+      "title": "Best Korean BBQ in Toronto",
+      "slug": "best-korean-bbq",
+      "subtitle": "Grill your own — creator tested, community approved",
+      "description": "Korean BBQ is a dining experience, not just a meal. Toronto's KBBQ spots range from premium wagyu-grade beef to all-you-can-eat feasts. Our creators sat down, grilled, and filmed every bite.",
+      "cuisine": "Korean BBQ",
+      "items": [
+        {
+          "rank": 1,
+          "name": "GYUBEE Japanese BBQ",
+          "neighborhood": "North York",
+          "address": "5460 Yonge St, Toronto",
+          "price_range": "$$",
+          "known_for": "Premium Japanese-Korean fusion BBQ with A5 wagyu option",
+          "creator": "to_finest",
+          "caption": "GYUBEE's A5 wagyu option is worth every dollar. The marbling is insane and they give you the perfect grill setup. The seafood platter is also seriously underrated.",
+          "views": 42000,
+          "likes": 3700,
+          "video_code": "sample-kbbq-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    },
+    "best-brunch": {
+      "title": "Best Brunch Spots in Toronto",
+      "slug": "best-brunch",
+      "subtitle": "Worth waking up early for — weekend tested",
+      "description": "Brunch in Toronto is a religion. From classic eggs benny to Japanese souffl\u00e9 pancakes, the city's weekend scene is unmatched. Our creators hit the most popular spots and the hidden ones to find the 10 best.",
+      "cuisine": "Brunch",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Maha's Egyptian Brunch",
+          "neighborhood": "Leslieville",
+          "address": "226 Greenwood Ave, Toronto",
+          "price_range": "$$",
+          "known_for": "Egyptian-inspired brunch with bold spices and massive portions",
+          "creator": "marcelloeats",
+          "caption": "Maha's is unlike any brunch you've ever had. The Egyptian eggs are mind-blowing — poached in tomato sauce with cumin and feta. The portion could feed two people honestly.",
+          "views": 48700,
+          "likes": 4200,
+          "video_code": "sample-brunch-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    },
+    "best-thai": {
+      "title": "Best Thai Food in Toronto",
+      "slug": "best-thai",
+      "subtitle": "Pad thai, curries, boat noodles — the real deal",
+      "description": "Toronto's Thai food scene goes deep. Beyond the standard pad thai, you'll find boat noodles, northern Thai sausage, green curry that actually tastes like Thailand, and som tum that brings the heat.",
+      "cuisine": "Thai",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Pai Northern Thai Kitchen",
+          "neighborhood": "Entertainment District",
+          "address": "18 Duncan St, Toronto",
+          "price_range": "$$",
+          "known_for": "Northern Thai classics with incredible pad thai and curries",
+          "creator": "ttceats",
+          "caption": "Pai is the gold standard for Thai food in Toronto. The pad thai is famous for a reason — perfectly sweet, sour, and savory. But the khao soi is the real sleeper hit.",
+          "views": 55100,
+          "likes": 4800,
+          "video_code": "sample-thai-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    },
+    "best-steak": {
+      "title": "Best Steakhouses in Toronto",
+      "slug": "best-steak",
+      "subtitle": "Special occasions, date nights, power dinners",
+      "description": "When you need a perfect steak in Toronto, these are the places that deliver. From classic chophouses to modern steakhouses pushing boundaries, our creators filmed the cuts, the sears, and the sides.",
+      "cuisine": "Steakhouses",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Jacobs & Co. Steakhouse",
+          "neighborhood": "King West",
+          "address": "12 Brant St, Toronto",
+          "price_range": "$$$$",
+          "known_for": "Dry-aged steaks in an elegant King West setting",
+          "creator": "to_finest",
+          "caption": "Jacobs is THE steakhouse in Toronto. The 45-day dry aged ribeye has this nutty, concentrated beef flavor you can't get anywhere else. The wine list is equally impressive.",
+          "views": 39800,
+          "likes": 3400,
+          "video_code": "sample-steak-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    },
+    "best-vegan": {
+      "title": "Best Vegan Restaurants in Toronto",
+      "slug": "best-vegan",
+      "subtitle": "Plant-based spots that even meat lovers enjoy",
+      "description": "Toronto's vegan scene has exploded. These aren't sad salads — we're talking smoked jackfruit sandwiches, mushroom-based ramen, and desserts that'll make you forget about dairy entirely.",
+      "cuisine": "Vegan",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Rosalinda",
+          "neighborhood": "Financial District",
+          "address": "133 Richmond St W, Toronto",
+          "price_range": "$$$",
+          "known_for": "Upscale vegan Mexican with stunning plating",
+          "creator": "marcelloeats",
+          "caption": "Rosalinda proves that vegan food can be fine dining. The cauliflower al pastor is genuinely better than most regular tacos I've had. The space is gorgeous too.",
+          "views": 36400,
+          "likes": 3100,
+          "video_code": "sample-vegan-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    },
+    "best-pizza": {
+      "title": "Best Pizza in Toronto",
+      "slug": "best-pizza",
+      "subtitle": "Neapolitan, New York, Detroit — slice by slice",
+      "description": "Toronto's pizza game is world-class. Whether you want a charred Neapolitan margherita, a foldable New York slice, or a thick, crispy Detroit-style pan pizza, the city delivers.",
+      "cuisine": "Pizza",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Descendant Detroit Style Pizza",
+          "neighborhood": "Queen East",
+          "address": "1168 Queen St E, Toronto",
+          "price_range": "$$",
+          "known_for": "Crispy, cheesy Detroit-style pizza with creative toppings",
+          "creator": "aarnvrr",
+          "caption": "Descendant changed the pizza game in Toronto. That crispy cheese edge on the Detroit-style crust is addictive. The pepperoni with hot honey is a must-order.",
+          "views": 47500,
+          "likes": 4100,
+          "video_code": "sample-pizza-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    },
+    "best-ayce": {
+      "title": "Best All You Can Eat in Toronto",
+      "slug": "best-ayce",
+      "subtitle": "Maximum value, maximum food — creator approved",
+      "description": "AYCE is a Toronto institution. From sushi buffets to Korean BBQ feasts, the city takes unlimited dining seriously. Our creators hit the top spots to find where quality meets quantity.",
+      "cuisine": "All You Can Eat",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Kaka All You Can Eat",
+          "neighborhood": "North York",
+          "address": "5233 Yonge St, Toronto",
+          "price_range": "$$",
+          "known_for": "Premium AYCE sushi with hot food items that rival standalone restaurants",
+          "creator": "mukbangtoronto",
+          "caption": "Kaka AYCE is on another level. The sashimi is actually fresh, the specialty rolls are creative, and the hot dishes like the beef short ribs would be great even at a regular restaurant.",
+          "views": 65400,
+          "likes": 5700,
+          "video_code": "sample-ayce-1",
+          "thumbnail": "/images/placeholder-food.jpg"
+        }
+      ]
+    }
+  },
+  "neighborhoods": {
+    "kensington-market": {
+      "name": "Kensington Market",
+      "description": "Eclectic international eats packed into narrow streets",
+      "vibe": "Casual dining",
+      "spot_count": 140
+    },
+    "queen-west": {
+      "name": "Queen West",
+      "description": "Trendy cocktail bars meet late-night eats",
+      "vibe": "Nightlife + dining",
+      "spot_count": 200
+    },
+    "chinatown": {
+      "name": "Chinatown",
+      "description": "Best and most affordable meals in the city",
+      "vibe": "Best value",
+      "spot_count": 180
+    },
+    "the-danforth": {
+      "name": "The Danforth",
+      "description": "Heart of Greek Town, now home to everything",
+      "vibe": "Family-friendly",
+      "spot_count": 120
+    },
+    "yorkville": {
+      "name": "Yorkville",
+      "description": "Upscale dining for special occasions",
+      "vibe": "Fine dining",
+      "spot_count": 80
+    },
+    "leslieville": {
+      "name": "Leslieville",
+      "description": "Queen East's quiet powerhouse for brunch and indie kitchens",
+      "vibe": "Brunch + indie",
+      "spot_count": 110
+    }
+  }
+}

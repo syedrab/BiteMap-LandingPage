@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8" />
+<title>THE TORONTO FOOD ZINE — ISSUE №06 | BiteMap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The definitive Toronto food guide. A chaotic love letter to the 6ix — in noodles, smoke & skyline. Video reviews from trusted food creators.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.bitemap.fun/toronto">
+<meta property="og:title" content="THE TORONTO FOOD ZINE | BiteMap">
+<meta property="og:description" content="A chaotic love letter to the 6ix — in noodles, smoke & skyline. Video reviews from real food creators.">
+<meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
+<meta property="og:site_name" content="BiteMap">
+<meta property="og:url" content="https://www.bitemap.fun/toronto">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/images/bitemap-logo.png">
+<link rel="apple-touch-icon" href="/images/bitemap-logo.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Shrikhand&family=Rubik+Mono+One&family=Bungee&family=Special+Elite&family=Archivo+Black&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f1ead8;
+    --paper-2:#ece2c7;
+    --ink:#141210;
+    --red:#d62419;
+    --red-deep:#a8160c;
+    --yellow:#f5c518;
+    --tape:rgba(240,220,120,0.55);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}
+  body{
+    background:
+      radial-gradient(1200px 800px at 20% 10%, rgba(214,36,25,0.05), transparent 60%),
+      radial-gradient(900px 600px at 90% 60%, rgba(20,18,16,0.04), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(20,18,16,0.018) 0 2px, transparent 2px 4px),
+      var(--paper);
+  }
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:1;
+    background-image:
+      radial-gradient(rgba(20,18,16,0.08) 1px, transparent 1px),
+      radial-gradient(rgba(20,18,16,0.05) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+    mix-blend-mode:multiply;opacity:.5;
+  }
+  body::after{
+    content:'';position:fixed;inset:-50%;pointer-events:none;z-index:2;opacity:.06;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .wrap{position:relative;z-index:5}
+
+  h1,h2,h3,h4{margin:0;font-weight:400}
+  .marker{font-family:'Permanent Marker',cursive}
+  .caveat{font-family:'Caveat',cursive;font-weight:700}
+  .shrikhand{font-family:'Shrikhand',cursive}
+  .rubik{font-family:'Rubik Mono One',sans-serif}
+  .bungee{font-family:'Bungee',sans-serif}
+  .mono{font-family:'DM Mono',monospace}
+  .archivo{font-family:'Archivo Black',sans-serif}
+
+  /* TAPE */
+  .tape{position:absolute;background:var(--tape);box-shadow:0 1px 0 rgba(0,0,0,0.05);border-left:1px dashed rgba(0,0,0,0.07);border-right:1px dashed rgba(0,0,0,0.07);z-index:6}
+  .tape.blue{background:rgba(120,190,220,0.55)}
+  .tape.red{background:rgba(220,90,80,0.5)}
+  .tape.white{background:rgba(255,255,255,0.7)}
+
+  /* STAMP */
+  .stamp{display:inline-block;padding:.35rem .7rem;border:2px solid var(--red);color:var(--red);font-family:'Archivo Black',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;transform:rotate(-8deg);box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 3px var(--red);opacity:.88}
+
+  /* MARQUEE */
+  .marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}
+  .marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}
+  .marquee-track span{display:inline-flex;align-items:center;gap:1rem}
+  .marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ============================================================
+     LANDING COVER
+  ============================================================ */
+  .cover{
+    position:relative;min-height:100vh;padding:1.5rem 2rem 5rem;
+    overflow:hidden;
+  }
+  .masthead{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    border-bottom:2px solid var(--ink);padding-bottom:.6rem;gap:1rem;flex-wrap:wrap;position:relative;z-index:10;
+  }
+  .masthead .meta{font-family:'DM Mono';font-size:.75rem;line-height:1.4}
+  .masthead .issue{font-family:'Archivo Black';font-size:1rem;letter-spacing:.15em}
+
+  /* Filter tabs */
+  .filter-row{position:relative;z-index:11;display:flex;justify-content:space-between;align-items:center;margin:.6rem 0 .2rem;flex-wrap:wrap;gap:.5rem}
+  .filter-row .sub{margin:0;transform:rotate(-1deg)}
+  .filter-tabs{display:flex;gap:.5rem;flex-wrap:wrap}
+  .filter-tabs button{font-family:'Archivo Black';font-size:.82rem;letter-spacing:.12em;padding:.5rem .95rem;border:2px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 var(--ink);transition:all .15s;text-transform:uppercase;position:relative}
+  .filter-tabs button:hover{transform:translate(-1px,-1px) rotate(-1deg);box-shadow:4px 4px 0 var(--red)}
+  .filter-tabs button.active{background:var(--ink);color:var(--paper);transform:rotate(-1.5deg);box-shadow:3px 3px 0 var(--red)}
+  .filter-tabs button .count{margin-left:.4rem;background:var(--red);color:var(--paper);padding:0 .35rem;font-size:.7rem;border-radius:2px}
+  .filter-tabs button.active .count{background:var(--yellow);color:var(--ink)}
+
+  .titleblock{text-align:center;margin:0.8rem 0 0.4rem;position:relative;z-index:11}
+  .titleblock .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}
+  .titleblock h1{
+    font-family:'Shrikhand',cursive;
+    font-size:clamp(3rem, 10.5vw, 10rem);
+    line-height:.9;
+    letter-spacing:-.01em;
+    margin-top:.4rem;
+    color:var(--ink);
+    text-shadow: 5px 5px 0 var(--red);
+    white-space:nowrap;
+  }
+  .titleblock h1 .and{
+    font-family:'Permanent Marker';color:var(--red);font-size:.55em;display:inline-block;transform:rotate(-6deg) translateY(-.15em);text-shadow:none;margin:0 .1em;
+  }
+  .sub{margin-top:.8rem;font-family:'Caveat';font-weight:700;font-size:clamp(1.3rem,2.6vw,2rem);transform:rotate(-1deg);display:inline-block}
+  .sub u{text-decoration-thickness:3px;text-underline-offset:4px}
+
+  /* ============================================================
+     BACKGROUND ICONOGRAPHY — TORONTO STUFF
+  ============================================================ */
+  .bg-layer{
+    position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden;
+  }
+  .bg-item{
+    position:absolute;opacity:.9;
+    will-change:transform;
+  }
+  .bg-item svg{display:block}
+
+  /* JUST IN strip — newest list at top */
+  .just-in{position:relative;z-index:11;margin:1.2rem 0 .6rem;border:3px solid var(--ink);background:var(--paper-2);box-shadow:6px 6px 0 var(--ink);transform:rotate(-.4deg)}
+  .just-in .ji-head{display:flex;align-items:center;gap:.8rem;padding:.5rem .8rem;background:var(--ink);color:var(--paper);font-family:'Archivo Black';letter-spacing:.15em;font-size:.85rem;position:relative;overflow:hidden}
+  .just-in .ji-head .pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(214,36,25,.7);animation:pulseDot 1.3s infinite}
+  @keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(214,36,25,.7)}70%{box-shadow:0 0 0 10px rgba(214,36,25,0)}100%{box-shadow:0 0 0 0 rgba(214,36,25,0)}}
+  .just-in .ji-head .ribbon{margin-left:auto;background:var(--yellow);color:var(--ink);padding:.15rem .5rem;transform:rotate(3deg);font-size:.7rem;letter-spacing:.2em}
+  .just-in .ji-body{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr .9fr;gap:.6rem;padding:.9rem}
+  .just-in .ji-lede{display:flex;flex-direction:column;gap:.4rem;position:relative}
+  .just-in .ji-lede .date{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--red);letter-spacing:.15em}
+  .just-in .ji-lede h3{font-family:'Shrikhand',cursive;font-size:2.4rem;line-height:.95;color:var(--ink);text-shadow:3px 3px 0 var(--yellow)}
+  .just-in .ji-lede p{font-family:'Special Elite';font-size:.8rem;line-height:1.3;margin:0}
+  .just-in .ji-lede .cta{align-self:flex-start;background:var(--red);color:var(--paper);padding:.3rem .7rem;font-family:'Archivo Black';font-size:.75rem;letter-spacing:.12em;text-decoration:none;transform:rotate(-1.5deg);box-shadow:3px 3px 0 var(--ink)}
+  .just-in .ji-card{position:relative;overflow:hidden;border:2px solid var(--ink);background:#ddd;min-height:150px;transition:transform .25s}
+  .just-in .ji-card:hover{transform:translateY(-3px) rotate(-1deg)}
+  .just-in .ji-card img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(.95)}
+  .just-in .ji-card .tag{position:absolute;top:6px;left:6px;background:var(--red);color:var(--paper);font-family:'Archivo Black';font-size:.6rem;padding:.12rem .4rem;letter-spacing:.1em;transform:rotate(-3deg)}
+  .just-in .ji-card .tag.y{background:var(--yellow);color:var(--ink)}
+  .just-in .ji-card .tag.p{background:#ff4d8d}
+  .just-in .ji-card .tag.t{background:#00a896}
+  .just-in .ji-card .cap{position:absolute;bottom:0;left:0;right:0;background:rgba(20,18,16,.85);color:var(--paper);padding:.35rem .5rem;font-family:'DM Mono',monospace;font-size:.68rem;display:flex;justify-content:space-between;align-items:center}
+  .just-in .ji-card .cap b{color:var(--yellow)}
+  .just-in .ji-aside{display:flex;flex-direction:column;gap:.3rem;justify-content:space-between;font-family:'DM Mono',monospace;font-size:.7rem;border-left:2px dashed var(--ink);padding-left:.6rem}
+  .just-in .ji-aside .mini-list{display:flex;flex-direction:column;gap:.15rem}
+  .just-in .ji-aside .mini-list b{color:var(--red)}
+  .just-in .ji-aside .stamp-new{align-self:center;border:3px solid var(--red);color:var(--red);padding:.25rem .6rem;font-family:'Archivo Black';transform:rotate(-8deg);font-size:.9rem;letter-spacing:.15em;animation:pulseStamp 1.8s ease-in-out infinite}
+  @keyframes pulseStamp{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(-8deg) scale(1.06)}}
+  .just-in .ji-ticker{border-top:2px dashed var(--ink);background:var(--ink);color:var(--paper);padding:.35rem 0;overflow:hidden;white-space:nowrap;font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.1em}
+  .just-in .ji-ticker span{display:inline-block;padding-left:100%;animation:tickerSlide 38s linear infinite}
+  .just-in .ji-ticker i{color:var(--yellow);margin:0 .8rem;font-style:normal}
+  @keyframes tickerSlide{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+
+  /* Post blocks — each "post" is a dated mini-collage; newest on top */
+  .post-feed{position:relative;z-index:10;margin-top:1rem;display:flex;flex-direction:column;gap:1rem}
+  .post-block{position:relative;padding:1rem;border:2px solid var(--ink);background:rgba(255,255,255,.25);box-shadow:5px 5px 0 var(--ink)}
+  .post-block.fresh{background:rgba(245,197,24,.22);border-color:var(--red);box-shadow:6px 6px 0 var(--red)}
+  .post-head{display:flex;align-items:center;gap:.7rem;padding-bottom:.5rem;border-bottom:2px dashed var(--ink);margin-bottom:.9rem;flex-wrap:wrap}
+  .post-date{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.15em;background:var(--ink);color:var(--paper);padding:.2rem .55rem}
+  .post-title{font-family:'Shrikhand',cursive;font-size:1.8rem;line-height:.95;color:var(--ink)}
+  .post-title em{color:var(--red);font-style:normal}
+  .post-dek{font-family:'Special Elite',monospace;font-size:.82rem;opacity:.85;margin-left:auto;max-width:28rem;text-align:right}
+  .fresh-stamp{background:var(--red);color:var(--paper);padding:.2rem .55rem;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.2em;transform:rotate(-4deg);box-shadow:2px 2px 0 var(--ink);animation:pulseStamp 1.8s ease-in-out infinite}
+  @keyframes pulseStamp{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(-4deg) scale(1.07)}}
+  .post-block .mini-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:.5rem;grid-auto-rows:90px;grid-auto-flow:dense}
+  .post-block .mini-grid > *{position:relative}
+  .post-block .mini-grid .mini .clip{width:100%;height:100%;aspect-ratio:auto}
+  .post-block .mini-grid .mini .clip img{width:100%;height:100%;object-fit:cover}
+
+  /* Clip collage feature cards — DENSE */
+  .cover-grid{
+    position:relative;z-index:10;margin-top:2.2rem;
+    display:grid;grid-template-columns:repeat(16,1fr);gap:.6rem;
+    grid-auto-rows:90px;grid-auto-flow:dense;
+  }
+  .cover-grid.filtered{gap:.5rem}
+  .cover-grid > .hoverable.mini{transition:transform .35s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s ease,grid-column .35s ease,grid-row .35s ease}
+  .cover-grid > *{position:relative}
+  .cover-grid .mini .clip{width:100%;height:100%;aspect-ratio:auto}
+  .cover-grid .mini .clip img{width:100%;height:100%;object-fit:cover}
+  .cover-grid .feat-label{position:absolute;top:-8px;left:50%;transform:translateX(-50%) rotate(-3deg);background:var(--red);color:var(--paper);padding:.1rem .5rem;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;z-index:4;white-space:nowrap;box-shadow:2px 2px 0 var(--ink)}
+  .cover-grid .label-yellow{background:var(--yellow);color:var(--ink)}
+  .cover-grid .label-ink{background:var(--ink);color:var(--paper)}
+  .cover-grid .label-pink{background:#ff4d8d;color:var(--paper)}
+  .cover-grid .label-teal{background:#00a896;color:var(--paper)}
+  .cover-grid .label-purple{background:#6a2c91;color:var(--paper)}
+  .cover-grid .label-lime{background:#c6e600;color:var(--ink)}
+  .cover-grid .label-orange{background:#ff6a13;color:var(--ink)}
+  /* mini sub-labels on every image */
+  .cover-grid .sub-label{position:absolute;bottom:6px;left:6px;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.08em;padding:.1rem .4rem;z-index:4;box-shadow:2px 2px 0 rgba(0,0,0,.35);transform:rotate(-2deg);text-transform:uppercase;white-space:nowrap}
+  .cover-grid .sub-label.right{left:auto;right:6px;transform:rotate(2deg)}
+  .cover-grid .sub-label.top{bottom:auto;top:6px}
+  .clip{position:relative;overflow:hidden;background:#ddd;box-shadow:2px 3px 0 rgba(0,0,0,.15),0 0 0 3px var(--paper),0 0 0 4px var(--ink)}
+  .clip img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(.95)}
+  .clip .label{position:absolute;bottom:.4rem;left:.4rem;background:var(--paper);color:var(--ink);padding:.15rem .4rem;font-family:'DM Mono';font-size:.65rem;border:1px solid var(--ink)}
+  .polaroid{background:var(--paper);padding:.6rem .6rem 2.4rem;box-shadow:3px 6px 0 rgba(0,0,0,.18);position:relative}
+  .polaroid .cap{position:absolute;bottom:.4rem;left:0;right:0;text-align:center;font-family:'Caveat';font-size:1.1rem}
+
+  .scribble{position:absolute;font-family:'Permanent Marker';color:var(--red);transform:rotate(-6deg);z-index:8;pointer-events:none}
+
+  .hoverable{transition:transform .25s ease,box-shadow .25s ease;cursor:pointer;display:block;color:inherit;text-decoration:none}
+  .hoverable:hover{transform:rotate(var(--hover-rot,2deg)) scale(1.03);z-index:30}
+  .hoverable:hover .clip,.hoverable:hover .polaroid{box-shadow:6px 10px 0 rgba(214,36,25,.35),0 0 0 3px var(--paper),0 0 0 4px var(--ink)}
+
+  .barcode{display:flex;gap:2px;height:28px;align-items:flex-end;margin-top:.4rem}
+  .barcode i{background:var(--ink);display:block;width:2px;height:100%}
+
+  /* CONTENTS */
+  .contents{padding:1.5rem 2rem;border-top:3px double var(--ink);border-bottom:3px double var(--ink);position:relative;z-index:10}
+  .contents .head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:.4rem}
+  .contents h2{font-family:'Archivo Black';font-size:2rem;letter-spacing:.05em}
+  .toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:1.2rem}
+  .toc a{display:flex;justify-content:space-between;gap:.8rem;align-items:baseline;border-bottom:2px dotted var(--ink);padding:.6rem 0;text-decoration:none;color:inherit;font-family:'Special Elite';transition:all .2s}
+  .toc a:hover{transform:translateX(6px);color:var(--red)}
+  .toc .pg{font-family:'Archivo Black';font-size:1.2rem}
+  .toc .t{font-size:1.1rem}
+  .toc .t b{font-family:'Shrikhand'}
+  .arrow{font-family:'Permanent Marker';color:var(--red);font-size:1.5rem;display:inline-block}
+
+  /* COLOPHON */
+  .colophon{padding:1.5rem 2rem 3rem;text-align:center;position:relative;z-index:10}
+  .colophon h4{font-family:'Shrikhand';font-size:3rem;color:var(--red);line-height:.9}
+  .colophon p{font-family:'DM Mono';font-size:.8rem;max-width:40rem;margin:1rem auto;line-height:1.5}
+
+  /* flying CN tower */
+  .fly-tower{position:fixed;right:-20px;top:40%;width:70px;z-index:60;pointer-events:none;will-change:transform}
+  .fly-tower svg{display:block;width:100%;height:auto;filter:drop-shadow(2px 3px 0 rgba(0,0,0,.25))}
+
+  /* Tweaks */
+  .tweaks{position:fixed;right:16px;bottom:16px;z-index:1000;background:var(--paper);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:.8rem 1rem;font-family:'DM Mono';font-size:.8rem;display:none;width:240px}
+  .tweaks.active{display:block}
+  .tweaks h5{font-family:'Archivo Black';letter-spacing:.15em;font-size:.7rem;margin:0 0 .5rem;border-bottom:2px solid var(--ink);padding-bottom:.3rem}
+  .tweaks label{display:block;margin-bottom:.6rem}
+  .tweaks .row{display:flex;gap:.4rem;flex-wrap:wrap}
+  .tweaks .swatch{width:22px;height:22px;border:2px solid var(--ink);cursor:pointer}
+  .tweaks button{font-family:'DM Mono';border:1px solid var(--ink);background:var(--paper);padding:.25rem .5rem;cursor:pointer;font-size:.7rem}
+  .tweaks button.on{background:var(--ink);color:var(--paper)}
+
+  /* subtle idle floats */
+  @keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-8px) rotate(calc(var(--r,0deg) + 2deg))}}
+  @keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+  /* cta */
+  .cta-link{display:inline-block;margin-top:1rem;padding:.5rem 1rem;border:2px solid currentColor;font-family:'Archivo Black';letter-spacing:.1em;font-size:.8rem;text-transform:uppercase;text-decoration:none;color:inherit;transition:all .2s}
+  .cta-link:hover{background:var(--red);color:var(--paper);border-color:var(--red);transform:rotate(-2deg)}
+
+  @media (max-width:780px){
+    .cover-grid{grid-template-columns:repeat(6,1fr)}
+    .fly-tower{display:none}
+    .titleblock h1{white-space:normal}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ========== TOP MARQUEE ========== -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span><i class="dot"></i> ISSUE №06 / APR 2026</span>
+      <span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
+      <span><i class="dot"></i> PHO · SHAWARMA · ROOFTOPS · MICHELIN</span>
+      <span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+      <span><i class="dot"></i> STARTED FROM THE BOTTOM NOW WE EAT</span>
+      <span><i class="dot"></i> ISSUE №06 / APR 2026</span>
+      <span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
+      <span><i class="dot"></i> PHO · SHAWARMA · ROOFTOPS · MICHELIN</span>
+      <span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+      <span><i class="dot"></i> STARTED FROM THE BOTTOM NOW WE EAT</span>
+    </div>
+  </div>
+
+  <!-- ========== COVER ========== -->
+  <section class="cover" id="cover">
+
+    <!-- BACKGROUND TORONTO ICONOGRAPHY -->
+    <div class="bg-layer" id="bgLayer" aria-hidden="true">
+
+      <!-- big faded CN tower behind title -->
+      <div class="bg-item" data-speed="0.05" style="top:4rem;left:-30px;opacity:.10">
+        <svg width="320" height="600" viewBox="0 0 140 280">
+          <g fill="#141210">
+            <rect x="66" y="0" width="8" height="40"/>
+            <path d="M60 30 L80 30 L78 90 L62 90 Z"/>
+            <path d="M50 85 L90 85 L88 115 L52 115 Z"/>
+            <path d="M58 110 L82 110 L80 150 L60 150 Z"/>
+            <path d="M45 145 L95 155 L92 170 L48 170 Z"/>
+            <path d="M55 165 L85 165 L88 280 L52 280 Z"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Maple leaf big -->
+      <div class="bg-item" data-speed="-0.08" style="top:18rem;right:-40px;opacity:.18;animation:floaty 7s ease-in-out infinite;--r:18deg">
+        <svg width="240" height="240" viewBox="0 0 100 100">
+          <path fill="#d62419" d="M50 6 L54 22 L66 14 L62 30 L80 28 L70 42 L86 48 L72 54 L80 68 L62 64 L58 78 L50 70 L42 78 L38 64 L20 68 L28 54 L14 48 L30 42 L20 28 L38 30 L34 14 L46 22 Z"/>
+        </svg>
+      </div>
+
+      <!-- Maple leaf small -->
+      <div class="bg-item" data-speed="0.12" style="top:60vh;left:20%;opacity:.25;animation:floaty 5s ease-in-out infinite;--r:-12deg">
+        <svg width="80" height="80" viewBox="0 0 100 100">
+          <path fill="#d62419" d="M50 6 L54 22 L66 14 L62 30 L80 28 L70 42 L86 48 L72 54 L80 68 L62 64 L58 78 L50 70 L42 78 L38 64 L20 68 L28 54 L14 48 L30 42 L20 28 L38 30 L34 14 L46 22 Z"/>
+        </svg>
+      </div>
+
+      <!-- OVO owl (Drake reference, original) -->
+      <div class="bg-item" data-speed="-0.04" style="top:10rem;right:14%;opacity:.14">
+        <svg width="160" height="180" viewBox="0 0 100 110">
+          <g fill="#141210">
+            <path d="M50 8 C25 8 14 30 14 50 C14 80 30 102 50 102 C70 102 86 80 86 50 C86 30 75 8 50 8 Z"/>
+            <circle cx="36" cy="44" r="10" fill="#f1ead8"/>
+            <circle cx="64" cy="44" r="10" fill="#f1ead8"/>
+            <circle cx="36" cy="44" r="5" fill="#141210"/>
+            <circle cx="64" cy="44" r="5" fill="#141210"/>
+            <path d="M46 56 L50 62 L54 56 Z" fill="#f5c518"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Raptors "6ix" marker circle -->
+      <div class="bg-item" data-speed="0.14" style="top:3rem;right:25%;opacity:.7;animation:floaty 4s ease-in-out infinite;--r:-6deg">
+        <svg width="110" height="110" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="44" fill="none" stroke="#d62419" stroke-width="4" stroke-dasharray="6 4"/>
+          <text x="50" y="66" text-anchor="middle" font-family="Shrikhand, serif" font-size="48" fill="#d62419">6ix</text>
+        </svg>
+      </div>
+
+      <!-- TTC streetcar -->
+      <div class="bg-item" data-speed="0.15" style="top:48rem;left:-40px;opacity:.85">
+        <svg width="280" height="110" viewBox="0 0 280 110">
+          <g>
+            <rect x="10" y="20" width="250" height="60" fill="#d62419" stroke="#141210" stroke-width="3"/>
+            <rect x="20" y="30" width="40" height="22" fill="#f1ead8" stroke="#141210" stroke-width="2"/>
+            <rect x="68" y="30" width="40" height="22" fill="#f1ead8" stroke="#141210" stroke-width="2"/>
+            <rect x="116" y="30" width="40" height="22" fill="#f1ead8" stroke="#141210" stroke-width="2"/>
+            <rect x="164" y="30" width="40" height="22" fill="#f1ead8" stroke="#141210" stroke-width="2"/>
+            <rect x="212" y="30" width="40" height="22" fill="#f1ead8" stroke="#141210" stroke-width="2"/>
+            <rect x="10" y="58" width="250" height="6" fill="#141210"/>
+            <text x="135" y="76" text-anchor="middle" font-family="Archivo Black" font-size="11" fill="#f1ead8">501 QUEEN</text>
+            <circle cx="50" cy="92" r="10" fill="#141210"/>
+            <circle cx="50" cy="92" r="4" fill="#f1ead8"/>
+            <circle cx="220" cy="92" r="10" fill="#141210"/>
+            <circle cx="220" cy="92" r="4" fill="#f1ead8"/>
+            <line x1="135" y1="4" x2="135" y2="20" stroke="#141210" stroke-width="2"/>
+            <line x1="100" y1="8" x2="170" y2="8" stroke="#141210" stroke-width="1"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Hockey puck -->
+      <div class="bg-item" data-speed="-0.1" style="top:55rem;right:6%;opacity:.8;animation:spin-slow 40s linear infinite">
+        <svg width="120" height="120" viewBox="0 0 100 100">
+          <ellipse cx="50" cy="58" rx="42" ry="12" fill="#141210"/>
+          <ellipse cx="50" cy="50" rx="42" ry="12" fill="#2a2622" stroke="#141210" stroke-width="2"/>
+          <text x="50" y="55" text-anchor="middle" font-family="Archivo Black" font-size="10" fill="#f1ead8">LEAFS</text>
+        </svg>
+      </div>
+
+      <!-- Coffee cup (Tim Hortons vibes, no logo) -->
+      <div class="bg-item" data-speed="0.18" style="top:40rem;left:42%;opacity:.7;--r:-8deg;animation:floaty 6s ease-in-out infinite">
+        <svg width="90" height="120" viewBox="0 0 90 120">
+          <path fill="#8a3a1a" stroke="#141210" stroke-width="2" d="M10 30 L20 110 Q22 118 30 118 L60 118 Q68 118 70 110 L80 30 Z"/>
+          <rect x="8" y="22" width="74" height="12" fill="#d62419" stroke="#141210" stroke-width="2"/>
+          <ellipse cx="45" cy="28" rx="6" ry="2" fill="#f1ead8"/>
+          <text x="45" y="74" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#f1ead8">DOUBLE DOUBLE</text>
+        </svg>
+      </div>
+
+      <!-- Poutine fries -->
+      <div class="bg-item" data-speed="-0.06" style="top:62rem;left:10%;opacity:.8;--r:6deg;animation:floaty 8s ease-in-out infinite">
+        <svg width="130" height="130" viewBox="0 0 100 100">
+          <path fill="#d62419" stroke="#141210" stroke-width="2" d="M28 44 L72 44 L66 94 L34 94 Z"/>
+          <rect x="32" y="12" width="6" height="38" fill="#f5c518" stroke="#141210" stroke-width="1.5"/>
+          <rect x="44" y="6" width="6" height="44" fill="#f5c518" stroke="#141210" stroke-width="1.5"/>
+          <rect x="56" y="14" width="6" height="36" fill="#f5c518" stroke="#141210" stroke-width="1.5"/>
+          <rect x="64" y="18" width="6" height="32" fill="#f5c518" stroke="#141210" stroke-width="1.5"/>
+          <circle cx="50" cy="44" r="6" fill="#f1ead8"/>
+          <circle cx="40" cy="42" r="4" fill="#f1ead8"/>
+        </svg>
+      </div>
+
+      <!-- Skyline strip behind -->
+      <div class="bg-item" data-speed="-0.02" style="bottom:8rem;left:0;right:0;width:100%;opacity:.12">
+        <svg viewBox="0 0 1200 140" preserveAspectRatio="none" style="width:100%;height:140px">
+          <path fill="#141210" d="M0 140 L0 110 L40 110 L40 80 L80 80 L80 95 L120 95 L120 50 L160 50 L160 95 L200 95 L200 70 L240 70 L240 100 L270 100 L270 25 L278 25 L278 0 L286 0 L286 25 L300 25 L300 100 L340 100 L340 80 L420 80 L420 95 L480 95 L480 55 L540 55 L540 95 L620 95 L620 70 L700 70 L700 100 L760 100 L760 50 L820 50 L820 100 L900 100 L900 70 L980 70 L980 95 L1060 95 L1060 80 L1140 80 L1140 95 L1200 95 L1200 140 Z"/>
+        </svg>
+      </div>
+
+      <!-- Little star stickers -->
+      <div class="bg-item" data-speed="0.3" style="top:12rem;left:48%;opacity:.8;animation:floaty 3s ease-in-out infinite">
+        <svg width="40" height="40" viewBox="0 0 20 20"><path fill="#f5c518" stroke="#141210" stroke-width="1" d="M10 1 L12 7 L18 7 L13 11 L15 17 L10 13 L5 17 L7 11 L2 7 L8 7 Z"/></svg>
+      </div>
+      <div class="bg-item" data-speed="-0.25" style="top:30rem;left:62%;opacity:.9;animation:floaty 4s ease-in-out infinite .5s">
+        <svg width="28" height="28" viewBox="0 0 20 20"><path fill="#d62419" stroke="#141210" stroke-width="1" d="M10 1 L12 7 L18 7 L13 11 L15 17 L10 13 L5 17 L7 11 L2 7 L8 7 Z"/></svg>
+      </div>
+      <div class="bg-item" data-speed="0.2" style="top:68rem;left:72%;opacity:.8;animation:floaty 5s ease-in-out infinite 1s">
+        <svg width="36" height="36" viewBox="0 0 20 20"><path fill="#f5c518" stroke="#141210" stroke-width="1" d="M10 1 L12 7 L18 7 L13 11 L15 17 L10 13 L5 17 L7 11 L2 7 L8 7 Z"/></svg>
+      </div>
+
+      <!-- Basketball for Raptors -->
+      <div class="bg-item" data-speed="0.22" style="top:70rem;left:35%;opacity:.75;--r:12deg">
+        <svg width="90" height="90" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="44" fill="#d68238" stroke="#141210" stroke-width="2"/>
+          <path d="M6 50 L94 50 M50 6 L50 94 M18 20 Q50 40 82 20 M18 80 Q50 60 82 80" stroke="#141210" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+
+      <!-- Drake chirp / record -->
+      <div class="bg-item" data-speed="-0.15" style="top:42rem;right:16%;opacity:.8;animation:spin-slow 20s linear infinite">
+        <svg width="120" height="120" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="46" fill="#141210"/>
+          <circle cx="50" cy="50" r="38" fill="none" stroke="#2a2622" stroke-width=".5"/>
+          <circle cx="50" cy="50" r="30" fill="none" stroke="#2a2622" stroke-width=".5"/>
+          <circle cx="50" cy="50" r="22" fill="none" stroke="#2a2622" stroke-width=".5"/>
+          <circle cx="50" cy="50" r="14" fill="#d62419"/>
+          <circle cx="50" cy="50" r="3" fill="#f1ead8"/>
+          <text x="50" y="12" text-anchor="middle" font-family="Archivo Black" font-size="6" fill="#f1ead8">VIEWS</text>
+        </svg>
+      </div>
+
+      <!-- Hockey stick -->
+      <div class="bg-item" data-speed="0.08" style="top:24rem;left:2%;opacity:.55;--r:-40deg">
+        <svg width="220" height="60" viewBox="0 0 220 60">
+          <path fill="#8a5a2a" stroke="#141210" stroke-width="2" d="M2 12 L180 12 L210 40 L210 52 L180 24 L2 24 Z"/>
+          <rect x="2" y="12" width="14" height="12" fill="#141210"/>
+        </svg>
+      </div>
+
+      <!-- "THE 6" big word behind -->
+      <div class="bg-item" data-speed="0.04" style="top:58rem;right:0;opacity:.06;font-family:Rubik Mono One,sans-serif;font-size:18rem;line-height:.8;color:#141210;letter-spacing:-.05em">
+        THE 6
+      </div>
+
+      <!-- hand-drawn heart -->
+      <div class="bg-item" data-speed="-0.2" style="top:6rem;right:40%;opacity:.85;--r:10deg">
+        <svg width="60" height="56" viewBox="0 0 60 56">
+          <path fill="#d62419" stroke="#141210" stroke-width="2" d="M30 50 C8 38 4 20 16 10 C24 4 30 12 30 16 C30 12 36 4 44 10 C56 20 52 38 30 50 Z"/>
+        </svg>
+      </div>
+
+      <!-- Pizza slice -->
+      <div class="bg-item" data-speed="0.1" style="top:36rem;left:55%;opacity:.7;--r:-18deg;animation:floaty 6s ease-in-out infinite 2s">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <path fill="#f5c518" stroke="#141210" stroke-width="2" d="M10 10 L90 10 L50 92 Z"/>
+          <path fill="#d62419" d="M10 10 L90 10 L82 20 L18 20 Z" stroke="#141210" stroke-width="1"/>
+          <circle cx="38" cy="40" r="5" fill="#d62419" stroke="#141210" stroke-width="1"/>
+          <circle cx="55" cy="55" r="5" fill="#d62419" stroke="#141210" stroke-width="1"/>
+          <circle cx="45" cy="70" r="4" fill="#d62419" stroke="#141210" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <!-- Chopsticks -->
+      <div class="bg-item" data-speed="0.06" style="top:76rem;left:50%;opacity:.7;--r:32deg">
+        <svg width="200" height="40" viewBox="0 0 200 40">
+          <polygon fill="#8a5a2a" stroke="#141210" stroke-width="1.5" points="2,14 196,20 196,22 2,18"/>
+          <polygon fill="#8a5a2a" stroke="#141210" stroke-width="1.5" points="2,26 196,26 196,28 2,30"/>
+        </svg>
+      </div>
+
+      <!-- Kebab/shawarma skewer -->
+      <div class="bg-item" data-speed="-0.12" style="top:50rem;left:70%;opacity:.8;--r:-20deg">
+        <svg width="180" height="50" viewBox="0 0 180 50">
+          <line x1="4" y1="25" x2="176" y2="25" stroke="#141210" stroke-width="2"/>
+          <circle cx="30" cy="25" r="12" fill="#c9620a" stroke="#141210" stroke-width="2"/>
+          <rect x="46" y="15" width="20" height="20" fill="#2f7a3a" stroke="#141210" stroke-width="2"/>
+          <circle cx="78" cy="25" r="11" fill="#c9620a" stroke="#141210" stroke-width="2"/>
+          <rect x="94" y="14" width="22" height="22" fill="#d62419" stroke="#141210" stroke-width="2"/>
+          <circle cx="128" cy="25" r="12" fill="#c9620a" stroke="#141210" stroke-width="2"/>
+          <rect x="144" y="15" width="20" height="20" fill="#f5c518" stroke="#141210" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <!-- "eh?" speech bubble -->
+      <div class="bg-item" data-speed="0.28" style="top:15rem;left:32%;opacity:.85;--r:-8deg;animation:floaty 5s ease-in-out infinite">
+        <svg width="90" height="70" viewBox="0 0 90 70">
+          <path fill="#f1ead8" stroke="#141210" stroke-width="2" d="M10 10 Q10 2 20 2 L72 2 Q82 2 82 12 L82 42 Q82 52 72 52 L36 52 L22 66 L28 52 L20 52 Q10 52 10 42 Z"/>
+          <text x="46" y="36" text-anchor="middle" font-family="Shrikhand" font-size="22" fill="#d62419">eh?</text>
+        </svg>
+      </div>
+
+      <!-- Loonie coin -->
+      <div class="bg-item" data-speed="-0.14" style="top:28rem;left:82%;opacity:.8;--r:14deg">
+        <svg width="80" height="80" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="36" fill="#c9a34a" stroke="#141210" stroke-width="2"/>
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#141210" stroke-width="1" stroke-dasharray="2 2"/>
+          <path d="M28 32 Q32 26 40 28 Q48 26 52 32 Q54 40 48 46 Q44 50 40 48 Q36 50 32 46 Q26 40 28 32 Z" fill="#141210"/>
+          <text x="40" y="68" text-anchor="middle" font-family="Archivo Black" font-size="7" fill="#141210">LOONIE</text>
+        </svg>
+      </div>
+
+      <!-- Ketchup chip bag -->
+      <div class="bg-item" data-speed="0.16" style="top:80rem;left:12%;opacity:.85;--r:-14deg">
+        <svg width="100" height="130" viewBox="0 0 100 130">
+          <path fill="#d62419" stroke="#141210" stroke-width="2" d="M10 10 L90 10 L94 120 L6 120 Z"/>
+          <rect x="18" y="18" width="64" height="14" fill="#f1ead8"/>
+          <text x="50" y="29" text-anchor="middle" font-family="Archivo Black" font-size="9" fill="#d62419">KETCHUP</text>
+          <text x="50" y="70" text-anchor="middle" font-family="Shrikhand" font-size="16" fill="#f1ead8">CHIPS</text>
+          <text x="50" y="90" text-anchor="middle" font-family="Archivo Black" font-size="7" fill="#f1ead8">CANADA ONLY</text>
+        </svg>
+      </div>
+
+    </div>
+
+    <!-- MASTHEAD -->
+    <div class="masthead">
+      <div class="meta">
+        <div><b>THE TORONTO FOOD ZINE</b></div>
+        <div>VOL. VI · ISSUE №06 · APRIL 2026</div>
+      </div>
+      <div class="issue">CDN $6.66 · 43.6532° N, 79.3832° W</div>
+      <div class="meta" style="text-align:right">
+        <div>PRINTED IN KENSINGTON</div>
+        <div>CUT · PASTED · STAPLED BY HAND</div>
+      </div>
+    </div>
+
+    <!-- TITLE -->
+    <div class="titleblock">
+      <span class="kicker">FIELD GUIDE № 06</span>
+      <h1>TORONTO <span class="and">&amp;</span> EATS</h1>
+    </div>
+
+    <div class="scribble" style="top:9rem;right:8rem;font-size:1.8rem">eat everything!!</div>
+    <div class="scribble" style="top:26rem;left:44%;font-size:1.4rem;color:var(--ink);transform:rotate(8deg)">↓ dig in ↓</div>
+
+    <!-- FILTER TABS + SUBTITLE on same row -->
+    <div class="filter-row" id="filterTabs">
+      <div class="sub">a <u>chaotic</u> love letter to the <u>6ix</u> — in noodles, smoke &amp; skyline.</div>
+      <div class="filter-tabs">
+        <button class="active" data-filter="all">All <span class="count">∞</span></button>
+        <button data-filter="posts">Posts <span class="count">52</span></button>
+        <button data-filter="areas">Areas <span class="count">6</span></button>
+        <button data-filter="guides">Guides <span class="count">12</span></button>
+      </div>
+    </div>
+
+    <!-- FEED of posts — newest on top -->
+    <div class="post-feed">
+
+      <!-- ========= PREVIOUS POST — Issue 06 big drop ========= -->
+      <div class="post-block" data-kind="posts">
+        <div class="post-head">
+          <span class="post-date">APR 01 • 2026</span>
+          <span class="post-title">Issue <em>06</em> — the big drop</span>
+          <span class="post-dek">52 spots • 6 'hoods • 1 very full editor</span>
+        </div>
+
+    <!-- COVER COLLAGE - DENSE MANY SMALL IMAGES -->
+    <div class="cover-grid">
+
+      <!-- PHO — hero -->
+      <a class="hoverable mini" data-type="posts" href="/toronto/best-pho" style="--hover-rot:-2deg;grid-column:1/span 5;grid-row:1/span 4;transform:rotate(-2deg)">
+        <span class="feat-label">PHO · p.04 ↗</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop" alt="pho"/></div>
+        <div class="tape" style="top:-10px;left:30%;width:70px;height:20px;transform:rotate(-4deg)"></div>
+      </a>
+
+      <!-- Pho sidekicks -->
+      <a class="hoverable mini" data-type="areas" href="/toronto/best-pho" style="--hover-rot:3deg;grid-column:6/span 3;grid-row:1/span 2;transform:rotate(2deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=500&auto=format&fit=crop"/></div>
+        <span class="sub-label label-pink">BROTH-p.05</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="/toronto/best-pho" style="--hover-rot:-3deg;grid-column:6/span 3;grid-row:3/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=500&auto=format&fit=crop"/></div>
+        <span class="sub-label label-lime right">BBQ-p.07</span>
+      </a>
+
+      <!-- MICHELIN -->
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:2deg;grid-column:9/span 4;grid-row:1/span 3;transform:rotate(2deg)">
+        <span class="feat-label label-yellow">★ MICHELIN · p.12</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&auto=format&fit=crop"/></div>
+        <div class="tape red" style="top:-8px;right:20%;width:60px;height:18px;transform:rotate(6deg)"></div>
+      </a>
+
+      <!-- Michelin supporting -->
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-2deg;grid-column:13/span 2;grid-row:1/span 2;transform:rotate(4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-purple">TASTING-p.14</span>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:3deg;grid-column:15/span 2;grid-row:1/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-teal right">BIB-p.18</span>
+      </a>
+
+      <!-- Stamp on cover -->
+      <div style="grid-column:13/span 4;grid-row:3/span 2;display:flex;flex-direction:column;gap:.3rem;padding:.4rem;justify-content:center">
+        <div class="stamp" style="align-self:flex-start">HOT &amp; FRESH</div>
+        <p class="mono" style="font-size:.7rem;line-height:1.3;margin:0">52 spots. 6 'hoods. 1 full editor.</p>
+        <div class="barcode" aria-hidden="true"></div>
+      </div>
+
+      <!-- SHAWARMA row -->
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-3deg;grid-column:1/span 3;grid-row:5/span 2;transform:rotate(-2deg)">
+        <span class="feat-label label-orange">SHAWARMA · p.24</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:2deg;grid-column:4/span 2;grid-row:5/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-ink">GARLIC-p.26</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-2deg;grid-column:6/span 2;grid-row:5/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1633321702518-7feccafb94d5?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-yellow right">PLATE-p.27</span>
+      </a>
+
+      <!-- ROOFTOPS -->
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:2deg;grid-column:8/span 3;grid-row:4/span 3;transform:rotate(3deg)">
+        <span class="feat-label label-ink">ROOFTOPS · p.28</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-2deg;grid-column:11/span 2;grid-row:4/span 2;transform:rotate(-4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-pink">SUNSET-p.30</span>
+      </a>
+
+      <!-- LATE NIGHT card -->
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-2deg;grid-column:13/span 4;grid-row:5/span 3;transform:rotate(-1deg)">
+        <span class="feat-label label-pink">LATE NIGHT · p.32</span>
+        <div class="clip" style="position:relative">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=700&auto=format&fit=crop" alt="late night pizza"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,13,11,0) 30%, rgba(15,13,11,0.85) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:.7rem">
+            <div class="mono" style="font-size:.65rem;letter-spacing:.3em;color:var(--yellow)">OPEN 24/7</div>
+            <div class="bungee" style="font-size:1.4rem;line-height:1;color:var(--paper)">2AM SLICE</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- PATIOS cluster -->
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:1/span 3;grid-row:7/span 3;transform:rotate(-3deg)">
+        <span class="feat-label label-yellow">PATIOS · p.38</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1533777324565-a040eb52facd?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:-2deg;grid-column:4/span 2;grid-row:7/span 2;transform:rotate(4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-teal">SPRITZ-p.40</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:6/span 2;grid-row:7/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-purple right">CANOPY-p.41</span>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-2deg;grid-column:4/span 4;grid-row:9/span 1;transform:rotate(-1deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=500&auto=format&fit=crop"/></div>
+        <span class="sub-label label-lime">GARDEN-p.42</span>
+      </a>
+
+      <!-- BRUNCH cluster -->
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-2deg;grid-column:8/span 3;grid-row:7/span 3;transform:rotate(2deg)">
+        <span class="feat-label label-teal">BRUNCH · p.44</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:3deg;grid-column:11/span 2;grid-row:7/span 2;transform:rotate(-4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-orange">STACK-p.45</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-3deg;grid-column:13/span 2;grid-row:8/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-pink right">EGGS-p.46</span>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:2deg;grid-column:15/span 2;grid-row:8/span 2;transform:rotate(-2deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-yellow">AVO-p.47</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-2deg;grid-column:11/span 2;grid-row:9/span 1;transform:rotate(4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-purple">LATTE-p.48</span>
+      </a>
+
+      <!-- ============ ROW 10-12 :: DIM SUM / BUBBLE TEA / RAMEN ============ -->
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-3deg;grid-column:1/span 4;grid-row:10/span 3;transform:rotate(2deg)">
+        <span class="feat-label label-pink">DIM SUM · p.52</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&auto=format&fit=crop"/></div>
+        <div class="tape yellow" style="top:-8px;left:40%;width:70px;height:18px;transform:rotate(5deg)"></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:5/span 2;grid-row:10/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-lime">HAR GOW-p.53</span>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-2deg;grid-column:7/span 2;grid-row:10/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1582450871972-ab5ca641643d?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-red right">CART-p.54</span>
+      </a>
+
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:9/span 4;grid-row:10/span 3;transform:rotate(-2deg)">
+        <span class="feat-label label-teal">RAMEN · p.56</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:-3deg;grid-column:13/span 2;grid-row:10/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-orange">TONKOTSU-p.57</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:15/span 2;grid-row:10/span 2;transform:rotate(-2deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-purple right">MISO-p.58</span>
+      </a>
+
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-2deg;grid-column:5/span 2;grid-row:12/span 2;transform:rotate(3deg)">
+        <span class="feat-label label-pink">BUBBLE TEA · p.60</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1558024920-b41e1887dc32?w=400&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:7/span 2;grid-row:12/span 2;transform:rotate(-4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-teal">TARO-p.61</span>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-3deg;grid-column:13/span 4;grid-row:12/span 2;transform:rotate(-1deg)">
+        <span class="feat-label label-yellow">DESSERTS · p.62</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&auto=format&fit=crop"/></div>
+      </a>
+
+      <!-- ============ ROW 13-15 :: BAGELS / COFFEE / DIVE BARS ============ -->
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:1/span 3;grid-row:13/span 2;transform:rotate(-3deg)">
+        <span class="feat-label label-orange">BAGELS · p.64</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:-2deg;grid-column:4/span 2;grid-row:14/span 2;transform:rotate(4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-ink">EVERYTHING-p.65</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:6/span 3;grid-row:14/span 3;transform:rotate(-2deg)">
+        <span class="feat-label">COFFEE · p.68</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-2deg;grid-column:9/span 2;grid-row:14/span 2;transform:rotate(4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-purple">POUR-p.69</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:11/span 2;grid-row:14/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1459755486867-b55449bb39ff?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-lime right">CORTADO-p.70</span>
+      </a>
+
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-3deg;grid-column:13/span 4;grid-row:14/span 3;transform:rotate(2deg)">
+        <span class="feat-label label-ink">DIVE BARS · p.72</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=600&auto=format&fit=crop"/></div>
+      </a>
+
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:1/span 2;grid-row:15/span 2;transform:rotate(4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-pink">WINGS-p.73</span>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:-2deg;grid-column:3/span 2;grid-row:16/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-teal">WHISKEY-p.74</span>
+      </a>
+
+      <!-- ============ ROW 16-18 :: SUSHI / KBBQ / TACO / DUMPLING ============ -->
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-2deg;grid-column:5/span 4;grid-row:17/span 3;transform:rotate(-2deg)">
+        <span class="feat-label label-purple">SUSHI OMAKASE · p.76</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&auto=format&fit=crop"/></div>
+        <div class="tape" style="top:-10px;right:20%;width:70px;height:20px;transform:rotate(-6deg)"></div>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:3deg;grid-column:9/span 2;grid-row:17/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-orange">NIGIRI-p.78</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-3deg;grid-column:11/span 2;grid-row:17/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-yellow right">UNI-p.79</span>
+      </a>
+
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:2deg;grid-column:1/span 4;grid-row:17/span 3;transform:rotate(3deg)">
+        <span class="feat-label label-red">KBBQ · p.82</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-2deg;grid-column:13/span 4;grid-row:17/span 3;transform:rotate(-2deg)">
+        <span class="feat-label label-lime">TACOS · p.86</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=600&auto=format&fit=crop"/></div>
+      </a>
+
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:3deg;grid-column:9/span 2;grid-row:19/span 2;transform:rotate(4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-pink">AL PASTOR-p.87</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-2deg;grid-column:11/span 2;grid-row:19/span 2;transform:rotate(-4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-teal right">BIRRIA-p.88</span>
+      </a>
+
+      <!-- ============ ROW 19-21 :: PIZZA / BURGERS / POUTINE / DESSERT ============ -->
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-3deg;grid-column:1/span 4;grid-row:20/span 3;transform:rotate(-2deg)">
+        <span class="feat-label label-orange">PIZZA · p.90</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:5/span 2;grid-row:20/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-ink">NEAPOLITAN-p.91</span>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-2deg;grid-column:7/span 2;grid-row:20/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-yellow right">DETROIT-p.92</span>
+      </a>
+
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:9/span 4;grid-row:20/span 3;transform:rotate(2deg)">
+        <span class="feat-label label-yellow">BURGERS · p.94</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:-2deg;grid-column:13/span 2;grid-row:20/span 2;transform:rotate(-4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-red">SMASH-p.95</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:15/span 2;grid-row:20/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-lime right">DBL-p.96</span>
+      </a>
+
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-3deg;grid-column:5/span 2;grid-row:22/span 2;transform:rotate(-3deg)">
+        <span class="feat-label label-red">POUTINE · p.98</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1598679253544-2c97992403ea?w=400&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:7/span 2;grid-row:22/span 2;transform:rotate(4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1555072956-7758afb20e8f?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-purple">CURDS-p.99</span>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-2deg;grid-column:13/span 4;grid-row:22/span 2;transform:rotate(-2deg)">
+        <span class="feat-label label-teal">ICE CREAM · p.100</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&auto=format&fit=crop"/></div>
+      </a>
+
+      <!-- ============ ROW 23-25 :: BBQ / VEGAN / HOT POT / CHEESE ============ -->
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:1/span 3;grid-row:23/span 3;transform:rotate(2deg)">
+        <span class="feat-label label-ink">BBQ · p.104</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:-2deg;grid-column:4/span 2;grid-row:24/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-yellow">BRISKET-p.105</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:9/span 4;grid-row:23/span 3;transform:rotate(-2deg)">
+        <span class="feat-label label-lime">VEGAN · p.108</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-3deg;grid-column:13/span 2;grid-row:23/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-red">BOWL-p.109</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:15/span 2;grid-row:23/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-pink right">GREEN-p.110</span>
+      </a>
+
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-2deg;grid-column:6/span 3;grid-row:25/span 2;transform:rotate(3deg)">
+        <span class="feat-label label-red">HOT POT · p.114</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1552611052-33e04de081de?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:13/span 2;grid-row:25/span 2;transform:rotate(-4deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-orange">CHEESE-p.116</span>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:-2deg;grid-column:15/span 2;grid-row:25/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-teal right">BOARD-p.117</span>
+      </a>
+
+      <!-- ============ ROW 26-28 :: BAKERY / WINE / NATTO / NIGHTS ============ -->
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:1/span 4;grid-row:26/span 3;transform:rotate(-2deg)">
+        <span class="feat-label label-pink">BAKERY · p.120</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-3deg;grid-column:5/span 2;grid-row:27/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1568471173242-461f0a730452?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-ink">CROISSANT-p.121</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:7/span 2;grid-row:27/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-yellow right">SOURDOUGH-p.122</span>
+      </a>
+
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-2deg;grid-column:9/span 4;grid-row:26/span 3;transform:rotate(2deg)">
+        <span class="feat-label label-purple">NAT. WINE · p.124</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:13/span 2;grid-row:26/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-red">ORANGE-p.125</span>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:-3deg;grid-column:15/span 2;grid-row:26/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-lime right">COCKTAIL-p.126</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:13/span 4;grid-row:28/span 2;transform:rotate(-1deg)">
+        <span class="feat-label label-orange">DATE NIGHT · p.128</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&auto=format&fit=crop"/></div>
+      </a>
+
+      <!-- ============ ROW 29-30 :: STREET / MARKETS / FOOD HALLS ============ -->
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-3deg;grid-column:1/span 4;grid-row:29/span 2;transform:rotate(2deg)">
+        <span class="feat-label label-yellow">ST. LAWRENCE · p.130</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:2deg;grid-column:5/span 2;grid-row:29/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-teal">PEAMEAL-p.131</span>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:-2deg;grid-column:7/span 2;grid-row:29/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-pink right">KENSINGTON-p.132</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:9/span 4;grid-row:29/span 2;transform:rotate(-2deg)">
+        <span class="feat-label label-red">FOOD HALLS · p.134</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:-2deg;grid-column:13/span 2;grid-row:29/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-ink">ASSEMBLY-p.135</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:3deg;grid-column:15/span 2;grid-row:29/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-purple right">STACKT-p.136</span>
+      </a>
+
+      <!-- ============ FINAL ROW :: WEIRD & WILD ============ -->
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:2deg;grid-column:1/span 3;grid-row:31/span 2;transform:rotate(-2deg)">
+        <span class="feat-label label-lime">JERK · p.140</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-3deg;grid-column:4/span 2;grid-row:31/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-red">ROTI-p.141</span>
+      </a>
+      <a class="hoverable mini" data-type="guides" href="#" style="--hover-rot:2deg;grid-column:6/span 3;grid-row:31/span 2;transform:rotate(-3deg)">
+        <span class="feat-label label-orange">DOUBLES · p.142</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1606491048802-8342506d6471?w=500&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-2deg;grid-column:9/span 4;grid-row:31/span 2;transform:rotate(2deg)">
+        <span class="feat-label label-teal">ETHIOPIAN · p.144</span>
+        <div class="clip"><img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=600&auto=format&fit=crop"/></div>
+      </a>
+      <a class="hoverable mini" data-type="areas" href="#" style="--hover-rot:3deg;grid-column:13/span 2;grid-row:31/span 2;transform:rotate(-3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-yellow">INJERA-p.145</span>
+      </a>
+      <a class="hoverable mini" data-type="posts" href="#" style="--hover-rot:-2deg;grid-column:15/span 2;grid-row:31/span 2;transform:rotate(3deg)">
+        <div class="clip"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&auto=format&fit=crop"/></div>
+        <span class="sub-label label-pink right">SALAD-p.146</span>
+      </a>
+
+      <!-- big closing typographic card -->
+      <div style="grid-column:1/span 16;grid-row:33/span 1;display:flex;align-items:center;justify-content:center;background:var(--ink);color:var(--paper);padding:1.2rem;transform:rotate(-.3deg);box-shadow:6px 6px 0 var(--red);margin-top:1rem">
+        <div style="font-family:'Shrikhand',cursive;font-size:clamp(1.6rem,4vw,3rem);letter-spacing:.02em">↓ more lists every <span style="color:var(--yellow)">Friday</span> ↓</div>
+      </div>
+
+    </div>
+      </div><!-- /previous post -->
+    </div><!-- /post-feed -->
+  </section>
+
+  <!-- ========== CONTENTS ========== -->
+  <section class="contents" id="contents">
+    <div class="head">
+      <h2>INSIDE THE ZINE →</h2>
+      <div class="mono" style="font-size:.75rem">TABLE OF (EDIBLE) CONTENTS</div>
+    </div>
+
+    <div class="toc">
+      <a href="/toronto/best-pho"><span class="pg">04</span><span class="t"><b>Best Pho</b> in the 6ix</span><span class="arrow">↗</span></a>
+      <a href="#"><span class="pg">12</span><span class="t"><b>Michelin</b> little black book</span><span class="arrow">↗</span></a>
+      <a href="#"><span class="pg">24</span><span class="t"><b>Shawarma</b> joints that slap</span><span class="arrow">↗</span></a>
+      <a href="#"><span class="pg">28</span><span class="t"><b>Rooftops</b> w/ a skyline</span><span class="arrow">↗</span></a>
+      <a href="#"><span class="pg">32</span><span class="t"><b>Late Night</b> eats</span><span class="arrow">↗</span></a>
+      <a href="#"><span class="pg">38</span><span class="t"><b>Patios</b> when it's 18°C</span><span class="arrow">↗</span></a>
+      <a href="#"><span class="pg">44</span><span class="t"><b>Brunch</b> worth the line</span><span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <!-- ========== COLOPHON ========== -->
+  <section class="colophon">
+    <div class="stamp" style="margin-bottom:1rem">END OF ISSUE</div>
+    <h4>pick your flavour.<br/>eat the city. 🍜</h4>
+    <p>Made in a 4th-floor walk-up in Kensington by editors who have eaten too much and regret nothing. Type set in <b>Shrikhand</b>, <b>Special Elite</b>, <b>Permanent Marker</b>, and <b>DM Mono</b>. Zero sponsorships. Zero PR dinners. One very large receipt pile.</p>
+    <div class="mono" style="font-size:.7rem;margin-top:1.5rem;letter-spacing:.3em">◍ ◍ ◍  TORONTO · 43.6532°N · 79.3832°W  ◍ ◍ ◍</div>
+  </section>
+
+</div>
+
+<!-- Flying CN Tower -->
+<div class="fly-tower" id="flyTower" aria-hidden="true">
+  <svg viewBox="0 0 140 280">
+    <g fill="#141210">
+      <rect x="66" y="0" width="8" height="40"/>
+      <path d="M60 30 L80 30 L78 90 L62 90 Z"/>
+      <path d="M50 85 L90 85 L88 115 L52 115 Z" fill="#d62419"/>
+      <path d="M58 110 L82 110 L80 150 L60 150 Z"/>
+      <path d="M45 145 L95 155 L92 170 L48 170 Z"/>
+      <path d="M55 165 L85 165 L88 280 L52 280 Z"/>
+    </g>
+  </svg>
+</div>
+
+<!-- Tweaks panel -->
+<div class="tweaks" id="tweaks">
+  <h5>⚙ TWEAKS</h5>
+  <label>
+    <div>Paper color</div>
+    <div class="row" id="paperRow">
+      <div class="swatch" data-paper="#f1ead8" style="background:#f1ead8"></div>
+      <div class="swatch" data-paper="#fff8e8" style="background:#fff8e8"></div>
+      <div class="swatch" data-paper="#e8e4d2" style="background:#e8e4d2"></div>
+      <div class="swatch" data-paper="#d8d4c0" style="background:#d8d4c0"></div>
+    </div>
+  </label>
+  <label>
+    <div>Accent</div>
+    <div class="row" id="accentRow">
+      <div class="swatch" data-accent="#d62419" style="background:#d62419"></div>
+      <div class="swatch" data-accent="#f5c518" style="background:#f5c518"></div>
+      <div class="swatch" data-accent="#1a6e3a" style="background:#1a6e3a"></div>
+      <div class="swatch" data-accent="#2e4dae" style="background:#2e4dae"></div>
+    </div>
+  </label>
+  <label>
+    <div>Chaos</div>
+    <div class="row">
+      <button data-chaos="calm">calm</button>
+      <button data-chaos="normal" class="on">normal</button>
+      <button data-chaos="chaotic">chaotic</button>
+    </div>
+  </label>
+  <label>
+    <div>CN Tower scroll</div>
+    <div class="row">
+      <button data-tower="on" class="on">on</button>
+      <button data-tower="off">off</button>
+    </div>
+  </label>
+</div>
+
+<script>
+/* FILTER TABS — reflow grid to fill gaps when filtered */
+(function(){
+  const tabs = document.querySelectorAll('#filterTabs button');
+  const cards = document.querySelectorAll('.cover-grid > .hoverable.mini');
+  const grid = document.querySelector('.cover-grid');
+
+  // Capture each card's original inline grid placement + extract just the SPAN
+  // (e.g. "1/span 5" -> "span 5"). When filtering, we keep the span so size
+  // variety survives, but drop the explicit start-line so CSS auto-places
+  // remaining cards densely with no holes.
+  cards.forEach(card => {
+    const col = card.style.gridColumn || '';
+    const row = card.style.gridRow || '';
+    card.dataset.origCol = col;
+    card.dataset.origRow = row;
+    const colSpan = (col.match(/span\s+\d+/) || [''])[0];
+    const rowSpan = (row.match(/span\s+\d+/) || [''])[0];
+    card.dataset.spanCol = colSpan;
+    card.dataset.spanRow = rowSpan;
+  });
+
+  tabs.forEach(btn => btn.addEventListener('click', () => {
+    tabs.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    const filtering = f !== 'all';
+
+    cards.forEach(card => {
+      const match = !filtering || card.dataset.type === f;
+      if (match) {
+        card.style.display = '';
+        if (filtering) {
+          // Keep size, drop start-line so it auto-places and fills gaps
+          card.style.gridColumn = card.dataset.spanCol || '';
+          card.style.gridRow = card.dataset.spanRow || '';
+        } else {
+          // Restore original collage positions
+          card.style.gridColumn = card.dataset.origCol || '';
+          card.style.gridRow = card.dataset.origRow || '';
+        }
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    grid.classList.toggle('filtered', filtering);
+  }));
+})();
+/* BARCODE */
+(function(){
+  const bc = document.querySelector('.barcode');
+  if(!bc) return;
+  const seed = 'TOFOODZINE06';
+  for(let i=0;i<42;i++){
+    const b = document.createElement('i');
+    const h = 40 + ((seed.charCodeAt(i%seed.length)*(i+3))%60);
+    const w = (i%3===0)? 3 : (i%5===0? 4 : 2);
+    b.style.height = h + '%';
+    b.style.width = w + 'px';
+    bc.appendChild(b);
+  }
+})();
+
+/* TWEAKS */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "paper":"#f1ead8",
+  "accent":"#d62419",
+  "chaos":"normal",
+  "tower":"on"
+}/*EDITMODE-END*/;
+let state = Object.assign({}, TWEAK_DEFAULTS);
+
+function applyState(){
+  document.documentElement.style.setProperty('--paper', state.paper);
+  document.documentElement.style.setProperty('--red', state.accent);
+  document.body.style.background = `
+    radial-gradient(1200px 800px at 20% 10%, ${state.accent}0d, transparent 60%),
+    radial-gradient(900px 600px at 90% 60%, rgba(20,18,16,0.04), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(20,18,16,0.018) 0 2px, transparent 2px 4px),
+    ${state.paper}
+  `;
+  document.documentElement.dataset.chaos = state.chaos;
+  document.getElementById('flyTower').style.display = state.tower === 'off' ? 'none' : '';
+}
+function setupTweaksUI(){
+  document.querySelectorAll('#paperRow .swatch').forEach(s=>{
+    s.onclick = ()=>{ state.paper = s.dataset.paper; applyState(); persist(); };
+  });
+  document.querySelectorAll('#accentRow .swatch').forEach(s=>{
+    s.onclick = ()=>{ state.accent = s.dataset.accent; applyState(); persist(); };
+  });
+  document.querySelectorAll('[data-chaos]').forEach(b=>{
+    b.onclick = ()=>{
+      document.querySelectorAll('[data-chaos]').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+      state.chaos = b.dataset.chaos; applyState(); persist();
+    };
+  });
+  document.querySelectorAll('[data-tower]').forEach(b=>{
+    b.onclick = ()=>{
+      document.querySelectorAll('[data-tower]').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+      state.tower = b.dataset.tower; applyState(); persist();
+    };
+  });
+}
+function persist(){
+  window.parent.postMessage({type:'__edit_mode_set_keys', edits: state}, '*');
+}
+window.addEventListener('message', (e)=>{
+  if(!e.data || !e.data.type) return;
+  if(e.data.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('active');
+  if(e.data.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('active');
+});
+setupTweaksUI();
+applyState();
+window.parent.postMessage({type:'__edit_mode_available'}, '*');
+
+/* FLYING CN TOWER */
+const tower = document.getElementById('flyTower');
+function onScroll(){
+  const y = window.scrollY;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const p = Math.min(1, Math.max(0, y/h));
+  tower.style.top = (85 - p*70) + '%';
+  tower.style.left = (10 + p*75) + '%';
+  tower.style.right = 'auto';
+  const rot = -20 + p*80;
+  const scale = 0.7 + Math.sin(p*Math.PI)*0.6;
+  tower.style.transform = `rotate(${rot}deg) scale(${scale})`;
+  tower.style.opacity = 0.25 + p*0.65;
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+/* BACKGROUND PARALLAX */
+const bgItems = document.querySelectorAll('#bgLayer .bg-item');
+window.addEventListener('scroll', ()=>{
+  const y = window.scrollY;
+  bgItems.forEach(el=>{
+    const speed = parseFloat(el.dataset.speed || 0);
+    const base = el.dataset.baseTf || el.style.transform || '';
+    if(!el.dataset.baseTf) el.dataset.baseTf = base;
+    el.style.transform = `${el.dataset.baseTf} translateY(${y*speed}px)`;
+  });
+}, {passive:true});
+
+/* REVEAL */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      en.target.style.transition = 'transform .6s cubic-bezier(.2,.9,.3,1.2), opacity .6s';
+      en.target.style.opacity = 1;
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.hoverable, .toc a').forEach(el=>{
+  el.style.opacity = 0;
+  io.observe(el);
+});
+
+/* CURSOR CHAOS */
+document.addEventListener('mousemove', (e)=>{
+  if(document.documentElement.dataset.chaos !== 'chaotic') return;
+  if(Math.random() > 0.85){
+    const dot = document.createElement('div');
+    dot.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:6px;height:6px;background:var(--red);border-radius:50%;pointer-events:none;z-index:9999;opacity:.8;transition:all .8s`;
+    document.body.appendChild(dot);
+    requestAnimationFrame(()=>{ dot.style.transform=`translate(${(Math.random()-.5)*40}px, ${20+Math.random()*30}px)`; dot.style.opacity=0; });
+    setTimeout(()=>dot.remove(), 900);
+  }
+});
+</script>
+
+</body>
+</html>

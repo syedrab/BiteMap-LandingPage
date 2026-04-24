@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>BEST PHO IN THE 6IX — The Toronto Food Zine №06</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Shrikhand&family=Rubik+Mono+One&family=Bungee&family=Special+Elite&family=Archivo+Black&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f1ead8;
+    --paper-2:#ece2c7;
+    --ink:#141210;
+    --red:#d62419;
+    --yellow:#f5c518;
+    --tape:rgba(240,220,120,0.55);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}
+  body{
+    background:
+      radial-gradient(1200px 800px at 20% 10%, rgba(214,36,25,0.05), transparent 60%),
+      radial-gradient(900px 600px at 90% 60%, rgba(20,18,16,0.04), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(20,18,16,0.018) 0 2px, transparent 2px 4px),
+      var(--paper);
+  }
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:1;
+    background-image:
+      radial-gradient(rgba(20,18,16,0.08) 1px, transparent 1px),
+      radial-gradient(rgba(20,18,16,0.05) 1px, transparent 1px);
+    background-size:3px 3px, 7px 7px;background-position:0 0,1px 2px;
+    mix-blend-mode:multiply;opacity:.5;
+  }
+  body::after{
+    content:'';position:fixed;inset:-50%;pointer-events:none;z-index:2;opacity:.06;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}
+
+  h1,h2,h3,h4{margin:0;font-weight:400}
+  .marker{font-family:'Permanent Marker',cursive}
+  .caveat{font-family:'Caveat',cursive;font-weight:700}
+  .shrikhand{font-family:'Shrikhand',cursive}
+  .rubik{font-family:'Rubik Mono One',sans-serif}
+  .bungee{font-family:'Bungee',sans-serif}
+  .mono{font-family:'DM Mono',monospace}
+  .archivo{font-family:'Archivo Black',sans-serif}
+
+  /* tape */
+  .tape{position:absolute;background:var(--tape);box-shadow:0 1px 0 rgba(0,0,0,0.05);border-left:1px dashed rgba(0,0,0,0.07);border-right:1px dashed rgba(0,0,0,0.07);z-index:6}
+  .tape.blue{background:rgba(120,190,220,0.55)}
+  .tape.red{background:rgba(220,90,80,0.5)}
+
+  .stamp{display:inline-block;padding:.35rem .7rem;border:2px solid var(--red);color:var(--red);font-family:'Archivo Black',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;transform:rotate(-8deg);box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 3px var(--red);opacity:.88}
+
+  .marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}
+  .marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}
+  .marquee-track span{display:inline-flex;align-items:center;gap:1rem}
+  .marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* BACK NAV */
+  .nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}
+  .nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}
+  .nav-top a:hover{color:var(--red)}
+  .breadcrumb{font-family:'DM Mono';font-size:.75rem}
+  .breadcrumb b{font-family:'Archivo Black'}
+
+  /* HERO */
+  .hero{position:relative;padding:1.8rem 0 1.2rem;text-align:center;border-bottom:3px double var(--ink);z-index:10}
+  .hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}
+  .hero h1{font-family:'Shrikhand',cursive;font-size:clamp(5rem,14vw,13rem);line-height:.9;color:var(--red);text-shadow:6px 6px 0 var(--ink);margin-top:.6rem;white-space:nowrap;letter-spacing:-.02em}
+  .hero .num{font-family:'Rubik Mono One';font-size:1.2rem;letter-spacing:.3em;margin-top:1rem;opacity:.7}
+  .hero .deck{font-family:'Caveat';font-weight:700;font-size:clamp(1.3rem,2.6vw,2rem);max-width:40rem;margin:1rem auto 0;line-height:1.2}
+
+  .hero-scribble{position:absolute;font-family:'Permanent Marker';color:var(--red);pointer-events:none}
+
+  /* INFO BAR */
+  .info-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2rem 0;padding:1rem;border:2px solid var(--ink);background:var(--paper-2);position:relative;z-index:10}
+  .info-bar .stat{text-align:center;border-right:1px dashed var(--ink);padding-right:1rem}
+  .info-bar .stat:last-child{border-right:none}
+  .info-bar .n{font-family:'Rubik Mono One';font-size:2.2rem;color:var(--red);line-height:.9}
+  .info-bar .l{font-family:'DM Mono';font-size:.7rem;letter-spacing:.15em;margin-top:.3rem;text-transform:uppercase}
+
+  /* SECTION HEADERS */
+  .section-head{margin:3rem 0 1.5rem;border-bottom:2px solid var(--ink);padding-bottom:.5rem;display:flex;justify-content:space-between;align-items:baseline;position:relative;z-index:10}
+  .section-head h2{font-family:'Shrikhand';font-size:2.4rem;color:var(--red)}
+  .section-head .side{font-family:'DM Mono';font-size:.7rem;letter-spacing:.2em;opacity:.7}
+
+  /* VERTICAL CREATOR POST CARDS — TikTok-style, tilted, 4-5 across */
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:3rem 2rem;
+    margin:1.5rem 0 4rem;
+    position:relative;z-index:10;
+    padding:2rem 0 2rem;
+    /* break out of .wrap to go full-bleed-ish */
+    width:calc(100vw - 3rem);
+    margin-left:calc(50% - 50vw + 1.5rem);
+  }
+  @media (max-width:1400px){ .reviews-grid{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:1000px){ .reviews-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1.2rem} }
+
+  .review{
+    position:relative;
+    display:block;
+    background:var(--paper);
+    border:2px solid var(--ink);
+    box-shadow:8px 10px 0 rgba(0,0,0,.2);
+    cursor:pointer;
+    text-decoration:none;
+    color:inherit;
+    transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;
+    padding:1rem 1rem 1.2rem;
+  }
+  /* collage-style chaotic tilts (7 variations) */
+  .review:nth-child(7n+1){transform:rotate(-3deg)}
+  .review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}
+  .review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}
+  .review:nth-child(7n+4){transform:rotate(3.5deg)}
+  .review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}
+  .review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}
+  .review:nth-child(7n+7){transform:rotate(-4deg)}
+  .review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}
+
+  /* TOP META: location name + rating + details */
+  .review .top-meta{
+    padding:.3rem .3rem .9rem;
+    border-bottom:2px dashed var(--ink);
+    margin-bottom:.85rem;
+  }
+  .review .top-meta .name{
+    font-family:'Shrikhand';font-size:1.7rem;line-height:1;color:var(--ink);
+    display:block;margin-bottom:.45rem;
+  }
+  .review .top-meta .row2{
+    display:flex;justify-content:space-between;align-items:center;gap:.4rem;flex-wrap:wrap;
+    font-family:'DM Mono';font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  }
+  .review .top-meta .hood{opacity:.75}
+  .review .top-meta .rating{display:flex;gap:2px}
+  .review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+  .review .top-meta .rating i.off{background:rgba(0,0,0,.2)}
+  .review .top-meta .price{font-weight:600;color:var(--red)}
+
+  /* VERTICAL IMAGE — BIGGER */
+  .review .thumb{
+    position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;
+    box-shadow:inset 0 0 0 3px var(--paper), inset 0 0 0 4px var(--ink);
+  }
+  .review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}
+  .review .thumb::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%);
+  }
+  .review .play{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:76px;height:76px;border-radius:50%;
+    background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3;
+  }
+  .review:hover .play{transform:translate(-50%,-50%) scale(1.15)}
+  .review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}
+
+  .review .platform-tag{
+    position:absolute;top:.6rem;left:.6rem;z-index:3;
+    font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;
+    background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);
+    text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4);
+  }
+  .review .duration{
+    position:absolute;top:.6rem;right:.6rem;z-index:3;
+    background:var(--ink);color:var(--paper);padding:.2rem .5rem;
+    font-family:'DM Mono';font-size:.72rem;border:1.5px solid var(--ink);
+  }
+  .review .verdict{
+    position:absolute;top:3.4rem;right:-.5rem;z-index:4;
+    display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;
+    letter-spacing:.1em;background:var(--red);color:var(--paper);
+    box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg);
+  }
+  .review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}
+  .review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}
+
+  /* STATS OVERLAY on bottom of image */
+  .review .stats{
+    position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;
+    display:flex;gap:1rem;color:#fff;
+    font-family:'DM Mono';font-size:.88rem;font-weight:600;
+    text-shadow:0 1px 3px rgba(0,0,0,.8);
+  }
+  .review .stats .stat{display:flex;align-items:center;gap:.3rem}
+  .review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
+
+  /* CREATOR ROW below image */
+  .review .creator-row{
+    display:flex;align-items:center;gap:.75rem;
+    padding:.85rem .25rem .4rem;
+  }
+  .review .avatar{
+    width:48px;height:48px;border-radius:50%;background:#888;
+    border:2px solid var(--ink);overflow:hidden;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;
+    box-shadow:2px 2px 0 rgba(0,0,0,.25);
+  }
+  .review .avatar img{width:100%;height:100%;object-fit:cover}
+  .review .creator-info{min-width:0;flex:1}
+  .review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}
+
+  /* hide old quote if still present */
+  .review .quote{display:none}
+
+  /* decorative bits */
+  .review .pin{
+    position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;
+    background:radial-gradient(circle at 30% 30%, #ff5a4a, var(--red) 60%, #8a0a00);
+    border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3);
+  }
+  .review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}
+  .review .tape-decor{
+    position:absolute;top:-14px;right:20%;width:80px;height:22px;
+    background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;
+    border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1);
+  }
+  .review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}
+  .review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}
+  .review .corner-note{
+    position:absolute;right:-10px;bottom:-18px;z-index:5;
+    font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;
+    transform:rotate(-5deg);
+    background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);
+    box-shadow:2px 2px 0 var(--ink);
+  }
+
+  /* PULL QUOTE */
+  .pullquote{
+    font-family:'Shrikhand';font-size:clamp(1.8rem,4vw,3rem);
+    line-height:1;padding:2rem 1rem;text-align:center;color:var(--red);
+    transform:rotate(-1deg);margin:2rem 0;position:relative;z-index:10;
+  }
+  .pullquote::before,.pullquote::after{content:'"';font-family:'Shrikhand';color:var(--ink);font-size:1.5em;vertical-align:-.3em}
+  .pullquote .attr{display:block;font-family:'Caveat';font-size:1.3rem;color:var(--ink);margin-top:.6rem}
+
+  /* DIRECTORY — the ranked list */
+  .directory{
+    display:grid;grid-template-columns:1fr;gap:0;border:2px solid var(--ink);background:var(--paper);margin-bottom:2rem;position:relative;z-index:10;
+  }
+  .dir-row{
+    display:grid;grid-template-columns:60px 120px 1fr auto;gap:1rem;padding:1rem;
+    border-bottom:1px dashed var(--ink);align-items:center;
+    text-decoration:none;color:inherit;transition:all .2s;
+  }
+  .dir-row:last-child{border-bottom:none}
+  .dir-row:hover{background:var(--paper-2);transform:translateX(6px)}
+  .dir-row .rank{font-family:'Rubik Mono One';font-size:2.2rem;color:var(--red);line-height:1}
+  .dir-row .img{aspect-ratio:4/3;overflow:hidden;box-shadow:2px 3px 0 rgba(0,0,0,.15)}
+  .dir-row .img img{width:100%;height:100%;object-fit:cover;display:block}
+  .dir-row h3{font-family:'Permanent Marker';font-size:1.3rem;line-height:1;margin-bottom:.2rem}
+  .dir-row .tag{font-family:'DM Mono';font-size:.7rem;opacity:.7;letter-spacing:.1em}
+  .dir-row .rating i{width:10px;height:10px;background:var(--red);display:inline-block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);margin-right:1px}
+  .dir-row .rating i.off{background:rgba(0,0,0,.2)}
+
+  /* AD */
+  .ad{border:3px solid var(--ink);padding:1rem;text-align:center;background:var(--yellow);color:var(--ink);transform:rotate(-1.5deg);font-family:'Archivo Black';margin:2rem 0;position:relative;z-index:10}
+  .ad small{display:block;font-family:'DM Mono';font-weight:400;margin-top:.3rem;font-size:.65rem;letter-spacing:.2em}
+  .ad h4{font-family:'Shrikhand';font-size:1.8rem;margin:.3rem 0}
+
+  /* BG ICONOGRAPHY */
+  .bg-layer{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+  .bg-item{position:absolute;will-change:transform}
+  .bg-item svg{display:block}
+
+  @keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(calc(var(--r,0deg) + 3deg))}}
+  @keyframes spin-slow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  @keyframes steam{0%{transform:translateY(0) scaleX(1);opacity:.5}100%{transform:translateY(-40px) scaleX(1.3);opacity:0}}
+
+  /* VIDEO MODAL */
+  .modal{
+    position:fixed;inset:0;background:rgba(15,13,11,.86);z-index:2000;
+    display:none;align-items:center;justify-content:center;padding:2rem;
+  }
+  .modal.open{display:flex}
+  .modal-inner{
+    position:relative;width:min(400px,100%);aspect-ratio:9/16;background:#000;
+    box-shadow:0 0 0 3px var(--paper), 0 0 0 6px var(--ink), 10px 14px 0 rgba(214,36,25,.5);
+    overflow:hidden;
+  }
+  .modal .close{
+    position:absolute;top:-14px;right:-14px;width:44px;height:44px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--ink);cursor:pointer;
+    font-family:'Archivo Black';font-size:1.2rem;z-index:2;
+  }
+  .modal .fake-video{
+    position:relative;width:100%;height:100%;
+    background-size:cover;background-position:center;
+    display:flex;flex-direction:column;justify-content:flex-end;padding:1rem;color:#fff;
+  }
+  .modal .fake-video::after{
+    content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%, rgba(0,0,0,.75));pointer-events:none;
+  }
+  .modal .fake-ui{position:relative;z-index:2;font-family:'DM Mono';font-size:.85rem}
+  .modal .fake-ui .name{font-family:'Archivo Black';font-size:1rem;margin-bottom:.3rem}
+  .modal .fake-ui .cap{margin-top:.4rem;font-family:'Special Elite';font-size:.8rem;line-height:1.3}
+  .modal .fake-play{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:80px;height:80px;background:rgba(255,255,255,.2);border:3px solid #fff;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;
+    backdrop-filter:blur(4px);
+  }
+  .modal .fake-play svg{width:30px;height:30px;fill:#fff;margin-left:4px}
+
+  /* FOOTER NAV */
+  .foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:3rem 0 6rem;position:relative;z-index:10}
+  .foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}
+  .foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}
+  .foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}
+  .foot-nav a:hover .sub{opacity:1}
+
+  @media (max-width:780px){
+    .reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem .8rem}
+    .dir-row{grid-template-columns:40px 80px 1fr}
+    .dir-row .rating{display:none}
+    .foot-nav{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span><i class="dot"></i> FEATURE 01 / BEST PHO</span>
+    <span><i class="dot"></i> 12 BOWLS · 3 HOURS APART · ONE STEAMED-UP NOTEBOOK</span>
+    <span><i class="dot"></i> KEITH LEE WAS HERE</span>
+    <span><i class="dot"></i> BROTH HAS NOTES</span>
+    <span><i class="dot"></i> FEATURE 01 / BEST PHO</span>
+    <span><i class="dot"></i> 12 BOWLS · 3 HOURS APART · ONE STEAMED-UP NOTEBOOK</span>
+    <span><i class="dot"></i> KEITH LEE WAS HERE</span>
+    <span><i class="dot"></i> BROTH HAS NOTES</span>
+  </div>
+</div>
+
+<!-- BACKGROUND LAYER (PHO-THEMED) -->
+<div class="bg-layer" aria-hidden="true">
+  <div class="bg-item" data-speed="0.08" style="top:8rem;left:-40px;opacity:.12">
+    <svg width="220" height="220" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="62" rx="42" ry="8" fill="#141210"/>
+      <path d="M10 60 Q50 40 90 60 L86 76 Q50 84 14 76 Z" fill="#d62419" stroke="#141210" stroke-width="2"/>
+      <path d="M14 58 Q50 38 86 58" fill="none" stroke="#141210" stroke-width="1.5"/>
+      <path d="M28 50 Q40 46 50 50" stroke="#f5c518" stroke-width="2" fill="none"/>
+      <path d="M34 53 Q46 49 54 53" stroke="#f5c518" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+  <div class="bg-item" data-speed="-0.1" style="top:22rem;right:-30px;opacity:.15;--r:18deg;animation:floaty 7s ease-in-out infinite">
+    <svg width="200" height="200" viewBox="0 0 100 100">
+      <path fill="#d62419" d="M50 6 L54 22 L66 14 L62 30 L80 28 L70 42 L86 48 L72 54 L80 68 L62 64 L58 78 L50 70 L42 78 L38 64 L20 68 L28 54 L14 48 L30 42 L20 28 L38 30 L34 14 L46 22 Z"/>
+    </svg>
+  </div>
+  <div class="bg-item" data-speed="0.12" style="top:50rem;left:4%;opacity:.7;--r:20deg;animation:floaty 6s ease-in-out infinite">
+    <svg width="80" height="120" viewBox="0 0 80 120">
+      <rect x="32" y="10" width="4" height="100" fill="#c2a878" stroke="#141210" stroke-width="1"/>
+      <rect x="44" y="10" width="4" height="100" fill="#c2a878" stroke="#141210" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="bg-item" data-speed="-0.14" style="top:80rem;right:5%;opacity:.6;animation:spin-slow 30s linear infinite">
+    <svg width="120" height="120" viewBox="0 0 100 100">
+      <path fill="#2f7a3a" stroke="#141210" stroke-width="2" d="M50 8 Q70 20 78 40 Q86 58 74 78 Q60 92 48 88 Q32 82 26 66 Q20 48 28 28 Q38 12 50 8 Z"/>
+      <path d="M50 16 L50 86" stroke="#141210" stroke-width="1.5"/>
+      <path d="M50 30 Q40 36 34 48 M50 44 Q42 52 38 64 M50 56 Q44 64 42 74" stroke="#141210" stroke-width="1" fill="none"/>
+    </svg>
+  </div>
+  <div class="bg-item" data-speed="0.18" style="top:110rem;left:8%;opacity:.7;--r:-20deg">
+    <svg width="90" height="90" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="44" fill="#d62419" stroke="#141210" stroke-width="2"/>
+      <circle cx="50" cy="50" r="34" fill="none" stroke="#f1ead8" stroke-width="2" stroke-dasharray="3 2"/>
+      <text x="50" y="58" text-anchor="middle" font-family="Shrikhand" font-size="20" fill="#f1ead8">HOT!</text>
+    </svg>
+  </div>
+  <div class="bg-item" data-speed="-0.08" style="top:145rem;right:-20px;opacity:.18">
+    <svg width="240" height="400" viewBox="0 0 140 280">
+      <g fill="#141210">
+        <rect x="66" y="0" width="8" height="40"/>
+        <path d="M60 30 L80 30 L78 90 L62 90 Z"/>
+        <path d="M50 85 L90 85 L88 115 L52 115 Z"/>
+        <path d="M58 110 L82 110 L80 150 L60 150 Z"/>
+        <path d="M45 145 L95 155 L92 170 L48 170 Z"/>
+        <path d="M55 165 L85 165 L88 280 L52 280 Z"/>
+      </g>
+    </svg>
+  </div>
+  <div class="bg-item" data-speed="0.2" style="top:30rem;left:50%;opacity:.7;animation:floaty 4s ease-in-out infinite">
+    <svg width="36" height="36" viewBox="0 0 20 20"><path fill="#f5c518" stroke="#141210" stroke-width="1" d="M10 1 L12 7 L18 7 L13 11 L15 17 L10 13 L5 17 L7 11 L2 7 L8 7 Z"/></svg>
+  </div>
+  <div class="bg-item" data-speed="-0.2" style="top:60rem;left:70%;opacity:.85;animation:floaty 5s ease-in-out infinite">
+    <svg width="46" height="46" viewBox="0 0 20 20"><path fill="#d62419" stroke="#141210" stroke-width="1" d="M10 1 L12 7 L18 7 L13 11 L15 17 L10 13 L5 17 L7 11 L2 7 L8 7 Z"/></svg>
+  </div>
+  <div class="bg-item" data-speed="0.04" style="top:95rem;right:18%;opacity:.06;font-family:Rubik Mono One,sans-serif;font-size:14rem;line-height:.8;color:#141210;letter-spacing:-.05em">PHO</div>
+  <div class="bg-item" data-speed="0.15" style="top:125rem;left:40%;opacity:.8;--r:-15deg;animation:floaty 6s ease-in-out infinite">
+    <svg width="70" height="60" viewBox="0 0 60 56">
+      <path fill="#d62419" stroke="#141210" stroke-width="2" d="M30 50 C8 38 4 20 16 10 C24 4 30 12 30 16 C30 12 36 4 44 10 C56 20 52 38 30 50 Z"/>
+    </svg>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- NAV -->
+  <div class="nav-top">
+    <a href="Toronto Food Zine.html">← BACK TO ISSUE №06</a>
+    <div class="breadcrumb mono">TORONTO FOOD ZINE / <b>BEST PHO</b></div>
+    <a href="#">SHARE →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-scribble" style="top:2rem;left:6%;font-size:1.4rem;transform:rotate(-10deg)">🍜 steaming hot</div>
+    <div class="hero-scribble" style="top:6rem;right:6%;font-size:1.2rem;color:var(--ink);transform:rotate(8deg)">broth = gospel →</div>
+    <div class="hero-scribble" style="bottom:3rem;left:10%;font-size:1.3rem;transform:rotate(-6deg);color:var(--ink)">scroll, u hungry?</div>
+
+    <span class="kicker">FIELD REPORT · 01</span>
+    <h1>Best Pho.</h1>
+  </section>
+
+  <!-- CREATOR BUZZ SECTION -->
+  <!-- VERTICAL REVIEW CARDS -->
+  <div class="reviews-grid">
+
+    <a class="review" href="#" data-video="keith-lee">
+      <div class="pin"></div>
+      <div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Pho Ngoc Yen</span>
+        <div class="row2">
+          <span class="hood">Chinatown W</span>
+          <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="price">$$</span>
+        </div>
+      </div>
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&auto=format&fit=crop" alt="pho"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">2:14</span>
+        <span class="verdict goat">MUST TRY</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>2.4M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>188K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>22K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar"><img src="https://i.pravatar.cc/120?img=12" alt="KL"/></div>
+        <div class="creator-info">
+          <div class="creator-name">Keith Lee</div>
+          <div class="followers">17.2M · TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>The broth is the cleanest I've had outside of Vietnam. 9.3/10. Driving back tomorrow.</div>
+      <div class="corner-note">9.3/10</div>
+    </a>
+
+    <a class="review" href="#" data-video="mikey-chen">
+      <div class="pin" style="background:radial-gradient(circle at 30% 30%, #ffd14a, #f5c518 60%, #8a6600)"></div>
+      <div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Pho Tien Thanh</span>
+        <div class="row2">
+          <span class="hood">Ossington</span>
+          <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="price">$$ · cash</span>
+        </div>
+      </div>
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=600&auto=format&fit=crop" alt="pho"/>
+        <span class="platform-tag">▶ YOUTUBE</span>
+        <span class="duration">8:42</span>
+        <span class="verdict goat">GOAT</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.1M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>94K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>12K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar"><img src="https://i.pravatar.cc/120?img=33" alt="MC"/></div>
+        <div class="creator-info">
+          <div class="creator-name">Mikey Chen</div>
+          <div class="followers">9.8M · YouTube</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>The bowl I've been chasing for ten years. Fat cap on the brisket?? Forget it.</div>
+      <div class="corner-note" style="background:#d62419;color:#f1ead8">★★★★★</div>
+    </a>
+
+    <a class="review" href="#" data-video="toronto-foodie">
+      <div class="pin"></div>
+      <div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Pho Hu'ng</span>
+        <div class="row2">
+          <span class="hood">Chinatown</span>
+          <span class="rating"><i></i><i></i><i></i><i></i><i class="off"></i></span>
+          <span class="price">$</span>
+        </div>
+      </div>
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600&auto=format&fit=crop" alt="pho"/>
+        <span class="platform-tag">◉ IG REEL</span>
+        <span class="duration">0:58</span>
+        <span class="verdict">SOLID</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>412K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>38K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>4.2K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar"><img src="https://i.pravatar.cc/120?img=47" alt="TF"/></div>
+        <div class="creator-info">
+          <div class="creator-name">@torontofoodiefeed</div>
+          <div class="followers">412K · Instagram</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Downtown lunch pho that doesn't make you nap at your desk. Rare beef sliced newspaper-thin.</div>
+      <div class="corner-note">8.1/10</div>
+    </a>
+
+    <a class="review" href="#" data-video="eat-in-tdot">
+      <div class="pin"></div>
+      <div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Golden Turtle</span>
+        <div class="row2">
+          <span class="hood">Ossington</span>
+          <span class="rating"><i></i><i></i><i></i><i></i><i class="off"></i></span>
+          <span class="price">$ · under $15</span>
+        </div>
+      </div>
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=600&auto=format&fit=crop" alt="pho"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:32</span>
+        <span class="verdict goat">BUDGET GOAT</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>680K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>55K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>9.1K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar"><img src="https://i.pravatar.cc/120?img=68" alt="ET"/></div>
+        <div class="creator-info">
+          <div class="creator-name">Eat In T-Dot</div>
+          <div class="followers">186K · TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Full bowl, spring rolls, iced coffee — under twenty bucks?? In THIS economy? Come ON.</div>
+      <div class="corner-note" style="background:#2a6e3a;color:#f1ead8">💰 CHEAP</div>
+    </a>
+
+    <a class="review" href="#" data-video="anh-chef">
+      <div class="pin"></div>
+      <div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Anh &amp; Chi</span>
+        <div class="row2">
+          <span class="hood">Danforth</span>
+          <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="price">$$$ · fancy</span>
+        </div>
+      </div>
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&auto=format&fit=crop" alt="pho"/>
+        <span class="platform-tag">▶ YOUTUBE</span>
+        <span class="duration">11:08</span>
+        <span class="verdict goat">MUST TRY</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>2.1M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>140K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>18K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar"><img src="https://i.pravatar.cc/120?img=5" alt="AN"/></div>
+        <div class="creator-info">
+          <div class="creator-name">Chef Anh Nguyen</div>
+          <div class="followers">2.1M · YouTube</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>My grandmother would approve. And she approves of <em>nothing</em>. Star anise hits at the right moment.</div>
+      <div class="corner-note">GRANDMA ✓</div>
+    </a>
+
+    <a class="review" href="#" data-video="brian-lau">
+      <div class="pin"></div>
+      <div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Saigon Lotus</span>
+        <div class="row2">
+          <span class="hood">North York</span>
+          <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="price">$$ · take 401</span>
+        </div>
+      </div>
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=600&auto=format&fit=crop" alt="pho"/>
+        <span class="platform-tag">◉ IG REEL</span>
+        <span class="duration">1:12</span>
+        <span class="verdict goat">WORTH DRIVE</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>820K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>72K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>11K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar"><img src="https://i.pravatar.cc/120?img=15" alt="BL"/></div>
+        <div class="creator-info">
+          <div class="creator-name">Brian Lau</div>
+          <div class="followers">820K · Instagram</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Drove 45 min for this bowl. Would drive 90. Tastes like someone's mom has made it since the 70s.</div>
+      <div class="corner-note" style="background:#f5c518">401 WORTHY</div>
+    </a>
+
+    <a class="review" href="#" data-video="soup-daddy">
+      <div class="pin"></div>
+      <div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Pho 88</span>
+        <div class="row2">
+          <span class="hood">Spadina</span>
+          <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+          <span class="price">$</span>
+        </div>
+      </div>
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=600&auto=format&fit=crop" alt="pho"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">3:04</span>
+        <span class="verdict mid">MID</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>320K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>18K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>2.1K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar"><img src="https://i.pravatar.cc/120?img=60" alt="SD"/></div>
+        <div class="creator-info">
+          <div class="creator-name">Soup Daddy</div>
+          <div class="followers">640K · TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Mid. I really wanted to love it. Noodles soft, broth thin, hype SENDING me. 6/10.</div>
+      <div class="corner-note" style="background:#f1ead8;color:#141210">6/10</div>
+    </a>
+
+  </div>
+
+  <!-- AD BREAK -->
+  <div class="ad">
+    <small>A DELIBERATE INTERRUPTION</small>
+    <h4>WE ONLY EAT AT PLACES<br/>THAT FOG UP THE WINDOWS.</h4>
+    <div class="mono" style="font-size:.75rem;margin-top:.4rem">— the zine's only editorial policy</div>
+  </div>
+
+  <!-- pullquote break -->
+  <div class="pullquote">
+    the broth has notes. YES like wine. it has NOTES.<span class="attr">— overheard, table 4, 11:42pm</span>
+  </div>
+
+  <!-- DIRECTORY -->
+  <div class="section-head">
+    <h2>the full list.</h2>
+    <div class="side">ALL 12 BOWLS · RANKED</div>
+  </div>
+
+  <div class="directory">
+    <a class="dir-row" href="#">
+      <div class="rank">01</div>
+      <div class="img"><img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=400&auto=format&fit=crop"/></div>
+      <div>
+        <h3>Pho Tien Thanh</h3>
+        <div class="tag">OSSINGTON · 4 creators featured · $$</div>
+      </div>
+      <div class="rating"><i></i><i></i><i></i><i></i><i></i></div>
+    </a>
+    <a class="dir-row" href="#">
+      <div class="rank">02</div>
+      <div class="img"><img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=400&auto=format&fit=crop"/></div>
+      <div>
+        <h3>Pho Ngoc Yen</h3>
+        <div class="tag">CHINATOWN W · KEITH LEE STAMP · $$</div>
+      </div>
+      <div class="rating"><i></i><i></i><i></i><i></i><i></i></div>
+    </a>
+    <a class="dir-row" href="#">
+      <div class="rank">03</div>
+      <div class="img"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=400&auto=format&fit=crop"/></div>
+      <div>
+        <h3>Anh &amp; Chi</h3>
+        <div class="tag">DANFORTH · sit-down · $$$</div>
+      </div>
+      <div class="rating"><i></i><i></i><i></i><i></i><i></i></div>
+    </a>
+    <a class="dir-row" href="#">
+      <div class="rank">04</div>
+      <div class="img"><img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&auto=format&fit=crop"/></div>
+      <div>
+        <h3>Pho Hu'ng</h3>
+        <div class="tag">CHINATOWN · old guard · $</div>
+      </div>
+      <div class="rating"><i></i><i></i><i></i><i></i><i class="off"></i></div>
+    </a>
+    <a class="dir-row" href="#">
+      <div class="rank">05</div>
+      <div class="img"><img src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=400&auto=format&fit=crop"/></div>
+      <div>
+        <h3>Saigon Lotus</h3>
+        <div class="tag">NORTH YORK · worth the drive · $$</div>
+      </div>
+      <div class="rating"><i></i><i></i><i></i><i></i><i></i></div>
+    </a>
+    <a class="dir-row" href="#">
+      <div class="rank">06</div>
+      <div class="img"><img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=400&auto=format&fit=crop"/></div>
+      <div>
+        <h3>Golden Turtle</h3>
+        <div class="tag">OSSINGTON · budget pick · $</div>
+      </div>
+      <div class="rating"><i></i><i></i><i></i><i></i><i class="off"></i></div>
+    </a>
+    <a class="dir-row" href="#">
+      <div class="rank">07</div>
+      <div class="img"><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&auto=format&fit=crop"/></div>
+      <div>
+        <h3>Bún Bò Hue 168</h3>
+        <div class="tag">SCARBOROUGH · spicy cousin · $</div>
+      </div>
+      <div class="rating"><i></i><i></i><i></i><i></i><i class="off"></i></div>
+    </a>
+    <a class="dir-row" href="#">
+      <div class="rank">08</div>
+      <div class="img"><img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=400&auto=format&fit=crop"/></div>
+      <div>
+        <h3>Pho Linh</h3>
+        <div class="tag">JUNCTION · late-night · $</div>
+      </div>
+      <div class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    </a>
+    <a class="dir-row" href="#">
+      <div class="rank">09</div>
+      <div class="img"><img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=400&auto=format&fit=crop"/></div>
+      <div>
+        <h3>Pho Metro</h3>
+        <div class="tag">MISSISSAUGA · big bowls · $</div>
+      </div>
+      <div class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    </a>
+    <a class="dir-row" href="#">
+      <div class="rank">10</div>
+      <div class="img"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=400&auto=format&fit=crop"/></div>
+      <div>
+        <h3>Pho 88</h3>
+        <div class="tag">SPADINA · ubiquitous · $</div>
+      </div>
+      <div class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    </a>
+  </div>
+
+  <!-- FOOT NAV -->
+  <div class="foot-nav">
+    <a href="Toronto Food Zine.html">← BACK TO COVER<span class="sub">Issue №06</span></a>
+    <a href="#">NEXT: MICHELIN →<span class="sub">Starred &amp; Spotted</span></a>
+    <a href="#">SUBMIT A SPOT<span class="sub">Tip the zine</span></a>
+  </div>
+
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-inner">
+    <button class="close" id="modalClose">×</button>
+    <div class="fake-video" id="fakeVideo">
+      <div class="fake-play" id="fakePlay"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+      <div class="fake-ui">
+        <div class="name" id="modalName">—</div>
+        <div class="cap" id="modalQuote">—</div>
+        <div style="margin-top:.6rem;opacity:.8" id="modalMeta">—</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* PARALLAX BG */
+const bgItems = document.querySelectorAll('.bg-item');
+window.addEventListener('scroll', ()=>{
+  const y = window.scrollY;
+  bgItems.forEach(el=>{
+    const speed = parseFloat(el.dataset.speed || 0);
+    const base = el.dataset.baseTf || el.style.transform || '';
+    if(!el.dataset.baseTf) el.dataset.baseTf = base;
+    el.style.transform = `${el.dataset.baseTf} translateY(${y*speed}px)`;
+  });
+}, {passive:true});
+
+/* REVEAL */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      en.target.style.transition = 'transform .6s cubic-bezier(.2,.9,.3,1.2), opacity .6s';
+      en.target.style.opacity = 1;
+      if(en.target.classList.contains('review')){
+        // don't touch transform — let CSS nth-child tilts do their thing
+      } else {
+        en.target.style.transform = (en.target.dataset.baseTf || '') + ' translateY(0)';
+      }
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.review').forEach(el=>{
+  el.style.opacity = 0; // fade-only reveal, keep CSS transform
+  io.observe(el);
+});
+document.querySelectorAll('.dir-row').forEach(el=>{
+  el.style.opacity = 0;
+  el.style.transform = 'translateY(24px)';
+  io.observe(el);
+});
+
+/* VIDEO MODAL */
+const modal = document.getElementById('modal');
+const mName = document.getElementById('modalName');
+const mQuote = document.getElementById('modalQuote');
+const mMeta = document.getElementById('modalMeta');
+const fakeVid = document.getElementById('fakeVideo');
+
+document.querySelectorAll('.review').forEach(r=>{
+  r.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const creator = r.querySelector('.creator-name')?.textContent || '';
+    const follow = r.querySelector('.followers')?.textContent || '';
+    const quote = r.querySelector('.quote')?.textContent.replace(/"/g,'').trim() || '';
+    const placeName = r.querySelector('.place .name')?.textContent || '';
+    const placeHood = r.querySelector('.place .hood')?.textContent || '';
+    const imgSrc = r.querySelector('.thumb img')?.src || '';
+    mName.textContent = creator + ' · ' + follow;
+    mQuote.textContent = quote;
+    mMeta.textContent = '📍 ' + placeName + ' · ' + placeHood;
+    fakeVid.style.backgroundImage = `url("${imgSrc}")`;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+document.getElementById('modalClose').onclick = ()=>{ modal.classList.remove('open'); document.body.style.overflow=''; };
+modal.addEventListener('click', (e)=>{ if(e.target===modal){ modal.classList.remove('open'); document.body.style.overflow=''; } });
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ modal.classList.remove('open'); document.body.style.overflow=''; } });
+</script>
+
+</body>
+</html>
