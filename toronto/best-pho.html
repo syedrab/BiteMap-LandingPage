@@ -82,7 +82,7 @@
   /* HERO */
   .hero{position:relative;padding:1rem 0 0.6rem;text-align:center;border-bottom:3px double var(--ink);z-index:10}
   .hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}
-  .hero h1{font-family:'Shrikhand',cursive;font-size:clamp(5rem,14vw,13rem);line-height:.9;color:var(--red);text-shadow:6px 6px 0 var(--ink);margin-top:.6rem;white-space:nowrap;letter-spacing:-.02em}
+  .hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;white-space:nowrap;letter-spacing:-.02em}
   .hero .num{font-family:'Rubik Mono One';font-size:1.2rem;letter-spacing:.3em;margin-top:.5rem;opacity:.7}
   .hero .deck{font-family:'Caveat';font-weight:700;font-size:clamp(1.3rem,2.6vw,2rem);max-width:40rem;margin:.5rem auto 0;line-height:1.2}
 
@@ -137,25 +137,20 @@
   .review:nth-child(7n+7){transform:rotate(-4deg)}
   .review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}
 
-  /* TOP META: location name + rating + details */
+  /* TOP META: name + stars on one line */
   .review .top-meta{
-    padding:.3rem .3rem .9rem;
+    padding:.3rem .3rem .6rem;
     border-bottom:2px dashed var(--ink);
-    margin-bottom:.85rem;
+    margin-bottom:.7rem;
+    display:flex;justify-content:space-between;align-items:center;gap:.5rem;
   }
   .review .top-meta .name{
-    font-family:'Shrikhand';font-size:1.7rem;line-height:1;color:var(--ink);
-    display:block;margin-bottom:.45rem;
+    font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;
   }
-  .review .top-meta .row2{
-    display:flex;justify-content:space-between;align-items:center;gap:.4rem;flex-wrap:wrap;
-    font-family:'DM Mono';font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
-  }
-  .review .top-meta .hood{opacity:.75}
-  .review .top-meta .rating{display:flex;gap:2px}
+  .review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}
   .review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
   .review .top-meta .rating i.off{background:rgba(0,0,0,.2)}
-  .review .top-meta .price{font-weight:600;color:var(--red)}
 
   /* VERTICAL IMAGE — BIGGER */
   .review .thumb{
@@ -222,8 +217,59 @@
   .review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}
 
-  /* hide old quote if still present */
-  .review .quote{display:none}
+  /* ── Quote highlight ── */
+  .review .quote{
+    display:block;
+    margin-top:.75rem;padding:.6rem .8rem;
+    background:var(--yellow);border-left:4px solid var(--red);
+    font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;
+    line-height:1.3;color:var(--ink);
+    transform:rotate(-0.5deg);
+    position:relative;
+  }
+  .review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}
+
+  /* ── Caption ── */
+  .review .caption{
+    margin-top:.6rem;padding:.5rem .6rem;
+    font-family:'Special Elite',monospace;font-size:.8rem;
+    line-height:1.45;color:var(--ink);opacity:.85;
+    border:1px dashed rgba(0,0,0,.15);
+    background:rgba(255,255,255,.25);
+  }
+  .review .caption .cap-label{
+    display:inline-block;font-family:'Archivo Black';font-size:.6rem;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--red);
+    margin-bottom:.3rem;
+  }
+
+  /* ── Transcript (collapsible) ── */
+  .review .transcript{
+    margin-top:.4rem;
+    border:1px dashed var(--ink);
+    background:rgba(255,255,255,.3);
+    overflow:hidden;
+  }
+  .review .transcript-toggle{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:.4rem .6rem;cursor:pointer;
+    font-family:'DM Mono',monospace;font-size:.7rem;
+    letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink);opacity:.7;
+    border:none;background:none;width:100%;text-align:left;
+    transition:opacity .2s;
+  }
+  .review .transcript-toggle:hover{opacity:1;color:var(--red)}
+  .review .transcript-toggle .arrow{transition:transform .3s}
+  .review .transcript-body{
+    max-height:0;overflow:hidden;transition:max-height .4s ease;
+  }
+  .review .transcript-body.open{max-height:600px}
+  .review .transcript-text{
+    padding:.5rem .6rem;
+    font-family:'Special Elite',monospace;font-size:.75rem;
+    line-height:1.5;color:var(--ink);opacity:.75;
+  }
 
   /* decorative bits */
   .review .pin{
@@ -436,8 +482,7 @@
     <h1>Best Pho.</h1>
   </section>
 
-  <!-- CREATOR BUZZ SECTION -->
-  <!-- VERTICAL REVIEW CARDS -->
+  <!-- REVIEW CARDS -->
   <div class="reviews-grid">
 
     <a class="review" href="#" data-video="keith-lee">
@@ -445,11 +490,7 @@
       <div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Pho Ngoc Yen</span>
-        <div class="row2">
-          <span class="hood">Chinatown W</span>
-          <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-          <span class="price">$$</span>
-        </div>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
         <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&auto=format&fit=crop" alt="pho"/>
@@ -471,6 +512,11 @@
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>The broth is the cleanest I've had outside of Vietnam. 9.3/10. Driving back tomorrow.</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>I've been looking for legit pho in Toronto for MONTHS. Finally. Pho Ngoc Yen on Dundas — the broth is clear, deep, and you can taste every hour it simmered. Rare beef, tendon, brisket. $14. I'm not okay.</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">Alright y'all so I just sat down at Pho Ngoc Yen. This place has been on my list since I landed in Toronto. Let me tell you about this broth first — it's clear, like you can see through it, but the flavor? Deep. Like 12-hour simmer deep. The rare beef they slice it paper thin and it cooks right in the bowl. Now the tendon — perfectly gelatinous, not chewy. The brisket has this fat cap that just melts. And the herbs — fresh Thai basil, bean sprouts, lime, hoisin on the side. I'm going 9.3 out of 10. I'll be back tomorrow. Not even joking.</div></div>
+      </div>
       <div class="corner-note">9.3/10</div>
     </a>
 
@@ -479,11 +525,7 @@
       <div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Pho Tien Thanh</span>
-        <div class="row2">
-          <span class="hood">Ossington</span>
-          <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-          <span class="price">$$ · cash</span>
-        </div>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
         <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=600&auto=format&fit=crop" alt="pho"/>
@@ -505,6 +547,11 @@
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>The bowl I've been chasing for ten years. Fat cap on the brisket?? Forget it.</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Pho Tien Thanh on Ossington. Cash only. No frills. Just the best pho in Toronto. The brisket has a fat cap that renders in the broth. I've been doing this for 15 years and this is top 5 worldwide.</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">So Pho Tien Thanh — this is the spot everyone whispers about but nobody talks about on camera. Cash only, no BS. You walk in and it smells like someone's been making broth since 4 AM because they have. I ordered the large special with everything — rare beef, brisket, tendon, tripe. That fat cap on the brisket? It renders right into the broth and creates this silky layer on top. The noodles are perfectly cooked, not mushy. Bean sprouts are fresh. I've had pho in Saigon, in LA, in Houston — this stands with all of them. Top 5 bowl worldwide for me. I'm dead serious.</div></div>
+      </div>
       <div class="corner-note" style="background:#d62419;color:#f1ead8">★★★★★</div>
     </a>
 
@@ -513,11 +560,7 @@
       <div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Pho Hu'ng</span>
-        <div class="row2">
-          <span class="hood">Chinatown</span>
-          <span class="rating"><i></i><i></i><i></i><i></i><i class="off"></i></span>
-          <span class="price">$</span>
-        </div>
+        <span class="rating"><i></i><i></i><i></i><i></i><i class="off"></i></span>
       </div>
       <div class="thumb">
         <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600&auto=format&fit=crop" alt="pho"/>
@@ -539,6 +582,11 @@
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>Downtown lunch pho that doesn't make you nap at your desk. Rare beef sliced newspaper-thin.</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Pho Hu'ng Chinatown — my go-to weekday lunch spot. Fast, clean, and the rare beef is sliced so thin it cooks in seconds. Under $12 for a large. This is the answer.</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">Ok quick lunch review — Pho Hu'ng on Spadina. You know this place, it's been here forever. The move is the rare beef pho, large. They slice the beef so thin you can almost see through it and it cooks perfectly in the broth. The broth itself is solid — not the most complex I've had but exactly what you want at noon on a Tuesday. Clean, beefy, hits the spot. Under twelve bucks for a large with all the fixings. I come here at least once a week. Not trying to reinvent the wheel, just really good pho.</div></div>
+      </div>
       <div class="corner-note">8.1/10</div>
     </a>
 
@@ -547,11 +595,7 @@
       <div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Golden Turtle</span>
-        <div class="row2">
-          <span class="hood">Ossington</span>
-          <span class="rating"><i></i><i></i><i></i><i></i><i class="off"></i></span>
-          <span class="price">$ · under $15</span>
-        </div>
+        <span class="rating"><i></i><i></i><i></i><i></i><i class="off"></i></span>
       </div>
       <div class="thumb">
         <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=600&auto=format&fit=crop" alt="pho"/>
@@ -573,6 +617,11 @@
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>Full bowl, spring rolls, iced coffee — under twenty bucks?? In THIS economy? Come ON.</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Golden Turtle on Ossington. The budget king. Large pho + spring rolls + Vietnamese iced coffee = $18. And the pho is GOOD. Not just cheap-good. Actually good.</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">Let me break down the value at Golden Turtle because in this economy we need to talk about this. Large pho special — that's like nine bucks. Spring rolls, two for four bucks. Vietnamese iced coffee, three fifty. We're at under eighteen dollars for a full meal. And this isn't sad budget food — the broth is legit, they don't skimp on the meat, the spring rolls are crispy and fresh. This is the spot when you want comfort food without the guilt of spending forty bucks on lunch.</div></div>
+      </div>
       <div class="corner-note" style="background:#2a6e3a;color:#f1ead8">💰 CHEAP</div>
     </a>
 
@@ -581,11 +630,7 @@
       <div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Anh &amp; Chi</span>
-        <div class="row2">
-          <span class="hood">Danforth</span>
-          <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-          <span class="price">$$$ · fancy</span>
-        </div>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
         <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&auto=format&fit=crop" alt="pho"/>
@@ -607,6 +652,11 @@
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>My grandmother would approve. And she approves of <em>nothing</em>. Star anise hits at the right moment.</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Anh &amp; Chi on the Danforth. This is elevated Vietnamese done right. The pho has layers — star anise, cinnamon, charred ginger. $$$ but worth every cent for a special meal.</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">Anh and Chi on the Danforth — this is not your typical pho spot. This is elevated Vietnamese cuisine and the pho reflects that. The broth is built in layers. You get the star anise upfront, then the cinnamon comes through mid-sip, and then there's this charred ginger note at the finish. The beef is premium cuts, beautifully sliced. They serve it with these handmade condiments that are next level. Yes it's more expensive than your average bowl but this is a dining experience. My grandmother — who is Vietnamese — tried it and said it reminded her of home. She approves of nothing. That's the highest praise I can give.</div></div>
+      </div>
       <div class="corner-note">GRANDMA ✓</div>
     </a>
 
@@ -615,11 +665,7 @@
       <div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Saigon Lotus</span>
-        <div class="row2">
-          <span class="hood">North York</span>
-          <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-          <span class="price">$$ · take 401</span>
-        </div>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
         <img src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=600&auto=format&fit=crop" alt="pho"/>
@@ -641,6 +687,11 @@
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>Drove 45 min for this bowl. Would drive 90. Tastes like someone's mom has made it since the 70s.</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Pho Metro in Scarborough. Yes I drove 45 minutes. Yes I'd do it again. This is old-school pho made by someone who's been doing it for decades. The real deal.</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">Listen I don't usually drive to Scarborough for food but someone in my DMs would not stop telling me about Pho Metro. So I went. Forty-five minutes in traffic. And you know what? They were right. This tastes like someone's Vietnamese mom has been perfecting this recipe since the seventies. The broth has that old-school depth you can't fake — it's probably been going since dawn. The portions are massive. The price is nothing. I'm annoyed I didn't know about this sooner. Would I drive ninety minutes? Honestly? Yeah. Yeah I would.</div></div>
+      </div>
       <div class="corner-note" style="background:#f5c518">401 WORTHY</div>
     </a>
 
@@ -649,11 +700,7 @@
       <div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Pho 88</span>
-        <div class="row2">
-          <span class="hood">Spadina</span>
-          <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
-          <span class="price">$</span>
-        </div>
+        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
       </div>
       <div class="thumb">
         <img src="https://images.unsplash.com/photo-1553163147-622ab57be1c7?w=600&auto=format&fit=crop" alt="pho"/>
@@ -675,6 +722,11 @@
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>Mid. I really wanted to love it. Noodles soft, broth thin, hype SENDING me. 6/10.</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Ok I know this is controversial but I was not feeling the hype on this one. Noodles were overcooked, broth was thin. Maybe I caught them on an off day? 6/10 for me.</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">Alright so everyone told me to try this place and I really wanted to love it. I went at peak lunch, sat down, ordered the special. The noodles came out soft — like overcooked soft. The broth was thin compared to other spots I've been to this week. The rare beef was fine but nothing special. Look, maybe I caught them on an off day. Maybe the hype set my expectations too high. But based on this visit? It's a 6 out of 10 for me. I'll try again because I believe in second chances but right now? Mid.</div></div>
+      </div>
       <div class="corner-note" style="background:#f1ead8;color:#141210">6/10</div>
     </a>
 
