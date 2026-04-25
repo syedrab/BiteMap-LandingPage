@@ -201,7 +201,7 @@ const verdictCls=['goat','goat','mid','goat','goat','','goat','goat','','goat'];
 
 const SUPABASE_PROFILE = 'https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile';
 
-function buildCard(item,i){
+function buildCard(item,i,pageTopic){
   const quote=extractQuote(item.caption,item.transcript);
   const caption=cleanCap(item.caption).substring(0,150);
   const transcript=cleanTrans(item.transcript);
@@ -212,7 +212,21 @@ function buildCard(item,i){
   const v=verdicts[i%verdicts.length];const vc=verdictCls[i%verdictCls.length];
   const hlsUrl=item.hls_url||'';
   const addr=item.address||'';
-  // Encode data for modal as data attributes
+  // SEO-rich alt text variations
+  const altPhrases=[
+    `${item.restaurant} ${pageTopic} Toronto - video review by @${item.creator_name}`,
+    `${item.restaurant} - top ${pageTopic.toLowerCase()} spot in Toronto reviewed on video`,
+    `best ${pageTopic.toLowerCase()} Toronto ${item.restaurant} - creator food review`,
+    `${item.restaurant} Toronto food review - ${pageTopic.toLowerCase()} recommended by @${item.creator_name}`,
+    `where to eat ${pageTopic.toLowerCase()} in Toronto - ${item.restaurant} video review`,
+    `${item.restaurant} - ${pageTopic.toLowerCase()} restaurant Toronto ON Canada`,
+    `Toronto ${pageTopic.toLowerCase()} guide - ${item.restaurant} reviewed by food creator`,
+    `${pageTopic.toLowerCase()} near me Toronto - ${item.restaurant} honest review`,
+    `${item.restaurant} ${pageTopic.toLowerCase()} Toronto - must try spots 2026`,
+    `food creator reviews ${item.restaurant} - best ${pageTopic.toLowerCase()} Toronto`,
+  ];
+  const altText=altPhrases[i%altPhrases.length];
+  const creatorAlt=`${item.creator_name} Toronto food creator - ${pageTopic.toLowerCase()} reviews`;
   return`
     <div class="review" onclick="openModal(this)" data-hls="${esc(hlsUrl)}" data-restaurant="${esc(item.restaurant)}" data-address="${esc(addr)}" data-creator="${esc(item.creator_name)}" data-views="${item.views}" data-likes="${item.likes}" data-saves="${item.saves}" data-shares="${item.shares}" data-quote="${esc(quote)}" data-caption="${esc(caption)}" data-transcript="${esc(transcript)}" data-thumb="${esc(thumb)}" data-link="${esc(link)}">
       <div class="pin"></div><div class="tape-decor"></div>
@@ -221,7 +235,7 @@ function buildCard(item,i){
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="${esc(thumb)}" alt="${esc(item.restaurant)}" loading="lazy"/>
+        <img src="${esc(thumb)}" alt="${esc(altText)}" loading="lazy"/>
         <span class="platform-tag">${platform}</span>
         <span class="verdict ${vc}">${v}</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
@@ -232,7 +246,7 @@ function buildCard(item,i){
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar"><img src="${esc(creatorImg)}" alt="@${esc(item.creator_name)}" onerror="this.style.display='none';this.parentElement.textContent='${(item.creator_name||'B').charAt(0).toUpperCase()}'"/></div>
+        <div class="avatar"><img src="${esc(creatorImg)}" alt="${esc(creatorAlt)}" onerror="this.style.display='none';this.parentElement.textContent='${(item.creator_name||'B').charAt(0).toUpperCase()}'"/></div>
         <div class="creator-info">
           <div class="creator-name">@${esc(item.creator_name)}</div>
           <div class="followers">${fmtV(item.views)} views</div>
@@ -254,7 +268,9 @@ function buildPage(config,type){
   const seen=new Set();
   const items=raw.filter(v=>{if(seen.has(v.creator_name))return false;seen.add(v.creator_name);return true});
   if(items.length<3){console.log(`  ⚠️ Skip ${config.slug} (${items.length} items)`);return null}
-  const cards=items.map((item,i)=>buildCard(item,i)).join('\n');
+  // Use seoTopic (cuisine keyword) if available, fallback to title
+  const pageTopic=config.seoTopic||config.title.replace(/BEST /i,'').replace(/TOP \d+ /i,'');
+  const cards=items.map((item,i)=>buildCard(item,i,pageTopic)).join('\n');
   const prefix=type==='guide'?'guide':type==='area'?'area':'';
   const fileSlug=prefix?`${prefix}-${config.slug}`:config.slug;
   const canonical=`https://www.bitemap.fun/toronto/${fileSlug}`;
@@ -264,6 +280,7 @@ function buildPage(config,type){
 <meta charset="UTF-8"/><title>${esc(config.title)} — Toronto Food Zine | BiteMap</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="description" content="${esc(config.desc)}">
+<meta name="keywords" content="${esc(pageTopic.toLowerCase())} toronto, best ${esc(pageTopic.toLowerCase())} toronto, ${esc(pageTopic.toLowerCase())} near me, top ${esc(pageTopic.toLowerCase())} toronto 2026, ${esc(pageTopic.toLowerCase())} restaurants toronto, where to eat ${esc(pageTopic.toLowerCase())} toronto, ${esc(pageTopic.toLowerCase())} food toronto">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="${canonical}">
 <meta property="og:title" content="${esc(config.title)} | BiteMap">
@@ -485,7 +502,32 @@ for(const[slug,cat]of Object.entries(CATS)){
   if(deduped.length<3)continue;
   const items=deduped.slice(0,10);
   const ct = CREATIVE_TITLES[slug] || {title:cat.title.toUpperCase(),h1:cat.title.replace('Best ','')+'.', kicker:'TOP '+items.length, marquee:cat.title.toUpperCase()+' IN THE 6IX'};
-  const config={slug,title:ct.title,h1:ct.h1,kicker:ct.kicker,marquee:ct.marquee,desc:`Toronto's ${cat.title.toLowerCase()} — ranked by the creators who filmed every bite.`,filter:()=>items};
+  const cuisine=cat.title.toLowerCase().replace('best ','');
+  const seoDescs = {
+    'best-pho': `Best pho in Toronto 2026. Top pho restaurants near you ranked by food creators with video reviews. Find the best Vietnamese pho spots, noodle soup, and pho bo in Toronto.`,
+    'best-sushi': `Best sushi restaurants in Toronto 2026. Top sushi spots, omakase, and sashimi ranked by food creators. Find the best sushi near you in Toronto with video proof.`,
+    'best-burger': `Best burgers in Toronto 2026. Top burger spots, smash burgers, and cheeseburgers ranked by food creators with video reviews. Find the best burger near you.`,
+    'best-pizza': `Best pizza in Toronto 2026. Top pizza spots — Neapolitan, New York, Detroit style — ranked by food creators. Find the best pizza near you in Toronto.`,
+    'best-halal': `Best halal restaurants in Toronto 2026. Top halal food spots, shawarma, and halal-certified restaurants ranked by food creators with video reviews.`,
+    'best-steak': `Best steakhouses in Toronto 2026. Top steak restaurants, dry-aged beef, and wagyu ranked by food creators. Find the best steak near you in Toronto.`,
+    'best-tacos': `Best tacos in Toronto 2026. Top taco spots, birria, al pastor, and Mexican food ranked by food creators. Find the best tacos near you in Toronto.`,
+    'best-indian': `Best Indian food in Toronto 2026. Top Indian restaurants, butter chicken, biryani, and tandoori ranked by food creators. Find the best Indian food near you.`,
+    'best-chinese': `Best Chinese food in Toronto 2026. Top Chinese restaurants, dim sum, dumplings, and hand-pulled noodles ranked by food creators with video reviews.`,
+    'best-italian': `Best Italian food in Toronto 2026. Top Italian restaurants, pasta, risotto, and Neapolitan pizza ranked by food creators. Find the best Italian near you.`,
+    'best-seafood': `Best seafood in Toronto 2026. Top seafood restaurants, lobster, crab, oysters, and fish ranked by food creators. Find the best seafood near you in Toronto.`,
+    'best-dessert': `Best desserts in Toronto 2026. Top dessert spots, ice cream, cake, pastries, and bakeries ranked by food creators. Find the best desserts near you.`,
+    'best-coffee': `Best coffee shops in Toronto 2026. Top cafes, espresso bars, latte art, and matcha spots ranked by food creators. Find the best coffee near you in Toronto.`,
+    'best-wings': `Best chicken wings in Toronto 2026. Top wing spots, hot wings, buffalo wings, and wing nights ranked by food creators. Find the best wings near you.`,
+    'best-caribbean': `Best Caribbean food in Toronto 2026. Top jerk chicken, oxtail, roti, and Jamaican food ranked by food creators. Find the best Caribbean food near you.`,
+    'best-ayce': `Best all you can eat in Toronto 2026. Top AYCE buffets, unlimited sushi, and Korean BBQ ranked by food creators. Find the best AYCE near you in Toronto.`,
+    'best-bbq': `Best BBQ in Toronto 2026. Top barbecue spots, brisket, pulled pork, and smoked ribs ranked by food creators. Find the best BBQ near you in Toronto.`,
+    'best-noodles': `Best noodle spots in Toronto 2026. Top noodle restaurants, hand-pulled noodles, udon, and dan dan ranked by food creators. Find the best noodles near you.`,
+    'best-fried-chicken': `Best fried chicken in Toronto 2026. Top fried chicken spots, Nashville hot, Korean fried chicken ranked by food creators. Find the best fried chicken near you.`,
+    'best-shawarma': `Best shawarma in Toronto 2026. Top shawarma spots, chicken shawarma, and donairs ranked by food creators. Find the best shawarma near you in Toronto.`,
+    'best-brunch': `Best brunch in Toronto 2026. Top brunch spots, eggs benedict, pancakes, and mimosas ranked by food creators. Find the best brunch near you in Toronto.`,
+  };
+  const desc = seoDescs[slug] || `Best ${cuisine} in Toronto 2026. Top ${cuisine} restaurants ranked by food creators with video reviews. Find the best ${cuisine} near you in Toronto.`;
+  const config={slug,title:ct.title,h1:ct.h1,kicker:ct.kicker,marquee:ct.marquee,desc,seoTopic:cuisine,filter:()=>items};
   const r=buildPage(config,'');
   if(r){writeFileSync(join(root,'toronto',`${r.fileSlug}.html`),r.html);console.log(`  ✅ ${r.fileSlug}.html (${items.length})`);artCount++}
 }
