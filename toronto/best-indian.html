@@ -1,145 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-<meta charset="UTF-8" />
-<title>BEST INDIAN IN THE 6IX — The Toronto Food Zine | BiteMap</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="The best best indian in Toronto, ranked by food creators with video proof. Every spot filmed so you know exactly what to order.">
+<meta charset="UTF-8"/><title>BEST INDIAN — Toronto Food Zine | BiteMap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="The best best indian in Toronto, ranked by food creators with video proof.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.bitemap.fun/toronto/best-indian">
-<meta property="og:title" content="Best INDIAN in the 6ix | BiteMap">
+<meta property="og:title" content="BEST INDIAN | BiteMap">
 <meta property="og:description" content="The best best indian in Toronto, ranked by food creators with video proof.">
 <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
 <meta property="og:site_name" content="BiteMap">
 <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
 <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Shrikhand&family=Rubik+Mono+One&family=Bungee&family=Special+Elite&family=Archivo+Black&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
 <style>
-  :root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}
-  body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}
-  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}
-  .wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}
-  h1,h2,h3,h4{margin:0;font-weight:400}
-  .marker{font-family:'Permanent Marker',cursive}
-  .caveat{font-family:'Caveat',cursive;font-weight:700}
-  .shrikhand{font-family:'Shrikhand',cursive}
-  .mono{font-family:'DM Mono',monospace}
-  .archivo{font-family:'Archivo Black',sans-serif}
-  .tape{position:absolute;background:var(--tape);box-shadow:0 1px 0 rgba(0,0,0,0.05);border-left:1px dashed rgba(0,0,0,0.07);border-right:1px dashed rgba(0,0,0,0.07);z-index:6}
-  .stamp{display:inline-block;padding:.35rem .7rem;border:2px solid var(--red);color:var(--red);font-family:'Archivo Black',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;transform:rotate(-8deg);box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 3px var(--red);opacity:.88}
-  .marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}
-  .marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}
-  .marquee-track span{display:inline-flex;align-items:center;gap:1rem}
-  .marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  .nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}
-  .nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}
-  .nav-top a:hover{color:var(--red)}
-  .breadcrumb{font-family:'DM Mono';font-size:.75rem}
-  .breadcrumb b{font-family:'Archivo Black'}
-  .hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}
-  .hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}
-  .hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;white-space:nowrap;letter-spacing:-.02em}
-  .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem 1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0 1rem;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}
-  @media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}
-  @media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}
-  .review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}
-  .review:nth-child(7n+1){transform:rotate(-3deg)}
-  .review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}
-  .review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}
-  .review:nth-child(7n+4){transform:rotate(3.5deg)}
-  .review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}
-  .review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}
-  .review:nth-child(7n+7){transform:rotate(-4deg)}
-  .review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}
-  .review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
-  .review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-  .review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}
-  .review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-  .review .top-meta .rating i.off{background:rgba(0,0,0,.2)}
-  .review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}
-  .review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}
-  .review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}
-  .review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}
-  .review:hover .play{transform:translate(-50%,-50%) scale(1.15)}
-  .review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}
-  .review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}
-  .review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem;border:1.5px solid var(--ink)}
-  .review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}
-  .review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}
-  .review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}
-  .review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}
-  .review .stats .stat{display:flex;align-items:center;gap:.3rem}
-  .review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-  .review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}
-  .review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}
-  .review .creator-info{min-width:0;flex:1}
-  .review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}
-  .review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg);position:relative}
-  .review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}
-  .review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}
-  .review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}
-  .review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}
-  .review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left;transition:opacity .2s}
-  .review .transcript-toggle:hover{opacity:1;color:var(--red)}
-  .review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-  .review .transcript-body.open{max-height:600px}
-  .review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}
-  .review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}
-  .review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}
-  .review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}
-  .review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}
-  .review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}
-  .review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
-  .foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}
-  .foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}
-  .foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}
-  .foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}
-  @media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
+:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.75rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;letter-spacing:-.02em}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);max-width:40rem;margin:.5rem auto 0;line-height:1.3;padding:0 1rem .5rem}.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}@media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}.review:nth-child(7n+1){transform:rotate(-3deg)}.review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}.review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}.review:nth-child(7n+4){transform:rotate(3.5deg)}.review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}.review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}.review:nth-child(7n+7){transform:rotate(-4deg)}.review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}.review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}.review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}.review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}.review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}.review:hover .play{transform:translate(-50%,-50%) scale(1.15)}.review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}.review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}.review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem}.review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}.review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}.review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}.review .stats .stat{display:flex;align-items:center;gap:.3rem}.review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}.review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}.review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}.review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg)}.review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}.review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}.review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left}.review .transcript-toggle:hover{opacity:1;color:var(--red)}.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:600px}.review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}.review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}.review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}.review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}.review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}.foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="marquee">
-  <div class="marquee-track">
-    <span><i class="dot"></i> BEST INDIAN IN THE 6IX</span>
-    <span><i class="dot"></i> 10 SPOTS · VIDEO VERIFIED</span>
-    <span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-    <span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-    <span><i class="dot"></i> BEST INDIAN IN THE 6IX</span>
-    <span><i class="dot"></i> 10 SPOTS · VIDEO VERIFIED</span>
-    <span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-    <span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-  </div>
-</div>
+<div class="marquee"><div class="marquee-track">
+<span><i class="dot"></i> BEST INDIAN IN THE 6IX · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+<span><i class="dot"></i> BEST INDIAN IN THE 6IX · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+</div></div>
 <div class="wrap">
-  <div class="nav-top">
-    <a href="/toronto">← BACK TO ZINE</a>
-    <div class="breadcrumb mono">TORONTO FOOD ZINE / <b>BEST INDIAN</b></div>
-    <a href="#">SHARE →</a>
-  </div>
-  <section class="hero">
-    <span class="kicker">TOP 10</span>
-    <h1>Best Indian.</h1>
-  </section>
-  <div class="reviews-grid">
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7371188839194348806">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+<div class="nav-top"><a href="/toronto">← BACK TO ZINE</a><div class="breadcrumb mono">TORONTO FOOD ZINE / <b>BEST INDIAN</b></div><a href="#">SHARE →</a></div>
+<section class="hero"><span class="kicker">TOP 10</span><h1>Indian.</h1><div class="deck">The best best indian in Toronto, ranked by food creators with video proof.</div></section>
+<div class="reviews-grid">
+    <a class="review" href="/v/12d71616-e8c3-4c6f-a459-a8d4dc3ee151">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Ali's West Indian Roti Shop</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop" alt="Ali's West Indian Roti Shop"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/12d71616-e8c3-4c6f-a459-a8d4dc3ee151/thumbnail.jpg" alt="Ali's West Indian Roti Shop" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">MUST TRY</span>
@@ -161,93 +58,22 @@
       <div class="caption"><span class="cap-label">Caption</span><br>Tahinis shows me his favorite noodle spot with  Jaurji</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:03] asking famous creators to bring me to their favorite restaurants in the city. [00:03-00:06] And today, Ali Tahini's is bringing me to his favorite noodle spot. [00:06-00:10] One thing that you have to order here, you have to try the chicken curry udon. [00:10-00:12] That's what I wanted to order. [00:12-00:16] As per Ali Tahini's instructions, we came here for one dish and one dish only. [00:16-00:17] The chicken curry udon. [00:17-00:22] My friend Ali shows off his noodle eating technique and swears this is the best noodle in town. [00:22-00:24] And Jesse also loved it. But what did I think? [00:24-00:27] First of all, that curry sauce is extremely creamy. [00:27-00:30] This is definitely not your traditional udon dish. [00:30-00:33] It kind of tasted like a creamy carbonara but with udon and curry. [00:33-00:36] The chicken tatsu was very crispy, very well executed. [00:36-00:39] I like how the udon noodles are slippery and wet. [00:39-00:42] And overall, I loved that taste of the creamy curry udon. [00:42-00:43] Great recommendation, Ali.</div></div>
+        <div class="transcript-body"><div class="transcript-text">asking famous creators to bring me to their favorite restaurants in the city. And today, Ali Tahini's is bringing me to his favorite noodle spot. One thing that you have to order here, you have to try the chicken curry udon. That's what I wanted to order. As per Ali Tahini's instructions, we came here for one dish and one dish only. The chicken curry udon. My friend Ali shows off his noodle eating technique and swears this is the best noodle in town. And Jesse also loved it. But what did I think? First of all, that curry sauce is extremely creamy. This is definitely not your traditional udon dish. It kind of tasted like a creamy carbonara but with udon and curry. The chicken tatsu was very crispy, very well executed. I like how the udon noodles are slippery and wet. And overall, I loved that taste of the creamy curry udon. Great recommendation, Ali.</div></div>
       </div>
       <div class="corner-note">4.0M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@tasmindhaliwal/video/7206845259958029574">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">NAAN KABOB</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&auto=format&fit=crop" alt="NAAN KABOB"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict ">GOAT</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>2.7M</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>252.8K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>17.6K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">T</div>
-        <div class="creator-info">
-          <div class="creator-name">@tasmindhaliwal</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>OMG THE END 🥲😭 food from  🧆🌯🫔❤️</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>OMG THE END 🥲😭 food from  🧆🌯🫔❤️</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">I'm currently at a photo shoot, and I'm hiding in the closet so I can eat. This food is so bomb. They have to make an extra plate for me because they're packing up the food, and I didn't eat. It's like, Buddy, that was interesting. Hmm. It's my first time having Afgani food, and I freaking love it. It's, like, top tier. It's so flavorful. And I love garlic. MMM. It's so freaking good. Oh, my god. Shit. Worth it. I went and got a second plate. I don't know what these things are. They're so good. Dip it in the garlic. MMM. Some lamb. Girl gotta eat, you know? I'm saying, skewers are, like, so Delicious. I'm hiding in the closet.</div></div>
-      </div>
-      <div class="corner-note">2.7M</div>
-    </a>
-
-    <a class="review" href="https://www.tiktok.com/@tasmindhaliwal/video/7379816836218522886">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Rajdhani Sweets and Restaurant</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop" alt="Rajdhani Sweets and Restaurant"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict mid">SOLID</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>2.2M</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>93.6K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>7.2K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">T</div>
-        <div class="creator-info">
-          <div class="creator-name">@tasmindhaliwal</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>INDIAN FOOD 🥘 nothing tops  🩷</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>INDIAN FOOD 🥘 nothing tops  🩷</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">Everything I ate at my favorite Indian restaurant, fried momos, hacker style noodles, so delicious. Addicted to these steamed dumplings. Yummy Diet Coke because I'm skinny. Look at how huge this d L. S a is. This was so delicious. Pani puri or gogappa, so bomb. Manchurian with gravy. Love so much. Chop this cool down my mouth and was so good. Fried vegetable platter. Yummy in my tummy. Aloo. Potato with yogurt and spices, spice lemonade, chickpea with delicious bread. I'll be back soon.</div></div>
-      </div>
-      <div class="corner-note">2.2M</div>
-    </a>
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7126334665773862150">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/54d09cd7-58d4-4c56-8fb1-c0aab6c2f445">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Swaagat Toronto</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&auto=format&fit=crop" alt="Swaagat Toronto"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/54d09cd7-58d4-4c56-8fb1-c0aab6c2f445/thumbnail.jpg" alt="Swaagat Toronto" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">FIRE</span>
+        <span class="verdict goat">GOAT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.4M</span>
@@ -271,18 +97,17 @@
       <div class="corner-note">1.4M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7219392422772591878">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/9cf73315-41fb-4192-8bfb-4f7438255802">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">KINTON RAMEN YONGE X RICHMOND</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1432139509613-5c4255a78e46?w=600&auto=format&fit=crop" alt="KINTON RAMEN YONGE X RICHMOND"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/9cf73315-41fb-4192-8bfb-4f7438255802/thumbnail.jpg" alt="KINTON RAMEN YONGE X RICHMOND" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">ELITE</span>
+        <span class="verdict mid">SOLID</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.1M</span>
@@ -301,23 +126,22 @@
       <div class="caption"><span class="cap-label">Caption</span><br>Replying to  golden curry shin</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:01] I have a recommendation. [00:01-00:04] Add some golden curry or any curry type of block. [00:04-00:05] It's really good. [00:05-00:08] Okay, I'm only using half the shin seasoning pack for this one [00:08-00:11] because that block of curry does have a bit of salt. [00:11-00:13] But I absolutely love this combination. [00:13-00:15] You get that thick and rich golden curry flavor mix [00:15-00:17] with that shin seasoning. [00:17-00:18] And it's super easy to do.</div></div>
+        <div class="transcript-body"><div class="transcript-text">I have a recommendation. Add some golden curry or any curry type of block. It's really good. Okay, I'm only using half the shin seasoning pack for this one because that block of curry does have a bit of salt. But I absolutely love this combination. You get that thick and rich golden curry flavor mix with that shin seasoning. And it's super easy to do.</div></div>
       </div>
       <div class="corner-note">1.1M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7312201575789890822">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/9a8fba7e-affe-4ba3-a2e9-c96426ffa669">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Machida Shoten (College St)</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop" alt="Machida Shoten (College St)"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/9a8fba7e-affe-4ba3-a2e9-c96426ffa669/thumbnail.jpg" alt="Machida Shoten (College St)" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">SLEPT ON</span>
+        <span class="verdict goat">FIRE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>736.6K</span>
@@ -336,23 +160,22 @@
       <div class="caption"><span class="cap-label">Caption</span><br>Rating Butter Chicken Tantanmen made by  Dev</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:01] They chef-deft, he leveled my ramen. [00:01-00:03] Bro, I got you butter chicken tan tan. [00:03-00:04] Get it. [00:04-00:04] What's the first step? [00:04-00:05] Each of edges. [00:05-00:06] Eat my veggies. [00:06-00:07] See a good boy. [00:07-00:08] Sesame oil. [00:08-00:08] Garlic. [00:08-00:10] Crushing it with your hand. [00:10-00:10] Yebru. [00:10-00:11] Bokchoy. [00:11-00:11] Salt. [00:12-00:13] Bokchoy done. [00:13-00:14] Next step, sear the chicken. [00:14-00:15] We didn't go to sear, though. [00:15-00:16] Chili powder. [00:16-00:16] Coriander. [00:16-00:17] Garam masala. [00:17-00:17] Hulledie. [00:17-00:18] Human. [00:18-00:18] Vinegar, please. [00:18-00:19] Salt. [00:19-00:20] Ginger, garlic paste. [00:20-00:20] Chili. [00:20-00:21] That's a lot of meat, by the way. [00:21-00:22] That's what she said. [00:22-00:23] Black vinegar. [00:23-00:24] Seafood ingredient. [00:24-00:25] Gyo ninja chef. [00:25-00:26] XO. [00:26-00:26] Jonathan ninja chef. [00:26-00:28] For that herbaceousness. [00:28-00:29] Taste taste, bro. [00:31-00:32] What's next, chef? [00:32-00:34] Garlic, yeet. [00:34-00:35] And we'll use actual butter. [00:37-00:37] Ninja garlic paste. [00:37-00:38] Cashews. [00:38-00:38] Hulledie. [00:38-00:39] Garam masala. [00:39-00:39] Human. [00:39-00:40] Mad spice. [00:40-00:40] Coriander. [00:40-00:41] Vinegar, please. [00:41-00:44] Cinnamon, star anise, cardamom, tomato sauce. [00:44-00:46] Oh, you're adding the seasoning back into it. [00:46-00:47] I have no news, bro. [00:47-00:48] You're dropping the nudes. [00:48-00:48] One for you? [00:48-00:49] One for me. [00:49-00:51] Time to blend our beautiful sauce. [00:51-00:53] Bro, I want to taste test. [00:53-00:54] You got to try it. [00:55-00:56] Mm. [00:56-00:58] With a butter chicken tantanmen. [00:58-01:00] Butter chicken sauce, but I put the shin seasoning [01:00-01:01] packets into it. [01:01-01:02] Beautiful ground chicken. [01:02-01:05] Season with exosauce, sesame oil, black vinegar. [01:05-01:08] But we also have those classic, desi spices in it as well. [01:08-01:11] It looks exactly like spicy tantanmen, [01:11-01:13] but it's a butter chicken tantanmen. [01:13-01:13] Cheers. [01:13-01:14] Cheers, man. [01:17-01:18] Holy crap. [01:18-01:19] That's like flavor town. [01:19-01:19] What do you give it out of town? [01:19-01:21] Another solid 10-0-10 time. [01:21-01:22] That's goalie.</div></div>
+        <div class="transcript-body"><div class="transcript-text">They chef-deft, he leveled my ramen. Bro, I got you butter chicken tan tan. Get it. What's the first step? Each of edges. Eat my veggies. See a good boy. Sesame oil. Garlic. Crushing it with your hand. Yebru. Bokchoy. Salt. Bokchoy done. Next step, sear the chicken. We didn't go to sear, though. Chili powder. Coriander. Garam masala. Hulledie. Human. Vinegar, please. Salt. Ginger, garlic paste. Chili. That's a lot of meat, by the way. That's what she said. Black vinegar. Seafood ingredient. Gyo ninja chef. XO. Jonathan ninja chef. For that herbaceousness. Taste taste, bro. What's next, chef? Garlic, yeet. And we'll use actual butter. Ninja garlic paste. Cashews. Hulledie. Garam masala. Human. Mad spice. Coriander. Vinegar, please. Cinnamon, star anise, cardamom, tomato sauce. Oh, you're adding the seasoning back into it. I have no news, bro. You're dropping the nudes. One for you? One for me. Time to blend our beautiful sauce. Bro, I want to taste test. You got to try it. Mm. With a butter chicken tantanmen. Butter chicken sauce, but I put the shin seasoning packets into it. Beautiful ground chicken. Season with exosauce, sesame oil, black vinegar. But we also have those classic, desi spices in it as well. It looks exactly like spicy tantanmen, but it's a butter chicken tantanmen. Cheers. Cheers, man. Holy crap. That's like flavor town. What do you give it out of town? Another solid 10-0-10 time. That's goalie.</div></div>
       </div>
       <div class="corner-note">736.6K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7391968395958209797">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/c0e7a8d1-9b6b-402d-8faf-6e88da51297a">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">FLAMING NOODLES / 成嘟嘟燃面</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&fit=crop" alt="FLAMING NOODLES / 成嘟嘟燃面"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/c0e7a8d1-9b6b-402d-8faf-6e88da51297a/thumbnail.jpg" alt="FLAMING NOODLES / 成嘟嘟燃面" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">WORTH IT</span>
+        <span class="verdict goat">ELITE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>403.5K</span>
@@ -368,7 +191,7 @@
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>My wife’s reaction at the end 😂 Supporting Asian Owned Businesses CCYA Fresh Fest Food Festival x The Alley Food: 1)  M...</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>My wife’s reaction at the end 😂 Supporting Asian Owned Businesses CCYA Fresh Fest Food Festival x The Alley Food: 1)  Mee Goreng 2) Bella Gamba Ginger Scallion Pesto Pasta (thanks Chef Eva for the re...</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>My wife’s reaction at the end 😂 Supporting Asian Owned Businesses CCYA Fresh Fest Food Festival x The Alley Food: 1)  Mee Goreng 2) Bella Gamba Ginger Scallion Pesto Pasta (thanks Chef Eva for the re</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
         <div class="transcript-body"><div class="transcript-text">Today I'm only eating at Asian owned restaurants and it's gonna be easy because I'm at an Asian food festival. I spent $150. Let's see what I got. There were so many noodles that I went on a noodle eating Marathon starting with a box of mi goreng for $10. a chef I met highly recommended this Ginger Scallion Pesto Pasta. So I had to try it. The pasta is made to order and that ginger scallion gives it a super unique flavor profile. But this Asha Noodle booth gives you unlimited toppings. So I loaded up my bowl with all the toppings. But the key move for me are those curry fish balls. They remind me of the ones I grew up eating. And this is my favorite noodle of them all. It's a cold noodle with a creamy sesame chili oil sauce, super refreshing and really delicious. But the craziest thing happened while I was eating these dumplings. Jeremy Lin was right beside me and he looked me straight in the eye and it felt like he was telling me, don't forget to buy something for your wife. So immediately I started going on a shopping bench for my wife. I knew she would be hungry, so I bought her this pork knuckle and rice. But my wife also loves sweets so I got her a bunch of White Rabbit and hi chew flavored freeze dried candies. My wife also loves popcorn so I got her Some ginger scallion popcorn. And last but not least, sushi macarons were so cute I had to buy one. With all the goodies, it's time to go home to surprise my wife. And it looks like she was most impressed with the sushi macarons.</div></div>
@@ -376,18 +199,17 @@
       <div class="corner-note">403.5K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7342338961827843333">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/63b8a8db-6a2e-4b02-a9ec-efdac1b52dae">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Kairali</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&auto=format&fit=crop" alt="Kairali"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/63b8a8db-6a2e-4b02-a9ec-efdac1b52dae/thumbnail.jpg" alt="Kairali" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">INSANE</span>
+        <span class="verdict ">SLEPT ON</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>385.2K</span>
@@ -406,23 +228,56 @@
       <div class="caption"><span class="cap-label">Caption</span><br>My friend planned an Indian Food Crawl for me   📍Federick (Indian Chinese Hakka) 📍 King Of Punjabi Tadka  📍 Hyderabad Biryani Hut 📍 Kairali (Kerala cuisine)</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:05] Trying Indian food I've never had for the first time my friend has been planning for months to prepare this Indian food [00:05-00:09] And I had no idea India had so many different cuisines first that we went to the iconic [00:09-00:13] Fredrick's for some Indochinese Haka cuisine got the Haka [00:13-00:17] Chow Mean and their legendary chili chicken. I love how gigantic the portions are and it only costs [00:18-00:23] 975 and it comes with a drink the owner is originally from Kolkata where Indochinese cuisine is popular next up [00:23-00:25] We drove to an industrial complex to try butter chicken [00:25-00:28] I had butter chicken before but this one had a thicker gravy texture [00:28-00:32] Which I kind of like and apparently if you go on a Thursday it only costs 899 [00:32-00:36] But we drove all the way to another plaza to try hydro baddie Briarani apparently what makes this [00:36-00:41] Briarani so special is how they cook the rice the rice is steamed with the chicken so all the chicken juices get [00:41-00:42] Absorbed by the rice [00:42-00:47] This is my first time trying this type of Briarani and I love the fragrance of the rice before our last stop [00:47-00:51] We're trying Kerala Indian cuisine Kerala is a state in India next to the ocean [00:51-00:55] So they're famous for their fish dishes. We got their kingfish curry combo which comes with a ton of side dishes [00:55-00:59] My friends family is actually from Kerala and this reminded him of the foodie a growing up</div></div>
+        <div class="transcript-body"><div class="transcript-text">Trying Indian food I've never had for the first time my friend has been planning for months to prepare this Indian food And I had no idea India had so many different cuisines first that we went to the iconic Fredrick's for some Indochinese Haka cuisine got the Haka Chow Mean and their legendary chili chicken. I love how gigantic the portions are and it only costs 975 and it comes with a drink the owner is originally from Kolkata where Indochinese cuisine is popular next up We drove to an industrial complex to try butter chicken I had butter chicken before but this one had a thicker gravy texture Which I kind of like and apparently if you go on a Thursday it only costs 899 But we drove all the way to another plaza to try hydro baddie Briarani apparently what makes this Briarani so special is how they cook the rice the rice is steamed with the chicken so all the chicken juices get Absorbed by the rice This is my first time trying this type of Briarani and I love the fragrance of the rice before our last stop We're trying Kerala Indian cuisine Kerala is a state in India next to the ocean So they're famous for their fish dishes. We got their kingfish curry combo which comes with a ton of side dishes My friends family is actually from Kerala and this reminded him of the foodie a growing up</div></div>
       </div>
       <div class="corner-note">385.2K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7504404078550584582">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/8cafb032-4dd6-4214-89a6-8d030be77bdf">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Sams Indian Kitchen</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="name">Dad's authentic Indian Kitchen</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=600&auto=format&fit=crop" alt="Sams Indian Kitchen"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/8cafb032-4dd6-4214-89a6-8d030be77bdf/thumbnail.jpg" alt="Dad's authentic Indian Kitchen" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">MUST TRY</span>
+        <span class="verdict goat">WORTH IT</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>348.9K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>9.5K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>758</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar">A</div>
+        <div class="creator-info">
+          <div class="creator-name">@ariasahota</div>
+          <div class="followers">TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Replying to  Dhaliwal819</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Replying to  Dhaliwal819</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">My biological mother ended up leaving me in a parking lot when I was four, but let's reel it back so I can tell you the full story. Basically when I was in her form, my mom suffered with depression, she was not happy with her life. She also really wanted me to be a boy. She is two boys now and she's really connected with them, but she was really upset that I was a girl. So when I was four, she decided that she wanted to leave. So one day she decided to buy plain tickets to her family in India and she dropped me in the parking lot of my dad's restaurant. She didn't even walk me in. She just dropped me in the parking lot and said go in, tell your dad I'm going to India and then she left. My dad's cook saw me standing outside and he decided to bring me in and my dad just assumed that she missed a walk to me in and he's and I was trying to tell him I'm like, dad, mommy said that she's going to India, she's going to India and he's like pleading to marry me because I'm four and I don't know what I'm talking about. And so after work, he decided to take me home and when we got home, that's when my dad saw. Her clothes were gone, bags were packed, like things were all gone. There was emergency cash she had, that was gone, her passport was gone. So she knew that she had left. And at that time, he was filled with anger. I remember he took one of those landlines, ripped it out of the wall and smacked it against the wall next to us. And at that point, he decided that he had to go back to his ex-wife because we're Indian and he is worried about how people would see him as a single dad with a child. So he took me to my grandmother's and said, can you take her? And my grandmother took me in. And then my dad went back to my, back to his ex-wife's wife who he had a child with and he stayed with her. And basically, once my grandma was, once I was with my grandma, I was seeing my mom here and there. She ended up coming back to Canada. And it was nice. It was actually the time that we bonded the most because she would try to make a day of fun for us. So she would take me to like the park or to like an amusement park, things like that. And I actually feel like I was bonding with her. So when I was seven, my grandma ended up dying. She got hit by a car. And after that, I had to go live with my stepmom who did not like me. She hated my mom and she did not want me there. And so basically, I ended up messaging my mom on Facebook. And because I wanted to make sure she was okay, I really missed her. And my stepmom saw that. And that was the day when she got extremely angry at me, hated me and ignored me for the rest of my life. She wanted the worst for me. And that's when it started. After that, me and my mom were just connected and talked like every year or so through the phone.</div></div>
+      </div>
+      <div class="corner-note">348.9K</div>
+    </a>
+
+    <a class="review" href="/v/c929e395-edc8-4ba1-88aa-ed07d9b8a4f1">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Sams Indian Kitchen</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/c929e395-edc8-4ba1-88aa-ed07d9b8a4f1/thumbnail.jpg" alt="Sams Indian Kitchen" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:30</span>
+        <span class="verdict goat">INSANE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>317.9K</span>
@@ -446,18 +301,17 @@
       <div class="corner-note">317.9K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7273525359906245894">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/a8b1a0f9-dff7-4a01-83ba-8735962326cb">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Ramen Station</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?w=600&auto=format&fit=crop" alt="Ramen Station"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/a8b1a0f9-dff7-4a01-83ba-8735962326cb/thumbnail.jpg" alt="Ramen Station" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">GOAT</span>
+        <span class="verdict ">NO CAP</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>317.0K</span>
@@ -480,12 +334,40 @@
       </div>
       <div class="corner-note">317.0K</div>
     </a>
-  </div>
-  <div class="foot-nav">
-    <a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a>
-    <a href="/toronto/best-pho">BEST PHO <span class="sub">TOP 7</span></a>
-    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a>
-  </div>
+
+    <a class="review" href="/v/65b6450b-4fbb-406b-8838-7d12891b417b">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Ramen x Remix Ramen&amp;Bar</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/65b6450b-4fbb-406b-8838-7d12891b417b/thumbnail.jpg" alt="Ramen x Remix Ramen&amp;Bar" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:30</span>
+        <span class="verdict goat">CERTIFIED</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>294.3K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>14.4K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>966</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar">I</div>
+        <div class="creator-info">
+          <div class="creator-name">@insta.noodls</div>
+          <div class="followers">TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Let’s Muk  Maxwell treated me to a full course meal including his buldak curry ramen hack</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Let’s Muk  Maxwell treated me to a full course meal including his buldak curry ramen hack</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">Newtool Gang, I'm at Muckbang Maxwell's HQ. Let's muck. That's how you do ASMR. What is this? Oh, are these fries? What? This is cool. Dude, take a look at that. That smells incredible. Incredible truffle flavor. This is so good. Mmm, sensational, dude. I don't know if you can see that or not. Bicy, bulldoch, noodle, curry flavor, coconut and honey. Sprinkle with shallots, high basil in here, and a squeeze of lime. Look at that. This is insane. That's art. Oh my gosh. That honey gives it that perfect amount of sweetness. That balances out the spiciness. I'm gonna make this myself. Mmm, there's these little shrimp bits here. These give it a umami kick, man. Is a shallot. It goes like little bits. Give it a nice little crunch. So there's like a nice textural contrast as well. No ratings on his channel. But if I had to rate it, it'd be a go-kudi. Peach drink. ASMR. Oh, I thought I had enough friction. Oh, that is refreshing. Oh wow. Darling man, you can put this on a menu. Oh, dude, little scallops. Mmm. This is addictive. The heat's coming. Ooh, forgot there's dessert. Got some Oreos. Let's check them out. Mmm, it's pill-y soft. It tastes good, but not like the Oreo. Mmm.</div></div>
+      </div>
+      <div class="corner-note">294.3K</div>
+    </a></div>
+<div class="foot-nav"><a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a><a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a><a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
 </div>
-</body>
-</html>
+</body></html>

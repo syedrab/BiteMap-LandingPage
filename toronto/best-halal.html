@@ -1,145 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-<meta charset="UTF-8" />
-<title>BEST HALAL IN THE 6IX — The Toronto Food Zine | BiteMap</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="The best best halal in Toronto, ranked by food creators with video proof. Every spot filmed so you know exactly what to order.">
+<meta charset="UTF-8"/><title>BEST HALAL — Toronto Food Zine | BiteMap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="The best best halal in Toronto, ranked by food creators with video proof.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.bitemap.fun/toronto/best-halal">
-<meta property="og:title" content="Best HALAL in the 6ix | BiteMap">
+<meta property="og:title" content="BEST HALAL | BiteMap">
 <meta property="og:description" content="The best best halal in Toronto, ranked by food creators with video proof.">
 <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
 <meta property="og:site_name" content="BiteMap">
 <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
 <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Shrikhand&family=Rubik+Mono+One&family=Bungee&family=Special+Elite&family=Archivo+Black&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
 <style>
-  :root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}
-  body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}
-  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}
-  .wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}
-  h1,h2,h3,h4{margin:0;font-weight:400}
-  .marker{font-family:'Permanent Marker',cursive}
-  .caveat{font-family:'Caveat',cursive;font-weight:700}
-  .shrikhand{font-family:'Shrikhand',cursive}
-  .mono{font-family:'DM Mono',monospace}
-  .archivo{font-family:'Archivo Black',sans-serif}
-  .tape{position:absolute;background:var(--tape);box-shadow:0 1px 0 rgba(0,0,0,0.05);border-left:1px dashed rgba(0,0,0,0.07);border-right:1px dashed rgba(0,0,0,0.07);z-index:6}
-  .stamp{display:inline-block;padding:.35rem .7rem;border:2px solid var(--red);color:var(--red);font-family:'Archivo Black',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;transform:rotate(-8deg);box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 3px var(--red);opacity:.88}
-  .marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}
-  .marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}
-  .marquee-track span{display:inline-flex;align-items:center;gap:1rem}
-  .marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  .nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}
-  .nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}
-  .nav-top a:hover{color:var(--red)}
-  .breadcrumb{font-family:'DM Mono';font-size:.75rem}
-  .breadcrumb b{font-family:'Archivo Black'}
-  .hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}
-  .hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}
-  .hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;white-space:nowrap;letter-spacing:-.02em}
-  .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem 1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0 1rem;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}
-  @media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}
-  @media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}
-  .review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}
-  .review:nth-child(7n+1){transform:rotate(-3deg)}
-  .review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}
-  .review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}
-  .review:nth-child(7n+4){transform:rotate(3.5deg)}
-  .review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}
-  .review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}
-  .review:nth-child(7n+7){transform:rotate(-4deg)}
-  .review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}
-  .review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
-  .review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-  .review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}
-  .review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-  .review .top-meta .rating i.off{background:rgba(0,0,0,.2)}
-  .review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}
-  .review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}
-  .review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}
-  .review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}
-  .review:hover .play{transform:translate(-50%,-50%) scale(1.15)}
-  .review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}
-  .review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}
-  .review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem;border:1.5px solid var(--ink)}
-  .review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}
-  .review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}
-  .review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}
-  .review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}
-  .review .stats .stat{display:flex;align-items:center;gap:.3rem}
-  .review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-  .review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}
-  .review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}
-  .review .creator-info{min-width:0;flex:1}
-  .review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}
-  .review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg);position:relative}
-  .review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}
-  .review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}
-  .review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}
-  .review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}
-  .review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left;transition:opacity .2s}
-  .review .transcript-toggle:hover{opacity:1;color:var(--red)}
-  .review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-  .review .transcript-body.open{max-height:600px}
-  .review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}
-  .review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}
-  .review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}
-  .review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}
-  .review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}
-  .review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}
-  .review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
-  .foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}
-  .foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}
-  .foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}
-  .foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}
-  @media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
+:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.75rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;letter-spacing:-.02em}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);max-width:40rem;margin:.5rem auto 0;line-height:1.3;padding:0 1rem .5rem}.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}@media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}.review:nth-child(7n+1){transform:rotate(-3deg)}.review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}.review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}.review:nth-child(7n+4){transform:rotate(3.5deg)}.review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}.review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}.review:nth-child(7n+7){transform:rotate(-4deg)}.review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}.review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}.review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}.review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}.review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}.review:hover .play{transform:translate(-50%,-50%) scale(1.15)}.review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}.review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}.review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem}.review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}.review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}.review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}.review .stats .stat{display:flex;align-items:center;gap:.3rem}.review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}.review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}.review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}.review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg)}.review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}.review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}.review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left}.review .transcript-toggle:hover{opacity:1;color:var(--red)}.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:600px}.review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}.review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}.review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}.review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}.review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}.foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="marquee">
-  <div class="marquee-track">
-    <span><i class="dot"></i> BEST HALAL IN THE 6IX</span>
-    <span><i class="dot"></i> 7 SPOTS · VIDEO VERIFIED</span>
-    <span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-    <span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-    <span><i class="dot"></i> BEST HALAL IN THE 6IX</span>
-    <span><i class="dot"></i> 7 SPOTS · VIDEO VERIFIED</span>
-    <span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-    <span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-  </div>
-</div>
+<div class="marquee"><div class="marquee-track">
+<span><i class="dot"></i> BEST HALAL IN THE 6IX · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+<span><i class="dot"></i> BEST HALAL IN THE 6IX · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+</div></div>
 <div class="wrap">
-  <div class="nav-top">
-    <a href="/toronto">← BACK TO ZINE</a>
-    <div class="breadcrumb mono">TORONTO FOOD ZINE / <b>BEST HALAL</b></div>
-    <a href="#">SHARE →</a>
-  </div>
-  <section class="hero">
-    <span class="kicker">TOP 7</span>
-    <h1>Best Halal.</h1>
-  </section>
-  <div class="reviews-grid">
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7286580793806228741">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+<div class="nav-top"><a href="/toronto">← BACK TO ZINE</a><div class="breadcrumb mono">TORONTO FOOD ZINE / <b>BEST HALAL</b></div><a href="#">SHARE →</a></div>
+<section class="hero"><span class="kicker">TOP 8</span><h1>Halal.</h1><div class="deck">The best best halal in Toronto, ranked by food creators with video proof.</div></section>
+<div class="reviews-grid">
+    <a class="review" href="/v/c824c3a5-8a26-4634-83e1-ba9e466bb434">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Shelby's Legendary Shawarma - Queen &amp; Spadina</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop" alt="Shelby's Legendary Shawarma - Queen &amp; Spadina"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/c824c3a5-8a26-4634-83e1-ba9e466bb434/thumbnail.jpg" alt="Shelby's Legendary Shawarma - Queen &amp; Spadina" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">MUST TRY</span>
@@ -166,18 +63,17 @@
       <div class="corner-note">8.8M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7277734288529984773">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/6ec8e9cb-4dda-4e1c-963d-8b877c13f3a7">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Shah's Halal Food</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&auto=format&fit=crop" alt="Shah's Halal Food"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/6ec8e9cb-4dda-4e1c-963d-8b877c13f3a7/thumbnail.jpg" alt="Shah's Halal Food" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">GOAT</span>
+        <span class="verdict goat">GOAT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.6M</span>
@@ -196,20 +92,19 @@
       <div class="caption"><span class="cap-label">Caption</span><br>Shah’s Halal Food vs Adel’s Halal Food. You are telling me that I don’t have to fly to NYC  and wait 1 hour in line to experience mix combo on rice 😭</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:03] This place claims to be better than Adele's Hullau Food. [00:03-00:08] It's a pretty bold statement because after eating Adele's Hullau Food, I was literally dancing with joy. [00:08-00:12] So I'm at Shaw's Hullau Food to see for myself how could their mixed combo on rice is. [00:12-00:16] Off the bat, I love how I didn't have to wait an hour for my mixed combo on rice. [00:16-00:19] There was an alina, and I also love how they add chunks of lamb and chicken. [00:19-00:24] But this is the key move, cream sauce, spicy sauce, and I don't know what this green sauce is, but it was delicious. [00:24-00:28] You get those beautiful chunks of spicy chicken and lamb mixed in all that delicious sauce. [00:28-00:32] But the most important question you've been waiting for, how does it compare to Adele? [00:32-00:37] To be honest, at first I was a bit skeptical, but genuinely distaste just as good as Adele's Hullau Food. [00:37-00:40] And the best part is I didn't have to fly to New York to experience it.</div></div>
+        <div class="transcript-body"><div class="transcript-text">This place claims to be better than Adele's Hullau Food. It's a pretty bold statement because after eating Adele's Hullau Food, I was literally dancing with joy. So I'm at Shaw's Hullau Food to see for myself how could their mixed combo on rice is. Off the bat, I love how I didn't have to wait an hour for my mixed combo on rice. There was an alina, and I also love how they add chunks of lamb and chicken. But this is the key move, cream sauce, spicy sauce, and I don't know what this green sauce is, but it was delicious. You get those beautiful chunks of spicy chicken and lamb mixed in all that delicious sauce. But the most important question you've been waiting for, how does it compare to Adele? To be honest, at first I was a bit skeptical, but genuinely distaste just as good as Adele's Hullau Food. And the best part is I didn't have to fly to New York to experience it.</div></div>
       </div>
       <div class="corner-note">1.6M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7477381004596940038">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/1e2d1564-7ea9-4bb0-83d2-006999e2e5aa">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Tahini's</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop" alt="Tahini's"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/1e2d1564-7ea9-4bb0-83d2-006999e2e5aa/thumbnail.jpg" alt="Tahini's" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict mid">SOLID</span>
@@ -236,15 +131,14 @@
       <div class="corner-note">1.4M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7171279259540000006">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/40009b14-ff1e-4a57-89da-7b022845a25f">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Halal Noor Pizza &amp; Chicken</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&auto=format&fit=crop" alt="Halal Noor Pizza &amp; Chicken"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/40009b14-ff1e-4a57-89da-7b022845a25f/thumbnail.jpg" alt="Halal Noor Pizza &amp; Chicken" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">FIRE</span>
@@ -262,7 +156,7 @@
           <div class="followers">TikTok</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span></div>
+      <div class="quote"><span class="quote-mark">"</span>Must try this spot</div>
       <div class="caption"><span class="cap-label">Caption</span><br></div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
@@ -271,15 +165,14 @@
       <div class="corner-note">833.0K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7558251939654274311">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/e6e6019d-5de8-4f4c-9f2a-9e7216828e9b">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Chamsine</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1432139509613-5c4255a78e46?w=600&auto=format&fit=crop" alt="Chamsine"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/e6e6019d-5de8-4f4c-9f2a-9e7216828e9b/thumbnail.jpg" alt="Chamsine" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">ELITE</span>
@@ -301,20 +194,19 @@
       <div class="caption"><span class="cap-label">Caption</span><br>Only eating at Palestinian Restaurants for a full day with  Peachy 1)  Palestinian Style Shawarma 2) Louf Palestinian Food (invited) 3)</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:04] Today I'm only eating a Palestinian restaurant, starting with Palestinian-style shawarma, [00:04-00:06] hidden away in the back of this hasty market. [00:06-00:09] But I'm curious, what is Palestinian-style shawarma? [00:09-00:11] The owner told me it all starts with the bread. [00:11-00:16] It's called saj bread, and it's a very thin bread that they make fresh daily, completely from scratch. [00:16-00:19] They put the bread on this dough, and it starts bubbling and cooking within seconds. [00:19-00:21] But the chicken shawarma meat is also very special. [00:21-00:25] It's marinated in Palestinian spices and yogurt for three days, [00:25-00:27] and the key move for me is this ambasauce. [00:27-00:31] It's a tangy, mango-y, vibrant sauce that goes into Palestinian-style shawarma. [00:31-00:36] But these shawarma are so big that even after cutting in a half, it looks like you get two full shawarma. [00:36-00:38] But I've never had a shawarma that tastes like this. [00:38-00:40] The chicken meat is so well seasoned from the spices. [00:40-00:43] The ambasauce gives it an incredible, vibrant kick. [00:43-00:45] This might be my favorite shawarma of all time. [00:45-00:47] For dinner, we went to this fine dining Palestinian restaurant. [00:47-00:50] You walk up, and it looks like someone's home that you're entering. [00:50-00:53] And this was one of the most meaningful dining experiences for us in 2025. [00:53-00:55] Everything in this restaurant speaks of the Palestinian people, [00:55-00:57] their identity and culture. [00:57-00:59] The plates are handcrafted in Palestine. [00:59-01:00] The wine comes from Upper Galilee. [01:00-01:02] It was such a special experience for me to try this wine. [01:02-01:05] Many of the ingredients also come from Palestine, like the olives, [01:05-01:07] and the olive oil used in many of the dishes. [01:07-01:10] My favorite dish was this lamb tenderloin bests-thirma. [01:10-01:13] The lamb is so tender, and the sauce was so frequent, so aromatic. [01:13-01:16] But for me, the most special dish here is their canoffas. [01:16-01:20] It's a canoffa that the owner and chef grew up eating in his hometown of Bethlehem. [01:20-01:22] It's so different from any canoffa I've ever had. [01:22-01:24] And that's why for dessert, I went back to my favorite canoffa shawarma. [01:24-01:26] To try another style of Palestinian canoffa, [01:26-01:29] they make your canoffas fresh every 30 minutes. [01:29-01:32] And they use a very special cheese that is imported from Palestine. [01:32-01:35] It's cheesy, surrepes, so satisfying, especially fresh. [01:35-01:36] Still my favorite canoffa of all time.</div></div>
+        <div class="transcript-body"><div class="transcript-text">Today I'm only eating a Palestinian restaurant, starting with Palestinian-style shawarma, hidden away in the back of this hasty market. But I'm curious, what is Palestinian-style shawarma? The owner told me it all starts with the bread. It's called saj bread, and it's a very thin bread that they make fresh daily, completely from scratch. They put the bread on this dough, and it starts bubbling and cooking within seconds. But the chicken shawarma meat is also very special. It's marinated in Palestinian spices and yogurt for three days, and the key move for me is this ambasauce. It's a tangy, mango-y, vibrant sauce that goes into Palestinian-style shawarma. But these shawarma are so big that even after cutting in a half, it looks like you get two full shawarma. But I've never had a shawarma that tastes like this. The chicken meat is so well seasoned from the spices. The ambasauce gives it an incredible, vibrant kick. This might be my favorite shawarma of all time. For dinner, we went to this fine dining Palestinian restaurant. You walk up, and it looks like someone's home that you're entering. And this was one of the most meaningful dining experiences for us in 2025. Everything in this restaurant speaks of the Palestinian people, their identity and culture. The plates are handcrafted in Palestine. The wine comes from Upper Galilee. It was such a special experience for me to try this wine. Many of the ingredients also come from Palestine, like the olives, and the olive oil used in many of the dishes. My favorite dish was this lamb tenderloin bests-thirma. The lamb is so tender, and the sauce was so frequent, so aromatic. But for me, the most special dish here is their canoffas. It's a canoffa that the owner and chef grew up eating in his hometown of Bethlehem. It's so different from any canoffa I've ever had. And that's why for dessert, I went back to my favorite canoffa shawarma. To try another style of Palestinian canoffa, they make your canoffas fresh every 30 minutes. And they use a very special cheese that is imported from Palestine. It's cheesy, surrepes, so satisfying, especially fresh. Still my favorite canoffa of all time.</div></div>
       </div>
       <div class="corner-note">538.3K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7362595971492023557">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/acffc422-4704-4f43-b3d5-5942db959b50">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Alpha’s Shawarma</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop" alt="Alpha’s Shawarma"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/acffc422-4704-4f43-b3d5-5942db959b50/thumbnail.jpg" alt="Alpha’s Shawarma" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict ">SLEPT ON</span>
@@ -341,18 +233,17 @@
       <div class="corner-note">399.3K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7381518180499393797">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/5b167d31-0bb4-48bc-954f-68d989606c9f">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Wanaag Restaurant Somali Grill and Cafe</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&fit=crop" alt="Wanaag Restaurant Somali Grill and Cafe"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/5b167d31-0bb4-48bc-954f-68d989606c9f/thumbnail.jpg" alt="Wanaag Restaurant Somali Grill and Cafe" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">WORTH IT</span>
+        <span class="verdict goat">WORTH IT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>320.2K</span>
@@ -375,12 +266,40 @@
       </div>
       <div class="corner-note">320.2K</div>
     </a>
-  </div>
-  <div class="foot-nav">
-    <a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a>
-    <a href="/toronto/best-pho">BEST PHO <span class="sub">TOP 7</span></a>
-    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a>
-  </div>
+
+    <a class="review" href="/v/ea3dc5e1-ab8f-4a20-ad4d-91aab02b6b4c">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Lavant Pizza Italian-Palestinian Fusion</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/ea3dc5e1-ab8f-4a20-ad4d-91aab02b6b4c/thumbnail.jpg" alt="Lavant Pizza Italian-Palestinian Fusion" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:30</span>
+        <span class="verdict goat">INSANE</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>186.7K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>12.7K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>3.8K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar">I</div>
+        <div class="creator-info">
+          <div class="creator-name">@insta.noodls</div>
+          <div class="followers">TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Sicilian Middle Eastern Halal Pizza (Levant Pizza)  (not) Pizza</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Sicilian Middle Eastern Halal Pizza (Levant Pizza)  (not) Pizza</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">Back in Toronto and I'm at Lavon Pizza. I'm trying Sicilian Middle Eastern pizza for the first time. I'm with the owner Nathan and he's gonna show me all his pizzas. Let's go. Alright, so what's in this one? This one's a Sicilian chicken shawarma, the Dorma chicken, pickles, garlic tahini and pomegranate molasses. That's fantastic. I think the key move for these are the sauces with the pickles. I'll show you the Tang, right? I love the Tang with the cream. Which one is this one? This is our OG beef shawarma. We parsley pesto, beef brisket, pickled onions and tahini and then it goes with the garlic sauce there. Hmm, this one's so good. It's beef shawarma. It's beef shawarma. It tastes kind of like tender cuts of beef, halal roasted baby, 7 hours. This one's freaking excellent. So this is their classic pepperoni pizza. These pepperoni are actually halal beef. That pepperoni is glistening. Hmm, this is just a very solid pepperoni pizza and some really high quality dough. I feel like I would prefer it without the hot honey cause I'm not like a sweet guy but if you like hot honey, definitely get it. This is their eggplant pizza, a layer on slow roasted eggplant, feta cheese, drizzle of I think tahini sauce. That's a complex pizza man. Get a bit of bitterness I think from the mint. You get that creaminess and roasted flavor from the eggplant. If you want some incredibly unique and Special Middle Eastern flavors on really high quality pizza dough. Definitely check out Lavon Pizza.</div></div>
+      </div>
+      <div class="corner-note">186.7K</div>
+    </a></div>
+<div class="foot-nav"><a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a><a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a><a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
 </div>
-</body>
-</html>
+</body></html>

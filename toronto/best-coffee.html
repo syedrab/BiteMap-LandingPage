@@ -1,145 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-<meta charset="UTF-8" />
-<title>BEST COFFEE IN THE 6IX — The Toronto Food Zine | BiteMap</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="The best best coffee in Toronto, ranked by food creators with video proof. Every spot filmed so you know exactly what to order.">
+<meta charset="UTF-8"/><title>BEST COFFEE — Toronto Food Zine | BiteMap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="The best best coffee in Toronto, ranked by food creators with video proof.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.bitemap.fun/toronto/best-coffee">
-<meta property="og:title" content="Best COFFEE in the 6ix | BiteMap">
+<meta property="og:title" content="BEST COFFEE | BiteMap">
 <meta property="og:description" content="The best best coffee in Toronto, ranked by food creators with video proof.">
 <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
 <meta property="og:site_name" content="BiteMap">
 <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
 <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Shrikhand&family=Rubik+Mono+One&family=Bungee&family=Special+Elite&family=Archivo+Black&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
 <style>
-  :root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}
-  body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}
-  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}
-  .wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}
-  h1,h2,h3,h4{margin:0;font-weight:400}
-  .marker{font-family:'Permanent Marker',cursive}
-  .caveat{font-family:'Caveat',cursive;font-weight:700}
-  .shrikhand{font-family:'Shrikhand',cursive}
-  .mono{font-family:'DM Mono',monospace}
-  .archivo{font-family:'Archivo Black',sans-serif}
-  .tape{position:absolute;background:var(--tape);box-shadow:0 1px 0 rgba(0,0,0,0.05);border-left:1px dashed rgba(0,0,0,0.07);border-right:1px dashed rgba(0,0,0,0.07);z-index:6}
-  .stamp{display:inline-block;padding:.35rem .7rem;border:2px solid var(--red);color:var(--red);font-family:'Archivo Black',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;transform:rotate(-8deg);box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 3px var(--red);opacity:.88}
-  .marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}
-  .marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}
-  .marquee-track span{display:inline-flex;align-items:center;gap:1rem}
-  .marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  .nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}
-  .nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}
-  .nav-top a:hover{color:var(--red)}
-  .breadcrumb{font-family:'DM Mono';font-size:.75rem}
-  .breadcrumb b{font-family:'Archivo Black'}
-  .hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}
-  .hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}
-  .hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;white-space:nowrap;letter-spacing:-.02em}
-  .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem 1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0 1rem;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}
-  @media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}
-  @media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}
-  .review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}
-  .review:nth-child(7n+1){transform:rotate(-3deg)}
-  .review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}
-  .review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}
-  .review:nth-child(7n+4){transform:rotate(3.5deg)}
-  .review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}
-  .review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}
-  .review:nth-child(7n+7){transform:rotate(-4deg)}
-  .review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}
-  .review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
-  .review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-  .review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}
-  .review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-  .review .top-meta .rating i.off{background:rgba(0,0,0,.2)}
-  .review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}
-  .review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}
-  .review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}
-  .review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}
-  .review:hover .play{transform:translate(-50%,-50%) scale(1.15)}
-  .review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}
-  .review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}
-  .review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem;border:1.5px solid var(--ink)}
-  .review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}
-  .review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}
-  .review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}
-  .review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}
-  .review .stats .stat{display:flex;align-items:center;gap:.3rem}
-  .review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-  .review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}
-  .review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}
-  .review .creator-info{min-width:0;flex:1}
-  .review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}
-  .review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg);position:relative}
-  .review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}
-  .review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}
-  .review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}
-  .review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}
-  .review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left;transition:opacity .2s}
-  .review .transcript-toggle:hover{opacity:1;color:var(--red)}
-  .review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-  .review .transcript-body.open{max-height:600px}
-  .review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}
-  .review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}
-  .review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}
-  .review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}
-  .review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}
-  .review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}
-  .review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
-  .foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}
-  .foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}
-  .foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}
-  .foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}
-  @media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
+:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.75rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;letter-spacing:-.02em}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);max-width:40rem;margin:.5rem auto 0;line-height:1.3;padding:0 1rem .5rem}.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}@media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}.review:nth-child(7n+1){transform:rotate(-3deg)}.review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}.review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}.review:nth-child(7n+4){transform:rotate(3.5deg)}.review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}.review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}.review:nth-child(7n+7){transform:rotate(-4deg)}.review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}.review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}.review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}.review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}.review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}.review:hover .play{transform:translate(-50%,-50%) scale(1.15)}.review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}.review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}.review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem}.review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}.review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}.review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}.review .stats .stat{display:flex;align-items:center;gap:.3rem}.review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}.review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}.review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}.review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg)}.review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}.review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}.review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left}.review .transcript-toggle:hover{opacity:1;color:var(--red)}.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:600px}.review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}.review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}.review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}.review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}.review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}.foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="marquee">
-  <div class="marquee-track">
-    <span><i class="dot"></i> BEST COFFEE IN THE 6IX</span>
-    <span><i class="dot"></i> 10 SPOTS · VIDEO VERIFIED</span>
-    <span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-    <span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-    <span><i class="dot"></i> BEST COFFEE IN THE 6IX</span>
-    <span><i class="dot"></i> 10 SPOTS · VIDEO VERIFIED</span>
-    <span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-    <span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-  </div>
-</div>
+<div class="marquee"><div class="marquee-track">
+<span><i class="dot"></i> BEST COFFEE IN THE 6IX · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+<span><i class="dot"></i> BEST COFFEE IN THE 6IX · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+</div></div>
 <div class="wrap">
-  <div class="nav-top">
-    <a href="/toronto">← BACK TO ZINE</a>
-    <div class="breadcrumb mono">TORONTO FOOD ZINE / <b>BEST COFFEE</b></div>
-    <a href="#">SHARE →</a>
-  </div>
-  <section class="hero">
-    <span class="kicker">TOP 10</span>
-    <h1>Best Coffee.</h1>
-  </section>
-  <div class="reviews-grid">
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7553389566472817927">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+<div class="nav-top"><a href="/toronto">← BACK TO ZINE</a><div class="breadcrumb mono">TORONTO FOOD ZINE / <b>BEST COFFEE</b></div><a href="#">SHARE →</a></div>
+<section class="hero"><span class="kicker">TOP 10</span><h1>Coffee.</h1><div class="deck">The best best coffee in Toronto, ranked by food creators with video proof.</div></section>
+<div class="reviews-grid">
+    <a class="review" href="/v/6b27d55b-1cba-446d-a38b-56d8994a2bc7">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Piggy’s Island</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop" alt="Piggy’s Island"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/6b27d55b-1cba-446d-a38b-56d8994a2bc7/thumbnail.jpg" alt="Piggy’s Island" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">MUST TRY</span>
@@ -158,96 +55,25 @@
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>Hey folks, highly recommend you try  Island ⬇️  and I are huge fans of this spot and would love to see it thriving</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Hey folks, highly recommend you try  Island ⬇️  and I are huge fans of this spot and would love to see it thriving. Please support if you can! In my opinion, if you had to try one thing here, you must...</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Hey folks, highly recommend you try  Island ⬇️  and I are huge fans of this spot and would love to see it thriving. Please support if you can! In my opinion, if you had to try one thing here, you must</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:01] Today is a sad day. [00:01-00:03] Because one of my favorite Korean restaurants [00:03-00:04] told me they're struggling to stay open. [00:04-00:06] They haven't been able to pay rent. [00:06-00:07] And fear the landlord may kick them out. [00:07-00:09] So today, my friend Tony and I [00:09-00:11] are gonna share with you why we're big fans of this restaurant. [00:11-00:13] When we got there for lunch, it was completely empty. [00:13-00:16] But we started off with the pork belly barbecue combos. [00:16-00:17] It's $25 per person. [00:17-00:19] It comes with pork belly and a bunch of sides. [00:19-00:21] I absolutely love the homemade kimchi. [00:21-00:23] You grill it and then combine it with the pork belly. [00:23-00:24] It's an incredible bite. [00:24-00:26] The pork here is like really good. [00:26-00:27] One of my favorite, I would get pork here. [00:27-00:28] The quality of the meat here is amazing. [00:28-00:30] The eggs were trying to spicy pork backbone. [00:30-00:32] They slow cooked the pork bone for hours. [00:32-00:35] Then they finish it on the grill with their signature spicy sauce. [00:35-00:36] That pork was so tender. [00:36-00:38] It's just disintegrated in my mouth. [00:38-00:40] And that fatty tender pork, there's just something [00:40-00:43] so satisfying about combining it with the rice ball. [00:43-00:45] I've never had anything like this so good. [00:48-00:50] This is the best thing I've had in this place ever. [00:50-00:52] We also got to try their braised beef short ribs. [00:52-00:54] Also, fall off the bone tender. [00:54-00:56] What I love about this place is that the food [00:56-00:57] is really good quality. [00:57-00:59] They make everything from scratch. [00:59-01:01] Their price point for the quality, I think, is very fair. [01:01-01:02] I would love for you to try this place [01:02-01:03] and let me know what you think. [01:03-01:05] They seem to be short staff though, [01:05-01:06] so please be patient with them.</div></div>
+        <div class="transcript-body"><div class="transcript-text">Today is a sad day. Because one of my favorite Korean restaurants told me they're struggling to stay open. They haven't been able to pay rent. And fear the landlord may kick them out. So today, my friend Tony and I are gonna share with you why we're big fans of this restaurant. When we got there for lunch, it was completely empty. But we started off with the pork belly barbecue combos. It's $25 per person. It comes with pork belly and a bunch of sides. I absolutely love the homemade kimchi. You grill it and then combine it with the pork belly. It's an incredible bite. The pork here is like really good. One of my favorite, I would get pork here. The quality of the meat here is amazing. The eggs were trying to spicy pork backbone. They slow cooked the pork bone for hours. Then they finish it on the grill with their signature spicy sauce. That pork was so tender. It's just disintegrated in my mouth. And that fatty tender pork, there's just something so satisfying about combining it with the rice ball. I've never had anything like this so good. This is the best thing I've had in this place ever. We also got to try their braised beef short ribs. Also, fall off the bone tender. What I love about this place is that the food is really good quality. They make everything from scratch. Their price point for the quality, I think, is very fair. I would love for you to try this place and let me know what you think. They seem to be short staff though, so please be patient with them.</div></div>
       </div>
       <div class="corner-note">3.2M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@tasmindhaliwal/video/7332318334693772549">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Holy Shakes Etobicoke</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&auto=format&fit=crop" alt="Holy Shakes Etobicoke"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict ">GOAT</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>3.1M</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>200.1K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>16.7K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">T</div>
-        <div class="creator-info">
-          <div class="creator-name">@tasmindhaliwal</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>A DEAL SO GOOD YOU GOTTA YELL 🤤😗😍</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>A DEAL SO GOOD YOU GOTTA YELL 🤤😗😍  !</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">Holy shakes. Yes, Holy Shakes. I got their famous family Smash deal for four people, but it's all for me, to be honest. Comes with two burgers, one classic cheese and one Crunch Munch. Comes with two Chili Frankies, once chili chicken and once chili paneer, masala fries and four milkshakes for 39, 99. Let's eat. Hmm, it's bussing. I love the pickle on top, that sauce. 10 out of 10. Classic cheeseburger. Mm hmm. Yeah. Let's try the chili Frankie with the chili chicken. Are you kidding me right now? Hmm. You got an amazing cake. This is dangerous. You know, these masala fries are bussin. But Holy Shakes milkshakes are the best I've ever had. The Biscoff milkshake from Holy Shakes. And I promise you will never want another milkshake again. Oh, the lychee. Only $40 for all that food. I'll see you at Holy Shakes.</div></div>
-      </div>
-      <div class="corner-note">3.1M</div>
-    </a>
-
-    <a class="review" href="https://www.tiktok.com/@tasmindhaliwal/video/7229462850669006086">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">D Spot Dessert Cafe Mississauga Dixie</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop" alt="D Spot Dessert Cafe Mississauga Dixie"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict mid">SOLID</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>3.0M</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>187.2K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>23.8K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">T</div>
-        <div class="creator-info">
-          <div class="creator-name">@tasmindhaliwal</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>CANDIED 🍇 AND 🍍’s 🤤❤️ DELICIOUS</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>CANDIED 🍇 AND 🍍’s 🤤❤️ DELICIOUS!!!</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">Holy. They're from Unmistakable Dessert in Mississauga, and I'm just. I'm just gonna go with. Ready? Oh, god, these are gonna be gone in 2 minutes. Go for a pineapple. Oh, I've heard such good things about the pineapples. Double pineapple. Believe. Like crack. That one had, like, sour dust on it. Oh, my god. So good. Try them out.</div></div>
-      </div>
-      <div class="corner-note">3.0M</div>
-    </a>
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7284015911990758661">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/17bb9f2f-83f4-4727-99d9-97cf1d356941">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">New Bakery</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&auto=format&fit=crop" alt="New Bakery"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/17bb9f2f-83f4-4727-99d9-97cf1d356941/thumbnail.jpg" alt="New Bakery" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">FIRE</span>
+        <span class="verdict goat">GOAT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>2.1M</span>
@@ -271,18 +97,17 @@
       <div class="corner-note">2.1M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7308534368295767301">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/4caf6259-3f31-45c3-8d32-18109b134f07">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Wychwood Pub</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1432139509613-5c4255a78e46?w=600&auto=format&fit=crop" alt="Wychwood Pub"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/4caf6259-3f31-45c3-8d32-18109b134f07/thumbnail.jpg" alt="Wychwood Pub" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">ELITE</span>
+        <span class="verdict mid">SOLID</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.5M</span>
@@ -306,18 +131,17 @@
       <div class="corner-note">1.5M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7435063649804373303">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/5ba731f5-7f36-403a-8383-5ac3304f52da">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">McCain Happy Frydays Café</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop" alt="McCain Happy Frydays Café"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/5ba731f5-7f36-403a-8383-5ac3304f52da/thumbnail.jpg" alt="McCain Happy Frydays Café" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">SLEPT ON</span>
+        <span class="verdict goat">FIRE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.3M</span>
@@ -333,7 +157,7 @@
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>Everything we ate at the McCain Happy FryDays Café presented by     It was so fun to try out all the creative menu items...</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Everything we ate at the McCain Happy FryDays Café presented by     It was so fun to try out all the creative menu items at the McCain Happy FryDays Café. My favourite was the Tasti Tachos! Come check...</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Everything we ate at the McCain Happy FryDays Café presented by     It was so fun to try out all the creative menu items at the McCain Happy FryDays Café. My favourite was the Tasti Tachos! Come check</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
         <div class="transcript-body"><div class="transcript-text">This is everything we ate at the McCain Happy Friday's Cafe. We were literally in fries heaven. You start off by entering through this mega sized fries entrance into one of the most magical experiences. After ordering everything off the menu, they gave us this potato and told us to drop it in this tube. What happened next? Surprise. Your potato goes through this potato journey and then you get your fries from this fun pickup window. We were hungry so we ordered a lot of fries. We were most excited to try these unicorn fries. I was surprised to find that the rainbow sauce was actually savory, but the McCain Tasty Tacos might be my favorite bite. They were oozing with delicious melted cheese and it got me dancing with joy. After having fun fries with milkshake for dessert, my wife wanted to visit the merch shop while I continued my fries adventures by snacking on the McCain Smile Stackers. This was one of the most fun immersive experiences. Definitely check out the McCain Happy Fridays Cafe, open from now until November 24th.</div></div>
@@ -341,18 +165,17 @@
       <div class="corner-note">1.3M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7285762706022419717">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/ce577e75-f6cc-49d4-b4c9-5dc72309df93">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Fuwa Fuwa Dessert Cafe</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&fit=crop" alt="Fuwa Fuwa Dessert Cafe"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/ce577e75-f6cc-49d4-b4c9-5dc72309df93/thumbnail.jpg" alt="Fuwa Fuwa Dessert Cafe" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">WORTH IT</span>
+        <span class="verdict goat">ELITE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>923.8K</span>
@@ -376,18 +199,17 @@
       <div class="corner-note">923.8K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7364946026303655173">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/68779bdc-565c-49ef-b785-aabae273152f">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Osaka Sushi</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&auto=format&fit=crop" alt="Osaka Sushi"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/68779bdc-565c-49ef-b785-aabae273152f/thumbnail.jpg" alt="Osaka Sushi" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">INSANE</span>
+        <span class="verdict ">SLEPT ON</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>900.9K</span>
@@ -411,18 +233,17 @@
       <div class="corner-note">900.9K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@aarnvrr/video/7243913948292975877">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/10d29b31-113d-4a43-be8b-06d13340d8e4">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Becked Goods Baked Goods Cafe</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=600&auto=format&fit=crop" alt="Becked Goods Baked Goods Cafe"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/10d29b31-113d-4a43-be8b-06d13340d8e4/thumbnail.jpg" alt="Becked Goods Baked Goods Cafe" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">MUST TRY</span>
+        <span class="verdict goat">WORTH IT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>589.1K</span>
@@ -446,18 +267,17 @@
       <div class="corner-note">589.1K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7376756343106981125">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/fa36853f-812c-4201-84c1-39b798cba33a">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Minji's</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?w=600&auto=format&fit=crop" alt="Minji's"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/fa36853f-812c-4201-84c1-39b798cba33a/thumbnail.jpg" alt="Minji's" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">GOAT</span>
+        <span class="verdict goat">INSANE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>541.9K</span>
@@ -480,12 +300,74 @@
       </div>
       <div class="corner-note">541.9K</div>
     </a>
-  </div>
-  <div class="foot-nav">
-    <a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a>
-    <a href="/toronto/best-pho">BEST PHO <span class="sub">TOP 7</span></a>
-    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a>
-  </div>
+
+    <a class="review" href="/v/8f5596c6-67e4-48f8-8bca-3c8f17ccce2f">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Crosstown Craft BBQ</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/8f5596c6-67e4-48f8-8bca-3c8f17ccce2f/thumbnail.jpg" alt="Crosstown Craft BBQ" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:30</span>
+        <span class="verdict ">NO CAP</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>470.8K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>34.0K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>7.2K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar">I</div>
+        <div class="creator-info">
+          <div class="creator-name">@insta.noodls</div>
+          <div class="followers">TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Toronto is home to one of the largest Portuguese communities outside of Portugal ⬇️ My Portuguese friend  Craft BBQ show...</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Toronto is home to one of the largest Portuguese communities outside of Portugal ⬇️ My Portuguese friend  Craft BBQ shows me some of his favourite Portuguese food spots in the city: 1)  Sandwiches $12</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">Where do Portuguese people actually go to eat when they're craving Portuguese food in Toronto? I've had some of the best Portuguese food in Portugal. So today I'm with my Portuguese friend Rubin to find out how good Toronto's Portuguese food is. First up we're at a food truck in the corner of this parking lot, run by a single Portuguese man who makes a beefana, inspired by a recipe he discovered in his family's hometown. And his beefanash is stuffed with pork meat. He makes them two ways, the bonzi way, where he stuffs it with additional potato chips, and he also makes a more traditional beefana. This is by far the biggest beefana I've ever had in my life. The bun is fresh, and the meat is super tender and fused with flavor. This is the second best beefana I've ever had. Right behind a fanzo in Lisbon. Next up we're at this Portuguese restaurant where many of the dishes are prepared by Portuguese grandmas. And we're here to answer one question. How does the PDPD chicken here compare to the ones in Portugal? After slicing up their chicken, we drench the chicken in their homemade PDPD sauce. That PDPD sauce is so garlicky. It adds an incredible aroma to that chicken. And because of that sauce, I think it's better than Bonjardin in Lisbon. But I almost got cancelled in Portugal for eating a francincenia. So today I'm eating the Francincenia again. They make it here very similar to the ones I've had in Porto. I love the Yolquie Agontop. It was so cheesy, so decadent. And I've learned my lesson. Never again, well I eat a Francincenia with my hands. But I have yet to find a Pashtez de Nata in Toronto as good as the ones I've had in Portugal. But Ruben claims despot makes really good Pashtez de Nata. The owner totes they spent months perfecting this recipe. And they make them every 30 minutes in small batches to make sure it's always fresh. The pastry is flaky and fluffy. The filling is very custardy. A very strong Pashtez de Nata. Right up there with the best I've had in Portugal.</div></div>
+      </div>
+      <div class="corner-note">470.8K</div>
+    </a>
+
+    <a class="review" href="/v/b185f1c1-f8cd-4d10-99c5-3f2a36327604">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Ikkousha Ramen Chicken</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/b185f1c1-f8cd-4d10-99c5-3f2a36327604/thumbnail.jpg" alt="Ikkousha Ramen Chicken" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:30</span>
+        <span class="verdict goat">CERTIFIED</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>439.5K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>30.3K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>2.1K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar">I</div>
+        <div class="creator-info">
+          <div class="creator-name">@insta.noodls</div>
+          <div class="followers">TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Thai Hong Kong Style Cafe Restaurant Levels Up My Ramen (📍Yeah Yeah Thai)</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Thai Hong Kong Style Cafe Restaurant Levels Up My Ramen (📍Yeah Yeah Thai)</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">I'm challenging restaurants to level up my ramen. And today my wife and I are gonna see how this Hong Kong style Thai cuisine restaurant is going to make my ramen gourmet. But first we're gonna have a Hong Kong style Thai cuisine feast. I tried to eat their chicken wing in one bite by burnt myself, but I've never tried it as quite like this one. Cheesy, creamy, tamion, risotto. The flavor is like nothing I've ever had before. You get the sweet and sour from the tamion and creaminess from the cheese. Absolutely stunning. And I have fond memories of this cheesy, big chicken spaghetti because I grew up eating this. But what's most surprising about this version is there's green curry in it, which I actually love. And this might be my wife's favorite dish, mango sticky rice. Eating it brought us back to our time in Thailand. But the moment you've been waiting for this restaurant leveled up my ramen by adding their signature creamy tamion sauce to instant ramen. That creamy tamion sauce absolutely blew my mind.</div></div>
+      </div>
+      <div class="corner-note">439.5K</div>
+    </a></div>
+<div class="foot-nav"><a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a><a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a><a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
 </div>
-</body>
-</html>
+</body></html>

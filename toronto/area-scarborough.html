@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-<meta charset="UTF-8"/>
-<title>SCARBOROUGH — Toronto Food Zine | BiteMap</title>
+<meta charset="UTF-8"/><title>SCARBOROUGH — Toronto Food Zine | BiteMap</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="Where Toronto's best-kept food secrets live. Strip mall gold. Parking lot legends. The drive is the price of admission.">
+<meta name="description" content="Strip mall gold. Parking lot legends. The drive is the price of admission.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.bitemap.fun/toronto/area-scarborough">
-<meta property="og:title" content="SCARBOROUGH | Toronto Food Zine | BiteMap">
-<meta property="og:description" content="Where Toronto's best-kept food secrets live. Strip mall gold. Parking lot legends. The drive is the price of admission.">
+<meta property="og:title" content="SCARBOROUGH | BiteMap">
+<meta property="og:description" content="Strip mall gold. Parking lot legends. The drive is the price of admission.">
 <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
 <meta property="og:site_name" content="BiteMap">
 <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
@@ -18,176 +17,29 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
 <style>
-:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}
-body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}
-.wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}
-h1,h2,h3,h4{margin:0;font-weight:400}
-.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}
-.marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}
-.marquee-track span{display:inline-flex;align-items:center;gap:1rem}
-.marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}
-.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}.nav-top a:hover{color:var(--red)}
-.breadcrumb{font-family:'DM Mono';font-size:.75rem}.breadcrumb b{font-family:'Archivo Black'}
-.hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}
-.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}
-.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;letter-spacing:-.02em}
-.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);max-width:40rem;margin:.5rem auto 0;line-height:1.3;padding:0 1rem .5rem}
-.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}
-@media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}
-@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}
-.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}
-.review:nth-child(7n+1){transform:rotate(-3deg)}.review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}.review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}.review:nth-child(7n+4){transform:rotate(3.5deg)}.review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}.review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}.review:nth-child(7n+7){transform:rotate(-4deg)}
-.review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}
-.review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
-.review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}
-.review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}
-.review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}
-.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}
-.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}
-.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}
-.review:hover .play{transform:translate(-50%,-50%) scale(1.15)}
-.review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}
-.review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}
-.review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem}
-.review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}
-.review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}
-.review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}
-.review .stats .stat{display:flex;align-items:center;gap:.3rem}.review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-.review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}
-.review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}
-.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}
-.review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg)}
-.review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}
-.review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}
-.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}
-.review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}
-.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left}
-.review .transcript-toggle:hover{opacity:1;color:var(--red)}
-.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:600px}
-.review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}
-.review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}
-.review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}
-.review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}
-.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}
-.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}
-.review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
-.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}
-.foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}
-.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}
-.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}
-@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
+:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.75rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;letter-spacing:-.02em}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);max-width:40rem;margin:.5rem auto 0;line-height:1.3;padding:0 1rem .5rem}.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}@media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}.review:nth-child(7n+1){transform:rotate(-3deg)}.review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}.review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}.review:nth-child(7n+4){transform:rotate(3.5deg)}.review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}.review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}.review:nth-child(7n+7){transform:rotate(-4deg)}.review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}.review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}.review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}.review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}.review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}.review:hover .play{transform:translate(-50%,-50%) scale(1.15)}.review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}.review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}.review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem}.review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}.review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}.review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}.review .stats .stat{display:flex;align-items:center;gap:.3rem}.review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}.review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}.review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}.review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg)}.review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}.review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}.review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left}.review .transcript-toggle:hover{opacity:1;color:var(--red)}.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:600px}.review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}.review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}.review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}.review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}.review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}.foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="marquee"><div class="marquee-track">
-<span><i class="dot"></i> SCARBOROUGH · 25 SPOTS · VIDEO VERIFIED</span>
-<span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-<span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-<span><i class="dot"></i> SCARBOROUGH · 25 SPOTS · VIDEO VERIFIED</span>
-<span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-<span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+<span><i class="dot"></i> SCARBOROUGH · 19 SPOTS · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+<span><i class="dot"></i> SCARBOROUGH · 19 SPOTS · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
 </div></div>
 <div class="wrap">
-<div class="nav-top">
-  <a href="/toronto">← BACK TO ZINE</a>
-  <div class="breadcrumb mono">TORONTO FOOD ZINE / <b>SCARBOROUGH</b></div>
-  <a href="#">SHARE →</a>
-</div>
-<section class="hero">
-  <span class="kicker">STRIP MALL ROYALTY</span>
-  <h1>Scarborough.</h1>
-  <div class="deck">Where Toronto's best-kept food secrets live. Strip mall gold. Parking lot legends. The drive is the price of admission.</div>
-</section>
+<div class="nav-top"><a href="/toronto">← BACK TO ZINE</a><div class="breadcrumb mono">TORONTO FOOD ZINE / <b>SCARBOROUGH</b></div><a href="#">SHARE →</a></div>
+<section class="hero"><span class="kicker">STRIP MALL ROYALTY</span><h1>Scarborough.</h1><div class="deck">Strip mall gold. Parking lot legends. The drive is the price of admission.</div></section>
 <div class="reviews-grid">
-
-    <a class="review" href="https://www.tiktok.com/@tasmindhaliwal/video/7520087287502359864">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Bon Cake</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop" alt="Bon Cake"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict goat">MUST TRY</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>11.0M</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>913.6K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>63.0K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">T</div>
-        <div class="creator-info">
-          <div class="creator-name">@tasmindhaliwal</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>Trying all the wedding cake 🍰</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Trying all the wedding cake 🍰</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">You guys know I'm getting married, so let's try different flavors for my wedding cake. First one is pistachio saffron. That is so good I can eat this entire thing. Lemon, blueberry, very fruity. Not my favorite for a wedding cake, but I would love it just like any other day. Banana and vanilla, 9 out of 10. Mixed Berry and vanilla cream. I love this. This is a 10 out of 10. Chocolate mousse. Love a chocolate mousse. This is a contender. Maple spice, pecan and cocoa. Tastes like Christmas. That would be so good for a winter wedding. Coconut, mango and passion fruit. Oh, I'm in heaven right now. Coffee, caramel and a hazelnut. That's not for me. Red velvet and cream cheese. Not a red velvet girly. I still don't know, you guys.</div></div>
-      </div>
-      <div class="corner-note">11.0M</div>
-    </a>
-
-    <a class="review" href="https://www.tiktok.com/@tasmindhaliwal/video/7379816836218522886">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Rajdhani Sweets and Restaurant</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&auto=format&fit=crop" alt="Rajdhani Sweets and Restaurant"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict goat">GOAT</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>2.2M</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>93.6K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>7.2K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">T</div>
-        <div class="creator-info">
-          <div class="creator-name">@tasmindhaliwal</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>INDIAN FOOD 🥘 nothing tops  🩷</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>INDIAN FOOD 🥘 nothing tops  🩷</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">Everything I ate at my favorite Indian restaurant, fried momos, hacker style noodles, so delicious. Addicted to these steamed dumplings. Yummy Diet Coke because I'm skinny. Look at how huge this d L. S a is. This was so delicious. Pani puri or gogappa, so bomb. Manchurian with gravy. Love so much. Chop this cool down my mouth and was so good. Fried vegetable platter. Yummy in my tummy. Aloo. Potato with yogurt and spices, spice lemonade, chickpea with delicious bread. I'll be back soon.</div></div>
-      </div>
-      <div class="corner-note">2.2M</div>
-    </a>
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7104405411809201413">
+    <a class="review" href="/v/d04a18e9-ae75-4903-b93e-28cd5fc16eae">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Costco Business Centre</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&auto=format&fit=crop" alt="Costco Business Centre"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/d04a18e9-ae75-4903-b93e-28cd5fc16eae/thumbnail.jpg" alt="Costco Business Centre" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict mid">SOLID</span>
+        <span class="verdict goat">MUST TRY</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.7M</span>
@@ -211,51 +63,17 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">1.7M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7292505552012250374">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">The Basil King (Indonesian Cuisine)</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop" alt="The Basil King (Indonesian Cuisine)"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict goat">FIRE</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.2M</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>64.5K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>4.2K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">I</div>
-        <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>chef levels up my indomie 3 ways 🤯</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>chef levels up my indomie 3 ways 🤯</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">N/A</div></div>
-      </div>
-      <div class="corner-note">1.2M</div>
-    </a>
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7252819217982983429">
+    <a class="review" href="/v/a28c4c1d-ad10-4967-b2c7-ea67b218949a">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Shereen's Guyanese Bakery &amp; Roti</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&auto=format&fit=crop" alt="Shereen's Guyanese Bakery &amp; Roti"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/a28c4c1d-ad10-4967-b2c7-ea67b218949a/thumbnail.jpg" alt="Shereen's Guyanese Bakery &amp; Roti" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">ELITE</span>
+        <span class="verdict goat">GOAT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>972.9K</span>
@@ -279,17 +97,17 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">972.9K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7363102341744053509">
+    <a class="review" href="/v/2fa54c45-e483-49f5-b7f1-c74da28f9e40">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Perfect Chinese Restaurant</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop" alt="Perfect Chinese Restaurant"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/2fa54c45-e483-49f5-b7f1-c74da28f9e40/thumbnail.jpg" alt="Perfect Chinese Restaurant" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">SLEPT ON</span>
+        <span class="verdict mid">SOLID</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>956.8K</span>
@@ -313,17 +131,17 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">956.8K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7285762706022419717">
+    <a class="review" href="/v/ce577e75-f6cc-49d4-b4c9-5dc72309df93">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Fuwa Fuwa Dessert Cafe</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&auto=format&fit=crop" alt="Fuwa Fuwa Dessert Cafe"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/ce577e75-f6cc-49d4-b4c9-5dc72309df93/thumbnail.jpg" alt="Fuwa Fuwa Dessert Cafe" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">WORTH IT</span>
+        <span class="verdict goat">FIRE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>923.8K</span>
@@ -347,17 +165,17 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">923.8K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7445093160273071416">
+    <a class="review" href="/v/ef3d4979-0e51-41b6-aa64-3ccac992550e">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Mona's Roti</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop" alt="Mona's Roti"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/ef3d4979-0e51-41b6-aa64-3ccac992550e/thumbnail.jpg" alt="Mona's Roti" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">INSANE</span>
+        <span class="verdict goat">ELITE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>873.2K</span>
@@ -381,51 +199,17 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">873.2K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7369998146736377093">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Gol's Lanzhou Noodle Markham</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&fit=crop" alt="Gol's Lanzhou Noodle Markham"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict ">NO CAP</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>816.6K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>70.3K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>3.8K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">I</div>
-        <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>My wife  Peachy vs Me $20 Challenge at an Asian Food Court First Markham Place</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>My wife  Peachy vs Me $20 Challenge at an Asian Food Court First Markham Place</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:06] How my wife spends $20 versus how I spend $20 at one of the largest Asian food courts service market place [00:06-00:10] First step I decided to go to the white stall to get a gigantic platter of Chinese barbecue on rice [00:10-00:13] But my friend chose the yellow stall and I was jealous [00:13-00:15] Yours looks so crispy [00:15-00:17] No mine's crispy too [00:17-00:21] For 899 you get a lot of food, but I couldn't help looking at my friend's plate [00:21-00:24] Wait why you get so much? Did they tell them you're an influencer? No? [00:24-00:26] Her roast beef were definitely bigger [00:26-00:28] But I actually prefer the flavor of the white stalls [00:28-00:32] But with $11 left I got one of my favorite fried noodles charquitale [00:32-00:36] I love how it comes with fishcakes and shrimp and the noodles were made to order fried fresh off the wall [00:36-00:38] Oh gosh she looks like you're dying [00:38-00:39] Definitely burnt myself but it was worth it [00:39-00:42] But my wife balled out with her $20 [00:42-00:45] Instead of the cheapest meal she decided to get the most expensive meals [00:45-00:49] Starting off with a lunch box where you can pick any three items for $11.99 [00:49-00:52] She picked tofu, veggie, and pork as her three sides and she loved the pork [00:52-00:55] But instead of getting the $3.99 bubble tea [00:55-00:58] My wife spent her last $8 with the most expensive bubble tea she can find</div></div>
-      </div>
-      <div class="corner-note">816.6K</div>
-    </a>
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7177922492776926469">
+    <a class="review" href="/v/b1e4db15-8736-437e-a827-dece4b1240fb">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Ali's Wraps Green Food Truck</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&auto=format&fit=crop" alt="Ali's Wraps Green Food Truck"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/b1e4db15-8736-437e-a827-dece4b1240fb/thumbnail.jpg" alt="Ali's Wraps Green Food Truck" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">CERTIFIED</span>
+        <span class="verdict ">SLEPT ON</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>736.1K</span>
@@ -449,17 +233,17 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">736.1K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7422435955962809606">
+    <a class="review" href="/v/f2b79ca4-0fe4-44b0-be5a-9a087f5ee5d8">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Gourmet Malaysia Restaurant</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=600&auto=format&fit=crop" alt="Gourmet Malaysia Restaurant"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/f2b79ca4-0fe4-44b0-be5a-9a087f5ee5d8/thumbnail.jpg" alt="Gourmet Malaysia Restaurant" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">MUST TRY</span>
+        <span class="verdict goat">WORTH IT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>725.3K</span>
@@ -483,17 +267,17 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">725.3K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7359674457499208965">
+    <a class="review" href="/v/8b8cd168-2cb4-4d8d-80ed-450db6c39047">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">The Good Eats by Julian</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop" alt="The Good Eats by Julian"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/8b8cd168-2cb4-4d8d-80ed-450db6c39047/thumbnail.jpg" alt="The Good Eats by Julian" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">GOAT</span>
+        <span class="verdict goat">INSANE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>662.1K</span>
@@ -516,12 +300,142 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       </div>
       <div class="corner-note">662.1K</div>
     </a>
+
+    <a class="review" href="/v/0cdeadb4-15bb-4f77-a00d-a5d2c6f5e048">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Seafood City Supermarket - Scarborough</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/0cdeadb4-15bb-4f77-a00d-a5d2c6f5e048/thumbnail.jpg" alt="Seafood City Supermarket - Scarborough" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:30</span>
+        <span class="verdict ">NO CAP</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>565.4K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>32.8K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>2.0K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar">I</div>
+        <div class="creator-info">
+          <div class="creator-name">@insta.noodls</div>
+          <div class="followers">TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>$70 Filipino foodcourt feast at Seafood City Supermarket</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>$70 Filipino foodcourt feast at Seafood City Supermarket</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">This is everything we ate for $70 at Sea Food City's supermarket. Bucko up because we're gonna eat as much Filipino food as we can in their massive food court. First up for $995 they gave us a mountain of pan-seed beehun noodles. I think the noodles literally weighed 5 pounds. I love how there's these fish balls on top. And there was so much noodles that we were already full after eating this. But we saw this food stall stocking up on Filipino street food. So for $6.99 we got the pork shiomai. And we got a veggie lumpia for $3. That lumpia was crispy and fresh. Pretty good deal for $3. So we saw you can get chicken and dobo here in pork blood stew. So you know we had to get some. They come with a box of rice and a chicken or barbecue pork skewer. These combos cost us $14.99 and $16.50. And that pork skewer was probably the best thing I've had so far. But this is my first time eating pork blood stew. The pork was tender and I love the vinegar taste. And I love how there's these quail eggs in the chicken and dobo. And the chicken and dobo had a nice balance of sweet savory and sour. But we can't leave without eating dessert. So for $8.95 we got my favorite Filipino dessert, hallow hallow.</div></div>
+      </div>
+      <div class="corner-note">565.4K</div>
+    </a>
+
+    <a class="review" href="/v/2c17e9c5-75b1-4e07-a25e-01d9b161c705">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Montmartre Bakery Danish Scarborough Address</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/2c17e9c5-75b1-4e07-a25e-01d9b161c705/thumbnail.jpg" alt="Montmartre Bakery Danish Scarborough Address" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:30</span>
+        <span class="verdict goat">CERTIFIED</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>433.3K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>32.3K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>10.0K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar">A</div>
+        <div class="creator-info">
+          <div class="creator-name">@aarnvrr</div>
+          <div class="followers">TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Replying to  danishes at monmartre bakery 🍞</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Replying to  danishes at monmartre bakery 🍞</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">00:00:08  Right over there is Midland 00:00:47  What a sight to behold. For a place located in a pretty industrial part of town 00:00:41  I'm a sucker for a good 🫐 one. 00:00:30  like there's no place to sit. 00:00:37  But I come here for pies and in this instance, danishes. 00:00:54  They do way more than I had mentioned 00:00:28  and if you head inside it's legit a bakery, 00:00:26  This is a pretty humble spot 00:00:11  and follow this curve until you reach the destination. 00:00:19  But from Midland it actually isn't too far of a walk. 00:00:06  So this is a bakery located in Scarborough. 00:00:14  Now this is definitely more of a driving situation, 00:00:25  And we arrived! 00:00:04  and here's how to find this one. 00:00:45  and…beautiful! 00:00:56  so visit them to see what else they got! 00:00:52  I'd say this is well worth the trek. 00:00:33  This place is known for a number of things including strudels and pretzels. 00:00:31  It’s typically just take-out. 00:00:43  I had to unpack these when I got home. 00:00:17  I'm sort of just walking to show you how to get to this place. 00:00:01  Putting you on to actual hidden gems in Toronto 00:00:09  and you're gonna wanna take this street 00:00:21  Bakery so popular that other businesses don't want you to use their parking.</div></div>
+      </div>
+      <div class="corner-note">433.3K</div>
+    </a>
+
+    <a class="review" href="/v/b5fe8463-3b66-4137-92fa-2ae16d6f3004">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">FAT NINJA BITE</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/b5fe8463-3b66-4137-92fa-2ae16d6f3004/thumbnail.jpg" alt="FAT NINJA BITE" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:30</span>
+        <span class="verdict goat">MUST TRY</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>425.0K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>21.5K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>1.1K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar">I</div>
+        <div class="creator-info">
+          <div class="creator-name">@insta.noodls</div>
+          <div class="followers">TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>My private chef era  Recipe: 1</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>My private chef era  Recipe: 1. salmon filets marinaded in a mixture of soy sauce and brown sugar (I just kept on gradually adding brown sugar gradually until it came to my liking) 2. Brussel sprouts </div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">So I got hired to be a private chef for an actor here in Toronto. I can't really tell you who it is, but you might have seen them on Netflix or Amazon Prime, and they're also going to be appearing on an upcoming major show. This is the first meal I'll be making for them, it's kind of like a trial run. They asked for something healthy, so I chopped up some Brussels sprouts in mushrooms, and they requested while salmon, but the best I could find was organic salmon, so hopefully they don't mind. But you might be wondering how did I land this gig? I'm gonna be honest, it was nepotism. They're a family member, and luckily a huge fan of the channel. I was already running late and they were getting hungry, so luckily as a carb, I had this microwavable rice, and I'm just hoping they enjoyed a dish. So good! I mean the color is great, I don't know how it tastes. You're gonna try it. Yeah. Are you joking or not joking? No, not joking, I'm not trying so. Yeah, it was really, really good. Oh!</div></div>
+      </div>
+      <div class="corner-note">425.0K</div>
+    </a>
+
+    <a class="review" href="/v/63b8a8db-6a2e-4b02-a9ec-efdac1b52dae">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Kairali</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/63b8a8db-6a2e-4b02-a9ec-efdac1b52dae/thumbnail.jpg" alt="Kairali" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:30</span>
+        <span class="verdict goat">GOAT</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>385.2K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>33.1K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>2.2K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar">I</div>
+        <div class="creator-info">
+          <div class="creator-name">@insta.noodls</div>
+          <div class="followers">TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>My friend planned an Indian Food Crawl for me   📍Federick (Indian Chinese Hakka) 📍 King Of Punjabi Tadka  📍 Hyderabad...</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>My friend planned an Indian Food Crawl for me   📍Federick (Indian Chinese Hakka) 📍 King Of Punjabi Tadka  📍 Hyderabad Biryani Hut 📍 Kairali (Kerala cuisine)</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">Trying Indian food I've never had for the first time my friend has been planning for months to prepare this Indian food And I had no idea India had so many different cuisines first that we went to the iconic Fredrick's for some Indochinese Haka cuisine got the Haka Chow Mean and their legendary chili chicken. I love how gigantic the portions are and it only costs 975 and it comes with a drink the owner is originally from Kolkata where Indochinese cuisine is popular next up We drove to an industrial complex to try butter chicken I had butter chicken before but this one had a thicker gravy texture Which I kind of like and apparently if you go on a Thursday it only costs 899 But we drove all the way to another plaza to try hydro baddie Briarani apparently what makes this Briarani so special is how they cook the rice the rice is steamed with the chicken so all the chicken juices get Absorbed by the rice This is my first time trying this type of Briarani and I love the fragrance of the rice before our last stop We're trying Kerala Indian cuisine Kerala is a state in India next to the ocean So they're famous for their fish dishes. We got their kingfish curry combo which comes with a ton of side dishes My friends family is actually from Kerala and this reminded him of the foodie a growing up</div></div>
+      </div>
+      <div class="corner-note">385.2K</div>
+    </a></div>
+<div class="foot-nav"><a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a><a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a><a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
 </div>
-<div class="foot-nav">
-  <a href="/toronto">← BACK TO ZINE <span class="sub">ALL AREAS</span></a>
-  <a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a>
-  <a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a>
-</div>
-</div>
-</body>
-</html>
+</body></html>

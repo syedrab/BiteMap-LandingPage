@@ -1,145 +1,42 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-<meta charset="UTF-8" />
-<title>BEST SEAFOOD IN THE 6IX — The Toronto Food Zine | BiteMap</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="The best best seafood in Toronto, ranked by food creators with video proof. Every spot filmed so you know exactly what to order.">
+<meta charset="UTF-8"/><title>BEST SEAFOOD — Toronto Food Zine | BiteMap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="The best best seafood in Toronto, ranked by food creators with video proof.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.bitemap.fun/toronto/best-seafood">
-<meta property="og:title" content="Best SEAFOOD in the 6ix | BiteMap">
+<meta property="og:title" content="BEST SEAFOOD | BiteMap">
 <meta property="og:description" content="The best best seafood in Toronto, ranked by food creators with video proof.">
 <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
 <meta property="og:site_name" content="BiteMap">
 <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
 <link rel="apple-touch-icon" href="/images/bitemap-logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Shrikhand&family=Rubik+Mono+One&family=Bungee&family=Special+Elite&family=Archivo+Black&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
 <style>
-  :root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}
-  body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}
-  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}
-  .wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}
-  h1,h2,h3,h4{margin:0;font-weight:400}
-  .marker{font-family:'Permanent Marker',cursive}
-  .caveat{font-family:'Caveat',cursive;font-weight:700}
-  .shrikhand{font-family:'Shrikhand',cursive}
-  .mono{font-family:'DM Mono',monospace}
-  .archivo{font-family:'Archivo Black',sans-serif}
-  .tape{position:absolute;background:var(--tape);box-shadow:0 1px 0 rgba(0,0,0,0.05);border-left:1px dashed rgba(0,0,0,0.07);border-right:1px dashed rgba(0,0,0,0.07);z-index:6}
-  .stamp{display:inline-block;padding:.35rem .7rem;border:2px solid var(--red);color:var(--red);font-family:'Archivo Black',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;transform:rotate(-8deg);box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 3px var(--red);opacity:.88}
-  .marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}
-  .marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}
-  .marquee-track span{display:inline-flex;align-items:center;gap:1rem}
-  .marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  .nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}
-  .nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}
-  .nav-top a:hover{color:var(--red)}
-  .breadcrumb{font-family:'DM Mono';font-size:.75rem}
-  .breadcrumb b{font-family:'Archivo Black'}
-  .hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}
-  .hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}
-  .hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;white-space:nowrap;letter-spacing:-.02em}
-  .reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem 1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0 1rem;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}
-  @media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}
-  @media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}
-  .review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}
-  .review:nth-child(7n+1){transform:rotate(-3deg)}
-  .review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}
-  .review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}
-  .review:nth-child(7n+4){transform:rotate(3.5deg)}
-  .review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}
-  .review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}
-  .review:nth-child(7n+7){transform:rotate(-4deg)}
-  .review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}
-  .review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
-  .review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-  .review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}
-  .review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-  .review .top-meta .rating i.off{background:rgba(0,0,0,.2)}
-  .review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}
-  .review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}
-  .review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}
-  .review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}
-  .review:hover .play{transform:translate(-50%,-50%) scale(1.15)}
-  .review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}
-  .review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}
-  .review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem;border:1.5px solid var(--ink)}
-  .review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}
-  .review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}
-  .review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}
-  .review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}
-  .review .stats .stat{display:flex;align-items:center;gap:.3rem}
-  .review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-  .review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}
-  .review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}
-  .review .creator-info{min-width:0;flex:1}
-  .review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}
-  .review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg);position:relative}
-  .review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}
-  .review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}
-  .review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}
-  .review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}
-  .review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left;transition:opacity .2s}
-  .review .transcript-toggle:hover{opacity:1;color:var(--red)}
-  .review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-  .review .transcript-body.open{max-height:600px}
-  .review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}
-  .review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}
-  .review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}
-  .review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}
-  .review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}
-  .review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}
-  .review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
-  .foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}
-  .foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}
-  .foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}
-  .foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}
-  @media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
+:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.75rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;letter-spacing:-.02em}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);max-width:40rem;margin:.5rem auto 0;line-height:1.3;padding:0 1rem .5rem}.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}@media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}.review:nth-child(7n+1){transform:rotate(-3deg)}.review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}.review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}.review:nth-child(7n+4){transform:rotate(3.5deg)}.review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}.review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}.review:nth-child(7n+7){transform:rotate(-4deg)}.review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}.review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}.review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}.review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}.review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}.review:hover .play{transform:translate(-50%,-50%) scale(1.15)}.review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}.review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}.review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem}.review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}.review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}.review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}.review .stats .stat{display:flex;align-items:center;gap:.3rem}.review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}.review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}.review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}.review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg)}.review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}.review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}.review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left}.review .transcript-toggle:hover{opacity:1;color:var(--red)}.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:600px}.review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}.review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}.review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}.review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}.review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}.foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="marquee">
-  <div class="marquee-track">
-    <span><i class="dot"></i> BEST SEAFOOD IN THE 6IX</span>
-    <span><i class="dot"></i> 10 SPOTS · VIDEO VERIFIED</span>
-    <span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-    <span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-    <span><i class="dot"></i> BEST SEAFOOD IN THE 6IX</span>
-    <span><i class="dot"></i> 10 SPOTS · VIDEO VERIFIED</span>
-    <span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-    <span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-  </div>
-</div>
+<div class="marquee"><div class="marquee-track">
+<span><i class="dot"></i> BEST SEAFOOD IN THE 6IX · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+<span><i class="dot"></i> BEST SEAFOOD IN THE 6IX · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+</div></div>
 <div class="wrap">
-  <div class="nav-top">
-    <a href="/toronto">← BACK TO ZINE</a>
-    <div class="breadcrumb mono">TORONTO FOOD ZINE / <b>BEST SEAFOOD</b></div>
-    <a href="#">SHARE →</a>
-  </div>
-  <section class="hero">
-    <span class="kicker">TOP 10</span>
-    <h1>Best Seafood.</h1>
-  </section>
-  <div class="reviews-grid">
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7227538199101312262">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+<div class="nav-top"><a href="/toronto">← BACK TO ZINE</a><div class="breadcrumb mono">TORONTO FOOD ZINE / <b>BEST SEAFOOD</b></div><a href="#">SHARE →</a></div>
+<section class="hero"><span class="kicker">TOP 10</span><h1>Seafood.</h1><div class="deck">The best best seafood in Toronto, ranked by food creators with video proof.</div></section>
+<div class="reviews-grid">
+    <a class="review" href="/v/f2cdb96c-f3ca-416b-8306-d7ac64c87649">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Ikkousha Ramen Toronto</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop" alt="Ikkousha Ramen Toronto"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/f2cdb96c-f3ca-416b-8306-d7ac64c87649/thumbnail.jpg" alt="Ikkousha Ramen Toronto" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">MUST TRY</span>
@@ -166,18 +63,17 @@
       <div class="corner-note">16.3M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7239796628452855045">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/1108f52c-1242-4cc7-85ae-4c1671a73065">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">The Real Jerk Restaurant</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&auto=format&fit=crop" alt="The Real Jerk Restaurant"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/1108f52c-1242-4cc7-85ae-4c1671a73065/thumbnail.jpg" alt="The Real Jerk Restaurant" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">GOAT</span>
+        <span class="verdict goat">GOAT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>3.2M</span>
@@ -201,15 +97,14 @@
       <div class="corner-note">3.2M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7109312074139979013">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/d38122b5-05e6-4346-b141-7a71d5cc4cd8">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Wah Too Seafood Restaurant</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop" alt="Wah Too Seafood Restaurant"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/d38122b5-05e6-4346-b141-7a71d5cc4cd8/thumbnail.jpg" alt="Wah Too Seafood Restaurant" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict mid">SOLID</span>
@@ -227,10 +122,7 @@
           <div class="followers">TikTok</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>I ate a whole gigantic king crab
-this was definitely pricey
-but my grandma treated me out
-just look at all that deliciou...</div>
+      <div class="quote"><span class="quote-mark">"</span>I ate a whole gigantic king crab this was definitely pricey but my grandma treated me out just look at all that deliciou...</div>
       <div class="caption"><span class="cap-label">Caption</span><br>👑🦀</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
@@ -239,15 +131,14 @@ just look at all that deliciou...</div>
       <div class="corner-note">2.4M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7119610776238738693">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/00bee02c-55fe-4956-b1d2-10e0dfba7840">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">KINTON RAMEN YONGE X RICHMOND</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&auto=format&fit=crop" alt="KINTON RAMEN YONGE X RICHMOND"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/00bee02c-55fe-4956-b1d2-10e0dfba7840/thumbnail.jpg" alt="KINTON RAMEN YONGE X RICHMOND" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">FIRE</span>
@@ -274,15 +165,14 @@ just look at all that deliciou...</div>
       <div class="corner-note">2.3M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7305463821122997509">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/9f5e2637-9427-478c-8877-628629a3d4c7">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Wok Theory | 新天虹</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1432139509613-5c4255a78e46?w=600&auto=format&fit=crop" alt="Wok Theory | 新天虹"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/9f5e2637-9427-478c-8877-628629a3d4c7/thumbnail.jpg" alt="Wok Theory | 新天虹" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">ELITE</span>
@@ -304,20 +194,19 @@ just look at all that deliciou...</div>
       <div class="caption"><span class="cap-label">Caption</span><br>MasterChef winner Chef Eric  makes me A5 Wagyu Beef Dandan Shin Ramyun</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:01] Chef Erick, are you a little bit of my ramen? [00:01-00:04] Absolutely. I'm going to be making a modern dandan man. [00:04-00:05] First step is to grind these noodles. [00:05-00:07] Mixing it with our fried chicken dredge. [00:07-00:08] We're going to dredge the chicken. [00:08-00:09] See some of the noodles sticking on. [00:09-00:10] Gonna make it super crispy. [00:10-00:12] Now we're actually going to make the dandan man. [00:12-00:14] And I'm going to serve it with some A5 wagyu beef. [00:14-00:17] Now this one I always want to serve pretty more on the rare side. [00:17-00:18] So it's super succulent. [00:18-00:19] Now we're going to make the dandan sauce. [00:19-00:21] We use roasted pistachios, wagyu fat, [00:21-00:23] full lot of szechuan spices, and a lot of fermented chili. [00:23-00:25] Gonna finish letting the noodles cook inside here. [00:25-00:26] Now we are ready to plate. [00:26-00:27] We'll start with the wagyu. [00:27-00:29] We're going to finish seasoning this with the shin ramen seasoning. [00:29-00:31] Some of the chicken along the side. [00:31-00:31] House made pickles. [00:31-00:32] Ja Choi. [00:32-00:33] Edible gold. [00:33-00:33] Makes everything better. [00:33-00:35] You have our leveled up ramen. [00:35-00:37] Probably like a hundred dollar ramen there. [00:37-00:38] This is awesome. [00:38-00:39] Mmm. Cheers. [00:39-00:41] Mmm. [00:41-00:42] I mean, come on, dude. [00:42-00:43] Holy moly. [00:43-00:45] It's like fine dining dandan man. [00:45-00:45] Do I get a rating? [00:45-00:46] Dude, it's like a 11 out of 10. [00:46-00:47] You live in, come on. [00:47-00:49] Only 11 out of 10 is open for more.</div></div>
+        <div class="transcript-body"><div class="transcript-text">Chef Erick, are you a little bit of my ramen? Absolutely. I'm going to be making a modern dandan man. First step is to grind these noodles. Mixing it with our fried chicken dredge. We're going to dredge the chicken. See some of the noodles sticking on. Gonna make it super crispy. Now we're actually going to make the dandan man. And I'm going to serve it with some A5 wagyu beef. Now this one I always want to serve pretty more on the rare side. So it's super succulent. Now we're going to make the dandan sauce. We use roasted pistachios, wagyu fat, full lot of szechuan spices, and a lot of fermented chili. Gonna finish letting the noodles cook inside here. Now we are ready to plate. We'll start with the wagyu. We're going to finish seasoning this with the shin ramen seasoning. Some of the chicken along the side. House made pickles. Ja Choi. Edible gold. Makes everything better. You have our leveled up ramen. Probably like a hundred dollar ramen there. This is awesome. Mmm. Cheers. Mmm. I mean, come on, dude. Holy moly. It's like fine dining dandan man. Do I get a rating? Dude, it's like a 11 out of 10. You live in, come on. Only 11 out of 10 is open for more.</div></div>
       </div>
       <div class="corner-note">1.6M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7544890713280941320">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/2c24ee68-9ce1-437a-8a3a-cac9eaee3ab7">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Market Street Catch</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop" alt="Market Street Catch"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/2c24ee68-9ce1-437a-8a3a-cac9eaee3ab7/thumbnail.jpg" alt="Market Street Catch" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict ">SLEPT ON</span>
@@ -339,58 +228,22 @@ just look at all that deliciou...</div>
       <div class="caption"><span class="cap-label">Caption</span><br>For my dad’s birthday I travelled over 14hrs to catch and cook him fresh seafood</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:02] It's my dad's birthday and last year I bought him a king crab [00:02-00:04] But this year I'm gonna catch and cook him fresh seafood [00:04-00:07] I travel for over 14 hours to catch my dad's seafood [00:07-00:08] Flying from Toronto to Vancouver [00:08-00:11] Then taking a ferry with my uncle and my dad to Vancouver Island [00:11-00:14] Then driving another three hours to get to the other side of the island [00:14-00:16] Finally we're out on the ocean on my uncle's boat [00:16-00:17] He's been fishing here for decades [00:17-00:18] So he knows the best fishing spot [00:18-00:20] Immediately I caught a sea bass [00:20-00:21] My dad caught his favorite fish [00:21-00:22] A massive rock caught [00:22-00:24] These can go up to $50 a pound [00:24-00:25] They're very expensive [00:25-00:27] But we also caught another very expensive sea animal [00:27-00:29] The coveted BC spot prawns [00:29-00:31] These can also go for up to $50 a pound [00:31-00:33] We caught over a thousand dollars of seafood [00:33-00:35] For dinner we started with a spot prawns [00:35-00:36] They were still alive in kicking [00:36-00:38] We cooked them in boiling water for a minute and 10 seconds [00:38-00:41] And I think we ate a total of about 100 spot prawns [00:41-00:43] That's like 10 pounds of spot prawns [00:43-00:44] Or $500 a prawn [00:44-00:46] They were so juicy because of all the head butter [00:46-00:48] It was literally like eating butter [00:48-00:50] It was so creamy [00:50-00:52] And nothing beats live fresh spot prawns [00:52-00:53] You don't need anything else [00:53-00:55] The body is naturally sweet and muscular [00:55-00:57] We were live in the life drinking champagne eating prawns [00:57-00:59] But this red head row is my favorite part [00:59-01:00] It's like eating bougie yolk [01:00-01:02] After a hundred prawns we were full [01:02-01:03] But we still had to eat the rock caught [01:03-01:05] We cooked it into Cantonese way [01:05-01:07] And honestly this was the best rock caught I've ever had [01:07-01:09] But I think the best part was just spending time with my dad [01:09-01:10] And my uncle on his birthday</div></div>
+        <div class="transcript-body"><div class="transcript-text">It's my dad's birthday and last year I bought him a king crab But this year I'm gonna catch and cook him fresh seafood I travel for over 14 hours to catch my dad's seafood Flying from Toronto to Vancouver Then taking a ferry with my uncle and my dad to Vancouver Island Then driving another three hours to get to the other side of the island Finally we're out on the ocean on my uncle's boat He's been fishing here for decades So he knows the best fishing spot Immediately I caught a sea bass My dad caught his favorite fish A massive rock caught These can go up to $50 a pound They're very expensive But we also caught another very expensive sea animal The coveted BC spot prawns These can also go for up to $50 a pound We caught over a thousand dollars of seafood For dinner we started with a spot prawns They were still alive in kicking We cooked them in boiling water for a minute and 10 seconds And I think we ate a total of about 100 spot prawns That's like 10 pounds of spot prawns Or $500 a prawn They were so juicy because of all the head butter It was literally like eating butter It was so creamy And nothing beats live fresh spot prawns You don't need anything else The body is naturally sweet and muscular We were live in the life drinking champagne eating prawns But this red head row is my favorite part It's like eating bougie yolk After a hundred prawns we were full But we still had to eat the rock caught We cooked it into Cantonese way And honestly this was the best rock caught I've ever had But I think the best part was just spending time with my dad And my uncle on his birthday</div></div>
       </div>
       <div class="corner-note">978.8K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7375674407156452614">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Alfie’s Sandwiches+Market</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&fit=crop" alt="Alfie’s Sandwiches+Market"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict ">WORTH IT</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>586.3K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>56.1K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>3.7K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">I</div>
-        <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>Replying to  this restaurant has been serving the community fish and chips for over 40 years</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Replying to  this restaurant has been serving the community fish and chips for over 40 years</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:03] Hey Clement, my family owns a Fission Chips restaurant. [00:03-00:07] My grandfather opened it up when he immigrated from Scotland 40 years ago, [00:07-00:09] and now my mom owns it. [00:09-00:12] Thank you so much for sharing with us your family's Fission Chips restaurant. [00:12-00:15] Today, my wife and I are super excited to try it. [00:15-00:18] And one thing we notice right away is how hardworking the owner is. [00:18-00:21] She's the only one at the front of the restaurant, [00:21-00:24] and she's pretty much doing everything so we were really grateful for her service. [00:24-00:27] We started off with her signature Hattick Fission Chips. [00:27-00:29] It was the size of my arm. [00:29-00:32] This is just a small section of the Hattick and it's loaded with Hattick meat. [00:32-00:34] After my first bite, this is all I had to say. [00:34-00:37] They've been doing this single thing for 40 years. They perfected it. [00:37-00:40] Their fries are also made fresh in-house and combined with that delicious gravy, [00:40-00:42] it actually makes a really good poutine. [00:42-00:44] But this is my first time trying a meat pie. [00:44-00:47] I'm not sure if I'm supposed to pour the gravy on it like that, but I did it. [00:47-00:50] It's a very hearty meal, so make sure to prepare for a nap. [00:50-00:53] And for dessert, we decided to try their deep-fried jam sandwich. [00:53-00:56] It kind of reminded me of a raspberry pie with ice cream, [00:56-00:57] but with a savory deep-fried batter. [00:57-00:58] That's really good.</div></div>
-      </div>
-      <div class="corner-note">586.3K</div>
-    </a>
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7365681907733941510">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/0cdeadb4-15bb-4f77-a00d-a5d2c6f5e048">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Seafood City Supermarket - Scarborough</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&auto=format&fit=crop" alt="Seafood City Supermarket - Scarborough"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/0cdeadb4-15bb-4f77-a00d-a5d2c6f5e048/thumbnail.jpg" alt="Seafood City Supermarket - Scarborough" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">INSANE</span>
+        <span class="verdict goat">WORTH IT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>565.4K</span>
@@ -409,23 +262,22 @@ just look at all that deliciou...</div>
       <div class="caption"><span class="cap-label">Caption</span><br>$70 Filipino foodcourt feast at Seafood City Supermarket</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:04] This is everything we ate for $70 at Sea Food City's supermarket. [00:04-00:09] Bucko up because we're gonna eat as much Filipino food as we can in their massive food court. [00:09-00:13] First up for $995 they gave us a mountain of pan-seed beehun noodles. [00:13-00:16] I think the noodles literally weighed 5 pounds. [00:16-00:17] I love how there's these fish balls on top. [00:17-00:21] And there was so much noodles that we were already full after eating this. [00:21-00:24] But we saw this food stall stocking up on Filipino street food. [00:24-00:26] So for $6.99 we got the pork shiomai. [00:26-00:28] And we got a veggie lumpia for $3. [00:28-00:30] That lumpia was crispy and fresh. [00:30-00:31] Pretty good deal for $3. [00:31-00:34] So we saw you can get chicken and dobo here in pork blood stew. [00:34-00:35] So you know we had to get some. [00:35-00:38] They come with a box of rice and a chicken or barbecue pork skewer. [00:38-00:41] These combos cost us $14.99 and $16.50. [00:41-00:44] And that pork skewer was probably the best thing I've had so far. [00:44-00:46] But this is my first time eating pork blood stew. [00:46-00:48] The pork was tender and I love the vinegar taste. [00:48-00:50] And I love how there's these quail eggs in the chicken and dobo. [00:50-00:53] And the chicken and dobo had a nice balance of sweet savory and sour. [00:53-00:55] But we can't leave without eating dessert. [00:55-00:59] So for $8.95 we got my favorite Filipino dessert, hallow hallow.</div></div>
+        <div class="transcript-body"><div class="transcript-text">This is everything we ate for $70 at Sea Food City's supermarket. Bucko up because we're gonna eat as much Filipino food as we can in their massive food court. First up for $995 they gave us a mountain of pan-seed beehun noodles. I think the noodles literally weighed 5 pounds. I love how there's these fish balls on top. And there was so much noodles that we were already full after eating this. But we saw this food stall stocking up on Filipino street food. So for $6.99 we got the pork shiomai. And we got a veggie lumpia for $3. That lumpia was crispy and fresh. Pretty good deal for $3. So we saw you can get chicken and dobo here in pork blood stew. So you know we had to get some. They come with a box of rice and a chicken or barbecue pork skewer. These combos cost us $14.99 and $16.50. And that pork skewer was probably the best thing I've had so far. But this is my first time eating pork blood stew. The pork was tender and I love the vinegar taste. And I love how there's these quail eggs in the chicken and dobo. And the chicken and dobo had a nice balance of sweet savory and sour. But we can't leave without eating dessert. So for $8.95 we got my favorite Filipino dessert, hallow hallow.</div></div>
       </div>
       <div class="corner-note">565.4K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7522214836860751122">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/219853dc-c44a-4f48-972e-1bb0147c82cc">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Chopstick Foods</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=600&auto=format&fit=crop" alt="Chopstick Foods"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/219853dc-c44a-4f48-972e-1bb0147c82cc/thumbnail.jpg" alt="Chopstick Foods" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict goat">MUST TRY</span>
+        <span class="verdict goat">INSANE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>551.9K</span>
@@ -441,26 +293,25 @@ just look at all that deliciou...</div>
         </div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>My friend  Travel first time in Toronto, and he asked me to bring him on my Toronto Food Tour ⬇️ 1)  Ghar Toronto with o...</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>My friend  Travel first time in Toronto, and he asked me to bring him on my Toronto Food Tour ⬇️ 1)  Ghar Toronto with owner chef Sonam, he comes from a fine-dining culinary background, you can see th...</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>My friend  Travel first time in Toronto, and he asked me to bring him on my Toronto Food Tour ⬇️ 1)  Ghar Toronto with owner chef Sonam, he comes from a fine-dining culinary background, you can see th</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:03] If you only had one day in Toronto, here's where I would take you to eat. [00:03-00:05] It's my friend Luke's first time in Toronto. [00:05-00:08] So we ate everything from cheap eats to the busiest bites. [00:08-00:10] Taking off this food tour, I brought Luke to my favorite Momo spot. [00:10-00:12] I love the Momo here so much. [00:12-00:15] That Momo Guard was in my top 5 bites of 2024. [00:15-00:18] I'm obsessed with their cabbage Momo and Tendori Momo. [00:18-00:23] That tangy spice of the Tendori Momo, it's so satisfying that it got us hugging each other. [00:23-00:25] But if Momo Guard is in my top 2024, [00:25-00:28] I wanted to bring Luke to a spot that might make it to my top 2025. [00:28-00:30] Viet Nam's, and here's why. [00:30-00:33] Everything here is made from scratch with high quality ingredients. [00:33-00:35] But this is the dish I always come back for. [00:35-00:37] There's sizzling plate of beef, egg, and meatballs. [00:37-00:39] Everything on this plate is made from scratch. [00:39-00:42] And that homemade patay and tomato sauce is so addictive. [00:42-00:44] But I also wanted to bring Luke to Pimaal. [00:44-00:48] Not just because it has cheap eats, but because it holds a special place in my heart. [00:48-00:51] Pimaal was one of the first food videos I made over two years ago. [00:51-00:54] And this uncle who makes all his dumplings by hand, he's still there. [00:54-00:57] He's still making the same crispy, juicy dumplings. [00:57-00:58] They're so fresh. [00:58-01:01] And so comforting to eat, that we burnt our mouths eating them. [01:01-01:04] And I was so happy to see that Chloe's convenience was still here. [01:04-01:07] They first opened over two years ago, serving Hong Kong-style bag noodles. [01:07-01:10] I love how you can pick the toppings you want in your noodles. [01:10-01:12] And they mix it all together in their signature sauce. [01:12-01:15] The noodles are just so refreshing to eat, perfect for a summer day. [01:15-01:17] And I love the sesame flavor in their sauce. [01:17-01:21] But then Luke turned the tables on me and brought me to a Singaporean chili crab spot he's been [01:21-01:22] wanting to try. [01:22-01:26] And apparently some claim that chili crab is better here than in Singapore. [01:26-01:29] Because they use fresh Canadian lobster and fresh Canadian crab. [01:29-01:32] Definitely not cheap, but I love the chili crab sauce here. [01:32-01:35] And with live lobster and live crab, it's as fresh as you can get.</div></div>
+        <div class="transcript-body"><div class="transcript-text">If you only had one day in Toronto, here's where I would take you to eat. It's my friend Luke's first time in Toronto. So we ate everything from cheap eats to the busiest bites. Taking off this food tour, I brought Luke to my favorite Momo spot. I love the Momo here so much. That Momo Guard was in my top 5 bites of 2024. I'm obsessed with their cabbage Momo and Tendori Momo. That tangy spice of the Tendori Momo, it's so satisfying that it got us hugging each other. But if Momo Guard is in my top 2024, I wanted to bring Luke to a spot that might make it to my top 2025. Viet Nam's, and here's why. Everything here is made from scratch with high quality ingredients. But this is the dish I always come back for. There's sizzling plate of beef, egg, and meatballs. Everything on this plate is made from scratch. And that homemade patay and tomato sauce is so addictive. But I also wanted to bring Luke to Pimaal. Not just because it has cheap eats, but because it holds a special place in my heart. Pimaal was one of the first food videos I made over two years ago. And this uncle who makes all his dumplings by hand, he's still there. He's still making the same crispy, juicy dumplings. They're so fresh. And so comforting to eat, that we burnt our mouths eating them. And I was so happy to see that Chloe's convenience was still here. They first opened over two years ago, serving Hong Kong-style bag noodles. I love how you can pick the toppings you want in your noodles. And they mix it all together in their signature sauce. The noodles are just so refreshing to eat, perfect for a summer day. And I love the sesame flavor in their sauce. But then Luke turned the tables on me and brought me to a Singaporean chili crab spot he's been wanting to try. And apparently some claim that chili crab is better here than in Singapore. Because they use fresh Canadian lobster and fresh Canadian crab. Definitely not cheap, but I love the chili crab sauce here. And with live lobster and live crab, it's as fresh as you can get.</div></div>
       </div>
       <div class="corner-note">551.9K</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7459129007041449221">
-      <div class="pin"></div>
-      <div class="tape-decor"></div>
+    <a class="review" href="/v/40901b8c-d57f-43e0-8e09-cd5d4936d6bb">
+      <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Adega Restaurante</span>
-        <span class="rating"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?w=600&auto=format&fit=crop" alt="Adega Restaurante"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/40901b8c-d57f-43e0-8e09-cd5d4936d6bb/thumbnail.jpg" alt="Adega Restaurante" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
-        <span class="verdict ">GOAT</span>
+        <span class="verdict ">NO CAP</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>438.2K</span>
@@ -479,16 +330,44 @@ just look at all that deliciou...</div>
       <div class="caption"><span class="cap-label">Caption</span><br>Living my best life before this app gets banned (splurging 160 EUR on the most recommended seafood restaurant in Cervejaria Ramiro)</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:02] This is what 160 euros gets you. [00:02-00:06] At one of the most recommended seafood restaurants in Lisbon. [00:06-00:09] It's so popular, even Mark Wins and Anthony Bourdain have been here. [00:09-00:13] First up, for 68 euros, we got a whole edible crab. [00:13-00:16] The crab head is filled with its creamy head butter, [00:16-00:18] but the thing that shocked me was just how big those claws were. [00:18-00:22] They were the size of my face, and I love how it's already broken for you, [00:22-00:24] so all you gotta do is enjoy that sweet, delicious flesh. [00:24-00:27] But when I saw it just how big their tiger prawns were, [00:27-00:29] I bought one for 23 euros. [00:29-00:33] It comes with a reddish head butter, and I was happy that the muscular flesh was so long, [00:33-00:34] it was longer than my head. [00:34-00:38] The flesh was nice and sweet, and I thought this was actually worth it for 23 euros. [00:38-00:40] But this is the dish everyone comes here for. [00:40-00:42] The iconic grilled scarlet prawns. [00:42-00:45] Serve table-side, the head butter is just insane. [00:45-00:47] They slather your meat with that head butter. [00:47-00:49] It's so rich, it's so creamy. [00:49-00:53] I enjoyed it so much that I ate it with bread, and sucked it straight from the head. [00:53-00:57] For 45 euros, this is definitely not cheap, but when are you gonna be in Lisbon again?</div></div>
+        <div class="transcript-body"><div class="transcript-text">This is what 160 euros gets you. At one of the most recommended seafood restaurants in Lisbon. It's so popular, even Mark Wins and Anthony Bourdain have been here. First up, for 68 euros, we got a whole edible crab. The crab head is filled with its creamy head butter, but the thing that shocked me was just how big those claws were. They were the size of my face, and I love how it's already broken for you, so all you gotta do is enjoy that sweet, delicious flesh. But when I saw it just how big their tiger prawns were, I bought one for 23 euros. It comes with a reddish head butter, and I was happy that the muscular flesh was so long, it was longer than my head. The flesh was nice and sweet, and I thought this was actually worth it for 23 euros. But this is the dish everyone comes here for. The iconic grilled scarlet prawns. Serve table-side, the head butter is just insane. They slather your meat with that head butter. It's so rich, it's so creamy. I enjoyed it so much that I ate it with bread, and sucked it straight from the head. For 45 euros, this is definitely not cheap, but when are you gonna be in Lisbon again?</div></div>
       </div>
       <div class="corner-note">438.2K</div>
     </a>
-  </div>
-  <div class="foot-nav">
-    <a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a>
-    <a href="/toronto/best-pho">BEST PHO <span class="sub">TOP 7</span></a>
-    <a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a>
-  </div>
+
+    <a class="review" href="/v/cdb4ad52-a277-4db8-96db-6f8d69c99f8b">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Lobster Burger Bar</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/cdb4ad52-a277-4db8-96db-6f8d69c99f8b/thumbnail.jpg" alt="Lobster Burger Bar" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="duration">1:30</span>
+        <span class="verdict goat">CERTIFIED</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>348.6K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>18.4K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>1.0K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar">I</div>
+        <div class="creator-info">
+          <div class="creator-name">@insta.noodls</div>
+          <div class="followers">TikTok</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>Seafood Tower 🦞🦐🐙  Burger Bar</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Seafood Tower 🦞🦐🐙  Burger Bar</div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">I'm eating a whole gigantic seafood tower, layered with three lobsters, fresh clams and muscles, and a mountain of octopus and shrimp. It's a marathon not a sprint, so I'm starring at the bottom with those muscular lobster tails. So good I had to add another lobster tail drenched in their delicious melted butter. There's probably nothing more decadent in lobster and butter, but I have to keep on making my way up the seafood tower. Next on my journey are those fresh oysters. Naturally sweet and savory, you don't have to put anything on them. And the final boss is this mountain of octopus and shrimp. The shrimp are nice and plump, but the octopus was next level. I know they're intelligent beings, but why do they have to taste so delicious?</div></div>
+      </div>
+      <div class="corner-note">348.6K</div>
+    </a></div>
+<div class="foot-nav"><a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a><a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a><a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
 </div>
-</body>
-</html>
+</body></html>

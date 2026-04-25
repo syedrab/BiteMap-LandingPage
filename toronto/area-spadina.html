@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-<meta charset="UTF-8"/>
-<title>SPADINA — Toronto Food Zine | BiteMap</title>
+<meta charset="UTF-8"/><title>SPADINA — Toronto Food Zine | BiteMap</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="The food scene in Spadina. Every spot reviewed on video.">
+<meta name="description" content="The spine of Toronto food. Chinatown bleeds into Kensington. Every block is a different country.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.bitemap.fun/toronto/area-spadina">
-<meta property="og:title" content="SPADINA | Toronto Food Zine | BiteMap">
-<meta property="og:description" content="The food scene in Spadina. Every spot reviewed on video.">
+<meta property="og:title" content="SPADINA | BiteMap">
+<meta property="og:description" content="The spine of Toronto food. Chinatown bleeds into Kensington. Every block is a different country.">
 <meta property="og:image" content="https://www.bitemap.fun/images/og-image.jpg">
 <meta property="og:site_name" content="BiteMap">
 <link rel="icon" type="image/png" href="/images/bitemap-logo.png">
@@ -18,105 +17,26 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
 <style>
-:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}
-body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}
-.wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}
-h1,h2,h3,h4{margin:0;font-weight:400}
-.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}
-.marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}
-.marquee-track span{display:inline-flex;align-items:center;gap:1rem}
-.marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}
-.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}.nav-top a:hover{color:var(--red)}
-.breadcrumb{font-family:'DM Mono';font-size:.75rem}.breadcrumb b{font-family:'Archivo Black'}
-.hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}
-.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}
-.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;letter-spacing:-.02em}
-.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);max-width:40rem;margin:.5rem auto 0;line-height:1.3;padding:0 1rem .5rem}
-.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}
-@media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}
-@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}
-.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}
-.review:nth-child(7n+1){transform:rotate(-3deg)}.review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}.review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}.review:nth-child(7n+4){transform:rotate(3.5deg)}.review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}.review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}.review:nth-child(7n+7){transform:rotate(-4deg)}
-.review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}
-.review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
-.review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}
-.review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}
-.review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}
-.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}
-.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}
-.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}
-.review:hover .play{transform:translate(-50%,-50%) scale(1.15)}
-.review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}
-.review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}
-.review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem}
-.review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}
-.review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}
-.review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}
-.review .stats .stat{display:flex;align-items:center;gap:.3rem}.review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}
-.review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}
-.review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}
-.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}
-.review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg)}
-.review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}
-.review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}
-.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}
-.review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}
-.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left}
-.review .transcript-toggle:hover{opacity:1;color:var(--red)}
-.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:600px}
-.review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}
-.review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}
-.review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}
-.review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}
-.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}
-.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}
-.review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
-.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}
-.foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}
-.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}
-.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}
-@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
+:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.75rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;letter-spacing:-.02em}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);max-width:40rem;margin:.5rem auto 0;line-height:1.3;padding:0 1rem .5rem}.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}@media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}.review:nth-child(7n+1){transform:rotate(-3deg)}.review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}.review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}.review:nth-child(7n+4){transform:rotate(3.5deg)}.review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}.review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}.review:nth-child(7n+7){transform:rotate(-4deg)}.review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}.review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}.review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}.review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}.review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}.review:hover .play{transform:translate(-50%,-50%) scale(1.15)}.review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}.review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}.review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem}.review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}.review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}.review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}.review .stats .stat{display:flex;align-items:center;gap:.3rem}.review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}.review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}.review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}.review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg)}.review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}.review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}.review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left}.review .transcript-toggle:hover{opacity:1;color:var(--red)}.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:600px}.review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}.review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}.review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}.review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}.review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}.foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="marquee"><div class="marquee-track">
-<span><i class="dot"></i> SPADINA · 33 SPOTS · VIDEO VERIFIED</span>
-<span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-<span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-<span><i class="dot"></i> SPADINA · 33 SPOTS · VIDEO VERIFIED</span>
-<span><i class="dot"></i> THE TORONTO FOOD ZINE</span>
-<span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+<span><i class="dot"></i> SPADINA · 38 SPOTS · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+<span><i class="dot"></i> SPADINA · 38 SPOTS · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
 </div></div>
 <div class="wrap">
-<div class="nav-top">
-  <a href="/toronto">← BACK TO ZINE</a>
-  <div class="breadcrumb mono">TORONTO FOOD ZINE / <b>SPADINA</b></div>
-  <a href="#">SHARE →</a>
-</div>
-<section class="hero">
-  <span class="kicker">SPADINA</span>
-  <h1>Spadina.</h1>
-  <div class="deck">The food scene in Spadina. Every spot reviewed on video.</div>
-</section>
+<div class="nav-top"><a href="/toronto">← BACK TO ZINE</a><div class="breadcrumb mono">TORONTO FOOD ZINE / <b>SPADINA</b></div><a href="#">SHARE →</a></div>
+<section class="hero"><span class="kicker">WORLD IN A STREET</span><h1>Spadina.</h1><div class="deck">The spine of Toronto food. Chinatown bleeds into Kensington. Every block is a different country.</div></section>
 <div class="reviews-grid">
-
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7113702875305479429">
+    <a class="review" href="/v/e29dfc06-a8ba-45ba-bf93-9da8442f698c">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Ramen Station</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop" alt="Ramen Station"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/e29dfc06-a8ba-45ba-bf93-9da8442f698c/thumbnail.jpg" alt="Ramen Station" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">MUST TRY</span>
@@ -143,14 +63,14 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">5.8M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7357384300439850246">
+    <a class="review" href="/v/5ae00349-3ee8-4994-856b-e936c2f515f1">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">A Szechuan Restaurant</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&auto=format&fit=crop" alt="A Szechuan Restaurant"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/5ae00349-3ee8-4994-856b-e936c2f515f1/thumbnail.jpg" alt="A Szechuan Restaurant" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">GOAT</span>
@@ -177,14 +97,14 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">5.3M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7044317146259787014">
+    <a class="review" href="/v/fbd7129a-98cf-4338-8744-4f512d2b2e61">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">MR . YES Noodle BAR</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&auto=format&fit=crop" alt="MR . YES Noodle BAR"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/fbd7129a-98cf-4338-8744-4f512d2b2e61/thumbnail.jpg" alt="MR . YES Noodle BAR" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict mid">SOLID</span>
@@ -211,14 +131,14 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">4.4M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7160458666741665029">
+    <a class="review" href="/v/44bc5da1-ce2a-43ce-b88b-6ca7620352fb">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Dumpling House Restaurant</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop" alt="Dumpling House Restaurant"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/44bc5da1-ce2a-43ce-b88b-6ca7620352fb/thumbnail.jpg" alt="Dumpling House Restaurant" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">FIRE</span>
@@ -245,14 +165,14 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">3.3M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7173941659086916869">
+    <a class="review" href="/v/b3a281ea-961b-4b2e-bd40-341ca56d40ce">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">FLAMING NOODLES / 成嘟嘟燃面</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&auto=format&fit=crop" alt="FLAMING NOODLES / 成嘟嘟燃面"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/b3a281ea-961b-4b2e-bd40-341ca56d40ce/thumbnail.jpg" alt="FLAMING NOODLES / 成嘟嘟燃面" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">ELITE</span>
@@ -279,14 +199,14 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">2.6M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7193142192448244998">
+    <a class="review" href="/v/ee76e75d-71af-4bca-8719-9da4d3b0d366">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Homemade Ramen</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop" alt="Homemade Ramen"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/ee76e75d-71af-4bca-8719-9da4d3b0d366/thumbnail.jpg" alt="Homemade Ramen" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict ">SLEPT ON</span>
@@ -313,14 +233,14 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">2.5M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7141533149569322246">
+    <a class="review" href="/v/8dc84170-1d2e-46a6-93c0-2f21eaefdbfb">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Qin's Garden</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&auto=format&fit=crop" alt="Qin's Garden"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/8dc84170-1d2e-46a6-93c0-2f21eaefdbfb/thumbnail.jpg" alt="Qin's Garden" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">WORTH IT</span>
@@ -347,14 +267,14 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">2.3M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7123654454473248006">
+    <a class="review" href="/v/69fde8c4-5697-4b9a-9474-c19c15b26e63">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">MR . YES Noodle BAR</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop" alt="MR . YES Noodle BAR"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/69fde8c4-5697-4b9a-9474-c19c15b26e63/thumbnail.jpg" alt="MR . YES Noodle BAR" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">INSANE</span>
@@ -381,14 +301,14 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">2.3M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7202791030830173445">
+    <a class="review" href="/v/9ff922d7-cfc2-42e8-b162-e04ce20b078a">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Mother's Dumplings</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&fit=crop" alt="Mother's Dumplings"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/9ff922d7-cfc2-42e8-b162-e04ce20b078a/thumbnail.jpg" alt="Mother's Dumplings" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict ">NO CAP</span>
@@ -410,19 +330,19 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="caption"><span class="cap-label">Caption</span><br>Replying to  my wife and I try spicy carbonara dumplings</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">[00:00-00:01] The carbone ones are way better. [00:01-00:05] Because you say so, I went out and bought some spicy carbonara dumplings. [00:05-00:08] They're super easy to make, fried them on a pan for four minutes, and you're done. [00:08-00:10] Unfortunately, I actually burnt them a little bit. [00:10-00:13] But my wife and I are gonna try them and tell you how it tastes. [00:13-00:14] Mmm. [00:14-00:15] That's flavorful. [00:17-00:18] Okay. [00:18-00:19] Spiciness level rating. [00:19-00:20] What would you rate it? [00:21-00:22] 9. [00:22-00:23] 9 out of 10 spiciness. [00:23-00:26] I give that a 6 out of 10 in terms of spiciness. [00:26-00:26] Mmm.</div></div>
+        <div class="transcript-body"><div class="transcript-text">The carbone ones are way better. Because you say so, I went out and bought some spicy carbonara dumplings. They're super easy to make, fried them on a pan for four minutes, and you're done. Unfortunately, I actually burnt them a little bit. But my wife and I are gonna try them and tell you how it tastes. Mmm. That's flavorful. Okay. Spiciness level rating. What would you rate it? 9. 9 out of 10 spiciness. I give that a 6 out of 10 in terms of spiciness. Mmm.</div></div>
       </div>
       <div class="corner-note">2.2M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7181132680115916037">
+    <a class="review" href="/v/e0cd2b6c-a810-4eba-af6d-595f36daec60">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Ramen Station</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&auto=format&fit=crop" alt="Ramen Station"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/e0cd2b6c-a810-4eba-af6d-595f36daec60/thumbnail.jpg" alt="Ramen Station" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">CERTIFIED</span>
@@ -449,14 +369,14 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">1.8M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7212034709168131334">
+    <a class="review" href="/v/1901dddd-c0a8-488e-8e8e-778e2753e190">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Ramen Station</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=600&auto=format&fit=crop" alt="Ramen Station"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/1901dddd-c0a8-488e-8e8e-778e2753e190/thumbnail.jpg" alt="Ramen Station" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">MUST TRY</span>
@@ -483,14 +403,14 @@ h1,h2,h3,h4{margin:0;font-weight:400}
       <div class="corner-note">1.7M</div>
     </a>
 
-    <a class="review" href="https://www.tiktok.com/@insta.noodls/video/7126167333776739590">
+    <a class="review" href="/v/377b4540-f329-48f8-bbc0-1cae39bf497b">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Ramen Station</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&fit=crop" alt="Ramen Station"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/377b4540-f329-48f8-bbc0-1cae39bf497b/thumbnail.jpg" alt="Ramen Station" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
         <span class="duration">1:30</span>
         <span class="verdict goat">GOAT</span>
@@ -515,13 +435,7 @@ h1,h2,h3,h4{margin:0;font-weight:400}
         <div class="transcript-body"><div class="transcript-text">N/A</div></div>
       </div>
       <div class="corner-note">1.5M</div>
-    </a>
+    </a></div>
+<div class="foot-nav"><a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a><a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a><a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
 </div>
-<div class="foot-nav">
-  <a href="/toronto">← BACK TO ZINE <span class="sub">ALL AREAS</span></a>
-  <a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a>
-  <a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a>
-</div>
-</div>
-</body>
-</html>
+</body></html>
