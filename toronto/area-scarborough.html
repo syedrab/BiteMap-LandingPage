@@ -17,325 +17,210 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
 <style>
-:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.75rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;letter-spacing:-.02em}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);max-width:40rem;margin:.5rem auto 0;line-height:1.3;padding:0 1rem .5rem}.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}@media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}.review:nth-child(7n+1){transform:rotate(-3deg)}.review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}.review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}.review:nth-child(7n+4){transform:rotate(3.5deg)}.review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}.review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}.review:nth-child(7n+7){transform:rotate(-4deg)}.review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}.review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}.review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}.review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}.review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}.review:hover .play{transform:translate(-50%,-50%) scale(1.15)}.review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}.review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}.review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem}.review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}.review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}.review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}.review .stats .stat{display:flex;align-items:center;gap:.3rem}.review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}.review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}.review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}.review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg)}.review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}.review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}.review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left}.review .transcript-toggle:hover{opacity:1;color:var(--red)}.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:600px}.review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}.review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}.review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}.review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}.review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}.foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
+:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1800px;margin:0 auto;padding:0 1rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.5rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:.9rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:8px;height:8px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:.6rem 1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.7rem;letter-spacing:.15em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.7rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:.5rem 2rem;border-bottom:2px solid var(--ink);z-index:10;display:flex;align-items:center;gap:1rem}.hero-left{flex:1}.hero-center{text-align:center;flex:0 0 auto}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.15rem .5rem;font-family:'Archivo Black';letter-spacing:.2em;font-size:.55rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(1.8rem,4vw,3rem);line-height:.95;color:var(--red);text-shadow:2px 2px 0 var(--ink);letter-spacing:-.02em;white-space:nowrap}.hero-right{flex:1;text-align:right}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:.95rem;line-height:1.25;max-width:16rem;margin-left:auto;color:var(--ink);opacity:.7}@media(max-width:700px){.hero{flex-direction:column;text-align:center;padding:.4rem 1rem}.hero-right{text-align:center}.hero .deck{margin:0 auto;max-width:none}}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem 1.2rem;margin:.5rem 0 1.5rem;position:relative;z-index:10;padding:1.5rem 3rem}
+@media(max-width:600px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1rem;padding:1rem 1.25rem}}
+.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:5px 6px 0 rgba(0,0,0,.15);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:.5rem .5rem .6rem}
+.review:nth-child(7n+1){transform:rotate(-2deg)}.review:nth-child(7n+2){transform:rotate(1.5deg) translateY(6px)}.review:nth-child(7n+3){transform:rotate(-1deg) translateY(-4px)}.review:nth-child(7n+4){transform:rotate(2.5deg)}.review:nth-child(7n+5){transform:rotate(-1.5deg) translateY(5px)}.review:nth-child(7n+6){transform:rotate(.8deg) translateY(-3px)}.review:nth-child(7n+7){transform:rotate(-2.5deg)}
+.review:hover{transform:rotate(0deg) translateY(-6px) scale(1.03);box-shadow:8px 12px 0 rgba(214,36,25,.35);z-index:30}
+.review .top-meta{padding:.2rem .2rem .35rem;border-bottom:1.5px dashed var(--ink);margin-bottom:.4rem;display:flex;justify-content:space-between;align-items:center;gap:.3rem}
+.review .top-meta .name{font-family:'Shrikhand';font-size:.85rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.review .top-meta .rating{display:flex;gap:1px;flex-shrink:0}.review .top-meta .rating i{width:9px;height:9px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}
+.review .thumb{position:relative;aspect-ratio:9/16;overflow:hidden;background:#333;box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 3px var(--ink)}
+.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.05)}
+.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.3) 0%,transparent 20%,transparent 60%,rgba(0,0,0,.8) 100%)}
+.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.4);transition:transform .2s;z-index:3}
+.review:hover .play{transform:translate(-50%,-50%) scale(1.12)}.review .play svg{width:22px;height:22px;margin-left:3px;fill:var(--ink)}
+.review .platform-tag{position:absolute;top:.4rem;left:.4rem;z-index:3;font-family:'Archivo Black';font-size:.55rem;letter-spacing:.08em;background:var(--paper);color:var(--ink);padding:.15rem .35rem;border:1px solid var(--ink);text-transform:uppercase;box-shadow:1px 1px 0 rgba(0,0,0,.3)}
+.review .verdict{position:absolute;top:2rem;right:-.3rem;z-index:4;display:inline-block;padding:.2rem .45rem;font-family:'Archivo Black';font-size:.55rem;letter-spacing:.08em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}.review .verdict.mid{background:var(--paper);color:var(--ink);border:1px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1px solid var(--ink)}
+.review .stats{position:absolute;left:.4rem;right:.4rem;bottom:.4rem;z-index:3;display:flex;gap:.6rem;color:#fff;font-family:'DM Mono';font-size:.7rem;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,.8)}.review .stats .stat{display:flex;align-items:center;gap:.2rem}.review .stats svg{width:13px;height:13px;fill:#fff;filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))}
+.review .creator-row{display:flex;align-items:center;gap:.5rem;padding:.4rem .15rem .2rem}
+.review .avatar{width:32px;height:32px;border-radius:50%;background:#888;border:1.5px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.65rem;box-shadow:1px 1px 0 rgba(0,0,0,.2)}.review .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.72rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.review .followers{font-family:'DM Mono';font-size:.6rem;opacity:.6;margin-top:.1rem}
+.review .quote{display:block;margin-top:.3rem;padding:.25rem .4rem;background:var(--yellow);border-left:2px solid var(--red);font-family:'Caveat',cursive;font-size:.82rem;font-weight:700;line-height:1.2;color:var(--ink);transform:rotate(-0.3deg)}.review .quote .quote-mark{font-family:'Shrikhand';font-size:1rem;color:var(--red);vertical-align:-.1em;margin-right:.05rem}
+.review .caption{margin-top:.2rem;padding:.2rem .35rem;font-family:'Special Elite',monospace;font-size:.58rem;line-height:1.35;color:var(--ink);opacity:.75;border:1px dashed rgba(0,0,0,.1);background:rgba(255,255,255,.15)}.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.45rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:.15rem}
+.review .transcript{margin-top:.25rem;border:1px dashed var(--ink);background:rgba(255,255,255,.25);overflow:hidden}.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.25rem .4rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);opacity:.6;border:none;background:none;width:100%;text-align:left}.review .transcript-toggle:hover{opacity:1;color:var(--red)}.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:500px}.review .transcript-text{padding:.3rem .4rem;font-family:'Special Elite',monospace;font-size:.62rem;line-height:1.45;color:var(--ink);opacity:.7}
+.review .pin{position:absolute;width:20px;height:20px;top:-8px;left:-8px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:1.5px solid #2a0a06;box-shadow:1px 2px 3px rgba(0,0,0,.25)}.review .pin::after{content:'';position:absolute;top:5px;left:5px;width:5px;height:4px;background:rgba(255,255,255,.5);border-radius:50%}
+.review .tape-decor{position:absolute;top:-10px;right:15%;width:55px;height:16px;background:var(--tape);transform:rotate(-5deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.08);border-right:1px dashed rgba(0,0,0,.08)}.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.45);right:auto;left:12%;transform:rotate(4deg)}.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.5);left:40%;right:auto;transform:rotate(-2deg)}
+.review .corner-note{position:absolute;right:-6px;bottom:-12px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.7rem;transform:rotate(-4deg);background:var(--yellow);padding:.15rem .4rem;border:1px solid var(--ink);box-shadow:1px 1px 0 var(--ink)}
+.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:0 1rem}.foot-nav a{display:block;padding:.8rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.08em;font-size:.75rem;transition:all .2s;background:var(--paper)}.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.6rem;opacity:.7;margin-top:.2rem;letter-spacing:.12em}@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
+
+/* ═══ VIDEO MODAL ═══ */
+.vmodal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:1.5rem}
+.vmodal.open{display:flex}
+.vmodal-bg{position:absolute;inset:0;background:rgba(10,10,8,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.vmodal-inner{position:relative;display:flex;gap:1.5rem;max-width:900px;width:100%;max-height:90vh;z-index:2}
+.vmodal-video{flex:0 0 340px;aspect-ratio:9/16;background:#000;border:3px solid var(--ink);box-shadow:8px 10px 0 rgba(214,36,25,.4);overflow:hidden;position:relative;border-radius:4px}
+.vmodal-video video{width:100%;height:100%;object-fit:cover}
+.vmodal-video .vm-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.5);z-index:3;transition:transform .2s}
+.vmodal-video .vm-play:hover{transform:translate(-50%,-50%) scale(1.1)}
+.vmodal-video .vm-play svg{width:28px;height:28px;margin-left:3px;fill:var(--ink)}
+.vmodal-video.playing .vm-play{display:none}
+.vmodal-side{flex:1;overflow-y:auto;background:var(--paper);border:2px solid var(--ink);box-shadow:5px 6px 0 rgba(0,0,0,.15);padding:1.2rem;max-height:90vh;border-radius:4px}
+.vmodal-side .vm-restaurant{font-family:'Shrikhand';font-size:1.6rem;color:var(--ink);line-height:1;margin-bottom:.3rem}
+.vmodal-side .vm-address{font-family:'DM Mono';font-size:.7rem;opacity:.5;margin-bottom:.8rem}
+.vmodal-side .vm-creator{display:flex;align-items:center;gap:.6rem;padding:.6rem 0;border-top:1.5px dashed var(--ink);border-bottom:1.5px dashed var(--ink);margin-bottom:.8rem}
+.vmodal-side .vm-avatar{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);overflow:hidden;background:#888;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.75rem}
+.vmodal-side .vm-avatar img{width:100%;height:100%;object-fit:cover}
+.vmodal-side .vm-cname{font-family:'Archivo Black';font-size:.85rem}
+.vmodal-side .vm-cviews{font-family:'DM Mono';font-size:.65rem;opacity:.6}
+.vmodal-side .vm-stats{display:flex;gap:1.2rem;margin-bottom:.8rem;font-family:'DM Mono';font-size:.75rem}
+.vmodal-side .vm-stats span{display:flex;align-items:center;gap:.3rem}
+.vmodal-side .vm-stats b{color:var(--red)}
+.vmodal-side .vm-quote{padding:.5rem .7rem;background:var(--yellow);border-left:3px solid var(--red);font-family:'Caveat',cursive;font-size:1.05rem;font-weight:700;line-height:1.25;margin-bottom:.6rem;transform:rotate(-.3deg)}
+.vmodal-side .vm-caption{font-family:'Special Elite';font-size:.75rem;line-height:1.5;opacity:.8;margin-bottom:.6rem;border:1px dashed rgba(0,0,0,.1);padding:.5rem;background:rgba(255,255,255,.2)}
+.vmodal-side .vm-transcript{font-family:'Special Elite';font-size:.7rem;line-height:1.5;opacity:.65;border:1px dashed var(--ink);padding:.5rem;max-height:200px;overflow-y:auto;background:rgba(255,255,255,.15)}
+.vmodal-side .vm-label{font-family:'Archivo Black';font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem;display:block}
+.vmodal-close{position:absolute;top:-12px;right:-12px;width:36px;height:36px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);cursor:pointer;font-family:'Archivo Black';font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:2px 2px 0 var(--ink);transition:all .2s}
+.vmodal-close:hover{background:var(--red);color:var(--paper);border-color:var(--red)}
+.vmodal-dl{display:inline-flex;align-items:center;gap:.5rem;margin-top:.8rem;padding:.5rem 1rem;background:var(--ink);color:var(--paper);font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;text-decoration:none;border:2px solid var(--ink);transition:all .2s}
+.vmodal-dl:hover{background:var(--red);border-color:var(--red)}
+@media(max-width:700px){.vmodal-inner{flex-direction:column;max-height:none}.vmodal-video{flex:none;width:100%;max-width:340px;margin:0 auto}.vmodal-side{max-height:50vh}}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
 <div class="marquee"><div class="marquee-track">
-<span><i class="dot"></i> SCARBOROUGH · 19 SPOTS · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-<span><i class="dot"></i> SCARBOROUGH · 19 SPOTS · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+<span><i class="dot"></i> SCARBOROUGH · 20 SPOTS · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span><span><i class="dot"></i> STARTED FROM THE BOTTOM NOW WE EAT</span><span><i class="dot"></i> SCARBOROUGH · 20 SPOTS · VIDEO VERIFIED</span><span><i class="dot"></i> VIDEO VERIFIED · 2026</span>
+<span><i class="dot"></i> SCARBOROUGH · 20 SPOTS · VIDEO VERIFIED</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span><span><i class="dot"></i> STARTED FROM THE BOTTOM NOW WE EAT</span><span><i class="dot"></i> SCARBOROUGH · 20 SPOTS · VIDEO VERIFIED</span><span><i class="dot"></i> VIDEO VERIFIED · 2026</span>
 </div></div>
 <div class="wrap">
 <div class="nav-top"><a href="/toronto">← BACK TO ZINE</a><div class="breadcrumb mono">TORONTO FOOD ZINE / <b>SCARBOROUGH</b></div><a href="#">SHARE →</a></div>
-<section class="hero"><span class="kicker">STRIP MALL ROYALTY</span><h1>Scarborough.</h1><div class="deck">Strip mall gold. Parking lot legends. The drive is the price of admission.</div></section>
+<section class="hero"><div class="hero-left"></div><div class="hero-center"><span class="kicker">STRIP MALL ROYALTY</span><h1>Scarborough.</h1></div><div class="hero-right"><div class="deck">Strip mall gold. Parking lot legends. The drive is the price of admission.</div></div></section>
 <div class="reviews-grid">
-    <a class="review" href="/v/d04a18e9-ae75-4903-b93e-28cd5fc16eae">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/6cc64f07-9553-460b-acad-537a47d4939b/playlist.m3u8" data-restaurant="Sahan Restaurant" data-address="2010 Lawrence Ave E, Scarborough, ON M1R 2Z1" data-creator="keith_lee125" data-views="8958740" data-likes="1047843" data-saves="0" data-shares="21886" data-quote="We gonna start with the goat" data-caption="Sahan Restaurant taste test 💕 would you try it ? 💕" data-transcript="I was told in Borderline's Dreadin on multiple occasions that if I came to Toronto and didn't try some Mali food, I didn't experience Toronto. So I got some Mali food. I got it, let's try it and ready for the 10th. We spent $98.29. My family said the customer service was a 9 out of 10. They said the lady was extremely helpful. She literally ran through the whole meeting with him. Not personally at the shotout makes it in 6 because they sent me a full list of what to get from this place. I'm excited. I'm gonna show you the thing I got and we gonna try it and ready for the 10th. Go Erise, that's not the traditional name of this dish but the lady was nice enough to break it down in terms that we fully understand. Beef stew and chapati, tea bone and pasta, chicken stew. Again, these are not the traditional names of these dishes. These are just what she put on her seat. And for dessert, milk cake. We also told to give bananas and rice but they didn't have any. We gonna start with the goat. I've had goat before but never in this form. Okay, hang it. Okay. That's the least game years ago I've ever had in my life. I wouldn't know that I was going to go if you didn't tell me it. This season is real well. I thought it was going to be spicy. It's not spicy at all. No rice and pepper. It's just really well seasoned meat with some rice. Something that matters is at all. This is fresh too. I'm surprised but I'm starting really high. 8.2 out of 10. I could see there's not been everybody cup of tea though. If you don't like goat, I could see you not liking this. But to me, this is really good goat. This is tea bone and pasta. These bones are real beef. Ooh. Ooh, I was the only one piece. I thought it was like cut up. It's tender though. This just take that real char, real seasoned tea bone steak. Oh, cool. Pasta. The pasta definitely has some kind of like tangy, a little bit sour sauce on it. I'm not mad at it but it's extremely different for me. The tea bone in my opinion is 8 out of 10. The pasta on the hand, 5 out of 10. I'm not a huge fan. It's the beef stew I'm trying with the chapati. I see carrots, peas, onions. It's the eclipse right now in Canada and it's really bad on my background. Excuse that. What is that? I'm sorry. I'm not sure this high-spot is easy but I'm going to eat it like this. Excuse me. Am I paying this taste like crock-pot beef stew. It's good. This is a super flaky buttery, like vibrato. Eight out of 10 am I paying. This is chicken. Now that color is super vibrant, like real vibrant. I don't know if the color is just like that. But this is real weird. It's a little spicy, it's a little tangy. I might be wrong but it kind of tastes like it was cooked with yogurt. The spices are very different but it's just chicken. 7.8 out of 10 and this is what I can be hearing about. This milk cake. This way softer than I thought it was. I'm literally not putting no pressure on his fork. I was like, this is what I'm proud of but you'll look exactly like it. I'm a texture person. I don't like this. That's not for me. The flavor is delicious. It's a really really good cake with that texture. I'm not a fan of this at all. Just awful flavor. It's an 8.5 out of 10. The texture is raw. For me, this is a 3.5 out of 10. I like this. That's just... Damn. That's really good. Is it? Yeah. Make this one next birthday cake. What's your gift? A knife. Overall for my first. What is that? It's a good knife. I don't know if that's from a clip or what that noise is but it's real loud. Overall experience with small leaf food for the first time is extremely positive. I ain't going to lie. I like it. I'm a fan. I can see why they say if you come and you don't try it, it's doing the disservice to you and the country. I'm happy I ain't disservant nobody or myself. As far as a small family or restaurant, as always, I pray and I hope after this, they reach out to your audience. God bless you. Have an amazing day. I'll be safe. Please imagine. You can taste the grill." data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/6cc64f07-9553-460b-acad-537a47d4939b/thumbnail.jpg" data-link="/v/6cc64f07-9553-460b-acad-537a47d4939b">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Costco Business Centre</span>
+        <span class="name">Sahan Restaurant</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/d04a18e9-ae75-4903-b93e-28cd5fc16eae/thumbnail.jpg" alt="Costco Business Centre" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/6cc64f07-9553-460b-acad-537a47d4939b/thumbnail.jpg" alt="Sahan Restaurant" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict goat">MUST TRY</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.7M</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>136.7K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>3.7K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>9.0M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>1.0M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>0</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/keith_lee125.jpeg" alt="@keith_lee125" onerror="this.style.display='none';this.parentElement.textContent='K'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@keith_lee125</div>
+          <div class="followers">9.0M views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>The hot ones dumpling edition</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>The hot ones dumpling edition</div>
+      <div class="quote"><span class="quote-mark">"</span>We gonna start with the goat</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Sahan Restaurant taste test 💕 would you try it ? 💕</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">I totally regretted doing this because it burned like crazy but I tried five different hot sauces with Costco steamed dumplings sichuan tears is the first one and it had a nice kick sriracha is a classic and I love that flavor it's a bit spicy though cholula hot sauce is a new one for me it goes absolutely well with ramen and it turns out it goes well with steamed dumplings too I've never tried tapatio but you all been telling me to try this with ramen it wasn't that spicy but had a really great flavor looking forward to trying that with ramen but the trinidad hot sauce</div></div>
+        <div class="transcript-body"><div class="transcript-text">I was told in Borderline's Dreadin on multiple occasions that if I came to Toronto and didn't try some Mali food, I didn't experience Toronto. So I got some Mali food. I got it, let's try it and ready for the 10th. We spent $98.29. My family said the customer service was a 9 out of 10. They said the lady was extremely helpful. She literally ran through the whole meeting with him. Not personally at the shotout makes it in 6 because they sent me a full list of what to get from this place. I'm excited. I'm gonna show you the thing I got and we gonna try it and ready for the 10th. Go Erise, that's not the traditional name of this dish but the lady was nice enough to break it down in terms that we fully understand. Beef stew and chapati, tea bone and pasta, chicken stew. Again, these are not the traditional names of these dishes. These are just what she put on her seat. And for dessert, milk cake. We also told to give bananas and rice but they didn't have any. We gonna start with the goat. I've had goat before but never in this form. Okay, hang it. Okay. That's the least game years ago I've ever had in my life. I wouldn't know that I was going to go if you didn't tell me it. This season is real well. I thought it was going to be spicy. It's not spicy at all. No rice and pepper. It's just really well seasoned meat with some rice. Something that matters is at all. This is fresh too. I'm surprised but I'm starting really high. 8.2 out of 10. I could see there's not been everybody cup of tea though. If you don't like goat, I could see you not liking this. But to me, this is really good goat. This is tea bone and pasta. These bones are real beef. Ooh. Ooh, I was the only one piece. I thought it was like cut up. It's tender though. This just take that real char, real seasoned tea bone steak. Oh, cool. Pasta. The pasta definitely has some kind of like tangy, a little bit sour sauce on it. I'm not mad at it but it's extremely different for me. The tea bone in my opinion is 8 out of 10. The pasta on the hand, 5 out of 10. I'm not a huge fan. It's the beef stew I'm trying with the chapati. I see carrots, peas, onions. It's the eclipse right now in Canada and it's really bad on my background. Excuse that. What is that? I'm sorry. I'm not sure this high-spot is easy but I'm going to eat it like this. Excuse me. Am I paying this taste like crock-pot beef stew. It's good. This is a super flaky buttery, like vibrato. Eight out of 10 am I paying. This is chicken. Now that color is super vibrant, like real vibrant. I don't know if the color is just like that. But this is real weird. It's a little spicy, it's a little tangy. I might be wrong but it kind of tastes like it was cooked with yogurt. The spices are very different but it's just chicken. 7.8 out of 10 and this is what I can be hearing about. This milk cake. This way softer than I thought it was. I'm literally not putting no pressure on his fork. I was like, this is what I'm proud of but you'll look exactly like it. I'm a texture person. I don't like this. That's not for me. The flavor is delicious. It's a really really good cake with that texture. I'm not a fan of this at all. Just awful flavor. It's an 8.5 out of 10. The texture is raw. For me, this is a 3.5 out of 10. I like this. That's just... Damn. That's really good. Is it? Yeah. Make this one next birthday cake. What's your gift? A knife. Overall for my first. What is that? It's a good knife. I don't know if that's from a clip or what that noise is but it's real loud. Overall experience with small leaf food for the first time is extremely positive. I ain't going to lie. I like it. I'm a fan. I can see why they say if you come and you don't try it, it's doing the disservice to you and the country. I'm happy I ain't disservant nobody or myself. As far as a small family or restaurant, as always, I pray and I hope after this, they reach out to your audience. God bless you. Have an amazing day. I'll be safe. Please imagine. You can taste the grill.</div></div>
       </div>
-      <div class="corner-note">1.7M</div>
-    </a>
+      <div class="corner-note">9.0M</div>
+    </div>
 
-    <a class="review" href="/v/a28c4c1d-ad10-4967-b2c7-ea67b218949a">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/83a1a246-a6b1-4f70-a1f8-f1ba760be134/playlist.m3u8" data-restaurant="Karaza Shawarma Syrian Shawarma Scarborough Address" data-address="1260 Kennedy Rd #8, Scarborough, ON M1P 2L4" data-creator="torontofoodguide" data-views="4000000" data-likes="195700" data-saves="11800" data-shares="40600" data-quote="날이 좀 긁어져라 무슨 일 찾아았는데 bridal Organization daran 가서" data-caption="chicken shawarma 🤤  📍Karaza Shawarma  1260 Kennedy Rd, Scarborough, ON M1P 2L4" data-transcript="날이 좀 긁어져라 무슨 일 찾아았는데 bridal Organization daran 가서" data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/83a1a246-a6b1-4f70-a1f8-f1ba760be134/thumbnail.jpg" data-link="/v/83a1a246-a6b1-4f70-a1f8-f1ba760be134">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Shereen's Guyanese Bakery &amp; Roti</span>
+        <span class="name">Karaza Shawarma Syrian Shawarma Scarborough Address</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/a28c4c1d-ad10-4967-b2c7-ea67b218949a/thumbnail.jpg" alt="Shereen's Guyanese Bakery &amp; Roti" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/83a1a246-a6b1-4f70-a1f8-f1ba760be134/thumbnail.jpg" alt="Karaza Shawarma Syrian Shawarma Scarborough Address" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict goat">GOAT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>972.9K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>91.0K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>7.3K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>4.0M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>195.7K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>11.8K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/torontofoodguide.jpeg" alt="@torontofoodguide" onerror="this.style.display='none';this.parentElement.textContent='T'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@torontofoodguide</div>
+          <div class="followers">4.0M views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>I give my honest opinion on  Dev Pepperpot Ramen at Shereen’s Bakery</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>I give my honest opinion on  Dev Pepperpot Ramen at Shereen’s Bakery</div>
+      <div class="quote"><span class="quote-mark">"</span>날이 좀 긁어져라 무슨 일 찾아았는데 bridal Organization daran 가서</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>chicken shawarma 🤤  📍Karaza Shawarma  1260 Kennedy Rd, Scarborough, ON M1P 2L4</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">Hey, Chef, Def, can you level up my ramen? Yes, of course, bro. I got just the thing. What are we making? Something you never seen before. Pepper Pot Ramen. Cinnamon stick. Sorry. Sauce. Done. What's next step? Let's build up the pepper pot. Gravy, onions in ginger and garlic. The key ingredient, man. Weary, weary pepper. Only found in Guyana. Amazing. Orange zest, little bit of hot water. Now for the secret ingredient. Casserif. The key ingredient in Guyana's national dish. How that smell, bro? Now your guy needs your pepper pot ramen. Probably gonna piss off a lot of guys. Smell that earthiness, that bitter cassava, the spices that are in there. Look at this, man. Beef tenderloin, pepper popcorn. Look at that, bro. We're tasted flavors like this. Look at that slurp. It's spicy. It's got, like, the perfect blend of everything you want in one bowl. Honest opinion, man. You like it? This is 10 out of ten.</div></div>
+        <div class="transcript-body"><div class="transcript-text">날이 좀 긁어져라 무슨 일 찾아았는데 bridal Organization daran 가서</div></div>
       </div>
-      <div class="corner-note">972.9K</div>
-    </a>
+      <div class="corner-note">4.0M</div>
+    </div>
 
-    <a class="review" href="/v/2fa54c45-e483-49f5-b7f1-c74da28f9e40">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/e43725dc-bb3e-4160-9595-d92937d74672/playlist.m3u8" data-restaurant="Slider Station" data-address="80 Ellesmere Rd unit 2, Scarborough, ON M1R 4C2, Canada" data-creator="gourmetgirlie" data-views="1700000" data-likes="139100" data-saves="20200" data-shares="18000" data-quote="This was definitely worth the wait &amp; all for only $25" data-caption="This was definitely worth the wait &amp; all for only $25!" data-transcript="N/A" data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/e43725dc-bb3e-4160-9595-d92937d74672/thumbnail.jpg" data-link="/v/e43725dc-bb3e-4160-9595-d92937d74672">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Perfect Chinese Restaurant</span>
+        <span class="name">Slider Station</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/2fa54c45-e483-49f5-b7f1-c74da28f9e40/thumbnail.jpg" alt="Perfect Chinese Restaurant" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/e43725dc-bb3e-4160-9595-d92937d74672/thumbnail.jpg" alt="Slider Station" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict mid">SOLID</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>956.8K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>78.3K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>8.1K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.7M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>139.1K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>20.2K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/gourmetgirlie.jpeg" alt="@gourmetgirlie" onerror="this.style.display='none';this.parentElement.textContent='G'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@gourmetgirlie</div>
+          <div class="followers">1.7M views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>Sneaking out for late night Chinese food</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Sneaking out for late night Chinese food. This place has been open 24/7 365 days in a year for the past 40 years      📍Perfect Chinese Restaurant</div>
+      <div class="quote"><span class="quote-mark">"</span>This was definitely worth the wait &amp; all for only $25</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>This was definitely worth the wait &amp; all for only $25!</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">Noodle Gang. It's late at night. My wife's asleep, so I snuck out with my friends for some late night Chinese food. But at 1:00am, I was shocked by how packed this place was. Even the police was here. Apparently this place never closes. For the past 40 years they've been open 24 7. The waiter recommended to six course meal for nine, $9, which started with a Chinese soup and comes with triple a sirloin steak. The steak was nice and tender, perfect for a late night meal. But for a third dish, we got one of the most expensive veggies, Chinese stir fried snow pea shoots. Very well executed. This was one of my favorite dishes. But this is the dish we came here for, a massive plate of three whole lobsters stir fried with ginger and green onions. This is the most quintessential Cantonese lobster dish. We ate so much lobster that it got me laughing with joy. But this is my all time favorite fried noodle beef chow fun. It did didn't really have the charred aroma I was craving, but it got the job done. And finally for dessert, they give us a classic red bean soup and it came with tapioca balls. But for $99, I thought this was a really good deal.</div></div>
+        <div class="transcript-body"><div class="transcript-text">N/A</div></div>
       </div>
-      <div class="corner-note">956.8K</div>
-    </a>
+      <div class="corner-note">1.7M</div>
+    </div>
 
-    <a class="review" href="/v/ce577e75-f6cc-49d4-b4c9-5dc72309df93">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/1653e591-80c1-47ce-ad62-10c94aa6cacb/playlist.m3u8" data-restaurant="Pizza On Fire" data-address="880 Ellesmere Rd Unit 10, Scarborough, ON M1P 2L8, Canada" data-creator="foodiebros_to" data-views="443500" data-likes="17500" data-saves="6060" data-shares="4567" data-quote="Guys, you want to know one of the best places to grab a pizza" data-caption="Pizza On Fire is known for one of the best places to get a pizza in the city. We had the pleasure of meeting the owner Jack, he's the man behind it al" data-transcript="Guys, you want to know one of the best places to grab a pizza? That's here at Pizza On Fire. Here's Jack, the man behind Pizza On Fire. Selvin and I went with half meat lovers and half Hawaiian. Their dough is handmade and always fresh. The dough is formed perfectly, and then the crust is brushed with their special garlic butter. And then it's hit with their signature tomato sauce. And then behind us, they were preparing the meat for their Philly G's sake pizza. Jack puts so much love into his pizzas, and he never skimps on the toppings. It's fully loaded and well layered from top to bottom. Oh yes, pineapple belongs on pizza, and so does Bacon. Jack's quality of food control is top notch, and nothing leaves the kitchen before he checks it. He always adds more cheese before it goes back in the oven. Just look at that, guys. You need to try this. And the blowtorch is a finishing touch. Guys, he even has poutine. With fresh cut fries, cheese curds, and an in-house gravy. And the bacon is cooked in the oven and then placed right on top. When you go, just ask for Jack. He will take care of you. Just look at this creation. And did you know that pizza and fire is one of the five most unique spots to eat in Toronto? The cheese poll was pulling. Now this is a delicious poutine and it could feed more than one person for sure. We love their fresh ingredients, and they also offer halal options. We'll definitely be back to try their tendery and salmon pizzas. This was beyond delicious and guys, this pizza slat me into a full coma. I need to unfire, it gets to foodie bros gold seal of approval." data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/1653e591-80c1-47ce-ad62-10c94aa6cacb/thumbnail.jpg" data-link="/v/1653e591-80c1-47ce-ad62-10c94aa6cacb">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Fuwa Fuwa Dessert Cafe</span>
+        <span class="name">Pizza On Fire</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/ce577e75-f6cc-49d4-b4c9-5dc72309df93/thumbnail.jpg" alt="Fuwa Fuwa Dessert Cafe" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/1653e591-80c1-47ce-ad62-10c94aa6cacb/thumbnail.jpg" alt="Pizza On Fire" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict goat">FIRE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>923.8K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>71.2K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>7.5K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>443.5K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>17.5K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>6.1K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/foodiebros_to.jpeg" alt="@foodiebros_to" onerror="this.style.display='none';this.parentElement.textContent='F'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@foodiebros_to</div>
+          <div class="followers">443.5K views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>Fuwa STC Fluffy Jiggly Japanese Pancake Mukbang with  Peachy</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Fuwa STC Fluffy Jiggly Japanese Pancake Mukbang with  Peachy</div>
+      <div class="quote"><span class="quote-mark">"</span>Guys, you want to know one of the best places to grab a pizza</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Pizza On Fire is known for one of the best places to get a pizza in the city. We had the pleasure of meeting the owner Jack, he's the man behind it al</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">N/A</div></div>
+        <div class="transcript-body"><div class="transcript-text">Guys, you want to know one of the best places to grab a pizza? That's here at Pizza On Fire. Here's Jack, the man behind Pizza On Fire. Selvin and I went with half meat lovers and half Hawaiian. Their dough is handmade and always fresh. The dough is formed perfectly, and then the crust is brushed with their special garlic butter. And then it's hit with their signature tomato sauce. And then behind us, they were preparing the meat for their Philly G's sake pizza. Jack puts so much love into his pizzas, and he never skimps on the toppings. It's fully loaded and well layered from top to bottom. Oh yes, pineapple belongs on pizza, and so does Bacon. Jack's quality of food control is top notch, and nothing leaves the kitchen before he checks it. He always adds more cheese before it goes back in the oven. Just look at that, guys. You need to try this. And the blowtorch is a finishing touch. Guys, he even has poutine. With fresh cut fries, cheese curds, and an in-house gravy. And the bacon is cooked in the oven and then placed right on top. When you go, just ask for Jack. He will take care of you. Just look at this creation. And did you know that pizza and fire is one of the five most unique spots to eat in Toronto? The cheese poll was pulling. Now this is a delicious poutine and it could feed more than one person for sure. We love their fresh ingredients, and they also offer halal options. We'll definitely be back to try their tendery and salmon pizzas. This was beyond delicious and guys, this pizza slat me into a full coma. I need to unfire, it gets to foodie bros gold seal of approval.</div></div>
       </div>
-      <div class="corner-note">923.8K</div>
-    </a>
+      <div class="corner-note">443.5K</div>
+    </div>
 
-    <a class="review" href="/v/ef3d4979-0e51-41b6-aa64-3ccac992550e">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Mona's Roti</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/ef3d4979-0e51-41b6-aa64-3ccac992550e/thumbnail.jpg" alt="Mona's Roti" loading="lazy"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict goat">ELITE</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>873.2K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>40.1K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>9.6K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">I</div>
-        <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>Trying the most famous roti shop in the GTA ⬇️ Mona’s Roti by auntie Mona and her family has been making doubles and rot...</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Trying the most famous roti shop in the GTA ⬇️ Mona’s Roti by auntie Mona and her family has been making doubles and roti for decades. Their bara, paratha, and dhalpuri are so good that they supply th</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">We are trying the most famous rotis and doubles in all of Scarborough, Toronto, Ontario, Canada. Mona's Roti is not just a roti shop, it's an institution. You walk in and there's an army of aunties and daughters constantly slinging doubles just to keep up with the onslaught of customers is constantly coming in. But that's just the tip of the iceberg. There's an Auntie in the back endlessly frying barra made fresh to order. And it gets even crazier. There's an army of 20 people LED by the legend herself, Auntie Mona, making and burrata from scratch. When I asked her why she keeps on doing this even after 40 years, she says there's no better place to be than to be working with family. Her daughter made us her favorite roti combinations, goat with pumpkin pie and spinach and another one with chicken and shrimp. We started with our signature doubles. The bar was so fresh, had such an amazing chew. Next up, we tried the curry chicken and shrimp roti. It had so much flavor it left me in a trance. He's gone. Last but not least, we tried the curry goat roti. And this was my favorite. I love the hint of sweetness from the pumpkin and the goat was so tender.</div></div>
-      </div>
-      <div class="corner-note">873.2K</div>
-    </a>
-
-    <a class="review" href="/v/b1e4db15-8736-437e-a827-dece4b1240fb">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Ali's Wraps Green Food Truck</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/b1e4db15-8736-437e-a827-dece4b1240fb/thumbnail.jpg" alt="Ali's Wraps Green Food Truck" loading="lazy"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict ">SLEPT ON</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>736.1K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>70.5K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>4.2K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">I</div>
-        <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>with  I need to try these wraps</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>with  I need to try these wraps!</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">N/A</div></div>
-      </div>
-      <div class="corner-note">736.1K</div>
-    </a>
-
-    <a class="review" href="/v/f2b79ca4-0fe4-44b0-be5a-9a087f5ee5d8">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Gourmet Malaysia Restaurant</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/f2b79ca4-0fe4-44b0-be5a-9a087f5ee5d8/thumbnail.jpg" alt="Gourmet Malaysia Restaurant" loading="lazy"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict goat">WORTH IT</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>725.3K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>75.2K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>3.3K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">I</div>
-        <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>Last day this noodle shop is opened at this location and I wanted to try it out before they closed</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Last day this noodle shop is opened at this location and I wanted to try it out before they closed. The owners name is Vei and if you want to support him his username is  on IG for updates on his busi</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">So apparently there's this guy who makes selfies Asian noodles out of a donut shop. Today is his last day, so I'm gonna check it out. So I was a bit sad to hear that this noodle shop was closing and I needed to try his noodles for myself. It's just one guy out of the back of a donut shop making one dish, his version of hocking me. The aroma was incredible. Smells so good in here. He juggles between two walks making two orders at a time. He's been making this single dish for years, perfecting it to his taste. He does everything including taking the orders, Manning the walks, but he genuinely looks happy doing it. I think for this dish is the pork lard and crispy pork bits that he puts on top. I was salivating watching him make this. But the big question is how does it taste? It is so tasty. I think that caramelized soy sauce flavor is what makes this and that pork lard, those two combined. Actually love how there's two different types of noodles. You get two different textures. This probably the best hocking man I've ever had for sure.</div></div>
-      </div>
-      <div class="corner-note">725.3K</div>
-    </a>
-
-    <a class="review" href="/v/8b8cd168-2cb4-4d8d-80ed-450db6c39047">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">The Good Eats by Julian</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/8b8cd168-2cb4-4d8d-80ed-450db6c39047/thumbnail.jpg" alt="The Good Eats by Julian" loading="lazy"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict goat">INSANE</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>662.1K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>66.2K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>4.6K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">I</div>
-        <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>Trying what  Lee wanted to try at  good eats by Julian      Express  card  Transit Commission</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Trying what  Lee wanted to try at  good eats by Julian      Express  card  Transit Commission</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">Okay, Keithley, I traveled for over an hour by TTC and go train just to get to Good Eats by Julian. They actually have the oxtail burger this time and I got the goat curry and the jerk part which is also another thing that Keithley wanna try I'm gonna try the oxtail burger and so because Keithley came here, it's now 1199 that oxtail you don't need teeth. It's so freaking tender. I think people you need to come back for this one. Now let's try the jerk pork. I actually saw them barbecuing this and I think that's a little bit of their hot sauce on top too. I think these are little bread fritters. I've actually never had them before. I'm pretty sure it is gonna be really tender too based on what I'm seeing haha, the pork is nice and tender. It's nice and smoky. I don't know if I'm supposed to be using my hands but I think I'm gonna have one with the hot sauce hmm oh, actually, oh, I was gonna say that hot sauce is not that hot but it starts off sweet but then you definitely feel the kick afterwards Keith Lee, I think you would have liked this one too this literally I feel like weighs 5 pounds there's so much goat in here some of the most tender goat I've ever had everything here you don't need teeth. This is just like comfort food what's good you wanna Be on the video. Yes. Honestly, I would give this a 9 out of 10. What? And I give that a 9 out of 10 too. The oxtail burger. Everything's super tender. And I gave this one a 8.5. Okay.</div></div>
-      </div>
-      <div class="corner-note">662.1K</div>
-    </a>
-
-    <a class="review" href="/v/0cdeadb4-15bb-4f77-a00d-a5d2c6f5e048">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Seafood City Supermarket - Scarborough</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/0cdeadb4-15bb-4f77-a00d-a5d2c6f5e048/thumbnail.jpg" alt="Seafood City Supermarket - Scarborough" loading="lazy"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict ">NO CAP</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>565.4K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>32.8K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>2.0K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">I</div>
-        <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>$70 Filipino foodcourt feast at Seafood City Supermarket</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>$70 Filipino foodcourt feast at Seafood City Supermarket</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">This is everything we ate for $70 at Sea Food City's supermarket. Bucko up because we're gonna eat as much Filipino food as we can in their massive food court. First up for $995 they gave us a mountain of pan-seed beehun noodles. I think the noodles literally weighed 5 pounds. I love how there's these fish balls on top. And there was so much noodles that we were already full after eating this. But we saw this food stall stocking up on Filipino street food. So for $6.99 we got the pork shiomai. And we got a veggie lumpia for $3. That lumpia was crispy and fresh. Pretty good deal for $3. So we saw you can get chicken and dobo here in pork blood stew. So you know we had to get some. They come with a box of rice and a chicken or barbecue pork skewer. These combos cost us $14.99 and $16.50. And that pork skewer was probably the best thing I've had so far. But this is my first time eating pork blood stew. The pork was tender and I love the vinegar taste. And I love how there's these quail eggs in the chicken and dobo. And the chicken and dobo had a nice balance of sweet savory and sour. But we can't leave without eating dessert. So for $8.95 we got my favorite Filipino dessert, hallow hallow.</div></div>
-      </div>
-      <div class="corner-note">565.4K</div>
-    </a>
-
-    <a class="review" href="/v/2c17e9c5-75b1-4e07-a25e-01d9b161c705">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/2c17e9c5-75b1-4e07-a25e-01d9b161c705/playlist.m3u8" data-restaurant="Montmartre Bakery Danish Scarborough Address" data-address="105 Midwest Rd, Scarborough, ON M1P 4B9" data-creator="aarnvrr" data-views="433300" data-likes="32300" data-saves="9974" data-shares="6623" data-quote="For a place located in a pretty industrial part of town 00:00:41  I'm a sucker for a good 🫐 one" data-caption="Replying to  danishes at monmartre bakery 🍞" data-transcript="00:00:08  Right over there is Midland 00:00:47  What a sight to behold. For a place located in a pretty industrial part of town 00:00:41  I'm a sucker for a good 🫐 one. 00:00:30  like there's no place to sit. 00:00:37  But I come here for pies and in this instance, danishes. 00:00:54  They do way more than I had mentioned 00:00:28  and if you head inside it's legit a bakery, 00:00:26  This is a pretty humble spot 00:00:11  and follow this curve until you reach the destination. 00:00:19  But from Midland it actually isn't too far of a walk. 00:00:06  So this is a bakery located in Scarborough. 00:00:14  Now this is definitely more of a driving situation, 00:00:25  And we arrived! 00:00:04  and here's how to find this one. 00:00:45  and…beautiful! 00:00:56  so visit them to see what else they got! 00:00:52  I'd say this is well worth the trek. 00:00:33  This place is known for a number of things including strudels and pretzels. 00:00:31  It’s typically just take-out. 00:00:43  I had to unpack these when I got home. 00:00:17  I'm sort of just walking to show you how to get to this place. 00:00:01  Putting you on to actual hidden gems in Toronto 00:00:09  and you're gonna wanna take this street 00:00:21  Bakery so popular that other businesses don't want you to use their parking." data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/2c17e9c5-75b1-4e07-a25e-01d9b161c705/thumbnail.jpg" data-link="/v/2c17e9c5-75b1-4e07-a25e-01d9b161c705">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
         <span class="name">Montmartre Bakery Danish Scarborough Address</span>
@@ -344,8 +229,7 @@
       <div class="thumb">
         <img src="https://vz-9c9477c9-fd2.b-cdn.net/2c17e9c5-75b1-4e07-a25e-01d9b161c705/thumbnail.jpg" alt="Montmartre Bakery Danish Scarborough Address" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict goat">CERTIFIED</span>
+        <span class="verdict goat">ELITE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
           <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>433.3K</span>
@@ -354,88 +238,104 @@
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">A</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/aarnvrr.jpeg" alt="@aarnvrr" onerror="this.style.display='none';this.parentElement.textContent='A'"/></div>
         <div class="creator-info">
           <div class="creator-name">@aarnvrr</div>
-          <div class="followers">TikTok</div>
+          <div class="followers">433.3K views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>Replying to  danishes at monmartre bakery 🍞</div>
+      <div class="quote"><span class="quote-mark">"</span>For a place located in a pretty industrial part of town 00:00:41  I'm a sucker for a good 🫐 one</div>
       <div class="caption"><span class="cap-label">Caption</span><br>Replying to  danishes at monmartre bakery 🍞</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
         <div class="transcript-body"><div class="transcript-text">00:00:08  Right over there is Midland 00:00:47  What a sight to behold. For a place located in a pretty industrial part of town 00:00:41  I'm a sucker for a good 🫐 one. 00:00:30  like there's no place to sit. 00:00:37  But I come here for pies and in this instance, danishes. 00:00:54  They do way more than I had mentioned 00:00:28  and if you head inside it's legit a bakery, 00:00:26  This is a pretty humble spot 00:00:11  and follow this curve until you reach the destination. 00:00:19  But from Midland it actually isn't too far of a walk. 00:00:06  So this is a bakery located in Scarborough. 00:00:14  Now this is definitely more of a driving situation, 00:00:25  And we arrived! 00:00:04  and here's how to find this one. 00:00:45  and…beautiful! 00:00:56  so visit them to see what else they got! 00:00:52  I'd say this is well worth the trek. 00:00:33  This place is known for a number of things including strudels and pretzels. 00:00:31  It’s typically just take-out. 00:00:43  I had to unpack these when I got home. 00:00:17  I'm sort of just walking to show you how to get to this place. 00:00:01  Putting you on to actual hidden gems in Toronto 00:00:09  and you're gonna wanna take this street 00:00:21  Bakery so popular that other businesses don't want you to use their parking.</div></div>
       </div>
       <div class="corner-note">433.3K</div>
-    </a>
-
-    <a class="review" href="/v/b5fe8463-3b66-4137-92fa-2ae16d6f3004">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">FAT NINJA BITE</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/b5fe8463-3b66-4137-92fa-2ae16d6f3004/thumbnail.jpg" alt="FAT NINJA BITE" loading="lazy"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict goat">MUST TRY</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>425.0K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>21.5K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>1.1K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">I</div>
-        <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>My private chef era  Recipe: 1</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>My private chef era  Recipe: 1. salmon filets marinaded in a mixture of soy sauce and brown sugar (I just kept on gradually adding brown sugar gradually until it came to my liking) 2. Brussel sprouts </div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">So I got hired to be a private chef for an actor here in Toronto. I can't really tell you who it is, but you might have seen them on Netflix or Amazon Prime, and they're also going to be appearing on an upcoming major show. This is the first meal I'll be making for them, it's kind of like a trial run. They asked for something healthy, so I chopped up some Brussels sprouts in mushrooms, and they requested while salmon, but the best I could find was organic salmon, so hopefully they don't mind. But you might be wondering how did I land this gig? I'm gonna be honest, it was nepotism. They're a family member, and luckily a huge fan of the channel. I was already running late and they were getting hungry, so luckily as a carb, I had this microwavable rice, and I'm just hoping they enjoyed a dish. So good! I mean the color is great, I don't know how it tastes. You're gonna try it. Yeah. Are you joking or not joking? No, not joking, I'm not trying so. Yeah, it was really, really good. Oh!</div></div>
-      </div>
-      <div class="corner-note">425.0K</div>
-    </a>
-
-    <a class="review" href="/v/63b8a8db-6a2e-4b02-a9ec-efdac1b52dae">
-      <div class="pin"></div><div class="tape-decor"></div>
-      <div class="top-meta">
-        <span class="name">Kairali</span>
-        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
-      </div>
-      <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/63b8a8db-6a2e-4b02-a9ec-efdac1b52dae/thumbnail.jpg" alt="Kairali" loading="lazy"/>
-        <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
-        <span class="verdict goat">GOAT</span>
-        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
-        <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>385.2K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>33.1K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>2.2K</span>
-        </div>
-      </div>
-      <div class="creator-row">
-        <div class="avatar">I</div>
-        <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
-        </div>
-      </div>
-      <div class="quote"><span class="quote-mark">"</span>My friend planned an Indian Food Crawl for me   📍Federick (Indian Chinese Hakka) 📍 King Of Punjabi Tadka  📍 Hyderabad...</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>My friend planned an Indian Food Crawl for me   📍Federick (Indian Chinese Hakka) 📍 King Of Punjabi Tadka  📍 Hyderabad Biryani Hut 📍 Kairali (Kerala cuisine)</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">Trying Indian food I've never had for the first time my friend has been planning for months to prepare this Indian food And I had no idea India had so many different cuisines first that we went to the iconic Fredrick's for some Indochinese Haka cuisine got the Haka Chow Mean and their legendary chili chicken. I love how gigantic the portions are and it only costs 975 and it comes with a drink the owner is originally from Kolkata where Indochinese cuisine is popular next up We drove to an industrial complex to try butter chicken I had butter chicken before but this one had a thicker gravy texture Which I kind of like and apparently if you go on a Thursday it only costs 899 But we drove all the way to another plaza to try hydro baddie Briarani apparently what makes this Briarani so special is how they cook the rice the rice is steamed with the chicken so all the chicken juices get Absorbed by the rice This is my first time trying this type of Briarani and I love the fragrance of the rice before our last stop We're trying Kerala Indian cuisine Kerala is a state in India next to the ocean So they're famous for their fish dishes. We got their kingfish curry combo which comes with a ton of side dishes My friends family is actually from Kerala and this reminded him of the foodie a growing up</div></div>
-      </div>
-      <div class="corner-note">385.2K</div>
-    </a></div>
+    </div></div>
 <div class="foot-nav"><a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a><a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a><a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="vmodal" id="vmodal">
+  <div class="vmodal-bg" onclick="closeModal()"></div>
+  <div class="vmodal-inner">
+    <div class="vmodal-video" id="vm-video">
+      <video id="vm-player" playsinline loop></video>
+      <div class="vm-play" id="vm-play" onclick="togglePlay(event)"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+    </div>
+    <div class="vmodal-side">
+      <div class="vm-restaurant" id="vm-restaurant"></div>
+      <div class="vm-address" id="vm-address"></div>
+      <div class="vm-creator">
+        <div class="vm-avatar" id="vm-avatar"></div>
+        <div><div class="vm-cname" id="vm-cname"></div><div class="vm-cviews" id="vm-cviews"></div></div>
+      </div>
+      <div class="vm-stats">
+        <span><b id="vm-views"></b> views</span>
+        <span><b id="vm-likes"></b> likes</span>
+        <span><b id="vm-saves"></b> saves</span>
+      </div>
+      <div class="vm-quote" id="vm-quote"></div>
+      <div><span class="vm-label">Caption</span><div class="vm-caption" id="vm-caption"></div></div>
+      <div id="vm-transcript-wrap" style="margin-top:.5rem"><span class="vm-label">Transcript</span><div class="vm-transcript" id="vm-transcript"></div></div>
+      <a class="vmodal-dl" href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank">WATCH IN APP →</a>
+    </div>
+    <button class="vmodal-close" onclick="closeModal()">×</button>
+  </div>
+</div>
+
+<script>
+const PROFILE_URL='https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile';
+let currentHls=null;
+function fmtV(n){n=parseInt(n)||0;if(n>=1e6)return(n/1e6).toFixed(1)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'K';return n}
+function openModal(el){
+  const d=el.dataset;
+  document.getElementById('vm-restaurant').textContent=d.restaurant;
+  document.getElementById('vm-address').textContent=d.address;
+  document.getElementById('vm-cname').textContent='@'+d.creator;
+  document.getElementById('vm-cviews').textContent=fmtV(d.views)+' views';
+  document.getElementById('vm-views').textContent=fmtV(d.views);
+  document.getElementById('vm-likes').textContent=fmtV(d.likes);
+  document.getElementById('vm-saves').textContent=fmtV(d.saves);
+  document.getElementById('vm-quote').innerHTML='<span style="font-family:Shrikhand;font-size:1.2rem;color:var(--red);margin-right:.1rem">\u201C</span>'+d.quote;
+  document.getElementById('vm-caption').textContent=d.caption;
+  const tw=document.getElementById('vm-transcript-wrap');
+  const tt=document.getElementById('vm-transcript');
+  if(d.transcript){tw.style.display='block';tt.textContent=d.transcript}else{tw.style.display='none'}
+  const av=document.getElementById('vm-avatar');
+  av.innerHTML='<img src="'+PROFILE_URL+'/'+encodeURIComponent(d.creator)+'.jpeg" onerror="this.style.display=\'none\';this.parentElement.textContent=\''+d.creator.charAt(0).toUpperCase()+'\'"/>';
+  // Video
+  const video=document.getElementById('vm-player');
+  const vwrap=document.getElementById('vm-video');
+  vwrap.classList.remove('playing');
+  video.pause();
+  if(currentHls){currentHls.destroy();currentHls=null}
+  video.poster=d.thumb;
+  if(d.hls){
+    if(Hls.isSupported()){
+      currentHls=new Hls();currentHls.loadSource(d.hls);currentHls.attachMedia(video);
+    }else if(video.canPlayType('application/vnd.apple.mpegurl')){
+      video.src=d.hls;
+    }
+  }
+  document.getElementById('vmodal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('vmodal').classList.remove('open');
+  document.body.style.overflow='';
+  const video=document.getElementById('vm-player');
+  video.pause();
+  if(currentHls){currentHls.destroy();currentHls=null}
+}
+function togglePlay(e){
+  e.stopPropagation();
+  const video=document.getElementById('vm-player');
+  const vwrap=document.getElementById('vm-video');
+  if(video.paused){video.play();vwrap.classList.add('playing')}
+  else{video.pause();vwrap.classList.remove('playing')}
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+</script>
 </div>
 </body></html>

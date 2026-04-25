@@ -9,6 +9,10 @@ Disallow: /index-v2
 Disallow: /index-original
 Disallow: /index2
 Disallow: /index3
+Disallow: /dashboard
+Disallow: /scripts
+Disallow: /data
+Disallow: /Collage Magazine View
 
 # Sitemaps
 Sitemap: https://www.bitemap.fun/sitemap.xml

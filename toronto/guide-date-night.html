@@ -17,357 +17,525 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
 <style>
-:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1680px;margin:0 auto;padding:0 2rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.6rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:1rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:10px;height:10px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.75rem;letter-spacing:.2em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.75rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:0;text-align:center;border-bottom:3px double var(--ink);z-index:10}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.25rem .7rem;font-family:'Archivo Black';letter-spacing:.25em;font-size:.75rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(3rem,8vw,7rem);line-height:.9;color:var(--red);text-shadow:4px 4px 0 var(--ink);margin-top:.6rem;letter-spacing:-.02em}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(1.1rem,2vw,1.6rem);max-width:40rem;margin:.5rem auto 0;line-height:1.3;padding:0 1rem .5rem}.reviews-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:1rem 0;width:calc(100vw - 3rem);margin-left:calc(50% - 50vw + 1.5rem)}@media(max-width:1400px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1.2rem .8rem}}@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}}.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:8px 10px 0 rgba(0,0,0,.2);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:1rem 1rem 1.2rem}.review:nth-child(7n+1){transform:rotate(-3deg)}.review:nth-child(7n+2){transform:rotate(2deg) translateY(10px)}.review:nth-child(7n+3){transform:rotate(-1.5deg) translateY(-6px)}.review:nth-child(7n+4){transform:rotate(3.5deg)}.review:nth-child(7n+5){transform:rotate(-2.5deg) translateY(8px)}.review:nth-child(7n+6){transform:rotate(1deg) translateY(-4px)}.review:nth-child(7n+7){transform:rotate(-4deg)}.review:hover{transform:rotate(0deg) translateY(-10px) scale(1.03);box-shadow:12px 18px 0 rgba(214,36,25,.4);z-index:30}.review .top-meta{padding:.3rem .3rem .6rem;border-bottom:2px dashed var(--ink);margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}.review .top-meta .name{font-family:'Shrikhand';font-size:1.3rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}.review .top-meta .rating{display:flex;gap:2px;flex-shrink:0}.review .top-meta .rating i{width:12px;height:12px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}.review .thumb{position:relative;aspect-ratio:9/11.66;overflow:hidden;background:#333;box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px var(--ink)}.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.05)}.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 25%,transparent 55%,rgba(0,0,0,.85) 100%)}.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.5);transition:transform .2s;z-index:3}.review:hover .play{transform:translate(-50%,-50%) scale(1.15)}.review .play svg{width:32px;height:32px;margin-left:4px;fill:var(--ink)}.review .platform-tag{position:absolute;top:.6rem;left:.6rem;z-index:3;font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;background:var(--paper);color:var(--ink);padding:.25rem .55rem;border:1.5px solid var(--ink);text-transform:uppercase;box-shadow:2px 2px 0 rgba(0,0,0,.4)}.review .duration{position:absolute;top:.6rem;right:.6rem;z-index:3;background:var(--ink);color:var(--paper);padding:.2rem .5rem;font-family:'DM Mono';font-size:.72rem}.review .verdict{position:absolute;top:3.4rem;right:-.5rem;z-index:4;display:inline-block;padding:.3rem .65rem;font-family:'Archivo Black';font-size:.72rem;letter-spacing:.1em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}.review .verdict.mid{background:var(--paper);color:var(--ink);border:1.5px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1.5px solid var(--ink)}.review .stats{position:absolute;left:.7rem;right:.7rem;bottom:.7rem;z-index:3;display:flex;gap:1rem;color:#fff;font-family:'DM Mono';font-size:.88rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8)}.review .stats .stat{display:flex;align-items:center;gap:.3rem}.review .stats svg{width:17px;height:17px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,.6))}.review .creator-row{display:flex;align-items:center;gap:.75rem;padding:.85rem .25rem .4rem}.review .avatar{width:48px;height:48px;border-radius:50%;background:#888;border:2px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.85rem;box-shadow:2px 2px 0 rgba(0,0,0,.25)}.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.92rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.review .followers{font-family:'DM Mono';font-size:.72rem;opacity:.7;letter-spacing:.05em;margin-top:.15rem}.review .quote{display:block;margin-top:.75rem;padding:.6rem .8rem;background:var(--yellow);border-left:4px solid var(--red);font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;line-height:1.3;color:var(--ink);transform:rotate(-0.5deg)}.review .quote .quote-mark{font-family:'Shrikhand';font-size:1.6rem;color:var(--red);vertical-align:-.15em;margin-right:.1rem}.review .caption{margin-top:.6rem;padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.8rem;line-height:1.45;color:var(--ink);opacity:.85;border:1px dashed rgba(0,0,0,.15);background:rgba(255,255,255,.25)}.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem}.review .transcript{margin-top:.4rem;border:1px dashed var(--ink);background:rgba(255,255,255,.3);overflow:hidden}.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.4rem .6rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);opacity:.7;border:none;background:none;width:100%;text-align:left}.review .transcript-toggle:hover{opacity:1;color:var(--red)}.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:600px}.review .transcript-text{padding:.5rem .6rem;font-family:'Special Elite',monospace;font-size:.75rem;line-height:1.5;color:var(--ink);opacity:.75}.review .pin{position:absolute;width:26px;height:26px;top:-10px;left:-10px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:2px solid #2a0a06;box-shadow:2px 3px 4px rgba(0,0,0,.3)}.review .pin::after{content:'';position:absolute;top:6px;left:6px;width:7px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}.review .tape-decor{position:absolute;top:-14px;right:20%;width:80px;height:22px;background:var(--tape);transform:rotate(-6deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.1);border-right:1px dashed rgba(0,0,0,.1)}.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.5);right:auto;left:15%;transform:rotate(5deg)}.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.55);left:45%;right:auto;transform:rotate(-3deg)}.review .corner-note{position:absolute;right:-10px;bottom:-18px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.85rem;transform:rotate(-5deg);background:var(--yellow);padding:.2rem .55rem;border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.5rem 0 3rem;position:relative;z-index:10}.foot-nav a{display:block;padding:1rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.1em;font-size:.85rem;transition:all .2s;background:var(--paper)}.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.65rem;opacity:.7;margin-top:.3rem;letter-spacing:.15em}@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
+:root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1800px;margin:0 auto;padding:0 1rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.5rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:.9rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:8px;height:8px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:.6rem 1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.7rem;letter-spacing:.15em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.7rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:.5rem 2rem;border-bottom:2px solid var(--ink);z-index:10;display:flex;align-items:center;gap:1rem}.hero-left{flex:1}.hero-center{text-align:center;flex:0 0 auto}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.15rem .5rem;font-family:'Archivo Black';letter-spacing:.2em;font-size:.55rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(1.8rem,4vw,3rem);line-height:.95;color:var(--red);text-shadow:2px 2px 0 var(--ink);letter-spacing:-.02em;white-space:nowrap}.hero-right{flex:1;text-align:right}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:.95rem;line-height:1.25;max-width:16rem;margin-left:auto;color:var(--ink);opacity:.7}@media(max-width:700px){.hero{flex-direction:column;text-align:center;padding:.4rem 1rem}.hero-right{text-align:center}.hero .deck{margin:0 auto;max-width:none}}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem 1.2rem;margin:.5rem 0 1.5rem;position:relative;z-index:10;padding:1.5rem 3rem}
+@media(max-width:600px){.reviews-grid{grid-template-columns:repeat(2,1fr);gap:1rem;padding:1rem 1.25rem}}
+.review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:5px 6px 0 rgba(0,0,0,.15);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:.5rem .5rem .6rem}
+.review:nth-child(7n+1){transform:rotate(-2deg)}.review:nth-child(7n+2){transform:rotate(1.5deg) translateY(6px)}.review:nth-child(7n+3){transform:rotate(-1deg) translateY(-4px)}.review:nth-child(7n+4){transform:rotate(2.5deg)}.review:nth-child(7n+5){transform:rotate(-1.5deg) translateY(5px)}.review:nth-child(7n+6){transform:rotate(.8deg) translateY(-3px)}.review:nth-child(7n+7){transform:rotate(-2.5deg)}
+.review:hover{transform:rotate(0deg) translateY(-6px) scale(1.03);box-shadow:8px 12px 0 rgba(214,36,25,.35);z-index:30}
+.review .top-meta{padding:.2rem .2rem .35rem;border-bottom:1.5px dashed var(--ink);margin-bottom:.4rem;display:flex;justify-content:space-between;align-items:center;gap:.3rem}
+.review .top-meta .name{font-family:'Shrikhand';font-size:.85rem;line-height:1;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.review .top-meta .rating{display:flex;gap:1px;flex-shrink:0}.review .top-meta .rating i{width:9px;height:9px;background:var(--red);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}.review .top-meta .rating i.off{background:rgba(0,0,0,.2)}
+.review .thumb{position:relative;aspect-ratio:9/16;overflow:hidden;background:#333;box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 3px var(--ink)}
+.review .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.05)}
+.review .thumb::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.3) 0%,transparent 20%,transparent 60%,rgba(0,0,0,.8) 100%)}
+.review .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.4);transition:transform .2s;z-index:3}
+.review:hover .play{transform:translate(-50%,-50%) scale(1.12)}.review .play svg{width:22px;height:22px;margin-left:3px;fill:var(--ink)}
+.review .platform-tag{position:absolute;top:.4rem;left:.4rem;z-index:3;font-family:'Archivo Black';font-size:.55rem;letter-spacing:.08em;background:var(--paper);color:var(--ink);padding:.15rem .35rem;border:1px solid var(--ink);text-transform:uppercase;box-shadow:1px 1px 0 rgba(0,0,0,.3)}
+.review .verdict{position:absolute;top:2rem;right:-.3rem;z-index:4;display:inline-block;padding:.2rem .45rem;font-family:'Archivo Black';font-size:.55rem;letter-spacing:.08em;background:var(--red);color:var(--paper);box-shadow:2px 2px 0 var(--ink);transform:rotate(6deg)}.review .verdict.mid{background:var(--paper);color:var(--ink);border:1px solid var(--ink)}.review .verdict.goat{background:var(--yellow);color:var(--ink);border:1px solid var(--ink)}
+.review .stats{position:absolute;left:.4rem;right:.4rem;bottom:.4rem;z-index:3;display:flex;gap:.6rem;color:#fff;font-family:'DM Mono';font-size:.7rem;font-weight:600;text-shadow:0 1px 2px rgba(0,0,0,.8)}.review .stats .stat{display:flex;align-items:center;gap:.2rem}.review .stats svg{width:13px;height:13px;fill:#fff;filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))}
+.review .creator-row{display:flex;align-items:center;gap:.5rem;padding:.4rem .15rem .2rem}
+.review .avatar{width:32px;height:32px;border-radius:50%;background:#888;border:1.5px solid var(--ink);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.65rem;box-shadow:1px 1px 0 rgba(0,0,0,.2)}.review .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.review .creator-info{min-width:0;flex:1}.review .creator-name{font-family:'Archivo Black';font-size:.72rem;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.review .followers{font-family:'DM Mono';font-size:.6rem;opacity:.6;margin-top:.1rem}
+.review .quote{display:block;margin-top:.3rem;padding:.25rem .4rem;background:var(--yellow);border-left:2px solid var(--red);font-family:'Caveat',cursive;font-size:.82rem;font-weight:700;line-height:1.2;color:var(--ink);transform:rotate(-0.3deg)}.review .quote .quote-mark{font-family:'Shrikhand';font-size:1rem;color:var(--red);vertical-align:-.1em;margin-right:.05rem}
+.review .caption{margin-top:.2rem;padding:.2rem .35rem;font-family:'Special Elite',monospace;font-size:.58rem;line-height:1.35;color:var(--ink);opacity:.75;border:1px dashed rgba(0,0,0,.1);background:rgba(255,255,255,.15)}.review .caption .cap-label{display:inline-block;font-family:'Archivo Black';font-size:.45rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:.15rem}
+.review .transcript{margin-top:.25rem;border:1px dashed var(--ink);background:rgba(255,255,255,.25);overflow:hidden}.review .transcript-toggle{display:flex;justify-content:space-between;align-items:center;padding:.25rem .4rem;cursor:pointer;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);opacity:.6;border:none;background:none;width:100%;text-align:left}.review .transcript-toggle:hover{opacity:1;color:var(--red)}.review .transcript-body{max-height:0;overflow:hidden;transition:max-height .4s ease}.review .transcript-body.open{max-height:500px}.review .transcript-text{padding:.3rem .4rem;font-family:'Special Elite',monospace;font-size:.62rem;line-height:1.45;color:var(--ink);opacity:.7}
+.review .pin{position:absolute;width:20px;height:20px;top:-8px;left:-8px;z-index:5;background:radial-gradient(circle at 30% 30%,#ff5a4a,var(--red) 60%,#8a0a00);border-radius:50%;border:1.5px solid #2a0a06;box-shadow:1px 2px 3px rgba(0,0,0,.25)}.review .pin::after{content:'';position:absolute;top:5px;left:5px;width:5px;height:4px;background:rgba(255,255,255,.5);border-radius:50%}
+.review .tape-decor{position:absolute;top:-10px;right:15%;width:55px;height:16px;background:var(--tape);transform:rotate(-5deg);z-index:4;pointer-events:none;border-left:1px dashed rgba(0,0,0,.08);border-right:1px dashed rgba(0,0,0,.08)}.review:nth-child(3n) .tape-decor{background:rgba(220,90,80,0.45);right:auto;left:12%;transform:rotate(4deg)}.review:nth-child(4n) .tape-decor{background:rgba(120,190,220,0.5);left:40%;right:auto;transform:rotate(-2deg)}
+.review .corner-note{position:absolute;right:-6px;bottom:-12px;z-index:5;font-family:'Permanent Marker';color:var(--ink);font-size:.7rem;transform:rotate(-4deg);background:var(--yellow);padding:.15rem .4rem;border:1px solid var(--ink);box-shadow:1px 1px 0 var(--ink)}
+.foot-nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin:1rem 0 2rem;position:relative;z-index:10;padding:0 1rem}.foot-nav a{display:block;padding:.8rem;border:2px solid var(--ink);text-decoration:none;color:inherit;text-align:center;font-family:'Archivo Black';letter-spacing:.08em;font-size:.75rem;transition:all .2s;background:var(--paper)}.foot-nav a:hover{background:var(--red);color:var(--paper);transform:rotate(-1deg)}.foot-nav a .sub{display:block;font-family:'DM Mono';font-weight:400;font-size:.6rem;opacity:.7;margin-top:.2rem;letter-spacing:.12em}@media(max-width:780px){.foot-nav{grid-template-columns:1fr}}
+
+/* ═══ VIDEO MODAL ═══ */
+.vmodal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:1.5rem}
+.vmodal.open{display:flex}
+.vmodal-bg{position:absolute;inset:0;background:rgba(10,10,8,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.vmodal-inner{position:relative;display:flex;gap:1.5rem;max-width:900px;width:100%;max-height:90vh;z-index:2}
+.vmodal-video{flex:0 0 340px;aspect-ratio:9/16;background:#000;border:3px solid var(--ink);box-shadow:8px 10px 0 rgba(214,36,25,.4);overflow:hidden;position:relative;border-radius:4px}
+.vmodal-video video{width:100%;height:100%;object-fit:cover}
+.vmodal-video .vm-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.5);z-index:3;transition:transform .2s}
+.vmodal-video .vm-play:hover{transform:translate(-50%,-50%) scale(1.1)}
+.vmodal-video .vm-play svg{width:28px;height:28px;margin-left:3px;fill:var(--ink)}
+.vmodal-video.playing .vm-play{display:none}
+.vmodal-side{flex:1;overflow-y:auto;background:var(--paper);border:2px solid var(--ink);box-shadow:5px 6px 0 rgba(0,0,0,.15);padding:1.2rem;max-height:90vh;border-radius:4px}
+.vmodal-side .vm-restaurant{font-family:'Shrikhand';font-size:1.6rem;color:var(--ink);line-height:1;margin-bottom:.3rem}
+.vmodal-side .vm-address{font-family:'DM Mono';font-size:.7rem;opacity:.5;margin-bottom:.8rem}
+.vmodal-side .vm-creator{display:flex;align-items:center;gap:.6rem;padding:.6rem 0;border-top:1.5px dashed var(--ink);border-bottom:1.5px dashed var(--ink);margin-bottom:.8rem}
+.vmodal-side .vm-avatar{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);overflow:hidden;background:#888;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Archivo Black';font-size:.75rem}
+.vmodal-side .vm-avatar img{width:100%;height:100%;object-fit:cover}
+.vmodal-side .vm-cname{font-family:'Archivo Black';font-size:.85rem}
+.vmodal-side .vm-cviews{font-family:'DM Mono';font-size:.65rem;opacity:.6}
+.vmodal-side .vm-stats{display:flex;gap:1.2rem;margin-bottom:.8rem;font-family:'DM Mono';font-size:.75rem}
+.vmodal-side .vm-stats span{display:flex;align-items:center;gap:.3rem}
+.vmodal-side .vm-stats b{color:var(--red)}
+.vmodal-side .vm-quote{padding:.5rem .7rem;background:var(--yellow);border-left:3px solid var(--red);font-family:'Caveat',cursive;font-size:1.05rem;font-weight:700;line-height:1.25;margin-bottom:.6rem;transform:rotate(-.3deg)}
+.vmodal-side .vm-caption{font-family:'Special Elite';font-size:.75rem;line-height:1.5;opacity:.8;margin-bottom:.6rem;border:1px dashed rgba(0,0,0,.1);padding:.5rem;background:rgba(255,255,255,.2)}
+.vmodal-side .vm-transcript{font-family:'Special Elite';font-size:.7rem;line-height:1.5;opacity:.65;border:1px dashed var(--ink);padding:.5rem;max-height:200px;overflow-y:auto;background:rgba(255,255,255,.15)}
+.vmodal-side .vm-label{font-family:'Archivo Black';font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:.3rem;display:block}
+.vmodal-close{position:absolute;top:-12px;right:-12px;width:36px;height:36px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);cursor:pointer;font-family:'Archivo Black';font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:2px 2px 0 var(--ink);transition:all .2s}
+.vmodal-close:hover{background:var(--red);color:var(--paper);border-color:var(--red)}
+.vmodal-dl{display:inline-flex;align-items:center;gap:.5rem;margin-top:.8rem;padding:.5rem 1rem;background:var(--ink);color:var(--paper);font-family:'Archivo Black';font-size:.7rem;letter-spacing:.1em;text-decoration:none;border:2px solid var(--ink);transition:all .2s}
+.vmodal-dl:hover{background:var(--red);border-color:var(--red)}
+@media(max-width:700px){.vmodal-inner{flex-direction:column;max-height:none}.vmodal-video{flex:none;width:100%;max-width:340px;margin:0 auto}.vmodal-side{max-height:50vh}}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
 <div class="marquee"><div class="marquee-track">
-<span><i class="dot"></i> DATE NIGHT · ROMANCE · MAKE IT COUNT</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
-<span><i class="dot"></i> DATE NIGHT · ROMANCE · MAKE IT COUNT</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span>
+<span><i class="dot"></i> DATE NIGHT · ROMANCE · MAKE IT COUNT</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span><span><i class="dot"></i> STARTED FROM THE BOTTOM NOW WE EAT</span><span><i class="dot"></i> DATE NIGHT · ROMANCE · MAKE IT COUNT</span><span><i class="dot"></i> VIDEO VERIFIED · 2026</span>
+<span><i class="dot"></i> DATE NIGHT · ROMANCE · MAKE IT COUNT</span><span><i class="dot"></i> THE TORONTO FOOD ZINE</span><span><i class="dot"></i> EAT LOCAL. EAT LOUD.</span><span><i class="dot"></i> STARTED FROM THE BOTTOM NOW WE EAT</span><span><i class="dot"></i> DATE NIGHT · ROMANCE · MAKE IT COUNT</span><span><i class="dot"></i> VIDEO VERIFIED · 2026</span>
 </div></div>
 <div class="wrap">
 <div class="nav-top"><a href="/toronto">← BACK TO ZINE</a><div class="breadcrumb mono">TORONTO FOOD ZINE / <b>DATE NIGHT</b></div><a href="#">SHARE →</a></div>
-<section class="hero"><span class="kicker">IMPRESS SOMEONE</span><h1>Date Night.</h1><div class="deck">Where to take someone when you actually care. Ambiance, plating, the whole performance.</div></section>
+<section class="hero"><div class="hero-left"></div><div class="hero-center"><span class="kicker">IMPRESS SOMEONE</span><h1>Date Night.</h1></div><div class="hero-right"><div class="deck">Where to take someone when you actually care. Ambiance, plating, the whole performance.</div></div></section>
 <div class="reviews-grid">
-    <a class="review" href="/v/e62368d5-95a9-4204-8415-d3e1008c2c51">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/7c01af9b-83be-4342-8edb-9c38a1195285/playlist.m3u8" data-restaurant="Crepe It Up" data-address="91 Front St E, Toronto, ON M5E 1C3, Canada" data-creator="tryittoronto" data-views="9300000" data-likes="1300000" data-saves="250600" data-shares="123200" data-quote="if you're looking for a unique date idea let me introduce you to Canada's largest trampoline park by the way this accoun..." data-caption="Definitely not trying to gatekeep this activity!" data-transcript="if you're looking for a unique date idea let me introduce you to Canada's largest trampoline park by the way this account is for people who wanna have the best summer ever I'd vlog fun activities every day so don't forget to follow along upla just opened up and it's an hour outside of Toronto and it's so worth the drive because this place is insanely fun the entire course is made out of trampoline nets and they send you so high to the air just make sure you don't fall over because you will get launched into the air if someone jumps next to you they also have these rope slides which are so fun as you can see my boyfriend has no care in the world me and my brother are a little bit more sensible and they had dodgeball this is probably our favorite part we had so much fun just jumping around they also have this other section where there's this rope tube that you can climb through to get to the top and once you're up, it's a little scary but they have huge bean bags there that you can just chill on this is honestly such a fun experience I definitely recommend you guys check this place out and don't forget to follow along for more fun activities in the GTA" data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/7c01af9b-83be-4342-8edb-9c38a1195285/thumbnail.jpg" data-link="/v/7c01af9b-83be-4342-8edb-9c38a1195285">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">KINTON RAMEN YONGE X RICHMOND</span>
+        <span class="name">Crepe It Up</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/e62368d5-95a9-4204-8415-d3e1008c2c51/thumbnail.jpg" alt="KINTON RAMEN YONGE X RICHMOND" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/7c01af9b-83be-4342-8edb-9c38a1195285/thumbnail.jpg" alt="Crepe It Up" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict goat">MUST TRY</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>2.5M</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>9.3K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>630</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>9.3M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>1.3M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>250.6K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/tryittoronto.jpeg" alt="@tryittoronto" onerror="this.style.display='none';this.parentElement.textContent='T'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@tryittoronto</div>
+          <div class="followers">9.3M views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>Canada Sharing how we first met by re-creating our first date night meal together using Knorr’s New Flavour Bases</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Canada Sharing how we first met by re-creating our first date night meal together using Knorr’s New Flavour Bases</div>
+      <div class="quote"><span class="quote-mark">"</span>if you're looking for a unique date idea let me introduce you to Canada's largest trampoline park by the way this accoun...</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Definitely not trying to gatekeep this activity!</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">So we've been married for 11 years, and a lot of you have been asking how we first met. So here's the story. While we recreate our first date meal together, Ramen. We've partnered with Kenor and since this cuffing season, they've challenged us to cook it literally cuffed together. Okay, so this is how we got together. When we first met, I initially did not like you. Ouch. By the way, for this recipe, we're using the new Kenor roasted chicken base. It's like the classic bouillon flavor, but in paste format, with so much flavor, so easy to use. And I got to know you better and I found you are super funny, so tell the green flag. So I was sending you like so many signals. Yo! Really? Yes! So like, I played like so many of your board games, and then went to a bazillion hotpot parties, even though I didn't like hotpot. Finally, after the eternity, you asked me out. I had no idea you were sending me signals. But really, you were so obvious. You know what? I always really like you. Honestly, that was super flavorful. This was so quick and easy. Learn more about Kenor flavor bases at Kenor CA, and check out www.Kenor.ca for recipes and inspiration. Oh, what?!</div></div>
+        <div class="transcript-body"><div class="transcript-text">if you're looking for a unique date idea let me introduce you to Canada's largest trampoline park by the way this account is for people who wanna have the best summer ever I'd vlog fun activities every day so don't forget to follow along upla just opened up and it's an hour outside of Toronto and it's so worth the drive because this place is insanely fun the entire course is made out of trampoline nets and they send you so high to the air just make sure you don't fall over because you will get launched into the air if someone jumps next to you they also have these rope slides which are so fun as you can see my boyfriend has no care in the world me and my brother are a little bit more sensible and they had dodgeball this is probably our favorite part we had so much fun just jumping around they also have this other section where there's this rope tube that you can climb through to get to the top and once you're up, it's a little scary but they have huge bean bags there that you can just chill on this is honestly such a fun experience I definitely recommend you guys check this place out and don't forget to follow along for more fun activities in the GTA</div></div>
       </div>
-      <div class="corner-note">2.5M</div>
-    </a>
+      <div class="corner-note">9.3M</div>
+    </div>
 
-    <a class="review" href="/v/b3e51267-e36a-41c4-a13e-b80d7f777bc2">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/null/playlist.m3u8" data-restaurant="Bubble Planet" data-address="Downsview Airport, 30 Hanover Road, Lands (YZD, ON M3K 0E2, Canada" data-creator="mukbangtoronto" data-views="1800000" data-likes="87900" data-saves="25000" data-shares="35100" data-quote="use code MUKBANGTO10 to get 10% off through" data-caption="use code MUKBANGTO10 to get 10% off through  !! The special discount is only available until September 30th, so don’t forget to take advantage of it!�" data-transcript="N/A" data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/null/thumbnail.jpg" data-link="/v/null">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Pho Anh Vu Toronto</span>
+        <span class="name">Bubble Planet</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/b3e51267-e36a-41c4-a13e-b80d7f777bc2/thumbnail.jpg" alt="Pho Anh Vu Toronto" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/null/thumbnail.jpg" alt="Bubble Planet" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict goat">GOAT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.6M</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>143.1K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>9.2K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.8M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>87.9K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>25.0K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/mukbangtoronto.jpeg" alt="@mukbangtoronto" onerror="this.style.display='none';this.parentElement.textContent='M'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@mukbangtoronto</div>
+          <div class="followers">1.8M views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>My favourite pho spot is now my favourite bun bo hue spot (UPDATE: infractions have been lifted)</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>My favourite pho spot is now my favourite bun bo hue spot (UPDATE: infractions have been lifted)</div>
+      <div class="quote"><span class="quote-mark">"</span>use code MUKBANGTO10 to get 10% off through</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>use code MUKBANGTO10 to get 10% off through  !! The special discount is only available until September 30th, so don’t forget to take advantage of it!�</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
         <div class="transcript-body"><div class="transcript-text">N/A</div></div>
       </div>
-      <div class="corner-note">1.6M</div>
-    </a>
+      <div class="corner-note">1.8M</div>
+    </div>
 
-    <a class="review" href="/v/4d890b9f-a9b3-415d-9d92-ded1831d6ebb">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/76b40145-85fe-4b39-b076-d3f5d82da9a6/playlist.m3u8" data-restaurant="The Rooftop" data-address="The Broadview Hotel, 106 Broadview Ave, Toronto, ON M4M 2G1, Canada" data-creator="_angeronimo" data-views="1700000" data-likes="105900" data-saves="40800" data-shares="26900" data-quote="Definitely add this to your Toronto bucketlist" data-caption="Definitely add this to your Toronto bucketlist. The most fun Ive had in a while 🎨💘" data-transcript="" data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/76b40145-85fe-4b39-b076-d3f5d82da9a6/thumbnail.jpg" data-link="/v/76b40145-85fe-4b39-b076-d3f5d82da9a6">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Ikkousha Ramen Toronto</span>
+        <span class="name">The Rooftop</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/4d890b9f-a9b3-415d-9d92-ded1831d6ebb/thumbnail.jpg" alt="Ikkousha Ramen Toronto" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/76b40145-85fe-4b39-b076-d3f5d82da9a6/thumbnail.jpg" alt="The Rooftop" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict mid">SOLID</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>794.7K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>83.4K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>4.6K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.7M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>105.9K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>40.8K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/_angeronimo.jpeg" alt="@_angeronimo" onerror="this.style.display='none';this.parentElement.textContent='_'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@_angeronimo</div>
+          <div class="followers">1.7M views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>with  I feel seen and validated 🍔🍜</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>with  I feel seen and validated 🍔🍜</div>
-      <div class="transcript">
-        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">I read the title of this video and I was already excited. big Mac ramen noodle gang! I'm not the only one who thought this would be a great idea. but this is next level, folks. this is like a next level big Mac. I definitely cannot make something like this. this is beyond my expertise. wow. making the big Mac sauce from scratch. okay, it's not that hard. I could probably do that. amazing. pickles are a must, for sure. and a big Mac, right? and lettuce. super healthy, by the way. shin ramyun. my favorite. man. loving how all this is coming together. this is, like, elevated big Mac ramen, folks. oh, wow. I wish I could eat this. Albert, invite me over. yes!</div></div>
-      </div>
-      <div class="corner-note">794.7K</div>
-    </a>
+      <div class="quote"><span class="quote-mark">"</span>Definitely add this to your Toronto bucketlist</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Definitely add this to your Toronto bucketlist. The most fun Ive had in a while 🎨💘</div>
+      <div class="corner-note">1.7M</div>
+    </div>
 
-    <a class="review" href="/v/f2b79ca4-0fe4-44b0-be5a-9a087f5ee5d8">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/29c65d31-db3b-45bf-a5b3-0b7864f7b8f7/playlist.m3u8" data-restaurant="7-Eleven" data-address="5980 Airport Rd Terminal 1, Mississauga, ON L5P 1B1, Canada" data-creator="mattiasblanco" data-views="1200000" data-likes="482" data-saves="34" data-shares="12" data-quote="And a new hyper fixation snack that we'll always hit" data-caption="my favorite solo summer date just got even better 🧺☀️ you can grab these  Cherry Slurpee® almonds at 7-Eleven while supplies last!​" data-transcript="There's something about an afternoon at your favorite park with the sun beaming. No real agenda. And a new hyper fixation snack that we'll always hit. And I'm partnering with Blue Diamond Almonds to share something that's been making my solo dates hit even more. The new Blue Diamond Cherry Slopey Flavor Almonds. These have such a fun and nostalgic vibe. And a boost to protein and fiber to keep me going. It's truly the little things like enjoying your own company, people watching, finding joy in the quiet moments that make summer feel magical. Okay, these were hitting. And you can pick them up at your local 7-Eleven before they're gone." data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/29c65d31-db3b-45bf-a5b3-0b7864f7b8f7/thumbnail.jpg" data-link="/v/29c65d31-db3b-45bf-a5b3-0b7864f7b8f7">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Gourmet Malaysia Restaurant</span>
+        <span class="name">7-Eleven</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/f2b79ca4-0fe4-44b0-be5a-9a087f5ee5d8/thumbnail.jpg" alt="Gourmet Malaysia Restaurant" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/29c65d31-db3b-45bf-a5b3-0b7864f7b8f7/thumbnail.jpg" alt="7-Eleven" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict goat">FIRE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>725.3K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>75.2K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>3.3K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>1.2M</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>482</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>34</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/mattiasblanco.jpeg" alt="@mattiasblanco" onerror="this.style.display='none';this.parentElement.textContent='M'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@mattiasblanco</div>
+          <div class="followers">1.2M views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>Last day this noodle shop is opened at this location and I wanted to try it out before they closed</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Last day this noodle shop is opened at this location and I wanted to try it out before they closed. The owners name is Vei and if you want to support him his username is  on IG for updates on his busi</div>
+      <div class="quote"><span class="quote-mark">"</span>And a new hyper fixation snack that we'll always hit</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>my favorite solo summer date just got even better 🧺☀️ you can grab these  Cherry Slurpee® almonds at 7-Eleven while supplies last!​</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">So apparently there's this guy who makes selfies Asian noodles out of a donut shop. Today is his last day, so I'm gonna check it out. So I was a bit sad to hear that this noodle shop was closing and I needed to try his noodles for myself. It's just one guy out of the back of a donut shop making one dish, his version of hocking me. The aroma was incredible. Smells so good in here. He juggles between two walks making two orders at a time. He's been making this single dish for years, perfecting it to his taste. He does everything including taking the orders, Manning the walks, but he genuinely looks happy doing it. I think for this dish is the pork lard and crispy pork bits that he puts on top. I was salivating watching him make this. But the big question is how does it taste? It is so tasty. I think that caramelized soy sauce flavor is what makes this and that pork lard, those two combined. Actually love how there's two different types of noodles. You get two different textures. This probably the best hocking man I've ever had for sure.</div></div>
+        <div class="transcript-body"><div class="transcript-text">There's something about an afternoon at your favorite park with the sun beaming. No real agenda. And a new hyper fixation snack that we'll always hit. And I'm partnering with Blue Diamond Almonds to share something that's been making my solo dates hit even more. The new Blue Diamond Cherry Slopey Flavor Almonds. These have such a fun and nostalgic vibe. And a boost to protein and fiber to keep me going. It's truly the little things like enjoying your own company, people watching, finding joy in the quiet moments that make summer feel magical. Okay, these were hitting. And you can pick them up at your local 7-Eleven before they're gone.</div></div>
       </div>
-      <div class="corner-note">725.3K</div>
-    </a>
+      <div class="corner-note">1.2M</div>
+    </div>
 
-    <a class="review" href="/v/0831f0f2-26e5-4275-b89f-63fb05a2658a">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/15852f0c-49be-47be-81b5-fb738c30b591/playlist.m3u8" data-restaurant="KINKA SUSHI BAR IZAKAYA HARBOURFRONT" data-address="110 Harbour St Unit 108B, Toronto, ON M5J 2L9, Canada" data-creator="schmoozelife" data-views="843342" data-likes="38041" data-saves="17368" data-shares="12180" data-quote="We got some drinks to start and let me tell you we were surprised at how huge and delicious they were" data-caption="Is this date night worthy? Japanese sushi bar!       Sushi Bar Izakaya CA" data-transcript="We checked out the coziest Japanese spot in Toronto where you leave your shoes at the door and you cozy up on the floor. We got some drinks to start and let me tell you we were surprised at how huge and delicious they were. I mean clearly. And you guys, the food. The spieth curry with cheesebap and the sushi had no right being distaste. And the rolls just had a perfectly unique toasty flavor. The sashimi platter had a great variety and was incredibly fresh. I would come back a million times over for this oyster khaki mayo, but all of the food we tried was so unique and rich with flavor. The Karaki chicken was just so crispy. We highly recommend checking out Kingka Zakaya for the food and the perfect Japanese ambiance." data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/15852f0c-49be-47be-81b5-fb738c30b591/thumbnail.jpg" data-link="/v/15852f0c-49be-47be-81b5-fb738c30b591">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">YumYum Chicken</span>
+        <span class="name">KINKA SUSHI BAR IZAKAYA HARBOURFRONT</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/0831f0f2-26e5-4275-b89f-63fb05a2658a/thumbnail.jpg" alt="YumYum Chicken" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/15852f0c-49be-47be-81b5-fb738c30b591/thumbnail.jpg" alt="KINKA SUSHI BAR IZAKAYA HARBOURFRONT" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict goat">ELITE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>710.8K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>85.2K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>6.7K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>843.3K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>38.0K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>17.4K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/schmoozelife.jpeg" alt="@schmoozelife" onerror="this.style.display='none';this.parentElement.textContent='S'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@schmoozelife</div>
+          <div class="followers">843.3K views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>Leung  korean fried chicken UPDATE with</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Leung  korean fried chicken UPDATE with</div>
+      <div class="quote"><span class="quote-mark">"</span>We got some drinks to start and let me tell you we were surprised at how huge and delicious they were</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Is this date night worthy? Japanese sushi bar!       Sushi Bar Izakaya CA</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">So there's this new Korean fried chicken restaurant that's been open for about a month now, but there's one problem with it. It's always empty whenever I pass by it. So it's been a few months since I featured this Korean fried chicken spot and I really wanted my friend eat famous to try it. So we're back to try their fried chicken and see how they're doing. One time they'll see. So yeah, I did a video last time. Curious if it helped the restaurant. Yeah, it did help us a lot. Okay, a lot of customer during the 3 months. Well, things went a little bit down starting from summer. I was super happy to hear that business was really good for a few months after the video, but a bit sad to hear that things are a bit slow right now. So eat famous and I decided to support them by trying their newest flavors. The first is a wasabi fried chicken. Oh my god, that is beautiful. It's so tender. The wasabi, super flavorful. It doesn't burn your nose. It's like a creamy wasabi. That's amazing sauce. Next up, we also got the Spicy Cheetos fried chicken. I was scared that this would be super spicy, but the actual flavor surprised me. It's actually not too spicy, but it's got all the aroma of the spices. Mm hmm. Wow. I just love this place, man. They're innovating. You created a new customer for them. You'll be Back. I will be back.</div></div>
+        <div class="transcript-body"><div class="transcript-text">We checked out the coziest Japanese spot in Toronto where you leave your shoes at the door and you cozy up on the floor. We got some drinks to start and let me tell you we were surprised at how huge and delicious they were. I mean clearly. And you guys, the food. The spieth curry with cheesebap and the sushi had no right being distaste. And the rolls just had a perfectly unique toasty flavor. The sashimi platter had a great variety and was incredibly fresh. I would come back a million times over for this oyster khaki mayo, but all of the food we tried was so unique and rich with flavor. The Karaki chicken was just so crispy. We highly recommend checking out Kingka Zakaya for the food and the perfect Japanese ambiance.</div></div>
       </div>
-      <div class="corner-note">710.8K</div>
-    </a>
+      <div class="corner-note">843.3K</div>
+    </div>
 
-    <a class="review" href="/v/c473c0ce-dd7f-4c8e-bb71-e4eb4c3682fd">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/1d69900b-b096-4c2a-b51c-c96648a45597/playlist.m3u8" data-restaurant="Haze Lounge" data-address="4230 Sherwoodtowne Blvd Unit #100, Mississauga, ON L4Z 2G6" data-creator="ttceats" data-views="680100" data-likes="11100" data-saves="0" data-shares="3595" data-quote="If you're looking for a late night halal spot that serves amazing food till 2 a" data-caption="Looking for a late night date at a halal spot? I’ve gotchu! This spot has moody vibes and they serve the best food😍 here’s what we tried-
+
+Ribs
+Steak" data-transcript="If you're looking for a late night halal spot that serves amazing food till 2 a.m. then this is it. They've got juicy ribs and the best steaks with chimichurri sauce and it's served on a lava stone. Their calamari is crispy and light and you'll also love their delicious stone-baked pizzas. Don't forget to try out the hot mud and refreshing mocktails. Go visit haze." data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/1d69900b-b096-4c2a-b51c-c96648a45597/thumbnail.jpg" data-link="/v/1d69900b-b096-4c2a-b51c-c96648a45597">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Tiny Market Co</span>
+        <span class="name">Haze Lounge</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/c473c0ce-dd7f-4c8e-bb71-e4eb4c3682fd/thumbnail.jpg" alt="Tiny Market Co" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/1d69900b-b096-4c2a-b51c-c96648a45597/thumbnail.jpg" alt="Haze Lounge" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict ">SLEPT ON</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>383.6K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>22.6K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>2.8K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>680.1K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>11.1K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>0</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/ttceats.jpeg" alt="@ttceats" onerror="this.style.display='none';this.parentElement.textContent='T'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@ttceats</div>
+          <div class="followers">680.1K views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>Leung Minji’s Update with  Peachy</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Leung Minji’s Update with  Peachy</div>
+      <div class="quote"><span class="quote-mark">"</span>If you're looking for a late night halal spot that serves amazing food till 2 a</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Looking for a late night date at a halal spot? I’ve gotchu! This spot has moody vibes and they serve the best food😍 here’s what we tried-
+
+Ribs
+Steak</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">If you're down for road trips, Minjee's in Midline is amazing and seems to be struggling since COVID. Best kimchi I've ever had. So it's been a year since I visited Minjee's, so I'm finally heading back to Midline to see how they're doing. But y'all told me I made one big mistake last time. I didn't visit Dino's. So I'm here at Dino's this time. They're known for their famous pasta salad, and they give you so much pasta that they use a knife to push it all in. It's topped with a mountain of cheese and bacon, and I have no idea what's in their sauce, but it's so creamy. This is what I mean when I say I want a salad, and it gets even crazier. For 1975, you get the salad and this mile high corn beef. There's so much corn beef in this sandwich, I legitimately struggled to put it in my mouth. It was tender, it was peppery, but I barely made it down. I also went back to let me be frank. I needed something to open my appetite because I was about to eat 35 buttertarts. And their Franks were the perfect bite. I then ate 35 buttertarts as a judge for the buttertart festival. And finally, I'm back at Minjee's. And it's so cool to hear that you all came out to support them. They've hired an extra cook, and even their son is now back to help them. And the food we featured has these social media icons on them now. I'm genuinely a big fan of Minjee's food, so it made me so happy to see the community come out to support them. But I realize while making this video, there's a problem. I still haven't tried their kimchi.</div></div>
+        <div class="transcript-body"><div class="transcript-text">If you're looking for a late night halal spot that serves amazing food till 2 a.m. then this is it. They've got juicy ribs and the best steaks with chimichurri sauce and it's served on a lava stone. Their calamari is crispy and light and you'll also love their delicious stone-baked pizzas. Don't forget to try out the hot mud and refreshing mocktails. Go visit haze.</div></div>
       </div>
-      <div class="corner-note">383.6K</div>
-    </a>
+      <div class="corner-note">680.1K</div>
+    </div>
 
-    <a class="review" href="/v/650e158d-2c86-4ef7-aff0-bb786f10a992">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/77dcc822-385c-42ff-85c7-fbba12709416/playlist.m3u8" data-restaurant="French Corner Patisserie" data-address="1224 Dundas St W #114, Mississauga, ON L5C 4G7, Canada" data-creator="ryaneatzz" data-views="612400" data-likes="16800" data-saves="2218" data-shares="781" data-quote="Wow, wow, wow, look at these don't wanna try to strawberry mousse cake first" data-caption="Fancy Pastries 🧁" data-transcript="Found more of those fancy pastries. Wow, wow, wow, look at these don't wanna try to strawberry mousse cake first. Hmm, it tastes just like a strawberry cheesecake. Hold up now. I just strawberry puree or something? That is phenomenal. This is 10 out of 10. Candy apple mousse cake. Hmm, purple one inside. Like cherry, some chocolate, purees, delicious. Chocolate stem? Delicious. 8.6 out of 10. Raspberry don't. I don't know what this shape is. See the layers? Yeah, I don't know about this one. A 7.7. The bun. Neat. I'm gonna try some strawberry mousse now. It can't get at the bottom. Eight flat, eight flat. I'm gonna have vanilla cafe, pan far north fees. Try them out. Let me know what you think. Peace out." data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/77dcc822-385c-42ff-85c7-fbba12709416/thumbnail.jpg" data-link="/v/77dcc822-385c-42ff-85c7-fbba12709416">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">PAT Central</span>
+        <span class="name">French Corner Patisserie</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/650e158d-2c86-4ef7-aff0-bb786f10a992/thumbnail.jpg" alt="PAT Central" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/77dcc822-385c-42ff-85c7-fbba12709416/thumbnail.jpg" alt="French Corner Patisserie" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict goat">WORTH IT</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>369.4K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>42.9K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>1.5K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>612.4K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>16.8K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>2.2K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/ryaneatzz.jpeg" alt="@ryaneatzz" onerror="this.style.display='none';this.parentElement.textContent='R'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@ryaneatzz</div>
+          <div class="followers">612.4K views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>Date with my wife at the Korean supermarket</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Date with my wife at the Korean supermarket</div>
+      <div class="quote"><span class="quote-mark">"</span>Wow, wow, wow, look at these don't wanna try to strawberry mousse cake first</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Fancy Pastries 🧁</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">my wife and I love going to the Korean supermarket as a date. and this one has a food court, so we get to eat and we get to shop. we got the soon tofu, some handmade noodles, and, of course, dumplings. but finally I found this open pot. I've been looking all over for this. but what good is an earthen pot without noodles. so I'm stocking up. noodle gang and key move. the best quality ramen is frozen and I gotta get some soup dumplings. but did you notice a hot chicken flavored mayonnaise. I'll report back to you on that one. we got some corn dogs and my wife loaded up on snacks. we were pretty tired, so I got a taiyaki at the end to boost my energy. it was good, but it was way too hot. hot.</div></div>
+        <div class="transcript-body"><div class="transcript-text">Found more of those fancy pastries. Wow, wow, wow, look at these don't wanna try to strawberry mousse cake first. Hmm, it tastes just like a strawberry cheesecake. Hold up now. I just strawberry puree or something? That is phenomenal. This is 10 out of 10. Candy apple mousse cake. Hmm, purple one inside. Like cherry, some chocolate, purees, delicious. Chocolate stem? Delicious. 8.6 out of 10. Raspberry don't. I don't know what this shape is. See the layers? Yeah, I don't know about this one. A 7.7. The bun. Neat. I'm gonna try some strawberry mousse now. It can't get at the bottom. Eight flat, eight flat. I'm gonna have vanilla cafe, pan far north fees. Try them out. Let me know what you think. Peace out.</div></div>
       </div>
-      <div class="corner-note">369.4K</div>
-    </a>
+      <div class="corner-note">612.4K</div>
+    </div>
 
-    <a class="review" href="/v/dc046641-8c5f-4c7f-826f-099979ef0b8a">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/d9fc3bc4-d369-4f60-a9e2-e52f524dbce3/playlist.m3u8" data-restaurant="Quesada Burritos &amp; Tacos" data-address="745 Courtneypark Dr W, Mississauga, ON L5W 1L9, Canada" data-creator="antavialauren" data-views="585500" data-likes="27300" data-saves="10600" data-shares="20000" data-quote="It also came with 10 jumbo shrimp that were fire" data-caption="nah but fr, Frida’s is IT! yall check them out for your next date night or girls night out 😜" data-transcript="Hey friends, our favorite Mexican restaurant is doing a big once again. I'm talking brand new menu items and new drinks. When I saw the Mitchell Latta Tower on the menu, I had to try it. And baby, if you like spicy, this is for you. It also came with 10 jumbo shrimp that were fire. Also tried the giraffe margaritas and the giant friedis mimosa. These drinks will have you lit. Okay. Now let's talk about the food. Taco lovers, you got to try this new taco platter. You can choose two different meats. I got shrimp and chicken and it was good. When I saw a new menu item had a lobster tail, I was so seafood lovers. You definitely got to try the mascara. More go ahead. They the flavor is unmatched. So delicious. Now you know, we love lamb chops out here and they got them too. The monkey dish entree has lamb chops, shrimp, chicken, onions and bell peppers. Yeah, I know that sounds good. And it was dessert lovers. Make sure y'all try the brownies Sunday. Friedas, y'all aren't to be played with 10 out of 10 every time. Y'all go check them out and let me know what you think. Enjoy." data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/d9fc3bc4-d369-4f60-a9e2-e52f524dbce3/thumbnail.jpg" data-link="/v/d9fc3bc4-d369-4f60-a9e2-e52f524dbce3">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">KINTON RAMEN KING EAST</span>
+        <span class="name">Quesada Burritos &amp; Tacos</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/dc046641-8c5f-4c7f-826f-099979ef0b8a/thumbnail.jpg" alt="KINTON RAMEN KING EAST" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/d9fc3bc4-d369-4f60-a9e2-e52f524dbce3/thumbnail.jpg" alt="Quesada Burritos &amp; Tacos" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict goat">INSANE</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>153.1K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>16.6K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>783</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>585.5K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>27.3K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>10.6K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/antavialauren.jpeg" alt="@antavialauren" onerror="this.style.display='none';this.parentElement.textContent='A'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@antavialauren</div>
+          <div class="followers">585.5K views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>Everything I ate at the Toronto Film Festival  1) Masaki Saito’s MSSM &amp;  Tabetai  2)  Rocher  3)  Rocco Bar Aperitivo  W</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Everything I ate at the Toronto Film Festival  1) Masaki Saito’s MSSM &amp;  Tabetai  2)  Rocher  3)  Rocco Bar Aperitivo  W</div>
+      <div class="quote"><span class="quote-mark">"</span>It also came with 10 jumbo shrimp that were fire</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>nah but fr, Frida’s is IT! yall check them out for your next date night or girls night out 😜</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">This is everything I ate at the Toronto International Film Festival, including unlimited ramen from a two Michelin Stars chef. My day started off beside the red carpet, where there was an army of sushi chefs. Serving free omakase right at tip, it was to celebrate two Michelin Stars chef, Musaki Saito's new movie. You walk up and there's a private sushi chef, serving you two Michelin Stars sushi. They even give you Toro the most expensive cut from the tuna. It was so freaking decadent. But then to legend himself, Musaki Saito came by. He gave me this token and invited me to his after party. Of course I had to say yes. But on the way to the after party I picked up these free for all rochets. And then accidentally stumbled upon Visa's free lounge. It's at Minami, one of my favorite Japanese restaurants, and they were serving free food. All you need is a Visa infinite card and you can get in. And it gets even better. There is a live ban outside, so I got to enjoy some of the most delicious bites from Minami with some amazing music. My last stop before the after party was at Peroni, where David Rocco and his team were serving some of the most high quality ingredients from Italy. They freshly cracked open at 24th month old, Parmesan or Reggiano. It was so silky, so nutty, so umami rich. Finally, I made him Musaki Saito's after party. They were giving out unlimited omakase. I was already full at this point, but Chef Wallace insisted I had to try to sushi here. And I'm glad I did, because honestly the sushi is freaking next level. Especially these hand rolls. They loaded up with fatty maguro tuna. But right downstairs there was a ramen bar serving unlimited ramen. You get to pick your own toppings. There's a cold ramen and then there's a hot Jiro-style ramen. I love how they put pork that on top. It's super garlicky and I love the chew of those noodles.</div></div>
+        <div class="transcript-body"><div class="transcript-text">Hey friends, our favorite Mexican restaurant is doing a big once again. I'm talking brand new menu items and new drinks. When I saw the Mitchell Latta Tower on the menu, I had to try it. And baby, if you like spicy, this is for you. It also came with 10 jumbo shrimp that were fire. Also tried the giraffe margaritas and the giant friedis mimosa. These drinks will have you lit. Okay. Now let's talk about the food. Taco lovers, you got to try this new taco platter. You can choose two different meats. I got shrimp and chicken and it was good. When I saw a new menu item had a lobster tail, I was so seafood lovers. You definitely got to try the mascara. More go ahead. They the flavor is unmatched. So delicious. Now you know, we love lamb chops out here and they got them too. The monkey dish entree has lamb chops, shrimp, chicken, onions and bell peppers. Yeah, I know that sounds good. And it was dessert lovers. Make sure y'all try the brownies Sunday. Friedas, y'all aren't to be played with 10 out of 10 every time. Y'all go check them out and let me know what you think. Enjoy.</div></div>
       </div>
-      <div class="corner-note">153.1K</div>
-    </a>
+      <div class="corner-note">585.5K</div>
+    </div>
 
-    <a class="review" href="/v/1c72829a-0164-428b-b5a6-844464753669">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/428c9cc7-ce7c-401d-b626-ab868b132328/playlist.m3u8" data-restaurant="Myth" data-address="522 King St W, Toronto, ON M5V 1L7, Canada" data-creator="inspiredbyak" data-views="349500" data-likes="16300" data-saves="7235" data-shares="4892" data-quote="Dinner at Myth - Toronto, ON📍" data-caption="Dinner at Myth - Toronto, ON📍" data-transcript="music" data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/428c9cc7-ce7c-401d-b626-ab868b132328/thumbnail.jpg" data-link="/v/428c9cc7-ce7c-401d-b626-ab868b132328">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Fishman Lobster Clubhouse Seafood</span>
+        <span class="name">Myth</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/1c72829a-0164-428b-b5a6-844464753669/thumbnail.jpg" alt="Fishman Lobster Clubhouse Seafood" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/428c9cc7-ce7c-401d-b626-ab868b132328/thumbnail.jpg" alt="Myth" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict ">NO CAP</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>120.4K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>10.1K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>782</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>349.5K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>16.3K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>7.2K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/inspiredbyak.jpeg" alt="@inspiredbyak" onerror="this.style.display='none';this.parentElement.textContent='I'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@inspiredbyak</div>
+          <div class="followers">349.5K views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>How expensive is it to eat at Michelin star restaurants in Toronto for a week</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>How expensive is it to eat at Michelin star restaurants in Toronto for a week? ⬇️ With  Peachy (prices in the video do not include her meal) 1) Alo Restaurant organized and invited by  Matte PR (thank</div>
+      <div class="quote"><span class="quote-mark">"</span>Dinner at Myth - Toronto, ON📍</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Dinner at Myth - Toronto, ON📍</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">This is how expensive it is to eat at only Michelin Star restaurants in Toronto for a week, including a $75 Don Tott. First up, visit Malta inviting me to Aloh. We're Michelin Star Chef Patrick Chris and a famous Michelin Star Chef from Malta. Collaborated together on a six-course tasting menu together, many of the ingredients including the tomatoes and the pecorino cheese were flown in directly from Malta for this event. And they were some of the most flavorful tomato and cheese I've ever had in my life. But one of the highlight dishes was this A3 wagyu, prepared in such a way that it was better than any A5 wagyu I've ever had. The total meal at Aloh, including wine pairing, would typically cost $360. In the best part, at the end of the night, I actually want to trip to Malta. But the next night, we went to Michelin Star Restaurant at Kin. They had just one to Michelin Star tonight before, and Chef Eric and his team were already back at work. This was an 11-course tasting menu, a various different types of street food reimagined. This was such an honor because Chef Elvin himself invited us to this restaurant. The highlight dish for me was this 150-fold dumpling. It takes an incredible amount of labor to make all those folds by hand. And the dumpling is stuffed with tender juicy lambnets. But Chef Elvin insisted we had to try the $75 add-on dish. It's a lobster-infused don-tine loaded with caviar on top. This was actually amazing. But $75 is a very bougie don-tine. Overall, you can clearly see why this restaurant won a Michelin Star. There's a tremendous amount of thought and finesse that goes into each dish. The total cost of this meal with the cocktail hearings, which I highly recommend you get, is also $360. For the 11-course Michelin Star meal, I think this is actually pretty good value. Finally, I also got to go to Nobu, where Hashtag paid, invited me, and another creator to attend a private dinner event with 20 other brands. This was actually the most expensive meal of the mall. But it was super special to try Japanese Peruvian food for the very first time. My favorite dish was this jalapeno miso chile and sea bass. It was so creamy, so tender. This meal was over $300 without alcohol. Overall, one of the most expensive weeks of eating in my life.</div></div>
+        <div class="transcript-body"><div class="transcript-text">music</div></div>
       </div>
-      <div class="corner-note">120.4K</div>
-    </a>
+      <div class="corner-note">349.5K</div>
+    </div>
 
-    <a class="review" href="/v/7bcbb43a-b77c-4db0-a06a-1fa8c26fc036">
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/fe6ec371-6746-44e5-aebb-744999e0ba4b/playlist.m3u8" data-restaurant="青貨站 (密市分店) HK Goodies" data-address="1100 Burnhamthorpe Rd W unit 22, Mississauga, ON L5C 4E9, Canada" data-creator="thecaroandtina" data-views="250900" data-likes="21600" data-saves="5062" data-shares="12800" data-quote="The Hawaiian honeycombs are one of the best bites of the experience we were in shot" data-caption="Its back this spring! You can try over 80 Asian food vendors!  $14 general admission $35 VIP EVENT DATES 🗓️  Friday April 3rd 4PM-10PM Saturday April" data-transcript="Atlana's Asian Food Festival is back this spring. It's the most famous Asian food fest in the US. Last year we sampled so many dishes they have over 300 varieties of food. Here are some sweet and savory dishes to look out for. The most refreshing come-quot sugar cane juice that you can watch being pressed fresh right in front of you. The Hawaiian honeycombs are one of the best bites of the experience we were in shot. The giant squid skewers are definitely a must try perfect to walk around with. And the tangulu candied fruit is so iconic this dessert went viral for a reason. It's so satisfying to eat. The steamed bow buns are so soft and even come with a vegan option. The purple yam ice cream was a favorite. It sounds weird but the flavors worked so well together. And it's such a good texture. This is happening on April 3rd to 5th in Atlantic Station. You can expect over 80 food vendors. It also has Asian cultural performances, a giant pandan plaitable, and a panda bounce house for kids. You also now get a pin and headband designs with each ticket." data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/fe6ec371-6746-44e5-aebb-744999e0ba4b/thumbnail.jpg" data-link="/v/fe6ec371-6746-44e5-aebb-744999e0ba4b">
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta">
-        <span class="name">Orda Restaurant</span>
+        <span class="name">青貨站 (密市分店) HK Goodies</span>
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="https://vz-9c9477c9-fd2.b-cdn.net/7bcbb43a-b77c-4db0-a06a-1fa8c26fc036/thumbnail.jpg" alt="Orda Restaurant" loading="lazy"/>
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/fe6ec371-6746-44e5-aebb-744999e0ba4b/thumbnail.jpg" alt="青貨站 (密市分店) HK Goodies" loading="lazy"/>
         <span class="platform-tag">◉ TIKTOK</span>
-        <span class="duration">1:30</span>
         <span class="verdict goat">CERTIFIED</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>114.4K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>7.2K</span>
-          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>1.0K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>250.9K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>21.6K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>5.1K</span>
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar">I</div>
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/thecaroandtina.jpeg" alt="@thecaroandtina" onerror="this.style.display='none';this.parentElement.textContent='T'"/></div>
         <div class="creator-info">
-          <div class="creator-name">@insta.noodls</div>
-          <div class="followers">TikTok</div>
+          <div class="creator-name">@thecaroandtina</div>
+          <div class="followers">250.9K views</div>
         </div>
       </div>
-      <div class="quote"><span class="quote-mark">"</span>Back at  Restaurant for an update</div>
-      <div class="caption"><span class="cap-label">Caption</span><br>Back at  Restaurant for an update. A lot of you came out to try their food and the owner is super appreciative of it.  They have a new wonton dumpling soup that they wanted me to try and it reminded m</div>
+      <div class="quote"><span class="quote-mark">"</span>The Hawaiian honeycombs are one of the best bites of the experience we were in shot</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Its back this spring! You can try over 80 Asian food vendors!  $14 general admission $35 VIP EVENT DATES 🗓️  Friday April 3rd 4PM-10PM Saturday April</div>
       <div class="transcript">
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
-        <div class="transcript-body"><div class="transcript-text">I'm back at one of my favorite Uyghur restaurants to figure out what makes their hand-pulled noodles so good. When I asked the owner what's his secret, he told me he's been making hand-pulled noodles for over 40 years. But the other key move is walk-frying their protein under intense flame and then combining it with their secret ox tail gravy sauce. Those fresh hand-pulled noodles soak up all that delicious gravy sauce. It never ceases to amaze me to just how tender that ox tail is. But to have the noodles hand-pulled by the master himself, the chew of those noodles were so satisfied. He then made me his version of dumpling soup. It was packed with dumplings. It kinda reminded me of the one my wife and I ate in Sian China, but less sour. And the lamb was so tender it literally fell off the bone. But this is my favorite dish this time around. Their lamb skewers are grilled on a bed of charcoal, rendering out the fatty flavor of the lamb, and giving it an incredible smokey aroma.</div></div>
+        <div class="transcript-body"><div class="transcript-text">Atlana's Asian Food Festival is back this spring. It's the most famous Asian food fest in the US. Last year we sampled so many dishes they have over 300 varieties of food. Here are some sweet and savory dishes to look out for. The most refreshing come-quot sugar cane juice that you can watch being pressed fresh right in front of you. The Hawaiian honeycombs are one of the best bites of the experience we were in shot. The giant squid skewers are definitely a must try perfect to walk around with. And the tangulu candied fruit is so iconic this dessert went viral for a reason. It's so satisfying to eat. The steamed bow buns are so soft and even come with a vegan option. The purple yam ice cream was a favorite. It sounds weird but the flavors worked so well together. And it's such a good texture. This is happening on April 3rd to 5th in Atlantic Station. You can expect over 80 food vendors. It also has Asian cultural performances, a giant pandan plaitable, and a panda bounce house for kids. You also now get a pin and headband designs with each ticket.</div></div>
       </div>
-      <div class="corner-note">114.4K</div>
-    </a></div>
+      <div class="corner-note">250.9K</div>
+    </div>
+
+    <div class="review" onclick="openModal(this)" data-hls="https://vz-9c9477c9-fd2.b-cdn.net/d76d96dc-9612-44ba-9a94-493a2b330f85/playlist.m3u8" data-restaurant="Gladiator Burger &amp; Steak" data-address="5165 Dixie Rd, Mississauga, ON L4W 4G1, Canada" data-creator="friedchickenreviews" data-views="236900" data-likes="9362" data-saves="1893" data-shares="2082" data-quote="I'm on a mission to find the best fried chicken sandwich in Toronto" data-caption="Week 93 - Reviewing fried chicken sandwiches: Burgers on Fleek🍔 Presentation: 8.5 Crispness: 8.6 Flavour: 8.3 Overall Rating: 8.5 Current Standings: " data-transcript="I'm on a mission to find the best fried chicken sandwich in Toronto. I've tried over a hundred and currently a ched And today we're at burgers on fleek. Zoom in. Nice. Today we've got the goat chicken sandwich. I'm genuinely scared of this thing. I don't know how to get this out honestly. This is the goat chicken sandwich from burgers on fleek. They said this was their best sellers So I'm like I got to get this one, but Jesus Christ dog. All right for presentation This is impressive, man. I can say I've definitely never seen a fried chicken sandwich that looks like this And for that alone like the uniqueness of whatever this is this is getting an eight five. Let's see what's inside They got lettuce tomato in there. Cheese mayo. I think this is like peppers and god knows what else. All right, let's take a damn bite. I suppose Taste is pretty good. Let's get some crispiness It's definitely crispy. I mean you can tell it's crispy. All right, it could be a little better That's getting an eight six for crispiness and for flavor. Now it's really tough to get an actual good bite of this thing But I did my best the sauce is really nice the cheese actually helps a lot of the time the cheese just makes a sandwich Worst to be honest. I think a lettuce and tomato is pretty unnecessary in here I didn't get to it yet, but the cheese is sauce a peppers and the chicken itself pretty good I'm gonna give this an eight three for flavor. That's burgers on fleek" data-thumb="https://vz-9c9477c9-fd2.b-cdn.net/d76d96dc-9612-44ba-9a94-493a2b330f85/thumbnail.jpg" data-link="/v/d76d96dc-9612-44ba-9a94-493a2b330f85">
+      <div class="pin"></div><div class="tape-decor"></div>
+      <div class="top-meta">
+        <span class="name">Gladiator Burger &amp; Steak</span>
+        <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="thumb">
+        <img src="https://vz-9c9477c9-fd2.b-cdn.net/d76d96dc-9612-44ba-9a94-493a2b330f85/thumbnail.jpg" alt="Gladiator Burger &amp; Steak" loading="lazy"/>
+        <span class="platform-tag">◉ TIKTOK</span>
+        <span class="verdict goat">MUST TRY</span>
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+        <div class="stats">
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 4C5 4 2 12 2 12s3 8 10 8 10-8 10-8-3-8-10-8zm0 13a5 5 0 110-10 5 5 0 010 10zm0-2a3 3 0 100-6 3 3 0 000 6z"/></svg>236.9K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.8 8.4 2.6 4 6.5 4 9 4 11 6 12 7.5 13 6 15 4 17.5 4 21.4 4 23.2 8.4 21.5 12 19 16.5 12 21 12 21z"/></svg>9.4K</span>
+          <span class="stat"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4V3z"/></svg>1.9K</span>
+        </div>
+      </div>
+      <div class="creator-row">
+        <div class="avatar"><img src="https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile/friedchickenreviews.jpeg" alt="@friedchickenreviews" onerror="this.style.display='none';this.parentElement.textContent='F'"/></div>
+        <div class="creator-info">
+          <div class="creator-name">@friedchickenreviews</div>
+          <div class="followers">236.9K views</div>
+        </div>
+      </div>
+      <div class="quote"><span class="quote-mark">"</span>I'm on a mission to find the best fried chicken sandwich in Toronto</div>
+      <div class="caption"><span class="cap-label">Caption</span><br>Week 93 - Reviewing fried chicken sandwiches: Burgers on Fleek🍔 Presentation: 8.5 Crispness: 8.6 Flavour: 8.3 Overall Rating: 8.5 Current Standings: </div>
+      <div class="transcript">
+        <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
+        <div class="transcript-body"><div class="transcript-text">I'm on a mission to find the best fried chicken sandwich in Toronto. I've tried over a hundred and currently a ched And today we're at burgers on fleek. Zoom in. Nice. Today we've got the goat chicken sandwich. I'm genuinely scared of this thing. I don't know how to get this out honestly. This is the goat chicken sandwich from burgers on fleek. They said this was their best sellers So I'm like I got to get this one, but Jesus Christ dog. All right for presentation This is impressive, man. I can say I've definitely never seen a fried chicken sandwich that looks like this And for that alone like the uniqueness of whatever this is this is getting an eight five. Let's see what's inside They got lettuce tomato in there. Cheese mayo. I think this is like peppers and god knows what else. All right, let's take a damn bite. I suppose Taste is pretty good. Let's get some crispiness It's definitely crispy. I mean you can tell it's crispy. All right, it could be a little better That's getting an eight six for crispiness and for flavor. Now it's really tough to get an actual good bite of this thing But I did my best the sauce is really nice the cheese actually helps a lot of the time the cheese just makes a sandwich Worst to be honest. I think a lettuce and tomato is pretty unnecessary in here I didn't get to it yet, but the cheese is sauce a peppers and the chicken itself pretty good I'm gonna give this an eight three for flavor. That's burgers on fleek</div></div>
+      </div>
+      <div class="corner-note">236.9K</div>
+    </div></div>
 <div class="foot-nav"><a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a><a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a><a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="vmodal" id="vmodal">
+  <div class="vmodal-bg" onclick="closeModal()"></div>
+  <div class="vmodal-inner">
+    <div class="vmodal-video" id="vm-video">
+      <video id="vm-player" playsinline loop></video>
+      <div class="vm-play" id="vm-play" onclick="togglePlay(event)"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
+    </div>
+    <div class="vmodal-side">
+      <div class="vm-restaurant" id="vm-restaurant"></div>
+      <div class="vm-address" id="vm-address"></div>
+      <div class="vm-creator">
+        <div class="vm-avatar" id="vm-avatar"></div>
+        <div><div class="vm-cname" id="vm-cname"></div><div class="vm-cviews" id="vm-cviews"></div></div>
+      </div>
+      <div class="vm-stats">
+        <span><b id="vm-views"></b> views</span>
+        <span><b id="vm-likes"></b> likes</span>
+        <span><b id="vm-saves"></b> saves</span>
+      </div>
+      <div class="vm-quote" id="vm-quote"></div>
+      <div><span class="vm-label">Caption</span><div class="vm-caption" id="vm-caption"></div></div>
+      <div id="vm-transcript-wrap" style="margin-top:.5rem"><span class="vm-label">Transcript</span><div class="vm-transcript" id="vm-transcript"></div></div>
+      <a class="vmodal-dl" href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank">WATCH IN APP →</a>
+    </div>
+    <button class="vmodal-close" onclick="closeModal()">×</button>
+  </div>
+</div>
+
+<script>
+const PROFILE_URL='https://lqslpgiibpcvknfehdlr.supabase.co/storage/v1/object/public/photos/profile';
+let currentHls=null;
+function fmtV(n){n=parseInt(n)||0;if(n>=1e6)return(n/1e6).toFixed(1)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'K';return n}
+function openModal(el){
+  const d=el.dataset;
+  document.getElementById('vm-restaurant').textContent=d.restaurant;
+  document.getElementById('vm-address').textContent=d.address;
+  document.getElementById('vm-cname').textContent='@'+d.creator;
+  document.getElementById('vm-cviews').textContent=fmtV(d.views)+' views';
+  document.getElementById('vm-views').textContent=fmtV(d.views);
+  document.getElementById('vm-likes').textContent=fmtV(d.likes);
+  document.getElementById('vm-saves').textContent=fmtV(d.saves);
+  document.getElementById('vm-quote').innerHTML='<span style="font-family:Shrikhand;font-size:1.2rem;color:var(--red);margin-right:.1rem">\u201C</span>'+d.quote;
+  document.getElementById('vm-caption').textContent=d.caption;
+  const tw=document.getElementById('vm-transcript-wrap');
+  const tt=document.getElementById('vm-transcript');
+  if(d.transcript){tw.style.display='block';tt.textContent=d.transcript}else{tw.style.display='none'}
+  const av=document.getElementById('vm-avatar');
+  av.innerHTML='<img src="'+PROFILE_URL+'/'+encodeURIComponent(d.creator)+'.jpeg" onerror="this.style.display=\'none\';this.parentElement.textContent=\''+d.creator.charAt(0).toUpperCase()+'\'"/>';
+  // Video
+  const video=document.getElementById('vm-player');
+  const vwrap=document.getElementById('vm-video');
+  vwrap.classList.remove('playing');
+  video.pause();
+  if(currentHls){currentHls.destroy();currentHls=null}
+  video.poster=d.thumb;
+  if(d.hls){
+    if(Hls.isSupported()){
+      currentHls=new Hls();currentHls.loadSource(d.hls);currentHls.attachMedia(video);
+    }else if(video.canPlayType('application/vnd.apple.mpegurl')){
+      video.src=d.hls;
+    }
+  }
+  document.getElementById('vmodal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('vmodal').classList.remove('open');
+  document.body.style.overflow='';
+  const video=document.getElementById('vm-player');
+  video.pause();
+  if(currentHls){currentHls.destroy();currentHls=null}
+}
+function togglePlay(e){
+  e.stopPropagation();
+  const video=document.getElementById('vm-player');
+  const vwrap=document.getElementById('vm-video');
+  if(video.paused){video.play();vwrap.classList.add('playing')}
+  else{video.pause();vwrap.classList.remove('playing')}
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+</script>
 </div>
 </body></html>
