@@ -356,6 +356,55 @@
     <priority>0.75</priority>
   </url>
 
+  <!-- Los Angeles -->
+  <url><loc>https://www.bitemap.fun/los-angeles</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.bitemap.fun/los-angeles/best-dessert</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Vancouver -->
+  <url><loc>https://www.bitemap.fun/vancouver</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-ayce</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-bbq</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-brunch</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-burger</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-chinese</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-coffee</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-dessert</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-fried-chicken</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-halal</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-korean-bbq</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-noodles</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-pizza</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-ramen</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-seafood</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-steak</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-sushi</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-tacos</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/vancouver/best-wings</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Dallas -->
+  <url><loc>https://www.bitemap.fun/dallas</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.bitemap.fun/dallas/best-sushi</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Houston -->
+  <url><loc>https://www.bitemap.fun/houston</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- New York -->
+  <url><loc>https://www.bitemap.fun/new-york</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-ayce</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-bbq</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-brunch</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-burger</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-caribbean</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-coffee</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-dessert</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-halal</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-italian</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-korean-bbq</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-pizza</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-seafood</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-steak</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.bitemap.fun/new-york/best-tacos</loc><lastmod>2026-04-25</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
   <!-- Roadmap -->
   <url>
     <loc>https://www.bitemap.fun/roadmap</loc>
