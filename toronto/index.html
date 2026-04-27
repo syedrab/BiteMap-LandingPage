@@ -324,11 +324,10 @@
     /* Every 7th tile spans 2 cols for rhythm */
     .cover-grid > *:nth-child(7n){grid-column:span 2 !important}
     .cover-grid > *:nth-child(7n) .clip{aspect-ratio:16/9}
-    /* Varied heights on single tiles */
-    .cover-grid > *:nth-child(3n+1) .clip{aspect-ratio:3/4}
+    /* Subtle height variation — nothing too extreme to avoid gaps */
+    .cover-grid > *:nth-child(3n+1) .clip{aspect-ratio:4/5}
     .cover-grid > *:nth-child(3n+2) .clip{aspect-ratio:1/1}
-    .cover-grid > *:nth-child(3n+3) .clip{aspect-ratio:2/3}
-    .cover-grid > *:nth-child(5n) .clip{aspect-ratio:9/14}
+    .cover-grid > *:nth-child(3n+3) .clip{aspect-ratio:3/4}
     /* Hide stamp/barcode/banner decorative divs */
     .cover-grid > div:not(.hoverable):not(.mini){display:none !important}
 
