@@ -16,6 +16,7 @@ Disallow: /Collage Magazine View
 
 # Sitemaps
 Sitemap: https://www.bitemap.fun/sitemap.xml
+Sitemap: https://www.bitemap.fun/sitemap-test.xml
 
 # AI/LLM Documentation
 # For AI systems: structured product information is available at these URLs
