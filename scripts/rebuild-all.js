@@ -36,7 +36,7 @@ const data = allRows.slice(1).map(row => {
   o.views = parseInt(o.views)||0; o.likes = parseInt(o.likes)||0;
   o.saves = parseInt(o.saves)||0; o.shares = parseInt(o.shares)||0;
   // Build Bunny URLs
-  if (o.bunny_video_id) {
+  if (o.bunny_video_id && o.bunny_video_id !== 'null') {
     o.thumbnail = `${BUNNY_CDN}/${o.bunny_video_id}/thumbnail.jpg`;
     o.hls_url = `${BUNNY_CDN}/${o.bunny_video_id}/playlist.m3u8`;
     o.video_link = `/v/${o.bunny_video_id}`;
@@ -610,7 +610,7 @@ for(const[slug,cat]of Object.entries(CATS)){
   const deduped=cat.items.filter(v=>{if(seen.has(v.creator_name))return false;seen.add(v.creator_name);return true});
   if(deduped.length<3) continue;
   const first = deduped[0];
-  if(!first.bunny_video_id) continue;
+  if(!first.bunny_video_id || first.bunny_video_id==='null') continue;
   coverItems.push({
     href:`/toronto/${slug}`,
     title:COVER_TITLES[slug]||slug.replace('best-','').toUpperCase(),
@@ -636,11 +636,11 @@ const areaCovers=[
 const allVids=[...data];
 for(let i=0;i<guideCovers.length;i++){
   const v=allVids[Math.min(i*5,allVids.length-1)];
-  if(v?.bunny_video_id) coverItems.push({href:`/toronto/${guideCovers[i].slug}`,title:guideCovers[i].title,img:`${BUNNY_CDN}/${v.bunny_video_id}/thumbnail.jpg`,type:'guides'});
+  if(v?.bunny_video_id&&v.bunny_video_id!=='null') coverItems.push({href:`/toronto/${guideCovers[i].slug}`,title:guideCovers[i].title,img:`${BUNNY_CDN}/${v.bunny_video_id}/thumbnail.jpg`,type:'guides'});
 }
 for(let i=0;i<areaCovers.length;i++){
   const v=allVids[Math.min(i*5+3,allVids.length-1)];
-  if(v?.bunny_video_id) coverItems.push({href:`/toronto/${areaCovers[i].slug}`,title:areaCovers[i].title,img:`${BUNNY_CDN}/${v.bunny_video_id}/thumbnail.jpg`,type:'areas'});
+  if(v?.bunny_video_id&&v.bunny_video_id!=='null') coverItems.push({href:`/toronto/${areaCovers[i].slug}`,title:areaCovers[i].title,img:`${BUNNY_CDN}/${v.bunny_video_id}/thumbnail.jpg`,type:'areas'});
 }
 
 // Layout patterns (16-col grid)

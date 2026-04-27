@@ -574,18 +574,18 @@
 
     <div class="toc">
       <a href="/new-york/best-ayce"><span class="pg">04</span><span class="t"><b>AYCE</b> Flushing AYCE</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-bbq"><span class="pg">09</span><span class="t"><b>BBQ</b> East Village smoke</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-brunch"><span class="pg">17</span><span class="t"><b>BRUNCH</b> LES to Williamsburg</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-bbq"><span class="pg">13</span><span class="t"><b>BBQ</b> East Village smoke</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-brunch"><span class="pg">18</span><span class="t"><b>BRUNCH</b> LES to Williamsburg</span><span class="arrow">↗</span></a>
       <a href="/new-york/best-burger"><span class="pg">25</span><span class="t"><b>BURGERS</b> bodega smash</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-caribbean"><span class="pg">31</span><span class="t"><b>CARIBBEAN</b> Flatbush flavor</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-coffee"><span class="pg">35</span><span class="t"><b>COFFEE</b> third wave NYC</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-dessert"><span class="pg">40</span><span class="t"><b>DESSERTS</b> cronut to cheesecake</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-halal"><span class="pg">44</span><span class="t"><b>HALAL</b> halal cart kings</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-italian"><span class="pg">52</span><span class="t"><b>ITALIAN</b> Arthur Ave to Carbone</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-korean-bbq"><span class="pg">59</span><span class="t"><b>KBBQ</b> K-Town 32nd St</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-pizza"><span class="pg">66</span><span class="t"><b>PIZZA</b> dollar slice wars</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-seafood"><span class="pg">73</span><span class="t"><b>SEAFOOD</b> raw bar to lobster roll</span><span class="arrow">↗</span></a>
-      <a href="/new-york/best-steak"><span class="pg">79</span><span class="t"><b>STEAK</b> Peter Luger &amp; beyond</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-caribbean"><span class="pg">33</span><span class="t"><b>CARIBBEAN</b> Flatbush flavor</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-coffee"><span class="pg">40</span><span class="t"><b>COFFEE</b> third wave NYC</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-dessert"><span class="pg">44</span><span class="t"><b>DESSERTS</b> cronut to cheesecake</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-halal"><span class="pg">50</span><span class="t"><b>HALAL</b> halal cart kings</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-italian"><span class="pg">55</span><span class="t"><b>ITALIAN</b> Arthur Ave to Carbone</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-korean-bbq"><span class="pg">60</span><span class="t"><b>KBBQ</b> K-Town 32nd St</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-pizza"><span class="pg">68</span><span class="t"><b>PIZZA</b> dollar slice wars</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-seafood"><span class="pg">76</span><span class="t"><b>SEAFOOD</b> raw bar to lobster roll</span><span class="arrow">↗</span></a>
+      <a href="/new-york/best-steak"><span class="pg">82</span><span class="t"><b>STEAK</b> Peter Luger &amp; beyond</span><span class="arrow">↗</span></a>
       <a href="/new-york/best-tacos"><span class="pg">88</span><span class="t"><b>TACOS</b> Jackson Heights OG</span><span class="arrow">↗</span></a>
     </div>
   </section>
@@ -644,22 +644,16 @@
 /* FILTER TABS — reflow grid to fill gaps when filtered */
 (function(){
   const tabs = document.querySelectorAll('#filterTabs button');
+  const allChildren = document.querySelectorAll('.cover-grid > *');
   const cards = document.querySelectorAll('.cover-grid > .hoverable.mini');
   const grid = document.querySelector('.cover-grid');
 
-  // Capture each card's original inline grid placement + extract just the SPAN
-  // (e.g. "1/span 5" -> "span 5"). When filtering, we keep the span so size
-  // variety survives, but drop the explicit start-line so CSS auto-places
-  // remaining cards densely with no holes.
+  // Save original positions
   cards.forEach(card => {
-    const col = card.style.gridColumn || '';
-    const row = card.style.gridRow || '';
-    card.dataset.origCol = col;
-    card.dataset.origRow = row;
-    const colSpan = (col.match(/span\s+\d+/) || [''])[0];
-    const rowSpan = (row.match(/span\s+\d+/) || [''])[0];
-    card.dataset.spanCol = colSpan;
-    card.dataset.spanRow = rowSpan;
+    card.dataset.origCol = card.style.gridColumn || '';
+    card.dataset.origRow = card.style.gridRow || '';
+    card.dataset.spanCol = (card.style.gridColumn.match(/span\s+\d+/) || [''])[0];
+    card.dataset.spanRow = (card.style.gridRow.match(/span\s+\d+/) || [''])[0];
   });
 
   tabs.forEach(btn => btn.addEventListener('click', () => {
@@ -668,28 +662,34 @@
     const f = btn.dataset.filter;
     const filtering = f !== 'all';
 
+    // Hide/show non-card children (stamp, banner) when filtering
+    allChildren.forEach(el => {
+      if (!el.classList.contains('hoverable')) {
+        el.style.display = filtering ? 'none' : '';
+      }
+    });
+
     cards.forEach(card => {
       const match = !filtering || card.dataset.type === f;
       if (match) {
         card.style.display = '';
         if (filtering) {
-          // Keep size, drop start-line so it auto-places and fills gaps
-          card.style.gridColumn = card.dataset.spanCol || '';
-          card.style.gridRow = card.dataset.spanRow || '';
+          // Auto-place everything — grid shrinks to fit
+          card.style.gridColumn = card.dataset.spanCol || 'auto';
+          card.style.gridRow = 'auto';
         } else {
-          // Restore original collage positions
           card.style.gridColumn = card.dataset.origCol || '';
           card.style.gridRow = card.dataset.origRow || '';
         }
       } else {
         card.style.display = 'none';
+        card.style.gridColumn = '';
+        card.style.gridRow = '';
       }
     });
 
     grid.classList.toggle('filtered', filtering);
     // Shrink grid height to fit visible items
-    grid.style.gridTemplateRows = '';
-    // Shrink grid to fit visible items — no empty space
     grid.style.gridTemplateRows = '';
   }));
 })();

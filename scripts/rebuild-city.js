@@ -304,7 +304,7 @@ for(const[key,city]of Object.entries(CITIES)){
   const data=allRows.slice(1).map(row=>{
     const o={};headers.forEach((h,i)=>{o[h]=row[i]||''});
     o.views=parseInt(o.views)||0;o.likes=parseInt(o.likes)||0;o.saves=parseInt(o.saves)||0;o.shares=parseInt(o.shares)||0;
-    if(o.bunny_video_id){o.thumbnail=`${BUNNY_CDN}/${o.bunny_video_id}/thumbnail.jpg`;o.hls_url=`${BUNNY_CDN}/${o.bunny_video_id}/playlist.m3u8`;o.video_link=`/v/${o.bunny_video_id}`}
+    if(o.bunny_video_id&&o.bunny_video_id!=='null'){o.thumbnail=`${BUNNY_CDN}/${o.bunny_video_id}/thumbnail.jpg`;o.hls_url=`${BUNNY_CDN}/${o.bunny_video_id}/playlist.m3u8`;o.video_link=`/v/${o.bunny_video_id}`}
     else{o.thumbnail=null;o.hls_url=null;o.video_link=o.source_url||'#'}
     return o;
   }).filter(r=>r.views>=500);

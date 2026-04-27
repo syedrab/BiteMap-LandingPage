@@ -18,7 +18,7 @@ function parseCSV(text){const r=[];let c=[];let f='';let q=false;for(let i=0;i<t
 function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
 const cities = JSON.parse(readFileSync(join(root, 'data', 'cities.json'), 'utf8'));
-const torontoHTML = readFileSync(join(root, 'toronto', 'index.html'), 'utf8');
+let torontoHTML = ''; // loaded after Toronto is updated
 
 // Layout patterns for collage grid
 const layouts=[
@@ -43,8 +43,60 @@ const CATS_TITLES={
   'best-shawarma':'SHAWARMA','best-brunch':'BRUNCH','best-korean-bbq':'KBBQ',
 };
 
+// First, update Toronto itself (TOC, filter counts, colophon)
+// Then use Toronto as template for other cities
+function updateToronto() {
+  const city = cities.toronto;
+  const cityDir = join(root, city.dir);
+  const articles = readdirSync(cityDir).filter(f => f.startsWith('best-') && f.endsWith('.html')).map(f => f.replace('.html',''));
+  const areas = readdirSync(cityDir).filter(f => f.startsWith('area-') && f.endsWith('.html')).map(f => f.replace('.html',''));
+  const guides = readdirSync(cityDir).filter(f => f.startsWith('guide-') && f.endsWith('.html')).map(f => f.replace('.html',''));
+
+  let html = readFileSync(join(cityDir, 'index.html'), 'utf8');
+
+  // Fix filter counts
+  html = html.replace(/data-filter="posts">Posts <span class="count">\d+<\/span>/, `data-filter="posts">Posts <span class="count">${articles.length}</span>`);
+  html = html.replace(/data-filter="areas">Areas <span class="count">\d+<\/span>/, `data-filter="areas">Areas <span class="count">${areas.length}</span>`);
+  html = html.replace(/data-filter="guides">Guides <span class="count">\d+<\/span>/, `data-filter="guides">Guides <span class="count">${guides.length}</span>`);
+
+  // Fix TOC
+  const tocDescs = city.toc_descriptions || {};
+  let tocHTML = '';
+  let pgNum = 4;
+  for (const slug of articles) {
+    const label = CATS_TITLES[slug] || slug.replace('best-','').toUpperCase();
+    const desc = tocDescs[slug] || '';
+    tocHTML += `      <a href="/toronto/${slug}"><span class="pg">${String(pgNum).padStart(2,'0')}</span><span class="t"><b>${label}</b> ${esc(desc)}</span><span class="arrow">↗</span></a>\n`;
+    pgNum += 4 + Math.floor(Math.random() * 4);
+  }
+  for (const slug of guides) {
+    const label = slug.replace('guide-','').replace(/-/g,' ').toUpperCase();
+    tocHTML += `      <a href="/toronto/${slug}"><span class="pg">${String(pgNum).padStart(2,'0')}</span><span class="t"><b>${label}</b> guide</span><span class="arrow">↗</span></a>\n`;
+    pgNum += 3;
+  }
+  for (const slug of areas) {
+    const label = slug.replace('area-','').replace(/-/g,' ').toUpperCase();
+    tocHTML += `      <a href="/toronto/${slug}"><span class="pg">${String(pgNum).padStart(2,'0')}</span><span class="t"><b>${label}</b> area</span><span class="arrow">↗</span></a>\n`;
+    pgNum += 2;
+  }
+
+  const tocStart = html.indexOf('<div class="toc">');
+  const tocEnd = html.indexOf('</div>', tocStart + 17);
+  if (tocStart !== -1 && tocEnd !== -1) {
+    html = html.substring(0, tocStart) + `<div class="toc">\n${tocHTML}    </div>` + html.substring(tocEnd + 6);
+  }
+
+  writeFileSync(join(cityDir, 'index.html'), html);
+  console.log(`  ✅ toronto/index.html — ${articles.length} articles, ${areas.length} areas, ${guides.length} guides`);
+}
+
+console.log('═══ TORONTO ═══');
+updateToronto();
+
+// Now read updated Toronto as template for other cities
+torontoHTML = readFileSync(join(root, 'toronto', 'index.html'), 'utf8');
+
 for (const [cityKey, city] of Object.entries(cities)) {
-  // Skip toronto — it's the template source
   if (cityKey === 'toronto') continue;
 
   console.log(`\n═══ ${city.name.toUpperCase()} ═══`);
@@ -66,7 +118,7 @@ for (const [cityKey, city] of Object.entries(cities)) {
     const headers = rows[0];
     csvData = rows.slice(1).map(row => {
       const o = {}; headers.forEach((h, i) => { o[h] = row[i] || '' }); return o;
-    }).filter(r => r.bunny_video_id);
+    }).filter(r => r.bunny_video_id && r.bunny_video_id !== 'null');
   }
 
   // Build collage grid items
