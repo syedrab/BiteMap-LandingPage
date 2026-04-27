@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.bitemap.fun/sitemap.xml
-Sitemap: https://www.bitemap.fun/sitemap-test.xml
