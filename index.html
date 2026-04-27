@@ -696,6 +696,61 @@
             transform: scale(1.1);
         }
 
+        /* Cities row */
+        .cities-row {
+            position: absolute;
+            left: 50%;
+            bottom: 60px;
+            transform: translateX(-50%);
+            z-index: 11;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #666;
+            max-width: 90vw;
+        }
+
+        .cities-row .cities-label {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-right: 4px;
+        }
+
+        .cities-row a {
+            display: inline-block;
+            padding: 6px 12px;
+            border: 1px solid #e5e5e5;
+            border-radius: 999px;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            background: #fff;
+            transition: all 0.2s ease;
+        }
+
+        .cities-row a:hover {
+            border-color: #FF6B35;
+            color: #FF6B35;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .cities-row {
+                position: static;
+                transform: none;
+                max-width: 100%;
+                padding: 16px 16px 24px;
+                font-size: 12px;
+                gap: 6px;
+            }
+            .cities-row a {
+                padding: 5px 10px;
+            }
+        }
+
         /* Toronto Street Grid Lines */
         .street-grid {
             position: fixed;
@@ -908,11 +963,11 @@
                 display: none !important;
             }
 
-            .phone-container {
+            .content {
                 order: 2;
             }
 
-            .content {
+            .phone-container {
                 order: 3;
             }
 
@@ -949,6 +1004,13 @@
 
             .phone-mockup img {
                 border-radius: 36px;
+            }
+
+            /* Allow scroll on mobile so all content fits */
+            html, body {
+                height: auto;
+                min-height: 100%;
+                overflow: auto;
             }
 
             /* Hide footer on tablet/mobile */
@@ -1014,11 +1076,20 @@
 
             .app-store-btn img.google-play-img {
                 height: 65px;
+                margin: -10px 0;
             }
 
             .download-row {
-                flex-direction: column;
-                gap: 12px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .social-links {
+                flex-basis: 100%;
+                justify-content: center;
+                margin-top: 4px;
             }
 
             .android-beta-btn {
@@ -1268,8 +1339,12 @@
         <span></span>
     </button>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/features">Features</a>
-        <a href="/blog">Blog</a>
+        <a href="/toronto">Toronto</a>
+        <a href="/vancouver">Vancouver</a>
+        <a href="/new-york">New York</a>
+        <a href="/los-angeles">Los Angeles</a>
+        <a href="/dallas">Dallas</a>
+        <a href="/houston">Houston</a>
         <a href="/roadmap">Roadmap</a>
         <a href="/support">Support</a>
         <a href="https://apps.apple.com/ca/app/bitemap/id6746139076" target="_blank">Download App</a>
@@ -1424,9 +1499,9 @@
         <div class="phone-container">
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <img src="images/screenshot.jpg" alt="BiteMap app - shawarma review" class="active">
-                    <img src="images/screenshot1.jpg" alt="BiteMap app - halal restaurants">
-                    <img src="images/Map View.jpg" alt="BiteMap app - map view">
+                    <img src="images/screenshot.jpg" alt="BiteMap app - shawarma review" class="active" fetchpriority="high">
+                    <img src="images/screenshot1.jpg" alt="BiteMap app - halal restaurants" loading="lazy">
+                    <img src="images/Map View.jpg" alt="BiteMap app - map view" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1466,6 +1541,16 @@
             </div>
         </div>
     </main>
+
+    <nav class="cities-row" aria-label="Browse cities">
+        <span class="cities-label">Browse:</span>
+        <a href="/toronto">Toronto</a>
+        <a href="/vancouver">Vancouver</a>
+        <a href="/new-york">New York</a>
+        <a href="/los-angeles">Los Angeles</a>
+        <a href="/dallas">Dallas</a>
+        <a href="/houston">Houston</a>
+    </nav>
 
     <footer>
         <div class="company">BiteMap &copy; 2026</div>
