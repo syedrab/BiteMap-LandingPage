@@ -84,7 +84,7 @@
      LANDING COVER
   ============================================================ */
   .cover{
-    position:relative;min-height:100vh;padding:1.5rem 2rem 5rem;
+    position:relative;min-height:auto;padding:1.5rem 2rem 5rem;
     overflow:hidden;
   }
   .masthead{
@@ -187,7 +187,7 @@
     display:grid;grid-template-columns:repeat(16,1fr);gap:.6rem;
     grid-auto-rows:90px;grid-auto-flow:dense;
   }
-  .cover-grid.filtered{gap:.5rem}
+  .cover-grid.filtered{gap:.5rem;grid-auto-rows:90px}
   .cover-grid > .hoverable.mini{transition:transform .35s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s ease,grid-column .35s ease,grid-row .35s ease}
   .cover-grid > *{position:relative}
   .cover-grid .mini .clip{width:100%;height:100%;aspect-ratio:auto}

@@ -84,7 +84,7 @@
      LANDING COVER
   ============================================================ */
   .cover{
-    position:relative;min-height:100vh;padding:1.5rem 2rem 5rem;
+    position:relative;min-height:auto;padding:1.5rem 2rem 5rem;
     overflow:hidden;
   }
   .masthead{
@@ -187,7 +187,7 @@
     display:grid;grid-template-columns:repeat(16,1fr);gap:.6rem;
     grid-auto-rows:90px;grid-auto-flow:dense;
   }
-  .cover-grid.filtered{gap:.5rem}
+  .cover-grid.filtered{gap:.5rem;grid-auto-rows:90px}
   .cover-grid > .hoverable.mini{transition:transform .35s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s ease,grid-column .35s ease,grid-row .35s ease}
   .cover-grid > *{position:relative}
   .cover-grid .mini .clip{width:100%;height:100%;aspect-ratio:auto}
@@ -879,46 +879,46 @@
 
     <div class="toc">
       <a href="/toronto/best-ayce"><span class="pg">04</span><span class="t"><b>AYCE</b> unlimited everything</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-bbq"><span class="pg">10</span><span class="t"><b>BBQ</b> low &amp; slow</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-brunch"><span class="pg">16</span><span class="t"><b>BRUNCH</b> worth the line</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-burger"><span class="pg">23</span><span class="t"><b>BURGERS</b> smash game strong</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-caribbean"><span class="pg">30</span><span class="t"><b>CARIBBEAN</b> island vibes</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-chinese"><span class="pg">36</span><span class="t"><b>CHINESE</b> dim sum &amp; then some</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-coffee"><span class="pg">42</span><span class="t"><b>COFFEE</b> the daily grind</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-dessert"><span class="pg">46</span><span class="t"><b>DESSERTS</b> sweet tooth guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-fried-chicken"><span class="pg">52</span><span class="t"><b>FRIED CHICKEN</b> crispy chronicles</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-halal"><span class="pg">59</span><span class="t"><b>HALAL</b> verified &amp; trusted</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-indian"><span class="pg">66</span><span class="t"><b>INDIAN</b> the spice route</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-italian"><span class="pg">72</span><span class="t"><b>ITALIAN</b> pasta la vista</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-noodles"><span class="pg">78</span><span class="t"><b>NOODLES</b> every strand</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-pho"><span class="pg">85</span><span class="t"><b>PHO</b> in the 6ix</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-pizza"><span class="pg">92</span><span class="t"><b>PIZZA</b> slice by slice</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-seafood"><span class="pg">98</span><span class="t"><b>SEAFOOD</b> catch of the day</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-shawarma"><span class="pg">103</span><span class="t"><b>SHAWARMA</b> wrap game strong</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-steak"><span class="pg">109</span><span class="t"><b>STEAK</b> date night cuts</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-sushi"><span class="pg">115</span><span class="t"><b>SUSHI</b> omakase to AYCE</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-tacos"><span class="pg">121</span><span class="t"><b>TACOS</b> birria to al pastor</span><span class="arrow">↗</span></a>
-      <a href="/toronto/best-wings"><span class="pg">128</span><span class="t"><b>WINGS</b> sauced &amp; tossed</span><span class="arrow">↗</span></a>
-      <a href="/toronto/guide-comfort-food"><span class="pg">132</span><span class="t"><b>COMFORT FOOD</b> guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/guide-creators-picks"><span class="pg">135</span><span class="t"><b>CREATORS PICKS</b> guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/guide-date-night"><span class="pg">138</span><span class="t"><b>DATE NIGHT</b> guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/guide-first-bite-reaction"><span class="pg">141</span><span class="t"><b>FIRST BITE REACTION</b> guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/guide-hidden-gems"><span class="pg">144</span><span class="t"><b>HIDDEN GEMS</b> guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/guide-most-viral"><span class="pg">147</span><span class="t"><b>MOST VIRAL</b> guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/guide-mukbang-approved"><span class="pg">150</span><span class="t"><b>MUKBANG APPROVED</b> guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/guide-spice-scale"><span class="pg">153</span><span class="t"><b>SPICE SCALE</b> guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/guide-under-15"><span class="pg">156</span><span class="t"><b>UNDER 15</b> guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/guide-worth-the-hype"><span class="pg">159</span><span class="t"><b>WORTH THE HYPE</b> guide</span><span class="arrow">↗</span></a>
-      <a href="/toronto/area-brampton"><span class="pg">162</span><span class="t"><b>BRAMPTON</b> area</span><span class="arrow">↗</span></a>
-      <a href="/toronto/area-church-wellesley"><span class="pg">164</span><span class="t"><b>CHURCH WELLESLEY</b> area</span><span class="arrow">↗</span></a>
-      <a href="/toronto/area-downtown-yonge"><span class="pg">166</span><span class="t"><b>DOWNTOWN YONGE</b> area</span><span class="arrow">↗</span></a>
-      <a href="/toronto/area-greater-toronto"><span class="pg">168</span><span class="t"><b>GREATER TORONTO</b> area</span><span class="arrow">↗</span></a>
-      <a href="/toronto/area-mississauga"><span class="pg">170</span><span class="t"><b>MISSISSAUGA</b> area</span><span class="arrow">↗</span></a>
-      <a href="/toronto/area-north-york"><span class="pg">172</span><span class="t"><b>NORTH YORK</b> area</span><span class="arrow">↗</span></a>
-      <a href="/toronto/area-ossington-dundas-w"><span class="pg">174</span><span class="t"><b>OSSINGTON DUNDAS W</b> area</span><span class="arrow">↗</span></a>
-      <a href="/toronto/area-queen-west"><span class="pg">176</span><span class="t"><b>QUEEN WEST</b> area</span><span class="arrow">↗</span></a>
-      <a href="/toronto/area-scarborough"><span class="pg">178</span><span class="t"><b>SCARBOROUGH</b> area</span><span class="arrow">↗</span></a>
-      <a href="/toronto/area-yorkville-bloor"><span class="pg">180</span><span class="t"><b>YORKVILLE BLOOR</b> area</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-bbq"><span class="pg">08</span><span class="t"><b>BBQ</b> low &amp; slow</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-brunch"><span class="pg">15</span><span class="t"><b>BRUNCH</b> worth the line</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-burger"><span class="pg">22</span><span class="t"><b>BURGERS</b> smash game strong</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-caribbean"><span class="pg">28</span><span class="t"><b>CARIBBEAN</b> island vibes</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-chinese"><span class="pg">34</span><span class="t"><b>CHINESE</b> dim sum &amp; then some</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-coffee"><span class="pg">40</span><span class="t"><b>COFFEE</b> the daily grind</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-dessert"><span class="pg">45</span><span class="t"><b>DESSERTS</b> sweet tooth guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-fried-chicken"><span class="pg">50</span><span class="t"><b>FRIED CHICKEN</b> crispy chronicles</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-halal"><span class="pg">56</span><span class="t"><b>HALAL</b> verified &amp; trusted</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-indian"><span class="pg">63</span><span class="t"><b>INDIAN</b> the spice route</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-italian"><span class="pg">70</span><span class="t"><b>ITALIAN</b> pasta la vista</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-noodles"><span class="pg">75</span><span class="t"><b>NOODLES</b> every strand</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-pho"><span class="pg">81</span><span class="t"><b>PHO</b> in the 6ix</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-pizza"><span class="pg">88</span><span class="t"><b>PIZZA</b> slice by slice</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-seafood"><span class="pg">92</span><span class="t"><b>SEAFOOD</b> catch of the day</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-shawarma"><span class="pg">98</span><span class="t"><b>SHAWARMA</b> wrap game strong</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-steak"><span class="pg">105</span><span class="t"><b>STEAK</b> date night cuts</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-sushi"><span class="pg">109</span><span class="t"><b>SUSHI</b> omakase to AYCE</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-tacos"><span class="pg">115</span><span class="t"><b>TACOS</b> birria to al pastor</span><span class="arrow">↗</span></a>
+      <a href="/toronto/best-wings"><span class="pg">120</span><span class="t"><b>WINGS</b> sauced &amp; tossed</span><span class="arrow">↗</span></a>
+      <a href="/toronto/guide-comfort-food"><span class="pg">127</span><span class="t"><b>COMFORT FOOD</b> guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/guide-creators-picks"><span class="pg">130</span><span class="t"><b>CREATORS PICKS</b> guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/guide-date-night"><span class="pg">133</span><span class="t"><b>DATE NIGHT</b> guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/guide-first-bite-reaction"><span class="pg">136</span><span class="t"><b>FIRST BITE REACTION</b> guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/guide-hidden-gems"><span class="pg">139</span><span class="t"><b>HIDDEN GEMS</b> guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/guide-most-viral"><span class="pg">142</span><span class="t"><b>MOST VIRAL</b> guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/guide-mukbang-approved"><span class="pg">145</span><span class="t"><b>MUKBANG APPROVED</b> guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/guide-spice-scale"><span class="pg">148</span><span class="t"><b>SPICE SCALE</b> guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/guide-under-15"><span class="pg">151</span><span class="t"><b>UNDER 15</b> guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/guide-worth-the-hype"><span class="pg">154</span><span class="t"><b>WORTH THE HYPE</b> guide</span><span class="arrow">↗</span></a>
+      <a href="/toronto/area-brampton"><span class="pg">157</span><span class="t"><b>BRAMPTON</b> area</span><span class="arrow">↗</span></a>
+      <a href="/toronto/area-church-wellesley"><span class="pg">159</span><span class="t"><b>CHURCH WELLESLEY</b> area</span><span class="arrow">↗</span></a>
+      <a href="/toronto/area-downtown-yonge"><span class="pg">161</span><span class="t"><b>DOWNTOWN YONGE</b> area</span><span class="arrow">↗</span></a>
+      <a href="/toronto/area-greater-toronto"><span class="pg">163</span><span class="t"><b>GREATER TORONTO</b> area</span><span class="arrow">↗</span></a>
+      <a href="/toronto/area-mississauga"><span class="pg">165</span><span class="t"><b>MISSISSAUGA</b> area</span><span class="arrow">↗</span></a>
+      <a href="/toronto/area-north-york"><span class="pg">167</span><span class="t"><b>NORTH YORK</b> area</span><span class="arrow">↗</span></a>
+      <a href="/toronto/area-ossington-dundas-w"><span class="pg">169</span><span class="t"><b>OSSINGTON DUNDAS W</b> area</span><span class="arrow">↗</span></a>
+      <a href="/toronto/area-queen-west"><span class="pg">171</span><span class="t"><b>QUEEN WEST</b> area</span><span class="arrow">↗</span></a>
+      <a href="/toronto/area-scarborough"><span class="pg">173</span><span class="t"><b>SCARBOROUGH</b> area</span><span class="arrow">↗</span></a>
+      <a href="/toronto/area-yorkville-bloor"><span class="pg">175</span><span class="t"><b>YORKVILLE BLOOR</b> area</span><span class="arrow">↗</span></a>
     </div>
   </section>
 

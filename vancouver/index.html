@@ -84,7 +84,7 @@
      LANDING COVER
   ============================================================ */
   .cover{
-    position:relative;min-height:100vh;padding:1.5rem 2rem 5rem;
+    position:relative;min-height:auto;padding:1.5rem 2rem 5rem;
     overflow:hidden;
   }
   .masthead{
@@ -187,7 +187,7 @@
     display:grid;grid-template-columns:repeat(16,1fr);gap:.6rem;
     grid-auto-rows:90px;grid-auto-flow:dense;
   }
-  .cover-grid.filtered{gap:.5rem}
+  .cover-grid.filtered{gap:.5rem;grid-auto-rows:90px}
   .cover-grid > .hoverable.mini{transition:transform .35s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s ease,grid-column .35s ease,grid-row .35s ease}
   .cover-grid > *{position:relative}
   .cover-grid .mini .clip{width:100%;height:100%;aspect-ratio:auto}
@@ -574,23 +574,23 @@
 
     <div class="toc">
       <a href="/vancouver/best-ayce"><span class="pg">04</span><span class="t"><b>AYCE</b> Richmond AYCE row</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-bbq"><span class="pg">08</span><span class="t"><b>BBQ</b> West Coast smoke</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-brunch"><span class="pg">14</span><span class="t"><b>BRUNCH</b> Kits to Main</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-burger"><span class="pg">18</span><span class="t"><b>BURGERS</b> west coast smash</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-chinese"><span class="pg">27</span><span class="t"><b>CHINESE</b> Richmond is the answer</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-coffee"><span class="pg">34</span><span class="t"><b>COFFEE</b> third wave raincity</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-dessert"><span class="pg">41</span><span class="t"><b>DESSERTS</b> matcha &amp; mochi</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-fried-chicken"><span class="pg">49</span><span class="t"><b>FRIED CHICKEN</b> crispy in the rain</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-halal"><span class="pg">57</span><span class="t"><b>HALAL</b> Commercial Drive &amp; beyond</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-korean-bbq"><span class="pg">63</span><span class="t"><b>KBBQ</b> K-BBQ night out</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-noodles"><span class="pg">71</span><span class="t"><b>NOODLES</b> hand-pulled &amp; hot</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-pizza"><span class="pg">80</span><span class="t"><b>PIZZA</b> rain day slices</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-ramen"><span class="pg">87</span><span class="t"><b>RAMEN</b> </span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-seafood"><span class="pg">91</span><span class="t"><b>SEAFOOD</b> Pacific wild</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-steak"><span class="pg">100</span><span class="t"><b>STEAK</b> Yaletown splurge</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-sushi"><span class="pg">104</span><span class="t"><b>SUSHI</b> sushi capital</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-tacos"><span class="pg">108</span><span class="t"><b>TACOS</b> taco Tuesday every day</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-wings"><span class="pg">116</span><span class="t"><b>WINGS</b> game day spots</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-bbq"><span class="pg">13</span><span class="t"><b>BBQ</b> West Coast smoke</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-brunch"><span class="pg">22</span><span class="t"><b>BRUNCH</b> Kits to Main</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-burger"><span class="pg">27</span><span class="t"><b>BURGERS</b> west coast smash</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-chinese"><span class="pg">36</span><span class="t"><b>CHINESE</b> Richmond is the answer</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-coffee"><span class="pg">44</span><span class="t"><b>COFFEE</b> third wave raincity</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-dessert"><span class="pg">48</span><span class="t"><b>DESSERTS</b> matcha &amp; mochi</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-fried-chicken"><span class="pg">55</span><span class="t"><b>FRIED CHICKEN</b> crispy in the rain</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-halal"><span class="pg">60</span><span class="t"><b>HALAL</b> Commercial Drive &amp; beyond</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-korean-bbq"><span class="pg">64</span><span class="t"><b>KBBQ</b> K-BBQ night out</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-noodles"><span class="pg">70</span><span class="t"><b>NOODLES</b> hand-pulled &amp; hot</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-pizza"><span class="pg">77</span><span class="t"><b>PIZZA</b> rain day slices</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-ramen"><span class="pg">83</span><span class="t"><b>RAMEN</b> </span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-seafood"><span class="pg">87</span><span class="t"><b>SEAFOOD</b> Pacific wild</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-steak"><span class="pg">92</span><span class="t"><b>STEAK</b> Yaletown splurge</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-sushi"><span class="pg">96</span><span class="t"><b>SUSHI</b> sushi capital</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-tacos"><span class="pg">101</span><span class="t"><b>TACOS</b> taco Tuesday every day</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-wings"><span class="pg">105</span><span class="t"><b>WINGS</b> game day spots</span><span class="arrow">↗</span></a>
     </div>
   </section>
 
