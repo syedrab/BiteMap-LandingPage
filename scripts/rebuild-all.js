@@ -603,22 +603,21 @@ const COVER_TITLES = {
 const coverLabelColors=['','label-yellow','label-ink','label-pink','label-teal','label-purple','label-lime','label-orange'];
 
 // Collect all article cover items (first thumbnail per category)
-const coverItems = [];
+// Collect all three types separately
+const articleItems = [];
 for(const[slug,cat]of Object.entries(CATS)){
-  // Same 1-per-creator dedup as buildPage
   const seen=new Set();
   const deduped=cat.items.filter(v=>{if(seen.has(v.creator_name))return false;seen.add(v.creator_name);return true});
   if(deduped.length<3) continue;
   const first = deduped[0];
   if(!first.bunny_video_id || first.bunny_video_id==='null') continue;
-  coverItems.push({
+  articleItems.push({
     href:`/toronto/${slug}`,
     title:COVER_TITLES[slug]||slug.replace('best-','').toUpperCase(),
     img:`${BUNNY_CDN}/${first.bunny_video_id}/thumbnail.jpg`,
     type:'posts',
   });
 }
-// Add guide items
 const guideCovers=[
   {slug:'guide-most-viral',title:'MOST VIRAL'},{slug:'guide-hidden-gems',title:'HIDDEN GEMS'},
   {slug:'guide-spice-scale',title:'SPICE 🌶'},{slug:'guide-worth-the-hype',title:'HYPE CHECK'},
@@ -634,13 +633,26 @@ const areaCovers=[
   {slug:'area-greater-toronto',title:'GTA'},{slug:'area-brampton',title:'BRAMPTON'},
 ];
 const allVids=[...data];
+const guideItems=[];
 for(let i=0;i<guideCovers.length;i++){
   const v=allVids[Math.min(i*5,allVids.length-1)];
-  if(v?.bunny_video_id&&v.bunny_video_id!=='null') coverItems.push({href:`/toronto/${guideCovers[i].slug}`,title:guideCovers[i].title,img:`${BUNNY_CDN}/${v.bunny_video_id}/thumbnail.jpg`,type:'guides'});
+  if(v?.bunny_video_id&&v.bunny_video_id!=='null') guideItems.push({href:`/toronto/${guideCovers[i].slug}`,title:guideCovers[i].title,img:`${BUNNY_CDN}/${v.bunny_video_id}/thumbnail.jpg`,type:'guides'});
 }
+const areaItems=[];
 for(let i=0;i<areaCovers.length;i++){
   const v=allVids[Math.min(i*5+3,allVids.length-1)];
-  if(v?.bunny_video_id&&v.bunny_video_id!=='null') coverItems.push({href:`/toronto/${areaCovers[i].slug}`,title:areaCovers[i].title,img:`${BUNNY_CDN}/${v.bunny_video_id}/thumbnail.jpg`,type:'areas'});
+  if(v?.bunny_video_id&&v.bunny_video_id!=='null') areaItems.push({href:`/toronto/${areaCovers[i].slug}`,title:areaCovers[i].title,img:`${BUNNY_CDN}/${v.bunny_video_id}/thumbnail.jpg`,type:'areas'});
+}
+// Interleave: 2 articles, 1 guide, 2 articles, 1 area, repeat
+const coverItems=[];
+let ai=0,gi=0,ri=0;
+while(ai<articleItems.length||gi<guideItems.length||ri<areaItems.length){
+  if(ai<articleItems.length) coverItems.push(articleItems[ai++]);
+  if(ai<articleItems.length) coverItems.push(articleItems[ai++]);
+  if(gi<guideItems.length) coverItems.push(guideItems[gi++]);
+  if(ai<articleItems.length) coverItems.push(articleItems[ai++]);
+  if(ai<articleItems.length) coverItems.push(articleItems[ai++]);
+  if(ri<areaItems.length) coverItems.push(areaItems[ri++]);
 }
 
 // Layout patterns (16-col grid)

@@ -646,24 +646,37 @@
       }
     });
 
+    // Collect visible cards first
+    const visible = [];
     cards.forEach(card => {
       const match = !filtering || card.dataset.type === f;
       if (match) {
         card.style.display = '';
-        if (filtering) {
-          // Auto-place everything — grid shrinks to fit
-          card.style.gridColumn = card.dataset.spanCol || 'auto';
-          card.style.gridRow = 'auto';
-        } else {
-          card.style.gridColumn = card.dataset.origCol || '';
-          card.style.gridRow = card.dataset.origRow || '';
-        }
+        visible.push(card);
       } else {
         card.style.display = 'none';
         card.style.gridColumn = '';
         card.style.gridRow = '';
       }
     });
+
+    if (filtering) {
+      // Reassign sizes based on position in filtered set
+      // Pattern: hero(2x2), med(2x1), small, small, med(1x2), small, small, wide(2x1), repeat
+      visible.forEach((card, i) => {
+        const pos = i % 8;
+        if (pos === 0) { card.style.gridColumn = 'span 2'; card.style.gridRow = 'span 2'; }
+        else if (pos === 1 || pos === 7) { card.style.gridColumn = 'span 2'; card.style.gridRow = 'auto'; }
+        else if (pos === 4) { card.style.gridColumn = 'auto'; card.style.gridRow = 'span 2'; }
+        else { card.style.gridColumn = 'auto'; card.style.gridRow = 'auto'; }
+      });
+    } else {
+      // Restore original collage positions
+      cards.forEach(card => {
+        card.style.gridColumn = card.dataset.origCol || '';
+        card.style.gridRow = card.dataset.origRow || '';
+      });
+    }
 
     grid.classList.toggle('filtered', filtering);
     // Shrink grid height to fit visible items

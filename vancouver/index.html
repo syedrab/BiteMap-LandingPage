@@ -574,23 +574,23 @@
 
     <div class="toc">
       <a href="/vancouver/best-ayce"><span class="pg">04</span><span class="t"><b>AYCE</b> Richmond AYCE row</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-bbq"><span class="pg">13</span><span class="t"><b>BBQ</b> West Coast smoke</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-brunch"><span class="pg">22</span><span class="t"><b>BRUNCH</b> Kits to Main</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-burger"><span class="pg">27</span><span class="t"><b>BURGERS</b> west coast smash</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-chinese"><span class="pg">36</span><span class="t"><b>CHINESE</b> Richmond is the answer</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-coffee"><span class="pg">44</span><span class="t"><b>COFFEE</b> third wave raincity</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-dessert"><span class="pg">48</span><span class="t"><b>DESSERTS</b> matcha &amp; mochi</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-fried-chicken"><span class="pg">55</span><span class="t"><b>FRIED CHICKEN</b> crispy in the rain</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-halal"><span class="pg">60</span><span class="t"><b>HALAL</b> Commercial Drive &amp; beyond</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-korean-bbq"><span class="pg">64</span><span class="t"><b>KBBQ</b> K-BBQ night out</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-noodles"><span class="pg">70</span><span class="t"><b>NOODLES</b> hand-pulled &amp; hot</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-pizza"><span class="pg">77</span><span class="t"><b>PIZZA</b> rain day slices</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-ramen"><span class="pg">83</span><span class="t"><b>RAMEN</b> </span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-seafood"><span class="pg">87</span><span class="t"><b>SEAFOOD</b> Pacific wild</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-steak"><span class="pg">92</span><span class="t"><b>STEAK</b> Yaletown splurge</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-sushi"><span class="pg">96</span><span class="t"><b>SUSHI</b> sushi capital</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-tacos"><span class="pg">101</span><span class="t"><b>TACOS</b> taco Tuesday every day</span><span class="arrow">↗</span></a>
-      <a href="/vancouver/best-wings"><span class="pg">105</span><span class="t"><b>WINGS</b> game day spots</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-bbq"><span class="pg">12</span><span class="t"><b>BBQ</b> West Coast smoke</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-brunch"><span class="pg">19</span><span class="t"><b>BRUNCH</b> Kits to Main</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-burger"><span class="pg">23</span><span class="t"><b>BURGERS</b> west coast smash</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-chinese"><span class="pg">29</span><span class="t"><b>CHINESE</b> Richmond is the answer</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-coffee"><span class="pg">34</span><span class="t"><b>COFFEE</b> third wave raincity</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-dessert"><span class="pg">43</span><span class="t"><b>DESSERTS</b> matcha &amp; mochi</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-fried-chicken"><span class="pg">51</span><span class="t"><b>FRIED CHICKEN</b> crispy in the rain</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-halal"><span class="pg">56</span><span class="t"><b>HALAL</b> Commercial Drive &amp; beyond</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-korean-bbq"><span class="pg">65</span><span class="t"><b>KBBQ</b> K-BBQ night out</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-noodles"><span class="pg">74</span><span class="t"><b>NOODLES</b> hand-pulled &amp; hot</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-pizza"><span class="pg">78</span><span class="t"><b>PIZZA</b> rain day slices</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-ramen"><span class="pg">82</span><span class="t"><b>RAMEN</b> </span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-seafood"><span class="pg">91</span><span class="t"><b>SEAFOOD</b> Pacific wild</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-steak"><span class="pg">98</span><span class="t"><b>STEAK</b> Yaletown splurge</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-sushi"><span class="pg">105</span><span class="t"><b>SUSHI</b> sushi capital</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-tacos"><span class="pg">111</span><span class="t"><b>TACOS</b> taco Tuesday every day</span><span class="arrow">↗</span></a>
+      <a href="/vancouver/best-wings"><span class="pg">115</span><span class="t"><b>WINGS</b> game day spots</span><span class="arrow">↗</span></a>
     </div>
   </section>
 
@@ -673,24 +673,37 @@
       }
     });
 
+    // Collect visible cards first
+    const visible = [];
     cards.forEach(card => {
       const match = !filtering || card.dataset.type === f;
       if (match) {
         card.style.display = '';
-        if (filtering) {
-          // Auto-place everything — grid shrinks to fit
-          card.style.gridColumn = card.dataset.spanCol || 'auto';
-          card.style.gridRow = 'auto';
-        } else {
-          card.style.gridColumn = card.dataset.origCol || '';
-          card.style.gridRow = card.dataset.origRow || '';
-        }
+        visible.push(card);
       } else {
         card.style.display = 'none';
         card.style.gridColumn = '';
         card.style.gridRow = '';
       }
     });
+
+    if (filtering) {
+      // Reassign sizes based on position in filtered set
+      // Pattern: hero(2x2), med(2x1), small, small, med(1x2), small, small, wide(2x1), repeat
+      visible.forEach((card, i) => {
+        const pos = i % 8;
+        if (pos === 0) { card.style.gridColumn = 'span 2'; card.style.gridRow = 'span 2'; }
+        else if (pos === 1 || pos === 7) { card.style.gridColumn = 'span 2'; card.style.gridRow = 'auto'; }
+        else if (pos === 4) { card.style.gridColumn = 'auto'; card.style.gridRow = 'span 2'; }
+        else { card.style.gridColumn = 'auto'; card.style.gridRow = 'auto'; }
+      });
+    } else {
+      // Restore original collage positions
+      cards.forEach(card => {
+        card.style.gridColumn = card.dataset.origCol || '';
+        card.style.gridRow = card.dataset.origRow || '';
+      });
+    }
 
     grid.classList.toggle('filtered', filtering);
     // Shrink grid height to fit visible items
