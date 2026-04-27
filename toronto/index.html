@@ -648,9 +648,9 @@
       <div class="sub">a <u>chaotic</u> love letter to the <u>6ix</u> — in noodles, smoke &amp; skyline.</div>
       <div class="filter-tabs">
         <button class="active" data-filter="all">All <span class="count">∞</span></button>
-        <button data-filter="posts">Posts <span class="count">52</span></button>
-        <button data-filter="areas">Areas <span class="count">6</span></button>
-        <button data-filter="guides">Guides <span class="count">12</span></button>
+        <button data-filter="posts">Posts <span class="count">21</span></button>
+        <button data-filter="areas">Areas <span class="count">10</span></button>
+        <button data-filter="guides">Guides <span class="count">10</span></button>
       </div>
     </div>
 
@@ -1012,6 +1012,8 @@
     });
 
     grid.classList.toggle('filtered', filtering);
+    // Shrink grid to fit visible items — no empty space
+    grid.style.gridTemplateRows = '';
   }));
 })();
 /* BARCODE */

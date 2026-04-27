@@ -1,6 +1,7 @@
 /**
- * Generate city hub pages by cloning toronto/index.html
- * and replacing Toronto-specific content with city-specific content.
+ * Generate city hub pages from toronto/index.html template + data/cities.json.
+ * Replaces ALL Toronto-specific content: marquee, masthead, title, subtitle,
+ * filter counts, TOC, colophon, CN Tower, scribbles, collage grid.
  *
  * Usage: node scripts/rebuild-city-hubs.js
  */
@@ -14,79 +15,12 @@ const root = join(__dirname, '..');
 const BUNNY = 'https://vz-9c9477c9-fd2.b-cdn.net';
 
 function parseCSV(text){const r=[];let c=[];let f='';let q=false;for(let i=0;i<text.length;i++){const ch=text[i];const nx=text[i+1];if(q){if(ch==='"'&&nx==='"'){f+='"';i++}else if(ch==='"'){q=false}else{f+=ch}}else{if(ch==='"'){q=true}else if(ch===','){c.push(f.trim());f=''}else if(ch==='\n'){c.push(f.trim());if(c.length>1)r.push(c);c=[];f=''}else if(ch!=='\r'){f+=ch}}}if(f||c.length){c.push(f.trim());if(c.length>1)r.push(c)}return r}
+function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
-const CITIES = {
-  'los-angeles': {
-    csv:'la.csv', name:'Los Angeles', short:'LA', issue:'№01',
-    title:'THE LA FOOD ZINE',
-    h1:'LOS ANGELES <span class="and">&amp;</span> EATS',
-    sub:'a <u>sun-soaked</u> love letter to <u>LA</u> — in tacos, smoke &amp; palm trees.',
-    kicker:'FIELD GUIDE — LA EDITION',
-    price:'USD $6.66 · 34.0522° N, 118.2437° W',
-    printed:'PRINTED IN SILVER LAKE',
-    marquee:['THE LA FOOD ZINE','EAT LOCAL. EAT LOUD.','STARTED FROM THE TACO TRUCK NOW WE HERE','LA EATS DIFFERENT'],
-    scribbles:['tacos forever!!','↓ dig in ↓'],
-    postTitle:'Issue <em>01</em> — the LA drop',
-    postDek:'spots · creators · one very full editor',
-  },
-  'vancouver': {
-    csv:'vancouver.csv', name:'Vancouver', short:'VAN', issue:'№01',
-    title:'THE VANCOUVER FOOD ZINE',
-    h1:'VANCOUVER <span class="and">&amp;</span> EATS',
-    sub:'a <u>rain-soaked</u> love letter to <u>Van</u> — in sushi, noodles &amp; mountain views.',
-    kicker:'FIELD GUIDE — VANCOUVER EDITION',
-    price:'CAD $6.66 · 49.2827° N, 123.1207° W',
-    printed:'PRINTED IN GASTOWN',
-    marquee:['THE VANCOUVER FOOD ZINE','EAT LOCAL. EAT LOUD.','RAINCITY EATS HEAVY','SUSHI CAPITAL OF NORTH AMERICA'],
-    scribbles:['sushi weather!!','↓ dig in ↓'],
-    postTitle:'Issue <em>01</em> — the Van drop',
-    postDek:'spots · creators · one very full editor',
-  },
-  'dallas': {
-    csv:'dallas.csv', name:'Dallas', short:'DFW', issue:'№01',
-    title:'THE DALLAS FOOD ZINE',
-    h1:'DALLAS <span class="and">&amp;</span> EATS',
-    sub:'a <u>smoky</u> love letter to <u>the Big D</u> — in brisket, tacos &amp; sweet tea.',
-    kicker:'FIELD GUIDE — DALLAS EDITION',
-    price:'USD $6.66 · 32.7767° N, 96.7970° W',
-    printed:'PRINTED IN DEEP ELLUM',
-    marquee:['THE DALLAS FOOD ZINE','EAT LOCAL. EAT LOUD.','EVERYTHING IS BIGGER IN DALLAS','BBQ SMOKE AND CITY LIGHTS'],
-    scribbles:['BBQ all day!!','↓ dig in ↓'],
-    postTitle:'Issue <em>01</em> — the Dallas drop',
-    postDek:'spots · creators · one very full editor',
-  },
-  'houston': {
-    csv:'houston.csv', name:'Houston', short:'H-TOWN', issue:'№01',
-    title:'THE HOUSTON FOOD ZINE',
-    h1:'HOUSTON <span class="and">&amp;</span> EATS',
-    sub:'a <u>diverse</u> love letter to <u>H-Town</u> — in Viet-Cajun, BBQ &amp; swangas.',
-    kicker:'FIELD GUIDE — HOUSTON EDITION',
-    price:'USD $6.66 · 29.7604° N, 95.3698° W',
-    printed:'PRINTED IN MONTROSE',
-    marquee:['THE HOUSTON FOOD ZINE','EAT LOCAL. EAT LOUD.','H-TOWN HOLDS IT DOWN','MOST DIVERSE FOOD CITY IN AMERICA'],
-    scribbles:['chopped & screwed!!','↓ dig in ↓'],
-    postTitle:'Issue <em>01</em> — the H-Town drop',
-    postDek:'spots · creators · one very full editor',
-  },
-  'new-york': {
-    csv:'new_york.csv', name:'New York', short:'NYC', issue:'№01',
-    title:'THE NYC FOOD ZINE',
-    h1:'NEW YORK <span class="and">&amp;</span> EATS',
-    sub:'a <u>relentless</u> love letter to <u>NYC</u> — in dollar slices, bodega chops &amp; Michelin stars.',
-    kicker:'FIELD GUIDE — NYC EDITION',
-    price:'USD $6.66 · 40.7128° N, 74.0060° W',
-    printed:'PRINTED IN WILLIAMSBURG',
-    marquee:['THE NYC FOOD ZINE','EAT LOCAL. EAT LOUD.','DEAD ASS THE BEST FOOD','IF YOU CAN EAT HERE YOU CAN EAT ANYWHERE'],
-    scribbles:['no sleep just eat!!','↓ dig in ↓'],
-    postTitle:'Issue <em>01</em> — the NYC drop',
-    postDek:'spots · creators · one very full editor',
-  },
-};
-
-// Read Toronto template
+const cities = JSON.parse(readFileSync(join(root, 'data', 'cities.json'), 'utf8'));
 const torontoHTML = readFileSync(join(root, 'toronto', 'index.html'), 'utf8');
 
-// Layout patterns for collage grid (same as rebuild-all.js)
+// Layout patterns for collage grid
 const layouts=[
   {c:'1/span 5',r:'1/span 4',rot:-2,big:true},{c:'6/span 3',r:'1/span 2',rot:2},{c:'6/span 3',r:'3/span 2',rot:-3},
   {c:'9/span 4',r:'1/span 3',rot:2,big:true},{c:'13/span 2',r:'1/span 2',rot:4},{c:'15/span 2',r:'1/span 2',rot:-3},
@@ -109,53 +43,68 @@ const CATS_TITLES={
   'best-shawarma':'SHAWARMA','best-brunch':'BRUNCH','best-korean-bbq':'KBBQ',
 };
 
-for (const [dir, city] of Object.entries(CITIES)) {
+for (const [cityKey, city] of Object.entries(cities)) {
+  // Skip toronto — it's the template source
+  if (cityKey === 'toronto') continue;
+
   console.log(`\n═══ ${city.name.toUpperCase()} ═══`);
 
-  // Get article pages for this city
-  const cityDir = join(root, dir);
+  const cityDir = join(root, city.dir);
   if (!existsSync(cityDir)) { console.log('  ❌ Dir not found'); continue; }
-  const articles = readdirSync(cityDir).filter(f => f.startsWith('best-') && f.endsWith('.html'));
 
-  // Get first thumbnail from each article's CSV data
+  // Get existing article pages
+  const articles = readdirSync(cityDir).filter(f => f.startsWith('best-') && f.endsWith('.html')).map(f => f.replace('.html',''));
+  const areas = readdirSync(cityDir).filter(f => f.startsWith('area-') && f.endsWith('.html')).map(f => f.replace('.html',''));
+  const guides = readdirSync(cityDir).filter(f => f.startsWith('guide-') && f.endsWith('.html')).map(f => f.replace('.html',''));
+
+  // Get thumbnails from CSV
   const csvPath = join(root, city.csv);
-  if (!existsSync(csvPath)) { console.log('  ❌ CSV not found'); continue; }
-  const csv = readFileSync(csvPath, 'utf8');
-  const rows = parseCSV(csv);
-  const headers = rows[0];
-  const data = rows.slice(1).map(row => {
-    const o = {}; headers.forEach((h, i) => { o[h] = row[i] || '' }); return o;
-  }).filter(r => r.bunny_video_id);
-
-  // Build cover grid items from existing article pages
-  const gridItems = [];
-  for (const articleFile of articles) {
-    const slug = articleFile.replace('.html', '');
-    const label = CATS_TITLES[slug] || slug.replace('best-', '').toUpperCase();
-    // Find first video with bunny_id matching this cuisine
-    const kw = slug.replace('best-', '').replace(/-/g, ' ');
-    const match = data.find(v => {
-      const cap = (v.caption || '').toLowerCase();
-      const rest = (v.restaurant || '').toLowerCase();
-      return cap.includes(kw) || rest.includes(kw);
-    }) || data[gridItems.length % data.length]; // fallback to any video
-    const thumb = match ? `${BUNNY}/${match.bunny_video_id}/thumbnail.jpg` : '';
-    if (thumb) gridItems.push({ href: `/${dir}/${slug}`, title: label, img: thumb });
+  let csvData = [];
+  if (existsSync(csvPath)) {
+    const csv = readFileSync(csvPath, 'utf8');
+    const rows = parseCSV(csv);
+    const headers = rows[0];
+    csvData = rows.slice(1).map(row => {
+      const o = {}; headers.forEach((h, i) => { o[h] = row[i] || '' }); return o;
+    }).filter(r => r.bunny_video_id);
   }
 
-  // Also add remaining videos as generic tiles
-  const usedIds = new Set(gridItems.map(g => g.img));
-  for (const v of data) {
+  // Build collage grid items
+  const gridItems = [];
+  for (const slug of articles) {
+    const label = CATS_TITLES[slug] || slug.replace('best-','').toUpperCase();
+    const kw = slug.replace('best-','').replace(/-/g,' ');
+    const match = csvData.find(v => {
+      const cap = (v.caption||'').toLowerCase();
+      const rest = (v.restaurant||'').toLowerCase();
+      return cap.includes(kw) || rest.includes(kw);
+    }) || csvData[gridItems.length % Math.max(csvData.length, 1)];
+    const thumb = match?.bunny_video_id ? `${BUNNY}/${match.bunny_video_id}/thumbnail.jpg` : '';
+    if (thumb) gridItems.push({ href: `/${city.dir}/${slug}`, title: label, img: thumb, type: 'posts' });
+  }
+  for (const slug of areas) {
+    const match = csvData[gridItems.length % Math.max(csvData.length, 1)];
+    const thumb = match?.bunny_video_id ? `${BUNNY}/${match.bunny_video_id}/thumbnail.jpg` : '';
+    if (thumb) gridItems.push({ href: `/${city.dir}/${slug}`, title: slug.replace('area-','').toUpperCase(), img: thumb, type: 'areas' });
+  }
+  for (const slug of guides) {
+    const match = csvData[gridItems.length % Math.max(csvData.length, 1)];
+    const thumb = match?.bunny_video_id ? `${BUNNY}/${match.bunny_video_id}/thumbnail.jpg` : '';
+    if (thumb) gridItems.push({ href: `/${city.dir}/${slug}`, title: slug.replace('guide-','').toUpperCase(), img: thumb, type: 'guides' });
+  }
+  // Fill remaining slots with extra CSV thumbnails
+  const usedImgs = new Set(gridItems.map(g => g.img));
+  for (const v of csvData) {
     if (gridItems.length >= layouts.length) break;
     const thumb = `${BUNNY}/${v.bunny_video_id}/thumbnail.jpg`;
-    if (usedIds.has(thumb)) continue;
-    usedIds.add(thumb);
-    gridItems.push({ href: `/${dir}`, title: (v.restaurant || 'SPOT').substring(0, 15).toUpperCase(), img: thumb });
+    if (usedImgs.has(thumb)) continue;
+    usedImgs.add(thumb);
+    gridItems.push({ href: `/${city.dir}`, title: (v.restaurant||'SPOT').substring(0,15).toUpperCase(), img: thumb, type: 'posts' });
   }
 
-  console.log(`  ${gridItems.length} grid items, ${articles.length} articles`);
+  console.log(`  ${gridItems.length} grid items, ${articles.length} articles, ${areas.length} areas, ${guides.length} guides`);
 
-  // Build collage grid HTML
+  // ── Build collage grid HTML ──
   let gridHTML = '';
   const n = Math.min(gridItems.length, layouts.length);
   for (let i = 0; i < n; i++) {
@@ -166,92 +115,159 @@ for (const [dir, city] of Object.entries(CITIES)) {
       : `<span class="sub-label ${lc}">${it.title}</span>`;
     const tape = i % 5 === 0 ? `<div class="tape${i%3===0?' red':''}" style="top:-10px;${i%2?'left':'right'}:${20+i%30}%;width:${55+i%20}px;height:${16+i%5}px;transform:rotate(${-4+i%8}deg)"></div>` : '';
     gridHTML += `
-      <a class="hoverable mini" data-type="posts" href="${it.href}" style="--hover-rot:${ly.rot}deg;grid-column:${ly.c};grid-row:${ly.r};transform:rotate(${ly.rot}deg)">
+      <a class="hoverable mini" data-type="${it.type}" href="${it.href}" style="--hover-rot:${ly.rot}deg;grid-column:${ly.c};grid-row:${ly.r};transform:rotate(${ly.rot}deg)">
         ${ly.big ? label : ''}
         <div class="clip"><img src="${it.img}" alt="best ${it.title.toLowerCase()} ${city.name}" loading="lazy"/></div>
         ${!ly.big ? label : ''}${tape}
       </a>`;
   }
-  // Stamp
   gridHTML += `
       <div style="grid-column:13/span 4;grid-row:3/span 2;display:flex;flex-direction:column;gap:.3rem;padding:.4rem;justify-content:center">
         <div class="stamp" style="align-self:flex-start">VIDEO VERIFIED</div>
         <p class="mono" style="font-size:.7rem;line-height:1.3;margin:0">${articles.length} lists · ${city.name}</p>
         <div class="barcode" aria-hidden="true"></div>
       </div>`;
-  // Closing typographic card
-  const lastRow = Math.ceil(n / 3) * 2 + 2;
-  gridHTML += `
-      <div style="grid-column:1/span 16;grid-row:${lastRow}/span 1;display:flex;align-items:center;justify-content:center;background:var(--ink);color:var(--paper);padding:1.2rem;transform:rotate(-.3deg);box-shadow:6px 6px 0 var(--red);margin-top:1rem">
-        <div style="font-family:'Shrikhand',cursive;font-size:clamp(1.6rem,4vw,3rem);letter-spacing:.02em">↓ more lists every <span style="color:var(--yellow)">Friday</span> ↓</div>
-      </div>`;
 
-  // Now clone the Toronto template and do replacements
+  // ── Build TOC HTML ──
+  const tocDescs = city.toc_descriptions || {};
+  let tocHTML = '';
+  let pgNum = 4;
+  for (const slug of articles) {
+    const label = CATS_TITLES[slug] || slug.replace('best-','').toUpperCase();
+    const desc = tocDescs[slug] || '';
+    tocHTML += `      <a href="/${city.dir}/${slug}"><span class="pg">${String(pgNum).padStart(2,'0')}</span><span class="t"><b>${label}</b> ${esc(desc)}</span><span class="arrow">↗</span></a>\n`;
+    pgNum += 4 + Math.floor(Math.random() * 6);
+  }
+  if (!tocHTML) {
+    tocHTML = `      <a href="/${city.dir}"><span class="pg">01</span><span class="t"><b>Coming Soon</b> more lists dropping every Friday</span><span class="arrow">↗</span></a>\n`;
+  }
+
+  // ── Build marquee HTML ──
+  const marqueeItems = city.marquee.map(l => `<span><i class="dot"></i> ${l}</span>`).join('');
+  const marqueeHTML = marqueeItems + marqueeItems; // doubled for loop
+
+  // ── Real filter counts ──
+  const postCount = articles.length;
+  const areaCount = areas.length;
+  const guideCount = guides.length;
+
+  // ── Start with Toronto template ──
   let html = torontoHTML;
 
-  // SEO meta
-  html = html.replace('THE TORONTO FOOD ZINE — ISSUE №06 | BiteMap', `${city.title} — ISSUE ${city.issue} | BiteMap`);
-  html = html.replace(/The definitive Toronto food guide\. A chaotic love letter to the 6ix — in noodles, smoke & skyline\. Video reviews from trusted food creators\./g,
-    `The definitive ${city.name} food guide. ${city.sub.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&')} Video reviews from trusted food creators.`);
-  html = html.replace('https://www.bitemap.fun/toronto', `https://www.bitemap.fun/${dir}`);
-  html = html.replace(/THE TORONTO FOOD ZINE \| BiteMap/g, `${city.title} | BiteMap`);
-  html = html.replace(/A chaotic love letter to the 6ix — in noodles, smoke & skyline\. Video reviews from real food creators\./g,
-    `${city.sub.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&')} Video reviews from real food creators.`);
+  // ── 1. SEO meta ──
+  html = html.replace(/THE TORONTO FOOD ZINE — ISSUE №06 \| BiteMap/g, `${city.hub.title} — ISSUE ${city.issue} | BiteMap`);
+  html = html.replace(/The definitive Toronto food guide\.[^"]*Video reviews from trusted food creators\./g,
+    `The definitive ${city.name} food guide. ${(city.hub.sub||'').replace(/<[^>]+>/g,'').replace(/&amp;/g,'&')} Video reviews from trusted food creators.`);
+  html = html.replace(/https:\/\/www\.bitemap\.fun\/toronto/g, `https://www.bitemap.fun/${city.dir}`);
+  html = html.replace(/THE TORONTO FOOD ZINE \| BiteMap/g, `${city.hub.title} | BiteMap`);
+  html = html.replace(/A chaotic love letter to the 6ix[^"]*Video reviews from real food creators\./g,
+    `${(city.hub.sub||'').replace(/<[^>]+>/g,'').replace(/&amp;/g,'&')} Video reviews from real food creators.`);
 
-  // Marquee
-  const marqueeHTML = city.marquee.map(l => `<span><i class="dot"></i> ${l}</span>`).join('');
-  const oldMarquee = html.match(/<div class="marquee-track">[\s\S]*?<\/div>/);
-  if (oldMarquee) {
-    html = html.replace(oldMarquee[0], `<div class="marquee-track">${marqueeHTML}${marqueeHTML}</div>`);
-  }
+  // ── 2. Marquee ──
+  html = html.replace(/<div class="marquee-track">[\s\S]*?<\/div>/, `<div class="marquee-track">${marqueeHTML}</div>`);
 
-  // Masthead
-  html = html.replace('<b>THE TORONTO FOOD ZINE</b>', `<b>${city.title}</b>`);
-  html = html.replace('VOL. VI · ISSUE №06 · APRIL 2026', `VOL. I · ISSUE ${city.issue} · APRIL 2026`);
-  html = html.replace('CDN $6.66 · 43.6532° N, 79.3832° W', city.price);
+  // ── 3. Masthead ──
+  html = html.replace('<b>THE TORONTO FOOD ZINE</b>', `<b>${city.hub.title}</b>`);
+  html = html.replace(/VOL\. VI · ISSUE №06 · APRIL 2026/, `VOL. ${city.vol} · ISSUE ${city.issue} · APRIL 2026`);
+  html = html.replace(/CDN \$6\.66 · 43\.6532° N, 79\.3832° W/, `${city.price} · ${city.coords}`);
   html = html.replace('PRINTED IN KENSINGTON', city.printed);
 
-  // Title block
-  html = html.replace('FIELD GUIDE № 06', city.kicker);
-  html = html.replace('TORONTO <span class="and">&amp;</span> EATS', city.h1);
+  // ── 4. Title + kicker ──
+  html = html.replace('FIELD GUIDE № 06', city.hub.kicker);
+  html = html.replace('TORONTO <span class="and">&amp;</span> EATS', city.hub.h1);
 
-  // Subtitle
-  html = html.replace('a <u>chaotic</u> love letter to the <u>6ix</u> — in noodles, smoke &amp; skyline.', city.sub);
+  // ── 5. Subtitle ──
+  html = html.replace(
+    'a <u>chaotic</u> love letter to the <u>6ix</u> — in noodles, smoke &amp; skyline.',
+    city.hub.sub
+  );
 
-  // Scribbles
-  html = html.replace('>eat everything!!</', `>${city.scribbles[0]}</`);
+  // ── 6. Filter counts — replace with real numbers ──
+  html = html.replace(
+    /data-filter="posts">Posts <span class="count">\d+<\/span>/,
+    `data-filter="posts">Posts <span class="count">${postCount}</span>`
+  );
+  html = html.replace(
+    /data-filter="areas">Areas <span class="count">\d+<\/span>/,
+    `data-filter="areas">Areas <span class="count">${areaCount}</span>`
+  );
+  html = html.replace(
+    /data-filter="guides">Guides <span class="count">\d+<\/span>/,
+    `data-filter="guides">Guides <span class="count">${guideCount}</span>`
+  );
 
-  // Post block
-  html = html.replace('Issue <em>06</em> — the big drop', city.postTitle);
-  html = html.replace(/52 spots • 6 'hoods • 1 very full editor/g, city.postDek);
+  // ── 7. Post head ──
+  html = html.replace('Issue <em>06</em> — the big drop', `Issue <em>01</em> — the ${city.short} drop`);
+  html = html.replace(/\d+ spots • \d+ 'hoods • 1 very full editor/g,
+    `${postCount} lists · ${areaCount} areas · ${guideCount} guides`);
+  html = html.replace(/\d+ lists · \d+ areas · \d+ guides/g,
+    `${postCount} lists · ${areaCount} areas · ${guideCount} guides`);
 
-  // Replace cover grid
-  const gridStartMark = '<div class="cover-grid">';
-  const gridEndMark = '</div><!-- /previous post -->';
-  const gs = html.indexOf(gridStartMark);
-  const ge = html.indexOf(gridEndMark);
+  // ── 8. Scribbles ──
+  html = html.replace('>eat everything!!<', `>${city.scribbles[0]}<`);
+
+  // ── 9. Cover grid — replace entirely ──
+  const gridStartStr = '<div class="cover-grid">';
+  const gridEndStr = '</div><!-- /previous post -->';
+  const gs = html.indexOf(gridStartStr);
+  const ge = html.indexOf(gridEndStr);
   if (gs !== -1 && ge !== -1) {
-    html = html.substring(0, gs) + `<div class="cover-grid">${gridHTML}\n    </div>\n      </div><!-- /previous post -->` + html.substring(ge + gridEndMark.length);
+    html = html.substring(0, gs) + `<div class="cover-grid">${gridHTML}\n    </div>\n      </div><!-- /previous post -->` + html.substring(ge + gridEndStr.length);
   }
 
-  // Replace all /toronto/ links with /{dir}/
-  html = html.replace(/\/toronto\//g, `/${dir}/`);
-  html = html.replace(/href="\/toronto"/g, `href="/${dir}"`);
+  // ── 10. TOC section — replace with real article links ──
+  const tocStart = html.indexOf('<div class="toc">');
+  const tocEnd = html.indexOf('</div>', tocStart + 17);
+  if (tocStart !== -1 && tocEnd !== -1) {
+    html = html.substring(0, tocStart) + `<div class="toc">\n${tocHTML}    </div>` + html.substring(tocEnd + 6);
+  }
 
-  // Remove Toronto-specific SVG background iconography (CN Tower, maple leaf, OVO owl, etc.)
-  // Keep the bg-layer div but empty it for non-Toronto cities
+  // ── 11. Colophon — city-specific ──
+  html = html.replace(
+    /Made in a 4th-floor walk-up in Kensington by editors who have eaten too much and regret nothing\./,
+    city.colophon.text
+  );
+  html = html.replace(
+    /TORONTO · 43\.6532°N · 79\.3832°W/,
+    city.colophon.coords
+  );
+
+  // ── 12. Remove Toronto background SVGs (CN Tower, maple leaf, OVO owl, etc.) ──
   const bgStart = html.indexOf('<!-- BACKGROUND TORONTO ICONOGRAPHY -->');
   const bgEnd = html.indexOf('<!-- MASTHEAD -->');
   if (bgStart !== -1 && bgEnd !== -1) {
     html = html.substring(0, bgStart) + `<!-- BACKGROUND ${city.name.toUpperCase()} -->\n    <div class="bg-layer" aria-hidden="true"></div>\n\n    ` + html.substring(bgEnd);
   }
 
-  // Contents section — update links
+  // ── 13. Remove flying CN Tower ──
+  const cnStart = html.indexOf('<!-- Flying CN Tower -->');
+  const cnEnd = html.indexOf('</div>', html.indexOf('fly-tower', cnStart) + 10);
+  if (cnStart !== -1 && cnEnd !== -1) {
+    html = html.substring(0, cnStart) + html.substring(cnEnd + 6);
+  }
+
+  // ── 14. Fix all remaining /toronto/ links ──
+  html = html.replace(/\/toronto\//g, `/${city.dir}/`);
+  html = html.replace(/href="\/toronto"/g, `href="/${city.dir}"`);
+
+  // ── 15. Fix remaining "TORONTO FOOD ZINE" text refs ──
   html = html.replace(/TORONTO FOOD ZINE/g, `${city.short} FOOD ZINE`);
 
-  // Write
+  // ── 16. Remove CN Tower toggle text ──
+  html = html.replace('CN Tower scroll', `${city.short} scroll`);
+
+  // ── 17. Fix barcode seed ──
+  html = html.replace("'TOFOODZINE06'", `'${city.short.replace(/[^A-Z]/g,'')}FOODZINE01'`);
+
+  // ── 17. Fix filter JS — make grid shrink when items hidden ──
+  // Add grid auto-resize after filtering
+  html = html.replace(
+    "grid.classList.toggle('filtered', filtering);",
+    "grid.classList.toggle('filtered', filtering);\n    // Shrink grid height to fit visible items\n    grid.style.gridTemplateRows = '';"
+  );
+
   writeFileSync(join(cityDir, 'index.html'), html);
-  console.log(`  ✅ ${dir}/index.html — zine cover with ${n} tiles`);
+  console.log(`  ✅ ${city.dir}/index.html`);
 }
 
 console.log('\n═══ ALL CITY HUBS DONE ═══');
