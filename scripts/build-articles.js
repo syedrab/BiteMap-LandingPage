@@ -69,9 +69,10 @@ const data = allRows.slice(1).map(row => {
 
 console.log(`Parsed ${data.length} rows`);
 
-// ── Filter out callmecandace.tv ──
-const filtered = data.filter(r => r.creator_name !== 'callmecandace.tv');
-console.log(`${filtered.length} rows after excluding callmecandace.tv`);
+// ── Filter out excluded creators ──
+const EXCLUDE_CREATORS = ['callmecandace.tv', 'brazilianfoodie'];
+const filtered = data.filter(r => !EXCLUDE_CREATORS.includes(r.creator_name));
+console.log(`${filtered.length} rows after excluding ${EXCLUDE_CREATORS.join(', ')}`);
 
 // ── Category definitions ──
 const CATEGORIES = {

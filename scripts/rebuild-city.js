@@ -307,7 +307,7 @@ for(const[key,city]of Object.entries(CITIES)){
     if(o.bunny_video_id&&o.bunny_video_id!=='null'){o.thumbnail=`${BUNNY_CDN}/${o.bunny_video_id}/thumbnail.jpg`;o.hls_url=`${BUNNY_CDN}/${o.bunny_video_id}/playlist.m3u8`;o.video_link=`/v/${o.bunny_video_id}`}
     else{o.thumbnail=null;o.hls_url=null;o.video_link=o.source_url||'#'}
     return o;
-  }).filter(r=>r.views>=500);
+  }).filter(r=>!['callmecandace.tv','brazilianfoodie'].includes(r.creator_name) && r.views>=500);
 
   console.log(`  ${data.length} videos loaded`);
 

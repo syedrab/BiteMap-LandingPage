@@ -27,7 +27,7 @@ const TORONTO_LNG = -79.3832;
 const RADIUS_KM = 30;
 
 // Exclude this creator
-const EXCLUDE_CREATORS = ['callmecandace.tv'];
+const EXCLUDE_CREATORS = ['callmecandace.tv', 'brazilianfoodie'];
 
 async function query(table, params = '') {
   const url = `${SUPABASE_URL}/rest/v1/${table}?${params}`;

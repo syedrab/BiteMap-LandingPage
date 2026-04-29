@@ -50,7 +50,7 @@ const data = allRows.slice(1).map(row => {
   obj.saves = parseInt(obj.saves) || 0;
   obj.shares = parseInt(obj.shares) || 0;
   return obj;
-}).filter(r => r.creator_name !== 'callmecandace.tv' && r.views >= 500);
+}).filter(r => !['callmecandace.tv', 'brazilianfoodie'].includes(r.creator_name) && r.views >= 500);
 
 console.log(`${data.length} videos loaded\n`);
 

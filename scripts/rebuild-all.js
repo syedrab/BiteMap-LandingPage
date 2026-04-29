@@ -44,7 +44,7 @@ const data = allRows.slice(1).map(row => {
     o.thumbnail = null; o.hls_url = null; o.video_link = o.source_url || '#';
   }
   return o;
-}).filter(r => r.creator_name !== 'callmecandace.tv' && r.views >= 500);
+}).filter(r => !['callmecandace.tv', 'brazilianfoodie'].includes(r.creator_name) && r.views >= 500);
 
 console.log(`${data.length} videos loaded\n`);
 
