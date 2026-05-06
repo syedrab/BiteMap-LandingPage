@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Game Day Pitch — Watch Party Spread</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,wght@0,600;0,800;1,500;1,600&family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #F3EADA;
+    --bitemap-red: #FB2605;
+    --gold: #E9B63A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #0a0a0a; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', system-ui, sans-serif;
+    padding: 20px;
+  }
+  .stage { width: 540px; height: 960px; }
+  .frame {
+    width: 1080px; height: 1920px;
+    position: relative; overflow: hidden;
+    transform: scale(0.5); transform-origin: top left;
+    background: #1a3d24;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.75);
+  }
+
+  /* ============ REAL TURF BACKGROUND ============ */
+  .turf {
+    position: absolute; inset: 0;
+    background:
+      url("https://images.unsplash.com/photo-1556056504-5c7696c4c28d?w=1400&q=90") center/cover no-repeat,
+      #1a3d24;
+    filter: saturate(0.9) brightness(0.85);
+  }
+  /* subtle mow stripes overlay to unify look */
+  .turf::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04) 0px,
+      rgba(255,255,255,0.04) 160px,
+      rgba(0,0,0,0.10) 160px,
+      rgba(0,0,0,0.10) 320px
+    );
+    mix-blend-mode: overlay;
+  }
+  /* realistic vignette + top/bottom gradient for legibility */
+  .turf-darken {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(0,0,0,0.5) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 18%, transparent 72%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none;
+  }
+  /* white pitch lines — clean, semi-transparent (painted on grass) */
+  .pitch-lines {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: 0.55;
+  }
+
+  /* ============ FOOD CUTOUTS ============ */
+  .food-layer {
+    position: absolute; inset: 0;
+    z-index: 4;
+    pointer-events: none;
+  }
+  .cutout {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-duration: 0.85s;
+    animation-timing-function: cubic-bezier(0.16, 0.84, 0.28, 1);
+  }
+  .cutout img {
+    width: 100%; height: auto; display: block;
+    /* directional shadow: angled + soft + contact */
+    filter:
+      drop-shadow(0 8px 6px rgba(0,0,0,0.35))
+      drop-shadow(0 24px 28px rgba(0,0,0,0.45));
+  }
+  /* ground contact shadow — ellipse under the item */
+  .cutout::after {
+    content: "";
+    position: absolute;
+    left: 10%; right: 10%;
+    bottom: -6px;
+    height: 36px;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, transparent 65%);
+    filter: blur(10px);
+    opacity: 0;
+    transform: scale(0.5);
+    animation-fill-mode: forwards;
+    animation-duration: 0.85s;
+    animation-timing-function: cubic-bezier(0.16, 0.84, 0.28, 1);
+    z-index: -1;
+  }
+
+  @keyframes place {
+    0%   { opacity: 0; transform: translate(-50%, -50%) translateY(-300px) scale(0.82); filter: blur(3px); }
+    70%  { opacity: 1; transform: translate(-50%, -50%) translateY(6px)    scale(1.01); filter: blur(0); }
+    100% { opacity: 1; transform: translate(-50%, -50%) translateY(0)      scale(1);    filter: blur(0); }
+  }
+  @keyframes shadow-grow {
+    0%   { opacity: 0; transform: scale(0.45); }
+    70%  { opacity: 0.7; transform: scale(1.04); }
+    100% { opacity: 0.55; transform: scale(1); }
+  }
+
+  /* positions — spread around the pitch */
+  .c1 { top: 50%; left: 50%; width: 260px; animation: place 0.85s 0.9s forwards cubic-bezier(0.16,0.84,0.28,1); }
+  .c1::after { animation: shadow-grow 0.85s 0.9s forwards; }
+  .c2 { top: 28%; left: 24%; width: 320px; animation: place 0.85s 1.25s forwards cubic-bezier(0.16,0.84,0.28,1); }
+  .c2::after { animation: shadow-grow 0.85s 1.25s forwards; }
+  .c3 { top: 28%; left: 76%; width: 320px; animation: place 0.85s 1.55s forwards cubic-bezier(0.16,0.84,0.28,1); }
+  .c3::after { animation: shadow-grow 0.85s 1.55s forwards; }
+  .c4 { top: 74%; left: 22%; width: 300px; animation: place 0.85s 1.85s forwards cubic-bezier(0.16,0.84,0.28,1); }
+  .c4::after { animation: shadow-grow 0.85s 1.85s forwards; }
+  .c5 { top: 74%; left: 78%; width: 300px; animation: place 0.85s 2.15s forwards cubic-bezier(0.16,0.84,0.28,1); }
+  .c5::after { animation: shadow-grow 0.85s 2.15s forwards; }
+
+  /* ============ TYPOGRAPHY — editorial ============ */
+  .eyebrow {
+    position: absolute;
+    top: 110px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 0.48em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    z-index: 6;
+    opacity: 0;
+    animation: fade-down 0.7s 0.2s forwards ease-out;
+  }
+  .headline {
+    position: absolute;
+    top: 170px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Archivo Black', sans-serif;
+    color: #fff;
+    font-size: 160px;
+    letter-spacing: -0.03em;
+    line-height: 0.88;
+    text-transform: uppercase;
+    z-index: 6;
+    text-shadow: 0 10px 40px rgba(0,0,0,0.65);
+    opacity: 0;
+    animation: fade-down 0.8s 0.4s forwards cubic-bezier(0.16,0.84,0.28,1);
+  }
+  .headline .accent {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 72px;
+    color: var(--gold);
+    letter-spacing: 0;
+    margin-top: 22px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.55);
+  }
+  @keyframes fade-down {
+    0%   { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ MATCHUP CARD ============ */
+  .matchup-card {
+    position: absolute;
+    bottom: 420px; left: 60px; right: 60px;
+    background: rgba(10,10,10,0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 44px 40px 38px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+    z-index: 6;
+    opacity: 0;
+    transform: translateY(60px);
+    animation: card-in 0.7s 4.8s forwards cubic-bezier(0.16,0.84,0.28,1);
+  }
+  @keyframes card-in { to { opacity: 1; transform: translateY(0); } }
+
+  .team { flex: 1; text-align: center; }
+  .team .flag {
+    width: 150px; height: 100px;
+    margin: 0 auto 16px;
+    background-size: cover; background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.55);
+  }
+  .flag-ca { background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"); background-color: #fff; }
+  .flag-mx { background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg"); }
+  .team .name {
+    font-family: 'Archivo Black', sans-serif;
+    color: #fff;
+    font-size: 56px;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .vs {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 72px;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: scale(0.7);
+    animation: vs-in 0.5s 5.15s forwards cubic-bezier(0.16,0.84,0.28,1);
+  }
+  @keyframes vs-in {
+    0% { opacity: 0; transform: scale(0.7); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .venue-line {
+    position: absolute;
+    bottom: 350px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.88);
+    z-index: 6;
+    opacity: 0;
+    animation: fade-down 0.5s 5.35s forwards ease-out;
+  }
+
+  /* ============ CTA ============ */
+  .cta {
+    position: absolute;
+    bottom: 110px; left: 0; right: 0;
+    text-align: center;
+    z-index: 6;
+    opacity: 0;
+    animation: card-in 0.6s 5.7s forwards cubic-bezier(0.16,0.84,0.28,1);
+  }
+  .cta .tag {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 56px;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 26px;
+    text-shadow: 0 3px 20px rgba(0,0,0,0.5);
+  }
+  .cta .strip {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 0.48em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+  .cta .strip .dot { color: var(--bitemap-red); margin: 0 14px; }
+
+  .replay {
+    position: fixed; bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--bitemap-red); color: #fff;
+    border: none; padding: 12px 26px;
+    font-family: 'Inter', sans-serif; font-weight: 800;
+    font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer; border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="frame" id="frame">
+
+    <div class="turf"></div>
+    <svg class="pitch-lines" viewBox="0 0 1080 1920" preserveAspectRatio="none">
+      <g stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round">
+        <rect x="60" y="60" width="960" height="1800"/>
+        <line x1="60" y1="960" x2="1020" y2="960"/>
+        <circle cx="540" cy="960" r="200"/>
+        <rect x="240" y="60"   width="600" height="260"/>
+        <rect x="380" y="60"   width="320" height="120"/>
+        <path d="M 420 320 A 120 120 0 0 0 660 320"/>
+        <rect x="240" y="1600" width="600" height="260"/>
+        <rect x="380" y="1740" width="320" height="120"/>
+        <path d="M 420 1600 A 120 120 0 0 1 660 1600"/>
+      </g>
+      <g fill="#FFFFFF">
+        <circle cx="540" cy="960" r="8"/>
+        <circle cx="540" cy="250" r="7"/>
+        <circle cx="540" cy="1670" r="7"/>
+      </g>
+    </svg>
+    <div class="turf-darken"></div>
+
+    <div class="eyebrow">fifa world cup · june 12, 2026</div>
+    <div class="headline">
+      GAME DAY.
+      <span class="accent">the spread.</span>
+    </div>
+
+    <!-- Real photographic food cutouts -->
+    <div class="food-layer">
+      <div class="cutout c1"><img src="https://pngimg.com/uploads/football/football_PNG52772.png" alt=""></div>
+      <div class="cutout c2"><img src="https://pngimg.com/uploads/fried_chicken/fried_chicken_PNG14037.png" alt=""></div>
+      <div class="cutout c3"><img src="https://pngimg.com/uploads/nachos/nachos_PNG42.png" alt=""></div>
+      <div class="cutout c4"><img src="https://pngimg.com/uploads/pizza/pizza_PNG44055.png" alt=""></div>
+      <div class="cutout c5"><img src="https://pngimg.com/uploads/beer/beer_PNG2382.png" alt=""></div>
+    </div>
+
+    <div class="matchup-card">
+      <div class="team">
+        <div class="flag flag-ca"></div>
+        <div class="name">CANADA</div>
+      </div>
+      <div class="vs">vs</div>
+      <div class="team">
+        <div class="flag flag-mx"></div>
+        <div class="name">MEXICO</div>
+      </div>
+    </div>
+
+    <div class="venue-line">BMO Field · Toronto · 3PM ET</div>
+
+    <div class="cta">
+      <div class="tag">eat local. cheer loud.</div>
+      <div class="strip">FOUND<span class="dot">·</span>ON<span class="dot">·</span>BITEMAP</div>
+    </div>
+
+  </div>
+</div>
+
+<button class="replay" onclick="replay()">▶ REPLAY</button>
+
+<script>
+  function replay() {
+    const f = document.getElementById('frame');
+    const c = f.cloneNode(true);
+    f.parentNode.replaceChild(c, f);
+    c.id = 'frame';
+  }
+</script>
+</body>
+</html>

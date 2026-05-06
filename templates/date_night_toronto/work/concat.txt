@@ -1,0 +1,5 @@
+file '/Users/mohibrab/workdir/GitHub/BiteMap-AgenticCampaign/templates/date_night_toronto/work/c1.mp4'
+file '/Users/mohibrab/workdir/GitHub/BiteMap-AgenticCampaign/templates/date_night_toronto/work/c2.mp4'
+file '/Users/mohibrab/workdir/GitHub/BiteMap-AgenticCampaign/templates/date_night_toronto/work/c3.mp4'
+file '/Users/mohibrab/workdir/GitHub/BiteMap-AgenticCampaign/templates/date_night_toronto/work/c4.mp4'
+file '/Users/mohibrab/workdir/GitHub/BiteMap-AgenticCampaign/templates/date_night_toronto/work/c5.mp4'

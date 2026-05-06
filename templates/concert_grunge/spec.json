@@ -1,0 +1,117 @@
+{
+  "template_id": "concert_grunge",
+  "name": "Concert Grunge Poster Carousel",
+  "series": "Concerts / Events",
+  "format": "5-slide carousel (1 hero + 3 food picks + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "Grungy gig-flyer zine — black distressed paper background with paint splatter and scratch texture, oversized bold sans headlines inside yellow paint-strip blocks, handwritten marker script for accent words, black-and-white portrait, Y2K smiley sticker, magenta + yellow rounded pills for quick details, handwritten-underlined detail rows at the bottom. Feels stapled to a pole outside a basement show.",
+  "palette": {
+    "black": "#0D0D0D",
+    "paper": "#141414",
+    "yellow": "#F8E235",
+    "magenta": "#D6286B",
+    "white": "#FFFFFF",
+    "gray": "#9A9A9A",
+    "smiley": "#C86B1F",
+    "bitemap_red": "#FB2605"
+  },
+  "fonts": {
+    "display_bold": "Archivo Black / Bebas Neue (block headlines inside yellow strips)",
+    "marker_script": "Permanent Marker / Caveat Brush (handwritten accents, artist name)",
+    "handwritten": "Caveat / Kalam (handwritten detail values — address, time, date)",
+    "sans_body": "Inter 500/700 (labels, body copy)"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "Concert Hero",
+      "subject": "Black distressed bg with splatter/scratch overlay and halftone-dot corners; yellow paint-strip blocks stacked top-left with 'NIGHT' + 'MUSIC' in Archivo Black; handwritten marker 'CONCERT' accent overlapping the yellow blocks; smiley Y2K sticker overlapping strip; B&W artist portrait centered with rainbow prism flare; handwritten marker artist name lower-right ('NOISE' style); two magenta + one yellow pill row (free parking / free drinks / address); bottom detail table with TIME / ADDRESS / DATE labels and handwritten values.",
+      "copy": {
+        "titleLine1": "'NIGHT' (or short 1-word UPPERCASE)",
+        "titleLine2": "'MUSIC' (or short 1-word UPPERCASE)",
+        "scriptAccent": "'concert' (or short marker-script word)",
+        "artistName": "artist name in marker script (e.g. 'SHAKIRA', 'NOISE')",
+        "pills": "3 short pills (e.g. 'FREE ENTRY', 'OPEN BAR', '123 STREET')",
+        "detailRows": "{ time: '4PM – 8PM', address: '...', date: '20-08-26', musicBy: 'Artist' }"
+      }
+    },
+    {
+      "n": 2,
+      "role": "Before The Show",
+      "subject": "Same grunge bg. Large B&W dish photo with thin yellow highlight band; yellow strip label 'BEFORE THE SHOW' top-left; handwritten marker dish name in magenta or white; meta pills (cuisine, walk time, rating) below; short review note; handle bottom.",
+      "copy": {
+        "label": "'BEFORE THE SHOW' fixed",
+        "markerName": "dish or restaurant name in marker script",
+        "pills": "3 short pills (cuisine, walk-time, rating)",
+        "description": "1-2 sentence review note",
+        "handle": "@restaurant"
+      }
+    },
+    {
+      "n": 3,
+      "role": "After The Encore",
+      "subject": "Mirrored layout — B&W dish photo right, copy pane left with yellow strip label 'AFTER THE ENCORE', marker-script dish name, pills row, review note, handle.",
+      "copy": {
+        "label": "'AFTER THE ENCORE' fixed",
+        "markerName": "dish/restaurant in marker script",
+        "pills": "3 short pills",
+        "description": "1-2 sentence review note",
+        "handle": "@restaurant"
+      }
+    },
+    {
+      "n": 4,
+      "role": "The Set List",
+      "subject": "Grunge bg; yellow strip label 'THE SET LIST' top; numbered list of 3-5 restaurants, each row with big yellow numeral, restaurant name (bold), handwritten tagline (cuisine · walk time · rating), dashed divider between rows; venue pin bottom with magenta dot.",
+      "copy": {
+        "label": "'THE SET LIST' fixed",
+        "places": "array of 3-5 {number, name, tagline}",
+        "venueName": "venue + city for bottom pin"
+      }
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Grunge bg; yellow strip block with 'FOUND ON' bold text; handwritten marker 'BiteMap!' next to or below the strip; transparent BiteMap logo; magenta + yellow pill row with tagline; app store badges; halftone dot corners; smiley sticker corner accent.",
+      "copy": "Fixed: 'FOUND ON' strip / BiteMap logo / tagline 'real places · real reviews' / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "artistName": "string — headliner (shown in marker script on hero)",
+    "concertDate": "string — e.g. '20-08-2026'",
+    "concertTime": "string — e.g. '7PM – 11PM'",
+    "venueName": "string",
+    "venueAddress": "string",
+    "city": "string",
+    "heroImageUrl": "B&W-friendly artist portrait (will be desaturated)",
+    "heroPills": "3 short pills (hero slide)",
+    "slide2": { "imageUrl": "dish photo", "markerName": "marker-script name", "pills": "3 short pills", "description": "review note", "handle": "@restaurant" },
+    "slide3": { "imageUrl": "dish photo", "markerName": "marker-script name", "pills": "3 short pills", "description": "review note", "handle": "@restaurant" },
+    "slide4": { "places": "3-5 {number, name, tagline}" }
+  },
+  "copy_rules": [
+    "Yellow-strip headlines: ONE word each, ALL UPPERCASE, 5 letters or fewer ideal",
+    "Marker-script words: ONE word, handwritten feel — use as the emotional accent",
+    "Pills: 2-4 words max each, UPPERCASE or lowercase but consistent within a slide",
+    "Detail values use handwritten font — keep them short and scannable",
+    "Tone: gritty, specific, show-flyer honest — no hype adjectives",
+    "Restaurant name in @handle only — never in the big yellow-strip headline"
+  ],
+  "asset_rules": [
+    "Hero portrait gets desaturated to B&W — pick a high-contrast photo with a clear subject",
+    "Dish photos get partial desaturation — pick shots with strong composition, not just bright color",
+    "Minimum 1080px wide; real photos only (no AI)",
+    "Always use `bitemap_logo_transparent.png` — never a logo with baked-in background"
+  ],
+  "use_when": [
+    "Alt / rock / indie / hip-hop concerts where a gritty flyer reads more credibly than a polished poster",
+    "Late-night / club / warehouse / festival adjacent shows",
+    "Younger-skew audiences who respond to zine and streetwear visual language",
+    "When concert_poster feels too polished and the act / scene calls for rougher energy"
+  ]
+}

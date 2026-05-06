@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Concert Editorial — Carousel Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@500;700&family=Barlow+Condensed:wght@500;700;800;900&family=Caveat+Brush&family=Permanent+Marker&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ====== EDITORIAL THEME — swap per artist/mood ====== */
+    --paper:  #F3EBDF;
+    --ink:    #141414;
+    --accent: #C5412A;   /* passion red (swap to teal/pink/amber per mood) */
+    --brush:  #C5412A;   /* brush-script color (usually same as --accent) */
+    /* ==================================================== */
+    --bitemap-red: #FB2605;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gallery {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    justify-content: center; max-width: 2800px; margin: 0 auto;
+  }
+
+  .slide-wrap { width: 486px; height: 607.5px; position: relative; }
+
+  .frame {
+    position: relative;
+    width: 1080px; height: 1350px;
+    background: var(--paper);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transform: scale(0.45);
+    transform-origin: top left;
+  }
+
+  .label {
+    position: absolute;
+    top: -28px; left: 0;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* subtle paper grain */
+  .paper-grain {
+    position: absolute; inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(0,0,0,0.03), transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(0,0,0,0.04), transparent 55%);
+    mix-blend-mode: multiply;
+  }
+  .paper-grain::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0 1px, transparent 1px 3px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.015) 0 1px, transparent 1px 3px);
+  }
+
+  /* top editorial frame line with star accents */
+  .top-frame {
+    position: absolute;
+    top: 70px; left: 60px; right: 60px;
+    height: 2px;
+    background: var(--ink);
+    z-index: 3;
+  }
+  .top-frame .star-left, .top-frame .star-right {
+    position: absolute;
+    top: -14px;
+    width: 30px; height: 30px;
+    background: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink);
+  }
+  .top-frame .star-left { left: -4px; }
+  .top-frame .star-right { right: -4px; }
+
+  .bottom-frame {
+    position: absolute;
+    bottom: 70px; left: 60px; right: 60px;
+    height: 2px;
+    background: var(--ink);
+    z-index: 3;
+  }
+  .bottom-frame::before, .bottom-frame::after {
+    content: "★";
+    position: absolute; top: -16px;
+    color: var(--ink);
+    font-size: 22px;
+    background: var(--paper);
+    padding: 0 8px;
+  }
+  .bottom-frame::before { left: -4px; }
+  .bottom-frame::after { right: -4px; }
+
+  /* typographic helpers */
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .display-headline {
+    font-family: 'Archivo Black', 'Barlow Condensed', sans-serif;
+    color: var(--ink);
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+  .col-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.6;
+    margin-bottom: 8px;
+  }
+  .col-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-size: 36px;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+  }
+  .col-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--ink);
+    opacity: 0.7;
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+  }
+  .brush-number {
+    font-family: 'Caveat Brush', 'Permanent Marker', cursive;
+    color: var(--brush);
+    line-height: 0.9;
+    font-size: 140px;
+  }
+
+  /* vertical side label */
+  .side-label {
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--ink);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding: 16px 10px;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    z-index: 8;
+    background: var(--paper);
+  }
+
+  /* thin black photo frame */
+  .photo-frame {
+    position: relative;
+    border: 2px solid var(--ink);
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ---------- SLIDE 1: INVITE ---------- */
+  .s1 .eyebrow {
+    position: absolute;
+    top: 120px; left: 60px;
+    z-index: 4;
+  }
+  .s1 .headline-wrap {
+    position: absolute;
+    top: 170px; left: 60px; right: 60px;
+    z-index: 4;
+  }
+  .s1 .headline-wrap .display-headline {
+    font-size: 130px;
+  }
+  .s1 .headline-wrap .artist {
+    font-family: 'Archivo Black', sans-serif;
+    color: var(--accent);
+    font-size: 130px;
+    line-height: 0.95;
+    display: block;
+    margin-top: 6px;
+    letter-spacing: -0.02em;
+  }
+
+  .s1 .columns {
+    position: absolute;
+    top: 540px; left: 60px; right: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    z-index: 4;
+  }
+  .s1 .columns .col { }
+  .s1 .columns .price-col {
+    text-align: left;
+  }
+  .s1 .columns .price-col .brush-number {
+    font-size: 160px;
+    display: block;
+    line-height: 0.9;
+  }
+
+  .s1 .photo-frame {
+    position: absolute;
+    left: 60px; right: 60px;
+    top: 800px;
+    height: 480px;
+    z-index: 4;
+  }
+  .s1 .side-label {
+    top: 830px; right: 30px;
+    z-index: 9;
+  }
+
+  /* ---------- SLIDE 2 / 3: EATS ---------- */
+  .eats .kicker {
+    position: absolute;
+    top: 120px; left: 60px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    z-index: 4;
+  }
+  .eats .headline-wrap {
+    position: absolute;
+    top: 160px; left: 60px; right: 60px;
+    z-index: 4;
+  }
+  .eats .headline-wrap .display-headline {
+    font-size: 200px;
+  }
+  .eats .photo-frame {
+    position: absolute;
+    left: 60px; right: 60px;
+    top: 600px;
+    height: 420px;
+    z-index: 4;
+  }
+  .eats .columns {
+    position: absolute;
+    left: 60px; right: 60px;
+    bottom: 130px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 40px;
+    z-index: 4;
+  }
+  .eats .brush-col .brush-number {
+    font-size: 120px;
+    display: block;
+    line-height: 0.9;
+  }
+  .eats .brush-col .col-sub {
+    margin-top: -4px;
+  }
+  .eats .side-label {
+    top: 600px; right: 30px;
+  }
+
+  /* ---------- SLIDE 4: PAIRING ---------- */
+  .s4 .editorial-grid {
+    position: absolute;
+    top: 130px; left: 60px; right: 60px;
+    z-index: 4;
+  }
+  .s4 .row {
+    display: flex;
+    gap: 40px;
+    padding: 26px 0;
+    border-bottom: 2px solid var(--ink);
+  }
+  .s4 .row.first { border-top: 2px solid var(--ink); }
+  .s4 .row .lbl {
+    flex: 0 0 280px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+    align-self: center;
+  }
+  .s4 .row .val {
+    flex: 1;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 110px;
+    line-height: 0.95;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    align-self: center;
+  }
+  .s4 .row .val.accent { color: var(--accent); }
+  .s4 .row .val.brush {
+    font-family: 'Caveat Brush', cursive;
+    color: var(--brush);
+    font-size: 130px;
+    letter-spacing: normal;
+  }
+  .s4 .photo-frame {
+    position: absolute;
+    left: 60px; right: 60px;
+    bottom: 170px;
+    height: 520px;
+    z-index: 4;
+  }
+  .s4 .bridge {
+    position: absolute;
+    left: 60px; right: 60px;
+    bottom: 100px;
+    font-family: 'Caveat Brush', cursive;
+    color: var(--ink);
+    font-size: 42px;
+    line-height: 1.1;
+    z-index: 5;
+    text-align: center;
+  }
+  .s4 .side-label {
+    top: 130px; right: 30px;
+  }
+
+  /* ---------- SLIDE 5: CTA ---------- */
+  .cta {
+    position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 140px 80px;
+  }
+  .cta-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 60px;
+    z-index: 3;
+  }
+  .cta-logo-wrap {
+    margin-bottom: 60px;
+    display: flex; justify-content: center;
+    z-index: 3;
+  }
+  .cta-logo {
+    width: 440px; height: auto; display: block;
+    filter: drop-shadow(0 14px 30px rgba(0,0,0,0.18));
+  }
+  .cta-tag {
+    font-family: 'Caveat Brush', cursive;
+    color: var(--accent);
+    font-size: 72px;
+    line-height: 1;
+    margin-bottom: 70px;
+    z-index: 3;
+  }
+  .cta-badges {
+    display: flex; gap: 32px; align-items: center;
+    z-index: 3;
+  }
+  .cta-badges img { height: 110px; width: auto; }
+
+  /* export mode */
+  body.export { padding: 0; background: #000; }
+  body.export .gallery { gap: 0; max-width: none; }
+  body.export .slide-wrap { width: 1080px; height: 1350px; display: none; }
+  body.export .slide-wrap.active { display: block; }
+  body.export .frame { transform: scale(1); }
+  body.export .label { display: none; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const slide = q.get('slide');
+    if (slide) {
+      document.body.classList.add('export');
+      document.querySelectorAll('.slide-wrap').forEach((w, i) => {
+        if (String(i + 1) === slide) w.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="star4" viewBox="0 0 30 30">
+      <path d="M15 2 L17 13 L28 15 L17 17 L15 28 L13 17 L2 15 L13 13 Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="gallery">
+
+  <!-- ============ SLIDE 1: INVITE ============ -->
+  <div class="slide-wrap">
+    <div class="label">01 / 05 — invite</div>
+    <div class="frame s1">
+      <div class="paper-grain"></div>
+
+      <div class="top-frame">
+        <span class="star-left"><svg width="30" height="30"><use href="#star4"/></svg></span>
+        <span class="star-right"><svg width="30" height="30"><use href="#star4"/></svg></span>
+      </div>
+
+      <div class="eyebrow">YOU ARE INVITED TO</div>
+
+      <div class="headline-wrap">
+        <div class="display-headline">AN EVENING WITH</div>
+        <div class="artist">KENDRICK</div>
+      </div>
+
+      <div class="columns">
+        <div class="col price-col">
+          <div class="col-label">Tickets</div>
+          <div class="brush-number">$120+</div>
+          <div class="col-sub">general · resale</div>
+        </div>
+        <div class="col">
+          <div class="col-label">Doors open</div>
+          <div class="col-value">JUN 23</div>
+          <div class="col-value" style="font-size:28px;margin-top:6px;">8 PM LOCAL</div>
+        </div>
+        <div class="col">
+          <div class="col-label">Venue</div>
+          <div class="col-value">SOFI STADIUM</div>
+          <div class="col-sub">Inglewood, CA</div>
+        </div>
+      </div>
+
+      <div class="photo-frame">
+        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1600" alt="artist" />
+      </div>
+
+      <div class="side-label">LIVE SHOW</div>
+
+      <div class="bottom-frame"></div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 2: PRE-SHOW ============ -->
+  <div class="slide-wrap">
+    <div class="label">02 / 05 — pre-show</div>
+    <div class="frame s2 eats">
+      <div class="paper-grain"></div>
+      <div class="top-frame">
+        <span class="star-left"><svg width="30" height="30"><use href="#star4"/></svg></span>
+        <span class="star-right"><svg width="30" height="30"><use href="#star4"/></svg></span>
+      </div>
+
+      <div class="kicker">PRE-SHOW · BITE FIRST</div>
+
+      <div class="headline-wrap">
+        <div class="display-headline">EAT FIRST</div>
+      </div>
+
+      <div class="photo-frame">
+        <img src="../../library/images/summer3.jpg" alt="restaurant" />
+      </div>
+
+      <div class="columns">
+        <div class="col">
+          <div class="col-label">Restaurant</div>
+          <div class="col-value">HILLTOP JERK</div>
+          <div class="col-sub">Jamaican · $$</div>
+        </div>
+        <div class="col">
+          <div class="col-label">Neighbourhood</div>
+          <div class="col-value">WESTCHESTER</div>
+          <div class="col-sub">Los Angeles</div>
+        </div>
+        <div class="col brush-col">
+          <div class="col-label">Distance</div>
+          <div class="brush-number">0.4 mi</div>
+          <div class="col-sub">from venue</div>
+        </div>
+      </div>
+
+      <div class="side-label">BEFORE DOORS</div>
+      <div class="bottom-frame"></div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 3: LATE BITE ============ -->
+  <div class="slide-wrap">
+    <div class="label">03 / 05 — late bite</div>
+    <div class="frame s3 eats">
+      <div class="paper-grain"></div>
+      <div class="top-frame">
+        <span class="star-left"><svg width="30" height="30"><use href="#star4"/></svg></span>
+        <span class="star-right"><svg width="30" height="30"><use href="#star4"/></svg></span>
+      </div>
+
+      <div class="kicker">AFTER-SHOW · STILL HUNGRY</div>
+
+      <div class="headline-wrap">
+        <div class="display-headline">LATE BITE</div>
+      </div>
+
+      <div class="photo-frame">
+        <img src="../../library/images/summer1.jpg" alt="restaurant" />
+      </div>
+
+      <div class="columns">
+        <div class="col">
+          <div class="col-label">Restaurant</div>
+          <div class="col-value">PHILIPPE'S</div>
+          <div class="col-sub">French Dip · $</div>
+        </div>
+        <div class="col">
+          <div class="col-label">Neighbourhood</div>
+          <div class="col-value">CHINATOWN</div>
+          <div class="col-sub">Los Angeles</div>
+        </div>
+        <div class="col brush-col">
+          <div class="col-label">Open until</div>
+          <div class="brush-number">2 am</div>
+          <div class="col-sub">nightly</div>
+        </div>
+      </div>
+
+      <div class="side-label">POST ENCORE</div>
+      <div class="bottom-frame"></div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 4: PAIRING ============ -->
+  <div class="slide-wrap">
+    <div class="label">04 / 05 — pairing</div>
+    <div class="frame s4">
+      <div class="paper-grain"></div>
+      <div class="top-frame">
+        <span class="star-left"><svg width="30" height="30"><use href="#star4"/></svg></span>
+        <span class="star-right"><svg width="30" height="30"><use href="#star4"/></svg></span>
+      </div>
+
+      <div class="editorial-grid">
+        <div class="row first">
+          <div class="lbl">IF YOU LIKE</div>
+          <div class="val accent">KENDRICK</div>
+        </div>
+        <div class="row">
+          <div class="lbl">YOU NEED</div>
+          <div class="val brush">omakase</div>
+        </div>
+      </div>
+
+      <div class="photo-frame">
+        <img src="../../library/images/summer5.jpg" alt="pairing dish" />
+      </div>
+
+      <div class="bridge">meticulous cadence · ten-course restraint · same discipline.</div>
+
+      <div class="side-label">PAIRING</div>
+      <div class="bottom-frame"></div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 5: CTA ============ -->
+  <div class="slide-wrap">
+    <div class="label">05 / 05 — cta</div>
+    <div class="frame cta">
+      <div class="paper-grain"></div>
+      <div class="top-frame">
+        <span class="star-left"><svg width="30" height="30"><use href="#star4"/></svg></span>
+        <span class="star-right"><svg width="30" height="30"><use href="#star4"/></svg></span>
+      </div>
+
+      <div class="cta-eyebrow">READ THE GUIDE ON</div>
+      <div class="cta-logo-wrap">
+        <img class="cta-logo" src="../../library/icons/bitemap_logo_transparent.png" alt="BiteMap" />
+      </div>
+      <div class="cta-tag">eat like a critic.</div>
+      <div class="cta-badges">
+        <img src="../../library/icons/app-store-badge.svg" alt="App Store" />
+        <img src="../../library/icons/google-play-badge.svg" alt="Google Play" />
+      </div>
+
+      <div class="bottom-frame"></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

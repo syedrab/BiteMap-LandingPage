@@ -1,0 +1,116 @@
+{
+  "template_id": "gameday",
+  "name": "Game Day Sports Bar Carousel",
+  "series": "Sports Events / Game Day",
+  "format": "4-slide carousel (3 content + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "High-energy sports hype — team colors, bold sans-serif headlines, team logos, court/field background energy, bar atmosphere, countdown vibes. Designed for playoff/championship moments.",
+  "palette": {
+    "bg_dark": "#0E0E0E",
+    "accent_1": "#FB2605",
+    "accent_2": "#FFFFFF",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#999999",
+    "bitemap_red": "#FB2605"
+  },
+  "fonts": {
+    "display_bold": "Bebas Neue / Archivo Black (huge uppercase headlines)",
+    "sans_body": "Montserrat 700/800 (copy, meta)"
+  },
+  "theme_vars": {
+    "--team-1-color": "primary team color (e.g., red for Raptors)",
+    "--team-2-color": "opponent team color (e.g., wine for Cavs)",
+    "--accent": "highlight color (usually white or accent team color)"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "Game Hero",
+      "subject": "Court/arena background with dark overlay; team 1 logo top-left, team 2 logo top-right; huge 'VS' center; game time and venue below; watch location (e.g., 'JURASSIC PARK' or stadium name); 'GAMEDAY' or countdown text bottom.",
+      "copy": {
+        "team1": "RAPTORS",
+        "team1Logo": "url",
+        "team2": "CAVS",
+        "team2Logo": "url",
+        "time": "7:30 PM",
+        "venue": "SCOTIABANK ARENA",
+        "watchLocation": "JURASSIC PARK",
+        "headline": "GAMEDAY"
+      }
+    },
+    {
+      "n": 2,
+      "role": "Where to Eat",
+      "subject": "Restaurant hero photo with dark overlay; graffiti headline 'WHERE TO EAT'; restaurant name in large bold text; neighbourhood/distance from venue; 2-3 signature dishes or vibe bullets.",
+      "copy": {
+        "headline": "WHERE TO EAT",
+        "restaurantName": "RAPTOR REAL SPORTS BAR & GRILL",
+        "neighbourhood": "DOWNTOWN TORONTO",
+        "distance": "WALKING DISTANCE",
+        "imageUrl": "restaurant hero photo",
+        "bullets": ["WINGS", "NACHOS", "CRAFT BEER"]
+      }
+    },
+    {
+      "n": 3,
+      "role": "Game Vibes",
+      "subject": "Packed bar/crowd photo or team celebration image; headline 'BRING THE ENERGY'; tagline about the watch party atmosphere; CTA copy about timing.",
+      "copy": {
+        "headline": "BRING THE ENERGY",
+        "tagline": "PACKED HOUSE. LIVE. LOUD.",
+        "imageUrl": "bar/crowd energy photo",
+        "cta": "ARRIVE 2 HOURS EARLY"
+      }
+    },
+    {
+      "n": 4,
+      "role": "CTA",
+      "subject": "Dark bg with BiteMap logo, 'FOUND THE SPOT' banner, app badges.",
+      "copy": "Fixed: 'FOUND THE SPOT' / BiteMap logo / tagline / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "team1": "string — home team name (e.g., 'RAPTORS')",
+    "team1Logo": "string — team 1 logo URL",
+    "team2": "string — away team name (e.g., 'CAVS')",
+    "team2Logo": "string — team 2 logo URL",
+    "time": "string — game time (e.g., '7:30 PM')",
+    "venue": "string — arena/stadium name (e.g., 'SCOTIABANK ARENA')",
+    "watchLocation": "string — outdoor watch area or venue section (e.g., 'JURASSIC PARK')",
+    "backgroundImageUrl": "string — court/field/arena background (will be darkened)",
+    "restaurantName": "string — restaurant name",
+    "neighbourhood": "string — location",
+    "distance": "string — distance from venue or walking direction",
+    "restaurantImageUrl": "string — restaurant hero photo (dish or interior)",
+    "bullets": "string[] — 2-3 signature items or vibe words",
+    "crowdImageUrl": "string — bar crowd or celebration photo",
+    "teamColor1": "string — hex color for team 1 (e.g., '#CE1141' for Raptors)",
+    "teamColor2": "string — hex color for team 2 (e.g., '#6F2DA8' for Cavs)"
+  },
+  "copy_rules": [
+    "Headlines are UPPERCASE, short (4-8 letters), bold and energetic",
+    "Team names always uppercase, logo-forward",
+    "Time and venue are factual, no hype language needed",
+    "Restaurant copy is specific — name real items, never generic ('great food' banned)",
+    "Watch location (Jurassic Park, etc.) gets its own line — it's the hook",
+    "Crowd/energy slide uses one-word vibes + short sentences"
+  ],
+  "asset_rules": [
+    "Team logos should be clean, high-contrast, 200x200px minimum",
+    "Background court/field image should feel energetic — crowd, lighting, or action",
+    "Restaurant photo should be food close-up or packed bar, not generic interior",
+    "Crowd image should show energy — packed stands, cheering, hands up",
+    "Min 1080px wide; real photos only (no AI)"
+  ],
+  "use_when": [
+    "Any playoff or championship game at a host city during FIFA 2026 window",
+    "Local watch parties (Jurassic Park, Maple Leaf Square, outdoor viewing)",
+    "Where restaurant/bar tie-in is strong (sports bars, pre-game dining)",
+    "High-engagement moments — game day 2-4 hours before tipoff"
+  ]
+}

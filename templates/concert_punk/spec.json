@@ -1,0 +1,98 @@
+{
+  "template_id": "concert_punk",
+  "name": "Concert Punk Carousel",
+  "series": "Concerts / Tours",
+  "format": "5-slide carousel (4 content + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "Punk gig poster — flat saturated background (skyblue/magenta/neon), halftone-processed black-and-white artist photo, graffiti marker headline (yellow outlined scribble behind red scratch-letters), grunge splatter + chalk scratch marks, sticker badges for price/date, distressed paper feel. Raw, loud, xerox-copied.",
+  "palette": {
+    "bg_default": "#2DB2E6",
+    "scribble_yellow": "#FFEB3B",
+    "slash_red": "#E74135",
+    "ink": "#111111",
+    "paper": "#F4F0E6",
+    "bitemap_red": "#FB2605"
+  },
+  "fonts": {
+    "graffiti": "Permanent Marker (scribble headline)",
+    "impact": "Bungee / Staatliches (UPPERCASE labels, date, price)",
+    "sans_body": "Montserrat 800 (pill labels, details)"
+  },
+  "theme_vars": {
+    "--concert-bg": "flat background color — pick a loud saturated tone per artist/genre (punk=sky-blue, pop=hot-pink, rap=acid-green, metal=blood-red)",
+    "--scribble": "graffiti outline color (usually yellow)",
+    "--slash": "fill color of red-marker text (usually red)",
+    "--ink": "black"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "Hero Announce",
+      "subject": "Halftone B&W artist portrait dominates the top; graffiti headline underneath (artist name in yellow-outlined scribble behind red scratched sub-line); sticker badges for price + date in top-right; date/time in bottom-left; venue block in bottom-right.",
+      "copy": { "headline": "ARTIST (2 lines max, all caps)", "tagline": "'WORLD TOUR' / 'THE TOUR' / 'LIVE'", "dateShort": "JUN 23", "time": "8 PM", "venue": "SOFI STADIUM", "venueLine2": "INGLEWOOD, CA", "price": "$120+" }
+    },
+    {
+      "n": 2,
+      "role": "Pre-Show Eats",
+      "subject": "Restaurant photo in scratched panel with grunge border; graffiti 'EAT FIRST' title; distance-from-venue chip; restaurant name, neighbourhood, dish bullets.",
+      "copy": { "kicker": "PRE-SHOW", "headline": "EAT FIRST", "restaurantName": "...", "distance": "0.4 MI FROM VENUE", "neighbourhood": "...", "bullets": ["dish1", "dish2", "dish3"] }
+    },
+    {
+      "n": 3,
+      "role": "After-Show Late Bite",
+      "subject": "Mirror of slide 2 — 'LATE BITE' or 'AFTER PARTY' title, second restaurant photo, open-until chip, dish bullets.",
+      "copy": { "kicker": "AFTER-SHOW", "headline": "LATE BITE", "restaurantName": "...", "openUntil": "OPEN UNTIL 2 AM", "neighbourhood": "...", "bullets": ["dish1", "dish2", "dish3"] }
+    },
+    {
+      "n": 4,
+      "role": "Vibe Match",
+      "subject": "Graffiti 'IF YOU LIKE {ARTIST}' headline → 'YOU NEED {CUISINE}' with a third restaurant photo; grunge arrow or splatter; bridge copy explains the pairing.",
+      "copy": { "topLine": "IF YOU LIKE {ARTIST}", "bottomLine": "YOU NEED {CUISINE}", "restaurantName": "...", "neighbourhood": "...", "bridgeLine": "a one-liner on why this pairs" }
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Grunge-bordered CTA over theme bg with scratches, BiteMap logo (transparent), 'full tour guide on' banner, app badges.",
+      "copy": "Fixed: 'full tour guide on' / BiteMap logo / tagline / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "artist": "string — uppercase stage name (e.g. 'KENDRICK LAMAR')",
+    "artistImageUrl": "string — high-contrast portrait or performance photo, will be desaturated + halftoned",
+    "tagline": "string — tour name / 'WORLD TOUR' / 'LIVE'",
+    "dateShort": "string — e.g. 'JUN 23'",
+    "time": "string — e.g. '8 PM'",
+    "venue": "string — venue name",
+    "venueLine2": "string — city/state",
+    "price": "string — e.g. '$120+' (optional, shows in sticker)",
+    "city": "string — host city for nearby restaurants",
+    "theme": "object — { bg: '#2DB2E6', scribble: '#FFEB3B', slash: '#E74135' }. Swap per artist/genre.",
+    "slide2": { "restaurantName": "string", "neighbourhood": "string", "distance": "string", "imageUrl": "string", "bullets": "string[]" },
+    "slide3": { "restaurantName": "string", "neighbourhood": "string", "openUntil": "string", "imageUrl": "string", "bullets": "string[]" },
+    "slide4": { "cuisine": "string (e.g. 'SOUL FOOD', 'BIRRIA', 'DIM SUM')", "restaurantName": "string", "neighbourhood": "string", "imageUrl": "string", "bridgeLine": "string" }
+  },
+  "copy_rules": [
+    "Headlines are UPPERCASE, short (4-8 letters), scratched and loud",
+    "The 'IF YOU LIKE X / YOU NEED Y' formula is the core creative beat — don't soften it",
+    "Distance and open-until chips must have real numbers, never vague ('close by' banned)",
+    "Restaurant names are real and verified — same rules as match_comic",
+    "Cuisine pairings should be specific and defensible (SZA → soul food, Bad Bunny → mofongo, Taylor Swift → brunch)",
+    "Price sticker only appears if known"
+  ],
+  "asset_rules": [
+    "Artist photo must be high-contrast enough to survive halftone conversion — avoid flat studio lighting",
+    "Restaurant photos should be dish close-ups or signage, not interior shots",
+    "Min 1080px wide; real photos only (no AI)"
+  ],
+  "use_when": [
+    "Any concert at any host city during FIFA 2026 window",
+    "Major tour stops where fan-bases concentrate in specific neighbourhoods",
+    "Late-night after-show content pushed 2-3 hours before doors",
+    "Genre-defining artists where cuisine pairing is obvious"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "template_id": "match_comic",
+  "name": "Match Comic Carousel",
+  "series": "FIFA 2026 / Match Day",
+  "format": "5-slide carousel (4 content + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "Comic-book pop-art sports poster — halftone red vs halftone blue split, jagged VS starburst, chalk pitch lines, screentone dots, thick black ink outlines, hand-drawn whistle/ball/cleat stickers, yellow Bungee display type with drop-shadow, action kicker bursts. Feels like a 2000s FIFA poster spread.",
+  "palette": {
+    "comic_red": "#D81E2A",
+    "comic_red_deep": "#A71622",
+    "comic_blue": "#1E5BD8",
+    "comic_blue_deep": "#163F99",
+    "yellow": "#FFD83F",
+    "cream": "#FFF3DA",
+    "ink": "#111111",
+    "white": "#FFFFFF",
+    "bitemap_red": "#FB2605"
+  },
+  "fonts": {
+    "display_bold": "Bungee (country names, VS)",
+    "impact": "Anton / Bungee Inline (date + match number)",
+    "sans_body": "Montserrat 800 (labels, pills)",
+    "stamp": "Permanent Marker (accents)"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "Match Announce",
+      "subject": "Red top half + blue bottom half with halftone dots, jagged VS starburst center-left, two flag banners tilted, match date chip at top, stadium/city pill at bottom, whistle and ball stickers.",
+      "copy": { "team1": "BRAZIL", "team2": "GERMANY", "date": "JUNE 14", "matchLabel": "GROUP H · MATCHDAY 2", "venue": "SOFI STADIUM · LA" }
+    },
+    {
+      "n": 2,
+      "role": "Team 1 Diaspora Eats",
+      "subject": "Red halftone background, big country name banner tilted, restaurant photo in comic-panel frame, neighbourhood pill, 2-3 dish bullets, rating badge.",
+      "copy": { "country": "BRAZIL", "flagLine": "where brazilians eat in LA", "restaurantName": "Pampas Grill", "neighbourhood": "Culver City", "bullets": ["Picanha", "Pao de queijo", "Caipirinha"], "rating": "4.6" }
+    },
+    {
+      "n": 3,
+      "role": "Team 2 Diaspora Eats",
+      "subject": "Blue halftone background, mirror layout of slide 2 — big country banner, photo panel, dish list, neighbourhood pill.",
+      "copy": { "country": "GERMANY", "flagLine": "where germans eat in LA", "restaurantName": "Red Lion Tavern", "neighbourhood": "Silver Lake", "bullets": ["Jägerschnitzel", "Bratwurst", "Hefeweizen"], "rating": "4.4" }
+    },
+    {
+      "n": 4,
+      "role": "Watch Party Spot",
+      "subject": "Split red/blue diagonal with VS-style starburst, watch party bar photo in panel, 'where to watch' banner, bar name, TV/screen count, kickoff time chip.",
+      "copy": { "banner": "WATCH HERE", "barName": "Ye Rustic Inn", "neighbourhood": "Los Feliz", "kickoff": "11:00 AM PT", "perk": "12 SCREENS · FULL SOUND" }
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Comic-panel CTA on blue halftone with red accent — BiteMap logo, chalk pitch lines, 'full kickoff guide on' banner, app badges, ball sticker.",
+      "copy": "Fixed: 'full kickoff guide on' / BiteMap logo / tagline / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "team1": "string — uppercase country name (e.g. 'COLOMBIA')",
+    "team2": "string — uppercase country name (e.g. 'CANADA')",
+    "team1FlagUrl": "string — flag image URL (SVG or PNG). Prefer Wikimedia Commons flag SVGs (https://commons.wikimedia.org/wiki/Category:SVG_flags_of_countries). Used in slide 1 big flag card and slide 2 banner chip.",
+    "team2FlagUrl": "string — flag image URL (same source guidance)",
+    "team1Theme": "object — CSS color tokens driving backgrounds + accents. Keys: bg (dominant-dark flag color, used for halftone fill — must contrast with white text), a/b/c (optional palette extras for future use). Example Colombia: { bg:'#003893', a:'#FDE047', b:'#003893', c:'#CE1126' }",
+    "team2Theme": "object — same shape. Example Canada: { bg:'#D52B1E', a:'#D52B1E', b:'#FFFFFF', c:'#D52B1E' }",
+    "matchDate": "string — short date (e.g. 'JUNE 14')",
+    "matchLabel": "string — group/stage line (e.g. 'GROUP H · MATCHDAY 2')",
+    "venue": "string — stadium + city",
+    "city": "string — host city for diaspora context",
+    "slide2": { "country": "team1 name", "restaurantName": "string", "neighbourhood": "string", "imageUrl": "string", "bullets": "string[] (2-3 dishes)", "rating": "string (optional)" },
+    "slide3": { "country": "team2 name", "restaurantName": "string", "neighbourhood": "string", "imageUrl": "string", "bullets": "string[]", "rating": "string (optional)" },
+    "slide4": { "barName": "string", "neighbourhood": "string", "imageUrl": "string", "kickoff": "string (local time)", "perk": "string (screens / sound / deal)" }
+  },
+  "copy_rules": [
+    "Country names always UPPERCASE in Bungee — short (6-8 letters ideal)",
+    "Restaurant names are real and verified — no placeholders",
+    "Bullets are dishes/drinks, 1-2 words each",
+    "Kickoff time includes timezone (e.g. '11:00 AM PT')",
+    "Never say 'amazing' / 'must-try' — name the dish literally",
+    "Tone: hype, sporty, comic-book energy"
+  ],
+  "asset_rules": [
+    "Restaurant photo must show the food or the signage clearly",
+    "Flag images should be square or centered on a wide crop",
+    "Min 1080px wide; real photos only (no AI)"
+  ],
+  "use_when": [
+    "Any FIFA 2026 match day across the 16 host cities",
+    "Diaspora matchups where both fanbases have strong food scenes in the host city",
+    "Watch-party coverage at named bars/restaurants",
+    "Knockout rounds once teams are drawn"
+  ]
+}

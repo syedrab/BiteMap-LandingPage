@@ -1,0 +1,102 @@
+{
+  "template_id": "goal_card",
+  "name": "Goal! Carousel (FIFA goal-moment, language-aware)",
+  "series": "FIFA / reactive goal celebration",
+  "format": "5-slide carousel (4 content + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "Football scoreboard editorial — stencil-cut celebration word stacks, trophy/dish hero with overlaid stencil text, hand-drawn squiggle accent, scoreboard chrome (country codes, lat/long-style numerics, wordmark), restaurant-card swap of the classic player-card. Adapted from Vini Jr / Copa América goal celebration motion graphic.",
+  "reference": "User-supplied 'CF Gol Vini Jr Copa América 2024' video.",
+  "default_team_palette": {
+    "team_id": "BRA",
+    "primary": "#FFC107",
+    "secondary": "#1B9444",
+    "tertiary": "#1A2C77",
+    "white": "#FFFFFF"
+  },
+  "team_palettes": [
+    { "team_id": "BRA", "primary": "#FFC107", "secondary": "#1B9444", "tertiary": "#1A2C77" },
+    { "team_id": "ARG", "primary": "#75AADB", "secondary": "#FFFFFF", "tertiary": "#0E2C5C" },
+    { "team_id": "MEX", "primary": "#006847", "secondary": "#FFFFFF", "tertiary": "#CE1126" },
+    { "team_id": "USA", "primary": "#FFFFFF", "secondary": "#B22234", "tertiary": "#3C3B6E" },
+    { "team_id": "FRA", "primary": "#0055A4", "secondary": "#FFFFFF", "tertiary": "#EF4135" },
+    { "team_id": "ENG", "primary": "#FFFFFF", "secondary": "#CE1124", "tertiary": "#1A2C77" },
+    { "team_id": "GER", "primary": "#000000", "secondary": "#DD0000", "tertiary": "#FFCE00" },
+    { "team_id": "JPN", "primary": "#FFFFFF", "secondary": "#BC002D", "tertiary": "#0E0E0E" },
+    { "team_id": "KOR", "primary": "#FFFFFF", "secondary": "#CD2E3A", "tertiary": "#0E2C5C" },
+    { "team_id": "ITA", "primary": "#009246", "secondary": "#FFFFFF", "tertiary": "#CE2B37" },
+    { "team_id": "ESP", "primary": "#FFC107", "secondary": "#AA151B", "tertiary": "#0E0E0E" },
+    { "team_id": "POR", "primary": "#006600", "secondary": "#FFFFFF", "tertiary": "#CE1126" },
+    { "team_id": "NED", "primary": "#AE1C28", "secondary": "#FFFFFF", "tertiary": "#21468B" },
+    { "team_id": "BEL", "primary": "#FDDA24", "secondary": "#000000", "tertiary": "#EF3340" },
+    { "team_id": "CRO", "primary": "#FFFFFF", "secondary": "#171796", "tertiary": "#FF0000" },
+    { "team_id": "TUR", "primary": "#E30A17", "secondary": "#FFFFFF", "tertiary": "#0E0E0E" },
+    { "team_id": "MAR", "primary": "#C1272D", "secondary": "#FFFFFF", "tertiary": "#006233" },
+    { "team_id": "SEN", "primary": "#00853F", "secondary": "#FFC107", "tertiary": "#E31B23" },
+    { "team_id": "CIV", "primary": "#FF7F00", "secondary": "#FFFFFF", "tertiary": "#009E60" },
+    { "team_id": "AUS", "primary": "#00843D", "secondary": "#FFC72C", "tertiary": "#0E2C5C" },
+    { "team_id": "CAN", "primary": "#FFFFFF", "secondary": "#FF0000", "tertiary": "#0E0E0E" }
+  ],
+  "goal_word_by_team": {
+    "_note": "Celebration word the fans actually shout. Picked by team, not by tournament.",
+    "BRA": "GOL", "POR": "GOL",
+    "ARG": "GOL", "MEX": "GOL", "ESP": "GOL", "COL": "GOL", "URU": "GOL", "CHI": "GOL", "PER": "GOL", "ECU": "GOL", "PAR": "GOL", "BOL": "GOL", "VEN": "GOL", "CRC": "GOL", "PAN": "GOL", "CUB": "GOL", "DOM": "GOL",
+    "ITA": "GOL", "TUR": "GOL",
+    "NED": "GOAL", "BEL": "GOAL",
+    "USA": "GOAL", "CAN": "GOAL", "ENG": "GOAL", "AUS": "GOAL", "IRL": "GOAL", "SCO": "GOAL", "WAL": "GOAL", "NIR": "GOAL", "NZL": "GOAL",
+    "IND": "GOAL", "PAK": "GOAL", "BAN": "GOAL", "SRI": "GOAL", "JAM": "GOAL", "TRI": "GOAL", "BAH": "GOAL",
+    "GHA": "GOOOAL", "NGA": "GOOOAL",
+    "FRA": "BUT", "SUI": "BUT", "SEN": "BUT", "CIV": "BUT", "CMR": "BUT", "DZA": "BUT",
+    "GER": "TOR", "AUT": "TOR",
+    "JPN": "ゴール", "KOR": "골",
+    "MAR": "GOOOL", "KSA": "GOOOL", "EGY": "GOOOL", "TUN": "GOOOL", "ALG": "GOOOL", "IRN": "GOOOL", "QAT": "GOOOL", "UAE": "GOOOL",
+    "RUS": "ГОЛ", "UKR": "ГОЛ",
+    "POL": "GOL", "CZE": "GÓL", "SVK": "GÓL", "HUN": "GÓL", "ROU": "GOL",
+    "SRB": "GOL", "CRO": "GOOOL", "SVN": "GOOOL", "BIH": "GOOOL"
+  },
+  "fonts": {
+    "stencil": "Big Shoulders Stencil Display 800/900 (celebration word stacks + 'THIS IS')",
+    "sans_black": "Archivo Black (wordmark)",
+    "mono": "JetBrains Mono (coordinate numerics, tracker lines)",
+    "sans_body": "Inter 600/700 (handle, meta)"
+  },
+  "slides": [
+    { "n": 1, "role": "Word Stack", "subject": "Primary bg. Three stacked stencil celebration words (GOL/GOAL/BUT/TOR/etc.) alternating secondary/white, navy squiggle threading between rows. Top tracker bar: team codes + wordmark.", "copy": { "wordmark": "FIFA · 2026", "team_left": "{teamCode}", "team_right": "{opponentCode}" } },
+    { "n": 2, "role": "Trophy Hero", "subject": "Dark tertiary bg with full-bleed dish/trophy photo dimmed by overlay. Three white stencil celebration words centered with thin tracker lines crossing horizontally.", "copy": { "wordmark": "FIFA · 2026", "score": "{score}" } },
+    { "n": 3, "role": "Dish Card", "subject": "Secondary bg with gigantic primary stencil celebration word stack bleeding off edges. Centered primary-colored rounded card with dish/restaurant photo, vertical sideways restaurant name in tertiary stencil along left edge.", "copy": { "verticalName": "{restaurantName}", "pillMeta": "DIASPORA · {city}" } },
+    { "n": 4, "role": "THIS IS [diaspora]", "subject": "Tertiary bg with dot-pattern rails. Big primary stencil 'THIS IS' top-right, '{DIASPORA}' bottom bleeding. Centered dish cutout with primary border. White stencil celebration word overlay across dish.", "copy": { "topLine": "THIS IS", "bottomLine": "{DIASPORA}", "overlay": "{goalWord stretched}", "vert": "@{handle} · {jerseyNum}" } },
+    { "n": 5, "role": "CTA", "subject": "Tertiary bg with primary/secondary diagonal stripe band. White rounded plaque with BiteMap logo + 'find it on' eyebrow + tagline + App Store + Google Play badges.", "copy": "Fixed: 'find it on' / BiteMap logo / tagline / badges", "assets_required": ["library/icons/bitemap_logo_transparent.png", "library/icons/app-store-badge.svg", "library/icons/google-play-badge.svg"] }
+  ],
+  "inputs_required": {
+    "teamCode": "3-letter team code (BRA, ARG, MEX, FRA, GER, JPN, KOR, etc.) — drives palette AND goalWord",
+    "opponentCode": "3-letter opponent code",
+    "goalWord": "Optional override; defaults to goal_word_by_team[teamCode]. Must match the language fans actually shout.",
+    "wordmark": "string — defaults to 'FIFA · 2026'",
+    "diaspora": "UPPERCASE diaspora label for slide 4 (e.g. BRASIL, MÉXICO, FRANCE)",
+    "city": "string — host city",
+    "restaurantName": "string — restaurant being celebrated",
+    "handle": "string — @restaurant",
+    "jerseyNum": "optional number for card corner (default 7)",
+    "slide2": { "dishImageUrl": "hero dish photo (dark overlay applied)", "score": "e.g. 'BRA 3 — 1 USA'" },
+    "slide3": { "dishImageUrl": "dish-card photo" },
+    "slide4": { "dishImageUrl": "dish cutout photo (transparent bg ideal)" }
+  },
+  "copy_rules": [
+    "goalWord is ALWAYS in the language of the scoring team — never substitute English when another language is native",
+    "If teamCode is not in goal_word_by_team, fall back to 'GOAL' (English)",
+    "Stretched variants on slide 4 (e.g. GOOOL for MAR, GOOOAL for GHA) are OK — they read as celebration-length",
+    "Restaurant name lives in the dish-card vertical text and @handle only — never in the word stack",
+    "Tracker numerics (-5, 37, -9) are decorative scoreboard chrome; keep them in mono"
+  ],
+  "asset_rules": [
+    "Hero dish photo (slide 2) — high-res, treats well under dark overlay",
+    "Dish-card photo (slide 3) — fits vertical card aspect (4:5 ish)",
+    "Dish cutout (slide 4) — transparent background ideal so celebration text reads through cleanly",
+    "Logo: library/icons/bitemap_logo_transparent.png"
+  ],
+  "use_when": [
+    "Reactive: team scores during FIFA 2026 — post within 30 min to the diaspora neighbourhood",
+    "Pre-match hype for diaspora-heavy fixtures",
+    "Diaspora-restaurant spotlight tied to a specific national team",
+    "Goal-of-the-tournament style retrospectives"
+  ]
+}

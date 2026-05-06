@@ -1,0 +1,99 @@
+{
+  "template_id": "urban_trend",
+  "name": "Urban Food Review Carousel",
+  "series": "Streetwear / Food Review",
+  "format": "5-slide carousel (4 content + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "High-contrast streetwear zine repurposed as a food review format — black backgrounds, acid yellow accents, thick uppercase sans headlines with tight tracking, duct-tape photo mounts, 'FOOD REVIEW' ticker ribbons (horizontal + vertical), tilted yellow rating badges (stars + score), grain/scratch texture overlay, barcode footer. Feels like a mixtape zine review column.",
+  "palette": {
+    "black": "#0A0A0A",
+    "ink": "#141414",
+    "yellow": "#F5E400",
+    "yellow_deep": "#E1CD00",
+    "white": "#FFFFFF",
+    "gray": "#9A9A9A",
+    "bitemap_red": "#FB2605"
+  },
+  "fonts": {
+    "display_bold": "Archivo Black / Bebas Neue (huge uppercase headlines)",
+    "display_condensed": "Oswald / Barlow Condensed 900 (ribbon ticker)",
+    "sans_body": "Inter 500/700 (review body, meta row)"
+  },
+  "review_dna": [
+    "Every content slide carries a visible rating badge (stars + numeric score) — that's the hook",
+    "Body copy reads as honest, specific review notes — not ad copy. Name dishes, call out wait times, describe crust/sauce/texture.",
+    "Meta row (cuisine · neighbourhood · price tier) anchors each slide in the real world",
+    "No discount pricing, no sales language — this template is for reviews, not promos"
+  ],
+  "slides": [
+    {
+      "n": 1,
+      "role": "Review Hero",
+      "subject": "Black bg; bold stacked 'FOOD / REVIEW' headline top-left; tilted yellow rating badge top-right (stars + 4.x + GOOGLE); horizontal 'FOOD REVIEW' ribbon ticker; duct-taped hero dish photo; short hook review note; barcode + handle footer.",
+      "copy": { "titleLine1": "'FOOD' or punchy 1-word hook", "titleLine2": "'REVIEW' accent word", "rating": "4.8", "ratingLabel": "GOOGLE", "description": "1-2 sentences — the first impression review beat", "handle": "@restaurant" }
+    },
+    {
+      "n": 2,
+      "role": "The Dish",
+      "subject": "Left-edge vertical 'FOOD REVIEW' ticker; duct-taped dish photo upper-right; bold stacked headline ('THE / DISH'); tilted rating badge; meta row (cuisine · neighbourhood · $$); long-form review paragraph focused on the signature dish; barcode + handle footer.",
+      "copy": { "titleLine1": "'THE' or 'ORDER' setup", "titleLine2": "'DISH' payoff (or dish name 1-word)", "rating": "4.8", "cuisineMeta": "PASTA · OSSINGTON · $$", "description": "3-4 sentence focused review of the signature dish — ingredients, texture, ordering tip", "handle": "@restaurant" }
+    },
+    {
+      "n": 3,
+      "role": "The Vibe",
+      "subject": "Full duct-taped dish/interior photo (70% of frame); tilted rating badge on photo; black footer bar with bold 'THE / VIBE' stacked headline, meta row, review of the atmosphere/service, handle.",
+      "copy": { "titleLine1": "'THE'", "titleLine2": "'VIBE' (or 'ROOM', 'CREW')", "rating": "4.8", "vibeMeta": "PATIO · LATE-NIGHT · GROUPS WELCOME", "description": "2-3 sentences — when to come, what the room feels like, tables/turn-time tip", "handle": "@restaurant" }
+    },
+    {
+      "n": 4,
+      "role": "The Verdict",
+      "subject": "Left column wide headline ('THE / VERDICT') + meta row + final review / recommendations; right column duct-taped photo with tilted rating badge below; 2-3 outlined yellow tags (e.g. 'DATE NIGHT', 'SMALL PLATES'); bottom yellow ribbon with 'FOOD REVIEW' ticker; barcode + handle.",
+      "copy": { "titleLine1": "'THE'", "titleLine2": "'VERDICT' (or 'MOVE', 'CALL')", "rating": "4.8", "verdictMeta": "PASTA · OSSINGTON", "description": "Final call — what to order, what to skip, closing line", "tags": ["DATE NIGHT", "SMALL PLATES"], "handle": "@restaurant" }
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Black bg; big bold 'FOUND ON' with yellow accent on 'ON'; BiteMap transparent logo on tilted yellow tape-plaque; tagline; app store badges bottom; right-edge vertical 'FOUND ON BITEMAP' ticker; barcode + handle footer.",
+      "copy": "Fixed: 'FOUND ON' / BiteMap logo / tagline 'real places · real reviews' / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "restaurantName": "string",
+    "neighbourhood": "string",
+    "city": "string",
+    "handle": "string — @restaurant",
+    "rating": "string — Google rating (e.g. '4.8') — same across all slides unless a dish-specific score",
+    "cuisine": "string — one-word cuisine tag (e.g. 'PASTA')",
+    "priceTier": "string — '$', '$$', '$$$'",
+    "slide1": { "imageUrl": "hero dish photo", "titleLine1": "UPPERCASE word", "titleLine2": "UPPERCASE word (accent)", "description": "1-2 sentence first-impression hook" },
+    "slide2": { "imageUrl": "signature dish close-up", "titleLine1": "UPPERCASE word", "titleLine2": "UPPERCASE word (accent)", "description": "3-4 sentence focused review of the signature dish" },
+    "slide3": { "imageUrl": "interior / vibe photo", "titleLine1": "UPPERCASE word", "titleLine2": "UPPERCASE word (accent)", "vibeMeta": "room / scene tags (e.g. 'PATIO · LATE-NIGHT · GROUPS WELCOME')", "description": "2-3 sentence atmosphere review" },
+    "slide4": { "imageUrl": "storefront / dish photo", "titleLine1": "UPPERCASE word", "titleLine2": "UPPERCASE word (accent)", "description": "Closing verdict — what to order, what to skip", "tags": "2-3 short outlined tags (uppercase, 1-2 words each)" }
+  },
+  "copy_rules": [
+    "Headlines: ALL UPPERCASE, one word per line, 6 letters or fewer ideal — stacked two-line for weight",
+    "Body: specific, declarative review notes. Name dishes. Call out textures, heat, portion size, wait times.",
+    "NO sale/discount language — no '% off', 'NEW DROP', 'LIMITED'. This is a review template, not a promo template.",
+    "Rating badge is always present on every content slide (1-4). Use the honest Google rating.",
+    "Meta rows use `·` separators and are ALL CAPS with yellow text — keep them to 2-4 items max",
+    "Restaurant name lives in @handle / footer. Never in the big stacked headline.",
+    "Tone: dry, specific, zine-style. No emojis. No hype adjectives ('amazing', 'must-try')."
+  ],
+  "asset_rules": [
+    "Photos should feel real and energetic — hands-on food, hero dish close-ups, warm interior shots",
+    "Moody / desaturated photos complement the black + yellow palette; blown-out studio food fights it",
+    "Minimum 1080px wide; real photos only (no AI)",
+    "Always use `bitemap_logo_transparent.png` — never a rasterized logo with baked-in background"
+  ],
+  "use_when": [
+    "Honest review-format content for gritty, casual, late-night, or streetwear-adjacent restaurants",
+    "Dish-specific reviews where the verdict + rating is the hook",
+    "Hidden-gem posts where the format's zine energy signals 'this is a real review, not an ad'",
+    "Cuisines with visual muscle — smash burgers, birria, tacos, wings, ramen, late-night slices"
+  ]
+}

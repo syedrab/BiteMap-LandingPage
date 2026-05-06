@@ -1,0 +1,80 @@
+{
+  "template_id": "highlight_carousel",
+  "name": "Highlight Carousel",
+  "series": "GTA Eats / City Spotlight",
+  "format": "5-slide carousel",
+  "dimensions": "1080x1350",
+  "aesthetic": "Editorial magazine (MKBHD-style). Full-bleed photo + oversized serif headline + italic accent word.",
+  "brand_colors": {
+    "primary": "#FB2605",
+    "secondary": "#F4A024",
+    "dark": "#0E0E0E"
+  },
+  "fonts": {
+    "serif": "Fraunces (900 weight for headlines, 400 italic for accents)",
+    "sans": "Inter (600 for kicker/meta, uppercase, wide tracking)"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "Hook",
+      "subject": "Signature dish / hero food photo",
+      "copy": { "headline": "one word, UPPERCASE, <=6 chars, red #FB2605", "accent": "one word, lowercase italic, white" },
+      "example": { "headline": "TRIPLE", "accent": "stack" }
+    },
+    {
+      "n": 2,
+      "role": "Options",
+      "subject": "Signature dessert / side / secondary dish",
+      "copy": { "headline": "one word, UPPERCASE, <=6 chars, red", "accent": "one word, lowercase italic, white" },
+      "example": { "headline": "BANANA", "accent": "pudding" }
+    },
+    {
+      "n": 3,
+      "role": "Menu",
+      "subject": "Photo of menu board / menu page",
+      "copy": { "headline": "THE (fixed)", "accent": "menu (fixed, positioned top-right)" },
+      "example": { "headline": "THE", "accent": "menu" }
+    },
+    {
+      "n": 4,
+      "role": "Spots",
+      "subject": "Storefront exterior photo",
+      "copy": { "headline": "N SPOTS (location count) OR neighbourhood name" },
+      "example": { "headline": "5 SPOTS" }
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Static — BiteMap logo + app store badges on dark bg",
+      "copy": "Fixed: 'find it on' / BiteMap logo / 'real places. real reviews. no fluff.'",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "restaurantName": "string — Rosie's Burgers",
+    "city": "string — Toronto",
+    "slide1": { "imageUrl": "path to hero dish photo", "headline": "one word", "accent": "one word" },
+    "slide2": { "imageUrl": "path to signature item", "headline": "one word", "accent": "one word" },
+    "slide3": { "imageUrl": "path to menu photo" },
+    "slide4": { "imageUrl": "path to storefront", "headline": "e.g. '5 SPOTS'" }
+  },
+  "copy_rules": [
+    "Headline = ONE word, all caps, 6 letters or fewer",
+    "Accent = ONE word, lowercase italic, qualifies or expands the headline",
+    "Never use generic hype ('amazing', 'must-try', 'best ever')",
+    "Name the item literally — menu names > marketing adjectives",
+    "Restaurant name goes in kicker only"
+  ],
+  "asset_rules": [
+    "Minimum 1080px wide, ideally 2000px+",
+    "Professional/well-lit preferred — restaurant IG, Google Maps owner uploads, or food bloggers",
+    "NEVER AI-generated food imagery — kills credibility",
+    "All 4 photos must be from the SAME restaurant (no stock)"
+  ],
+  "example_output": "templates/editorial_hero/out/slide_0{1-5}.png"
+}

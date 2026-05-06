@@ -1,0 +1,117 @@
+{
+  "template_id": "concert_poster",
+  "name": "Concert Poster Carousel",
+  "series": "Concerts / Events",
+  "format": "5-slide carousel (1 hero + 3 food picks + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "Cinematic concert flyer — dark teal/navy background with artist portrait and moody overlay, oversized yellow brush-script headline with soft glow, rotated vertical side text, small plus/cross decorations, thin inner border frame, QR code. Slides 2-4 adapt the same dark+yellow language for restaurant spotlights tied to the venue. Feels like a tour poster stapled in a record-shop window.",
+  "palette": {
+    "navy": "#0E1A24",
+    "teal": "#1C2E3D",
+    "ink": "#0A0F14",
+    "yellow": "#F5E34A",
+    "yellow_glow": "#F9EE72",
+    "white": "#FFFFFF",
+    "gray": "#9FB0BE",
+    "bitemap_red": "#FB2605"
+  },
+  "fonts": {
+    "brush_script": "Kaushan Script / Pacifico (large yellow brush-script headline with glow)",
+    "display_thin": "Inter 300/400 (vertical rotated side text, spaced letters)",
+    "label_bold": "Inter 700/800 (UPPERCASE detail labels)",
+    "sans_body": "Inter 500/600 (body text, addresses)"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "Concert Hero",
+      "subject": "Dark navy/teal bg with full-bleed artist/crowd photo behind a dark gradient overlay; thin inner border frame; top-left 'BITEMAP PRESENTS' place line; top-right small BiteMap logo; large yellow brush-script artist name (e.g. 'Shakira') center; left side rotated vertical 'BITEMAP PRESENTS'; right side rotated vertical concert date; small plus/cross sparkles scattered; footer row with door time, venue address, opener info, and a QR code.",
+      "copy": {
+        "artistName": "artist / tour name in brush script",
+        "date": "vertical rotated concert date (e.g. 'AUGUST 20TH')",
+        "venue": "venue name",
+        "address": "venue address",
+        "doorTime": "e.g. 'Doors 7pm · Show 8pm'",
+        "opener": "supporting act (optional)"
+      }
+    },
+    {
+      "n": 2,
+      "role": "Before The Show",
+      "subject": "Same dark cinematic language. Left half dish photo with teal overlay; right half has label 'BEFORE THE SHOW' in small caps, yellow brush-script dish/restaurant name, meta row (cuisine · walk-time to venue · rating), short review. Thin border frame, plus sparkles.",
+      "copy": {
+        "label": "'BEFORE THE SHOW' fixed",
+        "scriptName": "restaurant or dish name in brush-script",
+        "cuisineMeta": "e.g. 'SONORAN · 6 MIN WALK · 4.7 ★'",
+        "description": "1-2 sentence review note",
+        "handle": "@restaurant"
+      }
+    },
+    {
+      "n": 3,
+      "role": "After The Encore",
+      "subject": "Mirror of slide 2 — right half dish photo, left half label 'AFTER THE ENCORE' + yellow brush-script, meta row, review note. Emphasis on late-night / quick / nearby.",
+      "copy": {
+        "label": "'AFTER THE ENCORE' fixed",
+        "scriptName": "restaurant or dish name",
+        "cuisineMeta": "e.g. 'TACOS · LATE-NIGHT · 4.8 ★'",
+        "description": "1-2 sentence review note",
+        "handle": "@restaurant"
+      }
+    },
+    {
+      "n": 4,
+      "role": "The Set List",
+      "subject": "Dark bg with thin border; label 'THE SET LIST' top; numbered list (3-5 spots) each with pin number badge, restaurant name (bold), quick tag line (cuisine · distance), yellow accent divider between items; centered venue pin at bottom.",
+      "copy": {
+        "label": "'THE SET LIST' fixed",
+        "places": "array of 3-5 {number, name, tagline} — tagline = 'Cuisine · 6 min walk'",
+        "venueName": "venue label for the bottom pin"
+      }
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Same dark cinematic frame; yellow brush-script 'found on BiteMap' centered; transparent BiteMap logo; app store badges; vertical 'BITEMAP PRESENTS' ticker on one side; QR code corner.",
+      "copy": "Fixed: 'found on' script / BiteMap logo / tagline 'real places · real reviews' / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "artistName": "string — headliner / tour name (shown in brush script)",
+    "concertDate": "string — e.g. 'AUGUST 20TH' (vertical rotated on hero)",
+    "venueName": "string",
+    "venueAddress": "string",
+    "city": "string",
+    "doorTime": "string — e.g. 'Doors 7pm · Show 8pm'",
+    "opener": "string — optional supporting act",
+    "heroImageUrl": "artist or crowd photo (hero slide bg)",
+    "slide2": { "imageUrl": "dish photo", "scriptName": "restaurant/dish in brush script", "cuisineMeta": "short meta row", "description": "review note", "handle": "@restaurant" },
+    "slide3": { "imageUrl": "dish photo", "scriptName": "restaurant/dish", "cuisineMeta": "short meta row", "description": "review note", "handle": "@restaurant" },
+    "slide4": { "places": "3-5 {number, name, tagline}" }
+  },
+  "copy_rules": [
+    "Brush-script headlines are SHORT — 1 to 3 words. The script is the visual weight.",
+    "Never use generic hype ('legendary', 'unforgettable'). Name the artist / restaurant / dish literally.",
+    "Meta rows use `·` separator — keep to 3 items: cuisine · walk-time · rating",
+    "Walk times should be real (Google Maps), not invented. '6 MIN WALK', '2 BLOCKS', etc.",
+    "Tone: cinematic and specific — this is a tour flyer for food, not an ad",
+    "Never put the artist name in sales/hype language — it's the headliner, let it breathe"
+  ],
+  "asset_rules": [
+    "Hero photo: artist press shot or wide-angle crowd/stage photo — must survive heavy dark overlay",
+    "Restaurant photos: dark, moody shots work best (low light, candles, neon) — bright studio food fights the palette",
+    "Minimum 1080px wide; real photos only (no AI)",
+    "Always use `bitemap_logo_transparent.png` — never a logo with baked-in background"
+  ],
+  "use_when": [
+    "Concert or major show tied to a FIFA host city / BiteMap market",
+    "Reaction content when an artist announces / posts about food in a BiteMap city",
+    "Pre-show food picks for arena / stadium / festival audiences",
+    "Anytime a big event creates a pre/post-show food window within walking distance of known spots"
+  ]
+}

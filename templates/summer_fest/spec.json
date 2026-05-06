@@ -1,0 +1,100 @@
+{
+  "template_id": "summer_fest",
+  "name": "Summer Fest Carousel",
+  "series": "Summer / Event Poster",
+  "format": "5-slide carousel (4 content + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "Retro graphic festival poster — flat color-block grid tiles, chunky italic slab-serif title with offset shadow, stylized vector illustrations (sun, surfer, lifesaver, drink, umbrella, popsicle, sunglass portrait). Navy + cream + red + yellow. Vintage summer energy.",
+  "reference": "User-supplied 'Summer Fest' poster screenshot (Olivebridge NY). Translated to 5 carousel slides.",
+  "palette": {
+    "navy": "#2D3A8C",
+    "cream": "#F4E9CC",
+    "red": "#E85A4F",
+    "yellow": "#F5C93E",
+    "ink": "#1A1A1A",
+    "white": "#FFFFFF",
+    "bitemap_red": "#FB2605"
+  },
+  "fonts": {
+    "display_slab": "Alfa Slab One (chunky italic display — SUMMER FEST title)",
+    "sans_black": "Archivo Black (uppercase labels, info-box headings)",
+    "sans_body": "Inter 600/800 (meta, handle, body text)"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "Grid Hero",
+      "subject": "Cream bg. Top presenter bar 'BITEMAP PRESENTS'. 2x2 color-block tile grid at top half with SVG motifs: sun+beach, drink glass, surfer/lifesaver. Giant italic 'Summer / Fest' with yellow offset shadow center. Umbrella SVG bottom-right.",
+      "copy": { "presenter": "BITEMAP PRESENTS", "title_line1": "Summer", "title_line2": "Fest", "sub": "@handle" }
+    },
+    {
+      "n": 2,
+      "role": "Tickets",
+      "subject": "Light gray bg with two overlapping rotated tickets (top -5°, bottom +3°). Blue-grid top/bottom strips on top ticket, cream-grid on bottom. Each ticket: white body with 'SUMMER / TIME FESTIVAL' (Archivo Black with yellow FESTIVAL tag), date block top-right, bottom strip with 'YOUR PLACE' + address + black price pill ($50 VIP / $10 REG with red oval badge), perforated yellow stub right with vertical 'TABLE 01/05' + barcode box.",
+      "copy": { "eyebrow": "GRAB YOUR SEAT", "title": "SUMMER TIME FESTIVAL", "dateBig": "17/AUG /2026", "placeLabel": "YOUR PLACE", "address": "{restaurant street address}", "tier1": { "price": "$50", "badge": "VIP", "gate": "TABLE 01" }, "tier2": { "price": "$10", "badge": "REG", "gate": "TABLE 05" } }
+    },
+    {
+      "n": 3,
+      "role": "Lineup",
+      "subject": "Split color-block panels (cream/red/yellow). Label 'ON THE MENU' or 'THE LINEUP'. 3-4 numbered items with alternating colored circle bullets. Sun SVG top-right.",
+      "copy": { "label": "ON THE MENU", "items": ["item 1", "item 2", "item 3", "item 4"] }
+    },
+    {
+      "n": 4,
+      "role": "Location / Vibe",
+      "subject": "Full-bleed illustrated beach/rooftop scene (sun, umbrella, palm silhouettes, ocean band). Yellow address banner bottom. Neighbourhood pill.",
+      "copy": { "addressLine": "2728 Bird Spring Lane, {city}", "neighbourhood": "{neighbourhood}" }
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Navy bg with cream tile accent, BiteMap logo in cream oval, badges. Retro-fit version of the standard closer.",
+      "copy": "Fixed: 'find it on' / BiteMap logo / tagline / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "restaurantName": "string — e.g. 'La Palma'",
+    "neighbourhood": "string — e.g. 'Ossington'",
+    "city": "string — e.g. 'Toronto'",
+    "handle": "string — @restaurant handle",
+    "slide2": {
+      "day": "UPPERCASE day name",
+      "dayNum": "number as 2-digit string",
+      "month": "UPPERCASE month",
+      "time": "e.g. '8PM'",
+      "bonus": "short 2-word offer (e.g. 'FREE BITES')",
+      "featureName": "headliner name — can be restaurant, chef, artist"
+    },
+    "slide3": {
+      "label": "section label (UPPERCASE) e.g. 'ON THE MENU'",
+      "items": "3-4 short strings (dish names OR artist names OR stops)"
+    },
+    "slide4": {
+      "addressLine": "street address + city",
+      "neighbourhood": "neighbourhood name"
+    }
+  },
+  "copy_rules": [
+    "Title is always 'Summer Fest' on slide 1 — do not substitute",
+    "Labels (BITEMAP PRESENTS / ON THE MENU / START FROM) are UPPERCASE wide-tracked",
+    "Item names on slide 3: 3-4 max, each 1-3 words",
+    "Restaurant name lives in @handle and feature-row only, never in the big title",
+    "Keep numbers and dates chunky — they are part of the visual"
+  ],
+  "asset_rules": [
+    "No photos required — all motifs are inline SVG",
+    "Illustrations are flat vector in the 4-colour palette; do NOT introduce extra colours",
+    "Logo: library/icons/bitemap_logo_transparent.png (transparent version only)"
+  ],
+  "use_when": [
+    "Summer food festival / night market coverage",
+    "Patio launch with event framing (DJ night, supper club, pop-up)",
+    "FIFA 2026 summer fan-zone food tie-ins",
+    "Multi-restaurant summer crawl or lineup post"
+  ]
+}

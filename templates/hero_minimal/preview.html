@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Hero Minimal — Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,14,600&family=Inter:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gallery {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    justify-content: center; max-width: 2800px; margin: 0 auto;
+  }
+
+  .slide-wrap { width: 486px; height: 607.5px; position: relative; }
+
+  .frame {
+    position: relative;
+    width: 1080px; height: 1350px;
+    background: #EFEAE3;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transform: scale(0.45);
+    transform-origin: top left;
+  }
+
+  .label {
+    position: absolute;
+    top: -28px; left: 0;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ===== 3-layer stack — photo fills the whole frame ===== */
+  .layer-bg, .layer-cutout {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+  }
+
+  .layer-bg { z-index: 1; }
+  .layer-cutout { z-index: 3; pointer-events: none; }
+  .layer-bg img, .layer-cutout img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .layer-text {
+    position: absolute; inset: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .word-single {
+    position: absolute;
+    top: 230px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 280px;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    white-space: nowrap;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.35);
+  }
+
+  /* export mode */
+  body.export { padding: 0; background: #000; }
+  body.export .gallery { gap: 0; max-width: none; }
+  body.export .slide-wrap { width: 1080px; height: 1350px; display: none; }
+  body.export .slide-wrap.active { display: block; }
+  body.export .frame { transform: scale(1); }
+  body.export .label { display: none; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const slide = q.get('slide');
+    if (slide) {
+      document.body.classList.add('export');
+      document.querySelectorAll('.slide-wrap').forEach((w, i) => {
+        if (String(i + 1) === slide) w.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+
+<div class="gallery">
+
+  <div class="slide-wrap">
+    <div class="label">01 / 05 — brownie · gooey</div>
+    <div class="frame">
+      <div class="layer-bg">
+        <img src="../../library/images/brownie.jpg" alt="" />
+      </div>
+      <div class="layer-text">
+        <div class="word-single">gooey</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrap">
+    <div class="label">02 / 05 — donuts colorful · sugar</div>
+    <div class="frame">
+      <div class="layer-bg">
+        <img src="../../library/images/donuts_HD_colorful.jpg" alt="" />
+      </div>
+      <div class="layer-text">
+        <div class="word-single">sugar</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrap">
+    <div class="label">03 / 05 — donuts dark · glazed</div>
+    <div class="frame">
+      <div class="layer-bg">
+        <img src="../../library/images/donuts_HD_dark.jpg" alt="" />
+      </div>
+      <div class="layer-text">
+        <div class="word-single">glazed</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrap">
+    <div class="label">04 / 05 — noodles dark · slurp</div>
+    <div class="frame">
+      <div class="layer-bg">
+        <img src="../../library/images/noodles_HD_dark.jpg" alt="" />
+      </div>
+      <div class="layer-text">
+        <div class="word-single">slurp</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-wrap">
+    <div class="label">05 / 05 — sushi colorful · fresh</div>
+    <div class="frame">
+      <div class="layer-bg">
+        <img src="../../library/images/sushi_hd_colorful.jpg" alt="" />
+      </div>
+      <div class="layer-text">
+        <div class="word-single">fresh</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

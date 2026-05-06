@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Concert Grunge — Carousel Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Permanent+Marker&family=Caveat+Brush&family=Caveat:wght@600;700&family=Kalam:wght@700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0D0D0D;
+    --paper: #141414;
+    --yellow: #F8E235;
+    --yellow-deep: #E6CF20;
+    --magenta: #D6286B;
+    --magenta-deep: #B3174F;
+    --white: #FFFFFF;
+    --gray: #9A9A9A;
+    --smiley: #C86B1F;
+    --bitemap-red: #FB2605;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    max-width: 2800px;
+    margin: 0 auto;
+  }
+
+  .slide-wrap { width: 486px; height: 607.5px; position: relative; }
+
+  .frame {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: var(--black);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transform: scale(0.45);
+    transform-origin: top left;
+    color: var(--white);
+  }
+
+  .label-debug {
+    position: absolute;
+    top: -28px; left: 0;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* paper/grain texture + scratches overlay */
+  .frame::before {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      radial-gradient(rgba(0,0,0,0.18) 1px, transparent 1px);
+    background-size: 3px 3px, 5px 5px;
+    background-position: 0 0, 1px 1px;
+    mix-blend-mode: overlay;
+    opacity: 0.6;
+    z-index: 2;
+  }
+  .scratches {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0.45;
+  }
+  .splatter {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    z-index: 4;
+    opacity: 0.35;
+  }
+  .halftone {
+    position: absolute;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .halftone.tl { top: 80px; left: 80px; }
+  .halftone.tr { top: 80px; right: 80px; }
+  .halftone.bl { bottom: 80px; left: 80px; }
+  .halftone.br { bottom: 80px; right: 80px; }
+
+  /* ---------- shared type ---------- */
+  .display-block {
+    font-family: 'Archivo Black', 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    background: var(--yellow);
+    padding: 14px 30px 18px;
+    display: inline-block;
+    box-shadow: 8px 10px 0 rgba(0,0,0,0.55);
+  }
+  .marker {
+    font-family: 'Permanent Marker', 'Caveat Brush', cursive;
+    color: var(--white);
+    line-height: 0.95;
+  }
+  .hand-script {
+    font-family: 'Caveat', 'Kalam', cursive;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .body-copy {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--white);
+  }
+  .handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 20px;
+    color: var(--gray);
+  }
+
+  /* rounded pills */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 17px;
+  }
+  .pill.magenta { background: var(--magenta); color: var(--white); }
+  .pill.yellow  { background: var(--yellow); color: var(--black); }
+  .pill.outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+
+  /* detail table row */
+  .detail-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    border-bottom: 2px dashed rgba(255,255,255,0.35);
+    padding: 12px 0;
+  }
+  .detail-row .lbl {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 18px;
+    color: var(--white);
+    min-width: 140px;
+  }
+  .detail-row .val {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 40px;
+    color: var(--white);
+    line-height: 1;
+  }
+  .detail-row .val.magenta { color: var(--magenta); }
+
+  /* smiley sticker */
+  .smiley {
+    position: absolute;
+    z-index: 9;
+    width: 180px; height: 180px;
+    transform: rotate(-10deg);
+  }
+
+  /* ============ SLIDE 1: CONCERT HERO ============ */
+  .s1 .title-stack {
+    position: absolute;
+    top: 120px; left: 90px; right: 90px;
+    z-index: 10;
+  }
+  .s1 .strip {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .s1 .strip.shifted { margin-left: 80px; }
+  .s1 .display-block { font-size: 140px; padding: 10px 38px 18px; }
+  .s1 .marker-accent {
+    position: absolute;
+    top: 60px; right: 120px;
+    font-size: 90px;
+    color: var(--white);
+    transform: rotate(-6deg);
+    z-index: 11;
+  }
+  .s1 .smiley { top: 290px; left: 350px; }
+
+  .s1 .photo {
+    position: absolute;
+    left: 50%; top: 440px;
+    transform: translateX(-50%);
+    width: 720px; height: 560px;
+    overflow: hidden;
+    z-index: 6;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .s1 .photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.15);
+  }
+  .s1 .prism {
+    position: absolute;
+    z-index: 7;
+    width: 120px; height: 120px;
+  }
+  .s1 .prism.tl { top: 440px; left: 120px; transform: rotate(-20deg); }
+  .s1 .prism.br { top: 860px; left: 200px; transform: rotate(15deg); }
+  .s1 .rainbow {
+    position: absolute;
+    top: 720px; right: 290px;
+    width: 160px; height: 80px;
+    background: linear-gradient(90deg, #ff004d 0%, #ff9900 20%, #ffee00 40%, #00e676 60%, #00b0ff 80%, #a400ff 100%);
+    filter: blur(18px);
+    opacity: 0.75;
+    z-index: 7;
+  }
+
+  .s1 .artist-name {
+    position: absolute;
+    bottom: 360px; right: 110px;
+    font-size: 130px;
+    color: var(--white);
+    transform: rotate(-4deg);
+    z-index: 11;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.6);
+  }
+
+  .s1 .pill-row {
+    position: absolute;
+    bottom: 290px; left: 90px; right: 90px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    z-index: 11;
+  }
+  .s1 .pill-row .pill { transform: rotate(-2deg); }
+  .s1 .pill-row .pill:nth-child(2) { transform: rotate(2deg); }
+  .s1 .pill-row .pill:nth-child(3) { transform: rotate(-3deg); }
+
+  .s1 .detail-table {
+    position: absolute;
+    bottom: 80px; left: 90px; right: 90px;
+    z-index: 11;
+  }
+  .s1 .detail-table .top-row {
+    display: flex;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 2px dashed rgba(255,255,255,0.35);
+  }
+  .s1 .detail-table .top-row .lbl {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 18px;
+    color: var(--white);
+  }
+  .s1 .detail-table .top-row .val {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 40px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  /* ============ SLIDE 2 & 3: FOOD PICK ============ */
+  .food-pick {
+    position: relative;
+    width: 100%; height: 100%;
+    z-index: 6;
+  }
+  .food-pick .photo {
+    position: absolute;
+    top: 80px;
+    width: 520px; height: 700px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .food-pick .photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.7) contrast(1.1);
+  }
+  .food-pick .copy-col {
+    position: absolute;
+    top: 120px;
+    width: 440px;
+    padding: 0 40px;
+  }
+  .food-pick .strip {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 34px;
+    padding: 8px 22px 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    transform: rotate(-2deg);
+    box-shadow: 6px 8px 0 rgba(0,0,0,0.55);
+    margin-bottom: 36px;
+  }
+  .food-pick .marker-name {
+    font-family: 'Permanent Marker', cursive;
+    color: var(--white);
+    font-size: 120px;
+    line-height: 0.85;
+    margin-bottom: 40px;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.6);
+  }
+  .food-pick .pill-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .food-pick .pill-col .pill { align-self: flex-start; transform: rotate(-1.5deg); }
+  .food-pick .pill-col .pill:nth-child(2) { transform: rotate(1deg); }
+  .food-pick .pill-col .pill:nth-child(3) { transform: rotate(-2deg); }
+  .food-pick .description { margin-bottom: 40px; }
+  .food-pick .handle-pos {
+    position: absolute;
+    bottom: 90px;
+    left: 40px;
+  }
+
+  /* slide 2: photo left, copy right */
+  .s2 .photo { left: 90px; }
+  .s2 .copy-col { right: 50px; }
+
+  /* slide 3: photo right, copy left */
+  .s3 .photo { right: 90px; }
+  .s3 .copy-col { left: 50px; }
+
+  /* ============ SLIDE 4: SET LIST ============ */
+  .s4 .header {
+    position: absolute;
+    top: 120px; left: 90px; right: 90px;
+    z-index: 10;
+  }
+  .s4 .header .strip {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 72px;
+    padding: 12px 40px 18px;
+    text-transform: uppercase;
+    box-shadow: 8px 10px 0 rgba(0,0,0,0.55);
+    transform: rotate(-1.5deg);
+  }
+  .s4 .header .marker {
+    font-family: 'Permanent Marker', cursive;
+    color: var(--white);
+    font-size: 90px;
+    transform: rotate(-4deg);
+    display: inline-block;
+    margin-left: 18px;
+    margin-top: 30px;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.6);
+  }
+  .s4 .overline {
+    position: absolute;
+    top: 330px;
+    left: 90px; right: 90px;
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 34px;
+    color: var(--yellow);
+    z-index: 10;
+  }
+  .s4 .list {
+    position: absolute;
+    top: 420px;
+    left: 100px; right: 100px;
+    z-index: 10;
+  }
+  .s4 .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 22px 0;
+    border-bottom: 2px dashed rgba(255,255,255,0.3);
+  }
+  .s4 .item .num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 72px;
+    color: var(--yellow);
+    line-height: 0.9;
+    min-width: 90px;
+  }
+  .s4 .item .body { flex: 1; padding-top: 6px; }
+  .s4 .item .name {
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    font-size: 38px;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+  .s4 .item .tag {
+    margin-top: 10px;
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--gray);
+  }
+  .s4 .venue-pin {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 120px;
+    text-align: center;
+    z-index: 10;
+  }
+  .s4 .venue-pin .pin {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 28px;
+    border-radius: 999px;
+    background: var(--magenta);
+  }
+  .s4 .venue-pin .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--white);
+  }
+  .s4 .venue-pin .text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    font-size: 18px;
+    color: var(--white);
+  }
+
+  /* ============ SLIDE 5: CTA ============ */
+  .cta { background: var(--black); }
+  .cta .center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 120px;
+    z-index: 10;
+    text-align: center;
+  }
+  .cta .strip {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 90px;
+    padding: 14px 46px 20px;
+    text-transform: uppercase;
+    box-shadow: 8px 10px 0 rgba(0,0,0,0.55);
+    transform: rotate(-1.5deg);
+    margin-bottom: 30px;
+  }
+  .cta .marker-accent {
+    font-family: 'Permanent Marker', cursive;
+    color: var(--white);
+    font-size: 90px;
+    transform: rotate(-3deg);
+    margin-bottom: 50px;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.6);
+  }
+  .cta .logo {
+    width: 440px; height: auto;
+    display: block;
+    margin-bottom: 40px;
+  }
+  .cta .pill-row {
+    display: flex; gap: 14px;
+    margin-bottom: 50px;
+  }
+  .cta .pill-row .pill { transform: rotate(-2deg); }
+  .cta .pill-row .pill:nth-child(2) { transform: rotate(2deg); }
+  .cta .badges { display: flex; gap: 28px; align-items: center; }
+  .cta .badges img { height: 100px; width: auto; }
+  .cta .smiley { top: 120px; right: 120px; }
+
+  /* export mode */
+  body.export { padding: 0; background: #000; }
+  body.export .gallery { gap: 0; max-width: none; }
+  body.export .slide-wrap { width: 1080px; height: 1350px; display: none; }
+  body.export .slide-wrap.active { display: block; }
+  body.export .frame { transform: scale(1); }
+  body.export .label-debug { display: none; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const slide = q.get('slide');
+    if (slide) {
+      document.body.classList.add('export');
+      document.querySelectorAll('.slide-wrap').forEach((w, i) => {
+        if (String(i + 1) === slide) w.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- smiley Y2K sticker -->
+    <symbol id="smiley" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="94" fill="#C86B1F" stroke="#0D0D0D" stroke-width="6" />
+      <ellipse cx="70" cy="85" rx="10" ry="16" fill="#0D0D0D" />
+      <ellipse cx="130" cy="85" rx="10" ry="16" fill="#0D0D0D" />
+      <path d="M 55 120 Q 100 165, 145 120" stroke="#0D0D0D" stroke-width="10" fill="none" stroke-linecap="round" />
+    </symbol>
+    <!-- halftone dot block -->
+    <symbol id="halftone" viewBox="0 0 120 80">
+      <g fill="#FFFFFF">
+        <circle cx="10" cy="10" r="4" />
+        <circle cx="30" cy="10" r="4" />
+        <circle cx="50" cy="10" r="4" />
+        <circle cx="70" cy="10" r="4" />
+        <circle cx="90" cy="10" r="4" />
+        <circle cx="110" cy="10" r="4" />
+        <circle cx="20" cy="30" r="3" />
+        <circle cx="40" cy="30" r="3" />
+        <circle cx="60" cy="30" r="3" />
+        <circle cx="80" cy="30" r="3" />
+        <circle cx="100" cy="30" r="3" />
+        <circle cx="10" cy="50" r="2.5" />
+        <circle cx="30" cy="50" r="2.5" />
+        <circle cx="50" cy="50" r="2.5" />
+        <circle cx="70" cy="50" r="2.5" />
+        <circle cx="90" cy="50" r="2.5" />
+      </g>
+    </symbol>
+    <!-- simple crystal/prism -->
+    <symbol id="prism" viewBox="0 0 120 120">
+      <g stroke="#FFFFFF" stroke-width="2" fill="rgba(255,255,255,0.15)">
+        <polygon points="60,10 100,60 60,110 20,60" />
+        <line x1="60" y1="10" x2="60" y2="110" />
+        <line x1="20" y1="60" x2="100" y2="60" />
+      </g>
+    </symbol>
+    <!-- scratch lines -->
+    <symbol id="scratches" viewBox="0 0 1080 1350" preserveAspectRatio="none">
+      <g stroke="#FFFFFF" stroke-width="1.5" fill="none" opacity="0.45">
+        <path d="M 60 120 L 340 80" />
+        <path d="M 800 50 L 1030 200" />
+        <path d="M 20 700 L 260 660" />
+        <path d="M 900 900 L 1060 1050" />
+        <path d="M 120 1200 L 420 1250" />
+        <path d="M 700 1300 L 960 1280" />
+        <path d="M 480 40 L 540 90" />
+        <path d="M 980 600 L 1050 640" />
+        <path d="M 150 500 L 280 470" />
+        <path d="M 760 750 L 880 720" />
+      </g>
+    </symbol>
+    <!-- paint splatter -->
+    <symbol id="splatter" viewBox="0 0 1080 1350" preserveAspectRatio="none">
+      <g fill="#FFFFFF" opacity="0.18">
+        <circle cx="120" cy="200" r="3" />
+        <circle cx="140" cy="210" r="1.5" />
+        <circle cx="160" cy="195" r="2" />
+        <circle cx="940" cy="180" r="2.5" />
+        <circle cx="960" cy="195" r="1.5" />
+        <circle cx="980" cy="175" r="2" />
+        <circle cx="200" cy="800" r="2.5" />
+        <circle cx="220" cy="815" r="1.5" />
+        <circle cx="860" cy="900" r="3" />
+        <circle cx="880" cy="910" r="1.5" />
+        <circle cx="540" cy="1200" r="2" />
+        <circle cx="560" cy="1210" r="1.5" />
+        <circle cx="400" cy="450" r="1.5" />
+        <circle cx="700" cy="550" r="1.5" />
+        <circle cx="640" cy="1100" r="2" />
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="gallery">
+
+  <!-- ============ SLIDE 1: CONCERT HERO ============ -->
+  <div class="slide-wrap">
+    <div class="label-debug">01 / 05 — concert hero</div>
+    <div class="frame s1">
+      <svg class="scratches"><use href="#scratches"/></svg>
+      <svg class="splatter"><use href="#splatter"/></svg>
+
+      <svg class="halftone tl" width="120" height="80"><use href="#halftone"/></svg>
+      <svg class="halftone tr" width="120" height="80"><use href="#halftone"/></svg>
+
+      <!-- title stack: NIGHT strip, then CONCERT marker over, then MUSIC strip shifted -->
+      <div class="title-stack">
+        <div class="strip">
+          <span class="display-block">NIGHT</span>
+        </div>
+        <div class="marker-accent">concert</div>
+        <br/>
+        <div class="strip shifted">
+          <span class="display-block">MUSIC</span>
+        </div>
+      </div>
+
+      <svg class="smiley"><use href="#smiley"/></svg>
+
+      <div class="photo">
+        <img src="../../library/images/shakira.jpg" alt="artist" />
+      </div>
+      <svg class="prism tl"><use href="#prism"/></svg>
+      <svg class="prism br"><use href="#prism"/></svg>
+      <div class="rainbow"></div>
+
+      <div class="artist-name marker">Shakira</div>
+
+      <div class="pill-row">
+        <span class="pill magenta">FREE ENTRY</span>
+        <span class="pill yellow">OPEN BAR</span>
+        <span class="pill magenta">LA · INGLEWOOD</span>
+      </div>
+
+      <div class="detail-table">
+        <div class="top-row">
+          <div style="flex:1">
+            <div class="detail-row">
+              <span class="lbl">TIME:</span>
+              <span class="val">7PM – 11PM</span>
+            </div>
+            <div class="detail-row">
+              <span class="lbl">ADDRESS:</span>
+              <span class="val">1001 Stadium Dr, Inglewood</span>
+            </div>
+            <div class="detail-row" style="border-bottom:none;">
+              <span class="lbl">DATE:</span>
+              <span class="val">20-08-2026</span>
+            </div>
+          </div>
+          <div style="flex:1">
+            <div class="detail-row">
+              <span class="lbl">MUSIC BY:</span>
+              <span class="val magenta">Shakira</span>
+            </div>
+            <div class="detail-row">
+              <span class="lbl">VENUE:</span>
+              <span class="val">SoFi Stadium</span>
+            </div>
+            <div class="detail-row" style="border-bottom:none;">
+              <span class="lbl">WEBSITE:</span>
+              <span class="val">bitemap.fun</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 2: BEFORE THE SHOW ============ -->
+  <div class="slide-wrap">
+    <div class="label-debug">02 / 05 — before the show</div>
+    <div class="frame s2">
+      <svg class="scratches"><use href="#scratches"/></svg>
+      <svg class="splatter"><use href="#splatter"/></svg>
+      <svg class="halftone tl" width="120" height="80"><use href="#halftone"/></svg>
+      <svg class="halftone br" width="120" height="80"><use href="#halftone"/></svg>
+
+      <div class="food-pick">
+        <div class="photo">
+          <img src="../../library/images/summer1.jpg" alt="pre-show dish" />
+        </div>
+        <div class="copy-col">
+          <div class="strip">Before the Show</div>
+          <div class="marker-name">Spicy<br/>Rigatoni</div>
+          <div class="pill-col">
+            <span class="pill yellow">ITALIAN</span>
+            <span class="pill magenta">6 MIN WALK</span>
+            <span class="pill outline">4.7 ★ GOOGLE</span>
+          </div>
+          <div class="description body-copy">
+            Vodka sauce with a backbone of chili, cold ricotta cuts the heat. Book ahead — it fills.
+          </div>
+          <div class="handle-pos handle">@cafe_ostia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 3: AFTER THE ENCORE ============ -->
+  <div class="slide-wrap">
+    <div class="label-debug">03 / 05 — after the encore</div>
+    <div class="frame s3">
+      <svg class="scratches"><use href="#scratches"/></svg>
+      <svg class="splatter"><use href="#splatter"/></svg>
+      <svg class="halftone tr" width="120" height="80"><use href="#halftone"/></svg>
+      <svg class="halftone bl" width="120" height="80"><use href="#halftone"/></svg>
+
+      <div class="food-pick">
+        <div class="photo">
+          <img src="../../library/images/summer2.jpg" alt="late-night dish" />
+        </div>
+        <div class="copy-col">
+          <div class="strip">After the Encore</div>
+          <div class="marker-name">Leo's<br/>Tacos</div>
+          <div class="pill-col">
+            <span class="pill yellow">AL PASTOR</span>
+            <span class="pill magenta">OPEN TILL 3AM</span>
+            <span class="pill outline">4.8 ★ GOOGLE</span>
+          </div>
+          <div class="description body-copy">
+            Hand-held al pastor off the trompo, lime-charred. The post-show move in La Brea.
+          </div>
+          <div class="handle-pos handle">@leos_tacos_truck</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 4: SET LIST ============ -->
+  <div class="slide-wrap">
+    <div class="label-debug">04 / 05 — the set list</div>
+    <div class="frame s4">
+      <svg class="scratches"><use href="#scratches"/></svg>
+      <svg class="splatter"><use href="#splatter"/></svg>
+      <svg class="halftone tl" width="120" height="80"><use href="#halftone"/></svg>
+      <svg class="halftone tr" width="120" height="80"><use href="#halftone"/></svg>
+      <svg class="halftone bl" width="120" height="80"><use href="#halftone"/></svg>
+
+      <div class="header">
+        <span class="strip">THE SET</span>
+        <span class="marker">list</span>
+      </div>
+
+      <div class="overline">Pre-show stops around SoFi Stadium · pick one.</div>
+
+      <div class="list">
+        <div class="item">
+          <div class="num">01</div>
+          <div class="body">
+            <div class="name">Cafe Ostia</div>
+            <div class="tag">Italian · 6 min walk · 4.7 ★</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="num">02</div>
+          <div class="body">
+            <div class="name">Leo's Tacos Truck</div>
+            <div class="tag">Tacos · Open till 3am · 4.8 ★</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="num">03</div>
+          <div class="body">
+            <div class="name">Randy's Donuts</div>
+            <div class="tag">Dessert · 4 min walk · 4.6 ★</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="num">04</div>
+          <div class="body">
+            <div class="name">Dinah's Chicken</div>
+            <div class="tag">Fried Chicken · 8 min drive · 4.5 ★</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="venue-pin">
+        <div class="pin">
+          <span class="dot"></span>
+          <span class="text">SoFi Stadium · Inglewood</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 5: CTA ============ -->
+  <div class="slide-wrap">
+    <div class="label-debug">05 / 05 — cta</div>
+    <div class="frame cta">
+      <svg class="scratches"><use href="#scratches"/></svg>
+      <svg class="splatter"><use href="#splatter"/></svg>
+      <svg class="halftone tl" width="120" height="80"><use href="#halftone"/></svg>
+      <svg class="halftone bl" width="120" height="80"><use href="#halftone"/></svg>
+      <svg class="smiley"><use href="#smiley"/></svg>
+
+      <div class="center">
+        <div class="strip">FOUND ON</div>
+        <div class="marker-accent">bitemap!</div>
+        <img class="logo" src="../../library/icons/bitemap_logo_transparent.png" alt="BiteMap" />
+        <div class="pill-row">
+          <span class="pill magenta">REAL PLACES</span>
+          <span class="pill yellow">REAL REVIEWS</span>
+        </div>
+        <div class="badges">
+          <img src="../../library/icons/app-store-badge.svg" alt="App Store" />
+          <img src="../../library/icons/google-play-badge.svg" alt="Google Play" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

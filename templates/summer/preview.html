@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Summer Patio — Carousel Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Pacifico&family=Montserrat:wght@400;600;800;900&family=Inter:wght@400;500;600;700&family=Fraunces:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #F2A3B4;
+    --pink-deep: #EC8EA3;
+    --teal: #7FD8C8;
+    --yellow: #FFD83F;
+    --mustard: #F5C33B;
+    --cream: #FFF3DA;
+    --leaf: #2E6F3E;
+    --leaf-dark: #204F2C;
+    --lemon: #FFD947;
+    --text: #1F1F1F;
+    --bitemap-red: #FB2605;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    max-width: 2800px;
+    margin: 0 auto;
+  }
+
+  .slide-wrap { width: 486px; height: 607.5px; position: relative; }
+
+  .frame {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: #FFF;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transform: scale(0.45);
+    transform-origin: top left;
+  }
+
+  .label {
+    position: absolute;
+    top: -28px; left: 0;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- shared summer elements ---------- */
+
+  .sunny-border { display: none; }
+
+  .script {
+    font-family: 'Pacifico', 'Caveat', cursive;
+    color: #FFF;
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    text-shadow: 0 6px 0 rgba(0,0,0,0.08);
+  }
+
+  .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #FFF;
+    letter-spacing: 0.35em;
+  }
+
+  .pill-handle {
+    display: inline-block;
+    background: #FFF;
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    padding: 16px 34px;
+    border-radius: 999px;
+    font-size: 24px;
+  }
+
+  .offer-pill {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    padding: 22px 38px;
+    font-size: 34px;
+    border-radius: 6px;
+    transform: rotate(-2deg);
+  }
+
+  .dots {
+    display: grid;
+    grid-template-columns: repeat(6, 16px);
+    gap: 20px;
+    width: max-content;
+  }
+  .dots span {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--text);
+  }
+
+  /* SVG decorations inline (leaves, lemons) positioned absolutely */
+  .decor { position: absolute; z-index: 4; pointer-events: none; }
+
+  /* ---------- SLIDE 1: PATIO HERO ---------- */
+  .s1 { background: var(--pink); }
+  .s1 .photo-half {
+    position: absolute; left: 0; top: 0;
+    width: 54%; height: 100%;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .s1 .photo-half img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .s1 .copy {
+    position: absolute;
+    right: 80px; top: 340px;
+    width: 520px;
+    text-align: right;
+    z-index: 5;
+  }
+  .s1 .eyebrow { font-size: 56px; margin-bottom: 16px; }
+  .s1 .script { font-size: 120px; text-align: right; }
+  .s1 .offer-line {
+    margin-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #FFF;
+    letter-spacing: 0.22em;
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+  .s1 .pill-handle { margin-top: 44px; font-size: 22px; padding: 14px 30px; }
+  .s1 .dots { position: absolute; left: 58%; bottom: 170px; z-index: 5; }
+  .s1 .dots span { background: #FFF; }
+
+  /* ---------- SLIDE 2: SUMMER SIPS ---------- */
+  .s2 { background: var(--pink); }
+  .s2 .top-label {
+    position: absolute;
+    top: 110px; left: 0; right: 0;
+    text-align: center;
+    z-index: 5;
+  }
+  .s2 .top-label .main {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #FFF;
+    letter-spacing: 0.35em;
+    font-size: 72px;
+    text-transform: uppercase;
+  }
+  .s2 .top-pill {
+    display: inline-block;
+    background: var(--teal);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.25em;
+    padding: 18px 38px;
+    margin-top: 24px;
+    font-size: 38px;
+    text-transform: uppercase;
+  }
+  .s2 .photo-frame {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -46%);
+    width: 620px; height: 620px;
+    background: var(--teal);
+    padding: 28px;
+    z-index: 3;
+    box-shadow: 0 30px 60px rgba(0,0,0,.2);
+  }
+  .s2 .photo-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .s2 .dots {
+    position: absolute; left: 90px; bottom: 180px;
+    z-index: 5;
+  }
+  .s2 .pill-handle {
+    position: absolute;
+    left: 50%; bottom: 130px;
+    transform: translateX(-50%);
+    z-index: 6;
+  }
+
+  /* ---------- SLIDE 3: SUMMER MENU ---------- */
+  .s3 { background: var(--pink); }
+  .s3 .pink-band {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 52%;
+    background: var(--pink);
+    z-index: 1;
+  }
+  .s3 .photo-band {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 48%;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .s3 .photo-band img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .s3 .copy {
+    position: absolute;
+    left: 90px; top: 150px;
+    z-index: 5;
+  }
+  .s3 .eyebrow { font-size: 56px; margin-bottom: 10px; }
+  .s3 .script { font-size: 200px; }
+  .s3 .sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    color: #FFF;
+    letter-spacing: 0.2em;
+    font-size: 72px;
+    text-transform: uppercase;
+    margin-top: 14px;
+  }
+  .s3 .pill-handle {
+    position: absolute;
+    left: 90px; top: 610px;
+    z-index: 5;
+  }
+
+  /* ---------- SLIDE 4: VIBE / ROOFTOP ---------- */
+  .s4 { background: var(--pink); }
+  .s4 .photo-card {
+    position: absolute;
+    left: 70px; top: 190px;
+    width: 500px; height: 900px;
+    background: #FFF;
+    padding: 22px;
+    z-index: 3;
+    box-shadow: 0 30px 60px rgba(0,0,0,.2);
+  }
+  .s4 .photo-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .s4 .copy {
+    position: absolute;
+    right: 70px; top: 420px;
+    width: 460px;
+    text-align: right;
+    z-index: 5;
+  }
+  .s4 .eyebrow { font-size: 48px; margin-bottom: 12px; }
+  .s4 .script {
+    font-family: 'Pacifico', 'Caveat', cursive;
+    font-size: 110px;
+    text-align: right;
+    color: #FFF;
+    line-height: 0.9;
+  }
+  .s4 .pill-handle { margin-top: 40px; }
+  .s4 .dots {
+    position: absolute; right: 90px; bottom: 220px;
+    z-index: 6;
+  }
+  .s4 .dots span { background: #FFF; }
+
+  /* ---------- SLIDE 5: CTA (summer pink) ---------- */
+  .cta {
+    background: var(--pink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 80px;
+    position: relative;
+  }
+  .cta-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 34px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #FFF;
+    margin-bottom: 40px;
+    z-index: 3;
+  }
+  .cta-logo-wrap {
+    margin-bottom: 40px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+  }
+  .cta-logo {
+    width: 420px; height: auto;
+    display: block;
+    filter: drop-shadow(0 14px 34px rgba(0,0,0,0.22));
+  }
+  .cta-tag {
+    font-family: 'Pacifico', 'Caveat', cursive;
+    font-size: 88px;
+    color: #FFF;
+    margin-bottom: 100px;
+    text-align: center;
+    z-index: 3;
+    line-height: 1;
+  }
+  .cta-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #FFF;
+    margin-top: -80px;
+    margin-bottom: 100px;
+    text-align: center;
+    z-index: 3;
+    opacity: 0.9;
+  }
+  .cta-badges { display: flex; gap: 32px; align-items: center; z-index: 3; }
+  .cta-badges img { height: 110px; width: auto; }
+
+  /* ---------- DECOR: leaves + lemons ---------- */
+  .leaf-tr { top: -40px; right: -40px; width: 420px; z-index: 6; transform: rotate(8deg); }
+  .leaf-br { bottom: -60px; right: -80px; width: 380px; z-index: 4; transform: rotate(-14deg); }
+  .leaf-bl { bottom: -40px; left: -40px; width: 360px; z-index: 4; transform: rotate(30deg); }
+  .leaf-tl { top: -30px; left: -40px; width: 300px; z-index: 4; transform: rotate(-20deg); }
+  .lemon { width: 90px; height: 90px; z-index: 5; }
+
+  /* export mode — one slide at native 1080x1350 */
+  body.export { padding: 0; background: #000; }
+  body.export .gallery { gap: 0; max-width: none; }
+  body.export .slide-wrap { width: 1080px; height: 1350px; display: none; }
+  body.export .slide-wrap.active { display: block; }
+  body.export .frame { transform: scale(1); }
+  body.export .label { display: none; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const slide = q.get('slide');
+    if (slide) {
+      document.body.classList.add('export');
+      document.querySelectorAll('.slide-wrap').forEach((w, i) => {
+        if (String(i + 1) === slide) w.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+
+<!-- inline SVG defs for leaves + lemons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="monstera" viewBox="0 0 220 240">
+      <g>
+        <!-- stem -->
+        <path d="M110 230 Q 110 170 110 130" stroke="#204F2C" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <!-- individual palm-frond leaflets fanning outward -->
+        <g fill="#2E6F3E" stroke="#204F2C" stroke-width="1.5">
+          <ellipse cx="110" cy="60"  rx="14" ry="60" />
+          <ellipse cx="110" cy="60"  rx="14" ry="60" transform="rotate(25 110 130)" />
+          <ellipse cx="110" cy="60"  rx="14" ry="60" transform="rotate(-25 110 130)" />
+          <ellipse cx="110" cy="70"  rx="16" ry="66" transform="rotate(50 110 130)" />
+          <ellipse cx="110" cy="70"  rx="16" ry="66" transform="rotate(-50 110 130)" />
+          <ellipse cx="110" cy="85"  rx="14" ry="60" transform="rotate(75 110 130)" />
+          <ellipse cx="110" cy="85"  rx="14" ry="60" transform="rotate(-75 110 130)" />
+        </g>
+      </g>
+    </symbol>
+    <symbol id="lemon" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="52" rx="40" ry="34" fill="#FFD947" stroke="#E8B923" stroke-width="2"/>
+      <path d="M15 62 Q25 50 50 54 Q75 58 85 48" stroke="#E8B923" stroke-width="2" fill="none" opacity="0.5"/>
+      <path d="M10 38 L4 30 M10 38 L2 42 M10 38 L6 48" stroke="#2E6F3E" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="14" cy="34" rx="8" ry="4" fill="#3E8E4E" transform="rotate(-30 14 34)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="gallery">
+
+  <!-- ============ SLIDE 1: PATIO HERO ============ -->
+  <div class="slide-wrap">
+    <div class="label">01 / 05 — patio hero</div>
+    <div class="frame s1">
+      <div class="sunny-border"></div>
+
+      <div class="photo-half">
+        <img src="../../library/images/summer1.jpg" alt="patio" />
+      </div>
+
+      <!-- decorations -->
+      <svg class="decor leaf-tr"><use href="#monstera"/></svg>
+      <svg class="decor" style="top:160px; right:100px; width:110px; height:110px;"><use href="#lemon"/></svg>
+      <svg class="decor" style="top:820px; right:60px; width:130px; height:130px;"><use href="#lemon"/></svg>
+
+      <div class="copy">
+        <div class="eyebrow">HELLO</div>
+        <div class="script">Summer</div>
+        <div class="offer-line">PATIO NOW OPEN</div>
+        <div class="pill-handle">@restaurant</div>
+      </div>
+
+      <div class="dots">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 2: SUMMER SIPS ============ -->
+  <div class="slide-wrap">
+    <div class="label">02 / 05 — summer sips</div>
+    <div class="frame s2">
+      <div class="sunny-border"></div>
+
+      <div class="top-label">
+        <div class="main">SUMMER SIPS</div>
+        <div class="top-pill">TODAY ONLY</div>
+      </div>
+
+      <div class="photo-frame">
+        <img src="../../library/images/summer2.jpg" alt="drink" />
+      </div>
+
+      <!-- decorations -->
+      <svg class="decor leaf-br"><use href="#monstera"/></svg>
+      <svg class="decor" style="top:260px; right:80px; width:110px; height:110px;"><use href="#lemon"/></svg>
+      <svg class="decor" style="bottom:300px; left:80px; width:110px; height:110px;"><use href="#lemon"/></svg>
+
+      <div class="dots">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="pill-handle">@restaurant</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 3: SUMMER MENU ============ -->
+  <div class="slide-wrap">
+    <div class="label">03 / 05 — summer menu</div>
+    <div class="frame s3">
+      <div class="sunny-border"></div>
+
+      <div class="pink-band"></div>
+      <div class="photo-band">
+        <img src="../../library/images/summer3.jpg" alt="dish" />
+      </div>
+
+      <!-- decorations -->
+      <svg class="decor" style="top:-20px; right:-30px; width:320px; height:320px; transform: rotate(10deg); z-index:5;"><use href="#monstera"/></svg>
+      <svg class="decor" style="top:100px; right:260px; width:110px; height:110px;"><use href="#lemon"/></svg>
+      <svg class="decor" style="top:440px; right:120px; width:110px; height:110px;"><use href="#lemon"/></svg>
+
+      <div class="copy">
+        <div class="eyebrow">HELLO</div>
+        <div class="script">Summer</div>
+        <div class="sub">MENU</div>
+      </div>
+
+      <div class="pill-handle">@restaurant</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 4: VIBE / ROOFTOP ============ -->
+  <div class="slide-wrap">
+    <div class="label">04 / 05 — vibe</div>
+    <div class="frame s4">
+      <div class="sunny-border"></div>
+
+      <div class="photo-card">
+        <img src="../../library/images/summer4.jpg" alt="rooftop" />
+      </div>
+
+      <!-- decorations -->
+      <svg class="decor" style="top:-40px; right:-60px; width:360px; height:360px; transform: rotate(20deg); z-index:5;"><use href="#monstera"/></svg>
+      <svg class="decor" style="bottom:-40px; right:80px; width:220px; height:220px; transform: rotate(-160deg); z-index:4;"><use href="#monstera"/></svg>
+      <svg class="decor" style="bottom:240px; left:30px; width:100px; height:100px;"><use href="#lemon"/></svg>
+
+      <div class="copy">
+        <div class="eyebrow">HELLO</div>
+        <div class="script">Summer</div>
+        <div class="pill-handle">@restaurant</div>
+      </div>
+
+      <div class="dots">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 5: CTA (summer pink) ============ -->
+  <div class="slide-wrap">
+    <div class="label">05 / 05 — cta</div>
+    <div class="frame cta">
+      <div class="sunny-border"></div>
+
+      <!-- summer decor -->
+      <svg class="decor" style="top:-40px; left:-40px; width:320px; height:320px; transform: rotate(-20deg); z-index:2;"><use href="#monstera"/></svg>
+      <svg class="decor" style="bottom:-60px; right:-50px; width:340px; height:340px; transform: rotate(160deg); z-index:2;"><use href="#monstera"/></svg>
+      <svg class="decor" style="top:180px; right:120px; width:110px; height:110px; z-index:2;"><use href="#lemon"/></svg>
+      <svg class="decor" style="bottom:220px; left:120px; width:110px; height:110px; z-index:2;"><use href="#lemon"/></svg>
+
+      <div class="cta-eyebrow">find it on</div>
+      <div class="cta-logo-wrap">
+        <img class="cta-logo" src="../../library/icons/bitemap_logo_transparent.png" alt="BiteMap" />
+      </div>
+      <div class="cta-tag">hello summer</div>
+      <div class="cta-sub">real places · no fluff</div>
+      <div class="cta-badges">
+        <img src="../../library/icons/app-store-badge.svg" alt="App Store" />
+        <img src="../../library/icons/google-play-badge.svg" alt="Google Play" />
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

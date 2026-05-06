@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Hero Cutout — Mildred's Temple Kitchen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@1,14,600&family=Inter:wght@500;600;700;800;900&family=Caveat+Brush&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:   #0A1E4E;
+    --pop:   #F4B71A;
+    --paper: #F3EADA;
+    --bitemap-red: #FB2605;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gallery {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    justify-content: center; max-width: 2800px; margin: 0 auto;
+  }
+
+  .slide-wrap { width: 486px; height: 607.5px; position: relative; }
+
+  .frame {
+    position: relative;
+    width: 1080px; height: 1350px;
+    background: var(--paper);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transform: scale(0.45);
+    transform-origin: top left;
+  }
+
+  .label {
+    position: absolute;
+    top: -28px; left: 0;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ========= shared cutout layout — image fills the whole frame ========= */
+  .cutframe .layer-bg, .cutframe .layer-cutout {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+  }
+  .cutframe .layer-bg { z-index: 1; }
+  .cutframe .layer-cutout { z-index: 3; pointer-events: none; }
+  .cutframe .layer-bg img, .cutframe .layer-cutout img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .cutframe .layer-text {
+    position: absolute; inset: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.45);
+  }
+  .display-word {
+    font-family: 'Archivo Black', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: -0.03em;
+    line-height: 0.88;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 0 4px 28px rgba(0,0,0,0.35);
+  }
+  .stamp-brush {
+    font-family: 'Caveat Brush', cursive;
+    color: #FFFFFF;
+    line-height: 0.95;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.45);
+  }
+  .badge-circle {
+    width: 190px; height: 190px;
+    background: var(--pop);
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    color: #111;
+    font-family: 'Archivo Black', sans-serif;
+    box-shadow: 0 18px 34px rgba(0,0,0,0.22);
+    text-align: center;
+    line-height: 1;
+    padding: 10px;
+  }
+  .badge-circle .lbl { font-size: 18px; letter-spacing: 0.14em; opacity: 0.75; margin-bottom: 8px; }
+  .badge-circle .val { font-family: 'Fraunces', serif; font-style: italic; font-size: 44px; }
+
+  /* meta strip bottom of every slide */
+  .meta-strip {
+    position: absolute;
+    bottom: 70px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    z-index: 9;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+
+  /* ======================= SLIDE 1: PANCAKES ======================= */
+  .s1 .eyebrow { position: absolute; top: 120px; left: 80px; }
+  .s1 .word-top {
+    position: absolute;
+    top: 200px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 150px;
+    text-align: center;
+  }
+  .s1 .word-bottom {
+    position: absolute;
+    bottom: 260px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 170px;
+    text-align: center;
+  }
+  .s1 .badge-circle { position: absolute; top: 580px; right: 40px; transform: rotate(-6deg); z-index: 4; }
+  .s1 .stamp { position: absolute; top: 540px; left: 40px; font-size: 60px; transform: rotate(-6deg); z-index: 4; }
+
+  /* ======================= SLIDE 2: SIGNATURE DISH ======================= */
+  .s2 .eyebrow { position: absolute; bottom: 315px; left: 80px; }
+  .s2 .word-top {
+    position: absolute;
+    top: 480px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 160px;
+    text-align: center;
+  }
+  .s2 .quote {
+    position: absolute;
+    bottom: 200px; left: 80px; right: 80px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 0 2px 18px rgba(0,0,0,0.5);
+  }
+  .s2 .quote .accent { color: var(--pop); }
+  .s2 .badge-circle { position: absolute; top: 560px; left: 40px; transform: rotate(6deg); z-index: 4; }
+  .s2 .stamp { position: absolute; top: 560px; right: 30px; font-size: 54px; transform: rotate(6deg); z-index: 4; color: var(--bitemap-red); }
+
+  /* ======================= SLIDE 3: STOREFRONT (flat photo — no cutout) ======================= */
+  .s3 { position: relative; }
+  .s3 .photo-full {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .s3 .photo-full img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .s3 .photo-full::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 30%, transparent 65%, rgba(0,0,0,0.55) 100%);
+  }
+  .s3 .eyebrow {
+    position: absolute; top: 350px; left: 80px;
+    color: #FFFFFF;
+    opacity: 0.95;
+    z-index: 4;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+  .s3 .storefront-headline {
+    position: absolute;
+    top: 410px; left: 80px; right: 80px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 180px;
+    line-height: 0.9;
+    color: #FFFFFF;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    z-index: 4;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.45);
+  }
+  .s3 .address-card {
+    position: absolute;
+    left: 80px; right: 80px;
+    bottom: 140px;
+    background: var(--paper);
+    padding: 26px 34px;
+    border: 3px solid var(--ink);
+    box-shadow: 10px 10px 0 var(--ink);
+    z-index: 5;
+  }
+  .s3 .address-card .lbl {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.6;
+    margin-bottom: 6px;
+  }
+  .s3 .address-card .addr {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 34px;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .s3 .address-card .sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--ink);
+    opacity: 0.8;
+    margin-top: 6px;
+  }
+
+  /* ======================= SLIDE 4: MENU ======================= */
+  .s4 .eyebrow { position: absolute; top: 90px; left: 80px; }
+  .s4 .word-top {
+    position: absolute;
+    top: 130px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 220px;
+    text-align: center;
+  }
+  .s4 .picks {
+    position: absolute;
+    bottom: 140px; left: 80px; right: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    z-index: 5;
+  }
+  .s4 .picks .pick {
+    background: var(--paper);
+    padding: 18px 22px;
+    border: 3px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--ink);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 22px;
+    color: var(--ink);
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+  .s4 .picks .pick span {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink);
+    opacity: 0.7;
+    margin-top: 4px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .s4 .badge-circle { position: absolute; top: 80px; right: 50px; transform: rotate(-6deg); z-index: 4; }
+
+  /* ======================= SLIDE 5: CTA ======================= */
+  .s5 { position: relative; padding: 140px 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .s5 .cta-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 50px;
+    z-index: 3;
+  }
+  .s5 .cta-logo {
+    width: 460px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 14px 30px rgba(0,0,0,0.18));
+    margin-bottom: 60px;
+    z-index: 3;
+  }
+  .s5 .cta-tag {
+    font-family: 'Caveat Brush', cursive;
+    color: var(--bitemap-red);
+    font-size: 68px;
+    line-height: 1;
+    margin-bottom: 70px;
+    text-align: center;
+    z-index: 3;
+  }
+  .s5 .cta-badges { display: flex; gap: 32px; align-items: center; z-index: 3; }
+  .s5 .cta-badges img { height: 110px; width: auto; }
+  .s5 .decor-badge {
+    position: absolute;
+    top: 100px; right: 80px;
+    transform: rotate(8deg);
+    z-index: 4;
+  }
+
+  /* export mode */
+  body.export { padding: 0; background: #000; }
+  body.export .gallery { gap: 0; max-width: none; }
+  body.export .slide-wrap { width: 1080px; height: 1350px; display: none; }
+  body.export .slide-wrap.active { display: block; }
+  body.export .frame { transform: scale(1); }
+  body.export .label { display: none; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const slide = q.get('slide');
+    if (slide) {
+      document.body.classList.add('export');
+      document.querySelectorAll('.slide-wrap').forEach((w, i) => {
+        if (String(i + 1) === slide) w.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+
+<div class="gallery">
+
+  <!-- ============ SLIDE 1: PANCAKES ============ -->
+  <div class="slide-wrap">
+    <div class="label">01 / 05 — pancakes hero</div>
+    <div class="frame cutframe s1">
+      <div class="layer-bg"><img src="../../library/images/pancakes.jpg" alt="" /></div>
+
+      <div class="layer-text">
+        <div class="eyebrow">toronto · liberty village</div>
+        <div class="display-word word-top">MILDRED'S</div>
+        <div class="display-word word-bottom">PANCAKES</div>
+        <div class="badge-circle">
+          <div class="lbl">SINCE</div>
+          <div class="val">'89</div>
+        </div>
+        <div class="stamp-brush stamp">world<br/>famous.</div>
+      </div>
+
+      <div class="layer-cutout"><img src="./pancakes_cutout.png" alt="" /></div>
+      <div class="meta-strip">FOUND ON BITEMAP</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 2: SIGNATURE DISH ============ -->
+  <div class="slide-wrap">
+    <div class="label">02 / 05 — signature dish</div>
+    <div class="frame cutframe s2">
+      <div class="layer-bg"><img src="../../library/images/mildreds.webp" alt="" /></div>
+
+      <div class="layer-text">
+        <div class="eyebrow">the house special</div>
+        <div class="display-word word-top">SIGNATURE.</div>
+        <div class="badge-circle">
+          <div class="lbl">ALL</div>
+          <div class="val">day</div>
+        </div>
+        <div class="stamp-brush stamp">locally<br/>sourced.</div>
+        <div class="quote">
+          "simply &amp; <span class="accent">sumptuously</span><br/>prepared."
+        </div>
+      </div>
+
+      <div class="layer-cutout"><img src="./mildreds_cutout.png" alt="" /></div>
+      <div class="meta-strip">FOUND ON BITEMAP</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 3: STOREFRONT ============ -->
+  <div class="slide-wrap">
+    <div class="label">03 / 05 — storefront</div>
+    <div class="frame s3">
+      <div class="photo-full"><img src="../../library/images/mildreds_outside.jpeg" alt="" /></div>
+
+      <div class="eyebrow">well hidden in</div>
+      <div class="storefront-headline">LIBERTY<br/>VILLAGE.</div>
+
+      <div class="address-card">
+        <div class="lbl">Where</div>
+        <div class="addr">85 HANNA AVE #104</div>
+        <div class="sub">Toronto · bright, industrial, intimate.</div>
+      </div>
+
+      <div class="meta-strip" style="color: #FFF; opacity: 0.95;">FOUND ON BITEMAP</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 4: MENU ============ -->
+  <div class="slide-wrap">
+    <div class="label">04 / 05 — the menu</div>
+    <div class="frame cutframe s4">
+      <div class="layer-bg"><img src="../../library/images/brunch_menu_mildred.avif" alt="" /></div>
+
+      <div class="layer-text">
+        <div class="eyebrow">what to order</div>
+        <div class="display-word word-top">MENU.</div>
+        <div class="badge-circle">
+          <div class="lbl">WEEKEND</div>
+          <div class="val">9–3</div>
+        </div>
+        <div class="picks">
+          <div class="pick">Ricotta pancakes <span>maple, berries</span></div>
+          <div class="pick">Duck confit hash <span>two eggs, potato</span></div>
+          <div class="pick">Lemon ricotta toast <span>honey, pistachio</span></div>
+          <div class="pick">Crispy cornmeal waffle <span>bourbon butter</span></div>
+        </div>
+      </div>
+
+      <div class="meta-strip">FOUND ON BITEMAP</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 5: CTA ============ -->
+  <div class="slide-wrap">
+    <div class="label">05 / 05 — cta</div>
+    <div class="frame s5">
+      <div class="cta-eyebrow">FIND MORE TORONTO SPOTS ON</div>
+      <img class="cta-logo" src="../../library/icons/bitemap_logo_transparent.png" alt="BiteMap" />
+      <div class="cta-tag">eat like a local.</div>
+      <div class="cta-badges">
+        <img src="../../library/icons/app-store-badge.svg" alt="App Store" />
+        <img src="../../library/icons/google-play-badge.svg" alt="Google Play" />
+      </div>
+      <div class="decor-badge">
+        <div class="badge-circle">
+          <div class="lbl">SINCE</div>
+          <div class="val">'89</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

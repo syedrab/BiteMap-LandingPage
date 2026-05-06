@@ -1,0 +1,93 @@
+{
+  "template_id": "summer",
+  "name": "Summer Patio Carousel",
+  "series": "Summer / Patio Season",
+  "format": "5-slide carousel (4 content + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "Playful pastel summer — pink/teal/yellow color blocks, tropical leaves, lemons, handwritten 'Hello Summer' script, dotted decoration.",
+  "palette": {
+    "pink": "#F2A3B4",
+    "teal": "#7FD8C8",
+    "yellow": "#FFD83F",
+    "mustard_frame": "#F5C33B",
+    "cream": "#FFF3DA",
+    "leaf": "#2E6F3E",
+    "text_dark": "#1F1F1F",
+    "bitemap_red": "#FB2605"
+  },
+  "fonts": {
+    "script": "Caveat / Pacifico (handwritten 'Summer' word)",
+    "sans_display": "Montserrat 800 (UPPERCASE labels: HELLO, SUMMER SALES, TODAY ONLY)",
+    "sans_body": "Inter 600 (restaurant name, neighbourhood pill)"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "Patio Hero",
+      "subject": "Full photo of the patio / exterior on left half, pink block on right with 'Hello Summer' + offer.",
+      "copy": { "label": "HELLO", "script": "Summer", "offer": "PATIO NOW OPEN", "handle": "@restaurant" },
+      "decor": "Monstera leaves top-right, lemons, dotted cluster"
+    },
+    {
+      "n": 2,
+      "role": "Summer Sips",
+      "subject": "Drink/cocktail photo inside a pink-framed square centered on teal-over-pink split background.",
+      "copy": { "top_label": "SUMMER SIPS", "pill": "TODAY ONLY", "handle": "@restaurant" },
+      "decor": "Leaves right, lemons scattered, dotted cluster bottom-left"
+    },
+    {
+      "n": 3,
+      "role": "Summer Menu",
+      "subject": "Top half = pink block with 'Hello Summer MENU'; bottom half = full-bleed food photo.",
+      "copy": { "label": "HELLO", "script": "Summer", "sub": "MENU", "handle": "@restaurant" },
+      "decor": "Leaves and lemons in the pink band"
+    },
+    {
+      "n": 4,
+      "role": "Vibe / Rooftop",
+      "subject": "Left = pool/rooftop/patio lifestyle photo in pink frame; right = pink block with 'Hello Summer' + neighbourhood pill.",
+      "copy": { "label": "HELLO", "script": "Summer", "handle": "@restaurant" },
+      "decor": "Dotted cluster, monstera leaf"
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Static BiteMap closer (dark). Matches other templates for brand consistency.",
+      "copy": "Fixed: 'find it on' / BiteMap logo / tagline / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "restaurantName": "string — e.g. 'La Palma'",
+    "neighbourhood": "string — e.g. 'Ossington'",
+    "city": "string — e.g. 'Toronto'",
+    "handle": "string — @restaurant handle used across slides",
+    "slide1": { "imageUrl": "patio/exterior shot", "offer": "short offer line, UPPERCASE (e.g. 'PATIO NOW OPEN', 'SUMMER HOURS LIVE')" },
+    "slide2": { "imageUrl": "signature drink close-up", "pill": "short offer (e.g. 'TODAY ONLY', '2-FOR-1 SPRITZ')" },
+    "slide3": { "imageUrl": "summer dish photo", "sub": "one-word subtitle (e.g. 'MENU', 'SPECIALS')" },
+    "slide4": { "imageUrl": "lifestyle/rooftop/pool shot" }
+  },
+  "copy_rules": [
+    "Script word is always 'Summer' — do not substitute",
+    "Label line (HELLO / SUMMER SIPS / SUMMER SALES) is UPPERCASE, wide tracking",
+    "Offer/pill lines are short — 3 words max",
+    "Restaurant name goes in handle pill (@handle), never in the big script word",
+    "Neighbourhood optional, appears only in slide 4 pill or meta"
+  ],
+  "asset_rules": [
+    "Photos should feel sunlit / outdoor / warm — avoid dim interior shots",
+    "Patio, rooftop, pool-adjacent, bright drink, or bright dish imagery only",
+    "Min 1080px wide; real photos only (no AI)",
+    "Drink slide: photograph the actual menu drink, not stock cocktails"
+  ],
+  "use_when": [
+    "Patio opening / seasonal menu drop",
+    "Summer-long evergreen patio content",
+    "Heatwave reactive (cold drinks / rooftops)",
+    "Summer events tie-in (concerts, festivals, World Cup summer fan zones)"
+  ]
+}

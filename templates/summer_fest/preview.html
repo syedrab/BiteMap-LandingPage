@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Summer Fest — Carousel Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Black&family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #2D3A8C;
+    --navy-deep: #1F2A6F;
+    --cream: #F4E9CC;
+    --cream-deep: #E9DBB4;
+    --red: #E85A4F;
+    --yellow: #F5C93E;
+    --ink: #1A1A1A;
+    --white: #FFFFFF;
+    --bitemap-red: #FB2605;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gallery {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    justify-content: center; max-width: 2800px; margin: 0 auto;
+  }
+
+  .slide-wrap { width: 486px; height: 607.5px; position: relative; }
+  .label {
+    position: absolute; top: -28px; left: 0;
+    color: #888; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .frame {
+    position: relative; width: 1080px; height: 1350px;
+    overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transform: scale(0.45); transform-origin: top left;
+  }
+
+  /* --- shared type --- */
+  .slab { font-family: 'Alfa Slab One', serif; line-height: 0.95; }
+  .black { font-family: 'Archivo Black', sans-serif; letter-spacing: 0.02em; }
+  .inter-b { font-family: 'Inter', sans-serif; font-weight: 800; }
+  .up { text-transform: uppercase; }
+
+  /* presenter bar (used on s1 + s2) */
+  .presenter-bar {
+    position: absolute; top: 0; left: 0; right: 0; height: 88px;
+    background: var(--cream); border-bottom: 3px solid var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 24px; letter-spacing: 0.42em; color: var(--navy);
+    z-index: 10;
+  }
+  .presenter-bar::before,
+  .presenter-bar::after {
+    content: ""; width: 80px; height: 4px; background: var(--navy); margin: 0 22px;
+  }
+
+  /* footer row (most slides) */
+  .footer-row {
+    position: absolute; bottom: 44px; left: 60px; right: 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 22px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    z-index: 20;
+  }
+
+  /* ========== SLIDE 1: GRID HERO ========== */
+  .s1 { background: var(--cream); }
+  .s1 .grid {
+    position: absolute; top: 120px; left: 60px; right: 60px;
+    height: 560px; display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+  }
+  .s1 .tile { border-radius: 8px; overflow: hidden; position: relative; }
+  .s1 .tile.beach    { grid-column: 1 / span 2; grid-row: 1; background: #9BC7E8; }
+  .s1 .tile.surfer   { grid-column: 3; grid-row: 1 / span 2; background: var(--yellow); }
+  .s1 .tile.lifering { grid-column: 1; grid-row: 2; background: var(--cream-deep); }
+  .s1 .tile.drink    { grid-column: 2; grid-row: 2; background: var(--navy); }
+
+  .s1 .title-block {
+    position: absolute; left: 60px; right: 60px; top: 730px;
+    text-align: center;
+  }
+  .s1 .title-block .title {
+    font-size: 200px; color: var(--navy);
+    font-style: italic; letter-spacing: -0.01em;
+    text-shadow: 14px 12px 0 var(--yellow);
+  }
+  .s1 .title-block .line2 {
+    margin-top: -10px;
+    color: var(--red);
+    text-shadow: 14px 12px 0 var(--navy);
+  }
+  .s1 .umbrella-slot {
+    position: absolute; left: 80px; bottom: 150px; width: 220px; height: 180px;
+    transform: rotate(-12deg);
+  }
+  .s1 .ball-slot {
+    position: absolute; left: 330px; bottom: 110px; width: 110px; height: 110px;
+  }
+  .s1 .pop-slot {
+    position: absolute; right: 120px; bottom: 120px; width: 130px; height: 200px;
+    transform: rotate(14deg);
+  }
+  .s1 .handle-pill {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    bottom: 110px;
+    background: var(--navy); color: var(--cream);
+    font-family: 'Inter', sans-serif; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.3em;
+    padding: 14px 32px; border-radius: 999px; font-size: 22px;
+    z-index: 5;
+  }
+  .s1 .footer-row { color: var(--navy); }
+
+  /* ========== SLIDE 2: TICKETS ========== */
+  .s2 { background: #ECECEC; }
+  .s2 .eyebrow-top {
+    position: absolute; top: 70px; left: 0; right: 0; text-align: center;
+    font-family: 'Archivo Black'; font-size: 26px; letter-spacing: 0.45em;
+    color: var(--ink); text-transform: uppercase;
+    z-index: 5;
+  }
+  .s2 .eyebrow-top::before, .s2 .eyebrow-top::after {
+    content: "—"; margin: 0 18px; color: var(--ink);
+  }
+  .s2 .ticket {
+    position: absolute; width: 960px; height: 360px;
+    background: #FFFFFF;
+    border-radius: 22px;
+    display: flex; overflow: hidden;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.18);
+  }
+  .s2 .ticket.top    { top: 220px; left: 40px; transform: rotate(-5deg); z-index: 3; }
+  .s2 .ticket.bottom { top: 720px; left: 80px; transform: rotate(3deg); z-index: 2; }
+
+  .s2 .ticket .body { position: relative; flex: 1; padding: 24px 28px; }
+  .s2 .ticket .stub {
+    position: relative; width: 230px;
+    background: #F5C93E;
+    display: flex; align-items: stretch; justify-content: center;
+    padding: 18px 0;
+  }
+
+  /* blue grid frame — top/bottom strips on body */
+  .s2 .ticket .body::before, .s2 .ticket .body::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 46px;
+    background-color: #6DB8E8;
+    background-image:
+      linear-gradient(#89C7EA 2px, transparent 2px),
+      linear-gradient(90deg, #89C7EA 2px, transparent 2px);
+    background-size: 38px 38px;
+  }
+  .s2 .ticket .body::before { top: 0; }
+  .s2 .ticket .body::after  { bottom: 0; }
+  .s2 .ticket.bottom .body::before { background-color: #F4E6C2;
+    background-image:
+      linear-gradient(#E7D5A6 2px, transparent 2px),
+      linear-gradient(90deg, #E7D5A6 2px, transparent 2px);
+  }
+
+  /* perforation notches between body and stub */
+  .s2 .ticket .perf {
+    position: absolute; top: 0; right: 230px; bottom: 0;
+    width: 4px; border-left: 4px dashed #D6D6D6;
+  }
+  .s2 .ticket .notch-t, .s2 .ticket .notch-b {
+    position: absolute; right: 214px; width: 34px; height: 34px;
+    background: #ECECEC; border-radius: 50%;
+    z-index: 6;
+  }
+  .s2 .ticket .notch-t { top: -17px; }
+  .s2 .ticket .notch-b { bottom: -17px; }
+
+  .s2 .ticket .url {
+    position: absolute; top: 16px; right: 32px;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 18px;
+    letter-spacing: 0.2em; color: var(--ink); z-index: 4;
+  }
+  .s2 .ticket .present {
+    position: absolute; top: 62px; left: 28px;
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Inter', sans-serif; font-weight: 800; font-size: 20px;
+    letter-spacing: 0.22em; color: var(--ink); text-transform: uppercase;
+    z-index: 4;
+  }
+  .s2 .ticket .present .sq {
+    width: 18px; height: 18px; background: var(--red);
+  }
+
+  .s2 .ticket .title {
+    position: absolute; top: 108px; left: 28px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 88px; line-height: 0.92;
+    color: var(--ink); text-transform: uppercase;
+    letter-spacing: -0.02em;
+    z-index: 4;
+  }
+  .s2 .ticket .title .tag {
+    display: inline-block;
+    background: var(--yellow); color: var(--ink);
+    font-size: 44px; letter-spacing: 0;
+    padding: 6px 18px 10px; margin-left: 8px;
+    transform: translateY(-18px);
+  }
+
+  .s2 .ticket .date {
+    position: absolute; top: 112px; right: 36px;
+    text-align: right; z-index: 4;
+  }
+  .s2 .ticket .date .big {
+    font-family: 'Archivo Black'; font-size: 46px; line-height: 1.0;
+    color: var(--ink); letter-spacing: -0.02em;
+  }
+  .s2 .ticket .date .info {
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px;
+    letter-spacing: 0.1em; color: var(--ink); line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .s2 .ticket .bottom-row {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 46px;
+    display: flex; align-items: center; z-index: 4;
+    padding: 0 0 0 28px;
+  }
+  .s2 .ticket .place {
+    font-family: 'Archivo Black'; font-size: 26px;
+    color: var(--ink); text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .s2 .ticket .addr {
+    margin-left: 18px;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px;
+    letter-spacing: 0.08em; color: var(--ink); line-height: 1.2;
+    text-transform: uppercase; max-width: 220px;
+  }
+  .s2 .ticket .price-pill {
+    position: absolute; right: 0; bottom: 0;
+    height: 72px; background: var(--ink);
+    display: flex; align-items: center; gap: 16px;
+    padding: 0 24px 0 30px;
+    border-top-left-radius: 18px;
+    font-family: 'Archivo Black'; color: var(--white);
+    font-size: 30px;
+  }
+  .s2 .ticket .price-pill .badge {
+    background: var(--red); color: var(--white);
+    border-radius: 999px; padding: 8px 22px;
+    font-size: 26px; letter-spacing: 0.08em;
+  }
+
+  /* stub area */
+  .s2 .ticket .stub .gate {
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    font-family: 'Archivo Black'; font-size: 52px;
+    letter-spacing: 0.08em; color: var(--ink); text-transform: uppercase;
+    padding: 12px 0;
+  }
+  .s2 .ticket .stub .barcode-box {
+    background: var(--ink); color: var(--white);
+    border-radius: 10px; padding: 14px 10px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    margin-left: 6px;
+  }
+  .s2 .ticket .stub .barcode {
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+  .s2 .ticket .stub .bars {
+    flex: 1; width: 46px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--white) 0 2px,
+      transparent 2px 4px,
+      var(--white) 4px 8px,
+      transparent 8px 10px,
+      var(--white) 10px 14px,
+      transparent 14px 16px
+    );
+  }
+
+  .s2 .footer-row { color: var(--ink); bottom: 60px; }
+
+  /* ========== SLIDE 3: LINEUP ========== */
+  .s3 { background: var(--cream); }
+  .s3 .top-band {
+    position: absolute; top: 0; left: 0; right: 0; height: 200px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--cream);
+  }
+  .s3 .top-band .menu-label {
+    color: var(--cream);
+    font-family: 'Archivo Black'; font-size: 44px;
+    letter-spacing: 0.45em; text-transform: uppercase;
+  }
+  .s3 .top-band .kicker {
+    position: absolute; top: 58px; font-family: 'Alfa Slab One';
+    font-style: italic; font-size: 88px; color: var(--yellow);
+    text-shadow: 8px 6px 0 var(--red);
+    top: 48px;
+  }
+  .s3 .sun-slot { position: absolute; top: 40px; right: 60px; width: 160px; height: 160px; z-index: 5; }
+  .s3 .items {
+    position: absolute; top: 260px; left: 60px; right: 60px;
+    display: flex; flex-direction: column; gap: 22px;
+  }
+  .s3 .row {
+    display: flex; align-items: center; gap: 28px;
+    padding: 22px 28px; border-radius: 18px;
+    font-family: 'Alfa Slab One'; font-size: 48px;
+    line-height: 1.0;
+  }
+  .s3 .row.r1 { background: var(--yellow); color: var(--navy); }
+  .s3 .row.r2 { background: var(--red);    color: var(--cream); }
+  .s3 .row.r3 { background: var(--navy);   color: var(--cream); }
+  .s3 .row.r4 { background: var(--cream-deep); color: var(--navy); }
+  .s3 .num {
+    flex: none; width: 76px; height: 76px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Archivo Black'; font-size: 42px;
+    background: var(--cream); color: var(--navy);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .s3 .row.r1 .num { background: var(--navy); color: var(--yellow); }
+  .s3 .row.r2 .num { background: var(--yellow); color: var(--red); }
+  .s3 .row.r3 .num { background: var(--red); color: var(--cream); }
+  .s3 .row.r4 .num { background: var(--navy); color: var(--cream); }
+  .s3 .row .meta {
+    margin-left: auto; font-family: 'Inter', sans-serif;
+    font-weight: 700; font-size: 22px; letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .s3 .footer-row { color: var(--navy); }
+
+  /* ========== SLIDE 4: LOCATION / VIBE ========== */
+  .s4 { background: var(--cream); }
+  .s4 .sky {
+    position: absolute; left: 0; right: 0; top: 0; height: 620px;
+    background: linear-gradient(180deg, #6F8BD6 0%, var(--navy) 100%);
+  }
+  .s4 .ocean {
+    position: absolute; left: 0; right: 0; top: 620px; height: 180px;
+    background: #3E5AA8;
+  }
+  .s4 .sand {
+    position: absolute; left: 0; right: 0; top: 800px; bottom: 0;
+    background: var(--cream);
+  }
+  .s4 .sun4   { position: absolute; top: 120px; left: 120px; width: 220px; height: 220px; }
+  .s4 .palm-l { position: absolute; top: 260px; left: -20px; width: 300px; height: 500px; }
+  .s4 .palm-r { position: absolute; top: 220px; right: -40px; width: 340px; height: 560px; }
+  .s4 .umbrella4 { position: absolute; left: 140px; top: 700px; width: 240px; height: 240px; z-index: 4; }
+  .s4 .ball4  { position: absolute; right: 260px; top: 780px; width: 110px; height: 110px; z-index: 4; }
+  .s4 .chair  { position: absolute; right: 120px; top: 720px; width: 220px; height: 220px; z-index: 3; }
+
+  .s4 .title-mid {
+    position: absolute; left: 60px; right: 60px; top: 860px;
+    text-align: center;
+    font-family: 'Alfa Slab One'; font-style: italic;
+    font-size: 90px; color: var(--navy);
+    text-shadow: 8px 6px 0 var(--yellow);
+  }
+  .s4 .addr-banner {
+    position: absolute; left: 40px; right: 40px; bottom: 160px;
+    background: var(--yellow); border-radius: 14px;
+    padding: 24px 30px; text-align: center;
+    font-family: 'Archivo Black'; font-size: 26px; letter-spacing: 0.2em;
+    color: var(--navy); text-transform: uppercase;
+    border: 3px solid var(--navy);
+    box-shadow: 6px 6px 0 var(--navy);
+  }
+  .s4 .nbhd-pill {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    top: 820px;
+    background: var(--red); color: var(--cream);
+    padding: 14px 28px; border-radius: 999px;
+    font-family: 'Inter'; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.3em; font-size: 22px;
+    z-index: 6;
+  }
+  .s4 .footer-row { color: var(--navy); }
+
+  /* ========== SLIDE 5: CTA ========== */
+  .cta { background: var(--navy); }
+  .cta .top-stripe {
+    position: absolute; top: 0; left: 0; right: 0; height: 80px;
+    background: var(--yellow);
+  }
+  .cta .bottom-stripe {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+    background: var(--red);
+  }
+  .cta .tile-bl { position: absolute; left: -80px; bottom: -80px; width: 360px; height: 360px; background: var(--red); border-radius: 50%; opacity: 0.35;}
+  .cta .tile-tr { position: absolute; right: -80px; top: -80px; width: 300px; height: 300px; background: var(--yellow); border-radius: 50%; opacity: 0.35;}
+  .cta .halo {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 720px; height: 720px; border-radius: 50%;
+    background: var(--cream);
+    box-shadow: 14px 14px 0 var(--red), -14px -14px 0 var(--yellow);
+  }
+  .cta .halo-inner {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    text-align: center; width: 640px; z-index: 6;
+  }
+  .cta .eyebrow {
+    font-family: 'Archivo Black'; font-size: 26px;
+    letter-spacing: 0.45em; color: var(--navy); text-transform: uppercase;
+  }
+  .cta img.logo {
+    width: 440px; height: auto;
+    margin: 18px auto 8px; display: block;
+  }
+  .cta .sub {
+    font-family: 'Alfa Slab One'; font-style: italic;
+    font-size: 42px; color: var(--red);
+    text-shadow: 4px 4px 0 var(--navy);
+  }
+  .cta .badges { margin-top: 36px; display: flex; gap: 20px; justify-content: center; }
+  .cta .badges img { height: 74px; }
+  .cta .tag {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    top: 120px; color: var(--cream);
+    font-family: 'Archivo Black'; letter-spacing: 0.4em;
+    font-size: 22px; text-transform: uppercase;
+    z-index: 5;
+  }
+  .cta .cities {
+    position: absolute; left: 0; right: 0; bottom: 140px; text-align: center;
+    color: var(--cream); font-family: 'Inter'; font-weight: 700;
+    letter-spacing: 0.3em; font-size: 20px; text-transform: uppercase;
+    z-index: 5;
+  }
+
+  /* ========== EXPORT MODE ========== */
+  body.export { background: #000; padding: 0; margin: 0; }
+  body.export .gallery { gap: 0; max-width: none; }
+  body.export .slide-wrap { width: 1080px; height: 1350px; display: none; }
+  body.export .slide-wrap.active { display: block; }
+  body.export .frame { transform: scale(1); }
+  body.export .label { display: none; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const slide = q.get('slide');
+    if (slide) {
+      document.documentElement.style.cssText = 'padding:0!important;margin:0!important;background:#000;';
+      document.body.classList.add('export');
+      document.querySelectorAll('.slide-wrap').forEach((w, i) => {
+        if (String(i + 1) === slide) w.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+
+<!-- ============ SVG SYMBOL LIBRARY ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- SUN: disc + rays -->
+    <symbol id="sun" viewBox="-120 -120 240 240">
+      <g stroke="#F5C93E" stroke-width="16" stroke-linecap="round">
+        <line x1="0" y1="-108" x2="0" y2="-80"/>
+        <line x1="0" y1="108" x2="0" y2="80"/>
+        <line x1="-108" y1="0" x2="-80" y2="0"/>
+        <line x1="108" y1="0" x2="80" y2="0"/>
+        <line x1="-76" y1="-76" x2="-56" y2="-56"/>
+        <line x1="76" y1="76" x2="56" y2="56"/>
+        <line x1="-76" y1="76" x2="-56" y2="56"/>
+        <line x1="76" y1="-76" x2="56" y2="-56"/>
+      </g>
+      <circle cx="0" cy="0" r="60" fill="#F5C93E"/>
+    </symbol>
+
+    <!-- BIG SUN (for slide 1 beach tile) -->
+    <symbol id="bigsun" viewBox="0 0 240 240">
+      <circle cx="120" cy="120" r="90" fill="#F5C93E"/>
+      <circle cx="120" cy="120" r="64" fill="none" stroke="#F4E9CC" stroke-width="4" opacity="0.55"/>
+      <circle cx="120" cy="120" r="40" fill="none" stroke="#F4E9CC" stroke-width="4" opacity="0.4"/>
+    </symbol>
+
+    <!-- CLOUD -->
+    <symbol id="cloud" viewBox="0 0 120 60">
+      <ellipse cx="30" cy="40" rx="26" ry="16" fill="#F4E9CC"/>
+      <ellipse cx="60" cy="32" rx="32" ry="22" fill="#F4E9CC"/>
+      <ellipse cx="92" cy="40" rx="22" ry="14" fill="#F4E9CC"/>
+    </symbol>
+
+    <!-- BUCKET -->
+    <symbol id="bucket" viewBox="0 0 120 140">
+      <path d="M12 30 L108 30 L96 120 Q60 132 24 120 Z" fill="#F5C93E"/>
+      <rect x="12" y="24" width="96" height="14" fill="#F5C93E"/>
+      <path d="M20 24 Q60 0 100 24" fill="none" stroke="#F5C93E" stroke-width="8"/>
+    </symbol>
+
+    <!-- SHOVEL -->
+    <symbol id="shovel" viewBox="0 0 80 140">
+      <rect x="34" y="0" width="12" height="90" fill="#E85A4F"/>
+      <rect x="20" y="0" width="40" height="10" fill="#E85A4F"/>
+      <path d="M10 90 Q40 140 70 90 Z" fill="#E85A4F"/>
+    </symbol>
+
+    <!-- LIFERING -->
+    <symbol id="lifering" viewBox="-110 -110 220 220">
+      <circle cx="0" cy="0" r="100" fill="#E85A4F"/>
+      <circle cx="0" cy="0" r="50" fill="#F4E9CC"/>
+      <rect x="-104" y="-14" width="28" height="28" fill="#F4E9CC"/>
+      <rect x="76" y="-14" width="28" height="28" fill="#F4E9CC"/>
+      <rect x="-14" y="-104" width="28" height="28" fill="#F4E9CC"/>
+      <rect x="-14" y="76" width="28" height="28" fill="#F4E9CC"/>
+    </symbol>
+
+    <!-- DRINK GLASS -->
+    <symbol id="drink" viewBox="0 0 140 220">
+      <path d="M30 40 L110 40 L96 200 L44 200 Z" fill="#F4E9CC" stroke="#F5C93E" stroke-width="6"/>
+      <path d="M36 74 L104 74 L92 182 L48 182 Z" fill="#E85A4F"/>
+      <ellipse cx="70" cy="40" rx="40" ry="8" fill="#F5C93E"/>
+      <rect x="82" y="4" width="10" height="70" fill="#F4E9CC" transform="rotate(10 87 40)"/>
+      <circle cx="96" cy="34" r="14" fill="#F5C93E"/>
+    </symbol>
+
+    <!-- SURFER (silhouette standing with surfboard) -->
+    <symbol id="surfer" viewBox="0 0 300 500">
+      <!-- sand hill -->
+      <path d="M0 460 Q150 400 300 460 L300 500 L0 500 Z" fill="#E85A4F" opacity="0"/>
+      <!-- figure silhouette -->
+      <g fill="#2D3A8C">
+        <circle cx="170" cy="80" r="30"/>              <!-- head -->
+        <rect x="158" y="58" width="34" height="12"/>   <!-- hat brim -->
+        <rect x="150" y="46" width="50" height="20" rx="4"/> <!-- hat top -->
+        <path d="M150 120 Q170 115 190 120 L200 260 Q170 270 140 260 Z"/> <!-- torso -->
+        <rect x="148" y="250" width="22" height="140" rx="4"/> <!-- leg L -->
+        <rect x="178" y="250" width="22" height="140" rx="4"/> <!-- leg R -->
+        <rect x="168" y="380" width="40" height="14" rx="4"/>  <!-- foot -->
+      </g>
+      <!-- surfboard -->
+      <g transform="translate(220 60) rotate(18)">
+        <rect x="0" y="0" width="50" height="380" rx="25" fill="#E85A4F"/>
+        <rect x="20" y="30" width="10" height="320" rx="5" fill="#F4E9CC" opacity="0.5"/>
+      </g>
+      <!-- arm holding board -->
+      <path d="M190 140 Q230 120 240 110 L252 140 Q222 160 200 170 Z" fill="#2D3A8C"/>
+    </symbol>
+
+    <!-- UMBRELLA (half dome + stick) -->
+    <symbol id="umbrella" viewBox="0 0 300 280">
+      <path d="M20 130 Q150 -30 280 130 Z" fill="#E85A4F"/>
+      <path d="M20 130 Q150 -30 280 130" fill="none" stroke="#2D3A8C" stroke-width="4"/>
+      <!-- stripes -->
+      <path d="M60 130 Q95 40 150 10" fill="none" stroke="#F5C93E" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+      <path d="M240 130 Q205 40 150 10" fill="none" stroke="#F5C93E" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+      <rect x="146" y="10" width="8" height="260" fill="#2D3A8C"/>
+      <path d="M150 270 Q170 274 176 260" fill="none" stroke="#2D3A8C" stroke-width="8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- BEACH BALL -->
+    <symbol id="ball" viewBox="-100 -100 200 200">
+      <circle cx="0" cy="0" r="94" fill="#F4E9CC"/>
+      <path d="M-94 0 Q0 -50 94 0 Q0 50 -94 0 Z" fill="#E85A4F"/>
+      <path d="M0 -94 Q-50 0 0 94 Q50 0 0 -94 Z" fill="#2D3A8C" opacity="0.9"/>
+      <path d="M0 -94 Q50 0 0 94 Q-50 0 0 -94 Z" fill="#F5C93E" opacity="0.9"/>
+      <circle cx="0" cy="0" r="94" fill="none" stroke="#2D3A8C" stroke-width="4"/>
+      <circle cx="-30" cy="-40" r="10" fill="#FFFFFF" opacity="0.7"/>
+    </symbol>
+
+    <!-- POPSICLE -->
+    <symbol id="popsicle" viewBox="0 0 130 220">
+      <rect x="58" y="150" width="14" height="70" rx="4" fill="#8B5A2B"/>
+      <path d="M20 40 Q20 20 40 20 L90 20 Q110 20 110 40 L110 160 Q65 180 20 160 Z" fill="#E85A4F"/>
+      <path d="M28 44 Q28 28 44 28 L86 28 Q102 28 102 44 L102 100 Q65 114 28 100 Z" fill="#F5C93E"/>
+      <circle cx="50" cy="56" r="8" fill="#F4E9CC" opacity="0.9"/>
+      <circle cx="78" cy="70" r="6" fill="#F4E9CC" opacity="0.9"/>
+    </symbol>
+
+    <!-- PORTRAIT (woman with shades) -->
+    <symbol id="portrait" viewBox="0 0 400 540">
+      <!-- hair back -->
+      <path d="M40 160 Q30 80 120 40 Q200 10 280 40 Q370 70 370 180 L370 460 L30 460 Z" fill="#E85A4F"/>
+      <!-- wavy hair tendrils -->
+      <path d="M40 220 Q0 280 30 340 Q60 280 50 220 Z" fill="#E85A4F"/>
+      <path d="M370 220 Q410 280 380 360 Q350 300 360 220 Z" fill="#E85A4F"/>
+      <!-- face -->
+      <ellipse cx="200" cy="230" rx="130" ry="160" fill="#F4E9CC"/>
+      <!-- hair bangs -->
+      <path d="M90 160 Q140 90 200 100 Q260 88 320 160 Q280 140 200 150 Q120 140 90 160 Z" fill="#E85A4F"/>
+      <!-- shades -->
+      <g fill="#2D3A8C">
+        <rect x="110" y="220" width="90" height="56" rx="20"/>
+        <rect x="210" y="220" width="90" height="56" rx="20"/>
+        <rect x="196" y="240" width="20" height="8"/>
+      </g>
+      <circle cx="140" cy="240" r="10" fill="#F5C93E" opacity="0.6"/>
+      <circle cx="240" cy="240" r="10" fill="#F5C93E" opacity="0.6"/>
+      <!-- lips -->
+      <path d="M170 330 Q200 346 230 330 Q214 354 200 354 Q186 354 170 330 Z" fill="#E85A4F"/>
+      <!-- neck + body block -->
+      <rect x="150" y="400" width="100" height="50" fill="#F4E9CC"/>
+      <rect x="60" y="450" width="280" height="90" fill="#2D3A8C"/>
+    </symbol>
+
+    <!-- PALM TREE SILHOUETTE -->
+    <symbol id="palm" viewBox="0 0 300 500">
+      <path d="M140 500 Q130 340 150 160 Q170 340 160 500 Z" fill="#1A1A1A"/>
+      <g fill="#1A1A1A">
+        <path d="M150 160 Q60 120 10 180 Q90 140 150 180 Z"/>
+        <path d="M150 160 Q240 120 290 180 Q210 140 150 180 Z"/>
+        <path d="M150 160 Q80 80 30 70 Q120 100 150 170 Z"/>
+        <path d="M150 160 Q220 80 270 70 Q180 100 150 170 Z"/>
+        <path d="M150 160 Q150 60 100 20 Q160 90 160 180 Z"/>
+        <path d="M150 160 Q150 60 200 20 Q140 90 140 180 Z"/>
+      </g>
+      <circle cx="150" cy="158" r="10" fill="#1A1A1A"/>
+    </symbol>
+
+    <!-- BEACH CHAIR -->
+    <symbol id="chair" viewBox="0 0 300 300">
+      <rect x="40" y="100" width="220" height="40" fill="#E85A4F" transform="rotate(-8 150 120)"/>
+      <rect x="40" y="140" width="220" height="40" fill="#F5C93E" transform="rotate(-8 150 160)"/>
+      <rect x="40" y="180" width="220" height="40" fill="#F4E9CC" transform="rotate(-8 150 200)"/>
+      <rect x="30" y="120" width="14" height="170" fill="#2D3A8C"/>
+      <rect x="250" y="120" width="14" height="170" fill="#2D3A8C"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="gallery">
+
+  <!-- ============ SLIDE 1: GRID HERO ============ -->
+  <div class="slide-wrap">
+    <div class="label">01 / 05 — grid hero</div>
+    <div class="frame s1">
+
+      <div class="presenter-bar">BITEMAP PRESENTS</div>
+
+      <div class="grid">
+        <!-- Beach tile (sun + clouds + bucket + shovel) -->
+        <div class="tile beach">
+          <svg viewBox="0 0 680 280" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+            <rect x="0" y="0" width="680" height="200" fill="#9BC7E8"/>
+            <rect x="0" y="200" width="680" height="80" fill="#F5C93E"/>
+            <use href="#bigsun" x="20" y="20" width="170" height="170"/>
+            <use href="#cloud" x="240" y="40" width="180" height="80"/>
+            <use href="#cloud" x="460" y="80" width="160" height="70"/>
+            <use href="#bucket" x="300" y="140" width="110" height="130"/>
+            <use href="#shovel" x="420" y="110" width="70" height="140"/>
+          </svg>
+        </div>
+        <!-- Surfer tile -->
+        <div class="tile surfer">
+          <svg viewBox="0 0 320 560" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+            <rect x="0" y="0" width="320" height="560" fill="#F5C93E"/>
+            <circle cx="230" cy="90" r="64" fill="#E85A4F"/>
+            <use href="#surfer" x="10" y="70" width="300" height="500"/>
+          </svg>
+        </div>
+        <!-- Life ring tile -->
+        <div class="tile lifering">
+          <svg viewBox="0 0 320 260" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
+            <rect x="0" y="0" width="320" height="260" fill="#F4E9CC"/>
+            <use href="#lifering" x="60" y="20" width="220" height="220"/>
+          </svg>
+        </div>
+        <!-- Drink tile -->
+        <div class="tile drink">
+          <svg viewBox="0 0 320 260" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
+            <rect x="0" y="0" width="320" height="260" fill="#2D3A8C"/>
+            <circle cx="240" cy="70" r="50" fill="#F5C93E"/>
+            <use href="#drink" x="90" y="30" width="140" height="220"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="title-block">
+        <div class="title slab">Summer</div>
+        <div class="title slab line2">Fest</div>
+      </div>
+
+      <div class="umbrella-slot">
+        <svg viewBox="0 0 300 280" width="100%" height="100%"><use href="#umbrella"/></svg>
+      </div>
+      <div class="ball-slot">
+        <svg viewBox="-100 -100 200 200" width="100%" height="100%"><use href="#ball"/></svg>
+      </div>
+      <div class="pop-slot">
+        <svg viewBox="0 0 130 220" width="100%" height="100%"><use href="#popsicle"/></svg>
+      </div>
+
+      <div class="handle-pill">@restaurant · TORONTO</div>
+
+      <div class="footer-row">
+        <span>www.bitemap.fun</span>
+        <span>Vol. 01 · Summer '26</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 2: TICKETS ============ -->
+  <div class="slide-wrap">
+    <div class="label">02 / 05 — tickets</div>
+    <div class="frame s2">
+
+      <div class="eyebrow-top">GRAB YOUR SEAT</div>
+
+      <!-- TOP TICKET -->
+      <div class="ticket top">
+        <div class="body">
+          <span class="url">WWW.BITEMAP.FUN</span>
+          <div class="present"><span class="sq"></span> YOUR TABLE AWAITS</div>
+          <div class="title">
+            SUMMER<br/>
+            TIME <span class="tag">FESTIVAL</span>
+          </div>
+          <div class="date">
+            <div class="big">17/AUG<br/>/2026</div>
+            <div class="info">FOR YOUR INFO :<br/>@RESTAURANT | RSVP</div>
+          </div>
+          <div class="bottom-row">
+            <span class="place">YOUR PLACE</span>
+            <span class="addr">123 Ossington Ave,<br/>Toronto, ON</span>
+            <div class="price-pill">$50 <span class="badge">VIP</span></div>
+          </div>
+        </div>
+        <div class="perf"></div>
+        <div class="notch-t"></div>
+        <div class="notch-b"></div>
+        <div class="stub">
+          <div class="gate">TABLE 01</div>
+          <div class="barcode-box">
+            <div class="bars"></div>
+            <div class="barcode">ID: 12345654321</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM TICKET -->
+      <div class="ticket bottom">
+        <div class="body">
+          <span class="url">WWW.BITEMAP.FUN</span>
+          <div class="present"><span class="sq"></span> YOUR TABLE AWAITS</div>
+          <div class="title">
+            SUMMER<br/>
+            TIME <span class="tag">FESTIVAL</span>
+          </div>
+          <div class="date">
+            <div class="big">17/AUG<br/>/2026</div>
+            <div class="info">FOR YOUR INFO :<br/>@RESTAURANT | RSVP</div>
+          </div>
+          <div class="bottom-row">
+            <span class="place">YOUR PLACE</span>
+            <span class="addr">123 Ossington Ave,<br/>Toronto, ON</span>
+            <div class="price-pill">$10 <span class="badge">REG</span></div>
+          </div>
+        </div>
+        <div class="perf"></div>
+        <div class="notch-t"></div>
+        <div class="notch-b"></div>
+        <div class="stub">
+          <div class="gate">TABLE 05</div>
+          <div class="barcode-box">
+            <div class="bars"></div>
+            <div class="barcode">ID: 12345654321</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-row">
+        <span>@restaurant</span>
+        <span>www.bitemap.fun</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 3: LINEUP ============ -->
+  <div class="slide-wrap">
+    <div class="label">03 / 05 — lineup</div>
+    <div class="frame s3">
+
+      <div class="top-band">
+        <span class="menu-label">ON THE MENU</span>
+      </div>
+
+      <div class="sun-slot">
+        <svg viewBox="-120 -120 240 240" width="100%" height="100%"><use href="#sun"/></svg>
+      </div>
+
+      <div class="items">
+        <div class="row r1">
+          <div class="num">1</div>
+          <span>Rooftop Spritz</span>
+          <span class="meta">Patio · 5pm</span>
+        </div>
+        <div class="row r2">
+          <div class="num">2</div>
+          <span>Smoked Mango Tacos</span>
+          <span class="meta">Live Set · 7pm</span>
+        </div>
+        <div class="row r3">
+          <div class="num">3</div>
+          <span>Charcoal Oysters</span>
+          <span class="meta">Chef's Pick · 8pm</span>
+        </div>
+        <div class="row r4">
+          <div class="num">4</div>
+          <span>Hibiscus Soft Serve</span>
+          <span class="meta">Nightcap · 10pm</span>
+        </div>
+      </div>
+
+      <div class="footer-row">
+        <span>@restaurant</span>
+        <span>www.bitemap.fun</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 4: LOCATION / VIBE ============ -->
+  <div class="slide-wrap">
+    <div class="label">04 / 05 — location</div>
+    <div class="frame s4">
+
+      <div class="sky"></div>
+      <div class="ocean"></div>
+      <div class="sand"></div>
+
+      <div class="sun4">
+        <svg viewBox="-120 -120 240 240" width="100%" height="100%"><use href="#sun"/></svg>
+      </div>
+      <div class="palm-l">
+        <svg viewBox="0 0 300 500" width="100%" height="100%"><use href="#palm"/></svg>
+      </div>
+      <div class="palm-r">
+        <svg viewBox="0 0 300 500" width="100%" height="100%" transform="scale(-1 1)"><use href="#palm"/></svg>
+      </div>
+
+      <div class="chair">
+        <svg viewBox="0 0 300 300" width="100%" height="100%"><use href="#chair"/></svg>
+      </div>
+      <div class="umbrella4">
+        <svg viewBox="0 0 300 280" width="100%" height="100%"><use href="#umbrella"/></svg>
+      </div>
+      <div class="ball4">
+        <svg viewBox="-100 -100 200 200" width="100%" height="100%"><use href="#ball"/></svg>
+      </div>
+
+      <div class="nbhd-pill">Ossington · Toronto</div>
+      <div class="title-mid">find the patio</div>
+
+      <div class="addr-banner">2728 Bird Spring Lane · Toronto, ON</div>
+
+      <div class="footer-row">
+        <span>@restaurant</span>
+        <span>www.bitemap.fun</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 5: CTA ============ -->
+  <div class="slide-wrap">
+    <div class="label">05 / 05 — cta</div>
+    <div class="frame cta">
+
+      <div class="top-stripe"></div>
+      <div class="bottom-stripe"></div>
+      <div class="tile-bl"></div>
+      <div class="tile-tr"></div>
+
+      <div class="tag">SUMMER FEST · BITEMAP</div>
+
+      <div class="halo"></div>
+      <div class="halo-inner">
+        <div class="eyebrow">FIND IT ON</div>
+        <img class="logo" src="../../library/icons/bitemap_logo_transparent.png" alt="BiteMap"/>
+        <div class="sub">real patios · real summer</div>
+        <div class="badges">
+          <img src="../../library/icons/app-store-badge.svg" alt="App Store"/>
+          <img src="../../library/icons/google-play-badge.svg" alt="Google Play"/>
+        </div>
+      </div>
+
+      <div class="cities">TORONTO · LOS ANGELES · MEXICO CITY · NEW YORK</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

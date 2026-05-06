@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html><head>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,wght@0,600;1,500;1,600&family=Inter:wght@500;700;800&family=Caveat+Brush&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background: transparent; width: 1080px; height: 1920px; overflow: hidden; }
+  .scene { display: none; position: relative; width: 1080px; height: 1920px; }
+  .scene.active { display: block; }
+
+  /* ===== SCENE 1: TITLE ===== */
+  .s1 .small {
+    position: absolute; top: 200px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 78px;
+    color: #FFFFFF;
+    opacity: 0.92;
+    letter-spacing: 0.02em;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  }
+  .s1 .big {
+    position: absolute; top: 340px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 220px;
+    line-height: 0.9;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    text-shadow: 0 6px 34px rgba(0,0,0,0.5);
+  }
+  .s1 .script {
+    position: absolute; top: 1570px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Caveat Brush', cursive;
+    color: #FFFFFF;
+    font-size: 74px;
+    opacity: 0.95;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.55);
+  }
+
+  /* ===== SCENE 2: THE SPOT ===== */
+  .s2 .label {
+    position: absolute;
+    bottom: 320px; left: 80px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 34px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.65);
+  }
+  .s2 .big {
+    position: absolute;
+    bottom: 180px; left: 80px; right: 80px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 180px;
+    line-height: 0.9;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    text-shadow: 0 6px 34px rgba(0,0,0,0.65);
+  }
+
+  /* ===== SCENE 3: CHEERS ===== */
+  .s3 .word {
+    position: absolute;
+    bottom: 420px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 340px;
+    line-height: 0.95;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    text-shadow: 0 6px 44px rgba(0,0,0,0.65);
+  }
+  .s3 .small {
+    position: absolute;
+    bottom: 340px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    letter-spacing: 0.44em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.9;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  }
+
+  /* ===== SCENE 4: DESSERT ===== */
+  .s4 .word {
+    position: absolute;
+    top: 200px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 220px;
+    color: #FFFFFF;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-shadow: 0 6px 30px rgba(0,0,0,0.7);
+  }
+  .s4 .sub {
+    position: absolute;
+    top: 450px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Caveat Brush', cursive;
+    color: #FFFFFF;
+    font-size: 78px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  }
+
+  /* ===== SCENE 5: CTA ===== */
+  .s5 {
+    background: #141414;
+  }
+  .s5 .eyebrow {
+    position: absolute; top: 540px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 34px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.85;
+  }
+  .s5 .logo-wrap {
+    position: absolute; top: 640px; left: 50%; transform: translateX(-50%);
+    width: 500px;
+  }
+  .s5 .logo-wrap img { width: 100%; height: auto; display: block; }
+  .s5 .tag {
+    position: absolute; top: 1220px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Caveat Brush', cursive;
+    color: #FFFFFF;
+    font-size: 90px;
+    line-height: 1;
+  }
+  .s5 .sub {
+    position: absolute; top: 1360px; left: 0; right: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.75;
+  }
+  .s5 .badges {
+    position: absolute; bottom: 200px; left: 0; right: 0;
+    text-align: center;
+    display: flex; justify-content: center; gap: 32px;
+  }
+  .s5 .badges img { height: 120px; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const s = q.get('s');
+    if (s) {
+      document.querySelectorAll('.scene').forEach(el => {
+        if (el.dataset.n === s) el.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+
+<div class="scene s1" data-n="1">
+  <div class="small">tonight in</div>
+  <div class="big">TORONTO.</div>
+  <div class="script">date night, on us.</div>
+</div>
+
+<div class="scene s2" data-n="2">
+  <div class="label">THE SPOT</div>
+  <div class="big">LITTLE<br/>FRANCES.</div>
+</div>
+
+<div class="scene s3" data-n="3">
+  <div class="small">HERE'S TO US</div>
+  <div class="word">cheers.</div>
+</div>
+
+<div class="scene s4" data-n="4">
+  <div class="word">dessert,</div>
+  <div class="sub">obviously.</div>
+</div>
+
+<div class="scene s5" data-n="5">
+  <div class="eyebrow">FIND YOUR DATE NIGHT ON</div>
+  <div class="logo-wrap"><img src="../../library/icons/bitemap_logo_transparent.png" alt="BiteMap" /></div>
+  <div class="tag">eat. sip. remember.</div>
+  <div class="sub">found on bitemap</div>
+  <div class="badges">
+    <img src="../../library/icons/app-store-badge.svg" alt="" />
+    <img src="../../library/icons/google-play-badge.svg" alt="" />
+  </div>
+</div>
+
+</body></html>

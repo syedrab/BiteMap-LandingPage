@@ -1,0 +1,46 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Goal Card — All Teams</title>
+<style>
+  body { margin: 0; background: #0e0e0e; color: #fff; font-family: -apple-system, sans-serif; }
+  h1 { padding: 24px 32px 0; font-size: 22px; letter-spacing: .02em; }
+  .hint { padding: 0 32px 20px; opacity: .6; font-size: 13px; }
+  .team { padding: 24px 32px; border-top: 1px solid #222; }
+  .team h2 { font-size: 18px; margin: 0 0 12px; letter-spacing: .12em; }
+  .team .word { opacity: .55; font-size: 13px; font-weight: 400; margin-left: 10px; }
+  .row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 10px; }
+  .row img { width: 240px; height: 300px; object-fit: cover; border-radius: 8px; background: #111; flex-shrink: 0; }
+</style></head>
+<body>
+<h1>Goal Card — FIFA 2026 Favorites</h1>
+<div class="hint">10 teams · 5 slides each · pre-rendered from preview.html</div>
+<script>
+  const TEAMS = [
+    ['BRA', 'Brazil',     'GOL'],
+    ['ARG', 'Argentina',  'GOL'],
+    ['FRA', 'France',     'BUT'],
+    ['ESP', 'Spain',      'GOL'],
+    ['ENG', 'England',    'GOAL'],
+    ['GER', 'Germany',    'TOR'],
+    ['POR', 'Portugal',   'GOL'],
+    ['NED', 'Netherlands','GOAL'],
+    ['MEX', 'Mexico',     'GOL'],
+    ['JPN', 'Japan',      'ゴール'],
+    ['USA', 'USA',        'GOAL'],
+    ['CAN', 'Canada',     'GOAL'],
+  ];
+  const root = document.body;
+  for (const [code, name, word] of TEAMS) {
+    const sec = document.createElement('div');
+    sec.className = 'team';
+    sec.innerHTML = `<h2>${code} — ${name}<span class="word">${word}</span></h2><div class="row"></div>`;
+    const row = sec.querySelector('.row');
+    for (let n = 1; n <= 5; n++) {
+      const img = document.createElement('img');
+      img.src = `out/teams/${code}_slide_0${n}.png`;
+      img.alt = `${code} slide ${n}`;
+      row.appendChild(img);
+    }
+    root.appendChild(sec);
+  }
+</script>
+</body></html>

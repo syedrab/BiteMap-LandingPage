@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Vintage Poster Carousel — George Street Diner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F1EBDF;
+    --ink: #151515;
+    --coral: #E8826A;
+    --teal: #7CC9C8;
+    --mustard: #E8C547;
+    --pink: #E89AA1;
+    --red: #FB2605;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    max-width: 2400px;
+    margin: 0 auto;
+  }
+
+  .slide-wrap { width: 486px; height: 607.5px; position: relative; }
+
+  .frame {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: var(--cream);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transform: scale(0.45);
+    transform-origin: top left;
+  }
+
+  .shape { position: absolute; z-index: 1; }
+
+  /* Coral arch — default center shape */
+  .arch {
+    left: 50%;
+    top: 260px;
+    transform: translateX(-50%);
+    width: 780px;
+    height: 880px;
+    background: var(--coral);
+    border-radius: 390px 390px 0 0;
+  }
+
+  /* Teal triangle bottom-left */
+  .triangle {
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 360px solid transparent;
+    border-right: 360px solid transparent;
+    border-bottom: 460px solid var(--teal);
+    transform: translateX(-200px);
+  }
+
+  /* Mustard wedge top-right */
+  .wedge {
+    right: 0;
+    top: 0;
+    width: 440px;
+    height: 440px;
+    background: var(--mustard);
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+  }
+
+  /* Subject clipped to arch */
+  .subject {
+    position: absolute;
+    left: 50%;
+    top: 290px;
+    transform: translateX(-50%);
+    width: 720px;
+    height: 850px;
+    object-fit: cover;
+    border-radius: 360px 360px 0 0;
+    z-index: 3;
+  }
+
+  .headline-top, .headline-bottom {
+    position: absolute;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'DM Serif Display', 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 220px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    z-index: 4;
+  }
+  .headline-top { top: 50px; }
+  .headline-bottom { bottom: 20px; }
+
+  .side-label {
+    position: absolute;
+    z-index: 5;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 32px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .side-left {
+    left: 60px;
+    top: 50%;
+    transform: rotate(-90deg) translateX(50%);
+    transform-origin: left center;
+  }
+  .side-right {
+    right: 60px;
+    top: 50%;
+    transform: rotate(90deg) translateX(-50%);
+    transform-origin: right center;
+  }
+
+  .badge {
+    position: absolute;
+    z-index: 6;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    line-height: 1.1;
+    color: var(--ink);
+    top: 350px;
+    right: 120px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.12);
+  }
+
+  .wedge-label {
+    position: absolute;
+    top: 68px;
+    right: 40px;
+    z-index: 5;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.3em;
+    color: var(--ink);
+    transform: rotate(45deg);
+    transform-origin: center;
+  }
+
+  /* PALETTE VARIANTS */
+  /* Variant B — teal-forward */
+  .var-teal .arch { background: var(--teal); }
+  .var-teal .triangle { border-bottom-color: var(--coral); }
+  .var-teal .wedge { background: var(--mustard); }
+
+  /* Variant C — mustard-forward */
+  .var-mustard .arch { background: var(--mustard); }
+  .var-mustard .triangle { border-bottom-color: var(--pink); }
+  .var-mustard .wedge { background: var(--coral); }
+
+  /* Variant D — pink-forward */
+  .var-pink .arch { background: var(--pink); }
+  .var-pink .triangle { border-bottom-color: var(--teal); }
+  .var-pink .wedge { background: var(--mustard); }
+
+  /* NEW STYLE — geometric blocks, CASUAL OUTFITS pattern */
+  .block-style { padding: 0; }
+
+  .block { position: absolute; z-index: 1; }
+
+  /* Yellow rectangle — top-left, tall */
+  .block-yellow {
+    top: 0; left: 0;
+    width: 45%; height: 45%;
+    background: var(--mustard);
+  }
+  /* Coral diamond — center, rotated */
+  .block-coral {
+    top: 18%; left: 38%;
+    width: 50%; height: 60%;
+    background: var(--coral);
+    transform: rotate(15deg);
+  }
+  /* Teal triangle — bottom-left */
+  .block-teal-bl {
+    bottom: 0; left: 0;
+    width: 50%; height: 40%;
+    background: var(--teal);
+    clip-path: polygon(0 100%, 100% 100%, 0 20%);
+  }
+  /* Pink band — middle horizontal */
+  .block-pink {
+    top: 42%; left: 8%;
+    width: 80%; height: 22%;
+    background: var(--pink);
+    transform: rotate(-8deg);
+  }
+  /* Teal bottom-right */
+  .block-teal-br {
+    bottom: 0; right: 0;
+    width: 45%; height: 35%;
+    background: var(--teal);
+  }
+
+  .block-subject {
+    position: absolute;
+    top: 22%;
+    left: 28%;
+    width: 44%;
+    height: 56%;
+    object-fit: cover;
+    z-index: 3;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  }
+
+  /* Per-slide subject framing for landscape/square source photos */
+  .subj-landscape {
+    top: 32%;
+    left: 20%;
+    width: 60%;
+    height: 36%;
+  }
+  .subj-square {
+    top: 26%;
+    left: 24%;
+    width: 52%;
+    height: 48%;
+  }
+
+  .block-title-top {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 200px;
+    line-height: 0.9;
+    color: var(--ink);
+    z-index: 4;
+    letter-spacing: -0.02em;
+  }
+  .block-title-bottom {
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 200px;
+    line-height: 0.9;
+    color: var(--ink);
+    z-index: 4;
+    letter-spacing: -0.02em;
+  }
+  .block-rot-label {
+    position: absolute;
+    top: 50%;
+    left: 70px;
+    transform: rotate(-90deg) translateY(-50%);
+    transform-origin: left center;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 40px;
+    color: var(--ink);
+    z-index: 5;
+    white-space: nowrap;
+  }
+  .block-badge {
+    position: absolute;
+    top: 180px;
+    left: 110px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    line-height: 1.1;
+    color: var(--ink);
+    z-index: 6;
+    box-shadow: 0 6px 20px rgba(0,0,0,.12);
+  }
+
+  /* Palette B */
+  .palette-b .block-yellow { background: var(--teal); }
+  .palette-b .block-coral { background: var(--mustard); }
+  .palette-b .block-teal-bl { background: var(--pink); }
+  .palette-b .block-pink { background: var(--coral); }
+  .palette-b .block-teal-br { background: var(--mustard); }
+
+  /* Palette C */
+  .palette-c .block-yellow { background: var(--pink); }
+  .palette-c .block-coral { background: var(--teal); }
+  .palette-c .block-teal-bl { background: var(--mustard); }
+  .palette-c .block-pink { background: var(--mustard); }
+  .palette-c .block-teal-br { background: var(--coral); }
+
+  /* LAYERED-SHIFT LAYOUT (slide 2) — image on top of stacked offset color boxes */
+  .layered .block { display: none; }
+
+  .layered .shift-blue, .layered .shift-yellow {
+    position: absolute;
+    width: 640px;
+    height: 640px;
+    z-index: 1;
+  }
+  .layered .shift-blue {
+    top: calc(50% - 320px + 180px);
+    left: calc(50% - 320px + 180px);
+    background: var(--teal);
+  }
+  .layered .shift-yellow {
+    top: calc(50% - 320px + 90px);
+    left: calc(50% - 320px + 90px);
+    background: var(--mustard);
+    z-index: 2;
+  }
+  .layered .block-subject {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 640px;
+    height: 640px;
+    z-index: 3;
+    clip-path: none;
+    border-radius: 0;
+    box-shadow: 0 16px 40px rgba(0,0,0,.25);
+    object-position: center;
+  }
+
+  /* TOP-BANNER LAYOUT (slide 4) — image covers top 40% of frame */
+  .banner .block { display: none; }
+
+  .banner .b-image {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 40%;
+    object-fit: cover;
+    z-index: 2;
+  }
+  .banner .b-yellow {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 55%;
+    height: 30%;
+    background: var(--mustard);
+    z-index: 1;
+  }
+  .banner .b-teal {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    width: 45%;
+    height: 30%;
+    background: var(--teal);
+    z-index: 1;
+  }
+  .banner .b-pink {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: var(--pink);
+    z-index: 1;
+  }
+  .banner .b-coral {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 42%;
+    height: 30%;
+    background: var(--coral);
+    z-index: 2;
+  }
+  .banner .block-title-top {
+    top: 56%;
+    font-size: 180px;
+  }
+  .banner .block-title-bottom {
+    bottom: 40px;
+    font-size: 180px;
+  }
+  .banner .block-rot-label {
+    top: 58%;
+    left: 60px;
+    z-index: 4;
+  }
+  .banner .block-badge {
+    top: 44%;
+    left: auto;
+    right: 80px;
+    background: var(--cream);
+  }
+
+  /* LAYERED ROTATED SQUARES — multiple diamonds overlapping, CASUAL-style */
+  .diamond .block { display: none; }
+  .diamond .d-accent { display: none; }
+
+  .diamond .d-tri {
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+  .diamond .d-tl {
+    top: -140px; left: -140px;
+    width: 640px; height: 640px;
+    background: var(--mustard);
+    inset: auto;
+    clip-path: none;
+  }
+  .diamond .d-tr {
+    top: -100px; right: -160px;
+    width: 580px; height: 580px;
+    background: var(--teal);
+    inset: auto;
+    clip-path: none;
+  }
+  .diamond .d-bl {
+    bottom: -120px; left: -150px;
+    width: 560px; height: 560px;
+    background: var(--teal);
+    inset: auto;
+    clip-path: none;
+  }
+  .diamond .d-br {
+    bottom: -140px; right: -120px;
+    width: 620px; height: 620px;
+    background: var(--coral);
+    inset: auto;
+    clip-path: none;
+  }
+
+  .diamond .d-center {
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    width: 520px;
+    height: 520px;
+    background: var(--coral);
+    transform: translate(-50%, -50%) rotate(45deg);
+    z-index: 2;
+  }
+
+  /* Pink band running horizontally through middle */
+  .diamond::before {
+    content: "";
+    position: absolute;
+    top: 44%;
+    left: -8%;
+    width: 116%;
+    height: 16%;
+    background: var(--pink);
+    transform: rotate(-6deg);
+    z-index: 2;
+  }
+
+  /* Subject — 540x540 square (50% of frame width), dead center */
+  .diamond .block-subject {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 810px;
+    height: 810px;
+    z-index: 3;
+    clip-path: none;
+    border-radius: 0;
+    box-shadow: 0 16px 40px rgba(0,0,0,.3);
+    object-position: center;
+  }
+
+  /* Pink overlay — same size as image (810x810), diagonal triangle from top-left corner */
+  .diamond .subj-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 810px;
+    height: 810px;
+    z-index: 4;
+    background: var(--pink);
+    clip-path: polygon(0 0, 50% 0, 0 50%);
+    pointer-events: none;
+  }
+
+  .diamond .block-badge {
+    top: 200px;
+    left: 80px;
+    background: var(--cream);
+  }
+  .diamond .block-title-top {
+    top: 60px;
+    left: 0; right: 0;
+    text-align: center;
+    z-index: 4;
+  }
+  .diamond .block-title-bottom {
+    bottom: 40px;
+    left: 0; right: 0;
+    text-align: center;
+    z-index: 4;
+  }
+  .diamond .block-rot-label {
+    z-index: 5;
+  }
+
+  /* CTA slide — vintage palette */
+  .cta {
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta .cta-block {
+    position: absolute;
+    z-index: 0;
+  }
+  .cta-yellow { top: 0; left: 0; width: 42%; height: 42%; background: var(--mustard); }
+  .cta-coral { top: 20%; right: -8%; width: 54%; height: 60%; background: var(--coral); transform: rotate(15deg); }
+  .cta-teal-bl { bottom: 0; left: 0; width: 48%; height: 34%; background: var(--teal); clip-path: polygon(0 100%, 100% 100%, 0 30%); }
+  .cta-pink { top: 46%; left: 8%; width: 78%; height: 20%; background: var(--pink); transform: rotate(-8deg); }
+  .cta-teal-br { bottom: 0; right: 0; width: 42%; height: 30%; background: var(--teal); }
+
+  .cta > * { position: relative; z-index: 3; }
+  .cta-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 40px;
+    background: var(--teal);
+    padding: 14px 32px;
+    border-radius: 40px;
+  }
+  .cta-logo { width: 380px; height: auto; margin-bottom: 32px; display: block; }
+  .cta-tag {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 48px;
+    color: #fff;
+    margin-bottom: 64px;
+    text-align: center;
+    background: var(--mustard);
+    padding: 22px 42px;
+    border-radius: 18px;
+    line-height: 1.15;
+  }
+  .cta-badges { display: flex; gap: 24px; align-items: center; }
+  .cta-badges img { height: 100px; width: auto; }
+
+  .label {
+    position: absolute;
+    top: -28px;
+    left: 0;
+    color: #888;
+    font-size: 14px;
+    font-family: system-ui, sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .frame.diamond { position: relative; }
+
+  /* Export mode */
+  body.export { padding: 0; background: #000; }
+  body.export .gallery { gap: 0; max-width: none; }
+  body.export .slide-wrap { width: 1080px; height: 1350px; display: none; }
+  body.export .slide-wrap.active { display: block; }
+  body.export .frame { transform: scale(1); }
+  body.export .label { display: none; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const slide = q.get('slide');
+    if (slide) {
+      document.body.classList.add('export');
+      document.querySelectorAll('.slide-wrap').forEach((w, i) => {
+        if (String(i + 1) === slide) w.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+<div class="gallery">
+
+  <!-- SLIDE 1 — HOOK: storefront in arch -->
+  <div class="slide-wrap">
+    <div class="label">01 / 05 — hook (arch)</div>
+    <div class="frame">
+      <div class="shape wedge"></div>
+      <div class="shape triangle"></div>
+      <div class="shape arch"></div>
+      <img class="subject" src="../../library/images/georgestdiner.jpeg" alt="" />
+      <div class="headline-top">GEORGE</div>
+      <div class="headline-bottom">DINER</div>
+      <div class="side-label side-left">Toronto · George St</div>
+      <div class="side-label side-right">No. 129 · Est. 2007</div>
+      <div class="badge">since<br/>'07</div>
+      <div class="wedge-label">TORONTO</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 — LAYERED SHIFT: breakfast with offset boxes -->
+  <div class="slide-wrap">
+    <div class="label">02 / 05 — breakfast (shift)</div>
+    <div class="frame block-style layered">
+      <div class="shift-blue"></div>
+      <div class="shift-yellow"></div>
+      <img class="block-subject" src="../../library/images/georgediner5.jpg" alt="" />
+      <div class="block-title-top">FULL</div>
+      <div class="block-title-bottom">IRISH</div>
+      <div class="block-rot-label">Soda bread · sausages · beans</div>
+      <div class="block-badge">all<br/>day</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 — NEW STYLE: spice bag -->
+  <div class="slide-wrap">
+    <div class="label">03 / 05 — spice (diamond)</div>
+    <div class="frame block-style diamond">
+      <div class="d-tri d-tl"></div>
+      <div class="d-tri d-tr"></div>
+      <div class="d-tri d-bl"></div>
+      <div class="d-tri d-br"></div>
+      <div class="d-center"></div>
+      <div class="d-accent"></div>
+      <img class="block-subject" src="../../library/images/georgediner6.jpg" alt="" />
+      <div class="subj-overlay"></div>
+      <div class="block-title-top">SPICE</div>
+      <div class="block-title-bottom">BAG</div>
+      <div class="block-rot-label">Irish · Take-away · Toronto</div>
+      <div class="block-badge">take<br/>away</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 — TOP BANNER: image top 40%, blocks bottom 60% -->
+  <div class="slide-wrap">
+    <div class="label">04 / 05 — film set (banner)</div>
+    <div class="frame block-style banner">
+      <img class="b-image" src="../../library/images/georgediner4.jpg" alt="" />
+      <div class="b-yellow"></div>
+      <div class="b-teal"></div>
+      <div class="b-pink"></div>
+      <div class="b-coral"></div>
+      <div class="block-title-top">FILM</div>
+      <div class="block-title-bottom">SET</div>
+      <div class="block-rot-label">The Boys · Suits · Reacher</div>
+      <div class="block-badge">as<br/>seen</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 — CTA -->
+  <div class="slide-wrap">
+    <div class="label">05 / 05 — cta</div>
+    <div class="frame cta">
+      <div class="cta-block cta-yellow"></div>
+      <div class="cta-block cta-coral"></div>
+      <div class="cta-block cta-teal-bl"></div>
+      <div class="cta-block cta-pink"></div>
+      <div class="cta-block cta-teal-br"></div>
+
+      <div class="cta-eyebrow">find it on</div>
+      <img class="cta-logo" src="../../library/icons/bitemap_logo_transparent.png" alt="BiteMap" />
+      <div class="cta-tag">real places. real reviews.<br/>no fluff.</div>
+      <div class="cta-badges">
+        <img src="../../library/icons/app-store-badge.svg" alt="App Store" />
+        <img src="../../library/icons/google-play-badge.svg" alt="Google Play" />
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

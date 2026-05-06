@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Editorial Hero — Rosie's Burgers Carousel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #FB2605;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    max-width: 2400px;
+    margin: 0 auto;
+  }
+
+  .slide-wrap {
+    position: relative;
+  }
+
+  .frame {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: #111;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transform: scale(0.45);
+    transform-origin: top left;
+  }
+
+  .slide-wrap { width: 486px; height: 607.5px; }
+
+  .bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .frame::after {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,.2) 0%, transparent 22%, transparent 68%, rgba(0,0,0,.5) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .headline {
+    position: absolute;
+    top: 80px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: 260px;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+    z-index: 3;
+    font-variation-settings: "opsz" 144;
+    text-shadow: 0 4px 40px rgba(0,0,0,.4);
+  }
+
+  .accent {
+    position: absolute;
+    top: 360px;
+    right: 80px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 150px;
+    color: #fff;
+    z-index: 5;
+    letter-spacing: -0.01em;
+    transform: rotate(-4deg);
+    text-shadow: 0 4px 20px rgba(0,0,0,.4);
+  }
+
+  .kicker {
+    position: absolute;
+    bottom: 120px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #fff;
+    z-index: 5;
+    text-shadow: 0 2px 20px rgba(0,0,0,.4);
+  }
+
+  .meta {
+    position: absolute;
+    bottom: 64px;
+    left: 0; right: 0;
+    text-align: center;
+    z-index: 6;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0,0,0,.6);
+  }
+
+  .meta .dot {
+    display: inline-block;
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 0 14px 4px;
+  }
+
+  /* Slide 4 — closer slide, different treatment */
+  .closer .headline {
+    font-size: 220px;
+    letter-spacing: -0.05em;
+    top: 100px;
+  }
+  .closer .accent {
+    top: 360px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 110px;
+    transform: rotate(0);
+  }
+
+  /* Slide 3 — menu variant: push accent up */
+  .menu-slide .accent {
+    top: 180px;
+  }
+
+  /* Slide 5 — CTA / download slide (white bg) */
+  .cta {
+    background: #0E0E0E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 80px;
+  }
+  .cta::after { display: none; }
+
+  .cta-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 60px;
+  }
+  .cta-logo {
+    width: 420px;
+    height: auto;
+    margin-bottom: 40px;
+    display: block;
+  }
+  .cta-tag {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 52px;
+    color: #BBB;
+    margin-bottom: 140px;
+    text-align: center;
+  }
+  .cta-badges {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  .cta-badges img {
+    height: 110px;
+    width: auto;
+  }
+
+  .label {
+    position: absolute;
+    top: -28px;
+    left: 0;
+    color: #888;
+    font-size: 14px;
+    font-family: system-ui, sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Export mode — ?slide=N shows a single slide at native 1080x1350 */
+  body.export { padding: 0; background: #000; }
+  body.export .gallery { gap: 0; max-width: none; }
+  body.export .slide-wrap { width: 1080px; height: 1350px; display: none; }
+  body.export .slide-wrap.active { display: block; }
+  body.export .frame { transform: scale(1); }
+  body.export .label { display: none; }
+</style>
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const slide = q.get('slide');
+    if (slide) {
+      document.body.classList.add('export');
+      const wraps = document.querySelectorAll('.slide-wrap');
+      wraps.forEach((w, i) => {
+        if (String(i + 1) === slide) w.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+  <div class="gallery">
+
+    <!-- SLIDE 1 — HERO -->
+    <div class="slide-wrap">
+      <div class="label">01 / 04 — hero</div>
+      <div class="frame">
+        <img class="bg" src="../../library/images/RosiesBurgers.jpg" alt="" />
+        <div class="headline">TRIPLE</div>
+        <div class="accent">stack</div>
+        <div class="kicker">Rosie's Burgers</div>
+        <div class="meta">Toronto <span class="dot"></span> BiteMap</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 — BANANA PUDDING (signature) -->
+    <div class="slide-wrap">
+      <div class="label">02 / 05 — signature</div>
+      <div class="frame">
+        <img class="bg" src="../../library/images/rosies2.webp" alt="" />
+        <div class="headline">BANANA</div>
+        <div class="accent">pudding</div>
+        <div class="kicker">Rosie's Burgers</div>
+        <div class="meta">Toronto <span class="dot"></span> BiteMap</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 — MENU -->
+    <div class="slide-wrap">
+      <div class="label">03 / 05 — menu</div>
+      <div class="frame menu-slide">
+        <img class="bg" src="../../library/images/rosiesmenu.png" alt="" />
+        <div class="headline">THE</div>
+        <div class="accent">menu</div>
+        <div class="kicker">Rosie's Burgers</div>
+        <div class="meta">Toronto <span class="dot"></span> BiteMap</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 — MULTIPLE LOCATIONS -->
+    <div class="slide-wrap">
+      <div class="label">04 / 05 — locations</div>
+      <div class="frame closer">
+        <img class="bg" src="../../library/images/rosies3.webp" alt="" />
+        <div class="headline">5 SPOTS</div>
+        <div class="meta">Toronto <span class="dot"></span> BiteMap</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5 — CTA / DOWNLOAD -->
+    <div class="slide-wrap">
+      <div class="label">05 / 05 — cta</div>
+      <div class="frame cta">
+        <div class="cta-eyebrow">find it on</div>
+        <img class="cta-logo" src="../../library/icons/bitemap_logo_transparent.png" alt="BiteMap" />
+        <div class="cta-tag">real places. real reviews.<br/>no fluff.</div>
+        <div class="cta-badges">
+          <img src="../../library/icons/app-store-badge.svg" alt="App Store" />
+          <img src="../../library/icons/google-play-badge.svg" alt="Google Play" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{
+  "template_id": "geometric",
+  "name": "Geometric Shapes Carousel",
+  "series": "Geometric / Bauhaus-Pop",
+  "format": "5-slide carousel (4 content + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "Bold geometric pop — flat pink / cobalt blue / school-bus yellow color blocks, oversized oval/circle/heart/scalloped-circle shape cutouts that frame photos or sit as solid color fields. Display serif italic + black sans headlines, high-contrast three-tone palette. Feels like a modern editorial social pack: flat, confident, no gradients.",
+  "palette": {
+    "pink": "#F7A3C6",
+    "blue": "#1E3BD6",
+    "yellow": "#FFD01A",
+    "ink": "#111111",
+    "white": "#FFFFFF",
+    "bitemap_red": "#FB2605"
+  },
+  "fonts": {
+    "display_italic": "Fraunces / Playfair Display (italic display, used for accent word)",
+    "display_bold": "Archivo Black / Montserrat 900 (bold uppercase headlines)",
+    "sans_body": "Inter 600/700 (labels, metadata)"
+  },
+  "shape_language": [
+    "oval (vertical egg)",
+    "circle",
+    "heart",
+    "scalloped circle (petal edge)",
+    "rounded-wavy blob"
+  ],
+  "slides": [
+    {
+      "n": 1,
+      "role": "Oval Hook",
+      "subject": "Pink background; large blue vertical oval centered-left frames the hero dish photo; italic display headline top-right with bold accent word beside it; meta URL top, handle bottom.",
+      "copy": { "title": "italic 'Put on Your'", "accent": "bold 'Thinking Cap!'", "kicker": "short line (e.g. 'English Proverb')" }
+    },
+    {
+      "n": 2,
+      "role": "Scalloped Feature",
+      "subject": "Blue background; big yellow scalloped-circle (flower-petal edge) frames the feature dish; italic 'New' + bold 'Product' stack top-left; big date/time stamp right.",
+      "copy": { "title": "italic 'New'", "accent": "bold 'Product'", "dateLine": "01.29 2030 or similar", "kicker": "'Check Our...'" }
+    },
+    {
+      "n": 3,
+      "role": "Heart Drop",
+      "subject": "Yellow background; oversized pink heart shape center-right, italic + bold headline stack top-left, pill date under headline, handle bottom-left.",
+      "copy": { "title": "italic 'Pop'", "accent": "bold 'Music Fest' (or similar 2-word bold)", "dateLine": "date range (e.g. 'Nov 27-29 2030')" }
+    },
+    {
+      "n": 4,
+      "role": "Three Circles Layout",
+      "subject": "Pink background; 3 pink circles (two small top, one large bottom) each masking a food photo; bold italic two-line headline top-left; handle footer.",
+      "copy": { "title": "italic 'Photo'", "accent": "bold 'Layout' (2-line stack)", "handle": "@restaurant" }
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Yellow top half + blue bottom half split with pink oval wrapping the BiteMap logo in center; 'catch you on' script-italic above logo; app store badges bottom.",
+      "copy": "Fixed: 'found on' / BiteMap logo / tagline / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "restaurantName": "string — e.g. 'La Palma'",
+    "neighbourhood": "string — e.g. 'Ossington'",
+    "city": "string",
+    "handle": "string — @restaurant",
+    "slide1": { "imageUrl": "hero dish close-up", "titleItalic": "italic lead (e.g. 'Made for')", "titleBold": "bold accent (e.g. 'Late Nights')", "kicker": "short tag (e.g. 'Toronto Classic')" },
+    "slide2": { "imageUrl": "signature dish photo", "titleItalic": "italic word (e.g. 'New')", "titleBold": "bold word (e.g. 'Menu')", "dateLine": "date / time stamp" },
+    "slide3": { "titleItalic": "italic word (e.g. 'Hot')", "titleBold": "bold 1-2 words (e.g. 'Right Now')", "dateLine": "event / date range" },
+    "slide4": { "imageUrl1": "first dish photo", "imageUrl2": "second dish photo", "imageUrl3": "storefront or third dish", "titleItalic": "italic word", "titleBold": "bold word (2-line stack OK)" }
+  },
+  "copy_rules": [
+    "Each content slide pairs ONE italic word/phrase with ONE bold word/phrase — never two italics or two bolds",
+    "Italic = setup (verb / adjective). Bold = payoff (noun).",
+    "Keep headlines short: italic 1-2 words, bold 1-2 words. Long copy breaks the shape-block rhythm.",
+    "Never use generic hype ('amazing', 'must-try'). Name the literal thing.",
+    "Restaurant name lives in the @handle / kicker only — never in the big display words"
+  ],
+  "asset_rules": [
+    "Photos must crop cleanly inside oval / circle / heart masks — pick images where the subject is centered",
+    "Minimum 1080px wide; real photos only (no AI)",
+    "High-saturation photos play best against the flat color blocks — avoid washed-out interiors"
+  ],
+  "use_when": [
+    "Editorial / modern restaurants where flat color-block design reads premium",
+    "Menu launches / product drops / event announcements where a date or 'new' beat is the hook",
+    "Cuisines that photograph colorfully (pasta, dessert, brunch plates, cocktails)",
+    "Campaigns that need to feel curated and magazine-like rather than hand-drawn or street"
+  ]
+}

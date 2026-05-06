@@ -1,0 +1,94 @@
+{
+  "template_id": "y2k_bubblegum",
+  "name": "Y2K Bubblegum Carousel",
+  "series": "Y2K / Nostalgia",
+  "format": "5-slide carousel (4 content + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "Y2K bubblegum nostalgia — lilac/pink/blue/yellow pastels, oval + polaroid photo frames tilted at playful angles, white daisies, puffy clouds, hand-drawn squiggles and scribbles, white paintbrush stroke text backgrounds, brush script + bold Y2K display type. Feels like a 2003 MySpace banner meets a sticker pack.",
+  "palette": {
+    "lilac_bg": "#B9A5E3",
+    "bubblegum": "#F2A5C1",
+    "sky_blue": "#9FC8F0",
+    "yellow": "#FFD94D",
+    "coral": "#FF8FA5",
+    "magenta": "#D6286B",
+    "white": "#FFFFFF",
+    "text_dark": "#1F1F1F",
+    "bitemap_red": "#FB2605",
+    "daisy_center": "#D6286B"
+  },
+  "fonts": {
+    "script_brush": "Caveat Brush / Permanent Marker (handwritten slide titles)",
+    "display_bold": "Bungee / Rubik Mono One (big Y2K display words with stroke shadow)",
+    "sans_body": "Montserrat 800 (labels, handle pill)"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "Hero Oval",
+      "subject": "Tilted oval photo frame centered on bubblegum block; big bold Y2K title with stroke shadow arcs above; daisies and clouds scattered; handle pill below.",
+      "copy": { "title": "ONE WORD (e.g. CRAVING, LATE NITE)", "accent": "short italic script (e.g. 'bites')", "handle": "@restaurant" },
+      "decor": "3-4 daisies, 2 clouds, 2-3 colored squiggles"
+    },
+    {
+      "n": 2,
+      "role": "Polaroid Menu",
+      "subject": "Tilted polaroid frame left with dish photo; right column has white brush-stroke headline (script) and uppercase sub. Sky-blue background.",
+      "copy": { "script": "dish name or section (e.g. 'Spicy Rigatoni')", "sub": "one-word label (e.g. 'MENU', 'SIGNATURE')", "handle": "@restaurant" },
+      "decor": "Daisies tucked behind polaroid; scribble accents; a single lemon or cloud"
+    },
+    {
+      "n": 3,
+      "role": "Circle Feature",
+      "subject": "Lilac background with a big circle photo (bubblegum ring) centered; brush-stroke white banner behind handwritten headline at top; painted swash at bottom with handle.",
+      "copy": { "script": "FREE STYLE / COMFORT / STAPLE (script headline)", "sub": "one-word (e.g. 'VIBES', 'STAPLE')", "handle": "@restaurant" },
+      "decor": "Daisies, 2 clouds, squiggles around the circle"
+    },
+    {
+      "n": 4,
+      "role": "Catalog Stack",
+      "subject": "Two stacked tilted photo frames (one rectangular, one polaroid) on pink background; bold Y2K display headline top-right with stroke shadow; neighbourhood pill bottom-right.",
+      "copy": { "title": "NEW CATALOG / HOT LIST / GO-TOS", "pillLabel": "neighbourhood or city", "handle": "@restaurant" },
+      "decor": "Cloud top-left, daisies scattered, squiggles"
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Bubblegum/lilac split background; BiteMap logo card centered; 'catch u on' script + 'BiteMap.' + app badges; daisies and clouds framing the edges.",
+      "copy": "Fixed: 'catch u on' / BiteMap logo / tagline / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "restaurantName": "string — e.g. 'La Palma'",
+    "neighbourhood": "string — e.g. 'Ossington'",
+    "city": "string — e.g. 'Toronto'",
+    "handle": "string — @restaurant handle used across slides",
+    "slide1": { "imageUrl": "hero dish close-up", "title": "ONE word bold (e.g. 'CRAVING')", "accent": "short script word (e.g. 'bites')" },
+    "slide2": { "imageUrl": "menu item photo", "script": "dish name (1-2 words, script)", "sub": "uppercase one-word (e.g. 'MENU')" },
+    "slide3": { "imageUrl": "signature dish round-crop-friendly photo", "script": "script headline (1-2 words)", "sub": "uppercase one-word" },
+    "slide4": { "imageUrl1": "lifestyle/exterior photo", "imageUrl2": "second dish photo", "title": "BOLD display word (e.g. 'NEW CATALOG')", "pillLabel": "neighbourhood name" }
+  },
+  "copy_rules": [
+    "Bold display words (slides 1, 4) are ONE or TWO words, UPPERCASE, short — they carry the Y2K stroke-shadow styling",
+    "Script words (slides 2, 3) are handwritten-feel phrases — 1-3 words max",
+    "Restaurant name goes only in the @handle pill — never in the big display word",
+    "Never use generic hype ('amazing', 'must-try'). Name the literal thing.",
+    "Tone is playful and nostalgic, not corporate"
+  ],
+  "asset_rules": [
+    "Photos must be bright, colorful, high-contrast — dim interior shots fight the pastel palette",
+    "Minimum 1080px wide; real photos only (no AI)",
+    "Ovals and circles crop tight to the subject — pick images with the dish centered or a clear portrait"
+  ],
+  "use_when": [
+    "Gen-Z leaning restaurants (bubble tea, dessert cafes, smash burgers, Korean corn dogs, Thai boba)",
+    "Nostalgia-flavored concepts (retro diners, 90s/00s themed spots)",
+    "Playful product drops (new menu, collab, merch)",
+    "Lighter / sweeter cuisines where pastel palette is on-brand"
+  ]
+}

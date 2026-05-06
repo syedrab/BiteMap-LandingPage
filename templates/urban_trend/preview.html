@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Urban Trend — Food Review Carousel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Barlow+Condensed:wght@700;800;900&family=Oswald:wght@600;700;800&family=Inter:wght@500;600;700&family=Libre+Barcode+39&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0A0A0A;
+    --ink: #141414;
+    --yellow: #F5E400;
+    --yellow-deep: #E1CD00;
+    --white: #FFFFFF;
+    --gray: #9A9A9A;
+    --bitemap-red: #FB2605;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    max-width: 2800px;
+    margin: 0 auto;
+  }
+
+  .slide-wrap { width: 486px; height: 607.5px; position: relative; }
+
+  .frame {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: var(--black);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transform: scale(0.45);
+    transform-origin: top left;
+    color: var(--white);
+  }
+
+  .label {
+    position: absolute;
+    top: -28px; left: 0;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* grain / noise overlay */
+  .frame::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+      radial-gradient(rgba(0,0,0,0.12) 1px, transparent 1px);
+    background-size: 3px 3px, 5px 5px;
+    background-position: 0 0, 1px 1px;
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    z-index: 30;
+  }
+  .scratches {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    z-index: 29;
+    opacity: 0.35;
+  }
+
+  /* ---------- shared type ---------- */
+  .display {
+    font-family: 'Archivo Black', 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    line-height: 0.88;
+    letter-spacing: -0.015em;
+  }
+  .body-copy {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--white);
+  }
+  .body-copy.big {
+    font-size: 26px;
+    line-height: 1.45;
+  }
+  .barcode {
+    font-family: 'Libre Barcode 39', monospace;
+    font-size: 72px;
+    color: var(--white);
+    letter-spacing: 0;
+    line-height: 1;
+  }
+  .handle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 20px;
+    color: var(--white);
+  }
+  .meta-row {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 18px;
+    color: var(--yellow);
+  }
+  .meta-row .sep { color: var(--white); margin: 0 10px; opacity: 0.6; }
+  .quote {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.4;
+    color: var(--white);
+  }
+
+  /* duct tape corners */
+  .tape {
+    position: absolute;
+    background: var(--yellow);
+    width: 140px; height: 42px;
+    transform: rotate(-12deg);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    z-index: 5;
+  }
+  .tape::before, .tape::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 16px;
+    background: repeating-linear-gradient(-12deg, transparent 0 4px, rgba(0,0,0,0.15) 4px 6px);
+  }
+  .tape::before { left: 0; }
+  .tape::after { right: 0; }
+  .tape.tl { top: -10px; left: -30px; }
+  .tape.tr { top: -10px; right: -30px; transform: rotate(12deg); }
+  .tape.bl { bottom: -10px; left: -30px; transform: rotate(14deg); }
+  .tape.br { bottom: -10px; right: -30px; transform: rotate(-10deg); }
+
+  /* horizontal ribbon */
+  .ribbon {
+    position: absolute;
+    left: 0; right: 0;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 18px 0;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 6;
+  }
+  .ribbon .track { display: inline-block; padding-left: 60px; }
+  .ribbon .track span { margin-right: 60px; }
+  .ribbon .track span::after { content: "•"; margin-left: 60px; color: var(--black); }
+
+  /* vertical ribbon */
+  .ribbon-v {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    background: var(--yellow);
+    z-index: 6;
+    overflow: hidden;
+  }
+  .ribbon-v .track {
+    position: absolute;
+    top: 40px; left: 50%;
+    transform: translateX(-50%);
+    writing-mode: vertical-rl;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 46px;
+    letter-spacing: 0.3em;
+    color: var(--black);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .ribbon-v .track span { margin-bottom: 50px; }
+  .ribbon-v .track span::after { content: " •"; }
+
+  /* rating badge — replaces old discount stamp */
+  .rating-badge {
+    position: absolute;
+    background: var(--yellow);
+    color: var(--black);
+    padding: 16px 24px;
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    transform: rotate(-6deg);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+    z-index: 7;
+    text-align: center;
+  }
+  .rating-badge .stars {
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    display: block;
+    line-height: 1;
+  }
+  .rating-badge .num {
+    font-size: 56px;
+    line-height: 0.9;
+    display: block;
+    margin-top: 4px;
+  }
+  .rating-badge .label {
+    font-size: 14px;
+    letter-spacing: 0.24em;
+    display: block;
+    margin-top: 4px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+  }
+
+  /* small outlined stamp — used for cuisine / tag labels */
+  .tag {
+    display: inline-block;
+    border: 2px solid var(--yellow);
+    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+
+  /* ============ SLIDE 1: REVIEW HERO ============ */
+  .s1 .ribbon-top { top: 320px; transform: rotate(-3deg); left: -40px; right: -40px; }
+  .s1 .photo-card {
+    position: absolute;
+    left: 50%; top: 420px;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 760px; height: 560px;
+    background: #222;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    z-index: 3;
+  }
+  .s1 .photo-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: contrast(1.08) saturate(0.95);
+  }
+  .s1 .title-stack {
+    position: absolute;
+    top: 90px; left: 90px;
+    z-index: 8;
+  }
+  .s1 .title-stack .display {
+    font-size: 130px;
+    color: var(--white);
+  }
+  .s1 .title-stack .display.accent { color: var(--yellow); }
+  .s1 .rating-badge { top: 110px; right: 80px; }
+  .s1 .description {
+    position: absolute;
+    right: 90px; bottom: 250px;
+    width: 380px;
+    z-index: 8;
+  }
+  .s1 .barcode-wrap {
+    position: absolute;
+    bottom: 70px; left: 90px;
+    z-index: 8;
+  }
+  .s1 .barcode-wrap .barcode { background: var(--white); color: var(--black); padding: 6px 14px; display: inline-block; }
+  .s1 .handle-pos {
+    position: absolute;
+    bottom: 90px; right: 100px;
+    z-index: 8;
+  }
+
+  /* ============ SLIDE 2: DEEP DETAIL ============ */
+  .s2 .ribbon-v { left: 0; }
+  .s2 .photo-card {
+    position: absolute;
+    right: 80px; top: 150px;
+    width: 680px; height: 520px;
+    background: #222;
+    transform: rotate(-1.5deg);
+    z-index: 3;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  }
+  .s2 .photo-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: contrast(1.08) saturate(0.95);
+  }
+  .s2 .title-stack {
+    position: absolute;
+    left: 140px; top: 760px;
+    z-index: 8;
+  }
+  .s2 .title-stack .display {
+    font-size: 120px;
+    color: var(--white);
+  }
+  .s2 .title-stack .display.accent { color: var(--yellow); }
+  .s2 .meta-pos {
+    position: absolute;
+    left: 140px; top: 1005px;
+    z-index: 8;
+  }
+  .s2 .description {
+    position: absolute;
+    left: 140px; top: 1060px;
+    width: 800px;
+    font-size: 22px;
+    line-height: 1.4;
+    z-index: 8;
+  }
+  .s2 .rating-inline {
+    position: absolute;
+    right: 120px; top: 780px;
+    z-index: 8;
+  }
+  .s2 .handle-pos {
+    position: absolute;
+    bottom: 90px; right: 120px;
+    z-index: 8;
+  }
+  .s2 .barcode-wrap {
+    position: absolute;
+    bottom: 50px; left: 140px;
+    z-index: 8;
+  }
+  .s2 .barcode-wrap .barcode {
+    background: var(--white); color: var(--black);
+    padding: 4px 10px;
+    font-size: 48px;
+    display: inline-block;
+  }
+  .s2 .handle-pos {
+    bottom: 60px !important;
+  }
+
+  /* ============ SLIDE 3: FULL PHOTO FRAME ============ */
+  .s3 .photo-card {
+    position: absolute;
+    left: 50%; top: 100px;
+    transform: translateX(-50%) rotate(-1deg);
+    width: 900px; height: 720px;
+    background: #222;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    z-index: 3;
+  }
+  .s3 .photo-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: contrast(1.08) saturate(0.95);
+  }
+  .s3 .footer-bar {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 420px;
+    background: var(--black);
+    border-top: 4px solid var(--yellow);
+    padding: 40px 90px 90px;
+    z-index: 4;
+  }
+  .s3 .footer-bar .title-row {
+    display: flex; align-items: baseline; gap: 28px;
+  }
+  .s3 .footer-bar .display {
+    font-size: 96px;
+    color: var(--white);
+  }
+  .s3 .footer-bar .display.accent { color: var(--yellow); }
+  .s3 .footer-bar .meta-row {
+    margin-top: 10px;
+  }
+  .s3 .footer-bar .description {
+    margin-top: 14px;
+    max-width: 700px;
+  }
+  .s3 .footer-bar .handle-pos {
+    position: absolute;
+    right: 90px; bottom: 36px;
+  }
+  .s3 .rating-badge { top: 160px; right: 110px; z-index: 8; }
+
+  /* ============ SLIDE 4: DETAILS PANEL ============ */
+  .s4 .left-col {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 54%;
+    padding: 110px 70px;
+    z-index: 3;
+  }
+  .s4 .left-col .display {
+    font-size: 100px;
+    color: var(--white);
+    line-height: 0.85;
+  }
+  .s4 .left-col .display.accent { color: var(--yellow); }
+  .s4 .left-col .meta-row { margin-top: 30px; }
+  .s4 .left-col .description { margin-top: 24px; max-width: 440px; }
+  .s4 .tag-row {
+    position: absolute;
+    left: 70px; bottom: 260px;
+    display: flex; gap: 14px; flex-wrap: wrap;
+    width: 440px;
+    z-index: 8;
+  }
+  .s4 .photo-card {
+    position: absolute;
+    right: 70px; top: 140px;
+    width: 420px; height: 680px;
+    background: #222;
+    transform: rotate(2deg);
+    z-index: 4;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  }
+  .s4 .photo-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: contrast(1.08) saturate(0.95);
+  }
+  .s4 .rating-badge { right: 100px; top: 820px; z-index: 8; }
+  .s4 .ribbon { bottom: 140px; transform: rotate(1.5deg); left: -30px; right: -30px; }
+  .s4 .barcode-wrap {
+    position: absolute;
+    bottom: 60px; left: 90px;
+    z-index: 8;
+  }
+  .s4 .barcode-wrap .barcode { background: var(--white); color: var(--black); padding: 6px 14px; display: inline-block; }
+  .s4 .handle-pos {
+    position: absolute;
+    bottom: 70px; right: 100px;
+    z-index: 8;
+  }
+
+  /* ============ SLIDE 5: CTA ============ */
+  .cta { }
+  .cta .ribbon-v { right: 0; }
+  .cta .center {
+    position: absolute;
+    inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 0 150px;
+    z-index: 5;
+  }
+  .cta .eyebrow {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 72px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 40px;
+    line-height: 0.9;
+    text-align: center;
+  }
+  .cta .eyebrow .y { color: var(--yellow); }
+  .cta .plaque {
+    background: var(--yellow);
+    padding: 50px 80px;
+    transform: rotate(-2deg);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .cta .plaque::before, .cta .plaque::after {
+    content: "";
+    position: absolute;
+    width: 100px; height: 36px;
+    background: var(--black);
+    opacity: 0.85;
+  }
+  .cta .plaque::before { top: -16px; left: -20px; transform: rotate(-10deg); }
+  .cta .plaque::after { bottom: -16px; right: -20px; transform: rotate(-12deg); }
+  .cta .logo {
+    width: 420px; height: auto;
+    display: block;
+  }
+  .cta .sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 50px;
+  }
+  .cta .badges { display: flex; gap: 28px; align-items: center; }
+  .cta .badges img { height: 100px; width: auto; }
+  .cta .barcode-wrap {
+    position: absolute;
+    bottom: 60px; left: 140px;
+    z-index: 8;
+  }
+  .cta .barcode-wrap .barcode { background: var(--white); color: var(--black); padding: 6px 14px; display: inline-block; }
+  .cta .handle-pos {
+    position: absolute;
+    bottom: 70px; right: 160px;
+    z-index: 8;
+  }
+
+  /* export mode */
+  body.export { padding: 0; background: #000; }
+  body.export .gallery { gap: 0; max-width: none; }
+  body.export .slide-wrap { width: 1080px; height: 1350px; display: none; }
+  body.export .slide-wrap.active { display: block; }
+  body.export .frame { transform: scale(1); }
+  body.export .label { display: none; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const slide = q.get('slide');
+    if (slide) {
+      document.body.classList.add('export');
+      document.querySelectorAll('.slide-wrap').forEach((w, i) => {
+        if (String(i + 1) === slide) w.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="scratches" viewBox="0 0 1080 1350" preserveAspectRatio="none">
+      <g stroke="#FFFFFF" stroke-width="2" fill="none" opacity="0.4">
+        <path d="M 60 120 L 340 80" />
+        <path d="M 800 50 L 1030 200" />
+        <path d="M 20 700 L 260 660" />
+        <path d="M 900 900 L 1060 1050" />
+        <path d="M 120 1200 L 420 1250" />
+        <path d="M 700 1300 L 960 1280" />
+        <path d="M 480 40 L 540 90" />
+        <path d="M 980 600 L 1050 640" />
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="gallery">
+
+  <!-- ============ SLIDE 1: REVIEW HERO ============ -->
+  <div class="slide-wrap">
+    <div class="label">01 / 05 — review hero</div>
+    <div class="frame s1">
+      <svg class="scratches"><use href="#scratches"/></svg>
+
+      <div class="title-stack">
+        <div class="display">FOOD</div>
+        <div class="display accent">REVIEW</div>
+      </div>
+
+      <div class="rating-badge">
+        <span class="stars">★★★★★</span>
+        <span class="num">4.8</span>
+        <span class="label">GOOGLE</span>
+      </div>
+
+      <div class="ribbon ribbon-top">
+        <div class="track">
+          <span>FOOD REVIEW</span><span>FOOD REVIEW</span><span>FOOD REVIEW</span><span>FOOD REVIEW</span>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <span class="tape tl"></span>
+        <span class="tape tr"></span>
+        <span class="tape bl"></span>
+        <span class="tape br"></span>
+        <img src="../../library/images/summer1.jpg" alt="hero dish" />
+      </div>
+
+      <div class="description body-copy">
+        Packed house, 45-min wait — worth it. Crust is blistered, sauce is bright, cheese holds. The real deal.
+      </div>
+
+      <div class="barcode-wrap">
+        <div class="barcode">*BITEMAP*</div>
+      </div>
+
+      <div class="handle-pos handle">@restaurant</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 2: DEEP DETAIL ============ -->
+  <div class="slide-wrap">
+    <div class="label">02 / 05 — deep detail</div>
+    <div class="frame s2">
+      <svg class="scratches"><use href="#scratches"/></svg>
+
+      <div class="ribbon-v">
+        <div class="track">
+          <span>FOOD REVIEW</span><span>FOOD REVIEW</span><span>FOOD REVIEW</span>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <span class="tape tl"></span>
+        <span class="tape tr"></span>
+        <span class="tape bl"></span>
+        <span class="tape br"></span>
+        <img src="../../library/images/summer2.jpg" alt="signature dish" />
+      </div>
+
+      <div class="title-stack">
+        <div class="display">THE</div>
+        <div class="display accent">DISH</div>
+      </div>
+
+      <div class="rating-inline rating-badge" style="transform: rotate(4deg);">
+        <span class="stars">★★★★★</span>
+        <span class="num">4.8</span>
+        <span class="label">GOOGLE</span>
+      </div>
+
+      <div class="meta-pos meta-row">
+        PASTA <span class="sep">·</span> OSSINGTON <span class="sep">·</span> $$
+      </div>
+
+      <div class="description body-copy big">
+        Spicy rigatoni — the viral one. Vodka sauce with a backbone of calabrian chili, finished with cold ricotta that cuts the heat. Al dente. Portion is generous. Order it medium-spicy first time.
+      </div>
+
+      <div class="barcode-wrap"><div class="barcode">*BITEMAP*</div></div>
+      <div class="handle-pos handle">@restaurant</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 3: FULL PHOTO FRAME ============ -->
+  <div class="slide-wrap">
+    <div class="label">03 / 05 — full photo frame</div>
+    <div class="frame s3">
+      <svg class="scratches"><use href="#scratches"/></svg>
+
+      <div class="photo-card">
+        <span class="tape tl"></span>
+        <span class="tape tr"></span>
+        <span class="tape bl"></span>
+        <span class="tape br"></span>
+        <img src="../../library/images/summer3.jpg" alt="vibe" />
+      </div>
+
+      <div class="rating-badge">
+        <span class="stars">★★★★★</span>
+        <span class="num">4.8</span>
+        <span class="label">GOOGLE</span>
+      </div>
+
+      <div class="footer-bar">
+        <div class="title-row">
+          <span class="display">THE</span>
+          <span class="display accent">VIBE</span>
+        </div>
+        <div class="meta-row">
+          PATIO <span class="sep">·</span> LATE-NIGHT <span class="sep">·</span> GROUPS WELCOME
+        </div>
+        <div class="description body-copy">
+          String lights, warm crowd, playlist actually slaps. Best around 8pm on a Thursday. Tables turn fast — walk-ins get seated.
+        </div>
+        <div class="handle-pos handle">@restaurant</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 4: DETAILS PANEL ============ -->
+  <div class="slide-wrap">
+    <div class="label">04 / 05 — details panel</div>
+    <div class="frame s4">
+      <svg class="scratches"><use href="#scratches"/></svg>
+
+      <div class="left-col">
+        <div class="display">THE</div>
+        <div class="display accent">VERDICT</div>
+        <div class="meta-row">
+          PASTA <span class="sep">·</span> OSSINGTON
+        </div>
+        <div class="description body-copy">
+          Come hungry, come early. The rigatoni is the move. Skip the salad. The tiramisu is quietly the best in the city.
+        </div>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag">DATE NIGHT</span>
+        <span class="tag">SMALL PLATES</span>
+      </div>
+
+      <div class="photo-card">
+        <span class="tape tl"></span>
+        <span class="tape tr"></span>
+        <span class="tape bl"></span>
+        <span class="tape br"></span>
+        <img src="../../library/images/summer4.jpg" alt="split feature" />
+      </div>
+
+      <div class="rating-badge">
+        <span class="stars">★★★★★</span>
+        <span class="num">4.8</span>
+        <span class="label">GOOGLE</span>
+      </div>
+
+      <div class="ribbon">
+        <div class="track">
+          <span>FOOD REVIEW</span><span>FOOD REVIEW</span><span>FOOD REVIEW</span><span>FOOD REVIEW</span>
+        </div>
+      </div>
+
+      <div class="barcode-wrap"><div class="barcode">*BITEMAP*</div></div>
+      <div class="handle-pos handle">@restaurant</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 5: CTA ============ -->
+  <div class="slide-wrap">
+    <div class="label">05 / 05 — cta</div>
+    <div class="frame cta">
+      <svg class="scratches"><use href="#scratches"/></svg>
+
+      <div class="ribbon-v">
+        <div class="track">
+          <span>FOUND ON BITEMAP</span><span>FOUND ON BITEMAP</span>
+        </div>
+      </div>
+
+      <div class="center">
+        <div class="eyebrow">FOUND <span class="y">ON</span></div>
+        <div class="plaque">
+          <img class="logo" src="../../library/icons/bitemap_logo_transparent.png" alt="BiteMap" />
+        </div>
+        <div class="sub">real places · real reviews</div>
+        <div class="badges">
+          <img src="../../library/icons/app-store-badge.svg" alt="App Store" />
+          <img src="../../library/icons/google-play-badge.svg" alt="Google Play" />
+        </div>
+      </div>
+
+      <div class="barcode-wrap"><div class="barcode">*BITEMAP*</div></div>
+      <div class="handle-pos handle">@bitemap</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

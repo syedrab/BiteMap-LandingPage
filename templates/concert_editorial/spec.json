@@ -1,0 +1,98 @@
+{
+  "template_id": "concert_editorial",
+  "name": "Concert Editorial Carousel",
+  "series": "Concerts / Tours",
+  "format": "5-slide carousel (4 content + 1 CTA)",
+  "dimensions": "1080x1350",
+  "aesthetic": "Editorial invitation — cream paper background, thin black ink frame lines with tiny star accents, all-caps condensed sans typography in columns, brush-script accent for numbers/prices, full-bleed portrait photo with vertical sidebar labels. Quiet, refined, magazine-layout. Feels like an indie-theater zine or a fashion editorial.",
+  "palette": {
+    "paper": "#F3EBDF",
+    "paper_warm": "#EFE4D2",
+    "ink": "#141414",
+    "accent_default": "#C5412A",
+    "bitemap_red": "#FB2605"
+  },
+  "fonts": {
+    "display_condensed": "Archivo Black / Barlow Condensed (UPPERCASE headers, kickers)",
+    "brush": "Caveat Brush / Permanent Marker (price number / standout accents)",
+    "sans_body": "Inter 500-700 (info columns, details)",
+    "label_caps": "Inter 700, uppercase, tight letter-spacing (side labels)"
+  },
+  "theme_vars": {
+    "--paper": "cream/off-white background — warm paper tone",
+    "--ink": "primary text + lines (near-black)",
+    "--accent": "single accent color used sparingly (price brush, divider dots). Shift per artist/mood: red for passion, teal for cool/jazz, pink for pop, amber for acoustic.",
+    "--brush": "color of the brush-script number (often same as --accent)"
+  },
+  "slides": [
+    {
+      "n": 1,
+      "role": "Invite / Announce",
+      "subject": "Thin top frame with stars, large condensed invite headline, 3-column info block (date / venue / details), brush-script price on left, full-bleed portrait photo filling bottom 55%, vertical 'LIVE SHOW' side-label on left edge of photo.",
+      "copy": { "eyebrow": "YOU ARE INVITED TO", "headline": "AN EVENING WITH {ARTIST}", "dailyOpen": "DOORS", "dateShort": "JUN 23, 2026", "time": "8 PM", "venue": "SOFI STADIUM", "venueSub": "INGLEWOOD, CA", "priceBig": "$120+", "priceSub": "tickets", "sideLabel": "LIVE SHOW" }
+    },
+    {
+      "n": 2,
+      "role": "Pre-Show Eats",
+      "subject": "Same editorial frame, 'PRE-SHOW' kicker, 'EAT FIRST' headline, restaurant photo inside thin black frame, info columns (name / neighbourhood / distance), brush-script for distance.",
+      "copy": { "kicker": "PRE-SHOW", "headline": "EAT FIRST", "restaurantName": "...", "cuisine": "...", "neighbourhood": "...", "distance": "0.4 MI", "distanceSub": "from venue", "bullets": ["dish1", "dish2", "dish3"], "sideLabel": "BEFORE DOORS" }
+    },
+    {
+      "n": 3,
+      "role": "Late Bite",
+      "subject": "Mirror of slide 2 — 'AFTER' kicker, 'LATE BITE' headline, second restaurant photo, open-until info, brush-script hour.",
+      "copy": { "kicker": "AFTER-SHOW", "headline": "LATE BITE", "restaurantName": "...", "cuisine": "...", "neighbourhood": "...", "openUntil": "2 AM", "openUntilSub": "nightly", "bullets": ["dish1", "dish2", "dish3"], "sideLabel": "POST ENCORE" }
+    },
+    {
+      "n": 4,
+      "role": "Vibe Match",
+      "subject": "Editorial columns layout: 'IF YOU LIKE' → artist name (condensed big), 'YOU NEED' → cuisine/dish name, small food photo, one-line bridge copy, vertical side-label.",
+      "copy": { "topLabel": "IF YOU LIKE", "artist": "...", "middleLabel": "YOU NEED", "cuisine": "...", "restaurantName": "...", "neighbourhood": "...", "bridgeLine": "...", "sideLabel": "PAIRING" }
+    },
+    {
+      "n": 5,
+      "role": "CTA",
+      "subject": "Minimal cream CTA, thin-line editorial frame, BiteMap transparent logo, brush-script tagline, app badges.",
+      "copy": "Fixed: 'read the guide on' / BiteMap logo / brush-tag / app badges",
+      "assets_required": [
+        "library/icons/bitemap_logo_transparent.png",
+        "library/icons/app-store-badge.svg",
+        "library/icons/google-play-badge.svg"
+      ]
+    }
+  ],
+  "inputs_required": {
+    "artist": "string — stage name (will show UPPERCASE)",
+    "artistImageUrl": "string — portrait or performance photo, high-res",
+    "dateShort": "string — e.g. 'JUN 23, 2026'",
+    "time": "string — e.g. '8 PM'",
+    "venue": "string",
+    "venueSub": "string — city/state line",
+    "priceBig": "string — the brush-script number (e.g. '$120+'). Optional.",
+    "priceSub": "string — 'tickets' / 'doors' (optional)",
+    "city": "string",
+    "theme": "object — { paper:'#F3EBDF', ink:'#141414', accent:'#C5412A', brush:'#C5412A' }",
+    "slide2": { "restaurantName": "...", "cuisine": "...", "neighbourhood": "...", "distance": "...", "imageUrl": "..." },
+    "slide3": { "restaurantName": "...", "cuisine": "...", "neighbourhood": "...", "openUntil": "...", "imageUrl": "..." },
+    "slide4": { "cuisine": "...", "restaurantName": "...", "neighbourhood": "...", "bridgeLine": "...", "imageUrl": "..." }
+  },
+  "copy_rules": [
+    "Headlines use UPPERCASE condensed bold — short and direct, no hype words",
+    "Brush-script reserved for ONE thing per slide (price, distance, open-until hour) — the single visual accent",
+    "Info columns are 2-3 lines max, tight leading",
+    "Side-label (vertical) is 1-2 words, high-tracked caps",
+    "No exclamation points, no emojis, no marketing clichés",
+    "Pairing logic on slide 4 must be defensible (Bon Iver → ramen; Tyler, the Creator → omakase; SZA → soul food)"
+  ],
+  "asset_rules": [
+    "Portrait photo must be editorial quality — clean lighting, strong subject",
+    "Restaurant photos close-ups of signature dish, black-frame treatment",
+    "Min 1080px wide; real photos only (no AI)"
+  ],
+  "use_when": [
+    "Indie / acoustic / jazz / R&B / theater concerts",
+    "Intimate venues (<5k seats) where audience skews design-conscious",
+    "Artist catalog drops + residencies",
+    "Tour-stop coverage where the pairing narrative matters more than hype"
+  ]
+}

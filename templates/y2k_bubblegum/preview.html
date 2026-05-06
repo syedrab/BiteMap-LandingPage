@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Y2K Bubblegum — Carousel Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Permanent+Marker&family=Bungee&family=Rubik+Mono+One&family=Montserrat:wght@700;800;900&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lilac: #B9A5E3;
+    --lilac-deep: #9F89D1;
+    --bubblegum: #F2A5C1;
+    --bubblegum-deep: #E88AAC;
+    --sky: #9FC8F0;
+    --yellow: #FFD94D;
+    --coral: #FF8FA5;
+    --magenta: #D6286B;
+    --cream: #FFF3DA;
+    --text: #1F1F1F;
+    --bitemap-red: #FB2605;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    max-width: 2800px;
+    margin: 0 auto;
+  }
+
+  .slide-wrap { width: 486px; height: 607.5px; position: relative; }
+
+  .frame {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background: #FFF;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    transform: scale(0.45);
+    transform-origin: top left;
+  }
+
+  .label {
+    position: absolute;
+    top: -28px; left: 0;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- shared Y2K elements ---------- */
+
+  .script {
+    font-family: 'Caveat Brush', 'Permanent Marker', cursive;
+    color: #FFF;
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+  }
+
+  .display-word {
+    font-family: 'Bungee', 'Rubik Mono One', sans-serif;
+    color: #FFF;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    /* Y2K stroke shadow */
+    text-shadow:
+      -3px 3px 0 var(--magenta),
+      -6px 6px 0 var(--text);
+  }
+
+  .display-word.blue {
+    color: var(--sky);
+    text-shadow:
+      -3px 3px 0 #FFF,
+      -6px 6px 0 var(--magenta);
+  }
+
+  .display-word.pink {
+    color: var(--bubblegum);
+    text-shadow:
+      -3px 3px 0 #FFF,
+      -6px 6px 0 var(--text);
+  }
+
+  .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text);
+    letter-spacing: 0.3em;
+  }
+
+  .pill-handle {
+    display: inline-block;
+    background: #FFF;
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-size: 24px;
+  }
+
+  .neighbourhood-pill {
+    display: inline-block;
+    background: var(--magenta);
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    padding: 16px 30px;
+    border-radius: 999px;
+    font-size: 26px;
+    transform: rotate(-3deg);
+  }
+
+  /* white brush-stroke underlay for script text */
+  .brush-bg {
+    position: relative;
+    display: inline-block;
+    padding: 18px 40px;
+  }
+  .brush-bg::before {
+    content: "";
+    position: absolute;
+    inset: -8px -18px -8px -18px;
+    background: #FFF;
+    z-index: -1;
+    clip-path: polygon(
+      2% 30%, 8% 10%, 18% 20%, 30% 6%, 46% 18%, 58% 4%,
+      72% 14%, 86% 6%, 96% 24%, 98% 60%, 92% 88%, 80% 80%,
+      66% 94%, 52% 82%, 38% 96%, 24% 84%, 12% 92%, 4% 70%
+    );
+    box-shadow: 0 6px 0 rgba(0,0,0,0.04);
+  }
+  .brush-bg.cream::before { background: var(--cream); }
+  .brush-bg.pink::before { background: var(--bubblegum); }
+
+  .decor { position: absolute; z-index: 4; pointer-events: none; }
+
+  /* ---------- SLIDE 1: HERO OVAL ---------- */
+  .s1 { background: var(--lilac); }
+  .s1 .title-top {
+    position: absolute;
+    top: 110px; left: 0; right: 0;
+    text-align: center;
+    z-index: 5;
+  }
+  .s1 .title-top .display-word { font-size: 180px; }
+  .s1 .title-top .accent {
+    font-family: 'Caveat Brush', cursive;
+    color: #FFF;
+    font-size: 110px;
+    display: inline-block;
+    transform: rotate(-6deg) translateX(-20px);
+    margin-top: -20px;
+  }
+  .s1 .oval-frame {
+    position: absolute;
+    left: 50%; top: 400px;
+    transform: translateX(-50%) rotate(-4deg);
+    width: 600px; height: 640px;
+    background: #FFF;
+    border-radius: 50%;
+    padding: 22px;
+    z-index: 3;
+    box-shadow: 0 30px 60px rgba(0,0,0,.18);
+  }
+  .s1 .oval-frame .inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--yellow);
+  }
+  .s1 .oval-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .s1 .pill-handle {
+    position: absolute;
+    left: 50%; bottom: 160px;
+    transform: translateX(-50%);
+    z-index: 6;
+    padding: 18px 40px;
+    font-size: 26px;
+  }
+
+  /* ---------- SLIDE 2: POLAROID MENU ---------- */
+  .s2 { background: var(--sky); }
+  .s2 .polaroid {
+    position: absolute;
+    left: 70px; top: 250px;
+    width: 520px; height: 680px;
+    background: #FFF;
+    padding: 28px 28px 90px 28px;
+    transform: rotate(-5deg);
+    z-index: 3;
+    box-shadow: 0 30px 60px rgba(0,0,0,.22);
+  }
+  .s2 .polaroid .img-box {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: var(--bubblegum);
+  }
+  .s2 .polaroid img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .s2 .copy {
+    position: absolute;
+    right: 60px; top: 200px;
+    width: 420px;
+    text-align: left;
+    z-index: 5;
+  }
+  .s2 .copy .sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    color: #FFF;
+    letter-spacing: 0.3em;
+    font-size: 46px;
+    text-transform: uppercase;
+    text-shadow: -2px 2px 0 var(--magenta);
+    margin-bottom: 14px;
+  }
+  .s2 .copy .brush-bg {
+    transform: rotate(-3deg);
+    margin-top: 6px;
+  }
+  .s2 .copy .brush-bg .script {
+    color: var(--magenta);
+    font-size: 96px;
+    line-height: 0.9;
+  }
+  .s2 .copy .pill-handle {
+    margin-top: 50px;
+  }
+  .s2 .scribble {
+    position: absolute;
+    right: 110px; top: 900px;
+    font-family: 'Permanent Marker', cursive;
+    color: var(--magenta);
+    font-size: 140px;
+    line-height: 1;
+    transform: rotate(10deg);
+    z-index: 5;
+  }
+
+  /* ---------- SLIDE 3: CIRCLE FEATURE ---------- */
+  .s3 { background: var(--lilac); }
+  .s3 .top-banner {
+    position: absolute;
+    top: 100px; left: 0; right: 0;
+    text-align: center;
+    z-index: 5;
+  }
+  .s3 .top-banner .brush-bg {
+    transform: rotate(-2deg);
+  }
+  .s3 .top-banner .script {
+    color: var(--magenta);
+    font-size: 130px;
+    line-height: 0.9;
+  }
+  .s3 .circle {
+    position: absolute;
+    left: 50%; top: 420px;
+    transform: translateX(-50%);
+    width: 680px; height: 680px;
+    border-radius: 50%;
+    background: var(--bubblegum);
+    padding: 32px;
+    z-index: 3;
+    box-shadow: 0 30px 60px rgba(0,0,0,.18);
+  }
+  .s3 .circle .inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--sky);
+  }
+  .s3 .circle img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .s3 .bottom-row {
+    position: absolute;
+    left: 0; right: 0; bottom: 110px;
+    text-align: center;
+    z-index: 5;
+  }
+  .s3 .bottom-row .sub {
+    display: inline-block;
+    font-family: 'Caveat Brush', cursive;
+    color: #FFF;
+    font-size: 100px;
+    transform: rotate(-3deg);
+  }
+  .s3 .bottom-row .pill-handle {
+    display: block;
+    margin: 20px auto 0;
+    max-width: max-content;
+  }
+
+  /* ---------- SLIDE 4: CATALOG STACK ---------- */
+  .s4 { background: var(--bubblegum); }
+  .s4 .photo-1 {
+    position: absolute;
+    left: 80px; top: 180px;
+    width: 520px; height: 620px;
+    background: #FFF;
+    padding: 20px;
+    transform: rotate(-4deg);
+    z-index: 3;
+    box-shadow: 0 30px 60px rgba(0,0,0,.2);
+  }
+  .s4 .photo-1 img { width: 100%; height: 100%; object-fit: cover; }
+  .s4 .photo-2 {
+    position: absolute;
+    left: 180px; top: 720px;
+    width: 440px; height: 440px;
+    background: #FFF;
+    padding: 20px 20px 70px 20px;
+    transform: rotate(5deg);
+    z-index: 4;
+    box-shadow: 0 30px 60px rgba(0,0,0,.2);
+  }
+  .s4 .photo-2 .img-box { width: 100%; height: 100%; overflow: hidden; background: var(--sky); }
+  .s4 .photo-2 img { width: 100%; height: 100%; object-fit: cover; }
+  .s4 .title-block {
+    position: absolute;
+    right: 80px; top: 230px;
+    width: 440px;
+    z-index: 5;
+    text-align: right;
+  }
+  .s4 .title-block .display-word { font-size: 110px; }
+  .s4 .title-block .display-word.l2 { font-size: 92px; color: var(--yellow); margin-top: 18px; }
+  .s4 .neighbourhood-pill {
+    position: absolute;
+    right: 80px; bottom: 260px;
+    z-index: 6;
+  }
+  .s4 .pill-handle {
+    position: absolute;
+    right: 80px; bottom: 160px;
+    z-index: 6;
+  }
+
+  /* ---------- SLIDE 5: CTA ---------- */
+  .cta {
+    background: linear-gradient(180deg, var(--bubblegum) 0%, var(--lilac) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 80px;
+    position: relative;
+  }
+  .cta-eyebrow {
+    font-family: 'Caveat Brush', cursive;
+    font-size: 90px;
+    color: #FFF;
+    margin-bottom: 30px;
+    z-index: 3;
+    text-shadow: -3px 3px 0 var(--magenta);
+    line-height: 1;
+  }
+  .cta-logo-wrap {
+    margin-bottom: 50px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    transform: rotate(-2deg);
+  }
+  .cta-logo {
+    width: 440px; height: auto;
+    display: block;
+    filter: drop-shadow(0 16px 36px rgba(0,0,0,0.25));
+  }
+  .cta-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #FFF;
+    margin-bottom: 90px;
+    text-align: center;
+    z-index: 3;
+  }
+  .cta-badges { display: flex; gap: 32px; align-items: center; z-index: 3; }
+  .cta-badges img { height: 110px; width: auto; }
+
+  /* export mode — one slide at native 1080x1350 */
+  body.export { padding: 0; background: #000; }
+  body.export .gallery { gap: 0; max-width: none; }
+  body.export .slide-wrap { width: 1080px; height: 1350px; display: none; }
+  body.export .slide-wrap.active { display: block; }
+  body.export .frame { transform: scale(1); }
+  body.export .label { display: none; }
+</style>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(location.search);
+    const slide = q.get('slide');
+    if (slide) {
+      document.body.classList.add('export');
+      document.querySelectorAll('.slide-wrap').forEach((w, i) => {
+        if (String(i + 1) === slide) w.classList.add('active');
+      });
+    }
+  });
+</script>
+</head>
+<body>
+
+<!-- inline SVG defs for daisies, clouds, squiggles -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="daisy" viewBox="0 0 120 120">
+      <g transform="translate(60 60)">
+        <g fill="#FFFFFF" stroke="#1F1F1F" stroke-width="2">
+          <ellipse cx="0" cy="-38" rx="14" ry="28" />
+          <ellipse cx="0" cy="-38" rx="14" ry="28" transform="rotate(45)" />
+          <ellipse cx="0" cy="-38" rx="14" ry="28" transform="rotate(90)" />
+          <ellipse cx="0" cy="-38" rx="14" ry="28" transform="rotate(135)" />
+          <ellipse cx="0" cy="-38" rx="14" ry="28" transform="rotate(180)" />
+          <ellipse cx="0" cy="-38" rx="14" ry="28" transform="rotate(225)" />
+          <ellipse cx="0" cy="-38" rx="14" ry="28" transform="rotate(270)" />
+          <ellipse cx="0" cy="-38" rx="14" ry="28" transform="rotate(315)" />
+        </g>
+        <circle cx="0" cy="0" r="14" fill="#D6286B" stroke="#1F1F1F" stroke-width="2" />
+      </g>
+    </symbol>
+    <symbol id="cloud" viewBox="0 0 200 120">
+      <g fill="#FFFFFF" stroke="#1F1F1F" stroke-width="3">
+        <ellipse cx="50" cy="70" rx="40" ry="34" />
+        <ellipse cx="100" cy="55" rx="46" ry="40" />
+        <ellipse cx="150" cy="72" rx="38" ry="32" />
+        <ellipse cx="80" cy="85" rx="40" ry="24" />
+        <ellipse cx="130" cy="85" rx="40" ry="24" />
+      </g>
+    </symbol>
+    <symbol id="squiggle" viewBox="0 0 200 60">
+      <path d="M 10 30 Q 30 5, 50 30 T 90 30 T 130 30 T 170 30 T 190 30"
+        fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="squiggle2" viewBox="0 0 160 80">
+      <path d="M 10 40 C 30 10, 50 70, 70 40 S 110 10, 130 40 S 170 70, 160 40"
+        fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="star4" viewBox="0 0 100 100">
+      <path d="M50 5 L58 42 L95 50 L58 58 L50 95 L42 58 L5 50 L42 42 Z"
+        fill="#FFFFFF" stroke="#1F1F1F" stroke-width="2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="gallery">
+
+  <!-- ============ SLIDE 1: HERO OVAL ============ -->
+  <div class="slide-wrap">
+    <div class="label">01 / 05 — hero oval</div>
+    <div class="frame s1">
+
+      <!-- decorations behind -->
+      <svg class="decor" style="top:60px; left:40px; width:220px; height:130px;"><use href="#cloud"/></svg>
+      <svg class="decor" style="top:120px; right:40px; width:200px; height:120px;"><use href="#cloud"/></svg>
+      <svg class="decor" style="top:440px; left:30px; width:120px; height:120px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="top:380px; right:60px; width:140px; height:140px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="bottom:280px; left:60px; width:100px; height:100px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="bottom:220px; right:40px; width:120px; height:120px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="top:680px; left:20px; width:160px; height:60px; color: var(--yellow);"><use href="#squiggle"/></svg>
+      <svg class="decor" style="top:820px; right:30px; width:140px; height:60px; color: var(--magenta);"><use href="#squiggle2"/></svg>
+      <svg class="decor" style="bottom:380px; left:80px; width:80px; height:80px;"><use href="#star4"/></svg>
+
+      <div class="title-top">
+        <div class="display-word">CRAVING</div>
+        <div class="accent">bites</div>
+      </div>
+
+      <div class="oval-frame">
+        <div class="inner">
+          <img src="../../library/images/summer3.jpg" alt="hero dish" />
+        </div>
+      </div>
+
+      <div class="pill-handle">@restaurant</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 2: POLAROID MENU ============ -->
+  <div class="slide-wrap">
+    <div class="label">02 / 05 — polaroid menu</div>
+    <div class="frame s2">
+
+      <!-- decor behind polaroid -->
+      <svg class="decor" style="top:60px; left:60px; width:220px; height:130px;"><use href="#cloud"/></svg>
+      <svg class="decor" style="top:180px; right:80px; width:130px; height:130px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="bottom:140px; left:40px; width:120px; height:120px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="bottom:240px; right:180px; width:100px; height:100px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="top:820px; left:340px; width:150px; height:60px; color: var(--yellow);"><use href="#squiggle"/></svg>
+
+      <div class="polaroid">
+        <div class="img-box">
+          <img src="../../library/images/summer1.jpg" alt="menu item" />
+        </div>
+      </div>
+
+      <div class="copy">
+        <div class="sub">SIGNATURE</div>
+        <div class="brush-bg">
+          <div class="script">Spicy<br/>Rigatoni</div>
+        </div>
+        <div class="pill-handle">@restaurant</div>
+      </div>
+
+      <div class="scribble">~~</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 3: CIRCLE FEATURE ============ -->
+  <div class="slide-wrap">
+    <div class="label">03 / 05 — circle feature</div>
+    <div class="frame s3">
+
+      <!-- decor -->
+      <svg class="decor" style="top:40px; left:30px; width:210px; height:120px;"><use href="#cloud"/></svg>
+      <svg class="decor" style="top:80px; right:30px; width:200px; height:120px;"><use href="#cloud"/></svg>
+      <svg class="decor" style="top:460px; left:20px; width:140px; height:140px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="top:500px; right:30px; width:130px; height:130px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="bottom:340px; left:60px; width:110px; height:110px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="bottom:320px; right:80px; width:120px; height:120px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="top:700px; left:60px; width:160px; height:60px; color: var(--magenta);"><use href="#squiggle"/></svg>
+      <svg class="decor" style="top:760px; right:60px; width:140px; height:60px; color: var(--yellow);"><use href="#squiggle2"/></svg>
+      <svg class="decor" style="top:370px; left:170px; width:80px; height:80px;"><use href="#star4"/></svg>
+      <svg class="decor" style="top:420px; right:170px; width:70px; height:70px;"><use href="#star4"/></svg>
+
+      <div class="top-banner">
+        <div class="brush-bg">
+          <div class="script">Free Style</div>
+        </div>
+      </div>
+
+      <div class="circle">
+        <div class="inner">
+          <img src="../../library/images/summer2.jpg" alt="feature dish" />
+        </div>
+      </div>
+
+      <div class="bottom-row">
+        <div class="sub">comfort staple</div>
+        <div class="pill-handle">@restaurant</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 4: CATALOG STACK ============ -->
+  <div class="slide-wrap">
+    <div class="label">04 / 05 — catalog stack</div>
+    <div class="frame s4">
+
+      <!-- decor -->
+      <svg class="decor" style="top:50px; right:60px; width:230px; height:130px;"><use href="#cloud"/></svg>
+      <svg class="decor" style="top:100px; left:40px; width:120px; height:120px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="top:650px; right:180px; width:120px; height:120px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="bottom:80px; left:60px; width:140px; height:140px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="bottom:540px; right:80px; width:110px; height:110px;"><use href="#daisy"/></svg>
+      <svg class="decor" style="top:560px; left:60px; width:160px; height:60px; color: var(--magenta);"><use href="#squiggle"/></svg>
+      <svg class="decor" style="bottom:380px; right:40px; width:140px; height:60px; color: var(--yellow);"><use href="#squiggle2"/></svg>
+
+      <div class="photo-1">
+        <img src="../../library/images/summer4.jpg" alt="vibe" />
+      </div>
+
+      <div class="photo-2">
+        <div class="img-box">
+          <img src="../../library/images/summer5.jpg" alt="second dish" />
+        </div>
+      </div>
+
+      <div class="title-block">
+        <div class="display-word">NEW</div>
+        <div class="display-word l2">CATALOG</div>
+      </div>
+
+      <div class="neighbourhood-pill">Ossington</div>
+      <div class="pill-handle">@restaurant</div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE 5: CTA ============ -->
+  <div class="slide-wrap">
+    <div class="label">05 / 05 — cta</div>
+    <div class="frame cta">
+
+      <!-- Y2K decor framing the CTA -->
+      <svg class="decor" style="top:60px; left:60px; width:220px; height:130px; z-index:2;"><use href="#cloud"/></svg>
+      <svg class="decor" style="top:80px; right:60px; width:210px; height:120px; z-index:2;"><use href="#cloud"/></svg>
+      <svg class="decor" style="top:300px; left:60px; width:130px; height:130px; z-index:2;"><use href="#daisy"/></svg>
+      <svg class="decor" style="top:300px; right:60px; width:130px; height:130px; z-index:2;"><use href="#daisy"/></svg>
+      <svg class="decor" style="bottom:140px; left:80px; width:120px; height:120px; z-index:2;"><use href="#daisy"/></svg>
+      <svg class="decor" style="bottom:120px; right:80px; width:120px; height:120px; z-index:2;"><use href="#daisy"/></svg>
+      <svg class="decor" style="top:180px; left:360px; width:80px; height:80px; z-index:2;"><use href="#star4"/></svg>
+      <svg class="decor" style="bottom:330px; right:380px; width:70px; height:70px; z-index:2;"><use href="#star4"/></svg>
+      <svg class="decor" style="bottom:420px; left:120px; width:160px; height:60px; z-index:2; color: var(--yellow);"><use href="#squiggle"/></svg>
+      <svg class="decor" style="top:460px; right:100px; width:140px; height:60px; z-index:2; color: var(--magenta);"><use href="#squiggle2"/></svg>
+
+      <div class="cta-eyebrow">catch u on</div>
+      <div class="cta-logo-wrap">
+        <img class="cta-logo" src="../../library/icons/bitemap_logo_transparent.png" alt="BiteMap" />
+      </div>
+      <div class="cta-sub">real places · no fluff</div>
+      <div class="cta-badges">
+        <img src="../../library/icons/app-store-badge.svg" alt="App Store" />
+        <img src="../../library/icons/google-play-badge.svg" alt="Google Play" />
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
