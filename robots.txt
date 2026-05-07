@@ -1,16 +1,4 @@
-# BiteMap robots.txt
-# https://www.bitemap.fun
-
 User-agent: *
 Allow: /
 
-# Don't crawl internal/dev paths
-Disallow: /api/
-Disallow: /scripts/
-Disallow: /data/
-Disallow: /sessions/
-Disallow: /.playwright-cli/
-Disallow: /Collage Magazine View/
-
-# Sitemap
 Sitemap: https://www.bitemap.fun/sitemap.xml
