@@ -1,0 +1,2 @@
+# BiteMap app-ads.txt
+# No ad networks authorized at this time.
