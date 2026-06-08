@@ -9,6 +9,7 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { hubJsonLd, appReviewJsonLd } from './lib/seo.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -214,6 +215,14 @@ for (const [cityKey, city] of Object.entries(cities)) {
   html = html.replace(/THE TORONTO FOOD ZINE \| BiteMap/g, `${city.hub.title} | BiteMap`);
   html = html.replace(/A chaotic love letter to the 6ix[^"]*Video reviews from real food creators\./g,
     `${(city.hub.sub||'').replace(/<[^>]+>/g,'').replace(/&amp;/g,'&')} Video reviews from real food creators.`);
+
+  // ── 1b. Structured data — swap Toronto hub JSON-LD for this city's ──
+  const cityLd = `<!--BM-HUB-LD-->\n${hubJsonLd({cityName:city.name,cityDir:city.dir})}\n${appReviewJsonLd()}\n<!--/BM-HUB-LD-->`;
+  if (html.includes('<!--BM-HUB-LD-->')) {
+    html = html.replace(/<!--BM-HUB-LD-->[\s\S]*?<!--\/BM-HUB-LD-->/, cityLd);
+  } else {
+    html = html.replace('</head>', `${cityLd}\n</head>`);
+  }
 
   // ── 2. Marquee ──
   html = html.replace(/<div class="marquee-track">[\s\S]*?<\/div>/, `<div class="marquee-track">${marqueeHTML}</div>`);

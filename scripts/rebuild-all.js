@@ -11,6 +11,10 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import {
+  articleJsonLd, editorialIntroHtml, faqsFor, faqSectionHtml,
+  relatedLinksHtml, pickRelatedLinks, gmapsUrl, SEO_CSS,
+} from './lib/seo.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -195,6 +199,14 @@ const AREAS=topHoods.filter(([h,c])=>c>=5).slice(0,10).map(([hood,count])=>{
   return{slug:hood.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-+$/,''),title:hood.toUpperCase(),hood,h1:hood+'.',kicker:m.vibe,marquee:`${hood.toUpperCase()} · ${count} SPOTS · VIDEO VERIFIED`,desc:m.desc,filter:()=>data.filter(v=>v.hood===hood).sort((a,b)=>b.views-a.views).slice(0,12)};
 });
 
+// ═══ INTERNAL CROSS-LINK LISTS (only pages that actually generate, to avoid 404s) ═══
+function wouldGenerate(config){const seen=new Set();return config.filter().filter(v=>{if(seen.has(v.creator_name))return false;seen.add(v.creator_name);return true}).length>=3}
+const LINK_ARTICLES = Object.entries(CATS)
+  .filter(([s,c])=>{const seen=new Set();return c.items.filter(v=>{if(seen.has(v.creator_name))return false;seen.add(v.creator_name);return true}).length>=3})
+  .map(([s,c])=>({fileSlug:s,label:(c.title||s).replace(/^Best\s+/i,'').toUpperCase()}));
+const LINK_GUIDES = GUIDES.filter(wouldGenerate).map(g=>({fileSlug:`guide-${g.slug}`,label:g.title}));
+const LINK_AREAS  = AREAS.filter(wouldGenerate).map(a=>({fileSlug:`area-${a.slug}`,label:a.title}));
+
 // ═══ HTML BUILDER ═══
 const verdicts=['MUST TRY','GOAT','SOLID','FIRE','ELITE','SLEPT ON','WORTH IT','INSANE','NO CAP','CERTIFIED'];
 const verdictCls=['goat','goat','mid','goat','goat','','goat','goat','','goat'];
@@ -235,7 +247,7 @@ function buildCard(item,i,pageTopic){
         <span class="rating"><i></i><i></i><i></i><i></i><i></i></span>
       </div>
       <div class="thumb">
-        <img src="${esc(thumb)}" alt="${esc(altText)}" loading="lazy"/>
+        <img src="${esc(thumb)}" alt="${esc(altText)}" loading="lazy" decoding="async" width="270" height="480"/>
         <span class="platform-tag">${platform}</span>
         <span class="verdict ${vc}">${v}</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
@@ -258,6 +270,7 @@ function buildCard(item,i,pageTopic){
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
         <div class="transcript-body"><div class="transcript-text">${esc(transcript)}</div></div>
       </div>`:''}
+      <a class="map-link" href="${esc(gmapsUrl(item.restaurant,addr))}" target="_blank" rel="noopener nofollow" onclick="event.stopPropagation()">📍 ${esc(item.hood||'View on Google Maps')}</a>
       <div class="corner-note">${fmtV(item.views)}</div>
     </div>`;
 }
@@ -274,6 +287,14 @@ function buildPage(config,type){
   const prefix=type==='guide'?'guide':type==='area'?'area':'';
   const fileSlug=prefix?`${prefix}-${config.slug}`:config.slug;
   const canonical=`https://www.bitemap.fun/toronto/${fileSlug}`;
+  // ── SEO blocks (structured data, intro, FAQ, internal links) ──
+  const kind=type==='guide'?'guide':type==='area'?'area':'cuisine';
+  const topic=config.seoTopic||'';
+  const faqs=faqsFor({title:config.h1,topic,cityName:'Toronto',items,kind});
+  const seoJsonLd=articleJsonLd({cityName:'Toronto',cityDir:'toronto',lang:'en-CA',fileSlug,title:config.title,desc:config.desc,topic:topic||pageTopic,canonical,items,faqs});
+  const introHtml=editorialIntroHtml({title:config.h1,topic:topic||pageTopic,cityName:'Toronto',slang:'the 6ix',items,kind});
+  const faqHtml=faqSectionHtml(faqs);
+  const relatedHtml=relatedLinksHtml({cityDir:'toronto',currentFileSlug:fileSlug,links:pickRelatedLinks({cityDir:'toronto',currentFileSlug:fileSlug,articles:LINK_ARTICLES,guides:LINK_GUIDES,areas:LINK_AREAS})});
   return{fileSlug,html:`<!DOCTYPE html>
 <html lang="en-CA">
 <head>
@@ -293,6 +314,7 @@ function buildPage(config,type){
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Shrikhand&family=Rubik+Mono+One&family=Bungee&family=Special+Elite&family=Archivo+Black&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
+${seoJsonLd}
 <style>
 :root{--paper:#f1ead8;--paper-2:#ece2c7;--ink:#141210;--red:#d62419;--yellow:#f5c518;--tape:rgba(240,220,120,0.55)}*{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Special Elite','Courier New',monospace;overflow-x:hidden}body{background:radial-gradient(1200px 800px at 20% 10%,rgba(214,36,25,0.05),transparent 60%),radial-gradient(900px 600px at 90% 60%,rgba(20,18,16,0.04),transparent 60%),repeating-linear-gradient(0deg,rgba(20,18,16,0.018) 0 2px,transparent 2px 4px),var(--paper)}body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(rgba(20,18,16,0.08) 1px,transparent 1px),radial-gradient(rgba(20,18,16,0.05) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px;mix-blend-mode:multiply;opacity:.5}.wrap{position:relative;z-index:5;max-width:1800px;margin:0 auto;padding:0 1rem}h1,h2,h3,h4{margin:0;font-weight:400}.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:7}.marquee-track{display:flex;gap:2rem;padding:.5rem 0;white-space:nowrap;animation:scroll 40s linear infinite;font-family:'Archivo Black';letter-spacing:.05em;font-size:.9rem}.marquee-track span{display:inline-flex;align-items:center;gap:1rem}.marquee-track .dot{width:8px;height:8px;background:var(--red);border-radius:50%;display:inline-block}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}.nav-top{padding:.6rem 1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);position:relative;z-index:10}.nav-top a{color:inherit;text-decoration:none;font-family:'DM Mono';font-size:.7rem;letter-spacing:.15em}.nav-top a:hover{color:var(--red)}.breadcrumb{font-family:'DM Mono';font-size:.7rem}.breadcrumb b{font-family:'Archivo Black'}.hero{position:relative;padding:.5rem 2rem;border-bottom:2px solid var(--ink);z-index:10;display:flex;align-items:center;gap:1rem}.hero-left{flex:1}.hero-center{text-align:center;flex:0 0 auto}.hero .kicker{display:inline-block;background:var(--ink);color:var(--paper);padding:.15rem .5rem;font-family:'Archivo Black';letter-spacing:.2em;font-size:.55rem;transform:rotate(-1deg)}.hero h1{font-family:'Shrikhand',cursive;font-size:clamp(1.8rem,4vw,3rem);line-height:.95;color:var(--red);text-shadow:2px 2px 0 var(--ink);letter-spacing:-.02em;white-space:nowrap}.hero-right{flex:1;text-align:right}.hero .deck{font-family:'Caveat',cursive;font-weight:700;font-size:.95rem;line-height:1.25;max-width:16rem;margin-left:auto;color:var(--ink);opacity:.7}@media(max-width:700px){.hero{flex-direction:column;text-align:center;padding:.4rem 1rem}.hero-right{text-align:center}.hero .deck{margin:0 auto;max-width:none}}
 .reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem 1.2rem;margin:.5rem 0 1.5rem;position:relative;z-index:10;padding:1.5rem 3rem}
@@ -337,6 +359,7 @@ function buildPage(config,type){
 .reviews-grid{max-width:100%}
 .hero h1{font-size:1.2rem}
 }
+${SEO_CSS}
 .review{position:relative;display:block;background:var(--paper);border:2px solid var(--ink);box-shadow:5px 6px 0 rgba(0,0,0,.15);cursor:pointer;text-decoration:none;color:inherit;transition:transform .3s cubic-bezier(.2,.9,.3,1.2),box-shadow .25s;padding:.5rem .5rem .6rem}
 .review:nth-child(7n+1){transform:rotate(-2deg)}.review:nth-child(7n+2){transform:rotate(1.5deg) translateY(6px)}.review:nth-child(7n+3){transform:rotate(-1deg) translateY(-4px)}.review:nth-child(7n+4){transform:rotate(2.5deg)}.review:nth-child(7n+5){transform:rotate(-1.5deg) translateY(5px)}.review:nth-child(7n+6){transform:rotate(.8deg) translateY(-3px)}.review:nth-child(7n+7){transform:rotate(-2.5deg)}
 .review:hover{transform:rotate(0deg) translateY(-6px) scale(1.03);box-shadow:8px 12px 0 rgba(214,36,25,.35);z-index:30}
@@ -404,7 +427,10 @@ function buildPage(config,type){
 <div class="wrap">
 <div class="nav-top"><a href="/toronto">← BACK TO ZINE</a><div class="breadcrumb mono">TORONTO FOOD ZINE / <b>${esc(config.title)}</b></div><a href="#">SHARE →</a></div>
 <section class="hero"><div class="hero-left"></div><div class="hero-center"><span class="kicker">${esc(config.kicker)}</span><h1>${config.h1}</h1></div><div class="hero-right"><div class="deck">${esc(config.desc)}</div></div></section>
+${introHtml}
 <div class="reviews-grid">${cards}</div>
+${faqHtml}
+${relatedHtml}
 <div class="foot-nav"><a href="/toronto">← BACK TO ZINE <span class="sub">ALL LISTS</span></a><a href="/toronto/best-ramen">BEST RAMEN <span class="sub">TOP 10</span></a><a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
 </div>
 

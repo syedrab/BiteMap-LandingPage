@@ -8,6 +8,11 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import {
+  articleJsonLd, hubJsonLd, appReviewJsonLd,
+  editorialIntroHtml, faqsFor, faqSectionHtml,
+  relatedLinksHtml, pickRelatedLinks, gmapsUrl, SEO_CSS,
+} from './lib/seo.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -227,7 +232,7 @@ function buildCard(item,i,pageTopic,cityName){
       <div class="pin"></div><div class="tape-decor"></div>
       <div class="top-meta"><span class="name">${esc(item.restaurant)}</span><span class="rating"><i></i><i></i><i></i><i></i><i></i></span></div>
       <div class="thumb">
-        <img src="${esc(thumb)}" alt="${esc(altText)}" loading="lazy"/>
+        <img src="${esc(thumb)}" alt="${esc(altText)}" loading="lazy" decoding="async" width="270" height="480"/>
         <span class="platform-tag">${platform}</span><span class="verdict ${vc}">${v}</span>
         <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4 L7 20 L20 12 Z"/></svg></div>
         <div class="stats">
@@ -246,15 +251,29 @@ function buildCard(item,i,pageTopic,cityName){
         <button class="transcript-toggle" onclick="event.preventDefault();this.nextElementSibling.classList.toggle('open');this.querySelector('.arrow').textContent=this.nextElementSibling.classList.contains('open')?'▲':'▼'"><span>Full Transcript</span><span class="arrow">▼</span></button>
         <div class="transcript-body"><div class="transcript-text">${esc(transcript)}</div></div>
       </div>`:''}
+      <a class="map-link" href="${esc(gmapsUrl(item.restaurant,addr))}" target="_blank" rel="noopener nofollow" onclick="event.stopPropagation()">📍 View on Google Maps</a>
       <div class="corner-note">${fmtV(item.views)}</div>
     </div>`;
 }
 
-function buildPage(items,config,city){
+function buildPage(items,config,city,links={}){
   if(items.length<3) return null;
   const pageTopic=config.seoTopic||config.title;
   const cards=items.map((item,i)=>buildCard(item,i,pageTopic,city.name)).join('\n');
   const marquee=city.marqueeLines.map(l=>`<span><i class="dot"></i> ${l}</span>`).join('');
+  // ── SEO blocks ──
+  const kind=config.slug.startsWith('area-')?'area':'cuisine';
+  const topic=kind==='area'?'':(config.seoTopic||'');
+  const lang=city.lang||(city.dir==='vancouver'?'en-CA':'en-US');
+  const canonical=`https://www.bitemap.fun/${city.dir}/${config.slug}`;
+  const faqs=faqsFor({title:config.h1,topic,cityName:city.name,items,kind});
+  const seoJsonLd=articleJsonLd({cityName:city.name,cityDir:city.dir,lang,fileSlug:config.slug,title:config.title,desc:config.desc,topic:topic||pageTopic,canonical,items,faqs});
+  const introHtml=editorialIntroHtml({title:config.h1,topic:topic||pageTopic,cityName:city.name,slang:city.slang,items,kind});
+  const faqHtml=faqSectionHtml(faqs);
+  const relatedHtml=relatedLinksHtml({cityDir:city.dir,currentFileSlug:config.slug,links:pickRelatedLinks({cityDir:city.dir,currentFileSlug:config.slug,articles:links.articles||[],guides:[],areas:links.areas||[]})});
+  // Foot-nav sibling that actually exists (avoid hardcoded 404 in thin cities)
+  const sibling=(links.articles||[]).find(a=>a.fileSlug!==config.slug);
+  const siblingLink=sibling?`<a href="/${city.dir}/${sibling.fileSlug}">${esc(sibling.label)} <span class="sub">TOP 10</span></a>`:`<a href="/toronto">TORONTO ZINE <span class="sub">THE OG</span></a>`;
   return`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -274,7 +293,8 @@ function buildPage(items,config,city){
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Shrikhand&family=Rubik+Mono+One&family=Bungee&family=Special+Elite&family=Archivo+Black&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
-<style>${CSS}</style>
+${seoJsonLd}
+<style>${CSS}${SEO_CSS}</style>
 ${hlsScript}
 </head>
 <body>
@@ -285,8 +305,11 @@ ${hlsScript}
 <div class="wrap">
 <div class="nav-top"><a href="/${city.dir}">← BACK TO ZINE</a><div class="breadcrumb mono">${city.shortName} FOOD ZINE / <b>${esc(config.title)}</b></div><a href="#">SHARE →</a></div>
 <section class="hero"><div class="hero-left"></div><div class="hero-center"><span class="kicker">${esc(config.kicker)}</span><h1>${config.h1}</h1></div><div class="hero-right"><div class="deck">${esc(config.desc)}</div></div></section>
+${introHtml}
 <div class="reviews-grid">${cards}</div>
-<div class="foot-nav"><a href="/${city.dir}">← BACK TO ZINE <span class="sub">ALL LISTS</span></a><a href="/${city.dir}/best-burger">BEST BURGERS <span class="sub">TOP 10</span></a><a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
+${faqHtml}
+${relatedHtml}
+<div class="foot-nav"><a href="/${city.dir}">← BACK TO ZINE <span class="sub">ALL LISTS</span></a>${siblingLink}<a href="https://apps.apple.com/ca/app/bitemap/id6746139076">GET THE APP <span class="sub">iOS + ANDROID</span></a></div>
 </div>
 ${MODAL_HTML}
 </body></html>`;
@@ -327,6 +350,12 @@ for(const[key,city]of Object.entries(CITIES)){
   }
   for(const c of Object.values(cats))c.items.sort((a,b)=>b.views-a.views);
 
+  // ── Cross-link lists (only pages that will actually generate) ──
+  const genCount=arr=>{const s=new Set();return arr.filter(v=>{if(s.has(v.creator_name))return false;s.add(v.creator_name);return true}).length};
+  const cityArticles=Object.entries(cats).filter(([,c])=>genCount(c.items)>=3).map(([slug,c])=>({fileSlug:slug,label:(c.title||slug).replace(/^Best\s+/i,'').toUpperCase()}));
+  const cityAreas=Object.entries(city.neighborhoods).filter(([hood])=>{const hl=hood.toLowerCase();return genCount(data.filter(v=>(v.address||'').toLowerCase().includes(hl)))>=3;}).map(([hood])=>({fileSlug:'area-'+hood.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-+$/,''),label:hood.toUpperCase()}));
+  const cityLinks={articles:cityArticles,areas:cityAreas};
+
   // Generate articles
   let artCount=0;
   for(const[slug,cat]of Object.entries(cats)){
@@ -335,7 +364,7 @@ for(const[key,city]of Object.entries(CITIES)){
     const items=deduped.slice(0,10);
     const cuisine=cat.title.toLowerCase().replace('best ','');
     const config={slug,title:cat.title.toUpperCase(),h1:cuisine.charAt(0).toUpperCase()+cuisine.slice(1)+'.',kicker:'TOP '+items.length,marquee:`BEST ${cuisine.toUpperCase()} IN ${city.shortName} · VIDEO VERIFIED`,desc:`${city.name}'s best ${cuisine} — ranked by creators who filmed every bite.`,seoTopic:cuisine};
-    const html=buildPage(items,config,city);
+    const html=buildPage(items,config,city,cityLinks);
     if(html){writeFileSync(join(cityDir,`${slug}.html`),html);console.log(`  ✅ ${slug}.html (${items.length})`);artCount++}
   }
 
@@ -348,7 +377,7 @@ for(const[key,city]of Object.entries(CITIES)){
     if(deduped.length<3)continue;
     const areaSlug='area-'+hood.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-+$/,'');
     const config={slug:areaSlug,title:hood.toUpperCase(),h1:hood+'.',kicker:meta.vibe,marquee:`${hood.toUpperCase()} · ${deduped.length} SPOTS · VIDEO VERIFIED`,desc:meta.desc,seoTopic:hood+' food'};
-    const html=buildPage(deduped.slice(0,12),config,city);
+    const html=buildPage(deduped.slice(0,12),config,city,cityLinks);
     if(html){writeFileSync(join(cityDir,`${areaSlug}.html`),html);console.log(`  ✅ ${areaSlug}.html (${deduped.length})`);areaCount++}
   }
 
@@ -372,7 +401,9 @@ for(const[key,city]of Object.entries(CITIES)){
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&family=Shrikhand&family=Rubik+Mono+One&family=Bungee&family=Special+Elite&family=Archivo+Black&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEZQEGTQDD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EEZQEGTQDD');</script>
-<style>${CSS}</style>
+${hubJsonLd({cityName:city.name,cityDir:city.dir})}
+${appReviewJsonLd()}
+<style>${CSS}${SEO_CSS}</style>
 </head>
 <body>
 <div class="marquee"><div class="marquee-track">

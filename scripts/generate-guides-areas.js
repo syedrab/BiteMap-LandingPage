@@ -1,10 +1,15 @@
 /**
- * Generate 10 creative GUIDES and 10 AREA pages from the Supabase CSV.
+ * ⚠️ DEPRECATED — DO NOT RUN. Superseded by scripts/rebuild-all.js.
  *
+ * rebuild-all.js now generates Toronto guides + areas through the shared
+ * buildPage() that injects structured data (JSON-LD), the editorial intro,
+ * the FAQ section and internal cross-links (scripts/lib/seo.js). This legacy
+ * script produces pages WITHOUT that SEO and will clobber the good output if run.
+ * Kept only for reference. Use:  node scripts/rebuild-all.js
+ *
+ * Generate 10 creative GUIDES and 10 AREA pages from the Supabase CSV.
  * GUIDES = themed editorial pieces (not just "best X" cuisine lists)
  * AREAS = neighborhood-focused pages
- *
- * Usage: node scripts/generate-guides-areas.js
  */
 
 import { readFileSync, writeFileSync } from 'fs';
