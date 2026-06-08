@@ -21,9 +21,11 @@ function esc(s) {
   return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 function fmtV(n) {
+  // Mirror the generators' local fmtV exactly so the same view count renders
+  // identically on the card and in the intro/FAQ/JSON-LD on a given page.
   n = parseInt(n) || 0;
-  if (n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
-  if (n >= 1e3) return (n / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
+  if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+  if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K';
   return String(n);
 }
 // deterministic small hash so per-page template choices vary but are stable across rebuilds
@@ -49,7 +51,11 @@ function gmapsUrl(name, address) {
 // ── JSON-LD wrapper ──
 function jsonLdScript(graph) {
   const doc = { '@context': 'https://schema.org', '@graph': graph };
-  return `<script type="application/ld+json">${JSON.stringify(doc)}</script>`;
+  // Escape '<' so CSV-derived data containing "</script>" or "<!--" can't break
+  // out of the <script> tag (truncated schema / stored XSS). JSON.stringify alone
+  // produces valid JSON but does NOT neutralise these HTML sequences.
+  const json = JSON.stringify(doc).replace(/[<>\u2028\u2029]/g, c => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0"));
+  return `<script type="application/ld+json">${json}</script>`;
 }
 
 /**
@@ -95,7 +101,9 @@ function articleJsonLd(o) {
         'description': (it.quote || `${it.restaurant} reviewed on video by ${cityName} food creator @${it.creator_name}.`).slice(0, 280),
         'thumbnailUrl': it.thumbnail,
         'contentUrl': it.hls_url,
-        'uploadDate': o.uploadDate || '2026-01-01',
+        // uploadDate intentionally omitted — no real per-video publish date exists,
+        // and a fabricated constant is a false signal. Pass it.uploadDate from CSV when available.
+        ...(it.uploadDate ? { uploadDate: it.uploadDate } : {}),
         'creator': { '@type': 'Person', name: `@${it.creator_name}` },
         'interactionStatistic': {
           '@type': 'InteractionCounter',
@@ -169,8 +177,32 @@ function hubJsonLd(o) {
   ]);
 }
 
-/** MobileApplication + AggregateRating + Organization — the adapted "reviews" transfer. */
-function appReviewJsonLd() {
+/**
+ * MobileApplication + Organization — the adapted "app" transfer.
+ *
+ * NOTE: aggregateRating is deliberately NOT emitted. Google requires aggregateRating
+ * to reflect genuine reviews present on the page; a hardcoded/invented rating is a
+ * structured-data policy violation (manual-action risk). To enable it, pass REAL,
+ * current App Store numbers via `rating` — e.g. appReviewJsonLd({ratingValue:'4.7',ratingCount:'342'})
+ * — wired from the live App Store Connect figures, and keep them in sync.
+ */
+function appReviewJsonLd(o = {}) {
+  const app = {
+    '@type': 'MobileApplication',
+    'name': 'BiteMap',
+    'operatingSystem': 'iOS',
+    'applicationCategory': 'FoodAndDrinkApplication',
+    'url': APP_STORE,
+    'offers': { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  };
+  if (o.rating && o.rating.ratingValue && o.rating.ratingCount) {
+    app.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: String(o.rating.ratingValue),
+      ratingCount: String(o.rating.ratingCount),
+      bestRating: '5',
+    };
+  }
   return jsonLdScript([
     {
       '@type': 'Organization',
@@ -180,15 +212,7 @@ function appReviewJsonLd() {
       'logo': `${SITE}/images/bitemap-logo.png`,
       'sameAs': [APP_STORE],
     },
-    {
-      '@type': 'MobileApplication',
-      'name': 'BiteMap',
-      'operatingSystem': 'iOS',
-      'applicationCategory': 'FoodAndDrinkApplication',
-      'url': APP_STORE,
-      'offers': { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      'aggregateRating': { '@type': 'AggregateRating', ratingValue: '4.8', ratingCount: '120', bestRating: '5' },
-    },
+    app,
   ]);
 }
 
@@ -359,7 +383,7 @@ const SEO_CSS = `
 `;
 
 export {
-  esc, fmtV, gmapsUrl, countryFromLang,
+  gmapsUrl,
   articleJsonLd, hubJsonLd, appReviewJsonLd,
   editorialIntroHtml, faqsFor, faqSectionHtml,
   relatedLinksHtml, pickRelatedLinks,

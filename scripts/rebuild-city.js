@@ -332,6 +332,11 @@ for(const[key,city]of Object.entries(CITIES)){
     return o;
   }).filter(r=>!['callmecandace.tv','brazilianfoodie'].includes(r.creator_name) && r.views>=500);
 
+  // Tag each video with its neighbourhood so the SEO intro/FAQ neighbourhood copy works
+  // for non-Toronto cities too (Toronto sets v.hood in rebuild-all.js via getHood()).
+  const hoodNames=Object.keys(city.neighborhoods||{});
+  data.forEach(v=>{const a=(v.address||'').toLowerCase();v.hood=hoodNames.find(h=>a.includes(h.toLowerCase()))||''});
+
   console.log(`  ${data.length} videos loaded`);
 
   const cityDir=join(root,city.dir);
