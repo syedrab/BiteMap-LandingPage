@@ -101,25 +101,45 @@
             overflow: hidden;
         }
 
-        .phone-screen img {
+        .phone-screen video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transform: translateY(100%);
-            transition: transform 0.6s ease;
+            opacity: 0;
+            transition: opacity 0.7s ease;
+            z-index: 1;
         }
 
-        .phone-screen img.active {
-            transform: translateY(0);
+        .phone-screen video.active {
+            opacity: 1;
             z-index: 2;
         }
 
-        .phone-screen img.exit {
-            transform: translateY(-100%);
-            z-index: 1;
+        /* Clip dots */
+        .phone-dots {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .phone-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .phone-dot.active {
+            background: #fff;
+            transform: scale(1.3);
         }
 
         /* Content */
@@ -170,18 +190,93 @@
         }
 
         .tagline .highlight::after {
-            content: '*';
-            font-size: 24px;
-            position: absolute;
-            top: 0;
-            margin-left: 2px;
+            content: none;
         }
 
         .subtitle {
             font-size: 18px;
             color: #666;
             line-height: 1.6;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
+        }
+
+        /* Social proof bar */
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #444;
+        }
+
+        .proof-item svg {
+            flex-shrink: 0;
+        }
+
+        .proof-item strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .proof-divider {
+            width: 1px;
+            height: 18px;
+            background: #ddd;
+        }
+
+        .proof-stars {
+            color: #f59e0b;
+            letter-spacing: 1px;
+            font-size: 13px;
+        }
+
+        /* Mobile store row — hidden on desktop, shown on mobile via media query */
+        .mobile-store-row {
+            display: none;
+        }
+
+        .mobile-download-label {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.09em;
+            color: #444;
+            text-align: center;
+            margin: 0 0 12px;
+        }
+
+        .mobile-badges {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mobile-insta-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .mobile-insta-row strong {
+            color: #1a1a1a;
+        }
+
+        /* Primary CTA button */
+        .primary-cta-btn {
+            display: none;
         }
 
         .app-store-btn {
@@ -942,17 +1037,32 @@
                 display: none;
             }
 
-            /* Hide subtitle on mobile - keep tagline */
             .subtitle {
                 display: none;
+            }
+
+            /* Hide social links on mobile — they pull users away from the CTA */
+            .social-links {
+                display: none !important;
             }
 
             .container {
                 flex-direction: column;
                 text-align: center;
-                gap: 12px;
-                padding: 15px;
+                gap: 6px;
+                padding: 10px 8px;
+                min-height: 100dvh;
+                justify-content: flex-start;
             }
+
+            .content {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            /* Mobile: swap which download row is visible */
+            .desktop-only-downloads { display: none !important; }
+            .mobile-store-row       { display: flex; }
 
             /* Show logo section on mobile, hide desktop logo */
             .logo-section {
@@ -964,13 +1074,28 @@
                 display: none !important;
             }
 
-            .content {
-                order: 2;
-            }
-
+            /* Layout: logo(1) → headline(2) → phone(3) → badges(4) */
+            .logo-section   { order: 1; }
+            .content        { order: 2; }
             .phone-container {
                 order: 3;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
             }
+            .mobile-store-row {
+                order: 4;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                padding: 20px 0 16px;
+            }
+
+            /* Mobile: swap which download row is visible */
+            .desktop-only-downloads { display: none !important; }
+
 
             .logo {
                 justify-content: center;
@@ -987,8 +1112,13 @@
             }
 
             .tagline {
-                font-size: 28px;
+                font-size: 34px;
+                margin-top: 12px;
                 margin-bottom: 12px;
+            }
+
+            .social-proof {
+                display: none;
             }
 
             .subtitle {
@@ -997,14 +1127,19 @@
             }
 
             .phone-mockup {
-                width: 308px;
-                height: 631px;
-                border-radius: 44px;
-                padding: 10px;
+                width: 345px;
+                height: 650px;
+                border-radius: 48px;
+                padding: 12px;
             }
 
             .phone-mockup img {
                 border-radius: 36px;
+            }
+
+            /* Center social proof on mobile */
+            .social-proof {
+                justify-content: center;
             }
 
             /* Allow scroll on mobile so all content fits */
@@ -1020,7 +1155,7 @@
             }
 
             .food-icon {
-                font-size: 30px;
+                display: none;
             }
 
             .bouncing-logo {
@@ -1072,12 +1207,12 @@
             }
 
             .app-store-btn img {
-                height: 44px;
+                height: 52px;
             }
 
             .app-store-btn img.google-play-img {
-                height: 65px;
-                margin: -10px 0;
+                height: 77px;
+                margin: -12px 0;
             }
 
             .download-row {
@@ -1085,6 +1220,7 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 gap: 10px;
+                opacity: 0.7;
             }
 
             .social-links {
@@ -1500,9 +1636,16 @@
         <div class="phone-container">
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <img src="images/screenshot.jpg" alt="BiteMap app - shawarma review" class="active" fetchpriority="high">
-                    <img src="images/screenshot1.jpg" alt="BiteMap app - halal restaurants" loading="lazy">
-                    <img src="images/Map View.jpg" alt="BiteMap app - map view" loading="lazy">
+                    <video class="active" muted playsinline preload="auto" aria-label="BiteMap app - food video feed">
+                        <source src="images/clip-feed-hero.mp4" type="video/mp4">
+                    </video>
+                    <video muted playsinline preload="metadata" aria-label="BiteMap app - 3D map view">
+                        <source src="images/clip-map-hero.mp4" type="video/mp4">
+                    </video>
+                    <div class="phone-dots">
+                        <div class="phone-dot active"></div>
+                        <div class="phone-dot"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1514,14 +1657,28 @@
             </div>
 
             <h1 class="tagline">
-                <span class="highlight">Real</span> food reviews<br>from real people...
+                Food reviews by your<br>favourite <span class="highlight">creators</span> near you
             </h1>
 
             <p class="subtitle">
-                Discover restaurants through TikTok-style video reviews from local food creators. No fake reviews, just hungry humans.
+                Video reviews from real food creators. No fake ratings, no bots — just locals who eat for a living.
             </p>
 
-            <div class="download-row">
+            <!-- Social proof -->
+            <div class="social-proof">
+                <span class="proof-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#E1306C"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    <strong>2,165</strong> followers
+                </span>
+                <span class="proof-divider"></span>
+                <span class="proof-item">
+                    <span class="proof-stars">★★★★★</span>
+                    <span>App Store</span>
+                </span>
+            </div>
+
+            <!-- Desktop: download row lives here -->
+            <div class="download-row desktop-only-downloads">
                 <a href="https://apps.apple.com/us/app/bitemap/id6746139076" class="app-store-btn" target="_blank" rel="noopener">
                     <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
                 </a>
@@ -1539,6 +1696,19 @@
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile: download CTA + badges + social proof -->
+        <div class="mobile-store-row">
+            <p class="mobile-download-label">DOWNLOAD NOW ON THE APP STORE AND PLAY STORE</p>
+            <div class="mobile-badges">
+                <a href="https://apps.apple.com/us/app/bitemap/id6746139076" class="app-store-btn" target="_blank" rel="noopener">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.bitemap.app&hl=en_CA" class="app-store-btn" target="_blank" rel="noopener">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="google-play-img">
+                </a>
             </div>
         </div>
     </main>
@@ -1563,20 +1733,47 @@
     </footer>
 
 
-    <!-- Phone Screenshot Swipe-Up -->
+    <!-- Phone Video Reel -->
     <script>
-        const slides = document.querySelectorAll('.phone-screen img');
-        let current = 0;
-        setInterval(() => {
-            const prev = current;
-            current = (current + 1) % slides.length;
-            slides[prev].classList.remove('active');
-            slides[prev].classList.add('exit');
-            slides[current].classList.add('active');
+        (function () {
+            const videos = Array.from(document.querySelectorAll('.phone-screen video'));
+            const dots = Array.from(document.querySelectorAll('.phone-dot'));
+            let current = 0;
+
+            function goTo(next) {
+                const prev = current;
+                current = next;
+
+                videos[next].currentTime = 0;
+                videos[next].classList.add('active');
+                videos[next].play().catch(() => {});
+
+                dots[prev].classList.remove('active');
+                dots[next].classList.add('active');
+
+                setTimeout(() => {
+                    videos[prev].classList.remove('active');
+                    videos[prev].pause();
+                }, 700);
+            }
+
+            videos.forEach((v, i) => {
+                v.addEventListener('ended', () => {
+                    goTo((i + 1) % videos.length);
+                });
+            });
+
+            // Kick off
+            videos[0].play().catch(() => {});
+
+            // Fallback: if autoplay blocked, show first frame
             setTimeout(() => {
-                slides[prev].classList.remove('exit');
-            }, 600);
-        }, 5000);
+                if (videos[0].paused) {
+                    videos[0].load();
+                    videos[0].play().catch(() => {});
+                }
+            }, 1000);
+        })();
     </script>
 
     <!-- Mobile Menu Toggle -->
