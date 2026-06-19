@@ -258,7 +258,7 @@ function buildCard(item,i,pageTopic){
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar"><img src="${esc(creatorImg)}" alt="${esc(creatorAlt)}" onerror="this.style.display='none';this.parentElement.textContent='${(item.creator_name||'B').charAt(0).toUpperCase()}'"/></div>
+        <div class="avatar"><img src="${esc(creatorImg)}" alt="${esc(creatorAlt)}" width="32" height="32" onerror="this.style.display='none';this.parentElement.textContent='${(item.creator_name||'B').charAt(0).toUpperCase()}'"/></div>
         <div class="creator-info">
           <div class="creator-name">@${esc(item.creator_name)}</div>
           <div class="followers">${fmtV(item.views)} views</div>
@@ -482,7 +482,7 @@ function openModal(el){
   const tt=document.getElementById('vm-transcript');
   if(d.transcript){tw.style.display='block';tt.textContent=d.transcript}else{tw.style.display='none'}
   const av=document.getElementById('vm-avatar');
-  av.innerHTML='<img src="'+PROFILE_URL+'/'+encodeURIComponent(d.creator)+'.jpeg" onerror="this.style.display=\\'none\\';this.parentElement.textContent=\\''+d.creator.charAt(0).toUpperCase()+'\\'"/>';
+  av.innerHTML='<img src="'+PROFILE_URL+'/'+encodeURIComponent(d.creator)+'.jpeg" width="40" height="40" onerror="this.style.display=\\'none\\';this.parentElement.textContent=\\''+d.creator.charAt(0).toUpperCase()+'\\'"/>';
   // Video
   const video=document.getElementById('vm-player');
   const vwrap=document.getElementById('vm-video');

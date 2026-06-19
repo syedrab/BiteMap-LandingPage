@@ -242,7 +242,7 @@ function buildCard(item,i,pageTopic,cityName){
         </div>
       </div>
       <div class="creator-row">
-        <div class="avatar"><img src="${esc(creatorImg)}" alt="${esc(creatorAlt)}" onerror="this.style.display='none';this.parentElement.textContent='${(item.creator_name||'B').charAt(0).toUpperCase()}'"/></div>
+        <div class="avatar"><img src="${esc(creatorImg)}" alt="${esc(creatorAlt)}" width="32" height="32" onerror="this.style.display='none';this.parentElement.textContent='${(item.creator_name||'B').charAt(0).toUpperCase()}'"/></div>
         <div class="creator-info"><div class="creator-name">@${esc(item.creator_name)}</div><div class="followers">${fmtV(item.views)} views</div></div>
       </div>
       <div class="quote"><span class="quote-mark">"</span>${esc(quote)}</div>

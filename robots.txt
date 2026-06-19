@@ -1,4 +1,65 @@
+# BiteMap robots.txt
+# www.bitemap.fun
+
+# Search engines
 User-agent: *
 Allow: /
+Disallow: /dashboard
+Disallow: /scripts/
+Disallow: /data/
+Disallow: /Collage Magazine View/
 
+# Explicitly allow all markdown files for AI crawlers
+Allow: /*.md
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+Allow: /*.md
+
+# Anthropic / Claude
+User-agent: Claude-Web
+Allow: /
+Allow: /*.md
+
+User-agent: anthropic-ai
+Allow: /
+Allow: /*.md
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /*.md
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Allow: /*.md
+
+# Common Crawl (used by many LLMs)
+User-agent: CCBot
+Allow: /
+Allow: /*.md
+
+# Google Gemini / Bard
+User-agent: Google-Extended
+Allow: /
+Allow: /*.md
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+Allow: /*.md
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+Allow: /*.md
+
+# Apple
+User-agent: Applebot
+Allow: /
+Allow: /*.md
+
+# Sitemap index
 Sitemap: https://www.bitemap.fun/sitemap.xml
+Sitemap: https://www.bitemap.fun/llms-sitemap.txt
