@@ -2,6 +2,19 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "bitemap.fun"
+        }
+      ],
+      "destination": "https://www.bitemap.fun/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/v/:code",

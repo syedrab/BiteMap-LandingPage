@@ -60,6 +60,7 @@ User-agent: Applebot
 Allow: /
 Allow: /*.md
 
-# Sitemap index
+# Sitemaps (llms-sitemap.txt is URLs-only — Google's text-sitemap format
+# rejects comment lines, so keep it that way)
 Sitemap: https://www.bitemap.fun/sitemap.xml
 Sitemap: https://www.bitemap.fun/llms-sitemap.txt

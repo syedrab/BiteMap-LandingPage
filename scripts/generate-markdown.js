@@ -262,14 +262,9 @@ for (const citySlug of CITIES) {
 
 // ── llms-sitemap.txt ──────────────────────────────────────────────────────────
 
-const sitemapContent = [
-  '# BiteMap LLM Sitemap',
-  '# All markdown content files for AI/LLM crawlers',
-  `# Updated: ${TODAY}`,
-  `# Total: ${allMarkdownUrls.length} files`,
-  '',
-  ...allMarkdownUrls,
-].join('\n');
+// URLs only, one per line — no comments. Google's plain-text sitemap
+// format rejects any non-URL line, and this file is submitted to GSC.
+const sitemapContent = allMarkdownUrls.join('\n') + '\n';
 
 writeFileSync(join(ROOT, 'llms-sitemap.txt'), sitemapContent, 'utf8');
 console.log(`\n✓ llms-sitemap.txt (${allMarkdownUrls.length} URLs)`);
