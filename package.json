@@ -26,6 +26,7 @@
   "homepage": "https://github.com/syedrab/BiteMap-LandingPage#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
+    "@vercel/edge": "^1.3.1",
     "nanoid": "^5.0.4",
     "nodemailer": "^7.0.6"
   },
