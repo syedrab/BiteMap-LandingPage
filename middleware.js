@@ -29,6 +29,7 @@ export default function middleware(request) {
     force === 'nyc' ||
     (country === 'US' && (region === 'NY' || NYC_METRO.test(city)));
 
-  if (isNYC) return rewrite(new URL('/index-nyc.html', request.url));
+  // cleanUrls serves the file at /index-nyc — rewriting to the .html path 404s
+  if (isNYC) return rewrite(new URL('/index-nyc', request.url));
   return next();
 }
