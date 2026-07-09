@@ -1,0 +1,65 @@
+{
+  "slug": "chicago",
+  "name": "Chicago",
+  "marker": "CHI",
+  "metaTitle": "BiteMap Chicago - Best Restaurants Near You | Video Reviews (Preview)",
+  "vehicle": {
+    "height": 44,
+    "svg": "<svg viewBox=\"0 0 300 130\"><rect x=\"10\" y=\"40\" width=\"280\" height=\"62\" rx=\"10\" fill=\"#c9c4b4\" stroke=\"#141210\" stroke-width=\"3\"/><rect x=\"10\" y=\"46\" width=\"280\" height=\"7\" fill=\"#d62419\"/><rect x=\"10\" y=\"92\" width=\"280\" height=\"7\" fill=\"#d62419\"/><line x1=\"13\" y1=\"72\" x2=\"287\" y2=\"72\" stroke=\"#141210\" stroke-width=\"1\" opacity=\".25\"/><line x1=\"13\" y1=\"82\" x2=\"287\" y2=\"82\" stroke=\"#141210\" stroke-width=\"1\" opacity=\".25\"/><g fill=\"#bfe3ee\" stroke=\"#141210\" stroke-width=\"2\"><rect x=\"26\" y=\"58\" width=\"28\" height=\"24\" rx=\"3\"/><rect x=\"60\" y=\"58\" width=\"28\" height=\"24\" rx=\"3\"/><rect x=\"122\" y=\"58\" width=\"28\" height=\"24\" rx=\"3\"/><rect x=\"156\" y=\"58\" width=\"28\" height=\"24\" rx=\"3\"/><rect x=\"218\" y=\"58\" width=\"28\" height=\"24\" rx=\"3\"/><rect x=\"252\" y=\"58\" width=\"28\" height=\"24\" rx=\"3\"/></g><g fill=\"#8a8578\" stroke=\"#141210\" stroke-width=\"2\"><rect x=\"94\" y=\"56\" width=\"24\" height=\"44\"/><rect x=\"190\" y=\"56\" width=\"24\" height=\"44\"/></g><text x=\"150\" y=\"37\" text-anchor=\"middle\" font-family=\"Archivo Black, sans-serif\" font-size=\"10\" fill=\"#141210\">CTA</text><circle cx=\"72\" cy=\"106\" r=\"13\" fill=\"#141210\"/><circle cx=\"72\" cy=\"106\" r=\"5\" fill=\"#f1ead8\"/><circle cx=\"228\" cy=\"106\" r=\"13\" fill=\"#141210\"/><circle cx=\"228\" cy=\"106\" r=\"5\" fill=\"#f1ead8\"/></svg>"
+  },
+  "streets": {
+    "horizontal": {
+      "Eglinton Ave": "Devon Ave",
+      "St Clair Ave": "Foster Ave",
+      "Bloor St": "Irving Park Rd",
+      "Danforth Ave": "Belmont Ave",
+      "Dundas St": "Fullerton Ave",
+      "Queen St": "North Ave",
+      "King St": "Chicago Ave",
+      "Front St": "Madison St",
+      "Lakeshore Blvd": "Roosevelt Rd"
+    },
+    "vertical": {
+      "Bathurst St": "Pulaski Rd",
+      "Spadina Ave": "Western Ave",
+      "University Ave": "Ashland Ave",
+      "Bay St": "Halsted St",
+      "Yonge St": "Clark St",
+      "Church St": "State St",
+      "Jarvis St": "Michigan Ave",
+      "Parliament St": "Lake Shore Dr",
+      "Broadview Ave": "Lake Michigan"
+    }
+  },
+  "landmarks": {
+    "cntower": {
+      "label": "Willis Tower",
+      "svg": "<svg class=\"cn-tower-img\" style=\"width:48px\" width=\"120\" height=\"256\" viewBox=\"0 0 120 256\"><g fill=\"#141210\"><rect x=\"62\" y=\"0\" width=\"4\" height=\"46\"/><rect x=\"73\" y=\"0\" width=\"4\" height=\"46\"/><rect x=\"28\" y=\"108\" width=\"18\" height=\"148\"/><rect x=\"46\" y=\"66\" width=\"16\" height=\"190\"/><rect x=\"62\" y=\"42\" width=\"16\" height=\"214\"/><rect x=\"78\" y=\"92\" width=\"16\" height=\"164\"/><g fill=\"#fff\" opacity=\".45\"><rect x=\"33\" y=\"122\" width=\"3\" height=\"9\"/><rect x=\"39\" y=\"122\" width=\"3\" height=\"9\"/><rect x=\"51\" y=\"88\" width=\"3\" height=\"9\"/><rect x=\"57\" y=\"88\" width=\"3\" height=\"9\"/><rect x=\"66\" y=\"64\" width=\"3\" height=\"9\"/><rect x=\"72\" y=\"64\" width=\"3\" height=\"9\"/><rect x=\"83\" y=\"110\" width=\"3\" height=\"9\"/><rect x=\"89\" y=\"110\" width=\"3\" height=\"9\"/><rect x=\"33\" y=\"160\" width=\"3\" height=\"9\"/><rect x=\"39\" y=\"160\" width=\"3\" height=\"9\"/><rect x=\"66\" y=\"120\" width=\"3\" height=\"9\"/><rect x=\"72\" y=\"120\" width=\"3\" height=\"9\"/></g></g></svg>"
+    },
+    "casaloma": {
+      "label": "Cloud Gate",
+      "svg": "<svg class=\"casaloma-img\" style=\"width:84px\" width=\"120\" height=\"76\" viewBox=\"0 0 120 76\"><path d=\"M12 44 C12 18 40 10 60 10 C80 10 108 18 108 44 C108 55 96 59 88 56 Q60 34 32 56 C24 59 12 55 12 44 Z\" fill=\"#b8c4cc\" stroke=\"#141210\" stroke-width=\"3\"/><ellipse cx=\"46\" cy=\"28\" rx=\"18\" ry=\"9\" fill=\"#fff\" opacity=\".35\"/><path d=\"M26 24 Q42 15 60 20\" fill=\"none\" stroke=\"#fff\" stroke-width=\"3\" opacity=\".7\"/><path d=\"M78 24 Q92 30 96 44\" fill=\"none\" stroke=\"#141210\" stroke-width=\"2\" opacity=\".3\"/><path d=\"M40 50 Q60 42 80 50\" fill=\"none\" stroke=\"#141210\" stroke-width=\"2\" opacity=\".25\"/></svg>"
+    },
+    "stlawrence": {
+      "label": "Art Institute",
+      "svg": "<svg class=\"stlawrence-img\" style=\"width:104px\" width=\"140\" height=\"84\" viewBox=\"0 0 140 84\"><g fill=\"#141210\"><path d=\"M30 26 L70 6 L110 26 L110 32 L30 32 Z\"/><rect x=\"30\" y=\"32\" width=\"80\" height=\"7\"/><rect x=\"36\" y=\"39\" width=\"7\" height=\"31\"/><rect x=\"52\" y=\"39\" width=\"7\" height=\"31\"/><rect x=\"68\" y=\"39\" width=\"7\" height=\"31\"/><rect x=\"84\" y=\"39\" width=\"7\" height=\"31\"/><rect x=\"98\" y=\"39\" width=\"7\" height=\"31\"/><rect x=\"26\" y=\"70\" width=\"88\" height=\"6\"/></g><g fill=\"#7bb661\" stroke=\"#141210\" stroke-width=\"1.5\"><path d=\"M6 76 L6 64 Q6 57 13 57 Q18 57 18 63 L23 62 L23 76 Z\"/><path d=\"M134 76 L134 64 Q134 57 127 57 Q122 57 122 63 L117 62 L117 76 Z\"/></g></svg>"
+    },
+    "bmofield": {
+      "label": "Wrigley Field",
+      "svg": "<svg class=\"bmofield-img\" style=\"width:104px\" width=\"140\" height=\"72\" viewBox=\"0 0 140 72\"><g stroke=\"#141210\" stroke-width=\"3\"><ellipse cx=\"70\" cy=\"22\" rx=\"60\" ry=\"14\" fill=\"#7bb661\"/><path d=\"M10 22 L10 50 Q10 62 70 62 Q130 62 130 50 L130 22\" fill=\"#dcd6c4\"/><line x1=\"34\" y1=\"30\" x2=\"34\" y2=\"58\"/><line x1=\"106\" y1=\"30\" x2=\"106\" y2=\"58\"/></g><rect x=\"50\" y=\"38\" width=\"40\" height=\"26\" rx=\"3\" fill=\"#d62419\" stroke=\"#141210\" stroke-width=\"2\"/><text x=\"70\" y=\"49\" text-anchor=\"middle\" font-family=\"Archivo Black, sans-serif\" font-size=\"7\" fill=\"#fff\">WRIGLEY</text><text x=\"70\" y=\"59\" text-anchor=\"middle\" font-family=\"Archivo Black, sans-serif\" font-size=\"7\" fill=\"#fff\">FIELD</text></svg>"
+    },
+    "ROM": {
+      "label": "Field Museum",
+      "svg": "<svg class=\"rom-img\" style=\"width:92px\" width=\"130\" height=\"80\" viewBox=\"0 0 130 80\"><g fill=\"#141210\"><path d=\"M40 26 L65 8 L90 26 L90 32 L40 32 Z\"/><rect x=\"46\" y=\"32\" width=\"6\" height=\"36\"/><rect x=\"58\" y=\"32\" width=\"6\" height=\"36\"/><rect x=\"70\" y=\"32\" width=\"6\" height=\"36\"/><rect x=\"82\" y=\"32\" width=\"6\" height=\"36\"/><rect x=\"12\" y=\"34\" width=\"28\" height=\"34\"/><rect x=\"90\" y=\"34\" width=\"28\" height=\"34\"/><rect x=\"6\" y=\"68\" width=\"118\" height=\"6\"/></g><g fill=\"#fff\" opacity=\".4\"><rect x=\"18\" y=\"42\" width=\"6\" height=\"9\"/><rect x=\"28\" y=\"42\" width=\"6\" height=\"9\"/><rect x=\"18\" y=\"56\" width=\"6\" height=\"9\"/><rect x=\"28\" y=\"56\" width=\"6\" height=\"9\"/><rect x=\"96\" y=\"42\" width=\"6\" height=\"9\"/><rect x=\"106\" y=\"42\" width=\"6\" height=\"9\"/><rect x=\"96\" y=\"56\" width=\"6\" height=\"9\"/><rect x=\"106\" y=\"56\" width=\"6\" height=\"9\"/></g></svg>"
+    },
+    "donvalley": {
+      "svg": "<svg class=\"donvalley-img\" style=\"width:190px\" width=\"220\" height=\"74\" viewBox=\"0 0 220 74\"><g fill=\"#141210\" opacity=\".45\"><rect x=\"8\" y=\"22\" width=\"12\" height=\"38\"/><rect x=\"22\" y=\"12\" width=\"10\" height=\"48\"/><rect x=\"34\" y=\"28\" width=\"12\" height=\"32\"/><rect x=\"48\" y=\"18\" width=\"10\" height=\"42\"/><rect x=\"176\" y=\"14\" width=\"12\" height=\"46\"/><rect x=\"190\" y=\"24\" width=\"9\" height=\"36\"/><rect x=\"201\" y=\"10\" width=\"11\" height=\"50\"/></g><g fill=\"#141210\" stroke=\"#141210\" stroke-width=\"3\"><rect x=\"70\" y=\"38\" width=\"13\" height=\"22\"/><rect x=\"137\" y=\"38\" width=\"13\" height=\"22\"/><path d=\"M83 58 L106 38\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M137 58 L114 38\" stroke-width=\"5\" stroke-linecap=\"round\"/></g><line x1=\"0\" y1=\"66\" x2=\"220\" y2=\"66\" stroke=\"#141210\" stroke-width=\"2\"/><path d=\"M0 70 Q55 62 110 70 T220 70\" fill=\"none\" stroke=\"#141210\" stroke-width=\"2\" opacity=\".4\"/></svg>"
+    },
+    "harbourfront": {
+      "svg": "<svg class=\"harbourfront-img\" style=\"width:42px\" width=\"95\" height=\"215\" viewBox=\"0 0 95 215\"><g fill=\"#141210\"><rect x=\"40\" y=\"0\" width=\"3\" height=\"42\"/><rect x=\"52\" y=\"0\" width=\"3\" height=\"42\"/><path d=\"M20 210 L28 40 L67 40 L75 210 Z\"/></g><g stroke=\"#fff\" stroke-width=\"2\" opacity=\".4\" fill=\"none\"><path d=\"M28 58 L67 98 M67 58 L28 98\"/><path d=\"M27 108 L68 148 M68 108 L27 148\"/><path d=\"M25 158 L70 202 M70 158 L25 202\"/><line x1=\"29\" y1=\"75\" x2=\"66\" y2=\"75\"/><line x1=\"27\" y1=\"128\" x2=\"68\" y2=\"128\"/></g></svg>"
+    },
+    "dundassq": {
+      "svg": "<svg class=\"dundassq-img\" style=\"width:46px\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"#141210\" stroke=\"#d62419\" stroke-width=\"5\"/><text x=\"50\" y=\"62\" text-anchor=\"middle\" font-family=\"Archivo Black, sans-serif\" font-size=\"30\" fill=\"#fff\">CTA</text></svg>"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "slug": "dallas",
+  "name": "Dallas",
+  "marker": "DAL",
+  "metaTitle": "BiteMap Dallas - Best Restaurants Near You | Video Reviews (Preview)",
+  "vehicle": {
+    "height": 44,
+    "svg": "<svg viewBox=\"0 0 300 130\"><path d=\"M16 94 L16 58 L150 58 L150 32 L232 32 L250 58 L288 58 L288 94 Z\" fill=\"#d62419\" stroke=\"#141210\" stroke-width=\"3\"/><rect x=\"24\" y=\"64\" width=\"118\" height=\"30\" fill=\"#141210\"/><path d=\"M160 40 L192 40 L192 56 L160 56 Z\" fill=\"#bfe3ee\" stroke=\"#141210\" stroke-width=\"2\"/><path d=\"M198 40 L226 40 L226 56 L198 56 Z\" fill=\"#bfe3ee\" stroke=\"#141210\" stroke-width=\"2\"/><path d=\"M234 38 L248 56 L234 56 Z\" fill=\"#bfe3ee\" stroke=\"#141210\" stroke-width=\"2\"/><path d=\"M95 64 L97.9 71.95 L106.4 72.3 L99.8 77.5 L102.05 85.7 L95 81 L87.95 85.7 L90.2 77.5 L83.6 72.3 L92.06 71.95 Z\" fill=\"#f5c518\"/><rect x=\"282\" y=\"64\" width=\"6\" height=\"10\" fill=\"#f5c518\"/><circle cx=\"64\" cy=\"98\" r=\"17\" fill=\"#141210\"/><circle cx=\"64\" cy=\"98\" r=\"6\" fill=\"#f1ead8\"/><circle cx=\"238\" cy=\"98\" r=\"17\" fill=\"#141210\"/><circle cx=\"238\" cy=\"98\" r=\"6\" fill=\"#f1ead8\"/></svg>"
+  },
+  "streets": {
+    "horizontal": {
+      "Eglinton Ave": "Mockingbird Ln",
+      "St Clair Ave": "Lovers Ln",
+      "Bloor St": "Knox St",
+      "Danforth Ave": "Cedar Springs",
+      "Dundas St": "McKinney Ave",
+      "Queen St": "Main St",
+      "King St": "Commerce St",
+      "Front St": "Jefferson Blvd",
+      "Lakeshore Blvd": "Davis St"
+    },
+    "vertical": {
+      "Bathurst St": "Sylvan Ave",
+      "Spadina Ave": "Hampton Rd",
+      "University Ave": "Riverfront Blvd",
+      "Bay St": "Houston St",
+      "Yonge St": "Griffin St",
+      "Church St": "Akard St",
+      "Jarvis St": "Harwood St",
+      "Parliament St": "Central Expy",
+      "Broadview Ave": "Trinity River"
+    }
+  },
+  "landmarks": {
+    "cntower": {
+      "label": "Reunion Tower",
+      "svg": "<svg class=\"cn-tower-img\" style=\"width:48px\" width=\"120\" height=\"256\" viewBox=\"0 0 120 256\"><rect x=\"58\" y=\"6\" width=\"4\" height=\"18\" fill=\"#141210\"/><circle cx=\"60\" cy=\"6\" r=\"3\" fill=\"#f5c518\"/><rect x=\"52\" y=\"80\" width=\"16\" height=\"176\" fill=\"#141210\"/><rect x=\"44\" y=\"248\" width=\"32\" height=\"8\" fill=\"#141210\"/><circle cx=\"60\" cy=\"54\" r=\"32\" fill=\"#141210\"/><g fill=\"#fff\" opacity=\".55\"><circle cx=\"48\" cy=\"40\" r=\"2.4\"/><circle cx=\"60\" cy=\"40\" r=\"2.4\"/><circle cx=\"72\" cy=\"40\" r=\"2.4\"/><circle cx=\"42\" cy=\"50\" r=\"2.4\"/><circle cx=\"54\" cy=\"50\" r=\"2.4\"/><circle cx=\"66\" cy=\"50\" r=\"2.4\"/><circle cx=\"78\" cy=\"50\" r=\"2.4\"/><circle cx=\"40\" cy=\"58\" r=\"2.4\"/><circle cx=\"52\" cy=\"58\" r=\"2.4\"/><circle cx=\"64\" cy=\"58\" r=\"2.4\"/><circle cx=\"76\" cy=\"58\" r=\"2.4\"/><circle cx=\"46\" cy=\"68\" r=\"2.4\"/><circle cx=\"58\" cy=\"68\" r=\"2.4\"/><circle cx=\"70\" cy=\"68\" r=\"2.4\"/></g></svg>"
+    },
+    "casaloma": {
+      "label": "Dallas City Hall",
+      "svg": "<svg class=\"casaloma-img\" style=\"width:84px\" width=\"120\" height=\"76\" viewBox=\"0 0 120 76\"><path d=\"M8 16 L112 16 L88 68 L32 68 Z\" fill=\"#141210\" stroke=\"#141210\" stroke-width=\"2\"/><g fill=\"#fff\" opacity=\".45\"><rect x=\"14\" y=\"24\" width=\"92\" height=\"3\"/><rect x=\"18\" y=\"34\" width=\"84\" height=\"3\"/><rect x=\"22\" y=\"44\" width=\"76\" height=\"3\"/><rect x=\"27\" y=\"54\" width=\"66\" height=\"3\"/></g><rect x=\"4\" y=\"68\" width=\"112\" height=\"4\" fill=\"#141210\"/></svg>"
+    },
+    "stlawrence": {
+      "label": "Meyerson Symphony",
+      "svg": "<svg class=\"stlawrence-img\" style=\"width:104px\" width=\"140\" height=\"84\" viewBox=\"0 0 140 84\"><g fill=\"#141210\"><rect x=\"70\" y=\"24\" width=\"62\" height=\"56\"/><path d=\"M12 80 L12 42 Q12 18 46 18 L72 18 L72 80 Z\"/></g><g stroke=\"#fff\" stroke-width=\"1.5\" opacity=\".5\"><line x1=\"24\" y1=\"26\" x2=\"24\" y2=\"78\"/><line x1=\"36\" y1=\"22\" x2=\"36\" y2=\"78\"/><line x1=\"48\" y1=\"20\" x2=\"48\" y2=\"78\"/><line x1=\"60\" y1=\"20\" x2=\"60\" y2=\"78\"/><line x1=\"14\" y1=\"46\" x2=\"72\" y2=\"46\"/><line x1=\"12\" y1=\"62\" x2=\"72\" y2=\"62\"/></g><g fill=\"#fff\" opacity=\".4\"><rect x=\"80\" y=\"32\" width=\"8\" height=\"12\"/><rect x=\"94\" y=\"32\" width=\"8\" height=\"12\"/><rect x=\"108\" y=\"32\" width=\"8\" height=\"12\"/><rect x=\"80\" y=\"52\" width=\"8\" height=\"12\"/><rect x=\"94\" y=\"52\" width=\"8\" height=\"12\"/><rect x=\"108\" y=\"52\" width=\"8\" height=\"12\"/></g><rect x=\"6\" y=\"80\" width=\"128\" height=\"4\" fill=\"#141210\"/></svg>"
+    },
+    "bmofield": {
+      "label": "AT&T Stadium",
+      "svg": "<svg class=\"bmofield-img\" style=\"width:104px\" width=\"140\" height=\"72\" viewBox=\"0 0 140 72\"><rect x=\"8\" y=\"52\" width=\"124\" height=\"14\" fill=\"#141210\"/><path d=\"M16 54 Q16 16 70 16 Q124 16 124 54 Z\" fill=\"#141210\"/><g fill=\"none\" stroke=\"#fff\" stroke-width=\"1.5\" opacity=\".35\"><path d=\"M28 53 Q28 26 70 26 Q112 26 112 53\"/><path d=\"M40 52 Q40 34 70 34 Q100 34 100 52\"/></g><line x1=\"70\" y1=\"18\" x2=\"70\" y2=\"52\" stroke=\"#f5c518\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><g fill=\"#f5c518\" opacity=\".85\"><rect x=\"18\" y=\"56\" width=\"6\" height=\"6\"/><rect x=\"34\" y=\"56\" width=\"6\" height=\"6\"/><rect x=\"50\" y=\"56\" width=\"6\" height=\"6\"/><rect x=\"66\" y=\"56\" width=\"6\" height=\"6\"/><rect x=\"82\" y=\"56\" width=\"6\" height=\"6\"/><rect x=\"98\" y=\"56\" width=\"6\" height=\"6\"/><rect x=\"114\" y=\"56\" width=\"6\" height=\"6\"/></g></svg>"
+    },
+    "ROM": {
+      "label": "Perot Museum",
+      "svg": "<svg class=\"rom-img\" style=\"width:92px\" width=\"130\" height=\"80\" viewBox=\"0 0 130 80\"><g fill=\"#141210\"><path d=\"M22 28 L46 12 L104 12 L80 28 Z\"/><path d=\"M80 28 L104 12 L104 60 L80 76 Z\"/><rect x=\"22\" y=\"28\" width=\"58\" height=\"48\"/></g><g stroke=\"#fff\" stroke-width=\"1.5\" opacity=\".22\"><line x1=\"24\" y1=\"36\" x2=\"78\" y2=\"36\"/><line x1=\"24\" y1=\"44\" x2=\"78\" y2=\"44\"/><line x1=\"24\" y1=\"52\" x2=\"78\" y2=\"52\"/><line x1=\"24\" y1=\"60\" x2=\"78\" y2=\"60\"/><line x1=\"24\" y1=\"68\" x2=\"78\" y2=\"68\"/></g><g stroke=\"#fff\" stroke-width=\"1.5\" opacity=\".2\"><line x1=\"82\" y1=\"34\" x2=\"102\" y2=\"22\"/><line x1=\"82\" y1=\"46\" x2=\"102\" y2=\"34\"/><line x1=\"82\" y1=\"58\" x2=\"102\" y2=\"46\"/></g><path d=\"M24 74 L34 74 L78 34 L78 28 L72 28 L24 64 Z\" fill=\"#bfe3ee\" opacity=\".55\"/></svg>"
+    },
+    "donvalley": {
+      "svg": "<svg class=\"donvalley-img\" style=\"width:190px\" width=\"220\" height=\"74\" viewBox=\"0 0 220 74\"><rect x=\"6\" y=\"54\" width=\"208\" height=\"5\" fill=\"#141210\"/><path d=\"M44 56 C78 6 152 6 176 56\" fill=\"none\" stroke=\"#141210\" stroke-width=\"4\"/><g stroke=\"#141210\" stroke-width=\"1.4\"><line x1=\"70\" y1=\"22\" x2=\"34\" y2=\"54\"/><line x1=\"84\" y1=\"14\" x2=\"58\" y2=\"54\"/><line x1=\"98\" y1=\"10\" x2=\"84\" y2=\"54\"/><line x1=\"110\" y1=\"9\" x2=\"108\" y2=\"54\"/><line x1=\"122\" y1=\"10\" x2=\"134\" y2=\"54\"/><line x1=\"136\" y1=\"14\" x2=\"160\" y2=\"54\"/><line x1=\"150\" y1=\"22\" x2=\"184\" y2=\"54\"/></g><rect x=\"40\" y=\"54\" width=\"6\" height=\"14\" fill=\"#141210\"/><rect x=\"174\" y=\"54\" width=\"6\" height=\"14\" fill=\"#141210\"/></svg>"
+    },
+    "harbourfront": {
+      "svg": "<svg class=\"harbourfront-img\" style=\"width:42px\" width=\"95\" height=\"215\" viewBox=\"0 0 95 215\"><ellipse cx=\"47\" cy=\"32\" rx=\"31\" ry=\"6\" fill=\"#141210\"/><path d=\"M34 32 L34 16 Q34 8 47 8 Q60 8 60 16 L60 32 Z\" fill=\"#141210\"/><rect x=\"34\" y=\"27\" width=\"26\" height=\"3\" fill=\"#f5c518\"/><circle cx=\"47\" cy=\"42\" r=\"7\" fill=\"#141210\"/><path d=\"M31 52 L63 52 L61 116 L33 116 Z\" fill=\"#d62419\" stroke=\"#141210\" stroke-width=\"1.5\"/><path d=\"M31 54 L20 96 L27 98 L37 60 Z\" fill=\"#d62419\" stroke=\"#141210\" stroke-width=\"1.5\"/><path d=\"M63 54 L74 30 L80 33 L69 62 Z\" fill=\"#d62419\" stroke=\"#141210\" stroke-width=\"1.5\"/><circle cx=\"77\" cy=\"28\" r=\"5\" fill=\"#141210\"/><circle cx=\"22\" cy=\"98\" r=\"5\" fill=\"#141210\"/><rect x=\"39\" y=\"112\" width=\"16\" height=\"9\" fill=\"#f5c518\" stroke=\"#141210\" stroke-width=\"1\"/><path d=\"M33 121 L46 121 L44 188 L35 188 Z\" fill=\"#141210\"/><path d=\"M48 121 L61 121 L59 188 L50 188 Z\" fill=\"#141210\"/><path d=\"M35 188 L46 188 L46 202 L24 204 L24 196 Z\" fill=\"#141210\"/><path d=\"M50 188 L59 188 L71 196 L71 204 L50 202 Z\" fill=\"#141210\"/></svg>"
+    },
+    "dundassq": {
+      "svg": "<svg class=\"dundassq-img\" style=\"width:46px\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"44\" fill=\"#141210\" stroke=\"#f5c518\" stroke-width=\"3\"/><path d=\"M50 20 L57.6 39.5 L78.5 40.7 L62.4 54 L67.6 74.3 L50 63 L32.4 74.3 L37.6 54 L21.5 40.7 L42.4 39.5 Z\" fill=\"#f5c518\"/></svg>"
+    }
+  }
+}

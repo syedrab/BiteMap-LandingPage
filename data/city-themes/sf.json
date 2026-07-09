@@ -1,0 +1,65 @@
+{
+  "slug": "sf",
+  "name": "San Francisco",
+  "marker": "SF",
+  "metaTitle": "BiteMap San Francisco - Best Restaurants Near You | Video Reviews (Preview)",
+  "vehicle": {
+    "height": 44,
+    "svg": "<svg viewBox=\"0 0 300 130\"><rect x=\"116\" y=\"14\" width=\"68\" height=\"15\" fill=\"#141210\"/><text x=\"150\" y=\"26\" text-anchor=\"middle\" font-family=\"Archivo Black, sans-serif\" font-size=\"8\" fill=\"#f5c518\">POWELL</text><rect x=\"18\" y=\"29\" width=\"268\" height=\"11\" rx=\"4\" fill=\"#141210\"/><path d=\"M22 40 L282 40 L282 94 L22 94 Z\" fill=\"#d62419\" stroke=\"#141210\" stroke-width=\"3\"/><rect x=\"30\" y=\"46\" width=\"150\" height=\"28\" fill=\"#bfe3ee\" stroke=\"#141210\" stroke-width=\"2\"/><g stroke=\"#141210\" stroke-width=\"2\"><line x1=\"67\" y1=\"46\" x2=\"67\" y2=\"74\"/><line x1=\"105\" y1=\"46\" x2=\"105\" y2=\"74\"/><line x1=\"143\" y1=\"46\" x2=\"143\" y2=\"74\"/></g><rect x=\"188\" y=\"46\" width=\"86\" height=\"28\" fill=\"#f1ead8\" stroke=\"#141210\" stroke-width=\"2\"/><g stroke=\"#141210\" stroke-width=\"2\"><line x1=\"217\" y1=\"46\" x2=\"217\" y2=\"74\"/><line x1=\"245\" y1=\"46\" x2=\"245\" y2=\"74\"/></g><text x=\"231\" y=\"90\" text-anchor=\"middle\" font-family=\"Archivo Black, sans-serif\" font-size=\"10\" fill=\"#f1ead8\">SF</text><rect x=\"16\" y=\"94\" width=\"272\" height=\"5\" fill=\"#141210\"/><circle cx=\"86\" cy=\"104\" r=\"15\" fill=\"#141210\"/><circle cx=\"86\" cy=\"104\" r=\"5\" fill=\"#f1ead8\"/><circle cx=\"220\" cy=\"104\" r=\"15\" fill=\"#141210\"/><circle cx=\"220\" cy=\"104\" r=\"5\" fill=\"#f1ead8\"/></svg>"
+  },
+  "streets": {
+    "horizontal": {
+      "Eglinton Ave": "Lombard St",
+      "St Clair Ave": "Broadway",
+      "Bloor St": "California St",
+      "Danforth Ave": "Geary Blvd",
+      "Dundas St": "Market St",
+      "Queen St": "Mission St",
+      "King St": "24th St",
+      "Front St": "Cesar Chavez St",
+      "Lakeshore Blvd": "Ocean Ave"
+    },
+    "vertical": {
+      "Bathurst St": "Great Highway",
+      "Spadina Ave": "Divisadero St",
+      "University Ave": "Fillmore St",
+      "Bay St": "Van Ness Ave",
+      "Yonge St": "Powell St",
+      "Church St": "Montgomery St",
+      "Jarvis St": "Embarcadero",
+      "Parliament St": "San Francisco Bay",
+      "Broadview Ave": "Bay Bridge"
+    }
+  },
+  "landmarks": {
+    "cntower": {
+      "label": "Transamerica Pyramid",
+      "svg": "<svg class=\"cn-tower-img\" style=\"width:48px\" width=\"120\" height=\"256\" viewBox=\"0 0 120 256\"><g fill=\"#141210\"><rect x=\"57\" y=\"0\" width=\"6\" height=\"30\"/><path d=\"M60 26 L98 214 L22 214 Z\"/><rect x=\"22\" y=\"214\" width=\"76\" height=\"24\"/></g><g fill=\"#fff\" opacity=\".35\"><rect x=\"58\" y=\"60\" width=\"4\" height=\"150\"/><rect x=\"46\" y=\"150\" width=\"3\" height=\"60\"/><rect x=\"71\" y=\"150\" width=\"3\" height=\"60\"/><rect x=\"38\" y=\"182\" width=\"3\" height=\"28\"/><rect x=\"79\" y=\"182\" width=\"3\" height=\"28\"/></g></svg>"
+    },
+    "casaloma": {
+      "label": "Painted Ladies",
+      "svg": "<svg class=\"casaloma-img\" style=\"width:84px\" width=\"120\" height=\"80\" viewBox=\"0 0 120 80\"><g stroke=\"#141210\" stroke-width=\"2\"><path d=\"M4 36 L20 14 L36 36 Z\" fill=\"#d62419\"/><rect x=\"6\" y=\"36\" width=\"28\" height=\"40\" fill=\"#141210\"/><path d=\"M42 36 L58 14 L74 36 Z\" fill=\"#f5c518\"/><rect x=\"44\" y=\"36\" width=\"28\" height=\"40\" fill=\"#141210\"/><path d=\"M80 36 L96 14 L112 36 Z\" fill=\"#7bb661\"/><rect x=\"82\" y=\"36\" width=\"28\" height=\"40\" fill=\"#141210\"/></g><g fill=\"#fff\" opacity=\".55\"><rect x=\"11\" y=\"44\" width=\"7\" height=\"9\"/><rect x=\"22\" y=\"44\" width=\"7\" height=\"9\"/><rect x=\"11\" y=\"60\" width=\"7\" height=\"9\"/><rect x=\"22\" y=\"60\" width=\"7\" height=\"9\"/><rect x=\"49\" y=\"44\" width=\"7\" height=\"9\"/><rect x=\"60\" y=\"44\" width=\"7\" height=\"9\"/><rect x=\"49\" y=\"60\" width=\"7\" height=\"9\"/><rect x=\"60\" y=\"60\" width=\"7\" height=\"9\"/><rect x=\"87\" y=\"44\" width=\"7\" height=\"9\"/><rect x=\"98\" y=\"44\" width=\"7\" height=\"9\"/><rect x=\"87\" y=\"60\" width=\"7\" height=\"9\"/><rect x=\"98\" y=\"60\" width=\"7\" height=\"9\"/></g></svg>"
+    },
+    "stlawrence": {
+      "label": "Ferry Building",
+      "svg": "<svg class=\"stlawrence-img\" style=\"width:104px\" width=\"140\" height=\"84\" viewBox=\"0 0 140 84\"><g fill=\"#141210\"><rect x=\"6\" y=\"46\" width=\"128\" height=\"38\"/><rect x=\"61\" y=\"2\" width=\"18\" height=\"82\"/><rect x=\"59\" y=\"0\" width=\"22\" height=\"6\"/></g><circle cx=\"70\" cy=\"20\" r=\"6\" fill=\"#f5c518\" stroke=\"#141210\" stroke-width=\"2\"/><g fill=\"#fff\" opacity=\".55\"><path d=\"M14 58 a5 5 0 0 1 10 0 v16 h-10 Z\"/><path d=\"M30 58 a5 5 0 0 1 10 0 v16 h-10 Z\"/><path d=\"M46 58 a5 5 0 0 1 10 0 v16 h-10 Z\"/><path d=\"M84 58 a5 5 0 0 1 10 0 v16 h-10 Z\"/><path d=\"M100 58 a5 5 0 0 1 10 0 v16 h-10 Z\"/><path d=\"M116 58 a5 5 0 0 1 10 0 v16 h-10 Z\"/></g></svg>"
+    },
+    "bmofield": {
+      "label": "Oracle Park",
+      "svg": "<svg class=\"bmofield-img\" style=\"width:104px\" width=\"140\" height=\"72\" viewBox=\"0 0 140 72\"><g stroke=\"#141210\" stroke-width=\"3\"><path d=\"M8 52 L8 24 Q8 12 70 12 Q132 12 132 24 L132 52\" fill=\"#dcd6c4\"/><ellipse cx=\"70\" cy=\"52\" rx=\"62\" ry=\"14\" fill=\"#7bb661\"/></g><path d=\"M70 40 L82 52 L70 64 L58 52 Z\" fill=\"#f1ead8\" stroke=\"#141210\" stroke-width=\"2\"/></svg>"
+    },
+    "ROM": {
+      "label": "City Hall",
+      "svg": "<svg class=\"rom-img\" style=\"width:92px\" width=\"130\" height=\"90\" viewBox=\"0 0 130 90\"><g fill=\"#141210\"><rect x=\"61\" y=\"2\" width=\"8\" height=\"10\" fill=\"#f5c518\"/><path d=\"M45 50 Q45 12 65 10 Q85 12 85 50 Z\"/><rect x=\"47\" y=\"50\" width=\"36\" height=\"8\"/><rect x=\"10\" y=\"58\" width=\"110\" height=\"26\"/><rect x=\"6\" y=\"84\" width=\"118\" height=\"6\"/></g><g fill=\"#fff\" opacity=\".4\"><rect x=\"60\" y=\"30\" width=\"10\" height=\"16\" rx=\"5\"/><rect x=\"18\" y=\"64\" width=\"4\" height=\"18\"/><rect x=\"30\" y=\"64\" width=\"4\" height=\"18\"/><rect x=\"42\" y=\"64\" width=\"4\" height=\"18\"/><rect x=\"84\" y=\"64\" width=\"4\" height=\"18\"/><rect x=\"96\" y=\"64\" width=\"4\" height=\"18\"/><rect x=\"108\" y=\"64\" width=\"4\" height=\"18\"/></g></svg>"
+    },
+    "donvalley": {
+      "svg": "<svg class=\"donvalley-img\" style=\"width:190px\" width=\"220\" height=\"74\" viewBox=\"0 0 220 74\"><g stroke=\"#d62419\" stroke-width=\"3\" fill=\"none\"><path d=\"M0 46 L63 10 Q110 48 157 10 L220 46\"/><line x1=\"0\" y1=\"58\" x2=\"220\" y2=\"58\"/></g><g stroke=\"#d62419\" stroke-width=\"4\"><line x1=\"56\" y1=\"8\" x2=\"56\" y2=\"62\"/><line x1=\"70\" y1=\"8\" x2=\"70\" y2=\"62\"/><line x1=\"150\" y1=\"8\" x2=\"150\" y2=\"62\"/><line x1=\"164\" y1=\"8\" x2=\"164\" y2=\"62\"/></g><g stroke=\"#d62419\" stroke-width=\"3\"><line x1=\"56\" y1=\"18\" x2=\"70\" y2=\"18\"/><line x1=\"56\" y1=\"34\" x2=\"70\" y2=\"34\"/><line x1=\"150\" y1=\"18\" x2=\"164\" y2=\"18\"/><line x1=\"150\" y1=\"34\" x2=\"164\" y2=\"34\"/></g><g stroke=\"#d62419\" stroke-width=\"1.5\"><line x1=\"80\" y1=\"22\" x2=\"80\" y2=\"58\"/><line x1=\"95\" y1=\"33\" x2=\"95\" y2=\"58\"/><line x1=\"110\" y1=\"40\" x2=\"110\" y2=\"58\"/><line x1=\"125\" y1=\"33\" x2=\"125\" y2=\"58\"/><line x1=\"140\" y1=\"22\" x2=\"140\" y2=\"58\"/></g></svg>"
+    },
+    "harbourfront": {
+      "svg": "<svg class=\"harbourfront-img\" style=\"width:42px\" width=\"95\" height=\"215\" viewBox=\"0 0 95 215\"><g fill=\"#141210\"><path d=\"M34 40 Q34 26 47 26 Q60 26 60 40 L60 200 L34 200 Z\"/><rect x=\"26\" y=\"200\" width=\"42\" height=\"15\"/><rect x=\"30\" y=\"188\" width=\"34\" height=\"12\"/></g><g fill=\"#fff\" opacity=\".4\"><rect x=\"40\" y=\"60\" width=\"3\" height=\"128\"/><rect x=\"47\" y=\"60\" width=\"3\" height=\"128\"/><rect x=\"54\" y=\"60\" width=\"3\" height=\"128\"/></g><g fill=\"#fff\" opacity=\".55\"><path d=\"M37 44 a4 5 0 0 1 8 0 v8 h-8 Z\"/><path d=\"M49 44 a4 5 0 0 1 8 0 v8 h-8 Z\"/></g></svg>"
+    },
+    "dundassq": {
+      "svg": "<svg class=\"dundassq-img\" style=\"width:46px\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"#d62419\" stroke=\"#141210\" stroke-width=\"3\"/><text x=\"50\" y=\"66\" text-anchor=\"middle\" font-family=\"Archivo Black, sans-serif\" font-size=\"44\" fill=\"#f1ead8\">M</text></svg>"
+    }
+  }
+}

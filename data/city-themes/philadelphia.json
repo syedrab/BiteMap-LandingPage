@@ -1,0 +1,65 @@
+{
+  "slug": "philadelphia",
+  "name": "Philadelphia",
+  "marker": "PHL",
+  "metaTitle": "BiteMap Philadelphia - Best Restaurants Near You | Video Reviews (Preview)",
+  "vehicle": {
+    "height": 44,
+    "svg": "<svg viewBox=\"0 0 300 130\"><line x1=\"110\" y1=\"10\" x2=\"250\" y2=\"10\" stroke=\"#141210\" stroke-width=\"2\"/><path d=\"M150 40 L178 12\" stroke=\"#141210\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"178\" cy=\"11\" r=\"3\" fill=\"#141210\"/><rect x=\"18\" y=\"38\" width=\"266\" height=\"58\" rx=\"16\" fill=\"#e8e2d0\" stroke=\"#141210\" stroke-width=\"3\"/><rect x=\"18\" y=\"38\" width=\"266\" height=\"8\" rx=\"6\" fill=\"#2a4d8f\"/><rect x=\"30\" y=\"50\" width=\"244\" height=\"22\" rx=\"4\" fill=\"#bfe3ee\" stroke=\"#141210\" stroke-width=\"2\"/><g stroke=\"#141210\" stroke-width=\"2\"><line x1=\"64\" y1=\"50\" x2=\"64\" y2=\"72\"/><line x1=\"98\" y1=\"50\" x2=\"98\" y2=\"72\"/><line x1=\"132\" y1=\"50\" x2=\"132\" y2=\"72\"/><line x1=\"166\" y1=\"50\" x2=\"166\" y2=\"72\"/><line x1=\"200\" y1=\"50\" x2=\"200\" y2=\"72\"/><line x1=\"234\" y1=\"50\" x2=\"234\" y2=\"72\"/></g><rect x=\"18\" y=\"78\" width=\"266\" height=\"6\" fill=\"#d62419\"/><rect x=\"244\" y=\"52\" width=\"30\" height=\"14\" fill=\"#141210\"/><text x=\"259\" y=\"63\" text-anchor=\"middle\" font-family=\"Archivo Black, sans-serif\" font-size=\"9\" fill=\"#f5c518\">34</text><text x=\"150\" y=\"92\" text-anchor=\"middle\" font-family=\"Archivo Black, sans-serif\" font-size=\"12\" fill=\"#141210\">SEPTA</text><circle cx=\"282\" cy=\"64\" r=\"3\" fill=\"#f5c518\"/><circle cx=\"74\" cy=\"98\" r=\"16\" fill=\"#141210\"/><circle cx=\"74\" cy=\"98\" r=\"6\" fill=\"#f1ead8\"/><circle cx=\"228\" cy=\"98\" r=\"16\" fill=\"#141210\"/><circle cx=\"228\" cy=\"98\" r=\"6\" fill=\"#f1ead8\"/></svg>"
+  },
+  "streets": {
+    "horizontal": {
+      "Eglinton Ave": "Girard Ave",
+      "St Clair Ave": "Spring Garden St",
+      "Bloor St": "Callowhill St",
+      "Danforth Ave": "Arch St",
+      "Dundas St": "Market St",
+      "Queen St": "Chestnut St",
+      "King St": "Walnut St",
+      "Front St": "South St",
+      "Lakeshore Blvd": "Washington Ave"
+    },
+    "vertical": {
+      "Bathurst St": "Schuylkill Ave",
+      "Spadina Ave": "30th St",
+      "University Ave": "23rd St",
+      "Bay St": "Broad St",
+      "Yonge St": "15th St",
+      "Church St": "9th St",
+      "Jarvis St": "5th St",
+      "Parliament St": "Front St",
+      "Broadview Ave": "Delaware River"
+    }
+  },
+  "landmarks": {
+    "cntower": {
+      "label": "One Liberty Place",
+      "svg": "<svg class=\"cn-tower-img\" style=\"width:48px\" width=\"120\" height=\"256\" viewBox=\"0 0 120 256\"><g fill=\"#141210\"><rect x=\"57\" y=\"0\" width=\"6\" height=\"22\"/><path d=\"M52 40 L60 20 L68 40 Z\"/><path d=\"M46 62 L60 34 L74 62 Z\"/><path d=\"M40 92 L60 50 L80 92 Z\"/><rect x=\"40\" y=\"92\" width=\"40\" height=\"164\"/><g fill=\"#fff\" opacity=\".5\"><rect x=\"46\" y=\"104\" width=\"5\" height=\"12\"/><rect x=\"57\" y=\"104\" width=\"5\" height=\"12\"/><rect x=\"68\" y=\"104\" width=\"5\" height=\"12\"/><rect x=\"46\" y=\"126\" width=\"5\" height=\"12\"/><rect x=\"57\" y=\"126\" width=\"5\" height=\"12\"/><rect x=\"68\" y=\"126\" width=\"5\" height=\"12\"/><rect x=\"46\" y=\"148\" width=\"5\" height=\"12\"/><rect x=\"57\" y=\"148\" width=\"5\" height=\"12\"/><rect x=\"68\" y=\"148\" width=\"5\" height=\"12\"/><rect x=\"46\" y=\"170\" width=\"5\" height=\"12\"/><rect x=\"57\" y=\"170\" width=\"5\" height=\"12\"/><rect x=\"68\" y=\"170\" width=\"5\" height=\"12\"/><rect x=\"46\" y=\"192\" width=\"5\" height=\"12\"/><rect x=\"57\" y=\"192\" width=\"5\" height=\"12\"/><rect x=\"68\" y=\"192\" width=\"5\" height=\"12\"/></g></g></svg>"
+    },
+    "casaloma": {
+      "label": "Independence Hall",
+      "svg": "<svg class=\"casaloma-img\" style=\"width:84px\" width=\"120\" height=\"84\" viewBox=\"0 0 120 84\"><g fill=\"#8a3b2e\"><rect x=\"20\" y=\"40\" width=\"80\" height=\"40\" stroke=\"#141210\" stroke-width=\"2\"/></g><g fill=\"#141210\"><rect x=\"54\" y=\"6\" width=\"12\" height=\"34\"/><path d=\"M52 6 L60 -2 L68 6 Z\" transform=\"translate(0,2)\"/><rect x=\"56\" y=\"0\" width=\"8\" height=\"8\"/><path d=\"M54 4 L60 -4 L66 4 Z\"/></g><rect x=\"56\" y=\"18\" width=\"8\" height=\"8\" fill=\"#f5c518\" stroke=\"#141210\" stroke-width=\"1.5\"/><g fill=\"#141210\"><path d=\"M20 40 L60 24 L100 40 Z\"/></g><g fill=\"#f1ead8\"><rect x=\"28\" y=\"50\" width=\"8\" height=\"14\"/><rect x=\"44\" y=\"50\" width=\"8\" height=\"14\"/><rect x=\"68\" y=\"50\" width=\"8\" height=\"14\"/><rect x=\"84\" y=\"50\" width=\"8\" height=\"14\"/></g><rect x=\"55\" y=\"58\" width=\"10\" height=\"22\" fill=\"#141210\"/></svg>"
+    },
+    "stlawrence": {
+      "label": "Reading Terminal Market",
+      "svg": "<svg class=\"stlawrence-img\" style=\"width:104px\" width=\"140\" height=\"84\" viewBox=\"0 0 140 84\"><g fill=\"#8a3b2e\" stroke=\"#141210\" stroke-width=\"2\"><rect x=\"10\" y=\"22\" width=\"120\" height=\"58\"/></g><rect x=\"10\" y=\"14\" width=\"120\" height=\"12\" fill=\"#d62419\" stroke=\"#141210\" stroke-width=\"2\"/><text x=\"70\" y=\"24\" text-anchor=\"middle\" font-family=\"Archivo Black, sans-serif\" font-size=\"9\" fill=\"#f1ead8\">READING TERMINAL</text><g fill=\"#141210\" opacity=\".85\"><path d=\"M22 78 V52 a8 8 0 0 1 16 0 V78 Z\"/><path d=\"M46 78 V52 a8 8 0 0 1 16 0 V78 Z\"/><path d=\"M70 78 V52 a8 8 0 0 1 16 0 V78 Z\"/><path d=\"M94 78 V52 a8 8 0 0 1 16 0 V78 Z\"/></g><g fill=\"#f5c518\"><rect x=\"116\" y=\"52\" width=\"10\" height=\"26\" stroke=\"#141210\" stroke-width=\"2\"/></g></svg>"
+    },
+    "bmofield": {
+      "label": "Lincoln Financial Field",
+      "svg": "<svg class=\"bmofield-img\" style=\"width:104px\" width=\"140\" height=\"72\" viewBox=\"0 0 140 72\"><g stroke=\"#141210\" stroke-width=\"3\"><ellipse cx=\"70\" cy=\"22\" rx=\"62\" ry=\"15\" fill=\"#4a6b3a\"/><path d=\"M8 22 L8 50 Q8 66 70 66 Q132 66 132 50 L132 22\" fill=\"#dcd6c4\"/><ellipse cx=\"70\" cy=\"22\" rx=\"40\" ry=\"9\" fill=\"#5c8348\" stroke-width=\"2\"/><line x1=\"30\" y1=\"30\" x2=\"30\" y2=\"58\"/><line x1=\"70\" y1=\"34\" x2=\"70\" y2=\"66\"/><line x1=\"110\" y1=\"30\" x2=\"110\" y2=\"58\"/></g></svg>"
+    },
+    "ROM": {
+      "label": "Philadelphia Museum of Art",
+      "svg": "<svg class=\"rom-img\" style=\"width:92px\" width=\"130\" height=\"80\" viewBox=\"0 0 130 80\"><g fill=\"#141210\"><path d=\"M24 30 L65 12 L106 30 L106 34 L24 34 Z\"/><rect x=\"28\" y=\"34\" width=\"6\" height=\"28\"/><rect x=\"42\" y=\"34\" width=\"6\" height=\"28\"/><rect x=\"56\" y=\"34\" width=\"6\" height=\"28\"/><rect x=\"68\" y=\"34\" width=\"6\" height=\"28\"/><rect x=\"82\" y=\"34\" width=\"6\" height=\"28\"/><rect x=\"96\" y=\"34\" width=\"6\" height=\"28\"/><rect x=\"24\" y=\"62\" width=\"82\" height=\"4\"/><path d=\"M65 12 L65 34\" stroke=\"#f5c518\" stroke-width=\"2\"/></g><g fill=\"#141210\"><path d=\"M18 66 L112 66 L120 72 L10 72 Z\"/><path d=\"M12 72 L118 72 L126 78 L4 78 Z\"/></g></svg>"
+    },
+    "donvalley": {
+      "svg": "<svg class=\"donvalley-img\" style=\"width:190px\" width=\"220\" height=\"74\" viewBox=\"0 0 220 74\"><g stroke=\"#141210\" stroke-width=\"3\" fill=\"#141210\"><path d=\"M52 8 L58 8 L58 64 L52 64 Z\"/><path d=\"M66 8 L72 8 L72 64 L66 64 Z\"/><line x1=\"52\" y1=\"24\" x2=\"72\" y2=\"24\"/><line x1=\"52\" y1=\"40\" x2=\"72\" y2=\"40\"/><path d=\"M148 8 L154 8 L154 64 L148 64 Z\"/><path d=\"M162 8 L168 8 L168 64 L162 64 Z\"/><line x1=\"148\" y1=\"24\" x2=\"168\" y2=\"24\"/><line x1=\"148\" y1=\"40\" x2=\"168\" y2=\"40\"/><path d=\"M0 42 Q30 60 62 44 Q110 18 158 44 Q190 60 220 42\" fill=\"none\"/><line x1=\"0\" y1=\"60\" x2=\"220\" y2=\"60\"/><line x1=\"62\" y1=\"12\" x2=\"62\" y2=\"44\" stroke-width=\"2\"/><line x1=\"158\" y1=\"12\" x2=\"158\" y2=\"44\" stroke-width=\"2\"/></g></svg>"
+    },
+    "harbourfront": {
+      "svg": "<svg class=\"harbourfront-img\" style=\"width:42px\" width=\"95\" height=\"215\" viewBox=\"0 0 95 215\"><g fill=\"#141210\"><rect x=\"26\" y=\"186\" width=\"44\" height=\"29\"/><rect x=\"32\" y=\"150\" width=\"32\" height=\"36\"/><path d=\"M36 78 L60 78 L64 150 L32 150 Z\"/><circle cx=\"48\" cy=\"116\" r=\"9\" fill=\"#f1ead8\" stroke=\"#141210\" stroke-width=\"2\"/><path d=\"M48 116 L48 110 M48 116 L53 118\" stroke=\"#141210\" stroke-width=\"1.5\" fill=\"none\"/><path d=\"M36 78 L48 58 L60 78 Z\"/><rect x=\"45\" y=\"44\" width=\"6\" height=\"14\"/><circle cx=\"48\" cy=\"38\" r=\"5\"/><path d=\"M40 44 L56 44 L52 32 L44 32 Z\"/></g></svg>"
+    },
+    "dundassq": {
+      "svg": "<svg class=\"dundassq-img\" style=\"width:46px\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"#f1ead8\" stroke=\"#141210\" stroke-width=\"3\"/><rect x=\"45\" y=\"26\" width=\"10\" height=\"8\" fill=\"#141210\"/><path d=\"M33 40 Q33 34 50 34 Q67 34 67 40 L71 66 Q71 72 50 72 Q29 72 29 66 Z\" fill=\"#f5c518\" stroke=\"#141210\" stroke-width=\"2.5\"/><rect x=\"26\" y=\"66\" width=\"48\" height=\"7\" rx=\"2\" fill=\"#f5c518\" stroke=\"#141210\" stroke-width=\"2.5\"/><path d=\"M50 40 L45 50 L53 58 L47 71\" stroke=\"#141210\" stroke-width=\"2.5\" fill=\"none\"/></svg>"
+    }
+  }
+}
