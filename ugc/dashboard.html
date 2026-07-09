@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>BiteMap UGC Campaign Dashboard</title>
+<style>
+  :root {
+    --navy: #1A1A2E;
+    --navy-light: #16213E;
+    --accent: #E94560;
+    --accent2: #F5A623;
+    --green: #27AE60;
+    --blue: #2980B9;
+    --purple: #8E44AD;
+    --teal: #16A085;
+    --text: #1A1A2E;
+    --text-muted: #6B7280;
+    --bg: #F8F9FB;
+    --card: #FFFFFF;
+    --border: #E5E7EB;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: var(--navy);
+    color: white;
+    padding: 32px 40px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header p { color: rgba(255,255,255,0.6); font-size: 13px; }
+  .header-stats {
+    display: flex;
+    gap: 32px;
+    text-align: center;
+  }
+  .stat-box { }
+  .stat-box .num {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent2);
+    display: block;
+  }
+  .stat-box .lbl {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── Nav tabs ── */
+  .nav {
+    background: var(--navy-light);
+    display: flex;
+    padding: 0 40px;
+    gap: 4px;
+  }
+  .nav button {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+  }
+  .nav button:hover { color: white; }
+  .nav button.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── Container ── */
+  .container { padding: 32px 40px; max-width: 1400px; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── Section headers ── */
+  .section-header {
+    margin-bottom: 24px;
+  }
+  .section-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  /* ── Video Category Cards ── */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .cat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.15s;
+  }
+  .cat-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  .cat-header {
+    padding: 16px 20px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .cat-meta h3 { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+  .cat-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .tag.quota { background: #FEF3C7; color: #92400E; }
+  .tag.format { background: #EDE9FE; color: #5B21B6; }
+
+  .cat-body { padding: 16px 20px; }
+  .hook-box {
+    background: #F8F9FB;
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    font-style: italic;
+    color: #374151;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .script-steps { margin-bottom: 14px; }
+  .script-steps h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px; }
+  .step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .step-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    height: fit-content;
+    margin-top: 1px;
+  }
+  .step-badge.hook { background: #FEE2E2; color: #991B1B; }
+  .step-badge.mid  { background: #D1FAE5; color: #065F46; }
+  .step-badge.cta  { background: #DBEAFE; color: #1E40AF; }
+
+  .why-box {
+    background: #F0FDF4;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #166534;
+    margin-bottom: 12px;
+  }
+  .why-box strong { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 3px; }
+
+  .dos-donts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .dos-donts h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .dos h4 { color: var(--green); }
+  .donts h4 { color: var(--accent); }
+  .dos-donts ul { list-style: none; }
+  .dos-donts li {
+    font-size: 11px;
+    color: #374151;
+    padding: 3px 0;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .dos li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+  .donts li::before { content: '✕'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+  .caption-box {
+    margin-top: 12px;
+    background: #F8F9FB;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: var(--text-muted);
+    border: 1px dashed var(--border);
+  }
+  .caption-box strong { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; color: var(--text); }
+
+  /* ── Persona Cards ── */
+  .personas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .persona-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .persona-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+  .persona-top {
+    padding: 24px 24px 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
+  }
+  .persona-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--navy);
+    flex-shrink: 0;
+  }
+  .persona-name { font-size: 18px; font-weight: 800; margin-bottom: 2px; }
+  .persona-role {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .persona-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .meta-pill {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 11px;
+    padding: 2px 9px;
+    color: var(--text);
+  }
+  .persona-body { padding: 18px 24px 20px; }
+  .persona-tagline {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .persona-section { margin-bottom: 14px; }
+  .persona-section h4 {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .pain-list { list-style: none; }
+  .pain-list li {
+    font-size: 12px;
+    color: #374151;
+    padding: 5px 0 5px 20px;
+    position: relative;
+    border-bottom: 1px solid #F3F4F6;
+    line-height: 1.4;
+  }
+  .pain-list li:last-child { border-bottom: none; }
+  .pain-list li::before { content: '😤'; position: absolute; left: 0; font-size: 11px; top: 6px; }
+
+  .wants-list { list-style: none; }
+  .wants-list li {
+    font-size: 12px;
+    color: #374151;
+    padding: 4px 0 4px 20px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .wants-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+  .quote-block {
+    background: var(--navy);
+    color: white;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.6;
+    position: relative;
+  }
+  .quote-block::before {
+    content: '"';
+    font-size: 48px;
+    color: var(--accent);
+    position: absolute;
+    top: -6px;
+    left: 12px;
+    font-style: normal;
+    line-height: 1;
+    opacity: 0.6;
+  }
+  .quote-text { padding-left: 16px; }
+
+  .scroll-trigger {
+    margin-top: 12px;
+    background: #FFF7ED;
+    border: 1px solid #FED7AA;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #92400E;
+  }
+  .scroll-trigger strong {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    color: #78350F;
+  }
+
+  /* ── Calendar ── */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .cal-header {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    padding: 8px 0;
+  }
+  .cal-day {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+    min-height: 90px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .cal-day:hover { border-color: var(--accent); }
+  .cal-week-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+  }
+  .cal-day .cat-badge {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+  .cal-day .hook-preview {
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+  .cal-day .day-label {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--navy);
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+  }
+
+  /* ── Guidelines ── */
+  .guidelines-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+  .guideline-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .guideline-card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .guideline-card ul { list-style: none; }
+  .guideline-card li {
+    font-size: 12px;
+    color: #374151;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid #F3F4F6;
+    line-height: 1.5;
+  }
+  .guideline-card li:last-child { border-bottom: none; }
+  .always li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+  .never li::before { content: '✕'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .tips li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+
+  .hashtag-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .hashtag {
+    background: var(--navy);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .cta-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+  }
+  .cta-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 12px;
+    color: var(--text);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .cta-card span {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    font-style: normal;
+    margin-bottom: 5px;
+  }
+
+  /* ── Budget ── */
+  .budget-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+  .budget-kpi {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .budget-kpi .num { font-size: 26px; font-weight: 800; display: block; color: var(--navy); }
+  .budget-kpi .num.accent { color: var(--accent); }
+  .budget-kpi .num.gold { color: var(--accent2); }
+  .budget-kpi .num.green { color: var(--green); }
+  .budget-kpi .lbl { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .budget-kpi .sub { font-size: 11px; color: var(--text-muted); margin-top: 4px; display: block; }
+
+  .budget-block { margin-bottom: 28px; }
+  .budget-block h3 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+  .budget-block .blurb { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+
+  .budget-table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  table.budget { width: 100%; border-collapse: collapse; }
+  table.budget th {
+    background: var(--navy); color: white; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.5px; text-align: left; padding: 10px 14px; font-weight: 600;
+  }
+  table.budget td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.budget tr:last-child td { border-bottom: none; }
+  table.budget td.money { font-weight: 700; white-space: nowrap; }
+  table.budget .muted { color: var(--text-muted); font-size: 12px; }
+  tr.row-highlight td { background: #FFF8EB; }
+  tr.row-highlight td:first-child { border-left: 3px solid var(--accent2); }
+  .tier-badge {
+    display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px;
+    border-radius: 20px; background: var(--navy); color: white;
+  }
+
+  .budget-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .budget-note {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px;
+  }
+  .budget-note h4 { font-size: 12.5px; font-weight: 700; margin-bottom: 6px; }
+  .budget-note p { font-size: 12px; color: #374151; line-height: 1.55; }
+  .budget-note .flag { color: var(--accent); font-weight: 700; }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .budget-kpis { grid-template-columns: 1fr 1fr; }
+    .budget-notes { grid-template-columns: 1fr; }
+    .header { flex-direction: column; gap: 20px; padding: 24px 20px; }
+    .container { padding: 20px; }
+    .categories-grid { grid-template-columns: 1fr; }
+    .guidelines-grid { grid-template-columns: 1fr; }
+    .calendar-grid { grid-template-columns: 1fr; }
+    .personas-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);margin-bottom:6px;">BiteMap · UGC Campaign</div>
+    <h1>Find It. Eat It. <span>BiteMap.</span></h1>
+    <p>Real food. Real places. No algorithm guessing. — 30 videos/month UGC creator brief</p>
+  </div>
+  <div class="header-stats">
+    <div class="stat-box"><span class="num">30</span><span class="lbl">Videos/Month</span></div>
+    <div class="stat-box"><span class="num">8</span><span class="lbl">Video Types</span></div>
+    <div class="stat-box"><span class="num">5</span><span class="lbl">Personas</span></div>
+    <div class="stat-box"><span class="num">12</span><span class="lbl">Hashtags</span></div>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="active" onclick="showTab('videos')">📹 Video Categories</button>
+  <button onclick="showTab('personas')">👥 Audience Personas</button>
+  <button onclick="showTab('calendar')">📅 Monthly Calendar</button>
+  <button onclick="showTab('guidelines')">📋 Creator Guidelines</button>
+  <button onclick="showTab('budget')">💵 Budget — 3 Months</button>
+</div>
+
+<div class="container">
+
+  <!-- ── VIDEOS ── -->
+  <div class="section active" id="section-videos">
+    <div class="section-header">
+      <h2>Video Categories — 30 Videos/Month</h2>
+      <p>8 content types with distinct hooks, script structures, and psychology. Mix per the calendar — no two same-type videos in a row.</p>
+    </div>
+    <div class="categories-grid" id="cat-grid"></div>
+  </div>
+
+  <!-- ── PERSONAS ── -->
+  <div class="section" id="section-personas">
+    <div class="section-header">
+      <h2>Target Audience Personas</h2>
+      <p>5 real Toronto-area people BiteMap content needs to reach. Know their scroll trigger, their pain, their trust signal.</p>
+    </div>
+    <div class="personas-grid" id="personas-grid"></div>
+  </div>
+
+  <!-- ── CALENDAR ── -->
+  <div class="section" id="section-calendar">
+    <div class="section-header">
+      <h2>Monthly Content Calendar — 30 Slots</h2>
+      <p>One video per day, 7 days a week, 4+ weeks. Colour-coded by category.</p>
+    </div>
+    <div class="legend" id="cal-legend"></div>
+    <div id="calendar-weeks"></div>
+  </div>
+
+  <!-- ── GUIDELINES ── -->
+  <div class="section" id="section-guidelines">
+    <div class="section-header">
+      <h2>Creator Guidelines</h2>
+      <p>Rules every creator follows, regardless of category. Non-negotiable.</p>
+    </div>
+    <div id="guidelines-content"></div>
+  </div>
+
+  <!-- ── BUDGET ── -->
+  <div class="section" id="section-budget">
+    <div class="section-header">
+      <h2>Creator Program Budget — 3-Month Estimate</h2>
+      <p>5 creators · $400/month retainer each · one creator doubles as campaign manager · view bonuses per creator per month.</p>
+    </div>
+
+    <div class="budget-kpis">
+      <div class="budget-kpi"><span class="num">$6,000</span><span class="lbl">Locked Base (3 mo)</span><span class="sub">5 creators × $400 × 3 months</span></div>
+      <div class="budget-kpi"><span class="num gold">$8,250</span><span class="lbl">Expected All-In</span><span class="sub">Base + realistic bonuses</span></div>
+      <div class="budget-kpi"><span class="num accent">$25,500</span><span class="lbl">Max Liability</span><span class="sub">All 5 hit 1M every month ($1,300 each)</span></div>
+      <div class="budget-kpi"><span class="num green">90</span><span class="lbl">Videos Delivered</span><span class="sub">6 per creator per month</span></div>
+    </div>
+
+    <div class="budget-block">
+      <h3>Bonus Ladder — per creator, per month</h3>
+      <p class="blurb">Tiers <b>stack</b> — each milestone adds its bonus on top of the ones below it. Views counted per creator per calendar month, TikTok + Instagram combined, campaign posts only.</p>
+      <div class="budget-table-wrap">
+        <table class="budget">
+          <tr><th>Monthly Views Milestone</th><th>Tier Bonus</th><th>Total Payout at Milestone</th><th>Effective rate</th></tr>
+          <tr><td><span class="tier-badge">100K</span></td><td class="money">+$100</td><td class="money">$100</td><td class="muted">$1.00 per 1K views at the line</td></tr>
+          <tr><td><span class="tier-badge">500K</span></td><td class="money">+$450</td><td class="money">$550</td><td class="muted">$1.10 per 1K views at the line</td></tr>
+          <tr><td><span class="tier-badge">1M</span></td><td class="money">+$750</td><td class="money">$1,300</td><td class="muted">$1.30 per 1K views at the line</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="budget-block">
+      <h3>Three-Month Scenarios</h3>
+      <p class="blurb">Base is fixed at $2,000/month. Bonuses are the only variable. The highlighted row is the planning number.</p>
+      <div class="budget-table-wrap">
+        <table class="budget">
+          <tr><th>Scenario</th><th>What happens each month</th><th>Bonus / mo</th><th>3-mo bonus</th><th>3-mo total</th><th>Est. views (3 mo)</th><th>Eff. CPM</th></tr>
+          <tr>
+            <td><b>Conservative</b></td>
+            <td class="muted">Slow ramp — no hits M1, 1×100K in M2, 2×100K in M3</td>
+            <td>$0–200</td><td>$300</td><td class="money">$6,300</td><td class="muted">~0.7M</td><td class="muted">~$9.00</td>
+          </tr>
+          <tr class="row-highlight">
+            <td><b>Expected ★</b></td>
+            <td class="muted">2 creators hit 100K + 1 hits 500K each month</td>
+            <td>$750</td><td>$2,250</td><td class="money">$8,250</td><td class="muted">~2.9M</td><td class="muted">~$2.90</td>
+          </tr>
+          <tr>
+            <td><b>Breakout</b></td>
+            <td class="muted">2×100K + 2×500K + 1×1M each month</td>
+            <td>$2,600</td><td>$7,800</td><td class="money">$13,800</td><td class="muted">~8.1M</td><td class="muted">~$1.70</td>
+          </tr>
+          <tr>
+            <td><b>Max liability</b></td>
+            <td class="muted">All 5 creators clear 1M every month</td>
+            <td>$6,500</td><td>$19,500</td><td class="money">$25,500</td><td class="muted">15M+</td><td class="muted">≤$1.70</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="budget-block">
+      <h3>Per-Unit Economics</h3>
+      <div class="budget-table-wrap">
+        <table class="budget">
+          <tr><th>Metric</th><th>Value</th><th>Benchmark</th></tr>
+          <tr><td>Cost per video (base only)</td><td class="money">$67</td><td class="muted">Typical one-off UGC rate: $150–300/video — retainer volume brings it under half</td></tr>
+          <tr><td>Cost per video (expected all-in)</td><td class="money">~$92</td><td class="muted">Still well under market; bonuses only trigger when views justify them</td></tr>
+          <tr><td>Effective CPM (expected)</td><td class="money">~$2.90</td><td class="muted">TikTok paid ads run $5–15 CPM — organic UGC beats buying ads past the conservative case</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="budget-block">
+      <h3>To Nail Down Before Signing</h3>
+      <div class="budget-notes">
+        <div class="budget-note">
+          <h4>1 · Bonus definition</h4>
+          <p>Model assumes tiers <span class="flag">stack</span> — a 1M month pays $100+$450+$750 = <span class="flag">$1,300</span> per creator. Put this in writing so nobody assumes highest-tier-only ($750). Also lock: TikTok+IG combined, per calendar month, campaign posts only.</p>
+        </div>
+        <div class="budget-note">
+          <h4>2 · Campaign manager pay</h4>
+          <p>The CM is one of the 5 creators at the same $400 — but also coordinates 4 people, briefs, and reporting. A <span class="flag">+$100–150/mo stipend</span> (+$300–450/quarter) is the cheap way to keep it fair before it becomes a problem.</p>
+        </div>
+        <div class="budget-note">
+          <h4>3 · Minimum deliverable clause</h4>
+          <p>Retainer is conditional on the <span class="flag">6 videos/month quota</span> per creator (30/month team-wide). Short deliveries pro-rate the base. Otherwise the $2,000/month goes out regardless of output.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── Data ──────────────────────────────────────────────────────────────────────
+
+const CAT_ICONS = {
+  problem_solution: { emoji: '🤔', color: '#FEE2E2', border: '#E94560' },
+  specific_discovery: { emoji: '🗺️', color: '#DBEAFE', border: '#2980B9' },
+  accountability_trust: { emoji: '📊', color: '#D1FAE5', border: '#27AE60' },
+  occasion_based: { emoji: '💑', color: '#FDE68A', border: '#F5A623' },
+  hidden_gem: { emoji: '💎', color: '#EDE9FE', border: '#8E44AD' },
+  social_proof_locals: { emoji: '🎤', color: '#CFFAFE', border: '#16A085' },
+  fifa_fan_guide: { emoji: '⚽', color: '#FEF3C7', border: '#D97706' },
+  budget_value: { emoji: '💰', color: '#FCE7F3', border: '#DB2777' },
+};
+
+const CATS = [
+  {
+    id: "problem_solution",
+    name: "I Had No Idea Where to Eat",
+    monthly_quota: 5,
+    format: "talking head / vlog",
+    core_hook: "It's 7pm, I'm starving, I have no idea where to eat — watch what happened.",
+    script_template: {
+      hook: "Okay so I'm literally on Bloor Street, it's 7:30pm and I have been staring at my phone for 20 minutes. Nothing is hitting.",
+      middle: "I opened BiteMap, searched Burgers near me — and there are actual video reviews from food bloggers right on the map. I can see the food before I even walk in. This spot two blocks away has like 40 reviews and I've never heard of it.",
+      cta: "Smash burger, $14. Found it in 2 minutes. BiteMap, link in bio."
+    },
+    what_makes_it_work: "Relatability beats polish. The audience has been in this exact moment and failed. Watching someone solve it in real time feels like a gift, not an ad.",
+    dos: ["Show real confusion before the resolution — don't skip to the win", "Name the restaurant clearly at the end, ideally while eating", "Film the food arriving, not just the app screen"],
+    donts: ["Don't say 'I partnered with BiteMap' or any disclosure language", "Don't show a perfect clean desk setup — be in real life", "Don't end without confirming the recommendation was actually good"],
+    example_caption: "7pm hunger panic → BiteMap saved me. Ali's Roti Shop on Roncesvalles and I had no idea it existed. This app is different. #BiteMap #TorontoFood #HiddenGems #FoodDiscovery"
+  },
+  {
+    id: "specific_discovery",
+    name: "This App Found [X Cuisine] Near Me",
+    monthly_quota: 5,
+    format: "POV / talking head",
+    core_hook: "I've been trying to find a good [Burger / Ramen / Shawarma] spot near me. BiteMap found one I didn't know existed.",
+    script_template: {
+      hook: "I just want a good burger near me. That's it. Not a chain, not a $30 smash burger with a 2-hour wait. Just a real good burger.",
+      middle: "I opened BiteMap, searched Burgers — every spot on the map has a short video review from someone who actually ate there. I can see the patty, the price, the vibe. Found one 5 minutes away I've never even noticed.",
+      cta: "Best burger I've had in months. It was right there the whole time. BiteMap, link in bio."
+    },
+    what_makes_it_work: "Simple food craving + simple discovery = most relatable format. 'I just want a good [X]' is a thought everyone has had. The video review proof is what makes BiteMap feel different from Google Maps.",
+    dos: ["Name the food type in the first 2 seconds — burgers, ramen, shawarma, pizza", "Show the video review on the map before you go — that's the differentiator", "Use the real restaurant name and show the food"],
+    donts: ["Don't make it about a niche cuisine most people haven't heard of", "Don't skip showing the app — the discovery is the whole point", "Don't film a chain or a place everyone already knows"],
+    example_caption: "Just wanted a good burger near me. BiteMap showed me a spot 5 min away with 40 video reviews. Why did I not know about this place. #BiteMap #TorontoFood #Burgers #HiddenGem"
+  },
+  {
+    id: "accountability_trust",
+    name: "I Rated Every BiteMap Rec This Week",
+    monthly_quota: 3,
+    format: "vlog / talking head",
+    core_hook: "I let BiteMap pick every restaurant I ate at this week. Here's the honest scorecard.",
+    script_template: {
+      hook: "New challenge: I'm letting BiteMap choose every single place I eat this week. No Googling, no asking friends. 5 days, 5 restaurants. I'm rating each one out of 10.",
+      middle: "Day 1: BiteMap says La Paloma on Dundas. 8/10 — tacos were legit. Day 2: Sichuan House in Scarborough. 9/10. Day 3: that one was a miss...",
+      cta: "Final score: 4 out of 5 restaurants I'd go back to. That's a better hit rate than anything I've used before. BiteMap, link in bio."
+    },
+    what_makes_it_work: "Accountability content builds trust faster than endorsements. A 4/5 is more credible than a 5/5. The one 'miss' makes the other wins believable.",
+    dos: ["Include at least one honest miss — it makes the whole series credible", "Use fast cuts, one visual per restaurant", "Show the in-app video review before each restaurant"],
+    donts: ["Don't give everything a 9 or 10 — it reads as fake", "Don't skip the BiteMap UI", "Don't do this as one long vlog — fast cuts only"],
+    example_caption: "I let BiteMap pick all my restaurants this week. 5 days. Honest ratings. One was a miss. Link in bio if you want the full list. #BiteMap #TorontoFood #FoodChallenge #FoodReview"
+  },
+  {
+    id: "occasion_based",
+    name: "Date Night Sorted in 2 Minutes",
+    monthly_quota: 4,
+    format: "talking head / screen record",
+    core_hook: "My partner said 'you pick the restaurant' and I had nothing. Here's how I didn't ruin date night.",
+    script_template: {
+      hook: "She said I get to pick the restaurant for our anniversary dinner and I've been stressing for a week. I don't want to pick somewhere that's just... fine.",
+      middle: "I opened BiteMap, searched Italian near me — every result has a short video review from someone who actually went. I can see the actual tables, the vibe, whether it's loud or candlelit. Picked one in the east end, booked it.",
+      cta: "Candle on the table, pasta was perfect. She loved it. 2 minutes to pick it. BiteMap, link in bio — stop guessing."
+    },
+    what_makes_it_work: "Occasion-based content has a built-in emotional stake — people feel the pressure of not wanting to disappoint. The 2-minute resolution is satisfying on a visceral level.",
+    dos: ["Show the video previews inside BiteMap — that's the differentiator", "Cut to the actual date/meal, even briefly", "Name the restaurant so people can verify it exists"],
+    donts: ["Don't make it look like an ad for a restaurant, keep BiteMap as the hero", "Don't skip the filter/discovery moment", "Don't use a restaurant that's already massively well-known"],
+    example_caption: "Anniversary dinner pressure → BiteMap sorted it in 2 minutes. Watched video previews instead of guessing. Leslieville Italian spot, she's happy. #BiteMap #DateNight #TorontoRestaurants"
+  },
+  {
+    id: "hidden_gem",
+    name: "Hidden Gem Alert — [Neighbourhood]",
+    monthly_quota: 5,
+    format: "POV / street walk",
+    core_hook: "I've lived in [neighbourhood] for 3 years and I had no idea this place existed.",
+    script_template: {
+      hook: "Okay so I have lived in Kensington Market for three years. THREE years. And I am walking past this door right now for the first time.",
+      middle: "Someone posted a BiteMap review of this Eritrean spot tucked behind the market — 22 second clip, injera and stew, looked legit. I had to come. Look at this place.",
+      cta: "Habesha Kitchen. Kensington Market. You probably walked past it too. BiteMap, link in bio."
+    },
+    what_makes_it_work: "Neighbourhood identity content gets shared within hyper-local communities. 'Hidden gem' + specific neighbourhood = Toronto locals tagging friends who live nearby.",
+    dos: ["Film yourself walking to the spot — movement holds attention", "Be specific about the neighbourhood in the first 3 seconds", "Show the BiteMap review that led you there"],
+    donts: ["Don't call chains or tourist spots 'hidden gems'", "Don't fake the discovery — if you already knew it, this format doesn't work", "Don't skip the neighbourhood name — that's the share trigger"],
+    example_caption: "3 years in Kensington Market and I walked past this Eritrean spot every week. BiteMap finally caught it. Habesha Kitchen. Go. #BiteMap #KensingtonMarket #TorontoFood #HiddenGem"
+  },
+  {
+    id: "social_proof_locals",
+    name: "I Asked Locals AND BiteMap — Here's Who Won",
+    monthly_quota: 3,
+    format: "street interview",
+    core_hook: "I asked 5 strangers on [street] where to eat and then I asked BiteMap. Let's see who had better taste.",
+    script_template: {
+      hook: "I'm on Spadina Ave in Chinatown and I'm going to ask 5 people where to eat lunch. Then I'm going to ask BiteMap. Whoever wins, I eat there.",
+      middle: "Three people said Dragon Boat, one said Mother's Dumplings. BiteMap surfaced a spot called Sichuan Spicy Garden that had 47 video reviews and a price reveal I've never seen.",
+      cta: "BiteMap won. I had the hand-pulled noodles at Sichuan Spicy Garden and I'm going back tomorrow. Link in bio."
+    },
+    what_makes_it_work: "Street interviews are the highest-share format on short-form video. The competition framing gives the video a narrative arc. BiteMap winning feels earned, not planted.",
+    dos: ["Use real strangers — the awkwardness is authentic", "Make the BiteMap recommendation genuinely competitive", "Go to the BiteMap pick — complete the bit"],
+    donts: ["Don't stage the street interviews — casting kills it", "Don't let BiteMap win by default", "Don't skip to the food without showing the full BiteMap search"],
+    example_caption: "5 strangers vs BiteMap. Who had better taste? I went to the BiteMap pick and the locals are going to be upset with me. #BiteMap #TorontoFood #StreetFood #Spadina"
+  },
+  {
+    id: "fifa_fan_guide",
+    name: "FIFA Fan Food Guide — Toronto",
+    monthly_quota: 3,
+    format: "vlog / talking head",
+    core_hook: "You're flying into Toronto for FIFA 2026. Here are the 5 neighbourhoods you need to eat in, ranked by BiteMap.",
+    script_template: {
+      hook: "You've got tickets to FIFA in Toronto. You're flying in from [country]. Before you waste your food budget on the Rogers Centre concessions — watch this.",
+      middle: "Gerrard Street India — open BiteMap, it surfaces Udupi Palace and Lahore Tikka House within a block. Little Portugal on Dundas — three spots with under-$15 reviews. Scarborough — this is where you go for the real stuff.",
+      cta: "Download BiteMap before you land. All the video reviews are from people who actually live here. Link in bio."
+    },
+    what_makes_it_work: "Tournament travel content is high-intent and widely shared. Visitors want insider knowledge. The 'from locals, not tourists' framing makes BiteMap feel like credibility, not an app.",
+    dos: ["Film in the actual neighbourhoods — street-level footage beats b-roll", "Name 3-4 specific restaurants — specificity gets saved and shared", "Mention FIFA explicitly in the hook for algorithmic surfacing"],
+    donts: ["Don't recommend tourist traps or spots on every 'best of Toronto' list", "Don't make it feel like a travel channel — keep it local", "Don't skip the BiteMap UI — the app needs to be the mechanism"],
+    example_caption: "Coming to Toronto for FIFA? Skip the tourist traps. Here's where locals actually eat — found on BiteMap. Gerrard St, Scarborough, Kensington. Save this. #FIFA2026 #TorontoFood #BiteMap"
+  },
+  {
+    id: "budget_value",
+    name: "I Eat Out All the Time — Here's What's Actually Worth It",
+    monthly_quota: 2,
+    format: "talking head / vlog",
+    core_hook: "I eat out constantly. Here are the spots everyone in Toronto is going to right now.",
+    script_template: {
+      hook: "I eat out like it's my job. And I've been using BiteMap to find what people are actually talking about in this city.",
+      middle: "Open BiteMap, search what you're feeling — Ramen, Burgers, whatever — and you can see video reviews from food bloggers who've already been. It's like having a friend who's tried everything.",
+      cta: "This is how I find the spots before everyone else does. BiteMap, link in bio."
+    },
+    what_makes_it_work: "Social proof through volume — if everyone's going there, I want to know. BiteMap surfaces what's popular and what real people are saying, not just a star rating.",
+    dos: ["Lead with confidence — you eat out a lot, you know good food", "Show the app finding something trending or popular near you", "Name the specific spot and show the food"],
+    donts: ["Don't frame it as saving money — BiteMap is free, that's not the pitch", "Don't make up features like price filters that don't exist", "Don't be vague — name a real restaurant, show the actual food"],
+    example_caption: "I eat out all the time and BiteMap is how I find what's popping in the city right now. Link in bio. #BiteMap #TorontoFood #TorontoEats #FoodDiscovery"
+  }
+];
+
+const PERSONAS = [
+  {
+    id: "downtown_young_adult",
+    name: "Jordan",
+    age: 25,
+    occupation: "Account Manager",
+    neighbourhood: "King West",
+    avatar_url: "https://i.pravatar.cc/300?img=8",
+    avatar_url_2: null,
+    tagline: "Always down to try somewhere new instead of the same three spots.",
+    apps: ["Instagram", "TikTok", "Uber Eats", "Spotify"],
+    eats_out: "5x/week",
+    avg_spend: "$30/meal",
+    pain_points: [
+      "His friend group always defaults to the same restaurants they already know",
+      "Hard to find good spots quickly when you're already out and hungry",
+      "Recommendations from friends are hit or miss — he never knows if it's actually good right now"
+    ],
+    wants: [
+      "Quick, trustworthy picks near wherever he is",
+      "Short videos that show what the food actually looks like, not just the vibe",
+      "A way to save spots so he can suggest them when making plans"
+    ],
+    quote: "I don't need a whole review, I just want to see the food and know if it's worth it.",
+    scroll_trigger: "This place is 10 minutes from King West and nobody's talking about it yet.",
+    accent: "#E94560"
+  },
+  {
+    id: "student",
+    name: "Priya",
+    age: 21,
+    occupation: "University Student (TMU)",
+    neighbourhood: "Regent Park",
+    avatar_url: "https://i.pravatar.cc/300?img=47",
+    avatar_url_2: null,
+    tagline: "Eats out constantly but every dollar has to be worth it.",
+    apps: ["TikTok", "Instagram", "Uber Eats", "Snapchat"],
+    eats_out: "6x/week",
+    avg_spend: "$15/meal",
+    pain_points: [
+      "Most food content online is for people with unlimited budgets — she can't relate",
+      "She's been burned too many times going somewhere that looked good online but wasn't",
+      "Hard to know if a place is actually filling before she shows up"
+    ],
+    wants: [
+      "Spots that are genuinely good value, not just cheap",
+      "Real video of the actual food so she knows what she's getting",
+      "Places close to campus or on transit so she's not spending on an Uber too"
+    ],
+    quote: "If TikTok shows me a $14 meal that looks that good, I'm going tomorrow.",
+    scroll_trigger: "Under $15 and it's actually filling — this one near TMU is a go-to.",
+    accent: "#F5A623"
+  },
+  {
+    id: "foodie",
+    name: "Marcus",
+    age: 30,
+    occupation: "UX Designer",
+    neighbourhood: "Leslieville",
+    avatar_url: "https://i.pravatar.cc/300?img=12",
+    avatar_url_2: null,
+    tagline: "He's tried more restaurants in Toronto than most people know exist.",
+    apps: ["TikTok", "Instagram", "YouTube", "Substack"],
+    eats_out: "5x/week",
+    avg_spend: "$50/meal",
+    pain_points: [
+      "By the time a restaurant blows up on everyone's feed, the quality has usually already dropped",
+      "Most food apps are just lists — no way to tell if a place is still at its peak",
+      "He discovers a great new spot and has nowhere to save it that his friends will actually check"
+    ],
+    wants: [
+      "Early signal on new spots before they get crowded",
+      "Short video proof the food is genuinely good, not just hyped",
+      "A place to track everything he's tried and wants to try"
+    ],
+    quote: "I want to find it before it's on every foodie's Instagram. That's the whole game.",
+    scroll_trigger: "This spot just opened in Kensington and it's already the best version of this dish in the city.",
+    accent: "#8E44AD"
+  },
+  {
+    id: "tourist",
+    name: "Alex",
+    age: 27,
+    occupation: "Visiting Toronto for FIFA 2026",
+    neighbourhood: "Downtown / Visiting",
+    avatar_url: "https://i.pravatar.cc/300?img=3",
+    avatar_url_2: null,
+    tagline: "In the city for a week and doesn't want to waste a single meal on the wrong spot.",
+    apps: ["TikTok", "Instagram", "Uber", "Google Maps"],
+    eats_out: "3x/day while travelling",
+    avg_spend: "$25/meal",
+    pain_points: [
+      "Has no idea what's actually good in Toronto vs what's just on every tourist list",
+      "Doesn't have local friends to ask — has to figure it out alone in real time",
+      "Every restaurant near the stadium looks the same and he doesn't know which one to trust"
+    ],
+    wants: [
+      "Find spots that locals actually go to, not just the ones that show up first on search",
+      "See real video of the food before committing — he can't afford a bad meal on a short trip",
+      "Discover what Toronto is actually known for eating"
+    ],
+    quote: "I've got 6 days here. I'm not eating somewhere bad. Show me what locals are actually eating.",
+    scroll_trigger: "You're in Toronto for FIFA — here's where locals actually eat. Not the tourist spots.",
+    accent: "#2980B9"
+  },
+  {
+    id: "couple",
+    name: "Sophie & Ben",
+    age: 29,
+    occupation: "Marketing Manager & Software Developer",
+    neighbourhood: "Bloor West Village",
+    avatar_url: "https://i.pravatar.cc/300?img=44",
+    avatar_url_2: "https://i.pravatar.cc/300?img=5",
+    tagline: "Date nights matter — they just need better ideas than the places they've already been.",
+    apps: ["Instagram", "TikTok", "OpenTable", "Spotify"],
+    eats_out: "3x/week",
+    avg_spend: "$45/meal",
+    pain_points: [
+      "They've been to all their usual spots and planning something new takes too much back-and-forth",
+      "Hard to know if a restaurant works for two people or if it's more of a group thing",
+      "They want to try different cuisines but don't know where to start with something unfamiliar"
+    ],
+    wants: [
+      "Fresh ideas that feel like a real experience, not just another dinner out",
+      "Enough info from a short video to agree on a place without overthinking it",
+      "A way to save options so they're not scrambling to decide the day of"
+    ],
+    quote: "We said we'd try somewhere different every week. We're currently 0 for 4.",
+    scroll_trigger: "This is the perfect date night spot in the west end — and it's not packed yet.",
+    accent: "#16A085"
+  }
+];
+
+const CALENDAR = [
+  { week:1, day:"Monday",    cat:"problem_solution",   hook:"It's Monday, I have zero plans for dinner, and I refuse to eat the same three places. Watch." },
+  { week:1, day:"Tuesday",   cat:"specific_discovery", hook:"I've been looking for a good Somali restaurant in the west end for two years." },
+  { week:1, day:"Wednesday", cat:"hidden_gem",         hook:"I walk past this street every day on my commute and I finally went inside." },
+  { week:1, day:"Thursday",  cat:"occasion_based",     hook:"My boyfriend said I'm picking dinner this Friday and I have been spiraling." },
+  { week:1, day:"Friday",    cat:"social_proof_locals",hook:"I'm on Queen West asking strangers where to eat. Then BiteMap gets a turn." },
+  { week:1, day:"Saturday",  cat:"hidden_gem",         hook:"Scarborough has a food scene that the rest of Toronto pretends doesn't exist." },
+  { week:1, day:"Sunday",    cat:"budget_value",       hook:"I looked at my Visa statement. $340 on restaurants last month." },
+  { week:2, day:"Monday",    cat:"specific_discovery", hook:"I've been craving real Peruvian food and Toronto keeps giving me fusion nonsense." },
+  { week:2, day:"Tuesday",   cat:"problem_solution",   hook:"I'm in Midtown with 45 minutes for lunch and no idea where to go. Real time." },
+  { week:2, day:"Wednesday", cat:"fifa_fan_guide",     hook:"You have FIFA tickets. You fly into Toronto on June 12th. Here's your eating plan." },
+  { week:2, day:"Thursday",  cat:"accountability_trust",hook:"Day 1 of 5: I'm letting BiteMap pick every restaurant I eat at this week." },
+  { week:2, day:"Friday",    cat:"accountability_trust",hook:"Day 2: BiteMap sent me to a Vietnamese spot in the east end. Here's what happened." },
+  { week:2, day:"Saturday",  cat:"social_proof_locals",hook:"Little Italy on College. I'm asking people eating outside where they'd send a visitor." },
+  { week:2, day:"Sunday",    cat:"hidden_gem",         hook:"North York has a food scene that gets zero attention. I went to find out why." },
+  { week:3, day:"Monday",    cat:"occasion_based",     hook:"My parents are visiting from out of town. They want 'real Toronto food.' Pressure is on." },
+  { week:3, day:"Tuesday",   cat:"problem_solution",   hook:"I live in Mississauga and everyone acts like the food scene is dead out here." },
+  { week:3, day:"Wednesday", cat:"specific_discovery", hook:"There is exactly one good Trinidadian spot I know in Toronto. BiteMap just showed me three more." },
+  { week:3, day:"Thursday",  cat:"accountability_trust",hook:"Final day of the BiteMap challenge. Here's the honest scorecard. One place was a miss." },
+  { week:3, day:"Friday",    cat:"hidden_gem",         hook:"Parkdale has changed but the restaurants haven't. Here's what BiteMap surfaced." },
+  { week:3, day:"Saturday",  cat:"fifa_fan_guide",     hook:"FIFA fan in Toronto this summer? Forget the downtown spots. Here's where the food is actually good." },
+  { week:3, day:"Sunday",    cat:"social_proof_locals",hook:"Kensington Market on a Sunday. I'm asking 5 vendors and 5 shoppers. Who knows the best lunch?" },
+  { week:4, day:"Monday",    cat:"budget_value",       hook:"I set a $15 max per meal this week. BiteMap had to find me something worth it every day." },
+  { week:4, day:"Tuesday",   cat:"problem_solution",   hook:"My friend wants to go somewhere different but she hates spicy food. BiteMap, help." },
+  { week:4, day:"Wednesday", cat:"specific_discovery", hook:"I asked BiteMap to find me the best Georgian food in Toronto. It found four spots I'd never heard of." },
+  { week:4, day:"Thursday",  cat:"occasion_based",     hook:"Work team lunch for 8 people. Three dietary restrictions. BiteMap has to find somewhere everyone can eat." },
+  { week:4, day:"Friday",    cat:"hidden_gem",         hook:"The Junction has 3 blocks of restaurants that nobody outside the neighbourhood knows." },
+  { week:4, day:"Saturday",  cat:"social_proof_locals",hook:"I'm on the Danforth asking people where they'd take someone visiting Toronto." },
+  { week:4, day:"Sunday",    cat:"fifa_fan_guide",     hook:"FIFA match day in Toronto. Where do you eat before the game? BiteMap knows." },
+  { week:4, day:"Monday",    cat:"problem_solution",   hook:"I just moved to Etobicoke. I know zero restaurants. I'm starting from scratch." },
+  { week:4, day:"Tuesday",   cat:"specific_discovery", hook:"BiteMap just showed me a Bangladeshi spot in Scarborough that has 200 video reviews." },
+];
+
+const GUIDELINES = {
+  always_include: [
+    "Show the BiteMap app in use — on screen, interacting with it, not just mentioning it",
+    "Name at least one specific restaurant by name — generic content doesn't perform",
+    "Film real food when it arrives — the payoff shot earns the watch",
+    "Include the neighbourhood or cross-street — local specificity drives shares",
+    "Use at least 2 approved hashtags including #BiteMap"
+  ],
+  never_do: [
+    "Never use the phrase 'ad', 'paid partnership', 'sponsored', or 'collab'",
+    "Never recommend a chain restaurant, fast food brand, or national footprint place",
+    "Never film a restaurant that's already on every Toronto food list — find something real",
+    "Never stage a reaction — if the food is mid, say so",
+    "Never cut away before the food actually arrives — the payoff shot is mandatory",
+    "Never use text-to-speech voiceover — real voice only"
+  ],
+  filming_tips: [
+    "Film vertically 9:16 at 1080p minimum — don't crop from landscape",
+    "Natural light always beats restaurant ambient light — sit near a window or film outside",
+    "The first 2 seconds determine if they scroll — open with movement, a price reveal, or your face mid-reaction",
+    "Hold the phone steady for food shots — shaky close-ups read as low effort",
+    "Capture sound: restaurant ambiance, sizzle, your real voice reacting — don't mute and re-record"
+  ],
+  hashtags: ["#BiteMap","#TorontoFood","#TorontoEats","#HiddenGems","#FoodDiscovery","#GTAFood","#TorontoRestaurants","#FoodReview","#LocalEats","#FoodApp","#TasteTO","#EatLocal"],
+  ctas: [
+    "BiteMap app, link in bio — find this place yourself.",
+    "Download BiteMap — every restaurant has a video review from someone who actually went.",
+    "Link in bio. Every restaurant on BiteMap has real video reviews, not just photos."
+  ]
+};
+
+// ── Render helpers ─────────────────────────────────────────────────────────────
+
+function catColor(id) {
+  return CAT_ICONS[id] || { emoji: '📍', color: '#F3F4F6', border: '#9CA3AF' };
+}
+
+function renderCategories() {
+  const grid = document.getElementById('cat-grid');
+  grid.innerHTML = CATS.map(c => {
+    const icon = catColor(c.id);
+    return `
+      <div class="cat-card">
+        <div class="cat-header">
+          <div class="cat-icon" style="background:${icon.color};border:2px solid ${icon.border};">${icon.emoji}</div>
+          <div class="cat-meta">
+            <h3>${c.name}</h3>
+            <div class="cat-tags">
+              <span class="tag quota">📅 ${c.monthly_quota}/mo</span>
+              <span class="tag format">${c.format}</span>
+            </div>
+          </div>
+        </div>
+        <div class="cat-body">
+          <div class="hook-box">"${c.core_hook}"</div>
+          <div class="script-steps">
+            <h4>Script Structure</h4>
+            <div class="step"><span class="step-badge hook">HOOK</span><span>${c.script_template.hook}</span></div>
+            <div class="step"><span class="step-badge mid">MID</span><span>${c.script_template.middle}</span></div>
+            <div class="step"><span class="step-badge cta">CTA</span><span>${c.script_template.cta}</span></div>
+          </div>
+          <div class="why-box"><strong>Why It Works</strong>${c.what_makes_it_work}</div>
+          <div class="dos-donts">
+            <div class="dos">
+              <h4>Do</h4>
+              <ul>${c.dos.map(d => `<li>${d}</li>`).join('')}</ul>
+            </div>
+            <div class="donts">
+              <h4>Don't</h4>
+              <ul>${c.donts.map(d => `<li>${d}</li>`).join('')}</ul>
+            </div>
+          </div>
+          <div class="caption-box">
+            <strong>Example Caption</strong>
+            ${c.example_caption}
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function renderPersonas() {
+  const grid = document.getElementById('personas-grid');
+  grid.innerHTML = PERSONAS.map(p => {
+    const avatars = p.avatar_url_2
+      ? `<div style="display:flex;gap:-8px;">
+           <img class="persona-avatar" src="${p.avatar_url}" alt="${p.name}" style="margin-right:-12px;z-index:2;position:relative;">
+           <img class="persona-avatar" src="${p.avatar_url_2}" alt="${p.name}" style="border-color:#E5E7EB;">
+         </div>`
+      : `<img class="persona-avatar" src="${p.avatar_url}" alt="${p.name}">`;
+    return `
+    <div class="persona-card" style="border-top:3px solid ${p.accent};">
+      <div class="persona-top">
+        ${avatars}
+        <div>
+          <div class="persona-name">${p.name}</div>
+          <div class="persona-role">${p.age} · ${p.occupation} · ${p.neighbourhood}</div>
+          <div class="persona-meta-row">
+            <span class="meta-pill" style="background:#FEF3C7;">${p.eats_out}</span>
+            <span class="meta-pill" style="background:#F0FDF4;">${p.avg_spend}</span>
+          </div>
+        </div>
+      </div>
+      <div class="persona-body">
+        <div class="persona-tagline">"${p.tagline}"</div>
+        <div class="persona-section">
+          <h4>Apps Used Daily</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:5px;">${p.apps.map(a => `<span class="meta-pill" style="font-size:11px;">${a}</span>`).join('')}</div>
+        </div>
+        <div class="persona-section">
+          <h4>Pain Points</h4>
+          <ul class="pain-list">${p.pain_points.map(pp => `<li>${pp}</li>`).join('')}</ul>
+        </div>
+        <div class="persona-section">
+          <h4>What They Want from BiteMap</h4>
+          <ul class="wants-list">${p.wants.map(w => `<li>${w}</li>`).join('')}</ul>
+        </div>
+        <div class="quote-block">
+          <div class="quote-text">${p.quote}</div>
+        </div>
+        <div class="scroll-trigger">
+          <strong>Hook That Stops Their Scroll</strong>
+          "${p.scroll_trigger}"
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderCalendar() {
+  const legendEl = document.getElementById('cal-legend');
+  legendEl.innerHTML = CATS.map(c => {
+    const icon = catColor(c.id);
+    return `<div class="legend-item"><div class="legend-dot" style="background:${icon.border};"></div><span style="font-size:11px;">${icon.emoji} ${c.name}</span></div>`;
+  }).join('');
+
+  const weeks = [1,2,3,4];
+  const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  const calEl = document.getElementById('calendar-weeks');
+
+  calEl.innerHTML = weeks.map(w => {
+    const weekSlots = CALENDAR.filter(c => c.week === w);
+    return `
+      <div style="margin-bottom:20px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#6B7280;margin-bottom:8px;padding:4px 0;">Week ${w}</div>
+        <div class="calendar-grid">
+          ${days.map(d => {
+            const hdr = `<div class="cal-header">${d}</div>`;
+            return hdr;
+          }).join('')}
+          ${days.map(d => {
+            const slot = weekSlots.find(s => s.day === d);
+            if (!slot) return `<div class="cal-day" style="background:#F9FAFB;border:1px dashed #E5E7EB;"></div>`;
+            const icon = catColor(slot.cat);
+            const cat = CATS.find(c => c.id === slot.cat);
+            return `
+              <div class="cal-day">
+                <div class="day-label">${d.slice(0,3)}</div>
+                <div class="cat-badge" style="background:${icon.color};color:${icon.border};">${icon.emoji} ${cat ? cat.name.split(' ').slice(0,3).join(' ') : slot.cat}</div>
+                <div class="hook-preview">${slot.hook.slice(0,60)}${slot.hook.length > 60 ? '…' : ''}</div>
+              </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function renderGuidelines() {
+  const el = document.getElementById('guidelines-content');
+  el.innerHTML = `
+    <div class="guidelines-grid">
+      <div class="guideline-card always">
+        <h3><span style="font-size:18px;">✅</span> Always Include</h3>
+        <ul>${GUIDELINES.always_include.map(i => `<li>${i}</li>`).join('')}</ul>
+      </div>
+      <div class="guideline-card never">
+        <h3><span style="font-size:18px;">🚫</span> Never Do</h3>
+        <ul>${GUIDELINES.never_do.map(i => `<li>${i}</li>`).join('')}</ul>
+      </div>
+      <div class="guideline-card tips">
+        <h3><span style="font-size:18px;">🎬</span> Filming Tips</h3>
+        <ul>${GUIDELINES.filming_tips.map(i => `<li>${i}</li>`).join('')}</ul>
+      </div>
+      <div class="guideline-card">
+        <h3><span style="font-size:18px;">#️⃣</span> Approved Hashtags</h3>
+        <div class="hashtag-grid">${GUIDELINES.hashtags.map(h => `<span class="hashtag">${h}</span>`).join('')}</div>
+      </div>
+    </div>
+    <div class="guideline-card" style="margin-bottom:20px;">
+      <h3><span style="font-size:18px;">💬</span> CTA Options — rotate these, never use the same one twice in a row</h3>
+      <div class="cta-cards">
+        ${GUIDELINES.ctas.map((c,i) => `<div class="cta-card"><span>Option ${i+1}</span>${c}</div>`).join('')}
+      </div>
+    </div>`;
+}
+
+// ── Tab nav ───────────────────────────────────────────────────────────────────
+function showTab(tab) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('section-' + tab).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+renderCategories();
+renderPersonas();
+renderCalendar();
+renderGuidelines();
+</script>
+</body>
+</html>
