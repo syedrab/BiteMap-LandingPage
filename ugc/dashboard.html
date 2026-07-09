@@ -593,7 +593,6 @@
   <button onclick="showTab('personas')">👥 Audience Personas</button>
   <button onclick="showTab('calendar')">📅 Monthly Calendar</button>
   <button onclick="showTab('guidelines')">📋 Creator Guidelines</button>
-  <button onclick="showTab('budget')">💵 Budget — 3 Months</button>
 </div>
 
 <div class="container">
@@ -633,94 +632,6 @@
       <p>Rules every creator follows, regardless of category. Non-negotiable.</p>
     </div>
     <div id="guidelines-content"></div>
-  </div>
-
-  <!-- ── BUDGET ── -->
-  <div class="section" id="section-budget">
-    <div class="section-header">
-      <h2>Creator Program Budget — 3-Month Estimate</h2>
-      <p>5 creators · $400/month retainer each · one creator doubles as campaign manager · view bonuses per creator per month.</p>
-    </div>
-
-    <div class="budget-kpis">
-      <div class="budget-kpi"><span class="num">$6,000</span><span class="lbl">Locked Base (3 mo)</span><span class="sub">5 creators × $400 × 3 months</span></div>
-      <div class="budget-kpi"><span class="num gold">$8,250</span><span class="lbl">Expected All-In</span><span class="sub">Base + realistic bonuses</span></div>
-      <div class="budget-kpi"><span class="num accent">$25,500</span><span class="lbl">Max Liability</span><span class="sub">All 5 hit 1M every month ($1,300 each)</span></div>
-      <div class="budget-kpi"><span class="num green">90</span><span class="lbl">Videos Delivered</span><span class="sub">6 per creator per month</span></div>
-    </div>
-
-    <div class="budget-block">
-      <h3>Bonus Ladder — per creator, per month</h3>
-      <p class="blurb">Tiers <b>stack</b> — each milestone adds its bonus on top of the ones below it. Views counted per creator per calendar month, TikTok + Instagram combined, campaign posts only.</p>
-      <div class="budget-table-wrap">
-        <table class="budget">
-          <tr><th>Monthly Views Milestone</th><th>Tier Bonus</th><th>Total Payout at Milestone</th><th>Effective rate</th></tr>
-          <tr><td><span class="tier-badge">100K</span></td><td class="money">+$100</td><td class="money">$100</td><td class="muted">$1.00 per 1K views at the line</td></tr>
-          <tr><td><span class="tier-badge">500K</span></td><td class="money">+$450</td><td class="money">$550</td><td class="muted">$1.10 per 1K views at the line</td></tr>
-          <tr><td><span class="tier-badge">1M</span></td><td class="money">+$750</td><td class="money">$1,300</td><td class="muted">$1.30 per 1K views at the line</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="budget-block">
-      <h3>Three-Month Scenarios</h3>
-      <p class="blurb">Base is fixed at $2,000/month. Bonuses are the only variable. The highlighted row is the planning number.</p>
-      <div class="budget-table-wrap">
-        <table class="budget">
-          <tr><th>Scenario</th><th>What happens each month</th><th>Bonus / mo</th><th>3-mo bonus</th><th>3-mo total</th><th>Est. views (3 mo)</th><th>Eff. CPM</th></tr>
-          <tr>
-            <td><b>Conservative</b></td>
-            <td class="muted">Slow ramp — no hits M1, 1×100K in M2, 2×100K in M3</td>
-            <td>$0–200</td><td>$300</td><td class="money">$6,300</td><td class="muted">~0.7M</td><td class="muted">~$9.00</td>
-          </tr>
-          <tr class="row-highlight">
-            <td><b>Expected ★</b></td>
-            <td class="muted">2 creators hit 100K + 1 hits 500K each month</td>
-            <td>$750</td><td>$2,250</td><td class="money">$8,250</td><td class="muted">~2.9M</td><td class="muted">~$2.90</td>
-          </tr>
-          <tr>
-            <td><b>Breakout</b></td>
-            <td class="muted">2×100K + 2×500K + 1×1M each month</td>
-            <td>$2,600</td><td>$7,800</td><td class="money">$13,800</td><td class="muted">~8.1M</td><td class="muted">~$1.70</td>
-          </tr>
-          <tr>
-            <td><b>Max liability</b></td>
-            <td class="muted">All 5 creators clear 1M every month</td>
-            <td>$6,500</td><td>$19,500</td><td class="money">$25,500</td><td class="muted">15M+</td><td class="muted">≤$1.70</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="budget-block">
-      <h3>Per-Unit Economics</h3>
-      <div class="budget-table-wrap">
-        <table class="budget">
-          <tr><th>Metric</th><th>Value</th><th>Benchmark</th></tr>
-          <tr><td>Cost per video (base only)</td><td class="money">$67</td><td class="muted">Typical one-off UGC rate: $150–300/video — retainer volume brings it under half</td></tr>
-          <tr><td>Cost per video (expected all-in)</td><td class="money">~$92</td><td class="muted">Still well under market; bonuses only trigger when views justify them</td></tr>
-          <tr><td>Effective CPM (expected)</td><td class="money">~$2.90</td><td class="muted">TikTok paid ads run $5–15 CPM — organic UGC beats buying ads past the conservative case</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="budget-block">
-      <h3>To Nail Down Before Signing</h3>
-      <div class="budget-notes">
-        <div class="budget-note">
-          <h4>1 · Bonus definition</h4>
-          <p>Model assumes tiers <span class="flag">stack</span> — a 1M month pays $100+$450+$750 = <span class="flag">$1,300</span> per creator. Put this in writing so nobody assumes highest-tier-only ($750). Also lock: TikTok+IG combined, per calendar month, campaign posts only.</p>
-        </div>
-        <div class="budget-note">
-          <h4>2 · Campaign manager pay</h4>
-          <p>The CM is one of the 5 creators at the same $400 — but also coordinates 4 people, briefs, and reporting. A <span class="flag">+$100–150/mo stipend</span> (+$300–450/quarter) is the cheap way to keep it fair before it becomes a problem.</p>
-        </div>
-        <div class="budget-note">
-          <h4>3 · Minimum deliverable clause</h4>
-          <p>Retainer is conditional on the <span class="flag">6 videos/month quota</span> per creator (30/month team-wide). Short deliveries pro-rate the base. Otherwise the $2,000/month goes out regardless of output.</p>
-        </div>
-      </div>
-    </div>
   </div>
 
 </div>
